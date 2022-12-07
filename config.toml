@@ -1,4 +1,5 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://weiweng.github.io/blog/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = '一名普研发的思考'
 theme = "ananke"
+publishDir = "docs"
