@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on weiweng的博客</title>
+    <link>https://weiweng.github.io/blog/tags/linux/</link>
+    <description>Recent content in linux on weiweng的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 08 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://weiweng.github.io/blog/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux常用命令|FIND</title>
+      <link>https://weiweng.github.io/blog/post/2022-12-8-linux-find/</link>
+      <pubDate>Thu, 08 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2022-12-8-linux-find/</guid>
+      <description>linux基础命令使用记录，find命令的基本使用方法</description>
+    </item>
+    
+  </channel>
+</rss>
