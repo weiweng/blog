@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>go-snowflake on weiweng的博客</title>
+    <link>https://weiweng.github.io/blog/tags/go-snowflake/</link>
+    <description>Recent content in go-snowflake on weiweng的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 11 Jul 2020 03:06:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/tags/go-snowflake/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>go工具库分析——go-snowflake</title>
+      <link>https://weiweng.github.io/blog/post/2020-07-11-go%E5%B7%A5%E5%85%B7%E5%BA%93%E5%88%86%E6%9E%90go-snowflake/</link>
+      <pubDate>Sat, 11 Jul 2020 03:06:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2020-07-11-go%E5%B7%A5%E5%85%B7%E5%BA%93%E5%88%86%E6%9E%90go-snowflake/</guid>
+      <description>go工具库分析——go-snowflake</description>
+    </item>
+    
+  </channel>
+</rss>

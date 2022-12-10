@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>广度优先遍历 on weiweng的博客</title>
+    <link>https://weiweng.github.io/blog/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/</link>
+    <description>Recent content in 广度优先遍历 on weiweng的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 13 Mar 2020 05:12:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>广度优先遍历算法</title>
+      <link>https://weiweng.github.io/blog/post/2020-03-13-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Fri, 13 Mar 2020 05:12:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2020-03-13-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%E7%AE%97%E6%B3%95/</guid>
+      <description>广度优先遍历算法</description>
+    </item>
+    
+  </channel>
+</rss>

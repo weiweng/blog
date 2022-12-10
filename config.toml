@@ -21,21 +21,24 @@ summaryLength = 140
 
 [params]
   author = "weiweng"
-  subtitle = "专注于Go语言、软件架构"
+  subtitle = "记录所学所思所想，专注于Go语言、软件架构"
   keywords = "golang,go语言,go语言笔记,博客,项目管理,软件架构"
   description = "专注于IT互联网,包括但不限于Go语言、软件架构等"
   # busuanzi = true #启用不算子网页统计
   # googleAd = ""  #ca-pub-xxxxxxxxxxxxxx
   localSearch = true # 启用本地搜索
 
+  # customCSS = ['/static/css/toc_style.css']
   # 这里我存放在了主题的static文件夹里，根目录的似乎也可以
-  customCSS = ['douban.css', 'other.css']
+  # customCSS = ['douban.css', 'other.css']
   # if ['custom.css'], load '/static/css/custom.css' file
-  customJS = ['douban.js']
+  # customJS = ['douban.js']
   # if ['custom.js'], load '/static/js/custom.js' file
 
   # 全局开关，你也可以在每一篇内容的 front matter 中针对单篇内容关闭或开启某些功能
-  toc = true  # 是否开启目录
+  toc = false  # 是否开启目录
+
+  cdnJsSite = "cdn.bootcdn.net" # 默认：cdnjs.cloudflare.com
 
 ## 友情链接，可以多个
 
@@ -116,13 +119,19 @@ summaryLength = 140
 
 [menu]
   [[menu.main]]
-    identifier = "archives"
-    name = "归档"
-    url = "/archives/"
-    weight = 3
-
-  [[menu.main]]
     identifier = "about"
     name = "关于"
     url = "/about/"
-    weight = 4
+    weight = 5
+
+  [[menu.main]]
+    identifier = "archives"
+    name = "归档"
+    url = "/archives/"
+    weight = 30
+
+[params.utteranc]
+    enable = true
+    repo = "weiweng/blog"    # 存储评论的Repo，格式为 owner/repo
+    issueTerm = "pathname"  #表示你选择以那种方式让github issue的评论和你的文章关联。
+    theme = "github-light" # 样式主题，有github-light和github-dark两种
