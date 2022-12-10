@@ -6,14 +6,86 @@
     <description>Recent content in linux on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 08 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://weiweng.github.io/blog/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Jul 2020 11:18:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Linux常用命令|FIND</title>
-      <link>https://weiweng.github.io/blog/post/2022-12-8-linux-find/</link>
-      <pubDate>Thu, 08 Dec 2022 00:00:00 +0000</pubDate>
+      <title>Select、Poll、Epoll</title>
+      <link>https://weiweng.github.io/blog/post/2020-07-25-SelectPollEpoll/</link>
+      <pubDate>Sat, 25 Jul 2020 11:18:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2022-12-8-linux-find/</guid>
-      <description>linux基础命令使用记录，find命令的基本使用方法</description>
+      <guid>https://weiweng.github.io/blog/post/2020-07-25-SelectPollEpoll/</guid>
+      <description>Select、Poll、Epoll</description>
+    </item>
+    
+    <item>
+      <title>Unix网络编程中的五种IO模型</title>
+      <link>https://weiweng.github.io/blog/post/2020-07-25-Unix%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E4%BA%94%E7%A7%8DIO%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Sat, 25 Jul 2020 10:51:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2020-07-25-Unix%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E4%BA%94%E7%A7%8DIO%E6%A8%A1%E5%9E%8B/</guid>
+      <description>Unix网络编程中的五种IO模型</description>
+    </item>
+    
+    <item>
+      <title>内存分配</title>
+      <link>https://weiweng.github.io/blog/post/2020-03-15-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</link>
+      <pubDate>Sun, 15 Mar 2020 06:00:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2020-03-15-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</guid>
+      <description>内存分配</description>
+    </item>
+    
+    <item>
+      <title>开源协议简介</title>
+      <link>https://weiweng.github.io/blog/post/2020-03-15-%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E7%AE%80%E4%BB%8B/</link>
+      <pubDate>Sun, 15 Mar 2020 05:50:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2020-03-15-%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E7%AE%80%E4%BB%8B/</guid>
+      <description>开源协议简介</description>
+    </item>
+    
+    <item>
+      <title>CURL简单使用</title>
+      <link>https://weiweng.github.io/blog/post/2020-03-14-CURL%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sat, 14 Mar 2020 02:36:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2020-03-14-CURL%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <description>CURL简单使用</description>
+    </item>
+    
+    <item>
+      <title>GREP简单使用</title>
+      <link>https://weiweng.github.io/blog/post/2020-03-14-GREP%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sat, 14 Mar 2020 02:35:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2020-03-14-GREP%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <description>GREP简单使用</description>
+    </item>
+    
+    <item>
+      <title>FIND简单使用</title>
+      <link>https://weiweng.github.io/blog/post/2020-03-14-FIND%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sat, 14 Mar 2020 02:34:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2020-03-14-FIND%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <description>FIND简单使用</description>
+    </item>
+    
+    <item>
+      <title>SED简单使用</title>
+      <link>https://weiweng.github.io/blog/post/2020-03-14-SED%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sat, 14 Mar 2020 02:33:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2020-03-14-SED%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <description>SED简单使用</description>
+    </item>
+    
+    <item>
+      <title>AWK简单使用</title>
+      <link>https://weiweng.github.io/blog/post/2020-03-14-AWK%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sat, 14 Mar 2020 02:32:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2020-03-14-AWK%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <description>AWK简单使用</description>
     </item>
     
   </channel>

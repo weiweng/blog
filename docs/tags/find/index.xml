@@ -6,14 +6,14 @@
     <description>Recent content in find on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 08 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://weiweng.github.io/blog/tags/find/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 Mar 2020 02:34:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/tags/find/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Linux常用命令|FIND</title>
-      <link>https://weiweng.github.io/blog/post/2022-12-8-linux-find/</link>
-      <pubDate>Thu, 08 Dec 2022 00:00:00 +0000</pubDate>
+      <title>FIND简单使用</title>
+      <link>https://weiweng.github.io/blog/post/2020-03-14-FIND%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sat, 14 Mar 2020 02:34:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2022-12-8-linux-find/</guid>
-      <description>linux基础命令使用记录，find命令的基本使用方法</description>
+      <guid>https://weiweng.github.io/blog/post/2020-03-14-FIND%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <description>FIND简单使用</description>
     </item>
     
   </channel>

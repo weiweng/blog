@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>uml on weiweng的博客</title>
+    <link>https://weiweng.github.io/blog/tags/uml/</link>
+    <description>Recent content in uml on weiweng的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 15 Mar 2020 06:01:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/tags/uml/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>画图工具StartUML</title>
+      <link>https://weiweng.github.io/blog/post/2020-03-15-%E7%94%BB%E5%9B%BE%E5%B7%A5%E5%85%B7StartUML/</link>
+      <pubDate>Sun, 15 Mar 2020 06:01:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2020-03-15-%E7%94%BB%E5%9B%BE%E5%B7%A5%E5%85%B7StartUML/</guid>
+      <description>画图工具StartUML</description>
+    </item>
+    
+  </channel>
+</rss>

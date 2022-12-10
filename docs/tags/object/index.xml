@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>object on weiweng的博客</title>
+    <link>https://weiweng.github.io/blog/tags/object/</link>
+    <description>Recent content in object on weiweng的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 21 Apr 2020 04:01:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/tags/object/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RedisObject</title>
+      <link>https://weiweng.github.io/blog/post/2020-04-21-RedisObject/</link>
+      <pubDate>Tue, 21 Apr 2020 04:01:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2020-04-21-RedisObject/</guid>
+      <description>RedisObject</description>
+    </item>
+    
+  </channel>
+</rss>
