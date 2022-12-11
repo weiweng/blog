@@ -8,11 +8,11 @@
     <language>zh-CN</language>
     <lastBuildDate>Sat, 14 Mar 2020 02:49:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/tags/acid/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>InnoDB的ACID</title>
-      <link>https://weiweng.github.io/blog/post/2020-03-14-InnoDB%E7%9A%84ACID/</link>
+      <title>mysql|InnoDB的ACID</title>
+      <link>https://weiweng.github.io/blog/mysql/2020-03-14-InnoDB%E7%9A%84ACID/</link>
       <pubDate>Sat, 14 Mar 2020 02:49:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2020-03-14-InnoDB%E7%9A%84ACID/</guid>
+      <guid>https://weiweng.github.io/blog/mysql/2020-03-14-InnoDB%E7%9A%84ACID/</guid>
       <description>InnoDB的ACID</description>
     </item>
     

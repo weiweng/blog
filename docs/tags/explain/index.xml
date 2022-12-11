@@ -8,11 +8,11 @@
     <language>zh-CN</language>
     <lastBuildDate>Sat, 14 Mar 2020 03:09:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/tags/explain/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>explain使用</title>
-      <link>https://weiweng.github.io/blog/post/2020-03-14-explain%E4%BD%BF%E7%94%A8/</link>
+      <title>mysql|explain</title>
+      <link>https://weiweng.github.io/blog/mysql/2020-03-14-explain%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sat, 14 Mar 2020 03:09:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2020-03-14-explain%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://weiweng.github.io/blog/mysql/2020-03-14-explain%E4%BD%BF%E7%94%A8/</guid>
       <description>explain使用</description>
     </item>
     

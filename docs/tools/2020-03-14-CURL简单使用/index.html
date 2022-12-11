@@ -1,0 +1,786 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>CURL简单使用 | weiweng的博客</title>
+    <meta property="og:title" content="CURL简单使用 - weiweng的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-03-14T02:36:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-03-14T02:36:00&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,博客,项目管理,软件架构">
+    <meta name="description" content="CURL简单使用">
+        
+    <meta name="author" content="weiweng">
+    <meta property="og:url" content="https://weiweng.github.io/blog/tools/2020-03-14-CURL%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">
+    <link rel="shortcut icon" href='/blog/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/blog/css/normalize.css'>
+    <link rel="stylesheet" href='/blog/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://weiweng.github.io/blog/">
+                        weiweng的博客
+                    </a>
+                
+                <p class="description">记录所学所思所想，专注于Go语言、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="https://weiweng.github.io/blog/">首页</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/golang/" title="golang">golang</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/algorithm/" title="算法">算法</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/mysql/" title="mysql">mysql</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/redis/" title="redis">redis</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/mq/" title="mq">mq</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/read/" title="阅读">阅读</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/about/" title="关于">关于</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/archives/" title="归档">归档</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">CURL简单使用</h1>
+        </header>
+        
+  <time datetime="2020-03-13T18:36:00Z" class="post-meta meta-date dt-published">
+    2020年3月14日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/linux' target="_blank">linux</a>
+  
+</div>
+
+
+        
+        
+        <div class="post-content">
+            <h2 id="curl简介">CURL简介</h2>
+<p>在Linux中curl是一个利用URL规则在命令行下工作的文件传输工具，可以说是一款很强大的http命令行工具。它支持文件的上传和下载，是综合传输工具，但按传统，习惯称url为下载工具。它支持http,https,ftp,ftps,telnet等多种协议，常被用来抓取网页和监控Web服务器状态。</p>
+<h2 id="curl使用">CURL使用</h2>
+<h3 id="基础用法">基础用法</h3>
+<pre tabindex="0"><code>curl [option] [url]
+# 示例
+curl http://www.linux.com
+</code></pre><h3 id="常用示例">常用示例</h3>
+<p><strong>普通下载</strong></p>
+<pre tabindex="0"><code>curl -m 30 --retry 3 https://proxy.mimvp.com/ip.php
+</code></pre><p><strong>Get请求</strong></p>
+<pre tabindex="0"><code>curl https://proxy.mimvp.com/login?user=admin&amp;passwd=12345678  
+</code></pre><p><strong>Post请求</strong></p>
+<pre tabindex="0"><code>curl -d &#34;key1=value1&amp;key2=value2&amp;key3=value3&#34; protocol://ip:port/path
+</code></pre><p><strong>Post请求+传输文件</strong></p>
+<pre tabindex="0"><code>curl -H &#34;Content-Type:application/json&#34; -X POST -d &#39;json data&#39; URL
+</code></pre><h3 id="常用参数">常用参数</h3>
+<p><strong>设置用户代理发送给服务器</strong></p>
+<pre tabindex="0"><code>-A/--user-agent &lt;string&gt;
+curl -A &#34;Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.0)&#34; http://www.linux.com 
+</code></pre><p><strong>cookie字符串或文件读取位置</strong></p>
+<pre tabindex="0"><code>-b/--cookie &lt;name=string/file&gt;
+curl -b cookiec.txt http://www.linux.com
+</code></pre><p><strong>操作结束后把cookie写入到这个文件中</strong></p>
+<pre tabindex="0"><code>-c/--cookie-jar &lt;file&gt;    
+</code></pre><p><strong>断点续转</strong></p>
+<pre tabindex="0"><code>-C/--continue-at &lt;offset&gt;
+curl -C -O http://www.linux.com/dodo1.JPG
+</code></pre><p><strong>把header信息写入到该文件中</strong></p>
+<pre tabindex="0"><code>-D/--dump-header &lt;file&gt;
+curl -D cookied.txt http://www.linux.com
+</code></pre><p><strong>来源网址</strong></p>
+<pre tabindex="0"><code>-e/--referer
+curl -e &#34;www.linux.com&#34; http://mail.linux.com  #让服务器其以为你是从www.linux.com点击某个链接过来的
+</code></pre><p><strong>连接失败时不显示http错误</strong></p>
+<pre tabindex="0"><code>-f/--fail
+curl -f http://www.linux.com/error
+</code></pre><p><strong>把输出写到该文件</strong></p>
+<pre tabindex="0"><code>-o/--output
+curl -o linux.html http://www.linux.com
+curl -o dodo1.jpg http:www.linux.com/dodo1.JPG
+curl -o #1_#2.JPG http://www.linux.com/{hello,bb}/dodo[1-5].JPG #循环下载，不覆盖
+</code></pre><p><strong>把输出写到该文件中，保留远程文件的文件名</strong></p>
+<pre tabindex="0"><code>-O/--remote-name
+curl -O http://www.linux.com/hello.sh
+curl -O http://www.linux.com/dodo[1-5].JPG  #循环下载，这里会下载覆盖
+</code></pre><p><strong>检索来自HTTP/1.1或FTP服务器字节范围</strong></p>
+<pre tabindex="0"><code>-r/--range &lt;range&gt;
+curl -r 0-100 -o dodo1_part1.JPG http://www.linux.com/dodo1.JPG
+curl -r 100-200 -o dodo1_part2.JPG http://www.linux.com/dodo1.JPG
+curl -r 200- -o dodo1_part3.JPG http://www.linux.com/dodo1.JPG
+cat dodo1_part* &gt; dodo1.JPG
+</code></pre><p><strong>静音模式,不显示进度</strong></p>
+<pre tabindex="0"><code>-s/--silent
+</code></pre><p><strong>上传文件</strong></p>
+<pre tabindex="0"><code>-T/--upload-file &lt;file&gt;
+curl -T dodo1.JPG -u 用户名:密码 ftp://www.linux.com/img/
+</code></pre><p><strong>设置服务器的用户和密码</strong></p>
+<pre tabindex="0"><code>-u/--user &lt;user[:password]&gt;
+</code></pre><p><strong>输出完成后格式</strong></p>
+<pre tabindex="0"><code>-w/--write-out [format]
+curl -o /dev/null -s -w %{http_code} www.linux.com  #测试网页返回值
+</code></pre><p><strong>在给定的端口上使用HTTP代理</strong></p>
+<pre tabindex="0"><code>-x/--proxy &lt;host[:port]&gt;
+curl -x 192.168.100.100:1080 http://www.linux.com
+</code></pre><p><strong>进度条显示当前的传送状态</strong></p>
+<pre tabindex="0"><code>-#/--progress-bar
+curl -# -O http://www.linux.com/dodo1.JPG
+</code></pre><h3 id="其他参数">其他参数</h3>
+<pre tabindex="0"><code>-a/--append                        上传文件时，附加到目标文件
+--anyauth                            可以使用“任何”身份验证方法
+--basic                                使用HTTP基本验证
+-B/--use-ascii                      使用ASCII文本传输
+-d/--data &lt;data&gt;                  HTTP POST方式传送数据
+--data-ascii &lt;data&gt;            以ascii的方式post数据
+--data-binary &lt;data&gt;          以二进制的方式post数据
+--negotiate                          使用HTTP身份验证
+--digest                        使用数字身份验证
+--disable-eprt                  禁止使用EPRT或LPRT
+--disable-epsv                  禁止使用EPSV
+--egd-file &lt;file&gt;              为随机数据(SSL)设置EGD socket路径
+--tcp-nodelay                  使用TCP_NODELAY选项
+-E/--cert &lt;cert[:passwd]&gt;      客户端证书文件和密码 (SSL)
+--cert-type &lt;type&gt;              证书文件类型 (DER/PEM/ENG) (SSL)
+--key &lt;key&gt;                    私钥文件名 (SSL)
+--key-type &lt;type&gt;              私钥文件类型 (DER/PEM/ENG) (SSL)
+--pass  &lt;pass&gt;                  私钥密码 (SSL)
+--engine &lt;eng&gt;                  加密引擎使用 (SSL). &#34;--engine list&#34; for list
+--cacert &lt;file&gt;                CA证书 (SSL)
+--capath &lt;directory&gt;            CA目   (made using c_rehash) to verify peer against (SSL)
+--ciphers &lt;list&gt;                SSL密码
+--compressed                    要求返回是压缩的形势 (using deflate or gzip)
+--connect-timeout &lt;seconds&gt;    设置最大请求时间
+--create-dirs                  建立本地目录的目录层次结构
+--crlf                          上传是把LF转变成CRLF
+--ftp-create-dirs              如果远程目录不存在，创建远程目录
+--ftp-method [multicwd/nocwd/singlecwd]    控制CWD的使用
+--ftp-pasv                      使用 PASV/EPSV 代替端口
+--ftp-skip-pasv-ip              使用PASV的时候,忽略该IP地址
+--ftp-ssl                      尝试用 SSL/TLS 来进行ftp数据传输
+--ftp-ssl-reqd                  要求用 SSL/TLS 来进行ftp数据传输
+-F/--form &lt;name=content&gt;        模拟http表单提交数据
+-form-string &lt;name=string&gt;      模拟http表单提交数据
+-g/--globoff                    禁用网址序列和范围使用{}和[]
+-G/--get                        以get的方式来发送数据
+-h/--help                      帮助
+-H/--header &lt;line&gt;              自定义头信息传递给服务器
+--ignore-content-length        忽略的HTTP头信息的长度
+-i/--include                    输出时包括protocol头信息
+-I/--head                      只显示文档信息
+-j/--junk-session-cookies      读取文件时忽略session cookie
+--interface &lt;interface&gt;        使用指定网络接口/地址
+--krb4 &lt;level&gt;                  使用指定安全级别的krb4
+-k/--insecure                  允许不使用证书到SSL站点
+-K/--config                    指定的配置文件读取
+-l/--list-only                  列出ftp目录下的文件名称
+--limit-rate &lt;rate&gt;            设置传输速度
+--local-port&lt;NUM&gt;              强制使用本地端口号
+-m/--max-time &lt;seconds&gt;        设置最大传输时间
+--max-redirs &lt;num&gt;              设置最大读取的目录数
+--max-filesize &lt;bytes&gt;          设置最大下载的文件总量
+-M/--manual                    显示全手动
+-n/--netrc                      从netrc文件中读取用户名和密码
+--netrc-optional                使用 .netrc 或者 URL来覆盖-n
+--ntlm                          使用 HTTP NTLM 身份验证
+-N/--no-buffer                  禁用缓冲输出
+-p/--proxytunnel                使用HTTP代理
+--proxy-anyauth                选择任一代理身份验证方法
+--proxy-basic                  在代理上使用基本身份验证
+--proxy-digest                  在代理上使用数字身份验证
+--proxy-ntlm                    在代理上使用ntlm身份验证
+-P/--ftp-port &lt;address&gt;        使用端口地址，而不是使用PASV
+-Q/--quote &lt;cmd&gt;                文件传输前，发送命令到服务器
+--range-file                    读取（SSL）的随机文件
+-R/--remote-time                在本地生成文件时，保留远程文件时间
+--retry &lt;num&gt;                  传输出现问题时，重试的次数
+--retry-delay &lt;seconds&gt;        传输出现问题时，设置重试间隔时间
+--retry-max-time &lt;seconds&gt;      传输出现问题时，设置最大重试时间
+-S/--show-error                显示错误
+--socks4 &lt;host[:port]&gt;          用socks4代理给定主机和端口
+--socks5 &lt;host[:port]&gt;          用socks5代理给定主机和端口
+-t/--telnet-option &lt;OPT=val&gt;    Telnet选项设置
+--trace &lt;file&gt;                  对指定文件进行debug
+--trace-ascii &lt;file&gt;            Like --跟踪但没有hex输出
+--trace-time                    跟踪/详细输出时，添加时间戳
+--url &lt;URL&gt;                    Spet URL to work with
+-U/--proxy-user &lt;user[:password]&gt;  设置代理用户名和密码
+-V/--version                    显示版本信息
+-X/--request &lt;command&gt;          指定什么命令
+-y/--speed-time                放弃限速所要的时间。默认为30
+-Y/--speed-limit                停止传输速度的限制，速度时间&#39;秒
+-z/--time-cond                  传送时间设置
+-0/--http1.0                    使用HTTP 1.0
+-1/--tlsv1                      使用TLSv1（SSL）
+-2/--sslv2                      使用SSLv2的（SSL）
+-3/--sslv3                      使用的SSLv3（SSL）
+--3p-quote                      like -Q for the source URL for 3rd party transfer
+--3p-url                        使用url，进行第三方传送
+--3p-user                      使用用户名和密码，进行第三方传送
+-4/--ipv4                      使用IP4
+-6/--ipv6                      使用IP6
+</code></pre><h3 id="参考">参考</h3>
+<ol>
+<li><a href="http://www.linuxdiyf.com/linux/2800.html">Linux curl命令详解</a></li>
+</ol>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>相关文章</h2>
+    <ul class="listing">
+        
+        <li><a href="/blog/tools/2020-03-14-GREP%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">GREP简单使用</a></li>
+        
+        <li><a href="/blog/tools/2020-03-14-FIND%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">FIND简单使用</a></li>
+        
+        <li><a href="/blog/tools/2020-03-14-SED%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">SED简单使用</a></li>
+        
+        <li><a href="/blog/tools/2020-03-14-AWK%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">AWK简单使用</a></li>
+        
+        <li><a href="/blog/algorithm/2020-03-13-B%E7%B1%BB%E6%A0%91/">B类树</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/blog/tags/linux' target="_blank">linux</a></li>
+                
+                <li><a href='/blog/tags/curl' target="_blank">curl</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "weiweng/blog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2022 <a href="https://weiweng.github.io/blog/">weiweng的博客 By weiweng</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdn.bootcdn.net/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/blog/js/totop.js?v=0.0.0' async=""></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XYCDHPQC9T"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-XYCDHPQC9T', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-08-19-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/" title="分布式锁实现简单总结" target="_blank">分布式锁实现简单总结</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-25-SelectPollEpoll/" title="Select、Poll、Epoll" target="_blank">Select、Poll、Epoll</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-25-Unix%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E4%BA%94%E7%A7%8DIO%E6%A8%A1%E5%9E%8B/" title="Unix网络编程中的五种IO模型" target="_blank">Unix网络编程中的五种IO模型</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-06-13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7%E5%9F%BA%E7%A1%80%E8%AE%A4%E7%9F%A5/" title="微服务数据一致性基础认知" target="_blank">微服务数据一致性基础认知</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-05-19-LRU%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/" title="LRU简单学习" target="_blank">LRU简单学习</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-Nginx%E5%9F%BA%E7%A1%80/" title="Nginx|基础" target="_blank">Nginx|基础</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/" title="搜索引擎技巧" target="_blank">搜索引擎技巧</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/" title="计算机网络|概述" target="_blank">计算机网络|概述</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BF%9B%E7%A8%8B/" title="操作系统|进程" target="_blank">操作系统|进程</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E4%B8%80%E8%87%B4%E6%80%A7/" title="分布式事务一致性" target="_blank">分布式事务一致性</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://weiweng.github.io/blog/categories/c&#43;&#43;/">c&#43;&#43; (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/git/">git (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/golang/">golang (14)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/item2/">item2 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (9)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/lua/">lua (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mq/">mq (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/nginx/">nginx (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/redis/">redis (9)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/shell/">shell (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/tmux/">tmux (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/uml/">uml (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/vim/">vim (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">分布式系统 (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%BF%83%E5%BE%97/">心得 (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95/">算法 (37)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E9%98%85%E8%AF%BB/">阅读 (17)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://weiweng.github.io/blog/tags/2015/">2015</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/2016/">2016</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/2017/">2017</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/2018/">2018</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/2019/">2019</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/2020/">2020</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/6%E5%B8%BD%E6%80%9D%E8%80%83%E6%B3%95/">6帽思考法</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/BIT/">BIT</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/B%E7%B1%BB%E6%A0%91/">B类树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/LFU/">LFU</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/LRU/">LRU</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/acid/">acid</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/alpha-beta/">alpha-beta</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/c&#43;&#43;/">c&#43;&#43;</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/channel/">channel</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/const/">const</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/context/">context</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/copy/">copy</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/defer/">defer</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/delete/">delete</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/dict/">dict</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/explain/">explain</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/file-server/">file server</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/gc/">gc</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/go-snowflake/">go-snowflake</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/golang/">golang</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/group/">group</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/index/">index</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/innoDB/">innoDB</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/interface/">interface</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/intset/">intset</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/io/">io</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/join/">join</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/kafka/">kafka</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/kmp/">kmp</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/linux/">linux</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/lua/">lua</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/map/">map</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/mpg/">mpg</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/mq/">mq</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/mysql/">mysql</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/object/">object</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/panic/">panic</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/poll/">poll</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/pprof/">pprof</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/printf/">printf</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/rebase/">rebase</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/recover/">recover</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/redis/">redis</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/sds/">sds</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/select/">select</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/skip-list/">skip list</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/test/">test</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/zip-list/">zip list</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%B9%A6%E5%8D%95/">书单</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">二分查找</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%8F%89%E5%B9%B3%E8%A1%A1%E6%A0%91/">二叉平衡树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91/">二叉排序树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/">优先级队列</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BD%8D%E5%9B%BE/">位图</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BD%8D%E6%93%8D%E4%BD%9C/">位操作</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/">内存分配</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%86%99%E4%BD%9C%E6%98%AF%E6%9C%80%E5%A5%BD%E7%9A%84%E8%87%AA%E6%88%91%E6%8A%95%E8%B5%84/">写作是最好的自我投资</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">分布式系统</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">分布式锁</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/">分库分表</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/">分治算法</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%8D%95%E8%B0%83%E6%A0%88/">单调栈</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%8D%95%E9%93%BE%E8%A1%A8/">单链表</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/">双端队列</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%93%88%E5%B8%8C/">哈希</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%9B%9E%E6%BA%AF/">回溯</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%9B%BE/">图</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%A0%86/">堆</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%A6%82%E4%BD%95%E6%89%93%E9%80%A0%E4%BD%A0%E7%9A%84%E7%8B%AC%E7%AB%8B%E8%A7%82%E7%82%B9/">如何打造你的独立观点</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E4%B8%80%E6%9C%AC%E4%B9%A6/">如何阅读一本书</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%AD%97%E5%85%B8%E6%A0%91/">字典树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/">广度优先遍历</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">开源协议</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BF%83%E5%BE%97/">心得</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/">快速幂</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%8A%80%E5%B7%A7/">技巧</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%8C%81%E4%B9%85%E5%8C%96/">持久化</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%8E%92%E5%BA%8F/">排序</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7/">数据一致性</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%97%A5%E5%BF%97/">日志</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%9F%A5%E5%B9%B6%E9%9B%86/">查并集</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%A0%88/">栈</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F/">比较排序</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">滑动窗口</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/">红黑树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF/">约瑟夫环</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/">计数排序</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BF%83%E6%99%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%93%B2%E5%AD%A6%E5%8E%9F%E7%90%86/">计算机心智操作系统之哲学原理</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%AE%B0%E5%BF%86%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/">记忆方法总结</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%AE%B2%E6%95%85%E4%BA%8B/">讲故事</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%B4%AA%E5%BF%83/">贪心</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%B6%85%E7%BA%A7%E8%AF%A2%E9%97%AE%E6%9C%AF/">超级询问术</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%BF%9B%E7%A8%8B/">进程</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E9%93%BE%E8%A1%A8/">链表</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E9%97%AE%E9%A2%98%E6%9C%AC%E8%B4%A8/">问题本质</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E9%98%85%E8%AF%BB/">阅读</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E9%98%9F%E5%88%97/">队列</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E9%9B%86%E7%BE%A4/">集群</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://draveness.me/" title="面向信仰编程">面向信仰编程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://xargin.com/" title="No Headback">No Headback</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://eddycjy.com/" title="煎鱼的博客">煎鱼的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://polarisxu.studygolang.com/" title="polarisxu的博客">polarisxu的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://qcrao.com/" title="qcrao 的博客">qcrao 的博客</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://weiweng.github.io/blog/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

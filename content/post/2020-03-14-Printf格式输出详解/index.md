@@ -1,7 +1,7 @@
 +++
 title="Printf格式输出详解 "
-tags=["c","printf"]
-categories=["c"]
+tags=["c++","printf"]
+categories=["c++"]
 date="2020-03-14T10:54:00+08:00"
 summary = 'Printf格式输出详解 '
 toc=false

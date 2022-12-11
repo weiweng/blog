@@ -8,83 +8,83 @@
     <language>zh-CN</language>
     <lastBuildDate>Wed, 22 Apr 2020 03:57:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/tags/redis/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Redis集群</title>
-      <link>https://weiweng.github.io/blog/post/2020-04-22-Redis%E9%9B%86%E7%BE%A4/</link>
+      <title>redis|集群</title>
+      <link>https://weiweng.github.io/blog/redis/2020-04-22-Redis%E9%9B%86%E7%BE%A4/</link>
       <pubDate>Wed, 22 Apr 2020 03:57:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2020-04-22-Redis%E9%9B%86%E7%BE%A4/</guid>
+      <guid>https://weiweng.github.io/blog/redis/2020-04-22-Redis%E9%9B%86%E7%BE%A4/</guid>
       <description>Redis集群</description>
     </item>
     
     <item>
-      <title>RedisObject</title>
-      <link>https://weiweng.github.io/blog/post/2020-04-21-RedisObject/</link>
+      <title>redis|RedisObject</title>
+      <link>https://weiweng.github.io/blog/redis/2020-04-21-RedisObject/</link>
       <pubDate>Tue, 21 Apr 2020 04:01:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2020-04-21-RedisObject/</guid>
+      <guid>https://weiweng.github.io/blog/redis/2020-04-21-RedisObject/</guid>
       <description>RedisObject</description>
     </item>
     
     <item>
-      <title>redis持久化存储</title>
-      <link>https://weiweng.github.io/blog/post/2020-03-29-redis%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/</link>
+      <title>redis|持久化存储</title>
+      <link>https://weiweng.github.io/blog/redis/2020-03-29-redis%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/</link>
       <pubDate>Sun, 29 Mar 2020 01:29:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2020-03-29-redis%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/</guid>
+      <guid>https://weiweng.github.io/blog/redis/2020-03-29-redis%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/</guid>
       <description>redis持久化存储</description>
     </item>
     
     <item>
-      <title>redis基础结构-SKIPLIST</title>
-      <link>https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-SKIPLIST/</link>
+      <title>redis|skiplist</title>
+      <link>https://weiweng.github.io/blog/redis/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-SKIPLIST/</link>
       <pubDate>Sat, 14 Mar 2020 10:51:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-SKIPLIST/</guid>
+      <guid>https://weiweng.github.io/blog/redis/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-SKIPLIST/</guid>
       <description>redis基础结构-SKIPLIST</description>
     </item>
     
     <item>
-      <title>redis基础结构-DICT</title>
-      <link>https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-DICT/</link>
+      <title>redis|dict</title>
+      <link>https://weiweng.github.io/blog/redis/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-DICT/</link>
       <pubDate>Sat, 14 Mar 2020 10:49:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-DICT/</guid>
+      <guid>https://weiweng.github.io/blog/redis/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-DICT/</guid>
       <description>redis基础结构-DICT</description>
     </item>
     
     <item>
-      <title>redis基础结构-INTSET</title>
-      <link>https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-INTSET/</link>
+      <title>redis|intset</title>
+      <link>https://weiweng.github.io/blog/redis/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-INTSET/</link>
       <pubDate>Sat, 14 Mar 2020 10:47:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-INTSET/</guid>
+      <guid>https://weiweng.github.io/blog/redis/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-INTSET/</guid>
       <description>redis基础结构-INTSET</description>
     </item>
     
     <item>
-      <title>redis基础结构-ZIPLIST</title>
-      <link>https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-ZIPLIST/</link>
+      <title>redis|ziplist</title>
+      <link>https://weiweng.github.io/blog/redis/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-ZIPLIST/</link>
       <pubDate>Sat, 14 Mar 2020 10:45:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-ZIPLIST/</guid>
+      <guid>https://weiweng.github.io/blog/redis/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-ZIPLIST/</guid>
       <description>redis基础结构-ZIPLIST</description>
     </item>
     
     <item>
-      <title>redis基础结构-SDS</title>
-      <link>https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-SDS/</link>
+      <title>redis|SDS</title>
+      <link>https://weiweng.github.io/blog/redis/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-SDS/</link>
       <pubDate>Sat, 14 Mar 2020 10:44:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-SDS/</guid>
+      <guid>https://weiweng.github.io/blog/redis/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-SDS/</guid>
       <description>redis基础结构-SDS</description>
     </item>
     
     <item>
-      <title>redis基础</title>
-      <link>https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80/</link>
+      <title>redis|基础</title>
+      <link>https://weiweng.github.io/blog/redis/2020-03-14-redis%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Sat, 14 Mar 2020 10:41:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://weiweng.github.io/blog/redis/2020-03-14-redis%E5%9F%BA%E7%A1%80/</guid>
       <description>redis基础</description>
     </item>
     

@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>redis|基础 | weiweng的博客</title>
+    <meta property="og:title" content="redis|基础 - weiweng的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-03-14T10:41:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-03-14T10:41:00&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,博客,项目管理,软件架构">
+    <meta name="description" content="redis|基础">
+        
+    <meta name="author" content="weiweng">
+    <meta property="og:url" content="https://weiweng.github.io/blog/redis/2020-03-14-redis%E5%9F%BA%E7%A1%80/">
+    <link rel="shortcut icon" href='/blog/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/blog/css/normalize.css'>
+    <link rel="stylesheet" href='/blog/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://weiweng.github.io/blog/">
+                        weiweng的博客
+                    </a>
+                
+                <p class="description">记录所学所思所想，专注于Go语言、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="https://weiweng.github.io/blog/">首页</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/golang/" title="golang">golang</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/algorithm/" title="算法">算法</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/mysql/" title="mysql">mysql</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/redis/" title="redis">redis</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/mq/" title="mq">mq</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/read/" title="阅读">阅读</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/about/" title="关于">关于</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/archives/" title="归档">归档</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">redis|基础</h1>
+        </header>
+        
+  <time datetime="2020-03-14T02:41:00Z" class="post-meta meta-date dt-published">
+    2020年3月14日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/redis' target="_blank">redis</a>
+  
+</div>
+
+
+        
+        
+        <div class="post-content">
+            <h2 id="安装">安装</h2>
+<ol>
+<li><code>yum update</code></li>
+<li><code>yum install redis.x86_64</code></li>
+<li><code>systemctl start redis.service</code></li>
+<li><code>redis-cli</code></li>
+</ol>
+<h2 id="配置">配置</h2>
+<h3 id="查看配置">查看配置</h3>
+<ol>
+<li>
+<p>配置文件<code>whereis redis</code></p>
+</li>
+<li>
+<p>读取配置<code>config get *</code></p>
+</li>
+</ol>
+<h3 id="配置说明">配置说明</h3>
+<ul>
+<li>daemonize no</li>
+</ul>
+<p>Redis 默认不是以守护进程的方式运行，可以通过该配置项修改，使用 yes 启用守护进程</p>
+<ul>
+<li>port 6379</li>
+</ul>
+<p>指定 Redis 监听端口</p>
+<ul>
+<li>bind 127.0.0.1</li>
+</ul>
+<p>绑定的主机地址</p>
+<ul>
+<li>timeout 300</li>
+</ul>
+<p>当客户端闲置多长时间后关闭连接，如果指定为 0，表示关闭该功能</p>
+<ul>
+<li>loglevel notice</li>
+</ul>
+<p>指定日志记录级别，Redis 总共支持四个级别：debug、verbose、notice、warning，默认为 notice</p>
+<ul>
+<li>logfile stdout</li>
+</ul>
+<p>日志记录方式，默认为标准输出，如果配置 Redis 为守护进程方式运行，而这里又配置为日志记录方式为标准输出，则日志将会发送给 /dev/null</p>
+<ul>
+<li>databases 16</li>
+</ul>
+<p>设置数据库的数量，默认数据库为0，可以使用SELECT 命令在连接上指定数据库id</p>
+<ul>
+<li>save seconds changes</li>
+</ul>
+<p>指定在多长时间内，有多少次更新操作，就将数据同步到数据文件</p>
+<ul>
+<li>maxclients 128</li>
+</ul>
+<p>设置同一时间最大客户端连接数，默认无限制，Redis 可以同时打开的客户端连接数为 Redis 进程可以打开的最大文件描述符数，如果设置 maxclients 0，表示不作限制。当客户端连接数到达限制时，Redis 会关闭新的连接并向客户端返回 max number of clients reached 错误信息</p>
+<ul>
+<li>maxmemory <!-- raw HTML omitted --></li>
+</ul>
+<p>指定 Redis 最大内存限制，Redis 在启动时会把数据加载到内存中，达到最大内存后，Redis 会先尝试清除已到期或即将到期的 Key，当此方法处理 后，仍然到达最大内存设置，将无法再进行写入操作，但仍然可以进行读取操作。Redis 新的 vm 机制，会把 Key 存放内存，Value 会存放在 swap 区</p>
+<h2 id="类型">类型</h2>
+<ol>
+<li>字符串</li>
+<li>哈希</li>
+<li>列表</li>
+<li>集合</li>
+<li>有序集合</li>
+</ol>
+<h2 id="使用">使用</h2>
+<h3 id="键">键</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>DEL key <span style="color:#998;font-style:italic">//删除key
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>EXISTS key <span style="color:#998;font-style:italic">//是否存在
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>EXPIRE key seconds <span style="color:#998;font-style:italic">//设置过期时间
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>KEYS pattern <span style="color:#998;font-style:italic">//返回所有匹配的键值
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>TTL key <span style="color:#998;font-style:italic">//返回key的剩余过期时间，秒为单位
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>PERSIST key <span style="color:#998;font-style:italic">//移除key的过期时间
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>RENAME key newkey <span style="color:#998;font-style:italic">//key的重命名
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>TYPE key <span style="color:#998;font-style:italic">//返回key的存储的值的类型
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="字符串">字符串</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>SET key value <span style="color:#998;font-style:italic">//设置key的值value
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>GET key <span style="color:#998;font-style:italic">//获取key的值
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>GETSET key value <span style="color:#998;font-style:italic">//设置key的值，返回key的旧值
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>MGET key1 key2 <span style="color:#998;font-style:italic">//同时获取多个key
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>SETEX key seconds value <span style="color:#998;font-style:italic">//对key设置value和时间seconds
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>SETNX key value <span style="color:#998;font-style:italic">//针对不存在的key设置值value
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>INCR key <span style="color:#998;font-style:italic">//针对key增加一，key之前不存在也可以使用
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>INCRBY key increment <span style="color:#998;font-style:italic">//针对key增加increment
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>DESC key 
+</span></span><span style="display:flex;"><span>DESCBY key decrement
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="哈希">哈希</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>HDEL key field1 field2 <span style="color:#998;font-style:italic">//删除一个或多个哈希表字段
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>HEXISTS key field <span style="color:#998;font-style:italic">//哈希表中是否存在
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>HGET key field <span style="color:#998;font-style:italic">//获取哈希表字段的值
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>HGETALL key <span style="color:#998;font-style:italic">//获取哈希表中key的所有字段和值
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>HSET key field value <span style="color:#998;font-style:italic">//设置值
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>HKEYS key <span style="color:#998;font-style:italic">//获取哈希表中所有字段
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>HVALS key <span style="color:#998;font-style:italic">//获取哈希表中所有字段的值
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="列表">列表</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>LSET key index value <span style="color:#998;font-style:italic">//通过索引设置列表元素的值
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>LINDEX key index <span style="color:#998;font-style:italic">//通过索引获取列表中的元素
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>LINSERT key BEFORE<span style="color:#000;font-weight:bold">|</span>AFTER pivot value <span style="color:#998;font-style:italic">//在列表的元素前或者后插入元素
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>LLEN key <span style="color:#998;font-style:italic">//获取列表长度
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>LPOP key <span style="color:#998;font-style:italic">//移出并获取列表的第一个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>LPUSH key value1 value2 <span style="color:#998;font-style:italic">//将一个或多个值插入到列表头部
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>LPUSHX key value <span style="color:#998;font-style:italic">//将一个值插入到已存在的列表头部
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>RPOP key <span style="color:#998;font-style:italic">//移除列表的最后一个元素，返回值为移除的元素。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>RPUSH key value1 value2 <span style="color:#998;font-style:italic">//在列表中添加一个或多个值
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>RPUSHX key value <span style="color:#998;font-style:italic">//为已存在的列表添加值
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="集合">集合</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>SADD key member1 member2 <span style="color:#998;font-style:italic">//向集合添加一个或多个成员
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>SCARD key <span style="color:#998;font-style:italic">//获取集合的成员数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>SISMEMBER key member <span style="color:#998;font-style:italic">//判断 member 元素是否是集合 key 的成员
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>SMEMBERS key <span style="color:#998;font-style:italic">//返回集合中的所有成员
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>SPOP key <span style="color:#998;font-style:italic">//移除并返回集合中的一个随机元素
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>SRANDMEMBER key count <span style="color:#998;font-style:italic">//返回集合中一个或多个随机数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>SREM key member1 member2 <span style="color:#998;font-style:italic">//移除集合中一个或多个成员
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="有序集合">有序集合</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>ZADD key score1 member1 score2 member2 <span style="color:#998;font-style:italic">//向有序集合添加一个或多个成员，或者更新已存在成员的分数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZCARD key <span style="color:#998;font-style:italic">//获取有序集合的成员数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZCOUNT key min max <span style="color:#998;font-style:italic">//计算在有序集合中指定区间分数的成员数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZINCRBY key increment member <span style="color:#998;font-style:italic">//有序集合中对指定成员的分数加上增量 increment
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZLEXCOUNT key min max <span style="color:#998;font-style:italic">//在有序集合中计算指定字典区间内成员数量
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZRANGEBYLEX key min max LIMIT offset count <span style="color:#998;font-style:italic">//通过字典区间返回有序集合的成员
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZRANGEBYSCORE key min max WITHSCORES LIMIT <span style="color:#998;font-style:italic">//通过分数返回有序集合指定区间内的成员
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZRANK key member <span style="color:#998;font-style:italic">//返回有序集合中指定成员的索引
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZREM key member1 member2 <span style="color:#998;font-style:italic">//移除有序集合中的一个或多个成员
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZREMRANGEBYLEX key min max <span style="color:#998;font-style:italic">//移除有序集合中给定的字典区间的所有成员
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZREMRANGEBYRANK key start stop <span style="color:#998;font-style:italic">//移除有序集合中给定的排名区间的所有成员
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZREMRANGEBYSCORE key min max <span style="color:#998;font-style:italic">//移除有序集合中给定的分数区间的所有成员
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZREVRANGE key start stop WITHSCORES <span style="color:#998;font-style:italic">//返回有序集中指定区间内的成员，通过索引，分数从高到低
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZREVRANGEBYSCORE key max min WITHSCORES <span style="color:#998;font-style:italic">//返回有序集中指定分数区间内的成员，分数从高到低排序
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZREVRANK key member <span style="color:#998;font-style:italic">//返回有序集合中指定成员的排名，有序集成员按分数值递减(从大到小)排序
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZSCORE key member <span style="color:#998;font-style:italic">//返回有序集中，成员的分数值
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="后续">后续</h2>
+<ol>
+<li>源码分析</li>
+<li>事务</li>
+<li>数据备份和恢复</li>
+<li>分布式架构</li>
+</ol>
+<h2 id="参考">参考</h2>
+<ol>
+<li><a href="https://www.runoob.com/redis/redis-tutorial.html">Redis 教程</a></li>
+</ol>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>相关文章</h2>
+    <ul class="listing">
+        
+        <li><a href="/blog/mysql/2020-03-14-Mysql%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E9%A1%B9%E6%80%BB%E7%BB%93/">mysql|使用注意</a></li>
+        
+        <li><a href="/blog/mysql/2020-03-14-explain%E4%BD%BF%E7%94%A8/">mysql|explain</a></li>
+        
+        <li><a href="/blog/mysql/2020-03-14-%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA%E7%9B%B8%E5%85%B3/">mysql|导入导出相关</a></li>
+        
+        <li><a href="/blog/mysql/2020-03-14-%E4%B8%B4%E6%97%B6%E8%A1%A8%E7%9B%B8%E5%85%B3/">mysql|临时表相关</a></li>
+        
+        <li><a href="/blog/mysql/2020-03-14-Group%E7%9B%B8%E5%85%B3/">mysql|Group相关</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/blog/tags/redis' target="_blank">redis</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "weiweng/blog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2022 <a href="https://weiweng.github.io/blog/">weiweng的博客 By weiweng</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdn.bootcdn.net/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/blog/js/totop.js?v=0.0.0' async=""></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XYCDHPQC9T"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-XYCDHPQC9T', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-08-19-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/" title="分布式锁实现简单总结" target="_blank">分布式锁实现简单总结</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-25-SelectPollEpoll/" title="Select、Poll、Epoll" target="_blank">Select、Poll、Epoll</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-25-Unix%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E4%BA%94%E7%A7%8DIO%E6%A8%A1%E5%9E%8B/" title="Unix网络编程中的五种IO模型" target="_blank">Unix网络编程中的五种IO模型</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-06-13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7%E5%9F%BA%E7%A1%80%E8%AE%A4%E7%9F%A5/" title="微服务数据一致性基础认知" target="_blank">微服务数据一致性基础认知</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-05-19-LRU%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/" title="LRU简单学习" target="_blank">LRU简单学习</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-Nginx%E5%9F%BA%E7%A1%80/" title="Nginx|基础" target="_blank">Nginx|基础</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/" title="搜索引擎技巧" target="_blank">搜索引擎技巧</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/" title="计算机网络|概述" target="_blank">计算机网络|概述</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BF%9B%E7%A8%8B/" title="操作系统|进程" target="_blank">操作系统|进程</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E4%B8%80%E8%87%B4%E6%80%A7/" title="分布式事务一致性" target="_blank">分布式事务一致性</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://weiweng.github.io/blog/categories/c&#43;&#43;/">c&#43;&#43; (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/git/">git (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/golang/">golang (14)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/item2/">item2 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (9)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/lua/">lua (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mq/">mq (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/nginx/">nginx (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/redis/">redis (9)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/shell/">shell (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/tmux/">tmux (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/uml/">uml (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/vim/">vim (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">分布式系统 (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%BF%83%E5%BE%97/">心得 (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95/">算法 (37)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E9%98%85%E8%AF%BB/">阅读 (17)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://weiweng.github.io/blog/tags/2015/">2015</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/2016/">2016</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/2017/">2017</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/2018/">2018</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/2019/">2019</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/2020/">2020</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/6%E5%B8%BD%E6%80%9D%E8%80%83%E6%B3%95/">6帽思考法</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/BIT/">BIT</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/B%E7%B1%BB%E6%A0%91/">B类树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/LFU/">LFU</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/LRU/">LRU</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/acid/">acid</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/alpha-beta/">alpha-beta</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/c&#43;&#43;/">c&#43;&#43;</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/channel/">channel</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/const/">const</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/context/">context</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/copy/">copy</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/defer/">defer</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/delete/">delete</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/dict/">dict</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/explain/">explain</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/file-server/">file server</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/gc/">gc</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/go-snowflake/">go-snowflake</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/golang/">golang</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/group/">group</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/index/">index</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/innoDB/">innoDB</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/interface/">interface</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/intset/">intset</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/io/">io</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/join/">join</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/kafka/">kafka</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/kmp/">kmp</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/linux/">linux</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/lua/">lua</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/map/">map</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/mpg/">mpg</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/mq/">mq</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/mysql/">mysql</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/object/">object</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/panic/">panic</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/poll/">poll</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/pprof/">pprof</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/printf/">printf</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/rebase/">rebase</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/recover/">recover</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/redis/">redis</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/sds/">sds</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/select/">select</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/skip-list/">skip list</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/test/">test</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/zip-list/">zip list</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%B9%A6%E5%8D%95/">书单</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">二分查找</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%8F%89%E5%B9%B3%E8%A1%A1%E6%A0%91/">二叉平衡树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91/">二叉排序树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/">优先级队列</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BD%8D%E5%9B%BE/">位图</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BD%8D%E6%93%8D%E4%BD%9C/">位操作</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/">内存分配</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%86%99%E4%BD%9C%E6%98%AF%E6%9C%80%E5%A5%BD%E7%9A%84%E8%87%AA%E6%88%91%E6%8A%95%E8%B5%84/">写作是最好的自我投资</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">分布式系统</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">分布式锁</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/">分库分表</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/">分治算法</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%8D%95%E8%B0%83%E6%A0%88/">单调栈</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%8D%95%E9%93%BE%E8%A1%A8/">单链表</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/">双端队列</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%93%88%E5%B8%8C/">哈希</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%9B%9E%E6%BA%AF/">回溯</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%9B%BE/">图</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%A0%86/">堆</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%A6%82%E4%BD%95%E6%89%93%E9%80%A0%E4%BD%A0%E7%9A%84%E7%8B%AC%E7%AB%8B%E8%A7%82%E7%82%B9/">如何打造你的独立观点</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E4%B8%80%E6%9C%AC%E4%B9%A6/">如何阅读一本书</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%AD%97%E5%85%B8%E6%A0%91/">字典树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/">广度优先遍历</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">开源协议</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BF%83%E5%BE%97/">心得</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/">快速幂</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%8A%80%E5%B7%A7/">技巧</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%8C%81%E4%B9%85%E5%8C%96/">持久化</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%8E%92%E5%BA%8F/">排序</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7/">数据一致性</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%97%A5%E5%BF%97/">日志</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%9F%A5%E5%B9%B6%E9%9B%86/">查并集</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%A0%88/">栈</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F/">比较排序</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">滑动窗口</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/">红黑树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF/">约瑟夫环</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/">计数排序</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BF%83%E6%99%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%93%B2%E5%AD%A6%E5%8E%9F%E7%90%86/">计算机心智操作系统之哲学原理</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%AE%B0%E5%BF%86%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/">记忆方法总结</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%AE%B2%E6%95%85%E4%BA%8B/">讲故事</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%B4%AA%E5%BF%83/">贪心</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%B6%85%E7%BA%A7%E8%AF%A2%E9%97%AE%E6%9C%AF/">超级询问术</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%BF%9B%E7%A8%8B/">进程</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E9%93%BE%E8%A1%A8/">链表</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E9%97%AE%E9%A2%98%E6%9C%AC%E8%B4%A8/">问题本质</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E9%98%85%E8%AF%BB/">阅读</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E9%98%9F%E5%88%97/">队列</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E9%9B%86%E7%BE%A4/">集群</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://draveness.me/" title="面向信仰编程">面向信仰编程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://xargin.com/" title="No Headback">No Headback</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://eddycjy.com/" title="煎鱼的博客">煎鱼的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://polarisxu.studygolang.com/" title="polarisxu的博客">polarisxu的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://qcrao.com/" title="qcrao 的博客">qcrao 的博客</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://weiweng.github.io/blog/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -8,11 +8,11 @@
     <language>zh-CN</language>
     <lastBuildDate>Tue, 21 Apr 2020 04:01:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/tags/object/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>RedisObject</title>
-      <link>https://weiweng.github.io/blog/post/2020-04-21-RedisObject/</link>
+      <title>redis|RedisObject</title>
+      <link>https://weiweng.github.io/blog/redis/2020-04-21-RedisObject/</link>
       <pubDate>Tue, 21 Apr 2020 04:01:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2020-04-21-RedisObject/</guid>
+      <guid>https://weiweng.github.io/blog/redis/2020-04-21-RedisObject/</guid>
       <description>RedisObject</description>
     </item>
     

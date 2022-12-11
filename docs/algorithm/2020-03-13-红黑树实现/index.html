@@ -1,0 +1,1779 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>红黑树实现 | weiweng的博客</title>
+    <meta property="og:title" content="红黑树实现 - weiweng的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-03-13T06:25:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-03-13T06:25:00&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,博客,项目管理,软件架构">
+    <meta name="description" content="红黑树实现">
+        
+    <meta name="author" content="weiweng">
+    <meta property="og:url" content="https://weiweng.github.io/blog/algorithm/2020-03-13-%E7%BA%A2%E9%BB%91%E6%A0%91%E5%AE%9E%E7%8E%B0/">
+    <link rel="shortcut icon" href='/blog/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/blog/css/normalize.css'>
+    <link rel="stylesheet" href='/blog/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://weiweng.github.io/blog/">
+                        weiweng的博客
+                    </a>
+                
+                <p class="description">记录所学所思所想，专注于Go语言、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="https://weiweng.github.io/blog/">首页</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/golang/" title="golang">golang</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/algorithm/" title="算法">算法</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/mysql/" title="mysql">mysql</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/redis/" title="redis">redis</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/mq/" title="mq">mq</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/read/" title="阅读">阅读</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/about/" title="关于">关于</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/archives/" title="归档">归档</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">红黑树实现</h1>
+        </header>
+        
+  <time datetime="2020-03-12T22:25:00Z" class="post-meta meta-date dt-published">
+    2020年3月13日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/%E7%AE%97%E6%B3%95' target="_blank">算法</a>
+  
+</div>
+
+
+        
+        
+        <div class="post-content">
+            <h3 id="红黑树">红黑树</h3>
+<p>具体红黑树的基本概念见<a href="http://blog.csdn.net/eric491179912/article/details/6179908">博客</a></p>
+<p>上述博客中，由于是各处粘贴合成的，所以我只参考了开头一篇，仔细研读研读，插入和删除总结为一下两个图和代码: 
+        <img class="mx-auto" alt="红黑树添加删除节点流程图" src="http://pf76mu410.bkt.clouddn.com/20170428-red-black-tree.jpeg" />   
+    </p>
+<h3 id="具体代码">具体代码</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">118
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">119
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">120
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">121
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">122
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">123
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">124
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">125
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">126
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">127
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">128
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">129
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">130
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">131
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">132
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">133
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">134
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">135
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">136
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">137
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">138
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">139
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">140
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">141
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">142
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">143
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">144
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">145
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">146
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">147
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">148
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">149
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">150
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">151
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">152
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">153
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">154
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">155
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">156
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">157
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">158
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">159
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">160
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">161
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">162
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">163
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">164
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">165
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">166
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">167
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">168
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">169
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">170
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">171
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">172
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">173
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">174
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">175
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">176
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">177
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">178
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">179
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">180
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">181
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">182
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">183
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">184
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">185
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">186
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">187
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">188
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">189
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">190
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">191
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">192
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">193
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">194
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">195
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">196
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">197
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">198
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">199
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">200
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">201
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">202
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">203
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">204
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">205
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">206
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">207
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">208
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">209
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">210
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">211
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">212
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">213
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">214
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">215
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">216
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">217
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">218
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">219
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">220
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">221
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">222
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">223
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">224
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">225
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">226
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">227
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">228
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">229
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">230
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">231
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">232
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">233
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">234
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">235
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">236
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">237
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">238
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">239
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">240
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">241
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">242
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">243
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">244
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">245
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">246
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">247
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">248
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">249
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">250
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">251
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">252
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">253
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">254
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">255
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">256
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">257
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">258
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">259
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">260
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">261
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">262
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">263
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">264
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">265
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">266
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">267
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">268
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">269
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">270
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">271
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">272
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">273
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">274
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">275
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">276
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">277
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">278
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">279
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">280
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">281
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">282
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">283
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">284
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">285
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">286
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">287
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">288
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">289
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">290
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">291
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">292
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">293
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">294
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">295
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">296
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">297
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">298
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">299
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">300
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">301
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">302
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">303
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">304
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">305
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">306
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">307
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">308
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">309
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">310
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">311
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">312
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">313
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">314
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">315
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">316
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">317
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">318
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">319
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">320
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">321
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">322
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">323
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">324
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">325
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">326
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">327
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">328
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">329
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">330
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">331
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">332
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">333
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">334
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">335
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">336
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">337
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">338
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">339
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">340
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">341
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">342
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">343
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">344
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">345
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">346
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">347
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">348
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">349
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">350
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">351
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">352
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">353
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">354
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">355
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">356
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">357
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">358
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">359
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">360
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">361
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">362
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">363
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">364
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">365
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">366
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">367
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">368
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">369
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">370
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">371
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">372
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">373
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">374
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">375
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">376
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">377
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">378
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">379
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">380
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">381
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">382
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">383
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">384
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">385
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">386
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">387
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">388
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">389
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">390
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">391
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">392
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">393
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">394
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">395
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">396
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">397
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">398
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">399
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">400
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">401
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">402
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">403
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">404
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">405
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">406
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">407
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">408
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">409
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">410
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">411
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">412
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">413
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">414
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">415
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">416
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">417
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">418
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">419
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">420
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">421
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">422
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">423
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">424
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">425
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">426
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">427
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">428
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">429
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">430
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">431
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">432
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">433
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">434
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">435
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">436
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">437
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">438
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">439
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">440
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">441
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">442
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">443
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">444
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">445
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">446
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">447
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">448
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">449
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">450
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">451
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">452
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">453
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">454
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">455
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">456
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">457
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">458
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">459
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">460
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">461
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">462
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">463
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">464
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">465
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">466
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">467
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">468
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">469
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">470
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">471
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">472
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">473
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">474
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">475
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">476
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">477
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">478
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">479
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">480
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">481
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">482
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">483
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">484
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">485
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">486
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">487
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">488
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">489
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">490
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">491
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">492
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">493
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">494
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">495
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">496
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">497
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">498
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">499
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">500
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">501
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">502
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">503
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">504
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">505
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">506
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">507
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">508
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">509
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">510
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">511
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">512
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">513
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">514
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">515
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">516
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">517
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">518
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">519
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">520
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">521
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">522
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">523
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">524
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">525
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">526
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">527
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">528
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">529
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">530
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">531
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">532
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">533
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">534
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">535
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">536
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">537
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">538
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">539
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">540
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">541
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">542
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">543
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">544
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">545
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">546
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">547
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">548
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">549
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">550
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">551
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">552
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">553
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">554
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">555
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">556
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">557
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">558
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">559
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">560
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">561
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">562
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">563
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">564
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">565
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">566
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">567
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">568
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">569
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">570
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">571
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">572
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">573
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#998;font-style:italic">/*************************************************************************
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    &gt; File Name: rdt.cpp
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    &gt; Author: Duke-wei
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    &gt; Mail: 13540639584@163.com 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    &gt; Created Time: 2017年04月19日 星期三 20时21分57秒
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> ************************************************************************/</span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">#</span>include<span style="color:#000;font-weight:bold">&lt;</span>iostream<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">#</span>include<span style="color:#000;font-weight:bold">&lt;</span>vector<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">#</span>include<span style="color:#000;font-weight:bold">&lt;</span>queue<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">#</span>include<span style="color:#000;font-weight:bold">&lt;</span>string<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">#</span>define DE_BUG <span style="color:#099">0</span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>using namespace std;
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//红黑树本质是一颗二叉查找树，又由于带红黑色，所以接近平衡。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//红黑树5个性质：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//1.每个结点要么是红的要么是黑的。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//2.根节点是黑的。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//3.每个叶子结点都是黑的。这里的叶子结点是指树尾结点的NULL结点。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//4.如果一个结点是红的，那么它的两个儿子都是黑的。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//5.对于任意结点而言，其到叶结点树尾端NIL指针的每条路劲都包含相同数目的黑结点。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//上述性质让红黑树的查找、插入、删除的时间复杂度最坏也是O(log n)。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span> 
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//define struct rdt : red black tree
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>struct rdt{
+</span></span><span style="display:flex;"><span>	bool isred;
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">int</span> value;
+</span></span><span style="display:flex;"><span>	rdt<span style="color:#000;font-weight:bold">*</span> ln;
+</span></span><span style="display:flex;"><span>	rdt<span style="color:#000;font-weight:bold">*</span> rn;
+</span></span><span style="display:flex;"><span>	rdt<span style="color:#000;font-weight:bold">*</span> pa;
+</span></span><span style="display:flex;"><span>	rdt()<span style="color:#000;font-weight:bold">:</span>isred(<span style="color:#000;font-weight:bold">true</span>),value(<span style="color:#099">0</span>),ln(NULL),rn(NULL),pa(NULL){}
+</span></span><span style="display:flex;"><span>	rdt(<span style="color:#000;font-weight:bold">int</span> x)<span style="color:#000;font-weight:bold">:</span>isred(<span style="color:#000;font-weight:bold">true</span>),value(x),ln(NULL),rn(NULL),pa(NULL){}
+</span></span><span style="display:flex;"><span>	rdt(bool f,<span style="color:#000;font-weight:bold">int</span> x)<span style="color:#000;font-weight:bold">:</span>isred(f),value(x),ln(NULL),rn(NULL),pa(NULL){}
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>rdt<span style="color:#000;font-weight:bold">*</span> search(rdt<span style="color:#000;font-weight:bold">*</span> root,<span style="color:#000;font-weight:bold">int</span> value);
+</span></span><span style="display:flex;"><span>bool rdt_add_adjust(rdt<span style="color:#000;font-weight:bold">*</span> root,rdt<span style="color:#000;font-weight:bold">*</span> p);
+</span></span><span style="display:flex;"><span>rdt<span style="color:#000;font-weight:bold">*</span> add_node(rdt<span style="color:#000;font-weight:bold">*</span> root,<span style="color:#000;font-weight:bold">int</span> value);
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">void</span> rdt_del_adjust(rdt<span style="color:#000;font-weight:bold">*</span> root,rdt<span style="color:#000;font-weight:bold">*</span> p);
+</span></span><span style="display:flex;"><span>rdt<span style="color:#000;font-weight:bold">*</span> del_node(rdt<span style="color:#000;font-weight:bold">*</span> root,<span style="color:#000;font-weight:bold">int</span> value);
+</span></span><span style="display:flex;"><span>rdt<span style="color:#000;font-weight:bold">*</span> rdt_init(vector<span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000;font-weight:bold">int</span><span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#000;font-weight:bold">&amp;</span>nums);
+</span></span><span style="display:flex;"><span>rdt<span style="color:#000;font-weight:bold">*</span> rdt_head(rdt<span style="color:#000;font-weight:bold">*</span> root);
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">void</span> rdt_delete(rdt<span style="color:#000;font-weight:bold">*</span> root);
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">void</span> rdt_bfs(vector<span style="color:#000;font-weight:bold">&lt;</span>pair<span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000;font-weight:bold">int</span>,<span style="color:#000;font-weight:bold">int</span><span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#000;font-weight:bold">&gt;&amp;</span> data,rdt<span style="color:#000;font-weight:bold">*</span> root);
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">void</span> rdt_print(rdt<span style="color:#000;font-weight:bold">*</span> root); <span style="color:#998;font-style:italic">//=================================================下面是寻找插入节点的函数================
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//在红黑树中搜索value值，如果找到则返回nullptr，否则返回带插入的位置的父节点指针。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>rdt<span style="color:#000;font-weight:bold">*</span> search(rdt<span style="color:#000;font-weight:bold">*</span> root,<span style="color:#000;font-weight:bold">int</span> value){
+</span></span><span style="display:flex;"><span>	rdt<span style="color:#000;font-weight:bold">*</span> p <span style="color:#000;font-weight:bold">=</span> root; <span style="color:#000;font-weight:bold">while</span>(root<span style="color:#000;font-weight:bold">!=</span>NULL){
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span>(root<span style="color:#000;font-weight:bold">-&gt;</span>value<span style="color:#000;font-weight:bold">&gt;</span>value){
+</span></span><span style="display:flex;"><span>			p <span style="color:#000;font-weight:bold">=</span> root;
+</span></span><span style="display:flex;"><span>			root <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>ln;
+</span></span><span style="display:flex;"><span>		}<span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span>(root<span style="color:#000;font-weight:bold">-&gt;</span>value<span style="color:#000;font-weight:bold">&lt;</span>value){
+</span></span><span style="display:flex;"><span>			p <span style="color:#000;font-weight:bold">=</span> root;
+</span></span><span style="display:flex;"><span>			root <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>rn;
+</span></span><span style="display:flex;"><span>		}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> NULL;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> p;
+</span></span><span style="display:flex;"><span>} <span style="color:#998;font-style:italic">//=================================================下面是插入节点时的函数================
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//调整红黑树，root为p的父节点，p为需要更新的结点。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>bool rdt_add_adjust(rdt<span style="color:#000;font-weight:bold">*</span> root,rdt<span style="color:#000;font-weight:bold">*</span> p){ <span style="color:#000;font-weight:bold">if</span>(root<span style="color:#000;font-weight:bold">==</span>NULL){
+</span></span><span style="display:flex;"><span>		p<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">true</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span>root<span style="color:#000;font-weight:bold">-&gt;</span>isred){
+</span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">//黑父，直接插入,无需更新
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">true</span>;
+</span></span><span style="display:flex;"><span>	}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">//p_root是root的父节点，是p的祖父结点
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		rdt<span style="color:#000;font-weight:bold">*</span> p_root <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>pa; <span style="color:#998;font-style:italic">//注意这里的祖父结点不会NULL，如果没有祖父结点则这个红黑树根节点是红的，所以违背原理。 if(root==p_root-&gt;ln){
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			<span style="color:#998;font-style:italic">//root 是p_root的左结点
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			<span style="color:#000;font-weight:bold">if</span>(p_root<span style="color:#000;font-weight:bold">-&gt;</span>rn<span style="color:#000;font-weight:bold">!=</span>NULL<span style="color:#000;font-weight:bold">&amp;&amp;</span>p_root<span style="color:#000;font-weight:bold">-&gt;</span>rn<span style="color:#000;font-weight:bold">-&gt;</span>isred){
+</span></span><span style="display:flex;"><span>				<span style="color:#998;font-style:italic">//叔父结点是红的
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				root<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>				p_root<span style="color:#000;font-weight:bold">-&gt;</span>rn<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>				p_root<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">true</span>;
+</span></span><span style="display:flex;"><span>				rdt_add_adjust(p_root<span style="color:#000;font-weight:bold">-&gt;</span>pa,p_root); }<span style="color:#000;font-weight:bold">else</span>{ <span style="color:#998;font-style:italic">//叔父结点是黑的 if(p==root-&gt;ln){
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>					<span style="color:#998;font-style:italic">//p是root的左结点,LL旋转
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>					<span style="color:#998;font-style:italic">//先记录root的右结点和p_root的父节点。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>					rdt<span style="color:#000;font-weight:bold">*</span> rrn <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>rn; <span style="color:#998;font-style:italic">//记录兄弟结点。可能为NULL
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>					rdt<span style="color:#000;font-weight:bold">*</span> pp_root <span style="color:#000;font-weight:bold">=</span> p_root<span style="color:#000;font-weight:bold">-&gt;</span>pa; <span style="color:#998;font-style:italic">//记录祖父结点的父节点。可能为NULL
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span> 
+</span></span><span style="display:flex;"><span>					root<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> p_root;
+</span></span><span style="display:flex;"><span>					root<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> p_root<span style="color:#000;font-weight:bold">-&gt;</span>pa;
+</span></span><span style="display:flex;"><span>					p_root<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> rrn;
+</span></span><span style="display:flex;"><span>					p_root<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> root; <span style="color:#000;font-weight:bold">if</span>(rrn<span style="color:#000;font-weight:bold">!=</span>NULL) rrn<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> p_root;
+</span></span><span style="display:flex;"><span>					root<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>					p_root<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">true</span>; <span style="color:#000;font-weight:bold">if</span>(pp_root<span style="color:#000;font-weight:bold">==</span>NULL){
+</span></span><span style="display:flex;"><span>						<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">true</span>; }<span style="color:#000;font-weight:bold">else</span>{ <span style="color:#000;font-weight:bold">if</span>(p_root<span style="color:#000;font-weight:bold">==</span>pp_root<span style="color:#000;font-weight:bold">-&gt;</span>ln){
+</span></span><span style="display:flex;"><span>							pp_root<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> root;
+</span></span><span style="display:flex;"><span>						}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>							pp_root<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> root;
+</span></span><span style="display:flex;"><span>						}
+</span></span><span style="display:flex;"><span>					}
+</span></span><span style="display:flex;"><span>				}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>					<span style="color:#998;font-style:italic">//p是root的右结点,LR旋转 并且父节点是祖父结点的左结点。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>					rdt<span style="color:#000;font-weight:bold">*</span> pp_root <span style="color:#000;font-weight:bold">=</span> p_root<span style="color:#000;font-weight:bold">-&gt;</span>pa; <span style="color:#998;font-style:italic">//记录祖父结点的父节点，可能为NULL
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span> 
+</span></span><span style="display:flex;"><span>					<span style="color:#000;font-weight:bold">if</span>(p<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">!=</span>NULL){
+</span></span><span style="display:flex;"><span>						root<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> p<span style="color:#000;font-weight:bold">-&gt;</span>ln;
+</span></span><span style="display:flex;"><span>						root<span style="color:#000;font-weight:bold">-&gt;</span>rn<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> root;
+</span></span><span style="display:flex;"><span>					}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>						root<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> NULL;
+</span></span><span style="display:flex;"><span>					}
+</span></span><span style="display:flex;"><span>					root<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> p;
+</span></span><span style="display:flex;"><span>					<span style="color:#000;font-weight:bold">if</span>(p<span style="color:#000;font-weight:bold">-&gt;</span>rn<span style="color:#000;font-weight:bold">!=</span>NULL){
+</span></span><span style="display:flex;"><span>						p_root<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> p<span style="color:#000;font-weight:bold">-&gt;</span>rn;
+</span></span><span style="display:flex;"><span>						p_root<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> p_root;
+</span></span><span style="display:flex;"><span>					}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>						p_root<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> NULL;
+</span></span><span style="display:flex;"><span>					}
+</span></span><span style="display:flex;"><span>					p_root<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> p;
+</span></span><span style="display:flex;"><span>					p<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> root;
+</span></span><span style="display:flex;"><span>					p<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> p_root;
+</span></span><span style="display:flex;"><span>					p<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> pp_root;
+</span></span><span style="display:flex;"><span>					p<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>					p_root<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">true</span>; <span style="color:#000;font-weight:bold">if</span>(pp_root<span style="color:#000;font-weight:bold">==</span>NULL){
+</span></span><span style="display:flex;"><span>						<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">true</span>; } <span style="color:#000;font-weight:bold">if</span>(p_root<span style="color:#000;font-weight:bold">==</span>pp_root<span style="color:#000;font-weight:bold">-&gt;</span>ln){
+</span></span><span style="display:flex;"><span>						pp_root<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> p;
+</span></span><span style="display:flex;"><span>					}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>						pp_root<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> p;
+</span></span><span style="display:flex;"><span>					}
+</span></span><span style="display:flex;"><span>				}
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>		}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>			<span style="color:#998;font-style:italic">//root 是p_root的右结点
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			<span style="color:#000;font-weight:bold">if</span>(p_root<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">!=</span>NULL<span style="color:#000;font-weight:bold">&amp;&amp;</span>p_root<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">-&gt;</span>isred){
+</span></span><span style="display:flex;"><span>				<span style="color:#998;font-style:italic">//叔父结点是红的
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				root<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>				p_root<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>				p_root<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">true</span>;
+</span></span><span style="display:flex;"><span>				rdt_add_adjust(p_root<span style="color:#000;font-weight:bold">-&gt;</span>pa,p_root); }<span style="color:#000;font-weight:bold">else</span>{ <span style="color:#998;font-style:italic">//叔父结点是黑的 if(p==root-&gt;ln){
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>					<span style="color:#998;font-style:italic">//p是root的左结点,RL旋转
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>					rdt<span style="color:#000;font-weight:bold">*</span> pp_root <span style="color:#000;font-weight:bold">=</span> p_root<span style="color:#000;font-weight:bold">-&gt;</span>pa;
+</span></span><span style="display:flex;"><span>					<span style="color:#000;font-weight:bold">if</span>(p<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">!=</span>NULL){
+</span></span><span style="display:flex;"><span>						p_root<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> p<span style="color:#000;font-weight:bold">-&gt;</span>ln;
+</span></span><span style="display:flex;"><span>						p_root<span style="color:#000;font-weight:bold">-&gt;</span>rn<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> p_root;
+</span></span><span style="display:flex;"><span>					}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>						p_root<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> NULL;
+</span></span><span style="display:flex;"><span>					}
+</span></span><span style="display:flex;"><span>					p_root<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> p;
+</span></span><span style="display:flex;"><span>					<span style="color:#000;font-weight:bold">if</span>(p<span style="color:#000;font-weight:bold">-&gt;</span>rn<span style="color:#000;font-weight:bold">!=</span>NULL){
+</span></span><span style="display:flex;"><span>						root<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> p<span style="color:#000;font-weight:bold">-&gt;</span>rn;
+</span></span><span style="display:flex;"><span>						root<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> root;
+</span></span><span style="display:flex;"><span>					}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>						root<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> NULL;
+</span></span><span style="display:flex;"><span>					}
+</span></span><span style="display:flex;"><span>					root<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> p;
+</span></span><span style="display:flex;"><span>					p<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> p_root;
+</span></span><span style="display:flex;"><span>					p<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> root;
+</span></span><span style="display:flex;"><span>					p<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> pp_root;
+</span></span><span style="display:flex;"><span>					p<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>					p_root<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">true</span>; <span style="color:#000;font-weight:bold">if</span>(pp_root<span style="color:#000;font-weight:bold">==</span>NULL){
+</span></span><span style="display:flex;"><span>						<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">true</span>; } <span style="color:#000;font-weight:bold">if</span>(p_root<span style="color:#000;font-weight:bold">==</span>pp_root<span style="color:#000;font-weight:bold">-&gt;</span>ln){
+</span></span><span style="display:flex;"><span>						pp_root<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> p;
+</span></span><span style="display:flex;"><span>					}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>						pp_root<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> p;
+</span></span><span style="display:flex;"><span>					}
+</span></span><span style="display:flex;"><span>				}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>					<span style="color:#998;font-style:italic">//p是root的右结点,RR旋转
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>					<span style="color:#998;font-style:italic">//rln root left node
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>					rdt<span style="color:#000;font-weight:bold">*</span> rln <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>ln; <span style="color:#998;font-style:italic">//记录p的兄弟结点，可能为NULL
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>					<span style="color:#998;font-style:italic">//pp_root is parent of p_root which is parent of root;
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>					rdt<span style="color:#000;font-weight:bold">*</span> pp_root <span style="color:#000;font-weight:bold">=</span> p_root<span style="color:#000;font-weight:bold">-&gt;</span>pa; <span style="color:#998;font-style:italic">//记录祖父结点的父结点，可能为NULL
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span> 
+</span></span><span style="display:flex;"><span>					root<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> p_root;
+</span></span><span style="display:flex;"><span>					root<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> pp_root;
+</span></span><span style="display:flex;"><span>					p_root<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> rln;
+</span></span><span style="display:flex;"><span>					p_root<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> root; <span style="color:#000;font-weight:bold">if</span>(rln<span style="color:#000;font-weight:bold">!=</span>NULL) rln<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> p_root;
+</span></span><span style="display:flex;"><span>					root<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>					p_root<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">true</span>; <span style="color:#000;font-weight:bold">if</span>(pp_root<span style="color:#000;font-weight:bold">==</span>NULL){
+</span></span><span style="display:flex;"><span>						<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">true</span>; }<span style="color:#000;font-weight:bold">else</span>{ <span style="color:#000;font-weight:bold">if</span>(p_root<span style="color:#000;font-weight:bold">==</span>pp_root<span style="color:#000;font-weight:bold">-&gt;</span>ln){
+</span></span><span style="display:flex;"><span>							pp_root<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> root;
+</span></span><span style="display:flex;"><span>						}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>							pp_root<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> root;
+</span></span><span style="display:flex;"><span>						}
+</span></span><span style="display:flex;"><span>					}
+</span></span><span style="display:flex;"><span>				}
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">true</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//插入一个值到红黑树并调整树
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>rdt<span style="color:#000;font-weight:bold">*</span> add_node(rdt<span style="color:#000;font-weight:bold">*</span> root,<span style="color:#000;font-weight:bold">int</span> value){
+</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">//先加入该结点（新插入结点默认都是红的）
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	rdt<span style="color:#000;font-weight:bold">*</span> new_node <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> rdt(value); <span style="color:#000;font-weight:bold">if</span>(root<span style="color:#000;font-weight:bold">==</span>NULL){
+</span></span><span style="display:flex;"><span>		new_node<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> new_node;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	rdt<span style="color:#000;font-weight:bold">*</span> p <span style="color:#000;font-weight:bold">=</span> search(root,value); <span style="color:#000;font-weight:bold">if</span>(p<span style="color:#000;font-weight:bold">==</span>NULL){
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">delete</span> new_node;
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> NULL;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span>(p<span style="color:#000;font-weight:bold">-&gt;</span>value <span style="color:#000;font-weight:bold">&gt;</span> value) 
+</span></span><span style="display:flex;"><span>		p<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> new_node;
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>		p<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> new_node;
+</span></span><span style="display:flex;"><span>	new_node<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> p;
+</span></span><span style="display:flex;"><span>	rdt_add_adjust(p,new_node);
+</span></span><span style="display:flex;"><span>	rdt<span style="color:#000;font-weight:bold">*</span> head <span style="color:#000;font-weight:bold">=</span> rdt_head(p);
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> head;
+</span></span><span style="display:flex;"><span>} <span style="color:#998;font-style:italic">//==========================================以下是删除节点的函数======================
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//这个函数处理删除节点后的树的调节
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//参数是带调节的点P和P的父节点root
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//该函数需要调节的有一下情况：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//--1.p的兄弟结点是红的：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//-----通过变换，继续迭代修正。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//--2.p的兄弟结点是黑的：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//-----2.1.黑兄弟有两个黑色侄子
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//--------2.1.1.红色的父亲
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//--------2.1.2.黑色的父亲
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//-----2.2.黑兄弟有左红侄子
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//-----2.3.黑兄弟有右红侄子
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">void</span> rdt_del_adjust(rdt<span style="color:#000;font-weight:bold">*</span> root,rdt<span style="color:#000;font-weight:bold">*</span> p){ <span style="color:#000;font-weight:bold">if</span>(p<span style="color:#000;font-weight:bold">==</span>root<span style="color:#000;font-weight:bold">-&gt;</span>ln){
+</span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">//注意p的兄弟结点一定不会是空的，通过红黑树的性质和删除节点前的情况可知。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		rdt<span style="color:#000;font-weight:bold">*</span> pu <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>rn;
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span>(pu<span style="color:#000;font-weight:bold">-&gt;</span>isred){
+</span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">//p的兄弟结点是红的,通过红黑树的性质可知，p的父节点一定是黑的。p的兄弟结点的子节点一定也是黑的或是空
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#998;font-style:italic">//此时，只需要RR旋转，构造成红父黑兄的情况。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#998;font-style:italic">//处理后降低了一层，继续迭代。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			rdt<span style="color:#000;font-weight:bold">*</span> pul <span style="color:#000;font-weight:bold">=</span> pu<span style="color:#000;font-weight:bold">-&gt;</span>ln;
+</span></span><span style="display:flex;"><span>			root<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> pul; <span style="color:#998;font-style:italic">//这里的pul其实可以推导出，它一定不会为空的。 if(pul!=NULL) pul-&gt;pa = root;
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			pu<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> root;
+</span></span><span style="display:flex;"><span>			pu<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>pa;
+</span></span><span style="display:flex;"><span>			root<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> pu;
+</span></span><span style="display:flex;"><span>			<span style="color:#998;font-style:italic">//这里注意root是根结点的情况
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			<span style="color:#000;font-weight:bold">if</span>(pu<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">!=</span>NULL){
+</span></span><span style="display:flex;"><span>				<span style="color:#000;font-weight:bold">if</span>(pu<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">==</span>root){
+</span></span><span style="display:flex;"><span>					pu<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> pu;
+</span></span><span style="display:flex;"><span>				}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>					pu<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> pu;
+</span></span><span style="display:flex;"><span>				}
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>			pu<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>			root<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">true</span>;
+</span></span><span style="display:flex;"><span>			rdt_del_adjust(root,p);
+</span></span><span style="display:flex;"><span>		}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">//p的兄弟结点是黑的
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			<span style="color:#000;font-weight:bold">if</span>(pu<span style="color:#000;font-weight:bold">-&gt;</span>rn<span style="color:#000;font-weight:bold">!=</span>NULL<span style="color:#000;font-weight:bold">&amp;&amp;</span>pu<span style="color:#000;font-weight:bold">-&gt;</span>rn<span style="color:#000;font-weight:bold">-&gt;</span>isred){
+</span></span><span style="display:flex;"><span>				<span style="color:#998;font-style:italic">//结点p有右红侄子
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				<span style="color:#998;font-style:italic">//实行RR旋转
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				rdt<span style="color:#000;font-weight:bold">*</span> pul <span style="color:#000;font-weight:bold">=</span> pu<span style="color:#000;font-weight:bold">-&gt;</span>ln;
+</span></span><span style="display:flex;"><span>				root<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> pul; <span style="color:#000;font-weight:bold">if</span>(pul<span style="color:#000;font-weight:bold">!=</span>NULL) pul<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> root;
+</span></span><span style="display:flex;"><span>				pu<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> root;
+</span></span><span style="display:flex;"><span>				pu<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>pa;
+</span></span><span style="display:flex;"><span>				root<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> pu;
+</span></span><span style="display:flex;"><span>				<span style="color:#998;font-style:italic">//这里注意root是根结点的情况
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				<span style="color:#000;font-weight:bold">if</span>(pu<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">!=</span>NULL){ <span style="color:#000;font-weight:bold">if</span>(root<span style="color:#000;font-weight:bold">==</span>pu<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">-&gt;</span>ln){
+</span></span><span style="display:flex;"><span>						pu<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> pu;
+</span></span><span style="display:flex;"><span>					}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>						pu<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> pu;
+</span></span><span style="display:flex;"><span>					}
+</span></span><span style="display:flex;"><span>				}
+</span></span><span style="display:flex;"><span>				pu<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>isred;
+</span></span><span style="display:flex;"><span>				root<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>				pu<span style="color:#000;font-weight:bold">-&gt;</span>rn<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>			}<span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span>(pu<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">!=</span>NULL<span style="color:#000;font-weight:bold">&amp;&amp;</span>pu<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">-&gt;</span>isred){
+</span></span><span style="display:flex;"><span>				<span style="color:#998;font-style:italic">//结点p有左红侄子
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				<span style="color:#998;font-style:italic">//进行RL旋转
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				<span style="color:#998;font-style:italic">//pul是p兄弟的左节点
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				rdt<span style="color:#000;font-weight:bold">*</span> pul <span style="color:#000;font-weight:bold">=</span> pu<span style="color:#000;font-weight:bold">-&gt;</span>ln;
+</span></span><span style="display:flex;"><span>				<span style="color:#998;font-style:italic">//pul是p兄弟的左节点的左节点
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				rdt<span style="color:#000;font-weight:bold">*</span> pull <span style="color:#000;font-weight:bold">=</span> pul<span style="color:#000;font-weight:bold">-&gt;</span>ln;
+</span></span><span style="display:flex;"><span>				<span style="color:#998;font-style:italic">//pul是p兄弟的左节点的右节点
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				rdt<span style="color:#000;font-weight:bold">*</span> pulr <span style="color:#000;font-weight:bold">=</span> pul<span style="color:#000;font-weight:bold">-&gt;</span>rn;
+</span></span><span style="display:flex;"><span>				root<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> pull; <span style="color:#000;font-weight:bold">if</span>(pull<span style="color:#000;font-weight:bold">!=</span>NULL) pull<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> root;
+</span></span><span style="display:flex;"><span>				pu<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> pulr; <span style="color:#000;font-weight:bold">if</span>(pulr<span style="color:#000;font-weight:bold">!=</span>NULL) pulr<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> pu;
+</span></span><span style="display:flex;"><span>				pul<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>pa;
+</span></span><span style="display:flex;"><span>				root<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> pul;
+</span></span><span style="display:flex;"><span>				pul<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> root;
+</span></span><span style="display:flex;"><span>				pul<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> pu;
+</span></span><span style="display:flex;"><span>				pu<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> pul;
+</span></span><span style="display:flex;"><span>				<span style="color:#998;font-style:italic">//这里注意root是根结点的情况
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				<span style="color:#000;font-weight:bold">if</span>(pul<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">!=</span>NULL){ <span style="color:#000;font-weight:bold">if</span>(root<span style="color:#000;font-weight:bold">==</span>pul<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">-&gt;</span>ln){
+</span></span><span style="display:flex;"><span>						pul<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> pul;
+</span></span><span style="display:flex;"><span>					}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>						pul<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> pul;
+</span></span><span style="display:flex;"><span>					}
+</span></span><span style="display:flex;"><span>				}
+</span></span><span style="display:flex;"><span>				pul<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>isred;
+</span></span><span style="display:flex;"><span>				root<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>			}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>				<span style="color:#998;font-style:italic">//结点p有两个黑的侄子
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				<span style="color:#000;font-weight:bold">if</span>(root<span style="color:#000;font-weight:bold">-&gt;</span>isred){
+</span></span><span style="display:flex;"><span>					<span style="color:#998;font-style:italic">//红父
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>					root<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>					pu<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">true</span>; <span style="color:#000;font-weight:bold">if</span>(p<span style="color:#000;font-weight:bold">!=</span>NULL) p<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>; }<span style="color:#000;font-weight:bold">else</span>{ <span style="color:#998;font-style:italic">//黑父 if(p!=NULL){
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>						root<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> p<span style="color:#000;font-weight:bold">-&gt;</span>isred;
+</span></span><span style="display:flex;"><span>					}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>						root<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>					}
+</span></span><span style="display:flex;"><span>					pu<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">true</span>; <span style="color:#000;font-weight:bold">if</span>(p<span style="color:#000;font-weight:bold">!=</span>NULL) p<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>				}
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>		rdt<span style="color:#000;font-weight:bold">*</span> pu <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>ln;
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span>(pu<span style="color:#000;font-weight:bold">-&gt;</span>isred){
+</span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">//p的兄弟结点是红的
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#998;font-style:italic">//进行LL旋转
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#998;font-style:italic">//处理后降低了一层，继续迭代。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			rdt<span style="color:#000;font-weight:bold">*</span> pur <span style="color:#000;font-weight:bold">=</span> pu<span style="color:#000;font-weight:bold">-&gt;</span>rn;
+</span></span><span style="display:flex;"><span>			root<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> pur; <span style="color:#998;font-style:italic">//其实这里的pur不会为空 if(pur!=NULL) pur-&gt;pa = root;
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			pu<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> root;
+</span></span><span style="display:flex;"><span>			pu<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>pa;
+</span></span><span style="display:flex;"><span>			root<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> pu;
+</span></span><span style="display:flex;"><span>			<span style="color:#998;font-style:italic">//这里注意root是根结点的情况
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			<span style="color:#000;font-weight:bold">if</span>(pu<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">!=</span>NULL){
+</span></span><span style="display:flex;"><span>				<span style="color:#000;font-weight:bold">if</span>(pu<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">==</span>root){
+</span></span><span style="display:flex;"><span>					pu<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> pu;
+</span></span><span style="display:flex;"><span>				}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>					pu<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> pu;
+</span></span><span style="display:flex;"><span>				}
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>			pu<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>			root<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">true</span>;
+</span></span><span style="display:flex;"><span>			rdt_del_adjust(root,p);
+</span></span><span style="display:flex;"><span>		}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">//p的兄弟结点是黑的
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			<span style="color:#000;font-weight:bold">if</span>(pu<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">!=</span>NULL<span style="color:#000;font-weight:bold">&amp;&amp;</span>pu<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">-&gt;</span>isred){
+</span></span><span style="display:flex;"><span>				<span style="color:#998;font-style:italic">//结点p有左红侄子
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				<span style="color:#998;font-style:italic">//实行LL旋转
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				rdt<span style="color:#000;font-weight:bold">*</span> pur <span style="color:#000;font-weight:bold">=</span> pu<span style="color:#000;font-weight:bold">-&gt;</span>rn;
+</span></span><span style="display:flex;"><span>				root<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> pur; <span style="color:#000;font-weight:bold">if</span>(pur<span style="color:#000;font-weight:bold">!=</span>NULL) pur<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> root;
+</span></span><span style="display:flex;"><span>				pu<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> root;
+</span></span><span style="display:flex;"><span>				pu<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>pa;
+</span></span><span style="display:flex;"><span>				root<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> pu;
+</span></span><span style="display:flex;"><span>				<span style="color:#998;font-style:italic">//这里注意root是根结点的情况
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				<span style="color:#000;font-weight:bold">if</span>(pu<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">!=</span>NULL){ <span style="color:#000;font-weight:bold">if</span>(root<span style="color:#000;font-weight:bold">==</span>pu<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">-&gt;</span>ln){
+</span></span><span style="display:flex;"><span>						pu<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> pu;
+</span></span><span style="display:flex;"><span>					}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>						pu<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> pu;
+</span></span><span style="display:flex;"><span>					}
+</span></span><span style="display:flex;"><span>				}
+</span></span><span style="display:flex;"><span>				pu<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>isred;
+</span></span><span style="display:flex;"><span>				root<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>				pu<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>			}<span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span>(pu<span style="color:#000;font-weight:bold">-&gt;</span>rn<span style="color:#000;font-weight:bold">!=</span>NULL<span style="color:#000;font-weight:bold">&amp;&amp;</span>pu<span style="color:#000;font-weight:bold">-&gt;</span>rn<span style="color:#000;font-weight:bold">-&gt;</span>isred){
+</span></span><span style="display:flex;"><span>				<span style="color:#998;font-style:italic">//结点p有右红侄子
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				<span style="color:#998;font-style:italic">//进行LR旋转
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				<span style="color:#998;font-style:italic">//pur是p兄弟的右节点
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				rdt<span style="color:#000;font-weight:bold">*</span> pur <span style="color:#000;font-weight:bold">=</span> pu<span style="color:#000;font-weight:bold">-&gt;</span>rn;
+</span></span><span style="display:flex;"><span>				<span style="color:#998;font-style:italic">//purl是p兄弟的右节点的左节点
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				rdt<span style="color:#000;font-weight:bold">*</span> purl <span style="color:#000;font-weight:bold">=</span> pur<span style="color:#000;font-weight:bold">-&gt;</span>ln;
+</span></span><span style="display:flex;"><span>				<span style="color:#998;font-style:italic">//purr是p兄弟的右节点的右节点
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				rdt<span style="color:#000;font-weight:bold">*</span> purr <span style="color:#000;font-weight:bold">=</span> pur<span style="color:#000;font-weight:bold">-&gt;</span>rn;
+</span></span><span style="display:flex;"><span>				root<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> purr; <span style="color:#000;font-weight:bold">if</span>(purr<span style="color:#000;font-weight:bold">!=</span>NULL) purr<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> root;
+</span></span><span style="display:flex;"><span>				pu<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> purl; <span style="color:#000;font-weight:bold">if</span>(purl<span style="color:#000;font-weight:bold">!=</span>NULL) purl<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> pu;
+</span></span><span style="display:flex;"><span>				pur<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>pa;
+</span></span><span style="display:flex;"><span>				root<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> pur;
+</span></span><span style="display:flex;"><span>				pur<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> pu;
+</span></span><span style="display:flex;"><span>				pur<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> root;
+</span></span><span style="display:flex;"><span>				pu<span style="color:#000;font-weight:bold">-&gt;</span>pa <span style="color:#000;font-weight:bold">=</span> pur;
+</span></span><span style="display:flex;"><span>				<span style="color:#998;font-style:italic">//这里注意root是根结点的情况
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				<span style="color:#000;font-weight:bold">if</span>(pur<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">!=</span>NULL){ <span style="color:#000;font-weight:bold">if</span>(root<span style="color:#000;font-weight:bold">==</span>pur<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">-&gt;</span>ln){
+</span></span><span style="display:flex;"><span>						pur<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> pur;
+</span></span><span style="display:flex;"><span>					}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>						pur<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> pur;
+</span></span><span style="display:flex;"><span>					}
+</span></span><span style="display:flex;"><span>				}
+</span></span><span style="display:flex;"><span>				pur<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>isred;
+</span></span><span style="display:flex;"><span>				root<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>			}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>				<span style="color:#998;font-style:italic">//结点p有两个黑的侄子
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				<span style="color:#000;font-weight:bold">if</span>(root<span style="color:#000;font-weight:bold">-&gt;</span>isred){
+</span></span><span style="display:flex;"><span>					<span style="color:#998;font-style:italic">//红父
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>					root<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>					pu<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">true</span>; <span style="color:#000;font-weight:bold">if</span>(p<span style="color:#000;font-weight:bold">!=</span>NULL) p<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>; }<span style="color:#000;font-weight:bold">else</span>{ <span style="color:#998;font-style:italic">//黑父 if(p!=NULL){
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>						root<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> p<span style="color:#000;font-weight:bold">-&gt;</span>isred;
+</span></span><span style="display:flex;"><span>					}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>						root<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>					}
+</span></span><span style="display:flex;"><span>					pu<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">true</span>; <span style="color:#000;font-weight:bold">if</span>(p<span style="color:#000;font-weight:bold">!=</span>NULL) p<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>				}
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>rdt<span style="color:#000;font-weight:bold">*</span> del_node(rdt<span style="color:#000;font-weight:bold">*</span> root,<span style="color:#000;font-weight:bold">int</span> value){ <span style="color:#998;font-style:italic">//首先找到需要删除的点。 while(root!=NULL){
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">if</span>(root<span style="color:#000;font-weight:bold">-&gt;</span>value <span style="color:#000;font-weight:bold">&gt;</span> value) root <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>ln;
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span>(root<span style="color:#000;font-weight:bold">-&gt;</span>value <span style="color:#000;font-weight:bold">&lt;</span> value) root <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>rn;
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">break</span>; } <span style="color:#998;font-style:italic">//没找到，返回false if(root==NULL) return NULL;
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span> 
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span>(root<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">==</span>NULL<span style="color:#000;font-weight:bold">&amp;&amp;</span>root<span style="color:#000;font-weight:bold">-&gt;</span>rn<span style="color:#000;font-weight:bold">==</span>NULL){
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span>(root<span style="color:#000;font-weight:bold">-&gt;</span>isred){
+</span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">//找到需要删除的结点，如果是红色的叶子节点，直接删除。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			rdt<span style="color:#000;font-weight:bold">*</span> rp <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>pa;
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span>(rp<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">==</span>root){
+</span></span><span style="display:flex;"><span>				rp<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> NULL;
+</span></span><span style="display:flex;"><span>			}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>				rp<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> NULL;
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>			rdt_delete(root);
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> rp;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">//找到需要删除的结点，如果是黑色叶子结点，看它的父节点，如果是空，则该节点是根结点。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#998;font-style:italic">//这里特殊处理一下，删根节点直接将它置为红色结点，放回空。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">if</span>(root<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">==</span>NULL){
+</span></span><span style="display:flex;"><span>			root<span style="color:#000;font-weight:bold">-&gt;</span>isred <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">true</span>;
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> NULL;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">//如果是黑的单支结点或者是黑的叶子结点，如下处理。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">//存在情况：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">//1.纯黑色叶子结点,这个情况合并在3中。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">//2.黑色单支结点，左右中有一个红色叶子结点。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">//3.黑色单支结点，左或右是一个黑色结点(包括哨兵结点)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">if</span>(root<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">==</span>NULL<span style="color:#000;font-weight:bold">||</span>root<span style="color:#000;font-weight:bold">-&gt;</span>rn<span style="color:#000;font-weight:bold">==</span>NULL){
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span>(root<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">!=</span>NULL<span style="color:#000;font-weight:bold">&amp;&amp;</span>root<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">-&gt;</span>isred){
+</span></span><span style="display:flex;"><span>			<span style="color:#998;font-style:italic">//左节点非空，而且是红色的,直接将值赋给root。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				root<span style="color:#000;font-weight:bold">-&gt;</span>value <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">-&gt;</span>value;
+</span></span><span style="display:flex;"><span>				rdt_delete(root<span style="color:#000;font-weight:bold">-&gt;</span>ln);
+</span></span><span style="display:flex;"><span>				root<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> NULL;
+</span></span><span style="display:flex;"><span>		}<span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span>(root<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">!=</span>NULL<span style="color:#000;font-weight:bold">&amp;&amp;!</span>root<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">-&gt;</span>isred){
+</span></span><span style="display:flex;"><span>			<span style="color:#998;font-style:italic">//否则为黑色单支结点，子节点是黑色的。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				root<span style="color:#000;font-weight:bold">-&gt;</span>value <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">-&gt;</span>value;
+</span></span><span style="display:flex;"><span>				rdt_delete(root<span style="color:#000;font-weight:bold">-&gt;</span>ln);
+</span></span><span style="display:flex;"><span>				root<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> NULL;
+</span></span><span style="display:flex;"><span>				rdt_del_adjust(root<span style="color:#000;font-weight:bold">-&gt;</span>pa,root);
+</span></span><span style="display:flex;"><span>		}<span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span>(root<span style="color:#000;font-weight:bold">-&gt;</span>rn<span style="color:#000;font-weight:bold">!=</span>NULL<span style="color:#000;font-weight:bold">&amp;&amp;</span>root<span style="color:#000;font-weight:bold">-&gt;</span>rn<span style="color:#000;font-weight:bold">-&gt;</span>isred){
+</span></span><span style="display:flex;"><span>			<span style="color:#998;font-style:italic">//右节点非空且为红色。直接将值赋给root。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				root<span style="color:#000;font-weight:bold">-&gt;</span>value <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>rn<span style="color:#000;font-weight:bold">-&gt;</span>value;
+</span></span><span style="display:flex;"><span>				rdt_delete(root<span style="color:#000;font-weight:bold">-&gt;</span>rn);
+</span></span><span style="display:flex;"><span>				root<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> NULL;
+</span></span><span style="display:flex;"><span>		}<span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span>(root<span style="color:#000;font-weight:bold">-&gt;</span>rn<span style="color:#000;font-weight:bold">!=</span>NULL<span style="color:#000;font-weight:bold">&amp;&amp;!</span>root<span style="color:#000;font-weight:bold">-&gt;</span>rn<span style="color:#000;font-weight:bold">-&gt;</span>isred){
+</span></span><span style="display:flex;"><span>			<span style="color:#998;font-style:italic">//否则为黑色单支结点，子节点是黑色的。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				root<span style="color:#000;font-weight:bold">-&gt;</span>value <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>rn<span style="color:#000;font-weight:bold">-&gt;</span>value;
+</span></span><span style="display:flex;"><span>				rdt_delete(root<span style="color:#000;font-weight:bold">-&gt;</span>rn);
+</span></span><span style="display:flex;"><span>				root<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> NULL;
+</span></span><span style="display:flex;"><span>				rdt_del_adjust(root<span style="color:#000;font-weight:bold">-&gt;</span>pa,root);
+</span></span><span style="display:flex;"><span>		}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>			<span style="color:#998;font-style:italic">//纯黑色叶子结点处理
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			rdt<span style="color:#000;font-weight:bold">*</span> pr <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>pa; <span style="color:#000;font-weight:bold">if</span>(root<span style="color:#000;font-weight:bold">==</span>pr<span style="color:#000;font-weight:bold">-&gt;</span>ln){
+</span></span><span style="display:flex;"><span>				pr<span style="color:#000;font-weight:bold">-&gt;</span>ln <span style="color:#000;font-weight:bold">=</span> NULL;
+</span></span><span style="display:flex;"><span>			}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>				pr<span style="color:#000;font-weight:bold">-&gt;</span>rn <span style="color:#000;font-weight:bold">=</span> NULL;
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>			rdt_delete(root);
+</span></span><span style="display:flex;"><span>			root <span style="color:#000;font-weight:bold">=</span> NULL;
+</span></span><span style="display:flex;"><span>			rdt_del_adjust(pr,root);
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> pr;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">//如果都不是，则找root左子树的最大值结点A，替换root，然后递归删除该结点A。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		rdt<span style="color:#000;font-weight:bold">*</span> p <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">-&gt;</span>ln;
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">while</span>(p<span style="color:#000;font-weight:bold">-&gt;</span>rn<span style="color:#000;font-weight:bold">!=</span>NULL){
+</span></span><span style="display:flex;"><span>			p <span style="color:#000;font-weight:bold">=</span> p<span style="color:#000;font-weight:bold">-&gt;</span>rn;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		root<span style="color:#000;font-weight:bold">-&gt;</span>value <span style="color:#000;font-weight:bold">=</span> p<span style="color:#000;font-weight:bold">-&gt;</span>value;
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> del_node(p,p<span style="color:#000;font-weight:bold">-&gt;</span>value);
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> root; } <span style="color:#998;font-style:italic">//==========================================以下是删除节点的内存的函数==================
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//删除结点
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">void</span> rdt_delete(rdt<span style="color:#000;font-weight:bold">*</span> root){ <span style="color:#000;font-weight:bold">if</span>(root<span style="color:#000;font-weight:bold">==</span>NULL) <span style="color:#000;font-weight:bold">return</span> ;
+</span></span><span style="display:flex;"><span>	rdt_delete(root<span style="color:#000;font-weight:bold">-&gt;</span>ln);
+</span></span><span style="display:flex;"><span>	rdt_delete(root<span style="color:#000;font-weight:bold">-&gt;</span>rn);
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">delete</span> root;
+</span></span><span style="display:flex;"><span>	root <span style="color:#000;font-weight:bold">=</span> NULL;
+</span></span><span style="display:flex;"><span>} <span style="color:#998;font-style:italic">//==========================================以下是返回头结点的函数======================
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>rdt<span style="color:#000;font-weight:bold">*</span> rdt_head(rdt<span style="color:#000;font-weight:bold">*</span> p){ <span style="color:#000;font-weight:bold">if</span>(p<span style="color:#000;font-weight:bold">==</span>NULL) <span style="color:#000;font-weight:bold">return</span> NULL;
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">while</span>(p<span style="color:#000;font-weight:bold">-&gt;</span>pa<span style="color:#000;font-weight:bold">!=</span>NULL){ p<span style="color:#000;font-weight:bold">=</span> p<span style="color:#000;font-weight:bold">-&gt;</span>pa;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> p;
+</span></span><span style="display:flex;"><span>} <span style="color:#998;font-style:italic">//==========================================以下是通过数组构建红黑树的函数==============
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//给定一个vector&lt;int&gt; 构建一个红黑树，放回开始结点。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>rdt<span style="color:#000;font-weight:bold">*</span> rdt_init(vector<span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000;font-weight:bold">int</span><span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#000;font-weight:bold">&amp;</span>nums){
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span>(nums.empty()) <span style="color:#000;font-weight:bold">return</span> NULL;
+</span></span><span style="display:flex;"><span>	rdt<span style="color:#000;font-weight:bold">*</span> root <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> rdt(<span style="color:#000;font-weight:bold">false</span>,nums[<span style="color:#099">0</span>]);
+</span></span><span style="display:flex;"><span>	rdt<span style="color:#000;font-weight:bold">*</span> old_root<span style="color:#000;font-weight:bold">=</span>root; <span style="color:#000;font-weight:bold">if</span>(nums.size()<span style="color:#000;font-weight:bold">==</span><span style="color:#099">1</span>){
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> root;
+</span></span><span style="display:flex;"><span>	}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">for</span>(<span style="color:#000;font-weight:bold">int</span> i<span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>;i<span style="color:#000;font-weight:bold">&lt;</span>(<span style="color:#000;font-weight:bold">int</span>)nums.size();<span style="color:#000;font-weight:bold">++</span>i){
+</span></span><span style="display:flex;"><span>			root <span style="color:#000;font-weight:bold">=</span> add_node(old_root,nums[i]);
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span>(DE_BUG) cout<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#d14">&#34;value: &#34;</span><span style="color:#000;font-weight:bold">&lt;&lt;</span>nums[i]<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#d14">&#34; root: &#34;</span><span style="color:#000;font-weight:bold">&lt;&lt;</span>(root<span style="color:#000;font-weight:bold">==</span>NULL<span style="color:#000;font-weight:bold">?-</span><span style="color:#099">1</span><span style="color:#000;font-weight:bold">:</span>old_root<span style="color:#000;font-weight:bold">-&gt;</span>value)<span style="color:#000;font-weight:bold">&lt;&lt;</span>endl; <span style="color:#000;font-weight:bold">if</span>(root<span style="color:#000;font-weight:bold">==</span>NULL) <span style="color:#000;font-weight:bold">continue</span>; 
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span>(DE_BUG) rdt_print(root);
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span>(DE_BUG) cout<span style="color:#000;font-weight:bold">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>			old_root <span style="color:#000;font-weight:bold">=</span> root;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	rdt<span style="color:#000;font-weight:bold">*</span> head <span style="color:#000;font-weight:bold">=</span> rdt_head(old_root);
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> head;
+</span></span><span style="display:flex;"><span>} <span style="color:#998;font-style:italic">//==========================================以下是打印红黑树的函数======================
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//广度遍历整个树，将数据存在data中。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">void</span> rdt_bfs(vector<span style="color:#000;font-weight:bold">&lt;</span>pair<span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000;font-weight:bold">int</span>,<span style="color:#000;font-weight:bold">int</span><span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#000;font-weight:bold">&gt;&amp;</span> data,rdt<span style="color:#000;font-weight:bold">*</span> root){
+</span></span><span style="display:flex;"><span>	queue<span style="color:#000;font-weight:bold">&lt;</span>rdt<span style="color:#000;font-weight:bold">*&gt;</span> rdt_q;
+</span></span><span style="display:flex;"><span>	rdt_q.push(root);
+</span></span><span style="display:flex;"><span>	rdt<span style="color:#000;font-weight:bold">*</span> p;
+</span></span><span style="display:flex;"><span>	data.push_back(pair<span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000;font-weight:bold">int</span>,<span style="color:#000;font-weight:bold">int</span><span style="color:#000;font-weight:bold">&gt;</span>(root<span style="color:#000;font-weight:bold">-&gt;</span>value,root<span style="color:#000;font-weight:bold">-&gt;</span>isred));
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">while</span>(<span style="color:#000;font-weight:bold">!</span>rdt_q.empty()){
+</span></span><span style="display:flex;"><span>		p <span style="color:#000;font-weight:bold">=</span> rdt_q.front();
+</span></span><span style="display:flex;"><span>		rdt_q.pop();
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span>(p<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">!=</span>NULL){
+</span></span><span style="display:flex;"><span>			rdt_q.push(p<span style="color:#000;font-weight:bold">-&gt;</span>ln);
+</span></span><span style="display:flex;"><span>			data.push_back(pair<span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000;font-weight:bold">int</span>,<span style="color:#000;font-weight:bold">int</span><span style="color:#000;font-weight:bold">&gt;</span>(p<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">-&gt;</span>value,p<span style="color:#000;font-weight:bold">-&gt;</span>ln<span style="color:#000;font-weight:bold">-&gt;</span>isred));
+</span></span><span style="display:flex;"><span>		}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>			data.push_back(pair<span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000;font-weight:bold">int</span>,<span style="color:#000;font-weight:bold">int</span><span style="color:#000;font-weight:bold">&gt;</span>(<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>,<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>));
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span>(p<span style="color:#000;font-weight:bold">-&gt;</span>rn<span style="color:#000;font-weight:bold">!=</span>NULL){
+</span></span><span style="display:flex;"><span>			rdt_q.push(p<span style="color:#000;font-weight:bold">-&gt;</span>rn);
+</span></span><span style="display:flex;"><span>			data.push_back(pair<span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000;font-weight:bold">int</span>,<span style="color:#000;font-weight:bold">int</span><span style="color:#000;font-weight:bold">&gt;</span>(p<span style="color:#000;font-weight:bold">-&gt;</span>rn<span style="color:#000;font-weight:bold">-&gt;</span>value,p<span style="color:#000;font-weight:bold">-&gt;</span>rn<span style="color:#000;font-weight:bold">-&gt;</span>isred));
+</span></span><span style="display:flex;"><span>		}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>			data.push_back(pair<span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000;font-weight:bold">int</span>,<span style="color:#000;font-weight:bold">int</span><span style="color:#000;font-weight:bold">&gt;</span>(<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>,<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>));
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//打印红黑树，通过广度遍历后打印数据。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">void</span> rdt_print(rdt<span style="color:#000;font-weight:bold">*</span> root){
+</span></span><span style="display:flex;"><span>	vector<span style="color:#000;font-weight:bold">&lt;</span>pair<span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000;font-weight:bold">int</span>,<span style="color:#000;font-weight:bold">int</span><span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#000;font-weight:bold">&gt;</span> data;
+</span></span><span style="display:flex;"><span>	rdt_bfs(data,root);
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span>(DE_BUG) cout<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#d14">&#34;bfs rdt ,data is &#34;</span><span style="color:#000;font-weight:bold">&lt;&lt;</span>data.size()<span style="color:#000;font-weight:bold">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">int</span> layer<span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>,tt <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">1</span>,t<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0</span>,sum<span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">while</span>(sum<span style="color:#000;font-weight:bold">&lt;=</span>(<span style="color:#000;font-weight:bold">int</span>)data.size()<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>){
+</span></span><span style="display:flex;"><span>		tt<span style="color:#000;font-weight:bold">&lt;&lt;=</span><span style="color:#099">1</span>;
+</span></span><span style="display:flex;"><span>		sum <span style="color:#000;font-weight:bold">+=</span> tt;
+</span></span><span style="display:flex;"><span>		layer<span style="color:#000;font-weight:bold">++</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">int</span> count <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">1</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">while</span>(layer<span style="color:#000;font-weight:bold">&gt;=</span><span style="color:#099">0</span>){
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">for</span>(<span style="color:#000;font-weight:bold">int</span> i<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0</span>;i<span style="color:#000;font-weight:bold">&lt;</span>layer;<span style="color:#000;font-weight:bold">++</span>i) cout<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#d14">&#34;  &#34;</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">for</span>(<span style="color:#000;font-weight:bold">int</span> i<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0</span>;i<span style="color:#000;font-weight:bold">&lt;</span>count;<span style="color:#000;font-weight:bold">++</span>i){
+</span></span><span style="display:flex;"><span>			cout<span style="color:#000;font-weight:bold">&lt;&lt;</span>to_string(data[t].first)<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#d14">&#34;,&#34;</span><span style="color:#000;font-weight:bold">&lt;&lt;</span>to_string(data[t].second)<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#d14">&#34;  &#34;</span>;
+</span></span><span style="display:flex;"><span>			t<span style="color:#000;font-weight:bold">++</span>;
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span>(t<span style="color:#000;font-weight:bold">&gt;=</span>(<span style="color:#000;font-weight:bold">int</span>)data.size()) <span style="color:#000;font-weight:bold">return</span> ;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		cout<span style="color:#000;font-weight:bold">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>		layer<span style="color:#000;font-weight:bold">--</span>;
+</span></span><span style="display:flex;"><span>		count <span style="color:#000;font-weight:bold">&lt;&lt;=</span> <span style="color:#099">1</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>} <span style="color:#998;font-style:italic">//====================================main函数=================================
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">int</span> main(){
+</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">//rdt root(false,2);
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">//rdt t1(false,1);
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">//rdt t2(false,3);
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">//root.ln = &amp;t1;
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">//root.rn = &amp;t2;
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">//t1.pa = &amp;root;
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">//t2.pa = &amp;root;
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">//rdt_print(&amp;root);
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">//return 0;
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">int</span> nm[<span style="color:#099">10</span>] <span style="color:#000;font-weight:bold">=</span> {<span style="color:#099">1</span>,<span style="color:#099">3</span>,<span style="color:#099">5</span>,<span style="color:#099">6</span>,<span style="color:#099">8</span>,<span style="color:#099">9</span>,<span style="color:#099">10</span>,<span style="color:#099">4</span>,<span style="color:#099">7</span>,<span style="color:#099">2</span>};
+</span></span><span style="display:flex;"><span>	vector<span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000;font-weight:bold">int</span><span style="color:#000;font-weight:bold">&gt;</span> nums(nm,nm<span style="color:#000;font-weight:bold">+</span><span style="color:#099">10</span>);
+</span></span><span style="display:flex;"><span>	rdt<span style="color:#000;font-weight:bold">*</span> root <span style="color:#000;font-weight:bold">=</span> rdt_init(nums);
+</span></span><span style="display:flex;"><span>	rdt_print(root);
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">int</span> va;
+</span></span><span style="display:flex;"><span>	rdt<span style="color:#000;font-weight:bold">*</span> p;
+</span></span><span style="display:flex;"><span>	cout<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#d14">&#34;\ninput value for del: &#34;</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">while</span>(cin<span style="color:#000;font-weight:bold">&gt;&gt;</span>va){ <span style="color:#000;font-weight:bold">if</span>(va<span style="color:#000;font-weight:bold">==-</span><span style="color:#099">1</span>) <span style="color:#000;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span>		p <span style="color:#000;font-weight:bold">=</span> del_node(root,va); <span style="color:#000;font-weight:bold">if</span>(p<span style="color:#000;font-weight:bold">!=</span>NULL){
+</span></span><span style="display:flex;"><span>			rdt<span style="color:#000;font-weight:bold">*</span> head <span style="color:#000;font-weight:bold">=</span> rdt_head(p);
+</span></span><span style="display:flex;"><span>			root <span style="color:#000;font-weight:bold">=</span> head;
+</span></span><span style="display:flex;"><span>			cout<span style="color:#000;font-weight:bold">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>			rdt_print(head);
+</span></span><span style="display:flex;"><span>		}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span>(root<span style="color:#000;font-weight:bold">-&gt;</span>isred){
+</span></span><span style="display:flex;"><span>				cout<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#d14">&#34;the rdt is empty&#34;</span><span style="color:#000;font-weight:bold">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>				<span style="color:#000;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span>			}<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>				cout<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#d14">&#34;\nerror ,no such value&#34;</span><span style="color:#000;font-weight:bold">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		cout<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#d14">&#34;\ninput value for del: &#34;</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	rdt<span style="color:#000;font-weight:bold">*</span> h <span style="color:#000;font-weight:bold">=</span> rdt_head(root); <span style="color:#000;font-weight:bold">if</span>(h<span style="color:#000;font-weight:bold">!=</span>NULL) rdt_delete(h);
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#099">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>相关文章</h2>
+    <ul class="listing">
+        
+        <li><a href="/blog/algorithm/2020-03-13-%E6%9F%A5%E5%B9%B6%E9%9B%86/">查并集</a></li>
+        
+        <li><a href="/blog/algorithm/2020-03-13-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a></li>
+        
+        <li><a href="/blog/algorithm/2020-03-13-%E4%BD%8D%E6%93%8D%E4%BD%9C/">位操作</a></li>
+        
+        <li><a href="/blog/algorithm/2020-03-13-%E5%AD%97%E5%85%B8%E6%A0%91/">字典树</a></li>
+        
+        <li><a href="/blog/algorithm/2020-03-13-%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">回溯算法</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/blog/tags/%E7%AE%97%E6%B3%95' target="_blank">算法</a></li>
+                
+                <li><a href='/blog/tags/%E7%BA%A2%E9%BB%91%E6%A0%91' target="_blank">红黑树</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "weiweng/blog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2022 <a href="https://weiweng.github.io/blog/">weiweng的博客 By weiweng</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdn.bootcdn.net/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/blog/js/totop.js?v=0.0.0' async=""></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XYCDHPQC9T"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-XYCDHPQC9T', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-08-19-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/" title="分布式锁实现简单总结" target="_blank">分布式锁实现简单总结</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-25-SelectPollEpoll/" title="Select、Poll、Epoll" target="_blank">Select、Poll、Epoll</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-25-Unix%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E4%BA%94%E7%A7%8DIO%E6%A8%A1%E5%9E%8B/" title="Unix网络编程中的五种IO模型" target="_blank">Unix网络编程中的五种IO模型</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-06-13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7%E5%9F%BA%E7%A1%80%E8%AE%A4%E7%9F%A5/" title="微服务数据一致性基础认知" target="_blank">微服务数据一致性基础认知</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-05-19-LRU%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/" title="LRU简单学习" target="_blank">LRU简单学习</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-Nginx%E5%9F%BA%E7%A1%80/" title="Nginx|基础" target="_blank">Nginx|基础</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/" title="搜索引擎技巧" target="_blank">搜索引擎技巧</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/" title="计算机网络|概述" target="_blank">计算机网络|概述</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BF%9B%E7%A8%8B/" title="操作系统|进程" target="_blank">操作系统|进程</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E4%B8%80%E8%87%B4%E6%80%A7/" title="分布式事务一致性" target="_blank">分布式事务一致性</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://weiweng.github.io/blog/categories/c&#43;&#43;/">c&#43;&#43; (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/git/">git (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/golang/">golang (14)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/item2/">item2 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (9)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/lua/">lua (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mq/">mq (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/nginx/">nginx (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/redis/">redis (9)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/shell/">shell (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/tmux/">tmux (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/uml/">uml (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/vim/">vim (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">分布式系统 (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%BF%83%E5%BE%97/">心得 (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95/">算法 (37)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E9%98%85%E8%AF%BB/">阅读 (17)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://weiweng.github.io/blog/tags/2015/">2015</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/2016/">2016</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/2017/">2017</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/2018/">2018</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/2019/">2019</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/2020/">2020</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/6%E5%B8%BD%E6%80%9D%E8%80%83%E6%B3%95/">6帽思考法</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/BIT/">BIT</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/B%E7%B1%BB%E6%A0%91/">B类树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/LFU/">LFU</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/LRU/">LRU</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/acid/">acid</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/alpha-beta/">alpha-beta</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/c&#43;&#43;/">c&#43;&#43;</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/channel/">channel</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/const/">const</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/context/">context</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/copy/">copy</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/defer/">defer</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/delete/">delete</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/dict/">dict</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/explain/">explain</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/file-server/">file server</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/gc/">gc</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/go-snowflake/">go-snowflake</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/golang/">golang</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/group/">group</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/index/">index</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/innoDB/">innoDB</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/interface/">interface</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/intset/">intset</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/io/">io</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/join/">join</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/kafka/">kafka</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/kmp/">kmp</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/linux/">linux</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/lua/">lua</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/map/">map</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/mpg/">mpg</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/mq/">mq</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/mysql/">mysql</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/object/">object</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/panic/">panic</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/poll/">poll</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/pprof/">pprof</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/printf/">printf</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/rebase/">rebase</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/recover/">recover</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/redis/">redis</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/sds/">sds</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/select/">select</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/skip-list/">skip list</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/test/">test</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/zip-list/">zip list</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%B9%A6%E5%8D%95/">书单</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">二分查找</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%8F%89%E5%B9%B3%E8%A1%A1%E6%A0%91/">二叉平衡树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91/">二叉排序树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/">优先级队列</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BD%8D%E5%9B%BE/">位图</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BD%8D%E6%93%8D%E4%BD%9C/">位操作</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/">内存分配</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%86%99%E4%BD%9C%E6%98%AF%E6%9C%80%E5%A5%BD%E7%9A%84%E8%87%AA%E6%88%91%E6%8A%95%E8%B5%84/">写作是最好的自我投资</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">分布式系统</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">分布式锁</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/">分库分表</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/">分治算法</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%8D%95%E8%B0%83%E6%A0%88/">单调栈</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%8D%95%E9%93%BE%E8%A1%A8/">单链表</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/">双端队列</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%93%88%E5%B8%8C/">哈希</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%9B%9E%E6%BA%AF/">回溯</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%9B%BE/">图</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%A0%86/">堆</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%A6%82%E4%BD%95%E6%89%93%E9%80%A0%E4%BD%A0%E7%9A%84%E7%8B%AC%E7%AB%8B%E8%A7%82%E7%82%B9/">如何打造你的独立观点</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E4%B8%80%E6%9C%AC%E4%B9%A6/">如何阅读一本书</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%AD%97%E5%85%B8%E6%A0%91/">字典树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/">广度优先遍历</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">开源协议</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BF%83%E5%BE%97/">心得</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/">快速幂</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%8A%80%E5%B7%A7/">技巧</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%8C%81%E4%B9%85%E5%8C%96/">持久化</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%8E%92%E5%BA%8F/">排序</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7/">数据一致性</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%97%A5%E5%BF%97/">日志</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%9F%A5%E5%B9%B6%E9%9B%86/">查并集</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%A0%88/">栈</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F/">比较排序</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">滑动窗口</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/">红黑树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF/">约瑟夫环</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/">计数排序</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BF%83%E6%99%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%93%B2%E5%AD%A6%E5%8E%9F%E7%90%86/">计算机心智操作系统之哲学原理</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%AE%B0%E5%BF%86%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/">记忆方法总结</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%AE%B2%E6%95%85%E4%BA%8B/">讲故事</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%B4%AA%E5%BF%83/">贪心</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%B6%85%E7%BA%A7%E8%AF%A2%E9%97%AE%E6%9C%AF/">超级询问术</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%BF%9B%E7%A8%8B/">进程</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E9%93%BE%E8%A1%A8/">链表</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E9%97%AE%E9%A2%98%E6%9C%AC%E8%B4%A8/">问题本质</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E9%98%85%E8%AF%BB/">阅读</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E9%98%9F%E5%88%97/">队列</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E9%9B%86%E7%BE%A4/">集群</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://draveness.me/" title="面向信仰编程">面向信仰编程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://xargin.com/" title="No Headback">No Headback</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://eddycjy.com/" title="煎鱼的博客">煎鱼的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://polarisxu.studygolang.com/" title="polarisxu的博客">polarisxu的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://qcrao.com/" title="qcrao 的博客">qcrao 的博客</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://weiweng.github.io/blog/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
