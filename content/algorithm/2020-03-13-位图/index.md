@@ -1,7 +1,6 @@
 +++
 title="位图"
 tags=["算法","位图"]
-categories=["算法"]
 date="2020-03-13T06:42:00+08:00"
 summary = '位图'
 toc=false

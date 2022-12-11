@@ -1,9 +1,6 @@
 +++
 title="Golang|MPG"
-tags=["golang","mpg"]
-categories=["golang"]
 date="2020-03-15T05:57:00+08:00"
-summary = 'MPG分析'
 toc=false
 +++
 

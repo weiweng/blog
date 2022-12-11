@@ -1,7 +1,6 @@
 +++
 title="图及其相关算法"
 tags=["图","算法"]
-categories=["算法"]
 date="2020-08-19T04:07:00+08:00"
 summary = '图及其相关算法'
 toc=false

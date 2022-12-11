@@ -1,7 +1,6 @@
 +++
 title="B类树"
 tags=["算法","B类树"]
-categories=["算法"]
 date="2020-03-13T06:47:00+08:00"
 summary = 'B类树'
 toc=false

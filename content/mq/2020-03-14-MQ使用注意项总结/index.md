@@ -1,9 +1,7 @@
 +++
-title="MQ使用注意项总结 "
-tags=["mq"]
-categories=["mq"]
+title="mq|使用注意项"
 date="2020-03-14T02:41:00+08:00"
-summary = 'MQ使用注意项总结 '
+summary = 'MQ使用注意项'
 toc=false
 +++
 

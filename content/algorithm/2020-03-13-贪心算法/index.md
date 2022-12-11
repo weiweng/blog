@@ -1,7 +1,6 @@
 +++
 title="贪心算法"
 tags=["算法","贪心"]
-categories=["算法"]
 date="2020-03-13T06:17:00+08:00"
 summary = '贪心算法'
 toc=false

@@ -1,9 +1,6 @@
 +++
 title="Golang|go-snowflake"
-tags=["golang","go-snowflake"]
-categories=["golang"]
 date="2020-07-11T03:06:00+08:00"
-summary = 'go工具库分析——go-snowflake'
 toc=false
 +++
 

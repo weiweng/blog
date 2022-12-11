@@ -1,7 +1,6 @@
 +++
 title="分治算法"
 tags=["算法","分治算法"]
-categories=["算法"]
 date="2020-03-13T06:16:00+08:00"
 summary = '分治算法'
 toc=false

@@ -1,7 +1,6 @@
 +++
 title="滑动窗口"
 tags=["算法","滑动窗口"]
-categories=["算法"]
 date="2020-07-04T02:40:00+08:00"
 summary = '滑动窗口'
 toc=false

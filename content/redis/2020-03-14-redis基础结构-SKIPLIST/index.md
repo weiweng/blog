@@ -1,9 +1,7 @@
 +++
 title="redis|skiplist"
-tags=["redis","skip list"]
-categories=["redis"]
 date="2020-03-14T10:51:00+08:00"
-summary = 'redis基础结构-SKIPLIST'
+summary = 'redis基础结构-skiplist'
 toc=false
 +++
 

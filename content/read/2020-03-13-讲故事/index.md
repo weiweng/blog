@@ -1,7 +1,5 @@
 +++
 title="讲故事"
-tags=["阅读","讲故事"]
-categories=["阅读"]
 date="2020-03-13T04:32:00+08:00"
 summary = '讲故事'
 toc=false

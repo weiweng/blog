@@ -1,7 +1,6 @@
 +++
 title="双端队列"
 tags=["算法","双端队列"]
-categories=["算法"]
 date="2020-03-13T05:17:00+08:00"
 summary = '双端队列'
 toc=false

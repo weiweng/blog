@@ -1,9 +1,6 @@
 +++
 title="Golang|panic、recover"
-tags=["golang","panic","recover"]
-categories=["golang"]
 date="2020-04-18T03:02:00+08:00"
-summary = 'panic、recover'
 toc=false
 +++
 

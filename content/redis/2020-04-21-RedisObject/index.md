@@ -1,7 +1,5 @@
 +++
 title="redis|RedisObject"
-tags=["redis","object"]
-categories=["redis"]
 date="2020-04-21T04:01:00+08:00"
 summary = 'RedisObject'
 toc=false

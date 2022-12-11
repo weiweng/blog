@@ -1,7 +1,5 @@
 +++
 title="mysql|Group相关"
-tags=["mysql","group"]
-categories=["mysql"]
 date="2020-03-14T03:06:00+08:00"
 summary = 'Group相关'
 toc=false

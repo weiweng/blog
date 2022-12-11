@@ -1,9 +1,6 @@
 +++
 title="Golang|interface"
-tags=["golang","interface"]
-categories=["golang"]
 date="2020-08-31T09:26:00+08:00"
-summary = 'interface实现原理'
 toc=false
 +++
 

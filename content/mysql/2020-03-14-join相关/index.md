@@ -1,9 +1,6 @@
 +++
 title="mysql|join"
-tags=["mysql","join"]
-categories=["mysql"]
 date="2020-03-14T03:04:00+08:00"
-summary = 'join相关'
 toc=false
 +++
 

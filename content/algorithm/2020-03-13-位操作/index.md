@@ -1,7 +1,6 @@
 +++
 title="位操作"
 tags=["算法","位操作"]
-categories=["算法"]
 date="2020-03-13T06:21:00+08:00"
 summary = '位操作'
 toc=false

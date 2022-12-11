@@ -1,9 +1,6 @@
 +++
-title="Golang|使用注意点"
-tags=["golang"]
-categories=["golang"]
+title="Golang|使用注意"
 date="2020-06-18T12:20:00+08:00"
-summary = 'Golang使用注意点'
 toc=false
 +++
 

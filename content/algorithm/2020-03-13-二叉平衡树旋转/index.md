@@ -1,7 +1,6 @@
 +++
 title="二叉平衡树旋转"
 tags=["算法","二叉平衡树"]
-categories=["算法"]
 date="2020-03-13T06:36:00+08:00"
 summary = '二叉平衡树旋转'
 toc=false

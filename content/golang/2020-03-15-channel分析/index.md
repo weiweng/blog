@@ -1,9 +1,6 @@
 +++
 title="Golang|channel"
-tags=["golang","channel"]
-categories=["golang"]
 date="2020-03-15T06:15:00+08:00"
-summary = 'channel分析'
 toc=false
 +++
 

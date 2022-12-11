@@ -1,7 +1,5 @@
 +++
 title="mysql|排序方法"
-tags=["mysql","排序"]
-categories=["mysql"]
 date="2020-03-14T02:59:00+08:00"
 summary = '排序方法'
 toc=false

@@ -1,7 +1,6 @@
 +++
 title="单调栈和单调队列"
 tags=["算法","单调栈"]
-categories=["算法"]
 date="2020-05-22T06:34:00+08:00"
 summary = '单调栈和单调队列'
 toc=false

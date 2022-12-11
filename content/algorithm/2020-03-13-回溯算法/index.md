@@ -1,7 +1,6 @@
 +++
 title="回溯算法"
 tags=["算法","回溯"]
-categories=["算法"]
 date="2020-03-13T06:18:00+08:00"
 summary = '回溯算法'
 toc=false

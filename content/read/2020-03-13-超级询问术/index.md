@@ -1,7 +1,5 @@
 +++
 title="超级询问术"
-tags=["阅读","超级询问术"]
-categories=["阅读"]
 date="2020-03-13T04:52:00+08:00"
 summary = '超级询问术'
 toc=false

@@ -1,7 +1,6 @@
 +++
 title="二叉排序树详情"
 tags=["算法","二叉排序树"]
-categories=["算法"]
 date="2020-03-13T06:33:00+08:00"
 summary = '二叉排序树详情'
 toc=false

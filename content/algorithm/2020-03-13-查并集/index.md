@@ -1,7 +1,6 @@
 +++
 title="查并集"
 tags=["算法","查并集"]
-categories=["算法"]
 date="2020-03-13T06:24:00+08:00"
 summary = '查并集'
 toc=false

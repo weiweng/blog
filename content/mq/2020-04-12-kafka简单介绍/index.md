@@ -1,9 +1,6 @@
 +++
-title="kafka简单介绍"
-tags=["kafka","mq"]
-categories=["mq"]
+title="mq|kafka简单介绍"
 date="2020-04-12T07:42:00+08:00"
-summary = 'kafka简单介绍'
 toc=false
 +++
 

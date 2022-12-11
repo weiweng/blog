@@ -1,7 +1,6 @@
 +++
 title="广度优先遍历算法"
 tags=["算法","广度优先遍历"]
-categories=["算法"]
 date="2020-03-13T05:12:00+08:00"
 summary = '广度优先遍历算法'
 toc=false

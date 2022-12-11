@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>分布式事务 on weiweng的博客</title>
+    <link>https://weiweng.github.io/blog/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/</link>
+    <description>Recent content in 分布式事务 on weiweng的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 17 Dec 2022 11:18:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>分布式事务管理DTM</title>
+      <link>https://weiweng.github.io/blog/golang/2022-12-17-dmt/</link>
+      <pubDate>Sat, 17 Dec 2022 11:18:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/golang/2022-12-17-dmt/</guid>
+      <description>学习新东西，先是灵魂3问————是什么、解决什么问题、有什么好处？ 首先，DTM是什么？DTM是一款开源的分布式事务管理器，解决跨数据库、跨服务、跨语言栈更新数据</description>
+    </item>
+    
+  </channel>
+</rss>

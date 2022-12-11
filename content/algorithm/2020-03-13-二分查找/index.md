@@ -1,7 +1,6 @@
 +++
 title="二分查找"
 tags=["算法","二分查找"]
-categories=["算法"]
 date="2020-03-13T05:11:00+08:00"
 summary = '二分查找'
 toc=false

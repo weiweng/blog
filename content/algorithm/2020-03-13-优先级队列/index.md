@@ -1,7 +1,6 @@
 +++
 title="优先级队列"
 tags=["算法","优先级队列"]
-categories=["算法"]
 date="2020-03-13T05:16:00+08:00"
 summary = '优先级队列'
 toc=false

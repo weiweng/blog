@@ -1,7 +1,5 @@
 +++
 title="mysql|临时表相关"
-tags=["mysql"]
-categories=["mysql"]
 date="2020-03-14T03:07:00+08:00"
 summary = '临时表相关'
 toc=false

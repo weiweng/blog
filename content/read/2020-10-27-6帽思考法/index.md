@@ -1,7 +1,5 @@
 +++
 title="6帽思考法"
-tags=["阅读","6帽思考法"]
-categories=["阅读"]
 date="2020-10-27T05:23:00+08:00"
 summary = '6帽思考法'
 toc=false

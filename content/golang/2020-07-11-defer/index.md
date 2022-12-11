@@ -1,9 +1,7 @@
 +++
 title="Golang|defer"
-tags=["golang","defer"]
-categories=["golang"]
 date="2020-07-11T02:43:00+08:00"
-summary = 'defer'
+summary = 'defer的原理'
 toc=false
 +++
 

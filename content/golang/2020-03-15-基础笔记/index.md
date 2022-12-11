@@ -1,9 +1,6 @@
 +++
 title="golang|基础笔记"
-tags=["golang"]
-categories=["golang"]
 date="2020-03-15T05:51:00+08:00"
-summary = '基础笔记'
 toc=false
 +++
 

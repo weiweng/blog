@@ -1,9 +1,6 @@
 +++
 title="Golang|test"
-tags=["golang","test"]
-categories=["golang"]
 date="2020-04-30T06:56:00+08:00"
-summary = 'go test使用记录'
 toc=false
 +++
 

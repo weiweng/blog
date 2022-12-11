@@ -1,7 +1,6 @@
 +++
 title="动态规划"
 tags=["算法","动态规划"]
-categories=["算法"]
 date="2020-03-13T06:22:00+08:00"
 summary = '动态规划'
 toc=false
