@@ -1,0 +1,941 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>计算机心智操作系统之哲学原理 | weiweng的博客</title>
+    <meta property="og:title" content="计算机心智操作系统之哲学原理 - weiweng的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-03-13T04:55:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-03-13T04:55:00&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,博客,项目管理,软件架构">
+    <meta name="description" content="计算机心智操作系统之哲学原理">
+        
+    <meta name="author" content="weiweng">
+    <meta property="og:url" content="https://weiweng.github.io/blog/read/2020-03-13-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BF%83%E6%99%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%93%B2%E5%AD%A6%E5%8E%9F%E7%90%86/">
+    <link rel="shortcut icon" href='/blog/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/blog/css/normalize.css'>
+    <link rel="stylesheet" href='/blog/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://weiweng.github.io/blog/">
+                        weiweng的博客
+                    </a>
+                
+                <p class="description">记录所学所思所想，专注于Go语言、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="https://weiweng.github.io/blog/">首页</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/golang/" title="golang">golang</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/algorithm/" title="算法">算法</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/mysql/" title="mysql">mysql</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/redis/" title="redis">redis</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/mq/" title="mq">mq</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/read/" title="阅读">阅读</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/about/" title="关于">关于</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/archives/" title="归档">归档</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">计算机心智操作系统之哲学原理</h1>
+        </header>
+        
+  <time datetime="2020-03-12T20:55:00Z" class="post-meta meta-date dt-published">
+    2020年3月13日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/%E9%98%85%E8%AF%BB' target="_blank">阅读</a>
+  
+</div>
+
+
+        
+        
+        <div class="post-content">
+            <h2 id="基础原理篇">基础原理篇</h2>
+<h3 id="操作系统构成">操作系统构成</h3>
+<ul>
+<li>CPU管理——进程</li>
+<li>内存管理——虚拟内存</li>
+<li>外存管理——文件系统</li>
+<li>设备管理——I/O</li>
+<li>批处理管理</li>
+</ul>
+<h3 id="操作系统发展阶段">操作系统发展阶段</h3>
+<ul>
+<li>状态机操作系统(1940年以前)</li>
+<li>单一操作员操作系统(20世纪40年代)</li>
+<li>批处理操作系统(20世纪50年代)</li>
+<li>多道批处理系统(20世纪60年代)</li>
+<li>分时操作系统和实时操作系统(20世纪70年代)</li>
+<li>现代操作系统(1980年以后)</li>
+</ul>
+<h3 id="内核态与用户态">内核态与用户态</h3>
+<ul>
+<li>内核态就是拥有资源多的状态，或者说访问资源多的状态，我们也称之为特权态。相对来说，用户态就是非特权态，在此状态下访问的资源将受到限制。</li>
+<li>运行在内核态的程序可以访问的资源多，但可靠性、安全性要求高，维护管理都复杂；用户态运行的程序则编写和维护简单。</li>
+</ul>
+<h3 id="系统调用">系统调用</h3>
+<p>系统调用分为三个阶段，分别是：</p>
+<ul>
+<li>参数准备阶段</li>
+<li>系统调用识别阶段</li>
+<li>系统调用执行阶段 以用户程序调用read为例，在参数准备阶段，需要使用系统服务的程序将系统调用所需的参数压入栈中(最高效的是直接放到寄存器中)，然后调用库函数read，而库函数read将调用系统调用read的代码放入一个约定好的寄存器中，通过陷入(trap，一种中断方式)将控制交给操作系统。由此进入第二阶段。操作系统获取控制后，将系统调用代码从寄存器取出，与操作系统维护的一张系统调用表进行比较，获得系统调用read的程序体所在的内存地址。之后跳到改地址，进入第三阶段，执行系统调用函数，执行完毕后返回到用户程序。</li>
+</ul>
+<h2 id="cpu管理进程">CPU管理——进程</h2>
+<h3 id="进程">进程</h3>
+<p>进程表示进展中的程序，操作系统通过进程表来管理，在任何时候，进程占有的所有资源，包括分配给进程的内存、内核数据结构和软资源形成一个进程核(Core),核快照(Core Image)代表进程的某一特定时刻的状态。</p>
+<h3 id="进程创建">进程创建</h3>
+<ul>
+<li>分配进程控制块</li>
+<li>初始化机器寄存器</li>
+<li>初始化页表</li>
+<li>将程序代码从磁盘读取进内存</li>
+<li>将处理器状态设置成用户态</li>
+<li>跳转到程序的起始位置(设置程序计数器) 进程的创立在不同的操作系统所需方法不一样，例如unix中，分为两个步骤：</li>
+</ul>
+<ol>
+<li>fork，创建一个与自己完全一样的新进程。</li>
+<li>exec，将新进程的地址空间用另一个程序的内容覆盖，然后跳转到新程序的起始地址，完成新程序的启动。</li>
+</ol>
+<h3 id="线程">线程</h3>
+<p>线程是进程的一个执行序列，同一进程下的线程共享进程的地址空间、文件、信号、全局变量等，而线程间的独享资源有：程序计数器、寄存器、栈、状态字。</p>
+<h3 id="线程管理">线程管理</h3>
+<p>线程既然是进程的构成部分，则通过进程自己管理还是操作系统管理可以分为用户态线程实现(进程自己管理)和内核态线程实现(操作系统管理)。</p>
+<ul>
+<li>内核态线程实现优点：用户编程简单，线程的复杂调度由操作系统承担，用户编程时无需管理线程调度，并且如果一个线程阻塞，则操作系统可以调度另一个线程。</li>
+<li>内核态线程实现缺点：效率较低，由于线程在内核态实现，每次线程切换都需要先陷入内核。此外，内核态实现占用内存资源，操作系统由于需要维护线程表导致线程数量过多会耗尽内核空间。第三，为了管理线程，需要修改操作系统。</li>
+<li>用户态线程实现优点：首先，灵活性强，操作系统不知道线程的存在，所以任何操作系统上都能应用，其次，线程切换快，因为切换发生在用户态，无需陷入内核，第三，不需要修改操作系统，实现容易。</li>
+<li>用户态线程实现缺点：编程困难，由于线程需要相互合作才能运转，因此需要考虑什么时候让出cpu资源给其他线程使用。</li>
+</ul>
+<h3 id="线程何时从用户态进入内核态">线程何时从用户态进入内核态</h3>
+<ul>
+<li>如果程序运行过程中发生中断或异常，系统将自动切换到内核态来运行中断或异常处理机制。</li>
+<li>程序进行系统调用也会造成用户态进入内核态的转换。</li>
+</ul>
+<h3 id="进程通信">进程通信</h3>
+<ul>
+<li>无名管道</li>
+<li>有名管道</li>
+<li>信号</li>
+<li>共享内存</li>
+<li>消息队列</li>
+<li>信号量</li>
+<li>套接字</li>
+</ul>
+<h3 id="进程同步">进程同步</h3>
+<ul>
+<li>锁</li>
+<li>信号量</li>
+<li>管程</li>
+<li>消息传递</li>
+<li>栅栏</li>
+</ul>
+<h3 id="线程同步">线程同步</h3>
+<ul>
+<li>临界区</li>
+<li>事件</li>
+<li>互斥量</li>
+<li>信号量</li>
+</ul>
+<h3 id="锁">锁</h3>
+<p>操作系统之所以能够构建锁之类的同步源语，原因就是硬件已经为我们提供了一些原子操作：中断禁止和启动、内存加载和存入、测试与设置指令。有了这些硬件原子操作，我们便能够构建软件原子操作：锁、睡眠与叫醒、信号量等。</p>
+<p>上述三种实现方式中测试和设置相对来说更为简单实现锁机制，此外该方法可以适用于多CPU环境而中断启用和禁止则不能。</p>
+<h3 id="死锁">死锁</h3>
+<p>死锁的4个必要条件：</p>
+<ul>
+<li>互斥</li>
+<li>请求和保持</li>
+<li>非剥夺</li>
+<li>环路等待</li>
+</ul>
+<h3 id="死锁应对">死锁应对</h3>
+<h4 id="允许发生死锁">允许发生死锁</h4>
+<h5 id="假装没看见不予理睬">假装没看见，不予理睬</h5>
+<h5 id="死锁检测与修复">死锁检测与修复</h5>
+<ul>
+<li>
+<p>死锁检测，类似与银行家算法(实现动态避免死锁)</p>
+</li>
+<li>
+<p>死锁恢复，抢占或杀死进程 这种策略弊端较多，首先检测和恢复是难题，其次检测进程死锁，则发生致命问题。</p>
+<h4 id="不允许死锁发生">不允许死锁发生</h4>
+<h5 id="资源分配动态检测是否会发生死锁避免死锁发生">资源分配动态检测是否会发生死锁，避免死锁发生</h5>
+<h5 id="消除死锁的必要条件杜绝死锁发生">消除死锁的必要条件，杜绝死锁发生</h5>
+</li>
+</ul>
+<h3 id="哲学家就餐问题">哲学家就餐问题</h3>
+<pre tabindex="0"><code>#define N 5  /*哲学家人数*/
+#define LEFT(i) ((i+N-1)%N) /*哲学家i左边的哲学家*/
+#define RIGHT(i)((i+N-1)%N) /*哲学家i右边的哲学家*/
+#define THINGKING 0 /*思考状态*/
+#define HUNGRY 1 /*饥饿状态*/
+#define EATING 2 /*吃饭状态*/
+typedef int semaphore;
+int state[N]; /*记录每个哲学家当前状态的数组*/
+semaphore mutex = 1; /*互斥信号量*/
+semaphore s[N]; /*每个哲学家等待一个单独信号量*/
+
+void philosopher(int i){
+	while(TRUE){
+		think();
+		take_forks(i); /*同时获得两根筷子，否则阻塞等待*/
+		eat();
+		put_forks(i); /*同时放下两根筷子*/
+	}
+}
+
+void take_forks(i){
+	down(&amp;mutex);
+	state[i] = HUNGRY;
+	test(i); /*试图拿起两根筷子*/
+	up(&amp;mutex);
+	down(&amp;s[i]); /*如果没有拿起筷子，则阻塞等待*/
+}
+
+void put_forks(i){
+	down(&amp;mutex);
+	state[i] = THINKING;
+	test(LEFT(i)); /*测试左面的哲学家是否可以吃饭*/
+	test(RIGHT(i)); /*测试右面的哲学家是否可以吃*/
+	up(&amp;mutex);
+}
+
+void test(i){ if(state[i]==HUNGRY&amp;&amp;state[LEFT(i)]!=EATING&amp;&amp;state[RIGHT(i)]!=EATING){
+		state[i] = EATING;
+		up(&amp;s[i]);
+	}
+}
+</code></pre><h2 id="内存管理虚拟内存">内存管理——虚拟内存</h2>
+<h3 id="内存管理目标">内存管理目标</h3>
+<ul>
+<li>地址保护：一个程序不能访问另一个程序地址空间。</li>
+<li>地址独立：程序出发的地址应与物理主存地址无关。</li>
+</ul>
+<h3 id="虚拟地址">虚拟地址</h3>
+<p>物理地址 = 虚拟地址 + 程序所在区域的起始地址</p>
+<p>由此我们只需要记录两个端值：基址和极限，即可达到地址翻译和地址保护的目的，这两个端值可以由寄存器来存放，分别称为基址寄存器和极限寄存器。</p>
+<pre tabindex="0"><code>if(虚拟地址 &gt; 极限){
+	陷入内核
+	停止进程(core dump)
+}else{
+	物理地址 = 虚拟地址 + 基址
+}
+</code></pre><h3 id="交换">交换</h3>
+<p>交换就是将一个进程从内存倒出到磁盘上，再将其从磁盘上加载到内存中来的过程。这种交换的主要目的是为程序找一片更大的空间，从而防止一个程序空间不够而崩溃。交换的另一个目的是实现进程切换，就是将一个程序暂停一会，让另一个程序运行。不过这样使用交换成本高，一般不这么做。</p>
+<h3 id="闲置空间管理">闲置空间管理</h3>
+<ul>
+<li>位图法</li>
+<li>链表法</li>
+</ul>
+<h3 id="内存管理">内存管理</h3>
+<ul>
+<li>固定加载地址的内存管理(只是用与单道编程)</li>
+<li>固定分区的内存管理</li>
+<li>动态分区的内存管理</li>
+<li>交换内存管理</li>
+<li>分页内存管理</li>
+<li>分段内存管理</li>
+<li>段页式内存管理</li>
+</ul>
+<h3 id="分页内存管理">分页内存管理</h3>
+<p>分页系统的核心是将虚拟内存空间和物理内存空间皆划分为大小相同的页面，并以页面作为空间分配的最小单位，一个程序的一个页面可以存放在任意一个物理页面里。这样将不会产生外部碎片。同时，由于一个虚拟页面可以存放任何一个物理页面里，空间增长也容易解决，只需要分配额外的虚拟页面，并找到一个闲置的物理页面存放即可。</p>
+<h4 id="地址翻译">地址翻译</h4>
+<ul>
+<li>虚拟地址有两部分组成：页面号和页内偏移量</li>
+<li>分页系统对于任意一个虚拟页面，首先检测是否合法，之后系统可以判断该页面是否在物理内存中，如果在，其对应的物理内存是哪一个。如果不在的话，则产生一个系统中断(缺页中断)，并将该虚拟业从磁盘加载到内存，然后分配物理页面号。</li>
+<li>系统通过查页表可得知是否在物理内存以及对于的物理页框号，此外页表项中还存有该页面的其他信息例如是否在缓冲，是否受保护等。</li>
+<li>单级页表每次内存访问都需要至少2次内存访问，一次查页表，一次读取访问内容，若有缺页中断，则还需要一次磁盘读取。而多级页表则访问次数更多。</li>
+<li>为了加快访问次数，系统添加了快表(TLB)，实现快速定位。</li>
+</ul>
+<h4 id="缺页中断过程">缺页中断过程</h4>
+<ul>
+<li>硬件陷入到内核</li>
+<li>保护通用寄存器</li>
+<li>操作系统判断所需的虚拟页面号</li>
+<li>操作系统检测地址的合法性</li>
+<li>操作系统选择一个物理页面用来存放将要调入的页面</li>
+<li>如果选择的物理页面保护有未写入的内容，则首先进行写盘操作</li>
+<li>操作系统将新的虚拟页面调入内存</li>
+<li>更新页表</li>
+<li>发生缺页中断的程序进入就绪状态</li>
+<li>恢复寄存器</li>
+<li>程序继续</li>
+</ul>
+<h3 id="页面置换算法">页面置换算法</h3>
+<ul>
+<li>随机更换算法</li>
+<li>先进先出算法</li>
+<li>第二次机会算法</li>
+<li>时钟算法</li>
+<li>最优更换算法</li>
+<li>NRU算法</li>
+<li>LRU算法</li>
+<li>工作集算法</li>
+<li>工作集合时钟算法</li>
+</ul>
+<h3 id="段式内存管理">段式内存管理</h3>
+<p>分段即将程序分为多个段，每个段使用一个虚拟地址空间，这样克服了分页的缺点——只能使用一个虚拟地址空间。事实上，基本内存管理的一段式管理称为纯粹分段，而一个程序分为多个段的分段管理称为逻辑分段。分段使用的段表，记录了每个段的基址。段页式管理则段表中记录了次级页表的地址，通过段表得到页表，再来定位段内的页地址。</p>
+<h2 id="外存管理文件系统">外存管理——文件系统</h2>
+<h3 id="文件系统目标">文件系统目标</h3>
+<ul>
+<li>地址独立：一个文件在产生的时候无需担心其存放的磁盘地址，即文件数据的产生与文件将来存放的磁盘地址互相独立。</li>
+<li>地址保护：对文件的访问进行一定的限制，即不是任何人都能够访问任何文件。</li>
+</ul>
+<h3 id="文件类型">文件类型</h3>
+<p>大部分操作系统支持多种文件，根据文件的内容是用户数据还是文件系统本身数据，文件可分为三种：目录、一般文件、块文件。</p>
+<ul>
+<li>目录：记录文件的文件，它的内容关乎别的文件。</li>
+<li>一般文件：文本文件和二进制文件</li>
+<li>块文件：既不是关于别的文件也不是用户数据文件，而是关于输入输出设备的。具体来说，块文件模拟输入输出，提供给输入输出一个抽象。</li>
+</ul>
+<h3 id="为什么要分区">为什么要分区</h3>
+<ul>
+<li>分区可以方便我们对磁盘的使用，不同分区可以建立不同的文件系统。</li>
+<li>分区有安全优势，一个分区毁坏，另一个分区仍然可以使用。</li>
+<li>分区还有可靠性的优势，因为一个分区的故障不影响另一个分区的运行。</li>
+<li>磁盘空间的使用，操作系统能访问的磁盘地址是有限的，如果磁盘大小超过访问空间，则剩下的磁盘就不能够被访问了，因此必须分区。</li>
+</ul>
+<h3 id="文件系统布局">文件系统布局</h3>
+<ul>
+<li>MBR(主引导记录)，该记录的内容是一个小程序，用来启动计算机。</li>
+<li>磁盘分区表，给出磁盘的所有分区以及其开始地址和终结地址，其中一个分区为主分区，操作系统就装载在这个分区，主分区里面最前面的是引导记录(BOOT RECORD)。
+<ul>
+<li>计算机启动时，处于主板ROM的BIOS程序首先运行。</li>
+<li>BIOS在进行一些基本的系统检测和配置扫描后对磁盘的扇面0进行读操作，将MBR里的程序读到内存运行。</li>
+<li>MBR程序接下来找系统主分区，并将主分区里面的BOOT RECORD加载运行。</li>
+<li>BOOT RECORD里面内容是一个小程序，改程序负责找到操作系统映像，并加载到内存，从而启动操作系统。</li>
+</ul>
+</li>
+<li>BOOT RECORD记录块后面的内容根据文件系统的不同而不同，但通常情况下，紧接着后面的是一个超级数据块(SUPER BLOCK)，该块里面存放关于文件系统的各种参数。SUPER BLOCK后则是磁盘自由空间，其后是I-NODE区，再后面是文件系统根目录区。分区最后存放用户文件和文件夹区(文件夹的目的是实现文件名到文件地址的映射)</li>
+</ul>
+<h3 id="文件的实现">文件的实现</h3>
+<p>文件的实现，归根结底，就是要把文件的内容存放到合适的地方，并能够在需要的时候很容易读出这些数据。这样，文件的实现要解决的就是如下的三个问题：</p>
+<ul>
+<li>给文件分配磁盘空间：按照用户要求或文件大小分配恰当容量的磁盘空间</li>
+<li>记录这些磁盘空间的位置</li>
+<li>将文件内容存放在这些空间：通过磁盘本身的驱动实现</li>
+</ul>
+<p>上述三点均需要了解数据在磁盘上存放方式：</p>
+<ul>
+<li>连续空间存放</li>
+<li>非连续空间存放
+<ul>
+<li>链表方式：链表、FAT</li>
+<li>索引方式：I-NODE</li>
+</ul>
+</li>
+</ul>
+<h2 id="设备管理io">设备管理——I/O</h2>
+<h3 id="输入输出目的">输入输出目的</h3>
+<ul>
+<li>设备独立：输入输出不以设备不同而不同，即屏蔽输入输出设备上的差异，实现同一接口</li>
+<li>设备保护：一个输入输出设备不影响另一个输入输出设备</li>
+</ul>
+<h3 id="物理io模式">物理I/O模式</h3>
+<p>根据CPU与设备控制器的沟通以及与内存的不同关系，可以分为：</p>
+<ul>
+<li>专有通道I/O : 与内存完全脱离，输入输出不影响内存，但对其访问需要专门的指令</li>
+<li>内存映射I/O : 将I/O映射到内存，实现同一访问方式，但存在总线竞争和控制器缓存更新问题</li>
+<li>混合I/O</li>
+</ul>
+<p>根据CPU在输入输出过程中的涉入程度来分：</p>
+<ul>
+<li>繁忙等待访问</li>
+<li>直接内存访问</li>
+</ul>
+<h3 id="逻辑io模式软件io模式">逻辑I/O模式(软件I/O模式)</h3>
+<ul>
+<li>可编程I/O原理</li>
+<li>中断驱动I/O原理</li>
+<li>直接内存访问I/O原理</li>
+</ul>
+<h3 id="io软件的目的">I/O软件的目的</h3>
+<ul>
+<li>设备独立：程序对I/O设备的访问不依赖与设备的物理特征</li>
+<li>统一命名：设备或文件的命名不依赖于具体的计算机</li>
+<li>错误处理：对输入输出过程中产生的数据错误进行侦测与纠正</li>
+<li>数据传输：实际操作数据在主机与外设之间传递</li>
+<li>缓冲：为数据传输提供一个临时存放地，方便将数据拷贝到目的地</li>
+<li>共享与独享：将设备尽量变为共享，以增大资源利用率和降低死锁发生的概率</li>
+</ul>
+<h3 id="io软件的分层">I/O软件的分层</h3>
+<ul>
+<li>中断服务程序</li>
+<li>设备驱动程序</li>
+<li>设备独立的OS软件
+<ul>
+<li>统一界面(统一功能清单)</li>
+<li>缓冲</li>
+<li>错误报告</li>
+</ul>
+</li>
+<li>用户层I/O软件</li>
+</ul>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>相关文章</h2>
+    <ul class="listing">
+        
+        <li><a href="/blog/read/2020-03-13-%E5%A6%82%E4%BD%95%E6%89%93%E9%80%A0%E4%BD%A0%E7%9A%84%E7%8B%AC%E7%AB%8B%E8%A7%82%E7%82%B9/">如何打造你的独立观点</a></li>
+        
+        <li><a href="/blog/read/2020-03-13-%E8%B6%85%E7%BA%A7%E8%AF%A2%E9%97%AE%E6%9C%AF/">超级询问术</a></li>
+        
+        <li><a href="/blog/post/2020-03-13-%E9%97%AE%E9%A2%98%E6%9C%AC%E8%B4%A8/">问题本质</a></li>
+        
+        <li><a href="/blog/read/2020-03-13-%E5%86%99%E4%BD%9C%E6%98%AF%E6%9C%80%E5%A5%BD%E7%9A%84%E8%87%AA%E6%88%91%E6%8A%95%E8%B5%84/">写作是最好的自我投资</a></li>
+        
+        <li><a href="/blog/read/2020-03-13-%E8%AE%B0%E5%BF%86%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/">记忆方法总结</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/blog/tags/%E9%98%85%E8%AF%BB' target="_blank">阅读</a></li>
+                
+                <li><a href='/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BF%83%E6%99%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%93%B2%E5%AD%A6%E5%8E%9F%E7%90%86' target="_blank">计算机心智操作系统之哲学原理</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "weiweng/blog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2022 <a href="https://weiweng.github.io/blog/">weiweng的博客 By weiweng</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdn.bootcdn.net/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/blog/js/totop.js?v=0.0.0' async=""></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XYCDHPQC9T"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-XYCDHPQC9T', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-08-19-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/" title="分布式锁实现简单总结" target="_blank">分布式锁实现简单总结</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-25-SelectPollEpoll/" title="Select、Poll、Epoll" target="_blank">Select、Poll、Epoll</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-25-Unix%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E4%BA%94%E7%A7%8DIO%E6%A8%A1%E5%9E%8B/" title="Unix网络编程中的五种IO模型" target="_blank">Unix网络编程中的五种IO模型</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-06-13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7%E5%9F%BA%E7%A1%80%E8%AE%A4%E7%9F%A5/" title="微服务数据一致性基础认知" target="_blank">微服务数据一致性基础认知</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-05-19-LRU%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/" title="LRU简单学习" target="_blank">LRU简单学习</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-Nginx%E5%9F%BA%E7%A1%80/" title="Nginx|基础" target="_blank">Nginx|基础</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/" title="搜索引擎技巧" target="_blank">搜索引擎技巧</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/" title="计算机网络|概述" target="_blank">计算机网络|概述</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BF%9B%E7%A8%8B/" title="操作系统|进程" target="_blank">操作系统|进程</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E4%B8%80%E8%87%B4%E6%80%A7/" title="分布式事务一致性" target="_blank">分布式事务一致性</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://weiweng.github.io/blog/categories/c&#43;&#43;/">c&#43;&#43; (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/git/">git (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/golang/">golang (14)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/item2/">item2 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (9)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/lua/">lua (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mq/">mq (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/nginx/">nginx (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/redis/">redis (9)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/shell/">shell (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/tmux/">tmux (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/uml/">uml (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/vim/">vim (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">分布式系统 (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%BF%83%E5%BE%97/">心得 (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95/">算法 (37)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E9%98%85%E8%AF%BB/">阅读 (17)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://weiweng.github.io/blog/tags/2015/">2015</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/2016/">2016</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/2017/">2017</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/2018/">2018</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/2019/">2019</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/2020/">2020</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/6%E5%B8%BD%E6%80%9D%E8%80%83%E6%B3%95/">6帽思考法</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/BIT/">BIT</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/B%E7%B1%BB%E6%A0%91/">B类树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/LFU/">LFU</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/LRU/">LRU</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/acid/">acid</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/alpha-beta/">alpha-beta</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/c&#43;&#43;/">c&#43;&#43;</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/channel/">channel</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/const/">const</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/context/">context</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/copy/">copy</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/defer/">defer</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/delete/">delete</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/dict/">dict</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/explain/">explain</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/file-server/">file server</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/gc/">gc</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/go-snowflake/">go-snowflake</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/golang/">golang</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/group/">group</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/index/">index</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/innoDB/">innoDB</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/interface/">interface</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/intset/">intset</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/io/">io</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/join/">join</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/kafka/">kafka</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/kmp/">kmp</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/linux/">linux</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/lua/">lua</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/map/">map</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/mpg/">mpg</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/mq/">mq</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/mysql/">mysql</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/object/">object</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/panic/">panic</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/poll/">poll</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/pprof/">pprof</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/printf/">printf</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/rebase/">rebase</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/recover/">recover</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/redis/">redis</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/sds/">sds</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/select/">select</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/skip-list/">skip list</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/test/">test</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/zip-list/">zip list</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%B9%A6%E5%8D%95/">书单</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">二分查找</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%8F%89%E5%B9%B3%E8%A1%A1%E6%A0%91/">二叉平衡树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91/">二叉排序树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/">优先级队列</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BD%8D%E5%9B%BE/">位图</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BD%8D%E6%93%8D%E4%BD%9C/">位操作</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/">内存分配</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%86%99%E4%BD%9C%E6%98%AF%E6%9C%80%E5%A5%BD%E7%9A%84%E8%87%AA%E6%88%91%E6%8A%95%E8%B5%84/">写作是最好的自我投资</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">分布式系统</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">分布式锁</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/">分库分表</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/">分治算法</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%8D%95%E8%B0%83%E6%A0%88/">单调栈</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%8D%95%E9%93%BE%E8%A1%A8/">单链表</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/">双端队列</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%93%88%E5%B8%8C/">哈希</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%9B%9E%E6%BA%AF/">回溯</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%9B%BE/">图</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%A0%86/">堆</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%A6%82%E4%BD%95%E6%89%93%E9%80%A0%E4%BD%A0%E7%9A%84%E7%8B%AC%E7%AB%8B%E8%A7%82%E7%82%B9/">如何打造你的独立观点</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E4%B8%80%E6%9C%AC%E4%B9%A6/">如何阅读一本书</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%AD%97%E5%85%B8%E6%A0%91/">字典树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/">广度优先遍历</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">开源协议</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BF%83%E5%BE%97/">心得</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/">快速幂</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%8A%80%E5%B7%A7/">技巧</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%8C%81%E4%B9%85%E5%8C%96/">持久化</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%8E%92%E5%BA%8F/">排序</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7/">数据一致性</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%97%A5%E5%BF%97/">日志</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%9F%A5%E5%B9%B6%E9%9B%86/">查并集</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%A0%88/">栈</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F/">比较排序</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">滑动窗口</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/">红黑树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF/">约瑟夫环</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/">计数排序</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BF%83%E6%99%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%93%B2%E5%AD%A6%E5%8E%9F%E7%90%86/">计算机心智操作系统之哲学原理</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%AE%B0%E5%BF%86%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/">记忆方法总结</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%AE%B2%E6%95%85%E4%BA%8B/">讲故事</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%B4%AA%E5%BF%83/">贪心</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%B6%85%E7%BA%A7%E8%AF%A2%E9%97%AE%E6%9C%AF/">超级询问术</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%BF%9B%E7%A8%8B/">进程</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E9%93%BE%E8%A1%A8/">链表</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E9%97%AE%E9%A2%98%E6%9C%AC%E8%B4%A8/">问题本质</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E9%98%85%E8%AF%BB/">阅读</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E9%98%9F%E5%88%97/">队列</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E9%9B%86%E7%BE%A4/">集群</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://draveness.me/" title="面向信仰编程">面向信仰编程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://xargin.com/" title="No Headback">No Headback</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://eddycjy.com/" title="煎鱼的博客">煎鱼的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://polarisxu.studygolang.com/" title="polarisxu的博客">polarisxu的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://qcrao.com/" title="qcrao 的博客">qcrao 的博客</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://weiweng.github.io/blog/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -8,11 +8,11 @@
     <language>zh-CN</language>
     <lastBuildDate>Sat, 11 Jul 2020 02:43:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/tags/defer/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>defer</title>
-      <link>https://weiweng.github.io/blog/post/2020-07-11-defer/</link>
+      <title>Golang|defer</title>
+      <link>https://weiweng.github.io/blog/golang/2020-07-11-defer/</link>
       <pubDate>Sat, 11 Jul 2020 02:43:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2020-07-11-defer/</guid>
+      <guid>https://weiweng.github.io/blog/golang/2020-07-11-defer/</guid>
       <description>defer</description>
     </item>
     

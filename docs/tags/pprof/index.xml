@@ -8,11 +8,11 @@
     <language>zh-CN</language>
     <lastBuildDate>Sun, 15 Mar 2020 05:53:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/tags/pprof/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Pprof</title>
-      <link>https://weiweng.github.io/blog/post/2020-03-15-Pprof/</link>
+      <title>Golang|Pprof</title>
+      <link>https://weiweng.github.io/blog/golang/2020-03-15-Pprof/</link>
       <pubDate>Sun, 15 Mar 2020 05:53:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2020-03-15-Pprof/</guid>
+      <guid>https://weiweng.github.io/blog/golang/2020-03-15-Pprof/</guid>
       <description>Pprof</description>
     </item>
     

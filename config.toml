@@ -119,10 +119,45 @@ summaryLength = 140
 
 [menu]
   [[menu.main]]
+    identifier = "golang"
+    name = "golang"
+    url = "/golang/"
+    weight = 3
+  [[menu.main]]
+    identifier = "tools"
+    name = "工具"
+    url = "/tools/"
+    weight = 4
+  [[menu.main]]
+    identifier = "algorithm"
+    name = "算法"
+    url = "/algorithm/"
+    weight = 5
+  [[menu.main]]
+    identifier = "mysql"
+    name = "mysql"
+    url = "/mysql/"
+    weight = 6
+  [[menu.main]]
+    identifier = "redis"
+    name = "redis"
+    url = "/redis/"
+    weight = 7
+  [[menu.main]]
+    identifier = "mq"
+    name = "mq"
+    url = "/mq/"
+    weight = 8
+  [[menu.main]]
+    identifier = "read"
+    name = "阅读"
+    url = "/read/"
+    weight = 9
+  [[menu.main]]
     identifier = "about"
     name = "关于"
     url = "/about/"
-    weight = 5
+    weight = 10
 
   [[menu.main]]
     identifier = "archives"

@@ -8,11 +8,11 @@
     <language>zh-CN</language>
     <lastBuildDate>Wed, 22 Apr 2020 03:57:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/tags/%E9%9B%86%E7%BE%A4/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Redis集群</title>
-      <link>https://weiweng.github.io/blog/post/2020-04-22-Redis%E9%9B%86%E7%BE%A4/</link>
+      <title>redis|集群</title>
+      <link>https://weiweng.github.io/blog/redis/2020-04-22-Redis%E9%9B%86%E7%BE%A4/</link>
       <pubDate>Wed, 22 Apr 2020 03:57:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2020-04-22-Redis%E9%9B%86%E7%BE%A4/</guid>
+      <guid>https://weiweng.github.io/blog/redis/2020-04-22-Redis%E9%9B%86%E7%BE%A4/</guid>
       <description>Redis集群</description>
     </item>
     
