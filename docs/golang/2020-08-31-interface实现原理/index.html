@@ -97,12 +97,11 @@
         
         
         <div class="post-content">
-            <h1 id="interface">interface</h1>
-<h2 id="接口类型">接口类型</h2>
+            <h2 id="接口类型">接口类型</h2>
 <p>接口是一种抽象类型，它没有暴露所含数据的布局或者内部结构，当然也没有哪些数据的基本操作，所提供的仅仅是一些方法。当你拿到一个接口类型的变量，你无从知道它是什么，但你能知道它能做什么，或者更精确地讲，仅仅是它提供了哪些方法。</p>
 <h2 id="接口定义">接口定义</h2>
-<p>Go语言提供了 interface关键字，接口中只能定义需要实现的方法，不能包含任何的变量</p>
-<p>Go语言中的接口类型会根据是否包含一组方法而分成两种不同的实现，分别为包含一组方法的iface结构体和不包含任何方法的eface结构体</p>
+<p>Go 语言提供了 interface 关键字，接口中只能定义需要实现的方法，不能包含任何的变量</p>
+<p>Go 语言中的接口类型会根据是否包含一组方法而分成两种不同的实现，分别为包含一组方法的 iface 结构体和不包含任何方法的 eface 结构体</p>
 <h1 id="iface">iface</h1>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -132,43 +131,43 @@
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#998;font-style:italic">//runtime/runtime2.go
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">type</span> iface <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	tab  <span style="color:#000;font-weight:bold">*</span>itab
-</span></span><span style="display:flex;"><span>	data unsafe.Pointer
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">//unsafe.Pointer类型是一种特殊类型的指针，它可以存储任何变量的地址（类似C语言的void*）
+</span></span><span style="display:flex;"><span> tab  <span style="color:#000;font-weight:bold">*</span>itab
+</span></span><span style="display:flex;"><span> data unsafe.Pointer
+</span></span><span style="display:flex;"><span> <span style="color:#998;font-style:italic">//unsafe.Pointer类型是一种特殊类型的指针，它可以存储任何变量的地址（类似C语言的void*）
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//runtime/runtime2.go
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">type</span> itab <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	inter <span style="color:#000;font-weight:bold">*</span>interfacetype
-</span></span><span style="display:flex;"><span>	_type <span style="color:#000;font-weight:bold">*</span>_type
-</span></span><span style="display:flex;"><span>	hash  <span style="color:#458;font-weight:bold">uint32</span> <span style="color:#998;font-style:italic">// copy of _type.hash. Used for type switches.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	_     [<span style="color:#099">4</span>]<span style="color:#458;font-weight:bold">byte</span>
-</span></span><span style="display:flex;"><span>	fun   [<span style="color:#099">1</span>]<span style="color:#458;font-weight:bold">uintptr</span> <span style="color:#998;font-style:italic">// variable sized. fun[0]==0 means _type does not implement inter.
+</span></span><span style="display:flex;"><span> inter <span style="color:#000;font-weight:bold">*</span>interfacetype
+</span></span><span style="display:flex;"><span> _type <span style="color:#000;font-weight:bold">*</span>_type
+</span></span><span style="display:flex;"><span> hash  <span style="color:#458;font-weight:bold">uint32</span> <span style="color:#998;font-style:italic">// copy of _type.hash. Used for type switches.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span> _     [<span style="color:#099">4</span>]<span style="color:#458;font-weight:bold">byte</span>
+</span></span><span style="display:flex;"><span> fun   [<span style="color:#099">1</span>]<span style="color:#458;font-weight:bold">uintptr</span> <span style="color:#998;font-style:italic">// variable sized. fun[0]==0 means _type does not implement inter.
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//runtime/type.go
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">type</span> interfacetype <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	typ     _type
-</span></span><span style="display:flex;"><span>	pkgpath name
-</span></span><span style="display:flex;"><span>	mhdr    []imethod
+</span></span><span style="display:flex;"><span> typ     _type
+</span></span><span style="display:flex;"><span> pkgpath name
+</span></span><span style="display:flex;"><span> mhdr    []imethod
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>itab用于表示具体类型和接口类型关系</p>
+</div><p>itab 用于表示具体类型和接口类型关系</p>
 <ul>
 <li><code>inter</code> 是接口类型定义信息</li>
 <li><code>_type</code> 是具体类型的信息</li>
 <li><code>hash</code>是<code>_type.hash</code>的拷贝，在类型转换时，快速判断目标类型和接口中类型是否一致</li>
-<li><code>fun</code>是实现方法地址列表，虽然fun固定长度为1的数组，但是这其实是一个柔型数组，保存元素的数量是不确定的，如有多个方法，则会按照字典顺序排序</li>
+<li><code>fun</code>是实现方法地址列表，虽然 fun 固定长度为 1 的数组，但是这其实是一个柔型数组，保存元素的数量是不确定的，如有多个方法，则会按照字典顺序排序</li>
 </ul>
-<p>interfacetype是描述接口定义的信息</p>
+<p>interfacetype 是描述接口定义的信息</p>
 <ul>
 <li><code>_type</code> 接口的类型信息</li>
 <li><code>pkgpath</code> 是定义接口的包名</li>
 <li><code>mhdr</code> 是接口中定义的函数表，按字典序排序</li>
 </ul>
 <p>
-        <img class="mx-auto" alt="" src="img_0.png" />   
+        <img class="mx-auto" alt="itab" src="img_0.png" />   
     </p>
 <h1 id="eface">eface</h1>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
@@ -182,17 +181,17 @@
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#998;font-style:italic">//runtime/runtime2.go
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">type</span> eface <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	_type <span style="color:#000;font-weight:bold">*</span>_type
-</span></span><span style="display:flex;"><span>	data  unsafe.Pointer
+</span></span><span style="display:flex;"><span> _type <span style="color:#000;font-weight:bold">*</span>_type
+</span></span><span style="display:flex;"><span> data  unsafe.Pointer
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>
-        <img class="mx-auto" alt="" src="img_1.png" />   
+        <img class="mx-auto" alt="eface" src="img_1.png" />   
     </p>
 <h1 id="参考">参考</h1>
 <ul>
-<li><a href="https://blog.csdn.net/ITqingliang/article/details/104647565/">Interface实现原理分析</a></li>
+<li><a href="https://blog.csdn.net/ITqingliang/article/details/104647565/">Interface 实现原理分析</a></li>
 </ul>
 
         </div>
@@ -377,7 +376,7 @@ if (!doNotTrack) {
     
     <li><a href="https://weiweng.github.io/blog/categories/vim/">vim (2)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">分布式系统 (3)</a></li>
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">分布式系统 (2)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (1)</a></li>
     
@@ -399,8 +398,6 @@ if (!doNotTrack) {
     <a href="https://weiweng.github.io/blog/tags/BIT/">BIT</a>
     
     <a href="https://weiweng.github.io/blog/tags/B%E7%B1%BB%E6%A0%91/">B类树</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/DTM/">DTM</a>
     
     <a href="https://weiweng.github.io/blog/tags/LFU/">LFU</a>
     
@@ -459,8 +456,6 @@ if (!doNotTrack) {
     <a href="https://weiweng.github.io/blog/tags/%E4%BD%8D%E5%9B%BE/">位图</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E4%BD%8D%E6%93%8D%E4%BD%9C/">位操作</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/">分布式事务</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">分布式系统</a>
     

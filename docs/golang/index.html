@@ -84,7 +84,28 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://weiweng.github.io/blog/golang/2022-12-17-dmt/" title="分布式事务管理DTM" target="_blank">分布式事务管理DTM</a>
+                <a href="https://weiweng.github.io/blog/golang/2022-12-30-plan9%E6%B1%87%E7%BC%96/" title="Golang|plan9汇编" target="_blank">Golang|plan9汇编</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-12-30T11:56:00Z" class="post-meta meta-date dt-published">
+    2022年12月30日
+  </time>
+
+
+
+        <div class="post-content">
+            当我们使用go tool compile -S -N -l xxx.go命令，查看go语言对应的汇编代码时，生成的一行行汇编指令可能让人困惑，由于Go 使用了plan9 汇编，因此这篇文章接下来记录一……
+        </div>
+        <p class="readmore"><a href="https://weiweng.github.io/blog/golang/2022-12-30-plan9%E6%B1%87%E7%BC%96/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://weiweng.github.io/blog/golang/2022-12-17-dmt/" title="Golang|分布式事务管理DTM" target="_blank">Golang|分布式事务管理DTM</a>
             </h1>
         </header>
         
@@ -92,13 +113,6 @@
     2022年12月17日
   </time>
 
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/blog/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F' target="_blank">分布式系统</a>
-  
-</div>
 
 
         <div class="post-content">
@@ -123,7 +137,7 @@
 
 
         <div class="post-content">
-            interface 接口类型 接口是一种抽象类型，它没有暴露所含数据的布局或者内部结构，当然也没有哪些数据的基本操作，所提供的仅仅是一些方法。当你拿到一个接口类型的变量，你无从知道……
+            接口类型 接口是一种抽象类型，它没有暴露所含数据的布局或者内部结构，当然也没有哪些数据的基本操作，所提供的仅仅是一些方法。当你拿到一个接口类型的变量，你无从知道它……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/golang/2020-08-31-interface%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" target="_blank">阅读全文</a></p>
     </article>
@@ -277,27 +291,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://weiweng.github.io/blog/golang/2020-03-15-channel%E5%88%86%E6%9E%90/" title="Golang|channel" target="_blank">Golang|channel</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-03-14T22:15:00Z" class="post-meta meta-date dt-published">
-    2020年3月15日
-  </time>
-
-
-
-        <div class="post-content">
-            channel结构体 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 type hchan struct { qcount uint //大小 dataqsiz uint //有缓存的队列大小 buf unsafe.Pointer //有缓存的循环队列指针 elemsize uint16 closed uint32 elemtype *_type //类型 sendx uint //有缓存……
-        </div>
-        <p class="readmore"><a href="https://weiweng.github.io/blog/golang/2020-03-15-channel%E5%88%86%E6%9E%90/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -445,7 +438,7 @@ if (!doNotTrack) {
     
     <li><a href="https://weiweng.github.io/blog/categories/vim/">vim (2)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">分布式系统 (3)</a></li>
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">分布式系统 (2)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (1)</a></li>
     
@@ -467,8 +460,6 @@ if (!doNotTrack) {
     <a href="https://weiweng.github.io/blog/tags/BIT/">BIT</a>
     
     <a href="https://weiweng.github.io/blog/tags/B%E7%B1%BB%E6%A0%91/">B类树</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/DTM/">DTM</a>
     
     <a href="https://weiweng.github.io/blog/tags/LFU/">LFU</a>
     
@@ -527,8 +518,6 @@ if (!doNotTrack) {
     <a href="https://weiweng.github.io/blog/tags/%E4%BD%8D%E5%9B%BE/">位图</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E4%BD%8D%E6%93%8D%E4%BD%9C/">位操作</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/">分布式事务</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">分布式系统</a>
     

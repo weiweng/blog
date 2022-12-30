@@ -6,9 +6,18 @@
     <description>Recent content in Golangs on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 17 Dec 2022 11:18:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/golang/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Dec 2022 19:56:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>分布式事务管理DTM</title>
+      <title>Golang|plan9汇编</title>
+      <link>https://weiweng.github.io/blog/golang/2022-12-30-plan9%E6%B1%87%E7%BC%96/</link>
+      <pubDate>Fri, 30 Dec 2022 19:56:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/golang/2022-12-30-plan9%E6%B1%87%E7%BC%96/</guid>
+      <description>当我们使用go tool compile -S -N -l xxx.go命令，查看go语言对应的汇编代码时，生成的一行行汇编指令可能让人困惑，由于Go 使用了plan9 汇编，因此这篇文章接下来记录一</description>
+    </item>
+    
+    <item>
+      <title>Golang|分布式事务管理DTM</title>
       <link>https://weiweng.github.io/blog/golang/2022-12-17-dmt/</link>
       <pubDate>Sat, 17 Dec 2022 11:18:00 +0800</pubDate>
       
@@ -22,7 +31,7 @@
       <pubDate>Mon, 31 Aug 2020 09:26:00 +0800</pubDate>
       
       <guid>https://weiweng.github.io/blog/golang/2020-08-31-interface%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/</guid>
-      <description>interface 接口类型 接口是一种抽象类型，它没有暴露所含数据的布局或者内部结构，当然也没有哪些数据的基本操作，所提供的仅仅是一些方法。当你拿到一个接口类型的变量，你无从知道</description>
+      <description>接口类型 接口是一种抽象类型，它没有暴露所含数据的布局或者内部结构，当然也没有哪些数据的基本操作，所提供的仅仅是一些方法。当你拿到一个接口类型的变量，你无从知道它</description>
     </item>
     
     <item>

@@ -1,7 +1,5 @@
 +++
-title="分布式事务管理DTM"
-tags=["分布式事务","DTM"]
-categories=["分布式系统"]
+title="Golang|分布式事务管理DTM"
 date="2022-12-17T11:18:00+08:00"
 toc=false
 +++
