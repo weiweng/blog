@@ -1,7 +1,5 @@
 +++
 title="记忆方法总结"
-tags=["记忆方法总结","阅读"]
-categories=["阅读"]
 date="2020-03-13T04:41:00+08:00"
 summary = '记忆方法总结'
 toc=false

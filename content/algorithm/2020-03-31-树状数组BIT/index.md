@@ -1,7 +1,6 @@
 +++
 title="树状数组BIT"
 tags=["算法","BIT"]
-categories=["算法"]
 date="2020-03-31T04:08:00+08:00"
 summary = '树状数组BIT'
 toc=false

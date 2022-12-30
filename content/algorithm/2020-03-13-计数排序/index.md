@@ -1,7 +1,6 @@
 +++
 title="计数排序"
 tags=["算法","计数排序"]
-categories=["算法"]
 date="2020-03-13T05:09:00+08:00"
 summary = '计数排序'
 toc=false

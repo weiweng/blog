@@ -1,9 +1,6 @@
 +++
 title="mysql|更新流程解析"
-tags=["mysql"]
-categories=["mysql"]
 date="2020-03-14T02:51:00+08:00"
-summary = '更新流程解析'
 toc=false
 +++
 

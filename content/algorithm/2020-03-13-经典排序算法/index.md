@@ -1,7 +1,6 @@
 +++
 title="经典排序算法"
 tags=["算法","排序"]
-categories=["算法"]
 date="2020-03-13T05:06:00+08:00"
 summary = '经典排序算法'
 toc=false

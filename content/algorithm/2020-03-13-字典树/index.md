@@ -1,7 +1,6 @@
 +++
 title="字典树"
 tags=["算法","字典树"]
-categories=["算法"]
 date="2020-03-13T06:20:00+08:00"
 summary = '字典树'
 toc=false

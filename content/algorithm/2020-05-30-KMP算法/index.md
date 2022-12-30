@@ -1,7 +1,6 @@
 +++
 title="KMP算法"
 tags=["算法","kmp"]
-categories=["算法"]
 date="2020-05-30T10:38:00+08:00"
 summary = 'KMP算法'
 toc=false

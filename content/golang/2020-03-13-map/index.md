@@ -1,9 +1,6 @@
 +++
 title="Golang|map"
-tags=["golang","map"]
-categories=["golang"]
 date="2020-03-13T06:38:00+08:00"
-summary = 'map'
 toc=false
 +++
 

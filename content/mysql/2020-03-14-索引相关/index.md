@@ -1,9 +1,6 @@
 +++
 title="mysql|索引相关 "
-tags=["mysql","index"]
-categories=["mysql"]
 date="2020-03-14T02:52:00+08:00"
-summary = '索引相关 '
 toc=false
 +++
 

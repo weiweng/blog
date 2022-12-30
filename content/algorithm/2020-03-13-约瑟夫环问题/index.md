@@ -1,7 +1,6 @@
 +++
 title="约瑟夫环问题"
 tags=["算法","约瑟夫环"]
-categories=["算法"]
 date="2020-03-13T04:58:00+08:00"
 summary = '约瑟夫环问题'
 toc=false

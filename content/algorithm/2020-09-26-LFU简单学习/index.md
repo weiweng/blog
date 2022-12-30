@@ -1,7 +1,6 @@
 +++
 title="LFU简单学习"
 tags=["LFU","算法"]
-categories=["算法"]
 date="2020-09-26T05:08:00+08:00"
 summary = 'LFU简单学习'
 toc=false

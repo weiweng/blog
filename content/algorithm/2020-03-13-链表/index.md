@@ -1,7 +1,6 @@
 +++
 title="链表"
 tags=["算法","链表"]
-categories=["算法"]
 date="2020-03-13T06:39:00+08:00"
 summary = '链表'
 toc=false

@@ -1,7 +1,5 @@
 +++
 title="redis|基础"
-tags=["redis"]
-categories=["redis"]
 date="2020-03-14T10:41:00+08:00"
 summary = 'redis基础'
 toc=false

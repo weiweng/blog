@@ -1,9 +1,6 @@
 +++
 title="mysql|锁相关"
-tags=["mysql"]
-categories=["mysql"]
 date="2020-03-14T02:53:00+08:00"
-summary = '锁相关'
 toc=false
 +++
 

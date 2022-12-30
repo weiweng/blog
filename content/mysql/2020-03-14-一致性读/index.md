@@ -1,9 +1,6 @@
 +++
 title="mysql|一致性读"
-tags=["mysql"]
-categories=["mysql"]
 date="2020-03-14T02:55:00+08:00"
-summary = '一致性读'
 toc=false
 +++
 

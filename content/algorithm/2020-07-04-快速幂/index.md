@@ -1,7 +1,6 @@
 +++
 title="快速幂"
 tags=["算法","快速幂"]
-categories=["算法"]
 date="2020-07-04T02:36:00+08:00"
 summary = '快速幂'
 toc=false

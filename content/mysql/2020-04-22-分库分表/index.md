@@ -1,9 +1,6 @@
 +++
 title="mysql|分库分表"
-tags=["mysql","分库分表"]
-categories=["mysql"]
 date="2020-04-22T08:08:00+08:00"
-summary = '分库分表'
 toc=false
 +++
 

@@ -1,9 +1,6 @@
 +++
 title="mysql|explain"
-tags=["mysql","explain"]
-categories=["mysql"]
 date="2020-03-14T03:09:00+08:00"
-summary = 'explain使用'
 toc=false
 +++
 

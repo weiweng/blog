@@ -1,7 +1,5 @@
 +++
 title="mysql|基础认知"
-tags=["mysql"]
-categories=["mysql"]
 date="2020-03-14T02:45:00+08:00"
 summary = '基础认知'
 toc=false

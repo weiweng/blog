@@ -1,9 +1,6 @@
 +++
-title="Kafka速度分析"
-tags=["kafka","mq"]
-categories=["mq"]
+title="mq|Kafka速度分析"
 date="2020-04-17T11:52:00+08:00"
-summary = 'Kafka速度分析'
 toc=false
 +++
 

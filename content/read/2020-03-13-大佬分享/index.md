@@ -1,7 +1,5 @@
 +++
 title="曹老板分享的技术成长"
-tags=["心得"]
-categories=["心得"]
 date="2020-03-13T04:43:00+08:00"
 summary = '曹老板分享的技术成长'
 toc=false

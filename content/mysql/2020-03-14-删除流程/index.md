@@ -1,9 +1,6 @@
 +++
 title="mysql|删除流程"
-tags=["mysql","delete"]
-categories=["mysql"]
 date="2020-03-14T03:02:00+08:00"
-summary = '删除流程'
 toc=false
 +++
 

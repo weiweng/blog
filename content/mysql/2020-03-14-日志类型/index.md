@@ -1,9 +1,6 @@
 +++
 title="mysql|日志类型"
-tags=["mysql","日志"]
-categories=["mysql"]
 date="2020-03-14T02:57:00+08:00"
-summary = '日志类型'
 toc=false
 +++
 

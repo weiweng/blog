@@ -1,7 +1,5 @@
 +++
 title="mysql|导入导出相关"
-tags=["mysql"]
-categories=["mysql"]
 date="2020-03-14T03:08:00+08:00"
 summary = '导入导出相关'
 toc=false

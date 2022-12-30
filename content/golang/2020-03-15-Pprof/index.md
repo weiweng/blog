@@ -1,9 +1,7 @@
 +++
-title="Golang|Pprof"
-tags=["golang","pprof"]
-categories=["golang"]
+title="Golang|pprof"
 date="2020-03-15T05:53:00+08:00"
-summary = 'Pprof'
+summary = 'pprof的基本安装和使用方法'
 toc=false
 +++
 

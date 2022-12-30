@@ -1,9 +1,6 @@
 +++
 title="mysql|使用注意"
-tags=["mysql"]
-categories=["mysql"]
 date="2020-03-14T03:10:00+08:00"
-summary = 'Mysql使用注意项总结'
 toc=false
 +++
 

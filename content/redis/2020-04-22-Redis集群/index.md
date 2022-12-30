@@ -1,9 +1,6 @@
 +++
 title="redis|集群"
-tags=["redis","集群"]
-categories=["redis"]
 date="2020-04-22T03:57:00+08:00"
-summary = 'Redis集群'
 toc=false
 +++
 

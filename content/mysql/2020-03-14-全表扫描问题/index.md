@@ -1,9 +1,6 @@
 +++
 title="mysql|全表扫描问题"
-tags=["mysql"]
-categories=["mysql"]
 date="2020-03-14T03:03:00+08:00"
-summary = '全表扫描问题'
 toc=false
 +++
 

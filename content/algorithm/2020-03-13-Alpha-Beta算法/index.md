@@ -1,7 +1,6 @@
 +++
 title="Alpha-Beta算法"
 tags=["算法","alpha-beta"]
-categories=["算法"]
 date="2020-03-13T05:00:00+08:00"
 summary = 'Alpha-Beta算法'
 toc=false

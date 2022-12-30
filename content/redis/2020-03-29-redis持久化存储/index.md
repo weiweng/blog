@@ -1,9 +1,6 @@
 +++
 title="redis|持久化存储"
-tags=["redis","持久化"]
-categories=["redis"]
 date="2020-03-29T01:29:00+08:00"
-summary = 'redis持久化存储'
 toc=false
 +++
 

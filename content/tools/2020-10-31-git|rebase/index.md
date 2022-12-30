@@ -3,75 +3,61 @@ title="git|rebase"
 tags=["git","rebase"]
 categories=["git"]
 date="2020-10-31T03:04:00+08:00"
-summary = 'git|rebase'
+summary = 'git rebase的简介以及使用方法'
 toc=false
 +++
 
-rebase
-======
+rebase，字面意思就是从新奠定基础，能够将分叉的分支重新接入合并，形成同一路径，而不是新开链路，如图所示
 
-git rebase，字面意思就是从新奠定基础，能够将分叉的分支重新合并
+```c
+          A---B---C topic
+         /
+    D---E---F---G master
+```
 
-使用
-====
+执行`git rebase master`命令后
 
-整理分支的本地多个提交
-----------------------
+```c
+                  A'--B'--C' topic
+                 /
+    D---E---F---G master
+```
 
-### 如图 dev分支6个本地的commit
+注意如果目标分支已经包含了相同节点，则会自动通过，如图所示，`A`和`A'`是同一提交节点
 
-![6个提交](img_0.png)
+```c
+          A---B---C topic
+         /
+    D---E---A'---F master
+```
 
-### 当前分支，使用命令**`git rebase -i`**
+执行`git rebase master`命令后
 
-![rebase](img_1.png)
+```c
+                   B'---C' topic
+                  /
+    D---E---A'---F master
+```
 
-### 如图所示，将dev-1、dev-2、dev-3合并到init的commit
+### 使用方法
 
-### 编辑后会进入commit comment重新编辑页面，编辑合并的comment信息
+- 在当前分支上执行 `git rebase xxx` 命令，目的是将当前分支接入 `xxx` 分支上。或者执行 `git rebase -i $commit_id` 命令，将当前分支接入 `$commit_id` 节点。
 
-![结果](img_2.png)
+- 如果有冲突，会中断流程，提示解决冲突，没有冲突则进入commit选择页面
 
-整理分支的远程多个提交
-----------------------
+- 解决冲突后，执行 `git rebase --continue` ，继续合并，没有冲突后，进入commit选择页面
 
-### 如图dev push到远程
+- 分支选择页面提交后，即合并成功
 
-![](img_3.png)
+- 如果不想合并了，则执行 `git rebase --abort` ，中断流程
 
-### 想要合并已经push到远程的commit
 
-### 在dev分支，执行**`git rebase -i dev~4`**，这里的4是含义是当前HEAD到前4个commit的重新编辑
+### 与git merge区别
 
-![](img_4.png)
+1. git merge 合并分支后，与目标分支产生一个合并commit节点
+2. git rebase 合并后，会嫁接在目标分支后之后
 
-![](img_5.png)
 
-### 重新提交，因为这里把之前的comment丢弃，所以提示拉取远程后再次合并，结果如下
+## 参考
 
-![](img_6.png)
-
-合并代码，log线性化
--------------------
-
-### dev分支开发完成，想要合并master
-
-### 一般操作是先把master代码拉取，合并到dev，然后dev提交
-
-### 这样存在一个分支图分叉的问题，强迫症患者觉得很不雅
-
-### 新方法，本地master拉取最新代码，在dev分支上使用**`git rebase -i master`**
-
-### 具体含义可以理解基于master代码筑基
-
-### 解决冲突后执行**`git push -f`**
-
-### 解决冲突后提交
-
-![](img_7.png)
-
-### 看到master分支是线性的
-
-参考
-====
-
+1. [官方git rebase文档](https://git-scm.com/docs/git-rebase)

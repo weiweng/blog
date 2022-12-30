@@ -1,9 +1,6 @@
 +++
 title="mysql|知识点收集"
-tags=["mysql"]
-categories=["mysql"]
 date="2020-03-14T02:47:00+08:00"
-summary = '知识点收集'
 toc=false
 +++
 

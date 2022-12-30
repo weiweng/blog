@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>百万富翁快车道 | weiweng的博客</title>
+    <meta property="og:title" content="百万富翁快车道 - weiweng的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2022-12-11T20:11:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2022-12-11T20:11:00&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,博客,项目管理,软件架构">
+    <meta name="description" content="百万富翁快车道">
+        
+    <meta name="author" content="weiweng">
+    <meta property="og:url" content="https://weiweng.github.io/blog/read/2022-12-11-%E7%99%BE%E4%B8%87%E5%AF%8C%E7%BF%81%E5%BF%AB%E8%BD%A6%E9%81%93/">
+    <link rel="shortcut icon" href='/blog/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/blog/css/normalize.css'>
+    <link rel="stylesheet" href='/blog/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://weiweng.github.io/blog/">
+                        weiweng的博客
+                    </a>
+                
+                <p class="description">记录所学所思所想，专注于Go语言、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="https://weiweng.github.io/blog/">首页</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/golang/" title="golang">golang</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/algorithm/" title="算法">算法</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/mysql/" title="mysql">mysql</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/redis/" title="redis">redis</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/mq/" title="mq">mq</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/read/" title="阅读">阅读</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/about/" title="关于">关于</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/archives/" title="归档">归档</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">百万富翁快车道</h1>
+        </header>
+        
+  <time datetime="2022-12-11T12:11:00Z" class="post-meta meta-date dt-published">
+    2022年12月11日
+  </time>
+
+
+
+        
+        
+        <div class="post-content">
+            <p>《百万富翁快车道》破译了终生富足的密码，是解开致富快捷之路的密钥。</p>
+<p>作者 [美]MJ·德马科</p>
+<h2 id="书籍内容">书籍内容</h2>
+<h3 id="人间路">人间路</h3>
+<ul>
+<li>人行道：贫穷，无视收入多少，提前消费，透支信用卡，没有储蓄，人生忙于还债</li>
+<li>慢车道：平庸，认真上班，控制消费，做简单投资，期望复利能让你发财</li>
+<li>快车道：财富，找到方法努力赚钱，更快地赚钱，年轻时候就赚到钱</li>
+</ul>
+<h3 id="慢车道">慢车道</h3>
+<p><strong>慢车道</strong></p>
+<p>慢车道的典型行为有：</p>
+<ul>
+<li>节省消费</li>
+<li>认真上班，期望公司给予更高的收入</li>
+<li>做投资，期望钱增值</li>
+</ul>
+<p><strong>收入公式</strong></p>
+<p>财富 = 工作收入 + 投资收益</p>
+<ul>
+<li>工作收入
+<ul>
+<li>好处
+<ul>
+<li>让你了解工作流程、行业及业务知识</li>
+<li>锻炼技能</li>
+<li>如果你出名了，或者公司带有光环（比如核心大公司），那么在市场上会比较受认可</li>
+</ul>
+</li>
+<li>存在的问题
+<ul>
+<li>没有控制权，给多少钱是老板说了算，存在解雇风险</li>
+<li>创造的收益肯定比老板支付给你的薪水多（不然公司靠什么赚钱）</li>
+<li>升值空间有限，老板不可能每年都给你 20% 涨幅</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>投资收益
+<ul>
+<li>好长
+<ul>
+<li>使用复利，让钱生钱</li>
+</ul>
+</li>
+<li>投资收益存在的问题
+<ul>
+<li>它需要大量的时间，使复利起作用</li>
+<li>它并不是无风险的。2008 年的股市可以让一个人损失掉一半的积蓄</li>
+<li>通货膨胀可能让货币贬值，从而使你实际的收益率降低</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>结论</strong></p>
+<p>靠慢车道发家致富是不太现实的</p>
+<h3 id="快车道">快车道</h3>
+<p><strong>快车道</strong></p>
+<p>走快车道意味着要构建商业系统。而慢车道者的工作只是商业系统中的一环。一旦商业系统成型，你的收入便来源于你的实际销售，你可以拥有你的所有利润。而且你的商业系统可以作为一种资产售出。</p>
+<p><strong>收入公式</strong></p>
+<p>财富 = 净利润 + 资产价值
+净利润 = 销售数量 x 利润率
+资产价值 = 净利润 x 行业乘数</p>
+<ul>
+<li>提升净利润
+<ul>
+<li>提升销售数量。比如：利用互联网作为杠杆传播内容或者软件服务</li>
+<li>提高转化率或者访问量</li>
+</ul>
+</li>
+<li>提高利润率
+<ul>
+<li>比如通过自动化的系统</li>
+</ul>
+</li>
+<li>资产价值中的「行业乘数」，类似于股市中不同行业的市盈率。互联网行业的市盈率会比传统制造业要高。假如你的公司处于一个市盈率为 30 的行业中，如果你的净利润为 100 万元一年，那么你可以把公司卖出 3000 万元。如果你还会讲一个好的故事（比如瑞幸），那你的公司的乘数可以更高。</li>
+</ul>
+<h3 id="决策方法">决策方法</h3>
+<p>贫穷的本质是选择
+认知选择&amp;行动选择
+认知选择是行动选择的动力，如果你相信某个想法，你就有可能按照这种信念行事。</p>
+<ul>
+<li>更坏情况分析WCCA
+<ul>
+<li>这个选择的最坏后果是什么？</li>
+<li>这种后果的概率是多少？</li>
+<li>这是一个可以接受的风险吗？</li>
+<li>针对每个选择，问自己上面三个问题，然后综合考虑</li>
+</ul>
+</li>
+<li>加权平均决策矩阵WADM
+<ul>
+<li>见WADM小节示例</li>
+</ul>
+</li>
+</ul>
+<p>WCCA为了让你远离危险的弯路和叛逆的选择，WADM用来帮助你对重大的突发事件做出更好的决定。</p>
+<h3 id="五大戒律">五大戒律</h3>
+<p><strong>需求戒律</strong></p>
+<p>去解决实际问题，去帮助他人，为他人创造价值；
+而不是创造需求；
+而不是去「做你喜欢的事」（当然可以结合两者更好）</p>
+<p><strong>进入戒律</strong></p>
+<p>大家都在做的事情，必然道路拥挤，竞争激烈。做有门槛的事情，构筑护城河。</p>
+<p><strong>控制戒律</strong></p>
+<p>作者提出了一个「搭便车者」的概念。「搭便车者」即是利用别人的商业系统盈利的人：</p>
+<ul>
+<li>投资基金，利用别人管理的基金盈利</li>
+<li>加盟别人开的连锁店</li>
+<li>作为内容提供商通过 AdSense 等广告平台收取广告费</li>
+</ul>
+<p>「搭便车者」存在的问题是：</p>
+<ul>
+<li>对核心的商业系统没有控制权：
+<ul>
+<li>一旦对方不再让你搭便车，你便无法再从中获得</li>
+<li>意味着巨大的风险，你的收入可能一夜间中断</li>
+</ul>
+</li>
+<li>只能赚小钱，大钱被你依赖的商业系统获得
+因此本质上还是要构建自己的商业系统。同时要打造自己的品牌，这是保持商业系统长青的一个保障。</li>
+</ul>
+<p><strong>规模戒律</strong></p>
+<p>什么是规模？规模在这里的定义，是「能否成倍增长」：</p>
+<ul>
+<li>这个生意能否从每月赚 2000 元增长到 200000 元？</li>
+<li>这个生意能否影响到数百万人？能否从某个小社区扩展到全世界？</li>
+<li>卖出 100 件到卖出 10000 件有多难？
+比如，如果你在城里开了一家咖啡店，但是你无法在别的地方开同样的咖啡店，那这个生意就不具有规模效应。
+能规律化往往是快速致富的捷径。但如果你能提供比较高单价的商品（也往往意味着门槛高），也可以在一个规模稍小的市场获得不错的收益。</li>
+</ul>
+<p><strong>时间戒律</strong></p>
+<p>快车道生意的一大目标是 freedom，即你不需要像工作时一样，用时间换取金钱。让你无法脱身的生意只是一项工作。</p>
+<h2 id="书摘记录">书摘记录</h2>
+<p>停！如果你现在不富有，那么停下你现在做的事情！</p>
+<p>财富不是由物质财产，金钱组成的，而是由3个f组成，即家庭（family）或人际关系，健康(fitness)和自由（freedom）</p>
+<ol>
+<li>不要认为快速致富不可能。</li>
+<li>不要让慢车道埋葬我们的梦想。</li>
+<li>不要让慢车道鼓吹者用他们的教条玷污我的真理。</li>
+<li>不要采用慢车道作为你的计划，但可以把它作为计划的一部分。</li>
+<li>不要为了换取周末就出卖灵魂。</li>
+<li>不必期望或以为做一名司机就能致富。</li>
+<li>不要为了省钱浪费自己的时间。</li>
+<li>不要把时间放在控制财务计划上。</li>
+<li>不要放弃对财务计划的控制权。</li>
+<li>不要以为时间很充裕。</li>
+<li>不要关注结果，而应关注过程。</li>
+<li>不要接受那些鼓吹一套方法，实际上却依靠其他方法致富的大师们的建议。</li>
+<li>不要用复利致富，而要用其获得收入。</li>
+<li>不要忽视金钱的被动性。</li>
+<li>毕业后不要停止学习，而应该开始自我教育。</li>
+<li>不要让生活被寄生性债务缠住。</li>
+<li>不要站在消费者的角度，要转做生产者。</li>
+<li>不要否定梦想成真的可能性。</li>
+<li>不要追逐金钱，要找到需求。</li>
+<li>不要用爱作为激励，而要用热诚。</li>
+<li>不要盯着我的花费，要看的是我的收入。</li>
+<li>不要让自己最后一个收到钱，你要第一个拿到收入</li>
+<li>不要做大家都在做的事情。</li>
+<li>不要相信每个人，但要给他人证明自己的机会。</li>
+<li>不要放弃对自己生意的控制权。</li>
+<li>不要搭便车，要争取自己驾驶。</li>
+<li>不要把自己限制在有限规模和细小空间中经营。</li>
+<li>不要轻视选择的力量。</li>
+<li>不要像一只池塘里的孔雀鱼，要像大海里的一头鲨鱼。</li>
+<li>不要先消费，要先生产后消费。</li>
+<li>不要轻易涉足无壁垒或进入门槛低的生意。</li>
+<li>不要投资于别人的品牌，要投资自己的。</li>
+<li>想法不能只是说说，重要的是去实施。</li>
+<li>不要为了其他利益相关人而放弃客户。</li>
+<li>不是打造业务，而是建立品牌。</li>
+<li>不要关注产品特点方面的营销信息，而要关注它能为客户带来的好处。</li>
+<li>不要做多头兼顾的机会主义者，要聚焦！</li>
+<li>不要像下跳棋那样做生意，要像下象棋。</li>
+<li>不要超过自己的能力范围生活，但要寻找机会扩展自己的能力范围。</li>
+<li>要具备基本的金融知识。</li>
+</ol>
+<h2 id="加权平均决策矩阵wadm">加权平均决策矩阵WADM</h2>
+<p>该方法将所需考虑决策的所有相关因素罗列，给定相关权重，然后给对应决策的每个因素打分项，通过计数最后的加权分值进行决策考量。</p>
+<p>第一步，罗列考察因素</p>
+<pre tabindex="0"><code>---------------------
+因素    决策1    决策2
+---------------------
+天气
+教育
+地理
+---------------------
+</code></pre><p>第二步，基于自身考量，给对应因素设定权重值，10分制</p>
+<pre tabindex="0"><code>---------------------
+因素    决策1    决策2
+---------------------
+天气(2)            
+教育(3)
+地理(8)
+---------------------
+</code></pre><p>第三步，给每个决策的对应因素打分，10分制</p>
+<pre tabindex="0"><code>---------------------
+因素      决策1    决策2
+---------------------
+天气(2)    5        9 
+教育(3)    8        3
+地理(8)    4        5
+---------------------
+</code></pre><p>第四步，计算权重加签总分，帮助决策</p>
+<pre tabindex="0"><code>---------------------
+因素      决策1    决策2
+---------------------
+天气(2)    5        9 
+教育(3)    8        3
+地理(8)    4        5
+---------------------
+总分   10+24+32   18+9+40
+---------------------
+</code></pre>
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>相关文章</h2>
+    <ul class="listing">
+        
+        <li><a href="/blog/read/2022-12-11-%E5%A6%82%E4%BD%95%E6%89%93%E9%80%A0%E4%BD%A0%E7%9A%84%E7%8B%AC%E7%AB%8B%E8%A7%82%E7%82%B9/">如何打造你的独立观点</a></li>
+        
+        <li><a href="/blog/read/2022-12-11-%E5%AD%A6%E4%B9%A0%E5%92%8C%E8%AE%B0%E5%BF%86/">学习和记忆</a></li>
+        
+        <li><a href="/blog/about/">关于我</a></li>
+        
+        <li><a href="/blog/read/2021-04-24-2021%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/">2021阅读书单</a></li>
+        
+        <li><a href="/blog/tools/2020-10-31-gitrebase/">git|rebase</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            没有标签
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "weiweng/blog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2022 <a href="https://weiweng.github.io/blog/">weiweng的博客 By weiweng</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdn.bootcdn.net/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/blog/js/totop.js?v=0.0.0' async=""></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XYCDHPQC9T"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-XYCDHPQC9T', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-08-19-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/" title="分布式锁实现简单总结" target="_blank">分布式锁实现简单总结</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-25-SelectPollEpoll/" title="Select、Poll、Epoll" target="_blank">Select、Poll、Epoll</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-25-Unix%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E4%BA%94%E7%A7%8DIO%E6%A8%A1%E5%9E%8B/" title="Unix网络编程中的五种IO模型" target="_blank">Unix网络编程中的五种IO模型</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-06-13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7%E5%9F%BA%E7%A1%80%E8%AE%A4%E7%9F%A5/" title="微服务数据一致性基础认知" target="_blank">微服务数据一致性基础认知</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-Nginx%E5%9F%BA%E7%A1%80/" title="Nginx|基础" target="_blank">Nginx|基础</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/" title="搜索引擎技巧" target="_blank">搜索引擎技巧</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/" title="计算机网络|概述" target="_blank">计算机网络|概述</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BF%9B%E7%A8%8B/" title="操作系统|进程" target="_blank">操作系统|进程</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E4%B8%80%E8%87%B4%E6%80%A7/" title="分布式事务一致性" target="_blank">分布式事务一致性</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E7%AE%80%E4%BB%8B/" title="开源协议简介" target="_blank">开源协议简介</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://weiweng.github.io/blog/categories/git/">git (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/item2/">item2 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (8)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/nginx/">nginx (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/shell/">shell (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/tmux/">tmux (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/uml/">uml (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/vim/">vim (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">分布式系统 (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%BF%83%E5%BE%97/">心得 (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E9%98%85%E8%AF%BB/">阅读 (2)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://weiweng.github.io/blog/tags/BIT/">BIT</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/B%E7%B1%BB%E6%A0%91/">B类树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/LFU/">LFU</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/alpha-beta/">alpha-beta</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/copy/">copy</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/golang/">golang</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/io/">io</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/kmp/">kmp</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/linux/">linux</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/poll/">poll</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/rebase/">rebase</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/select/">select</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">二分查找</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%8F%89%E5%B9%B3%E8%A1%A1%E6%A0%91/">二叉平衡树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91/">二叉排序树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/">优先级队列</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BD%8D%E5%9B%BE/">位图</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E4%BD%8D%E6%93%8D%E4%BD%9C/">位操作</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">分布式系统</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">分布式锁</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/">分治算法</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%8D%95%E8%B0%83%E6%A0%88/">单调栈</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%8D%95%E9%93%BE%E8%A1%A8/">单链表</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/">双端队列</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%93%88%E5%B8%8C/">哈希</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%9B%9E%E6%BA%AF/">回溯</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%9B%BE/">图</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%A0%86/">堆</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%AD%97%E5%85%B8%E6%A0%91/">字典树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/">广度优先遍历</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">开源协议</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BF%83%E5%BE%97/">心得</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/">快速幂</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%8A%80%E5%B7%A7/">技巧</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%8E%92%E5%BA%8F/">排序</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7/">数据一致性</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%9F%A5%E5%B9%B6%E9%9B%86/">查并集</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%A0%88/">栈</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F/">比较排序</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">滑动窗口</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/">红黑树</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF/">约瑟夫环</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/">计数排序</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%B4%AA%E5%BF%83/">贪心</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E8%BF%9B%E7%A8%8B/">进程</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E9%93%BE%E8%A1%A8/">链表</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E9%97%AE%E9%A2%98%E6%9C%AC%E8%B4%A8/">问题本质</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E9%98%85%E8%AF%BB/">阅读</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E9%98%9F%E5%88%97/">队列</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://draveness.me/" title="面向信仰编程">面向信仰编程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://xargin.com/" title="No Headback">No Headback</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://eddycjy.com/" title="煎鱼的博客">煎鱼的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://polarisxu.studygolang.com/" title="polarisxu的博客">polarisxu的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://qcrao.com/" title="qcrao 的博客">qcrao 的博客</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://weiweng.github.io/blog/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

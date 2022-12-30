@@ -1,9 +1,6 @@
 +++
 title="mysql|统计比较"
-tags=["mysql"]
-categories=["mysql"]
 date="2020-03-14T02:58:00+08:00"
-summary = '统计比较'
 toc=false
 +++
 

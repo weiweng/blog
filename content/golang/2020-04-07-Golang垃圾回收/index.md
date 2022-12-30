@@ -1,9 +1,6 @@
 +++
 title="Golang|垃圾回收"
-tags=["golang","gc"]
-categories=["golang"]
 date="2020-04-07T10:56:00+08:00"
-summary = 'Golang垃圾回收'
 toc=false
 +++
 

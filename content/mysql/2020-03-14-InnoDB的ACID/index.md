@@ -1,9 +1,6 @@
 +++
 title="mysql|InnoDB的ACID"
-tags=["mysql","innoDB","acid"]
-categories=["mysql"]
 date="2020-03-14T02:49:00+08:00"
-summary = 'InnoDB的ACID'
 toc=false
 +++
 

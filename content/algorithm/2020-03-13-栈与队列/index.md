@@ -1,7 +1,6 @@
 +++
 title="栈与队列"
 tags=["算法","栈","队列","golang"]
-categories=["算法"]
 date="2020-03-13T05:15:00+08:00"
 summary = '栈与队列'
 toc=false
