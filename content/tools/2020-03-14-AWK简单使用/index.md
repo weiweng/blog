@@ -1,7 +1,6 @@
 +++
 title="AWK简单使用"
-tags=["linux","awk"]
-categories=["linux"]
+tags=["awk"]
 date="2020-03-14T02:32:00+08:00"
 summary = 'AWK简单使用'
 toc=false

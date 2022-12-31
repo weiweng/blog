@@ -1,7 +1,6 @@
 +++
 title="StartUML"
 tags=["uml"]
-categories=["uml"]
 date="2020-03-15T06:01:00+08:00"
 summary = 'StartUML'
 toc=false

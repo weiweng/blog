@@ -1,7 +1,6 @@
 +++
 title="分布式锁实现简单总结"
-tags=["分布式系统","分布式锁"]
-categories=["分布式系统"]
+categories=["微服务"]
 date="2020-08-19T04:12:00+08:00"
 summary = '分布式锁实现简单总结'
 toc=false

@@ -1,7 +1,6 @@
 +++
 title="item2"
 tags=["item2"]
-categories=["item2"]
 date="2020-03-15T06:12:00+08:00"
 summary = 'item2'
 toc=false

@@ -1,6 +1,5 @@
 +++
 title="Select、Poll、Epoll"
-tags=["linux","poll","select"]
 categories=["linux"]
 date="2020-07-25T11:18:00+08:00"
 summary = 'Select、Poll、Epoll'

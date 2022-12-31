@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>Golang|plan9汇编 | weiweng的博客</title>
+    <meta property="og:title" content="Golang|plan9汇编 - weiweng的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2022-12-30T19:56:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2022-12-30T19:56:00&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,博客,项目管理,软件架构">
+    <meta name="description" content="Golang|plan9汇编">
+        
+    <meta name="author" content="weiweng">
+    <meta property="og:url" content="https://weiweng.github.io/blog/post/2022-12-30-plan9%E6%B1%87%E7%BC%96/">
+    <link rel="shortcut icon" href='/blog/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/blog/css/normalize.css'>
+    <link rel="stylesheet" href='/blog/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://weiweng.github.io/blog/">
+                        weiweng的博客
+                    </a>
+                
+                <p class="description">记录所学所思所想，专注于Go语言、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/read/" title="阅读">阅读</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/about/" title="关于">关于</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/archives/" title="归档">归档</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">Golang|plan9汇编</h1>
+        </header>
+        
+  <time datetime="2022-12-30T11:56:00Z" class="post-meta meta-date dt-published">
+    2022年12月30日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/Golang' target="_blank">Golang</a>
+  
+</div>
+
+
+        
+        
+        <div class="post-content">
+            <p>当我们使用<code>go tool compile -S -N -l xxx.go</code>命令，查看go语言对应的汇编代码时，生成的一行行汇编指令可能让人困惑，由于Go 使用了plan9 汇编，因此这篇文章接下来记录一下基础的plan9汇编知识。</p>
+<h2 id="基础指令">基础指令</h2>
+<h3 id="栈调整">栈调整</h3>
+<p>plan9 的栈的调整大多是通过对硬件 SP 寄存器进行运算来实现的</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>SUBQ <span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#099">0x18</span>, SP <span style="color:#998;font-style:italic">// 对 SP 做减法，为函数分配函数栈帧
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>...               <span style="color:#998;font-style:italic">// 省略无用代码
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ADDQ <span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#099">0x18</span>, SP <span style="color:#998;font-style:italic">// 对 SP 做加法，清除函数栈帧
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="数据常量">数据常量</h3>
+<p>常数在 plan9 汇编用 <code>$num</code> 表示，可以为负数，默认情况下为十进制，可以用 $0x123 的形式来表示十六进制数。</p>
+<h3 id="搬运指令">搬运指令</h3>
+<p>搬运的长度是由 MOV 的后缀决定的，操作方向上左边是数据源，右边是要搬运的寄存器</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>MOVB <span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#099">1</span>, DI      <span style="color:#998;font-style:italic">// 1 byte
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>MOVW <span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#099">0x10</span>, BX   <span style="color:#998;font-style:italic">// 2 bytes
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>MOVD <span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#099">1</span>, DX      <span style="color:#998;font-style:italic">// 4 bytes
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>MOVQ <span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#000;font-weight:bold">-</span><span style="color:#099">10</span>, AX    <span style="color:#998;font-style:italic">// 8 bytes
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="计算指令">计算指令</h3>
+<p>类似数据搬运指令，同样可以通过修改指令的后缀来对应不同长度的操作数。例如 ADDQ/ADDW/ADDL/ADDB。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>ADDQ  AX, BX   <span style="color:#998;font-style:italic">// BX += AX
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>SUBQ  AX, BX   <span style="color:#998;font-style:italic">// BX -= AX
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>IMULQ AX, BX   <span style="color:#998;font-style:italic">// BX *= AX
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="跳转指令">跳转指令</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 无条件跳转
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>JMP addr   <span style="color:#998;font-style:italic">// 跳转到地址，地址可为代码中的地址，不过实际上手写不会出现这种东西
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>JMP label  <span style="color:#998;font-style:italic">// 跳转到标签，可以跳转到同一函数内的标签位置
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>JMP <span style="color:#099">2</span>(PC)  <span style="color:#998;font-style:italic">// 以当前指令为基础，向前/后跳转 x 行
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>JMP <span style="color:#000;font-weight:bold">-</span><span style="color:#099">2</span>(PC) <span style="color:#998;font-style:italic">// 同上
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 有条件跳转
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>JZ target <span style="color:#998;font-style:italic">// 如果 zero flag 被 set 过，则跳转
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="寄存器">寄存器</h2>
+<h3 id="通用寄存器">通用寄存器</h3>
+<p>plan9汇编里可使用的通用寄存器</p>
+<p>AX、BX、CX、DX、DI、SI、BP、SP、R8、R9、R10、R11、R12、R13、R14、PC</p>
+<h3 id="伪寄存器">伪寄存器</h3>
+<ul>
+<li>FP: 使用形如 <code>symbol+offset(FP)</code> 的方式，引用函数的输入参数。例如 <code>arg0+0(FP)</code>，<code>arg1+8(FP)</code>，使用 FP 不加 <code>symbol</code> 时，无法通过编译，在汇编层面来讲，<code>symbol</code> 并没有什么用，加 <code>symbol</code> 主要是为了提升代码可读性。</li>
+<li>PC: 实际上就是在体系结构的知识中常见的 pc 寄存器。</li>
+<li>SB: 全局静态基指针，一般用来声明函数或全局变量，在之后的函数知识和示例部分会看到具体用法。</li>
+<li>SP: plan9 的这个 SP 寄存器指向当前栈帧的局部变量的开始位置，使用形如 <code>symbol+offset(SP)</code> 的方式，引用函数的局部变量。offset 的合法取值是 <code>[-framesize, 0)</code>，注意是个左闭右开的区间。假如局部变量都是 8 字节，那么第一个局部变量就可以用 <code>localvar0-8(SP)</code> 来表示。这也是一个词不表意的寄存器。与硬件寄存器 SP 是两个不同的东西，在栈帧 size 为 0 的情况下，伪寄存器 SP 和硬件寄存器 SP 指向同一位置。手写汇编代码时，如果是 <code>symbol+offset(SP)</code> 形式，则表示伪寄存器 SP。如果是 <code>offset(SP)</code> 则表示硬件寄存器 SP。务必注意。对于编译输出<code>(go tool compile -S / go tool objdump)</code>的代码来讲，目前所有的 SP 都是硬件寄存器 SP，无论是否带 <code>symbol</code>。</li>
+</ul>
+<h2 id="变量声明">变量声明</h2>
+<p>在汇编里所谓的变量，一般是存储在 .rodata 或者 .data 段中的只读值。对应到应用层的话，就是已初始化过的全局的 const、var、static 变量/常量。</p>
+<p>使用 DATA 结合 GLOBL 来定义一个变量。</p>
+<p>DATA 的用法为: <code>DATA    symbol+offset(SB)/width, value</code>， offset 需要稍微注意。其含义是该值相对于符号 symbol 的偏移。</p>
+<p>GLOBL 的用法为: <code>GLOBL divtab(SB), RODATA, $64</code>，GLOBL 必须跟在 DATA 指令之后。</p>
+<p>下面是一个定义了多个 readonly 的全局变量的完整例子:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>DATA age<span style="color:#000;font-weight:bold">+</span><span style="color:#099">0x00</span>(SB)<span style="color:#000;font-weight:bold">/</span><span style="color:#099">4</span>, <span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#099">18</span>  <span style="color:#998;font-style:italic">// forever 18
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>GLOBL age(SB), RODATA, <span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#099">4</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DATA pi<span style="color:#000;font-weight:bold">+</span><span style="color:#099">0</span>(SB)<span style="color:#000;font-weight:bold">/</span><span style="color:#099">8</span>, <span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#099">3.1415926</span>
+</span></span><span style="display:flex;"><span>GLOBL pi(SB), RODATA, <span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#099">8</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DATA birthYear<span style="color:#000;font-weight:bold">+</span><span style="color:#099">0</span>(SB)<span style="color:#000;font-weight:bold">/</span><span style="color:#099">4</span>, <span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#099">1988</span>
+</span></span><span style="display:flex;"><span>GLOBL birthYear(SB), RODATA, <span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#099">4</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 全局变量中定义字符串数组
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>DATA bio<span style="color:#000;font-weight:bold">&lt;&gt;+</span><span style="color:#099">0</span>(SB)<span style="color:#000;font-weight:bold">/</span><span style="color:#099">8</span>, <span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#d14">&#34;oh yes i&#34;</span>
+</span></span><span style="display:flex;"><span>DATA bio<span style="color:#000;font-weight:bold">&lt;&gt;+</span><span style="color:#099">8</span>(SB)<span style="color:#000;font-weight:bold">/</span><span style="color:#099">8</span>, <span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#d14">&#34;am here &#34;</span>
+</span></span><span style="display:flex;"><span>GLOBL bio<span style="color:#000;font-weight:bold">&lt;&gt;</span>(SB), RODATA, <span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#099">16</span> <span style="color:#998;font-style:italic">// RODATA 是只读flag
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="函数">函数</h2>
+<p>一个典型的 plan9 的汇编函数的定义，在 plan9 中 TEXT 是一个指令，用来定义一个函数。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#998;font-style:italic">// func add(a, b int) int
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//   =&gt; 该声明定义在同一个 package 下的任意 .go 文件中
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//   =&gt; 只有函数头，没有实现
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>TEXT pkgname<span style="color:#a61717;background-color:#e3d2d2">·</span>add(SB), NOSPLIT, <span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#099">0</span><span style="color:#000;font-weight:bold">-</span><span style="color:#099">8</span>
+</span></span><span style="display:flex;"><span>    MOVQ a<span style="color:#000;font-weight:bold">+</span><span style="color:#099">0</span>(FP), AX
+</span></span><span style="display:flex;"><span>    MOVQ b<span style="color:#000;font-weight:bold">+</span><span style="color:#099">8</span>(FP), BX
+</span></span><span style="display:flex;"><span>    ADDQ AX, BX
+</span></span><span style="display:flex;"><span>    MOVQ BX, ret<span style="color:#000;font-weight:bold">+</span><span style="color:#099">16</span>(FP)
+</span></span><span style="display:flex;"><span>    RET
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                              <span style="color:#a61717;background-color:#e3d2d2">参数及返回值大小</span>
+</span></span><span style="display:flex;"><span>                                  <span style="color:#000;font-weight:bold">|</span> 
+</span></span><span style="display:flex;"><span> TEXT pkgname<span style="color:#a61717;background-color:#e3d2d2">·</span>add(SB),NOSPLIT,<span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#099">32</span><span style="color:#000;font-weight:bold">-</span><span style="color:#099">32</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">|</span>        <span style="color:#000;font-weight:bold">|</span>               <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a61717;background-color:#e3d2d2">包名</span>     <span style="color:#a61717;background-color:#e3d2d2">函数名</span>         <span style="color:#a61717;background-color:#e3d2d2">栈帧大小</span>(<span style="color:#a61717;background-color:#e3d2d2">局部变量</span><span style="color:#000;font-weight:bold">+</span><span style="color:#a61717;background-color:#e3d2d2">可能需要的额外调用函数的参数空间的总大小，但不包括调用其它函数时的</span> ret address <span style="color:#a61717;background-color:#e3d2d2">的大小</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="栈结构">栈结构</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>                                                                                   
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">-----------------</span>                                           
+</span></span><span style="display:flex;"><span>                       current func arg0                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">-----------------</span> <span style="color:#000;font-weight:bold">&lt;-----------</span> FP(pseudo FP)                
+</span></span><span style="display:flex;"><span>                        caller ret addr                                            
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">+---------------+</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">|</span> caller BP(<span style="color:#000;font-weight:bold">*</span>)  <span style="color:#000;font-weight:bold">|</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">-----------------</span> <span style="color:#000;font-weight:bold">&lt;-----------</span> SP(pseudo SP<span style="color:#a61717;background-color:#e3d2d2">，实际上是当前栈帧的</span> BP <span style="color:#a61717;background-color:#e3d2d2">位置</span>)
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">|</span>   Local Var0  <span style="color:#000;font-weight:bold">|</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">-----------------</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">|</span>   Local Var1  <span style="color:#000;font-weight:bold">|</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">-----------------</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">|</span>   Local Var2  <span style="color:#000;font-weight:bold">|</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">-----------------</span>                <span style="color:#000;font-weight:bold">-</span>                          
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">|</span>   ........    <span style="color:#000;font-weight:bold">|</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">-----------------</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">|</span>   Local VarN  <span style="color:#000;font-weight:bold">|</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">-----------------</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">|</span>               <span style="color:#000;font-weight:bold">|</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">|</span>               <span style="color:#000;font-weight:bold">|</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">|</span>  temporarily  <span style="color:#000;font-weight:bold">|</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">|</span>  unused space <span style="color:#000;font-weight:bold">|</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">|</span>               <span style="color:#000;font-weight:bold">|</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">|</span>               <span style="color:#000;font-weight:bold">|</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">-----------------</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">|</span>  call retn    <span style="color:#000;font-weight:bold">|</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">-----------------</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">|</span>  call ret(n<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>)<span style="color:#000;font-weight:bold">|</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">-----------------</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">|</span>  ..........   <span style="color:#000;font-weight:bold">|</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">-----------------</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">|</span>  call ret1    <span style="color:#000;font-weight:bold">|</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">-----------------</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">|</span>  call argn    <span style="color:#000;font-weight:bold">|</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">-----------------</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">|</span>   .....       <span style="color:#000;font-weight:bold">|</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">-----------------</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">|</span>  call arg3    <span style="color:#000;font-weight:bold">|</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">-----------------</span>                                           
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">|</span> call arg2 <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">---------</span> <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">|</span> call arg1 <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">-----------------</span>   <span style="color:#000;font-weight:bold">&lt;------------</span>  hardware SP <span style="color:#a61717;background-color:#e3d2d2">位置</span>           
+</span></span><span style="display:flex;"><span>                         <span style="color:#000;font-weight:bold">return</span> addr                                               
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">+---------------+</span>                                                 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>从原理上来讲，如果当前函数调用了其它函数，那么 return addr 也是在 caller 的栈上的，不过往栈上插 return addr 的过程是由 CALL 指令完成的，在 RET 时，SP 又会恢复到图上位置。我们在计算 SP 和参数相对位置时，可以认为硬件 SP 指向的就是图上的位置。</p>
+<h2 id="调用流程">调用流程</h2>
+<p>函数调用过程中栈帧发生了哪些变化？</p>
+<ul>
+<li>执行 CALL 指令，调用
+<ul>
+<li>入栈函数调用后的返回地址 return address（callee 返回到 caller 后，执行的 caller 的后续指令的地址 addr）</li>
+<li>跳转到 PC 寄存器指向的指令地址</li>
+</ul>
+</li>
+<li>分配好 callee 栈帧
+<ul>
+<li>函数调用头部，编译器会插入 3 指令
+<ul>
+<li>第一条：SUBQ $16, SP 分配 callee 的栈帧空间，将 sp 向下移动 16 字节，这个就是 callee 的栈顶</li>
+<li>第二条：MOVQ BP, 8(SP) 将 caller 的 BP 栈基备份到 return address 下面（低地址处)</li>
+<li>第三条：LEAQ 8(SP), BP 将 BP 寄存器指向 callee 的栈基（对 0x8(SP) 取地址，这个位置就是 callee 的栈基）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>执行完 callee 函数代码段 TEXT 后续的指令</li>
+<li>恢复 caller 的栈帧
+<ul>
+<li>函数返回前，需要恢复 caller 的栈帧，编译器会插入 2 条指令到 函数的尾部
+<ul>
+<li>第一条：MOVQ 8(SP), BP 恢复 caller 的 BP 栈基地址</li>
+<li>第二条：ADDQ $16, SP 释放 callee 的栈空间，SP 寄存器自然就恢复到了 caller 当初的位置</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>执行 RET 指令，返回
+<ul>
+<li>出栈返回地址 return address</li>
+<li>PC 寄存器跳转到 return address</li>
+<li>执行 return address 处的指令，caller 得以恢复执行</li>
+</ul>
+</li>
+</ul>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://github.com/cch123/golang-notes/blob/master/assembly.md">plan9 assembly 完全解析</a></li>
+<li><a href="https://hopehook.com/post/golang_assembly/">Go 汇编概述</a></li>
+<li><a href="https://mp.weixin.qq.com/s/8wnMvROFQkVTKZ-qe4_eqw">肝了一上午的Golang之Plan9入门</a></li>
+</ul>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>相关文章</h2>
+    <ul class="listing">
+        
+        <li><a href="/blog/post/2022-12-17-dmt/">Golang|分布式事务管理DTM</a></li>
+        
+        <li><a href="/blog/read/2022-12-12-2022%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/">2022阅读书单</a></li>
+        
+        <li><a href="/blog/read/2022-12-11-%E5%A6%82%E4%BD%95%E6%89%93%E9%80%A0%E4%BD%A0%E7%9A%84%E7%8B%AC%E7%AB%8B%E8%A7%82%E7%82%B9/">如何打造你的独立观点</a></li>
+        
+        <li><a href="/blog/read/2022-12-11-%E5%AD%A6%E4%B9%A0%E5%92%8C%E8%AE%B0%E5%BF%86/">学习和记忆</a></li>
+        
+        <li><a href="/blog/read/2022-12-11-%E7%99%BE%E4%B8%87%E5%AF%8C%E7%BF%81%E5%BF%AB%E8%BD%A6%E9%81%93/">百万富翁快车道</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            没有标签
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "weiweng/blog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2022 <a href="https://weiweng.github.io/blog/">weiweng的博客 By weiweng</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdn.bootcdn.net/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/blog/js/totop.js?v=0.0.0' async=""></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XYCDHPQC9T"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-XYCDHPQC9T', { 'anonymize_ip': false });
+}
+</script>
+
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2022-12-30-plan9%E6%B1%87%E7%BC%96/" title="Golang|plan9汇编" target="_blank">Golang|plan9汇编</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2022-12-17-dmt/" title="Golang|分布式事务管理DTM" target="_blank">Golang|分布式事务管理DTM</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-09-26-LFU%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/" title="LFU简单学习" target="_blank">LFU简单学习</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-08-31-interface%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="Golang|interface" target="_blank">Golang|interface</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-08-19-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/" title="分布式锁实现简单总结" target="_blank">分布式锁实现简单总结</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-08-19-%E5%9B%BE%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/" title="图及其相关算法" target="_blank">图及其相关算法</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-25-SelectPollEpoll/" title="Select、Poll、Epoll" target="_blank">Select、Poll、Epoll</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-25-Unix%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E4%BA%94%E7%A7%8DIO%E6%A8%A1%E5%9E%8B/" title="Unix网络编程中的五种IO模型" target="_blank">Unix网络编程中的五种IO模型</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-11-golanggo-snowflake/" title="Golang|go-snowflake" target="_blank">Golang|go-snowflake</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-11-defer/" title="Golang|defer" target="_blank">Golang|defer</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (17)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">开源协议</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BF%83%E5%BE%97/">心得</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/">搜索引擎技巧</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://draveness.me/" title="面向信仰编程">面向信仰编程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://xargin.com/" title="No Headback">No Headback</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://eddycjy.com/" title="煎鱼的博客">煎鱼的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://polarisxu.studygolang.com/" title="polarisxu的博客">polarisxu的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://qcrao.com/" title="qcrao 的博客">qcrao 的博客</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://weiweng.github.io/blog/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,7 +1,6 @@
 +++
 title="VIM|复制"
-tags=["vim","copy"]
-categories=["vim"]
+tags=["vim"]
 date="2020-03-14T10:58:00+08:00"
 summary = 'VIM|复制'
 toc=false

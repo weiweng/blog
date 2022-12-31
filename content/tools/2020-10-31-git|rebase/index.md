@@ -1,7 +1,6 @@
 +++
 title="git|rebase"
-tags=["git","rebase"]
-categories=["git"]
+tags=["git"]
 date="2020-10-31T03:04:00+08:00"
 summary = 'git rebase的简介以及使用方法'
 toc=false

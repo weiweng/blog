@@ -1,7 +1,6 @@
 +++
 title="SED简单使用"
-tags=["linux","sed"]
-categories=["linux"]
+tags=["sed"]
 date="2020-03-14T02:33:00+08:00"
 summary = 'SED简单使用'
 toc=false

@@ -105,49 +105,52 @@ summaryLength = 80
 ##   serverURL = "Your waline serverURL" #换成你的serverURL
 
 ## 开启版权声明，协议名字和链接都可以换
-[params.cc]
-    name = "知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议"
-    link = "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+##[params.cc]
+##    name = "知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议"
+##    link = "https://creativecommons.org/licenses/by-nc-nd/4.0/"
 
 ## 配置代码高亮
 [markup]
   [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    hl_Lines = ""
+    lineNoStart = 1
     lineNos = true
+    lineNumbersInTable = true
+    noClasses = true
     style = "github"
+    tabWidth = 4
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      linkifyProtocol = 'https'
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.parser]
+      autoHeadingID = true
+      autoHeadingIDType = 'github'
+      wrapStandAloneImageWithinParagraph = true
+      [markup.goldmark.parser.attribute]
+        block = false
+        title = true
+    [markup.goldmark.renderer]
+      hardWraps = false
+      unsafe = false
+      xhtml = false
 
 ## 配置网站菜单
 
 [menu]
   [[menu.main]]
-    identifier = "golang"
-    name = "golang"
-    url = "/golang/"
-    weight = 3
-  [[menu.main]]
     identifier = "tools"
     name = "工具"
     url = "/tools/"
     weight = 4
-  [[menu.main]]
-    identifier = "algorithm"
-    name = "算法"
-    url = "/algorithm/"
-    weight = 5
-  [[menu.main]]
-    identifier = "mysql"
-    name = "mysql"
-    url = "/mysql/"
-    weight = 6
-  [[menu.main]]
-    identifier = "redis"
-    name = "redis"
-    url = "/redis/"
-    weight = 7
-  [[menu.main]]
-    identifier = "mq"
-    name = "mq"
-    url = "/mq/"
-    weight = 8
   [[menu.main]]
     identifier = "read"
     name = "阅读"
