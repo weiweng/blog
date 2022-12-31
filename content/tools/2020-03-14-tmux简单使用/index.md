@@ -1,7 +1,6 @@
 +++
 title="tmux简单使用"
 tags=["tmux"]
-categories=["tmux"]
 date="2020-03-14T02:40:00+08:00"
 summary = 'tmux简单使用'
 toc=false

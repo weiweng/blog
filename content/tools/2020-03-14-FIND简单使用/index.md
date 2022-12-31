@@ -1,7 +1,6 @@
 +++
 title="FIND简单使用"
-tags=["linux","find"]
-categories=["linux"]
+tags=["find"]
 date="2020-03-14T02:34:00+08:00"
 summary = 'FIND简单使用'
 toc=false

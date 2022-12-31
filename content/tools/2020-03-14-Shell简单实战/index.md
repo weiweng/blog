@@ -1,7 +1,6 @@
 +++
 title="Shell简单实战"
-tags=["linux","shell"]
-categories=["shell"]
+tags=["shell"]
 date="2020-03-14T02:39:00+08:00"
 summary = 'Shell简单实战'
 toc=false

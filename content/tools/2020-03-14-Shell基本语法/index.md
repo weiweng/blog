@@ -1,7 +1,6 @@
 +++
 title="Shell基本语法"
 tags=["shell"]
-categories=["shell"]
 date="2020-03-14T02:38:00+08:00"
 summary = 'Shell基本语法'
 toc=false

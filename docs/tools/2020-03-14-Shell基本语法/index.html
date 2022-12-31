@@ -51,17 +51,7 @@
                 <nav id="nav-menu" class="clearfix">
                     <a class="" href="https://weiweng.github.io/blog/">首页</a>
                     
-                    <a  href="https://weiweng.github.io/blog/golang/" title="golang">golang</a>
-                    
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
-                    
-                    <a  href="https://weiweng.github.io/blog/algorithm/" title="算法">算法</a>
-                    
-                    <a  href="https://weiweng.github.io/blog/mysql/" title="mysql">mysql</a>
-                    
-                    <a  href="https://weiweng.github.io/blog/redis/" title="redis">redis</a>
-                    
-                    <a  href="https://weiweng.github.io/blog/mq/" title="mq">mq</a>
                     
                     <a  href="https://weiweng.github.io/blog/read/" title="阅读">阅读</a>
                     
@@ -92,13 +82,6 @@
     2020年3月14日
   </time>
 
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/blog/categories/shell' target="_blank">shell</a>
-  
-</div>
 
 
         
@@ -164,181 +147,368 @@
 </li>
 </ul>
 <h1 id="双引号-grettinghello-user-">双引号 gretting=&ldquo;hello, ${user} !&rdquo;</h1>
-<pre tabindex="0"><code class="language-**长度**" data-lang="**长度**">echo ${#string} ``` **提取子串** ```shell string=&#34;my name is wengwei&#34;
-echo ${string:1:4} ``` **执行** ```shell string=&#34;my name is wengwei&#34;
-# 注意这里的 反引号
-echo `expr index &#34;${string}&#34; io`
-</code></pre><h2 id="数组-bash支持一维数组不支持多维数组并且没有限定数组的大小-shell-array123-234-345-array3456-array4567">数组 bash支持一维数组,不支持多维数组,并且没有限定数组的大小 ```shell array=(123 234 345) array[3]=456 array[4]=567</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>echo ${#string} ``` **提取子串** ```shell string=&#34;my name is wengwei&#34;
+</span></span><span style="display:flex;"><span>echo ${string:1:4} ``` **执行** ```shell string=&#34;my name is wengwei&#34;
+</span></span><span style="display:flex;"><span># 注意这里的 反引号
+</span></span><span style="display:flex;"><span>echo `expr index &#34;${string}&#34; io`
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="数组-bash支持一维数组不支持多维数组并且没有限定数组的大小-shell-array123-234-345-array3456-array4567">数组 bash支持一维数组,不支持多维数组,并且没有限定数组的大小 ```shell array=(123 234 345) array[3]=456 array[4]=567</h2>
 <p>echo ${array[0]} echo ${array[@]} len=${#array[@]} echo ${len}</p>
-<pre tabindex="0"><code>
-## 参数传递
-</code></pre><p>shell echo &ldquo;Shell 传递参数&rdquo; echo &ldquo;执行文件名 $0&rdquo; echo &ldquo;第一个参数 $1&rdquo; echo &ldquo;第二个参数 $2&rdquo; echo &ldquo;第三个参数 $3&rdquo; echo &ldquo;总数 $#&rdquo; echo &ldquo;脚本运行当前进程号 $$&rdquo; echo &ldquo;脚本后台运行最后一个进程的ID号 $!&rdquo; echo &ldquo;脚本运行退出状态 $?&rdquo;</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>## 参数传递
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>shell echo &ldquo;Shell 传递参数&rdquo; echo &ldquo;执行文件名 $0&rdquo; echo &ldquo;第一个参数 $1&rdquo; echo &ldquo;第二个参数 $2&rdquo; echo &ldquo;第三个参数 $3&rdquo; echo &ldquo;总数 $#&rdquo; echo &ldquo;脚本运行当前进程号 $$&rdquo; echo &ldquo;脚本后台运行最后一个进程的ID号 $!&rdquo; echo &ldquo;脚本运行退出状态 $?&rdquo;</p>
 <h1 id="这里所有参数会拼接成一个字符串">这里所有参数会拼接成一个字符串</h1>
 <p>echo &ldquo;所有参数 $*&rdquo; echo &ldquo;所有的输入参数 $@&rdquo;</p>
-<pre tabindex="0"><code>
-## 运算 ```shell a=10 b=20
-# 加减乘除 val=`expr $a + $b`
-echo &#34;a + b : $val&#34; val=`expr $a - $b`
-echo &#34;a - b : $val&#34; val=`expr $a \* $b`
-echo &#34;a * b : $val&#34; val=`expr $b / $a`
-echo &#34;b / a : $val&#34; val=`expr $b % $a`
-echo &#34;b % a : $val&#34;
-
-# 比较
-if [ $a -eq $b ]
-then
-   echo &#34;$a -eq $b : a 等于 b&#34;
-else
-   echo &#34;$a -eq $b: a 不等于 b&#34;
-fi
-if [ $a -ne $b ]
-then
-   echo &#34;$a -ne $b: a 不等于 b&#34;
-else
-   echo &#34;$a -ne $b : a 等于 b&#34;
-fi
-if [ $a -gt $b ]
-then
-   echo &#34;$a -gt $b: a 大于 b&#34;
-else
-   echo &#34;$a -gt $b: a 不大于 b&#34;
-fi
-if [ $a -lt $b ]
-then
-   echo &#34;$a -lt $b: a 小于 b&#34;
-else
-   echo &#34;$a -lt $b: a 不小于 b&#34;
-fi
-if [ $a -ge $b ]
-then
-   echo &#34;$a -ge $b: a 大于或等于 b&#34;
-else
-   echo &#34;$a -ge $b: a 小于 b&#34;
-fi
-if [ $a -le $b ]
-then
-   echo &#34;$a -le $b: a 小于或等于 b&#34;
-else
-   echo &#34;$a -le $b: a 大于 b&#34;
-fi
-# a o ! 与 或 非
-if [ $a != $b ]
-then
-   echo &#34;$a != $b : a 不等于 b&#34;
-else
-   echo &#34;$a == $b: a 等于 b&#34;
-fi
-if [ $a -lt 100 -a $b -gt 15 ]
-then
-   echo &#34;$a 小于 100 且 $b 大于 15 : 返回 true&#34;
-else
-   echo &#34;$a 小于 100 且 $b 大于 15 : 返回 false&#34;
-fi
-if [ $a -lt 100 -o $b -gt 100 ]
-then
-   echo &#34;$a 小于 100 或 $b 大于 100 : 返回 true&#34;
-else
-   echo &#34;$a 小于 100 或 $b 大于 100 : 返回 false&#34;
-fi
-if [ $a -lt 5 -o $b -gt 100 ]
-then
-   echo &#34;$a 小于 5 或 $b 大于 100 : 返回 true&#34;
-else
-   echo &#34;$a 小于 5 或 $b 大于 100 : 返回 false&#34;
-fi
-
-# 逻辑运算
-if [[ $a -lt 100 &amp;&amp; $b -gt 100 ]]
-then
-   echo &#34;返回 true&#34;
-else
-   echo &#34;返回 false&#34;
-fi
-
-if [[ $a -lt 100 || $b -gt 100 ]]
-then
-   echo &#34;返回 true&#34;
-else
-   echo &#34;返回 false&#34;
-fi
-
-# 字符串相关 a=&#34;abc&#34; b=&#34;efg&#34;
-
-if [ $a = $b ]
-then
-   echo &#34;$a = $b : a 等于 b&#34;
-else
-   echo &#34;$a = $b: a 不等于 b&#34;
-fi
-if [ $a != $b ]
-then
-   echo &#34;$a != $b : a 不等于 b&#34;
-else
-   echo &#34;$a != $b: a 等于 b&#34;
-fi
-if [ -z $a ]
-then
-   echo &#34;-z $a : 字符串长度为 0&#34;
-else
-   echo &#34;-z $a : 字符串长度不为 0&#34;
-fi
-if [ -n &#34;$a&#34; ]
-then
-   echo &#34;-n $a : 字符串长度不为 0&#34;
-else
-   echo &#34;-n $a : 字符串长度为 0&#34;
-fi
-if [ $a ]
-then
-   echo &#34;$a : 字符串不为空&#34;
-else
-   echo &#34;$a : 字符串为空&#34;
-fi
-
-# 文件相关 file=&#34;/var/www/runoob/test.sh&#34;
-if [ -r $file ]
-then
-   echo &#34;文件可读&#34;
-else
-   echo &#34;文件不可读&#34;
-fi
-if [ -w $file ]
-then
-   echo &#34;文件可写&#34;
-else
-   echo &#34;文件不可写&#34;
-fi
-if [ -x $file ]
-then
-   echo &#34;文件可执行&#34;
-else
-   echo &#34;文件不可执行&#34;
-fi
-if [ -f $file ]
-then
-   echo &#34;文件为普通文件&#34;
-else
-   echo &#34;文件为特殊文件&#34;
-fi
-if [ -d $file ]
-then
-   echo &#34;文件是个目录&#34;
-else
-   echo &#34;文件不是个目录&#34;
-fi
-if [ -s $file ]
-then
-   echo &#34;文件不为空&#34;
-else
-   echo &#34;文件为空&#34;
-fi
-if [ -e $file ]
-then
-   echo &#34;文件存在&#34;
-else
-   echo &#34;文件不存在&#34;
-fi
-</code></pre><h2 id="输出">输出</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">118
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">119
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">120
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">121
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">122
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">123
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">124
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">125
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">126
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">127
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">128
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">129
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">130
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">131
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">132
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">133
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">134
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">135
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">136
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">137
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">138
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">139
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">140
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">141
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">142
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">143
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">144
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">145
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">146
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">147
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">148
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">149
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">150
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">151
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">152
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">153
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">154
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">155
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">156
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">157
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">158
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">159
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">160
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">161
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">162
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">163
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>## 运算 ```shell a=10 b=20
+</span></span><span style="display:flex;"><span># 加减乘除 val=`expr $a + $b`
+</span></span><span style="display:flex;"><span>echo &#34;a + b : $val&#34; val=`expr $a - $b`
+</span></span><span style="display:flex;"><span>echo &#34;a - b : $val&#34; val=`expr $a \* $b`
+</span></span><span style="display:flex;"><span>echo &#34;a * b : $val&#34; val=`expr $b / $a`
+</span></span><span style="display:flex;"><span>echo &#34;b / a : $val&#34; val=`expr $b % $a`
+</span></span><span style="display:flex;"><span>echo &#34;b % a : $val&#34;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># 比较
+</span></span><span style="display:flex;"><span>if [ $a -eq $b ]
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo &#34;$a -eq $b : a 等于 b&#34;
+</span></span><span style="display:flex;"><span>else
+</span></span><span style="display:flex;"><span>   echo &#34;$a -eq $b: a 不等于 b&#34;
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span>if [ $a -ne $b ]
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo &#34;$a -ne $b: a 不等于 b&#34;
+</span></span><span style="display:flex;"><span>else
+</span></span><span style="display:flex;"><span>   echo &#34;$a -ne $b : a 等于 b&#34;
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span>if [ $a -gt $b ]
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo &#34;$a -gt $b: a 大于 b&#34;
+</span></span><span style="display:flex;"><span>else
+</span></span><span style="display:flex;"><span>   echo &#34;$a -gt $b: a 不大于 b&#34;
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span>if [ $a -lt $b ]
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo &#34;$a -lt $b: a 小于 b&#34;
+</span></span><span style="display:flex;"><span>else
+</span></span><span style="display:flex;"><span>   echo &#34;$a -lt $b: a 不小于 b&#34;
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span>if [ $a -ge $b ]
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo &#34;$a -ge $b: a 大于或等于 b&#34;
+</span></span><span style="display:flex;"><span>else
+</span></span><span style="display:flex;"><span>   echo &#34;$a -ge $b: a 小于 b&#34;
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span>if [ $a -le $b ]
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo &#34;$a -le $b: a 小于或等于 b&#34;
+</span></span><span style="display:flex;"><span>else
+</span></span><span style="display:flex;"><span>   echo &#34;$a -le $b: a 大于 b&#34;
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span># a o ! 与 或 非
+</span></span><span style="display:flex;"><span>if [ $a != $b ]
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo &#34;$a != $b : a 不等于 b&#34;
+</span></span><span style="display:flex;"><span>else
+</span></span><span style="display:flex;"><span>   echo &#34;$a == $b: a 等于 b&#34;
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span>if [ $a -lt 100 -a $b -gt 15 ]
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo &#34;$a 小于 100 且 $b 大于 15 : 返回 true&#34;
+</span></span><span style="display:flex;"><span>else
+</span></span><span style="display:flex;"><span>   echo &#34;$a 小于 100 且 $b 大于 15 : 返回 false&#34;
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span>if [ $a -lt 100 -o $b -gt 100 ]
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo &#34;$a 小于 100 或 $b 大于 100 : 返回 true&#34;
+</span></span><span style="display:flex;"><span>else
+</span></span><span style="display:flex;"><span>   echo &#34;$a 小于 100 或 $b 大于 100 : 返回 false&#34;
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span>if [ $a -lt 5 -o $b -gt 100 ]
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo &#34;$a 小于 5 或 $b 大于 100 : 返回 true&#34;
+</span></span><span style="display:flex;"><span>else
+</span></span><span style="display:flex;"><span>   echo &#34;$a 小于 5 或 $b 大于 100 : 返回 false&#34;
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># 逻辑运算
+</span></span><span style="display:flex;"><span>if [[ $a -lt 100 &amp;&amp; $b -gt 100 ]]
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo &#34;返回 true&#34;
+</span></span><span style="display:flex;"><span>else
+</span></span><span style="display:flex;"><span>   echo &#34;返回 false&#34;
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>if [[ $a -lt 100 || $b -gt 100 ]]
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo &#34;返回 true&#34;
+</span></span><span style="display:flex;"><span>else
+</span></span><span style="display:flex;"><span>   echo &#34;返回 false&#34;
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># 字符串相关 a=&#34;abc&#34; b=&#34;efg&#34;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>if [ $a = $b ]
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo &#34;$a = $b : a 等于 b&#34;
+</span></span><span style="display:flex;"><span>else
+</span></span><span style="display:flex;"><span>   echo &#34;$a = $b: a 不等于 b&#34;
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span>if [ $a != $b ]
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo &#34;$a != $b : a 不等于 b&#34;
+</span></span><span style="display:flex;"><span>else
+</span></span><span style="display:flex;"><span>   echo &#34;$a != $b: a 等于 b&#34;
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span>if [ -z $a ]
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo &#34;-z $a : 字符串长度为 0&#34;
+</span></span><span style="display:flex;"><span>else
+</span></span><span style="display:flex;"><span>   echo &#34;-z $a : 字符串长度不为 0&#34;
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span>if [ -n &#34;$a&#34; ]
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo &#34;-n $a : 字符串长度不为 0&#34;
+</span></span><span style="display:flex;"><span>else
+</span></span><span style="display:flex;"><span>   echo &#34;-n $a : 字符串长度为 0&#34;
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span>if [ $a ]
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo &#34;$a : 字符串不为空&#34;
+</span></span><span style="display:flex;"><span>else
+</span></span><span style="display:flex;"><span>   echo &#34;$a : 字符串为空&#34;
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># 文件相关 file=&#34;/var/www/runoob/test.sh&#34;
+</span></span><span style="display:flex;"><span>if [ -r $file ]
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo &#34;文件可读&#34;
+</span></span><span style="display:flex;"><span>else
+</span></span><span style="display:flex;"><span>   echo &#34;文件不可读&#34;
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span>if [ -w $file ]
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo &#34;文件可写&#34;
+</span></span><span style="display:flex;"><span>else
+</span></span><span style="display:flex;"><span>   echo &#34;文件不可写&#34;
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span>if [ -x $file ]
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo &#34;文件可执行&#34;
+</span></span><span style="display:flex;"><span>else
+</span></span><span style="display:flex;"><span>   echo &#34;文件不可执行&#34;
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span>if [ -f $file ]
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo &#34;文件为普通文件&#34;
+</span></span><span style="display:flex;"><span>else
+</span></span><span style="display:flex;"><span>   echo &#34;文件为特殊文件&#34;
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span>if [ -d $file ]
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo &#34;文件是个目录&#34;
+</span></span><span style="display:flex;"><span>else
+</span></span><span style="display:flex;"><span>   echo &#34;文件不是个目录&#34;
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span>if [ -s $file ]
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo &#34;文件不为空&#34;
+</span></span><span style="display:flex;"><span>else
+</span></span><span style="display:flex;"><span>   echo &#34;文件为空&#34;
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span>if [ -e $file ]
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo &#34;文件存在&#34;
+</span></span><span style="display:flex;"><span>else
+</span></span><span style="display:flex;"><span>   echo &#34;文件不存在&#34;
+</span></span><span style="display:flex;"><span>fi
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="输出">输出</h2>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -360,22 +530,57 @@ fi
 </div><h2 id="控制">控制</h2>
 <h3 id="if语句-shell-a10-b20">if语句 ```shell a=10 b=20</h3>
 <p>if [ $a == $b ] then echo &ldquo;a 等于 b&rdquo; elif [ $a -gt $b ] then echo &ldquo;a 大于 b&rdquo; elif [ $a -lt $b ] then echo &ldquo;a 小于 b&rdquo; else echo &ldquo;没有符合的条件&rdquo; fi</p>
-<pre tabindex="0"><code>### for
-</code></pre><p>shell for loop in 1 2 3 4 5 do</p>
-<pre tabindex="0"><code>echo &#34;The value is: $loop&#34;
-</code></pre><p>done</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>### for
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>shell for loop in 1 2 3 4 5 do</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>echo &#34;The value is: $loop&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>done</p>
 <p>for ((i=1;i&lt;10;i++)) do</p>
-<pre tabindex="0"><code>echo &#34;$i&#34;
-sleep 1s
-</code></pre><p>done</p>
-<pre tabindex="0"><code>
-### while ```shell int=1
-while(( $int&lt;=5 ))
-do
-    echo $int
-    let &#34;int++&#34;
-done
-</code></pre><h3 id="util">util</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>echo &#34;$i&#34;
+</span></span><span style="display:flex;"><span>sleep 1s
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>done</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>### while ```shell int=1
+</span></span><span style="display:flex;"><span>while(( $int&lt;=5 ))
+</span></span><span style="display:flex;"><span>do
+</span></span><span style="display:flex;"><span>    echo $int
+</span></span><span style="display:flex;"><span>    let &#34;int++&#34;
+</span></span><span style="display:flex;"><span>done
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="util">util</h3>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -616,7 +821,27 @@ if (!doNotTrack) {
 <ul class="widget-list">
     
     <li>
+        <a href="https://weiweng.github.io/blog/post/2022-12-30-plan9%E6%B1%87%E7%BC%96/" title="Golang|plan9汇编" target="_blank">Golang|plan9汇编</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2022-12-17-dmt/" title="Golang|分布式事务管理DTM" target="_blank">Golang|分布式事务管理DTM</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-09-26-LFU%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/" title="LFU简单学习" target="_blank">LFU简单学习</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-08-31-interface%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="Golang|interface" target="_blank">Golang|interface</a>
+    </li>
+    
+    <li>
         <a href="https://weiweng.github.io/blog/post/2020-08-19-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/" title="分布式锁实现简单总结" target="_blank">分布式锁实现简单总结</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-08-19-%E5%9B%BE%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/" title="图及其相关算法" target="_blank">图及其相关算法</a>
     </li>
     
     <li>
@@ -628,31 +853,11 @@ if (!doNotTrack) {
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2020-06-13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7%E5%9F%BA%E7%A1%80%E8%AE%A4%E7%9F%A5/" title="微服务数据一致性基础认知" target="_blank">微服务数据一致性基础认知</a>
+        <a href="https://weiweng.github.io/blog/post/2020-07-11-golanggo-snowflake/" title="Golang|go-snowflake" target="_blank">Golang|go-snowflake</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2020-03-15-Nginx%E5%9F%BA%E7%A1%80/" title="Nginx|基础" target="_blank">Nginx|基础</a>
-    </li>
-    
-    <li>
-        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/" title="搜索引擎技巧" target="_blank">搜索引擎技巧</a>
-    </li>
-    
-    <li>
-        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/" title="计算机网络|概述" target="_blank">计算机网络|概述</a>
-    </li>
-    
-    <li>
-        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BF%9B%E7%A8%8B/" title="操作系统|进程" target="_blank">操作系统|进程</a>
-    </li>
-    
-    <li>
-        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E4%B8%80%E8%87%B4%E6%80%A7/" title="分布式事务一致性" target="_blank">分布式事务一致性</a>
-    </li>
-    
-    <li>
-        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E7%AE%80%E4%BB%8B/" title="开源协议简介" target="_blank">开源协议简介</a>
+        <a href="https://weiweng.github.io/blog/post/2020-07-11-defer/" title="Golang|defer" target="_blank">Golang|defer</a>
     </li>
     
 </ul>
@@ -664,33 +869,23 @@ if (!doNotTrack) {
         <h3 class="widget-title"><a href='/blog/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://weiweng.github.io/blog/categories/git/">git (2)</a></li>
+    <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (17)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/item2/">item2 (1)</a></li>
+    <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (8)</a></li>
+    <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/nginx/">nginx (1)</a></li>
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/shell/">shell (2)</a></li>
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/tmux/">tmux (1)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/uml/">uml (1)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/vim/">vim (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">分布式系统 (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (1)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/%E5%BF%83%E5%BE%97/">心得 (2)</a></li>
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (3)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E9%98%85%E8%AF%BB/">阅读 (2)</a></li>
+    <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
 </ul>
     </section>
@@ -699,17 +894,7 @@ if (!doNotTrack) {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/BIT/">BIT</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/B%E7%B1%BB%E6%A0%91/">B类树</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/LFU/">LFU</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/alpha-beta/">alpha-beta</a>
-    
     <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/copy/">copy</a>
     
     <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
     
@@ -717,27 +902,13 @@ if (!doNotTrack) {
     
     <a href="https://weiweng.github.io/blog/tags/git/">git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/golang/">golang</a>
-    
     <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/io/">io</a>
     
     <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/kmp/">kmp</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/linux/">linux</a>
-    
     <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/poll/">poll</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/rebase/">rebase</a>
-    
     <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/select/">select</a>
     
     <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
     
@@ -747,91 +918,13 @@ if (!doNotTrack) {
     
     <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
     
-    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">二分查找</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%8F%89%E5%B9%B3%E8%A1%A1%E6%A0%91/">二叉平衡树</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91/">二叉排序树</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/">优先级队列</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E4%BD%8D%E5%9B%BE/">位图</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E4%BD%8D%E6%93%8D%E4%BD%9C/">位操作</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">分布式系统</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">分布式锁</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/">分治算法</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%8D%95%E8%B0%83%E6%A0%88/">单调栈</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%8D%95%E9%93%BE%E8%A1%A8/">单链表</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/">双端队列</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%93%88%E5%B8%8C/">哈希</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%9B%9E%E6%BA%AF/">回溯</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%9B%BE/">图</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%A0%86/">堆</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%AD%97%E5%85%B8%E6%A0%91/">字典树</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/">广度优先遍历</a>
+    <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">开源协议</a>
     
-    <a href="https://weiweng.github.io/blog/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
-    
     <a href="https://weiweng.github.io/blog/tags/%E5%BF%83%E5%BE%97/">心得</a>
     
-    <a href="https://weiweng.github.io/blog/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/">快速幂</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E6%8A%80%E5%B7%A7/">技巧</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E6%8E%92%E5%BA%8F/">排序</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7/">数据一致性</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E6%9F%A5%E5%B9%B6%E9%9B%86/">查并集</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E6%A0%88/">栈</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F/">比较排序</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">滑动窗口</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/">红黑树</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF/">约瑟夫环</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/">计数排序</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E8%B4%AA%E5%BF%83/">贪心</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E8%BF%9B%E7%A8%8B/">进程</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E9%93%BE%E8%A1%A8/">链表</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E9%97%AE%E9%A2%98%E6%9C%AC%E8%B4%A8/">问题本质</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E9%98%85%E8%AF%BB/">阅读</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E9%98%9F%E5%88%97/">队列</a>
+    <a href="https://weiweng.github.io/blog/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/">搜索引擎技巧</a>
     
 </div>
     </section>

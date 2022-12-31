@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>Golang|go-snowflake | weiweng的博客</title>
+    <meta property="og:title" content="Golang|go-snowflake - weiweng的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-07-11T03:06:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-07-11T03:06:00&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,博客,项目管理,软件架构">
+    <meta name="description" content="Golang|go-snowflake">
+        
+    <meta name="author" content="weiweng">
+    <meta property="og:url" content="https://weiweng.github.io/blog/post/2020-07-11-golanggo-snowflake/">
+    <link rel="shortcut icon" href='/blog/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/blog/css/normalize.css'>
+    <link rel="stylesheet" href='/blog/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://weiweng.github.io/blog/">
+                        weiweng的博客
+                    </a>
+                
+                <p class="description">记录所学所思所想，专注于Go语言、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/read/" title="阅读">阅读</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/about/" title="关于">关于</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/archives/" title="归档">归档</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">Golang|go-snowflake</h1>
+        </header>
+        
+  <time datetime="2020-07-10T19:06:00Z" class="post-meta meta-date dt-published">
+    2020年7月11日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/Golang' target="_blank">Golang</a>
+  
+</div>
+
+
+        
+        
+        <div class="post-content">
+            <h1 id="go-snowflakehttpsgithubcomguaik-orggo-snowflake"><a href="https://github.com/GUAIK-ORG/go-snowflake">go-snowflake</a></h1>
+<p>在单机系统中我们会使用自增id作为数据的唯一id，自增id在数据库中有利于排序和索引，但是在分布式系统中如果还是利用数据库的自增id会引起冲突，自增id非常容易被爬虫爬取数据。在分布式系统中有使用uuid作为数据唯一id的，但是uuid是一串随机字符串，所以它无法被排序。</p>
+<p>Twitter设计了<code>Snowflake算法</code>为分布式系统生成ID,Snowflake的id是int64类型，它通过datacenterId和workerId来标识分布式系统，下面看下它的组成：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">符号位（保留字段）</th>
+<th style="text-align:center">时间戳(当前时间-纪元时间)</th>
+<th style="text-align:center">数据中心id</th>
+<th style="text-align:center">机器id</th>
+<th style="text-align:center">自增序列</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1bit</td>
+<td style="text-align:center">41bit</td>
+<td style="text-align:center">5bit</td>
+<td style="text-align:center">5bit</td>
+<td style="text-align:center">12bit</td>
+</tr>
+</tbody>
+</table>
+<h1 id="算法简介">算法简介</h1>
+<p>在使用Snowflake生成id时关键点:</p>
+<ul>
+<li>计算时间戳<code>timestamp（当前时间 - 纪元时间）</code>，如果timestamp数据超过41bit则异常</li>
+<li>判断datacenterId和workerId不能超过5bit(0-31)</li>
+<li>处理自增序列时，如果发现自增序列超过12bit时需要等待，因为当前毫秒下12bit的自增序列被用尽，需要进入下一毫秒后自增序列继续从0开始递增</li>
+</ul>
+<h1 id="核心代码">核心代码</h1>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> snowflake
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;sync&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;time&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;github.com/golang/glog&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">const</span> (
+</span></span><span style="display:flex;"><span>	epoch             = <span style="color:#0086b3">int64</span>(<span style="color:#099">1577808000000</span>)                           <span style="color:#998;font-style:italic">// 设置起始时间(时间戳/毫秒)：2020-01-01 00:00:00，有效期69年
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	timestampBits     = <span style="color:#0086b3">uint</span>(<span style="color:#099">41</span>)                                       <span style="color:#998;font-style:italic">// 时间戳占用位数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	datacenteridBits  = <span style="color:#0086b3">uint</span>(<span style="color:#099">5</span>)                                        <span style="color:#998;font-style:italic">// 数据中心id所占位数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	workeridBits      = <span style="color:#0086b3">uint</span>(<span style="color:#099">5</span>)                                        <span style="color:#998;font-style:italic">// 机器id所占位数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	sequenceBits      = <span style="color:#0086b3">uint</span>(<span style="color:#099">12</span>)                                       <span style="color:#998;font-style:italic">// 序列所占的位数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	timestampMax      = <span style="color:#0086b3">int64</span>(<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span> ^ (<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span> <span style="color:#000;font-weight:bold">&lt;&lt;</span> timestampBits))              <span style="color:#998;font-style:italic">// 时间戳最大值    -1的二进制表示是64位全是1
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	datacenteridMax   = <span style="color:#0086b3">int64</span>(<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span> ^ (<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span> <span style="color:#000;font-weight:bold">&lt;&lt;</span> datacenteridBits))           <span style="color:#998;font-style:italic">// 支持的最大数据中心id数量
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	workeridMax       = <span style="color:#0086b3">int64</span>(<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span> ^ (<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span> <span style="color:#000;font-weight:bold">&lt;&lt;</span> workeridBits))               <span style="color:#998;font-style:italic">// 支持的最大机器id数量
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	sequenceMask      = <span style="color:#0086b3">int64</span>(<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span> ^ (<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span> <span style="color:#000;font-weight:bold">&lt;&lt;</span> sequenceBits))               <span style="color:#998;font-style:italic">// 支持的最大序列id数量
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	workeridShift     = sequenceBits                                   <span style="color:#998;font-style:italic">// 机器id左移位数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	datacenteridShift = sequenceBits <span style="color:#000;font-weight:bold">+</span> workeridBits                    <span style="color:#998;font-style:italic">// 数据中心id左移位数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	timestampShift    = sequenceBits <span style="color:#000;font-weight:bold">+</span> workeridBits <span style="color:#000;font-weight:bold">+</span> datacenteridBits <span style="color:#998;font-style:italic">// 时间戳左移位数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> Snowflake <span style="color:#000;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	sync.Mutex   <span style="color:#998;font-style:italic">//加锁，防止并发碰撞
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	timestamp    <span style="color:#458;font-weight:bold">int64</span>
+</span></span><span style="display:flex;"><span>	workerid     <span style="color:#458;font-weight:bold">int64</span>
+</span></span><span style="display:flex;"><span>	datacenterid <span style="color:#458;font-weight:bold">int64</span>
+</span></span><span style="display:flex;"><span>	sequence     <span style="color:#458;font-weight:bold">int64</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">NewSnowflake</span>(datacenterid, workerid <span style="color:#458;font-weight:bold">int64</span>) (<span style="color:#000;font-weight:bold">*</span>Snowflake, <span style="color:#458;font-weight:bold">error</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> datacenterid &lt; <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">||</span> datacenterid &gt; datacenteridMax {
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">nil</span>, fmt.<span style="color:#900;font-weight:bold">Errorf</span>(<span style="color:#d14">&#34;datacenterid must be between 0 and %d&#34;</span>, datacenteridMax<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> workerid &lt; <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">||</span> workerid &gt; workeridMax {
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">nil</span>, fmt.<span style="color:#900;font-weight:bold">Errorf</span>(<span style="color:#d14">&#34;workerid must be between 0 and %d&#34;</span>, workeridMax<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">&amp;</span>Snowflake{
+</span></span><span style="display:flex;"><span>		timestamp:    <span style="color:#099">0</span>,
+</span></span><span style="display:flex;"><span>		datacenterid: datacenterid,
+</span></span><span style="display:flex;"><span>		workerid:     workerid,
+</span></span><span style="display:flex;"><span>		sequence:     <span style="color:#099">0</span>,
+</span></span><span style="display:flex;"><span>	}, <span style="color:#000;font-weight:bold">nil</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (s <span style="color:#000;font-weight:bold">*</span>Snowflake) <span style="color:#900;font-weight:bold">NextVal</span>() <span style="color:#458;font-weight:bold">int64</span> {
+</span></span><span style="display:flex;"><span>	s.<span style="color:#900;font-weight:bold">Lock</span>()
+</span></span><span style="display:flex;"><span>	now <span style="color:#000;font-weight:bold">:=</span> time.<span style="color:#900;font-weight:bold">Now</span>().<span style="color:#900;font-weight:bold">UnixNano</span>() <span style="color:#000;font-weight:bold">/</span> <span style="color:#099">1000000</span> <span style="color:#998;font-style:italic">// 转毫秒
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">if</span> s.timestamp <span style="color:#000;font-weight:bold">==</span> now {
+</span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">// 当同一时间戳（精度：毫秒）下多次生成id会增加序列号
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		s.sequence = (s.sequence <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>) <span style="color:#000;font-weight:bold">&amp;</span> sequenceMask
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> s.sequence <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">0</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#998;font-style:italic">// 如果当前序列超出12bit长度，则需要等待下一毫秒
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			<span style="color:#998;font-style:italic">// 下一毫秒将使用sequence:0
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			<span style="color:#000;font-weight:bold">for</span> now <span style="color:#000;font-weight:bold">&lt;=</span> s.timestamp {
+</span></span><span style="display:flex;"><span>				now = time.<span style="color:#900;font-weight:bold">Now</span>().<span style="color:#900;font-weight:bold">UnixNano</span>() <span style="color:#000;font-weight:bold">/</span> <span style="color:#099">1000000</span>
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	} <span style="color:#000;font-weight:bold">else</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">// 不同时间戳（精度：毫秒）下直接使用序列号：0
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		s.sequence = <span style="color:#099">0</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	t <span style="color:#000;font-weight:bold">:=</span> now <span style="color:#000;font-weight:bold">-</span> epoch
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> t &gt; timestampMax {
+</span></span><span style="display:flex;"><span>		s.<span style="color:#900;font-weight:bold">Unlock</span>()
+</span></span><span style="display:flex;"><span>		glog.<span style="color:#900;font-weight:bold">Errorf</span>(<span style="color:#d14">&#34;epoch must be between 0 and %d&#34;</span>, timestampMax<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#099">0</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	s.timestamp = now
+</span></span><span style="display:flex;"><span>	r <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">int64</span>((t)<span style="color:#000;font-weight:bold">&lt;&lt;</span>timestampShift | (s.datacenterid <span style="color:#000;font-weight:bold">&lt;&lt;</span> datacenteridShift) | (s.workerid <span style="color:#000;font-weight:bold">&lt;&lt;</span> workeridShift) | (s.sequence))
+</span></span><span style="display:flex;"><span>	s.<span style="color:#900;font-weight:bold">Unlock</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> r
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 获取数据中心ID和机器ID
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">GetDeviceID</span>(sid <span style="color:#458;font-weight:bold">int64</span>) (datacenterid, workerid <span style="color:#458;font-weight:bold">int64</span>) {
+</span></span><span style="display:flex;"><span>	datacenterid = (sid <span style="color:#000;font-weight:bold">&gt;&gt;</span> datacenteridShift) <span style="color:#000;font-weight:bold">&amp;</span> datacenteridMax
+</span></span><span style="display:flex;"><span>	workerid = (sid <span style="color:#000;font-weight:bold">&gt;&gt;</span> workeridShift) <span style="color:#000;font-weight:bold">&amp;</span> workeridMax
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 获取时间戳
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">GetTimestamp</span>(sid <span style="color:#458;font-weight:bold">int64</span>) (timestamp <span style="color:#458;font-weight:bold">int64</span>) {
+</span></span><span style="display:flex;"><span>	timestamp = (sid <span style="color:#000;font-weight:bold">&gt;&gt;</span> timestampShift) <span style="color:#000;font-weight:bold">&amp;</span> timestampMax
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 获取创建ID时的时间戳
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">GetGenTimestamp</span>(sid <span style="color:#458;font-weight:bold">int64</span>) (timestamp <span style="color:#458;font-weight:bold">int64</span>) {
+</span></span><span style="display:flex;"><span>	timestamp = <span style="color:#900;font-weight:bold">GetTimestamp</span>(sid) <span style="color:#000;font-weight:bold">+</span> epoch
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 获取创建ID时的时间字符串(精度：秒)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">GetGenTime</span>(sid <span style="color:#458;font-weight:bold">int64</span>) (t <span style="color:#458;font-weight:bold">string</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// 需将GetGenTimestamp获取的时间戳/1000转换成秒
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	t = time.<span style="color:#900;font-weight:bold">Unix</span>(<span style="color:#900;font-weight:bold">GetGenTimestamp</span>(sid)<span style="color:#000;font-weight:bold">/</span><span style="color:#099">1000</span>, <span style="color:#099">0</span>).<span style="color:#900;font-weight:bold">Format</span>(<span style="color:#d14">&#34;2006-01-02 15:04:05&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 获取时间戳已使用的占比：范围（0.0 - 1.0）
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">GetTimestampStatus</span>() (state <span style="color:#458;font-weight:bold">float64</span>) {
+</span></span><span style="display:flex;"><span>	state = <span style="color:#0086b3">float64</span>((time.<span style="color:#900;font-weight:bold">Now</span>().<span style="color:#900;font-weight:bold">UnixNano</span>()<span style="color:#000;font-weight:bold">/</span><span style="color:#099">1000000</span> <span style="color:#000;font-weight:bold">-</span> epoch)) <span style="color:#000;font-weight:bold">/</span> <span style="color:#0086b3">float64</span>(timestampMax)
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="参考">参考</h1>
+<ul>
+<li><a href="https://github.com/GUAIK-ORG/go-snowflake">go-snowflake</a></li>
+<li><a href="https://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html">原码、反码、补码</a></li>
+</ul>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>相关文章</h2>
+    <ul class="listing">
+        
+        <li><a href="/blog/post/2020-07-11-defer/">Golang|defer</a></li>
+        
+        <li><a href="/blog/post/2020-07-04-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">滑动窗口</a></li>
+        
+        <li><a href="/blog/post/2020-07-04-%E5%BF%AB%E9%80%9F%E5%B9%82/">快速幂</a></li>
+        
+        <li><a href="/blog/post/2020-06-18-Golang%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9/">Golang|使用注意</a></li>
+        
+        <li><a href="/blog/post/2020-06-13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7%E5%9F%BA%E7%A1%80%E8%AE%A4%E7%9F%A5/">微服务数据一致性基础认知</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            没有标签
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "weiweng/blog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2022 <a href="https://weiweng.github.io/blog/">weiweng的博客 By weiweng</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdn.bootcdn.net/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/blog/js/totop.js?v=0.0.0' async=""></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XYCDHPQC9T"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-XYCDHPQC9T', { 'anonymize_ip': false });
+}
+</script>
+
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2022-12-30-plan9%E6%B1%87%E7%BC%96/" title="Golang|plan9汇编" target="_blank">Golang|plan9汇编</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2022-12-17-dmt/" title="Golang|分布式事务管理DTM" target="_blank">Golang|分布式事务管理DTM</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-09-26-LFU%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/" title="LFU简单学习" target="_blank">LFU简单学习</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-08-31-interface%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="Golang|interface" target="_blank">Golang|interface</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-08-19-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/" title="分布式锁实现简单总结" target="_blank">分布式锁实现简单总结</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-08-19-%E5%9B%BE%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/" title="图及其相关算法" target="_blank">图及其相关算法</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-25-SelectPollEpoll/" title="Select、Poll、Epoll" target="_blank">Select、Poll、Epoll</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-25-Unix%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E4%BA%94%E7%A7%8DIO%E6%A8%A1%E5%9E%8B/" title="Unix网络编程中的五种IO模型" target="_blank">Unix网络编程中的五种IO模型</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-11-golanggo-snowflake/" title="Golang|go-snowflake" target="_blank">Golang|go-snowflake</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-11-defer/" title="Golang|defer" target="_blank">Golang|defer</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (17)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">开源协议</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BF%83%E5%BE%97/">心得</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/">搜索引擎技巧</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://draveness.me/" title="面向信仰编程">面向信仰编程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://xargin.com/" title="No Headback">No Headback</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://eddycjy.com/" title="煎鱼的博客">煎鱼的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://polarisxu.studygolang.com/" title="polarisxu的博客">polarisxu的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://qcrao.com/" title="qcrao 的博客">qcrao 的博客</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://weiweng.github.io/blog/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

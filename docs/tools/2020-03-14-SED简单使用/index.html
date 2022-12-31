@@ -51,17 +51,7 @@
                 <nav id="nav-menu" class="clearfix">
                     <a class="" href="https://weiweng.github.io/blog/">首页</a>
                     
-                    <a  href="https://weiweng.github.io/blog/golang/" title="golang">golang</a>
-                    
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
-                    
-                    <a  href="https://weiweng.github.io/blog/algorithm/" title="算法">算法</a>
-                    
-                    <a  href="https://weiweng.github.io/blog/mysql/" title="mysql">mysql</a>
-                    
-                    <a  href="https://weiweng.github.io/blog/redis/" title="redis">redis</a>
-                    
-                    <a  href="https://weiweng.github.io/blog/mq/" title="mq">mq</a>
                     
                     <a  href="https://weiweng.github.io/blog/read/" title="阅读">阅读</a>
                     
@@ -93,13 +83,6 @@
   </time>
 
 
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/blog/categories/linux' target="_blank">linux</a>
-  
-</div>
-
 
         
         
@@ -108,57 +91,138 @@
 <p>sed 全名叫 stream editor，流编辑器，用程序的方式来编辑文本。</p>
 <h2 id="sed使用">SED使用</h2>
 <h3 id="替换参数s">替换参数s</h3>
-<pre tabindex="0"><code>#使用yours替换my，g表示替换改行所有匹配项
-sed &#34;s/my/yours/g&#34; demo.txt
-#指定行替换
-sed &#34;3s/my/yours/g&#34; demo.txt
-#指定多行替换
-sed &#34;3,6s/my/yours/g&#34; demo.txt
-#只替换每行第二个
-sed &#34;s/my/yours/2&#34; demo.txt
-#替换每行第2个以后的匹配项
-sed &#34;s/my/yours/2g&#34; demo.txt
-#多个匹配替换
-sed &#34;1,3s/my/yours/g; 2,$s/my/yours/g&#34; demo.txt
-#圆括号匹配后作为变量使用，\1 \2分别表示语句前面匹配的数据
-sed &#39;s/my \([^,&amp;]*\),.*is \(.*\)/\1:\2/g&#39; my.txt
-</code></pre><h3 id="增加参数a和i">增加参数a和i</h3>
-<pre tabindex="0"><code>#a参数表示增加 i参数表示插入，他们都是用于添加行的
-#插入一行数据
-sed &#34;1 i this is my&#34; demo.txt
-#增加一行数据在最后
-sed &#34;$ a this my word&#34; demo.txt
-#匹配到的每行都增加
-sed &#34;/my/a ---&#34; demo.txt
-</code></pre><h3 id="替换命令c">替换命令c</h3>
-<pre tabindex="0"><code>#将指定的行做替换
-sed &#34;2 c my word&#34; demo.txt 
-#匹配的行做替换
-sed &#34;/my/c my word&#34; demo.txt
-</code></pre><h3 id="删除命令d">删除命令d</h3>
-<pre tabindex="0"><code>#删除匹配的行
-sed &#34;/fish/d&#34; demo.txt
-#删除指定行
-sed &#34;2d&#34; demo.txt
-sed &#34;2,$d&#34; demo.txt
-</code></pre><h3 id="输出命令p">输出命令p</h3>
-<pre tabindex="0"><code>#匹配的行输出,被匹配到的行会输出两次
-sed &#34;/fish/p&#34; demo.txt
-#值输出匹配到的行
-sed -n &#34;/fish/p&#34; demo.txt
-#匹配行之间的输出
-sed -n &#34;/dog/,/fish/p&#34; demo.txt
-#指定行到匹配行输出
-sed -n &#34;1,/fish/p&#34; demo.txt
-</code></pre><h3 id="相关选项">相关选项</h3>
-<pre tabindex="0"><code>#-e 参数
-如果需要用 sed 对文本内容进行多种操作，则需要执行多条子命令来进行操作。
-sed -e &#39;s/hello/A/&#39; -e &#39;s/world/B/&#39;
-#-i 参数
-sed 默认会把输入行读取到模式空间，简单理解就是一个内存缓冲区，sed子命令处理的内容是模式空间中的内容，而非直接处理文件内容。因此在 sed 修改模式空间内容之后，并非直接写入修改输入文件，而是打印输出到标准输出。如果需要修改输入文件，那么就可以指定 - i 选项。
-#-f 参数
-还记得 -e 选项可以来执行多个子命令操作，用分号分隔多个命令操作也是可以的，如果命令操作比较多的时候就会比较麻烦，这时候把多个子命令操作写入脚本文件，然后使用 -f 选项来指定该脚本。
-</code></pre><h3 id="参考资料">参考资料</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#使用yours替换my，g表示替换改行所有匹配项
+</span></span><span style="display:flex;"><span>sed &#34;s/my/yours/g&#34; demo.txt
+</span></span><span style="display:flex;"><span>#指定行替换
+</span></span><span style="display:flex;"><span>sed &#34;3s/my/yours/g&#34; demo.txt
+</span></span><span style="display:flex;"><span>#指定多行替换
+</span></span><span style="display:flex;"><span>sed &#34;3,6s/my/yours/g&#34; demo.txt
+</span></span><span style="display:flex;"><span>#只替换每行第二个
+</span></span><span style="display:flex;"><span>sed &#34;s/my/yours/2&#34; demo.txt
+</span></span><span style="display:flex;"><span>#替换每行第2个以后的匹配项
+</span></span><span style="display:flex;"><span>sed &#34;s/my/yours/2g&#34; demo.txt
+</span></span><span style="display:flex;"><span>#多个匹配替换
+</span></span><span style="display:flex;"><span>sed &#34;1,3s/my/yours/g; 2,$s/my/yours/g&#34; demo.txt
+</span></span><span style="display:flex;"><span>#圆括号匹配后作为变量使用，\1 \2分别表示语句前面匹配的数据
+</span></span><span style="display:flex;"><span>sed &#39;s/my \([^,&amp;]*\),.*is \(.*\)/\1:\2/g&#39; my.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="增加参数a和i">增加参数a和i</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#a参数表示增加 i参数表示插入，他们都是用于添加行的
+</span></span><span style="display:flex;"><span>#插入一行数据
+</span></span><span style="display:flex;"><span>sed &#34;1 i this is my&#34; demo.txt
+</span></span><span style="display:flex;"><span>#增加一行数据在最后
+</span></span><span style="display:flex;"><span>sed &#34;$ a this my word&#34; demo.txt
+</span></span><span style="display:flex;"><span>#匹配到的每行都增加
+</span></span><span style="display:flex;"><span>sed &#34;/my/a ---&#34; demo.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="替换命令c">替换命令c</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#将指定的行做替换
+</span></span><span style="display:flex;"><span>sed &#34;2 c my word&#34; demo.txt 
+</span></span><span style="display:flex;"><span>#匹配的行做替换
+</span></span><span style="display:flex;"><span>sed &#34;/my/c my word&#34; demo.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="删除命令d">删除命令d</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#删除匹配的行
+</span></span><span style="display:flex;"><span>sed &#34;/fish/d&#34; demo.txt
+</span></span><span style="display:flex;"><span>#删除指定行
+</span></span><span style="display:flex;"><span>sed &#34;2d&#34; demo.txt
+</span></span><span style="display:flex;"><span>sed &#34;2,$d&#34; demo.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="输出命令p">输出命令p</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#匹配的行输出,被匹配到的行会输出两次
+</span></span><span style="display:flex;"><span>sed &#34;/fish/p&#34; demo.txt
+</span></span><span style="display:flex;"><span>#值输出匹配到的行
+</span></span><span style="display:flex;"><span>sed -n &#34;/fish/p&#34; demo.txt
+</span></span><span style="display:flex;"><span>#匹配行之间的输出
+</span></span><span style="display:flex;"><span>sed -n &#34;/dog/,/fish/p&#34; demo.txt
+</span></span><span style="display:flex;"><span>#指定行到匹配行输出
+</span></span><span style="display:flex;"><span>sed -n &#34;1,/fish/p&#34; demo.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="相关选项">相关选项</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#-e 参数
+</span></span><span style="display:flex;"><span>如果需要用 sed 对文本内容进行多种操作，则需要执行多条子命令来进行操作。
+</span></span><span style="display:flex;"><span>sed -e &#39;s/hello/A/&#39; -e &#39;s/world/B/&#39;
+</span></span><span style="display:flex;"><span>#-i 参数
+</span></span><span style="display:flex;"><span>sed 默认会把输入行读取到模式空间，简单理解就是一个内存缓冲区，sed子命令处理的内容是模式空间中的内容，而非直接处理文件内容。因此在 sed 修改模式空间内容之后，并非直接写入修改输入文件，而是打印输出到标准输出。如果需要修改输入文件，那么就可以指定 - i 选项。
+</span></span><span style="display:flex;"><span>#-f 参数
+</span></span><span style="display:flex;"><span>还记得 -e 选项可以来执行多个子命令操作，用分号分隔多个命令操作也是可以的，如果命令操作比较多的时候就会比较麻烦，这时候把多个子命令操作写入脚本文件，然后使用 -f 选项来指定该脚本。
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="参考资料">参考资料</h3>
 <ol>
 <li><a href="https://www.cnblogs.com/liwei0526vip/p/5644163.html">sed 入门详解教程</a></li>
 <li><a href="https://coolshell.cn/articles/9104.html">sed 简明教程</a></li>
@@ -177,13 +241,13 @@ sed 默认会把输入行读取到模式空间，简单理解就是一个内存�
         
         <li><a href="/blog/tools/2020-03-14-AWK%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">AWK简单使用</a></li>
         
-        <li><a href="/blog/algorithm/2020-03-13-B%E7%B1%BB%E6%A0%91/">B类树</a></li>
+        <li><a href="/blog/post/2020-03-13-B%E7%B1%BB%E6%A0%91/">B类树</a></li>
         
-        <li><a href="/blog/algorithm/2020-03-13-%E4%BD%8D%E5%9B%BE/">位图</a></li>
+        <li><a href="/blog/post/2020-03-13-%E4%BD%8D%E5%9B%BE/">位图</a></li>
         
-        <li><a href="/blog/algorithm/2020-03-13-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/">栈和队列</a></li>
+        <li><a href="/blog/post/2020-03-13-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/">栈和队列</a></li>
         
-        <li><a href="/blog/algorithm/2020-03-13-%E9%93%BE%E8%A1%A8/">链表</a></li>
+        <li><a href="/blog/post/2020-03-13-%E9%93%BE%E8%A1%A8/">链表</a></li>
         
     </ul>
 </div>
@@ -192,8 +256,6 @@ sed 默认会把输入行读取到模式空间，简单理解就是一个内存�
         <div class="post-meta meta-tags">
             
             <ul class="clearfix">
-                
-                <li><a href='/blog/tags/linux' target="_blank">linux</a></li>
                 
                 <li><a href='/blog/tags/sed' target="_blank">sed</a></li>
                 
@@ -288,7 +350,27 @@ if (!doNotTrack) {
 <ul class="widget-list">
     
     <li>
+        <a href="https://weiweng.github.io/blog/post/2022-12-30-plan9%E6%B1%87%E7%BC%96/" title="Golang|plan9汇编" target="_blank">Golang|plan9汇编</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2022-12-17-dmt/" title="Golang|分布式事务管理DTM" target="_blank">Golang|分布式事务管理DTM</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-09-26-LFU%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/" title="LFU简单学习" target="_blank">LFU简单学习</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-08-31-interface%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="Golang|interface" target="_blank">Golang|interface</a>
+    </li>
+    
+    <li>
         <a href="https://weiweng.github.io/blog/post/2020-08-19-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/" title="分布式锁实现简单总结" target="_blank">分布式锁实现简单总结</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-08-19-%E5%9B%BE%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/" title="图及其相关算法" target="_blank">图及其相关算法</a>
     </li>
     
     <li>
@@ -300,31 +382,11 @@ if (!doNotTrack) {
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2020-06-13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7%E5%9F%BA%E7%A1%80%E8%AE%A4%E7%9F%A5/" title="微服务数据一致性基础认知" target="_blank">微服务数据一致性基础认知</a>
+        <a href="https://weiweng.github.io/blog/post/2020-07-11-golanggo-snowflake/" title="Golang|go-snowflake" target="_blank">Golang|go-snowflake</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2020-03-15-Nginx%E5%9F%BA%E7%A1%80/" title="Nginx|基础" target="_blank">Nginx|基础</a>
-    </li>
-    
-    <li>
-        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/" title="搜索引擎技巧" target="_blank">搜索引擎技巧</a>
-    </li>
-    
-    <li>
-        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/" title="计算机网络|概述" target="_blank">计算机网络|概述</a>
-    </li>
-    
-    <li>
-        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BF%9B%E7%A8%8B/" title="操作系统|进程" target="_blank">操作系统|进程</a>
-    </li>
-    
-    <li>
-        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E4%B8%80%E8%87%B4%E6%80%A7/" title="分布式事务一致性" target="_blank">分布式事务一致性</a>
-    </li>
-    
-    <li>
-        <a href="https://weiweng.github.io/blog/post/2020-03-15-%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E7%AE%80%E4%BB%8B/" title="开源协议简介" target="_blank">开源协议简介</a>
+        <a href="https://weiweng.github.io/blog/post/2020-07-11-defer/" title="Golang|defer" target="_blank">Golang|defer</a>
     </li>
     
 </ul>
@@ -336,33 +398,23 @@ if (!doNotTrack) {
         <h3 class="widget-title"><a href='/blog/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://weiweng.github.io/blog/categories/git/">git (2)</a></li>
+    <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (17)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/item2/">item2 (1)</a></li>
+    <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (8)</a></li>
+    <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/nginx/">nginx (1)</a></li>
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/shell/">shell (2)</a></li>
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/tmux/">tmux (1)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/uml/">uml (1)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/vim/">vim (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">分布式系统 (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (1)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/%E5%BF%83%E5%BE%97/">心得 (2)</a></li>
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (3)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E9%98%85%E8%AF%BB/">阅读 (2)</a></li>
+    <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
 </ul>
     </section>
@@ -371,17 +423,7 @@ if (!doNotTrack) {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/BIT/">BIT</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/B%E7%B1%BB%E6%A0%91/">B类树</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/LFU/">LFU</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/alpha-beta/">alpha-beta</a>
-    
     <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/copy/">copy</a>
     
     <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
     
@@ -389,27 +431,13 @@ if (!doNotTrack) {
     
     <a href="https://weiweng.github.io/blog/tags/git/">git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/golang/">golang</a>
-    
     <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/io/">io</a>
     
     <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/kmp/">kmp</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/linux/">linux</a>
-    
     <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/poll/">poll</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/rebase/">rebase</a>
-    
     <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/select/">select</a>
     
     <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
     
@@ -419,91 +447,13 @@ if (!doNotTrack) {
     
     <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
     
-    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">二分查找</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%8F%89%E5%B9%B3%E8%A1%A1%E6%A0%91/">二叉平衡树</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91/">二叉排序树</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/">优先级队列</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E4%BD%8D%E5%9B%BE/">位图</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E4%BD%8D%E6%93%8D%E4%BD%9C/">位操作</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">分布式系统</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">分布式锁</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/">分治算法</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%8D%95%E8%B0%83%E6%A0%88/">单调栈</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%8D%95%E9%93%BE%E8%A1%A8/">单链表</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/">双端队列</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%93%88%E5%B8%8C/">哈希</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%9B%9E%E6%BA%AF/">回溯</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%9B%BE/">图</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%A0%86/">堆</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%AD%97%E5%85%B8%E6%A0%91/">字典树</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/">广度优先遍历</a>
+    <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">开源协议</a>
     
-    <a href="https://weiweng.github.io/blog/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
-    
     <a href="https://weiweng.github.io/blog/tags/%E5%BF%83%E5%BE%97/">心得</a>
     
-    <a href="https://weiweng.github.io/blog/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/">快速幂</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E6%8A%80%E5%B7%A7/">技巧</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E6%8E%92%E5%BA%8F/">排序</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7/">数据一致性</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E6%9F%A5%E5%B9%B6%E9%9B%86/">查并集</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E6%A0%88/">栈</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F/">比较排序</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">滑动窗口</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/">红黑树</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF/">约瑟夫环</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/">计数排序</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E8%B4%AA%E5%BF%83/">贪心</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E8%BF%9B%E7%A8%8B/">进程</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E9%93%BE%E8%A1%A8/">链表</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E9%97%AE%E9%A2%98%E6%9C%AC%E8%B4%A8/">问题本质</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E9%98%85%E8%AF%BB/">阅读</a>
-    
-    <a href="https://weiweng.github.io/blog/tags/%E9%98%9F%E5%88%97/">队列</a>
+    <a href="https://weiweng.github.io/blog/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/">搜索引擎技巧</a>
     
 </div>
     </section>

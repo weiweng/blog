@@ -1,7 +1,6 @@
 +++
 title="GREP简单使用"
-tags=["linux","grep"]
-categories=["linux"]
+tags=["grep"]
 date="2020-03-14T02:35:00+08:00"
 summary = 'GREP简单使用'
 toc=false

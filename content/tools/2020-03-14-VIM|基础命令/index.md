@@ -1,7 +1,6 @@
 +++
 title="VIM|基础命令"
 tags=["vim"]
-categories=["vim"]
 date="2020-03-14T11:00:00+08:00"
 summary = 'VIM|基础命令'
 toc=false

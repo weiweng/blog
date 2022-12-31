@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>Golang|MPG | weiweng的博客</title>
+    <meta property="og:title" content="Golang|MPG - weiweng的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-03-15T05:57:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-03-15T05:57:00&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,博客,项目管理,软件架构">
+    <meta name="description" content="Golang|MPG">
+        
+    <meta name="author" content="weiweng">
+    <meta property="og:url" content="https://weiweng.github.io/blog/post/2020-03-15-MPG%E5%88%86%E6%9E%90/">
+    <link rel="shortcut icon" href='/blog/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/blog/css/normalize.css'>
+    <link rel="stylesheet" href='/blog/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://weiweng.github.io/blog/">
+                        weiweng的博客
+                    </a>
+                
+                <p class="description">记录所学所思所想，专注于Go语言、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/read/" title="阅读">阅读</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/about/" title="关于">关于</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/archives/" title="归档">归档</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">Golang|MPG</h1>
+        </header>
+        
+  <time datetime="2020-03-14T21:57:00Z" class="post-meta meta-date dt-published">
+    2020年3月15日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/Golang' target="_blank">Golang</a>
+  
+</div>
+
+
+        
+        
+        <div class="post-content">
+            <h2 id="并行和并发">并行和并发</h2>
+<h3 id="并发concurrency">并发(concurrency)</h3>
+<p>两个或两个以上的任务在一段时间内被执行。例如跑步的时候，停下来系鞋带</p>
+<h3 id="并行parallelism">并行(parallelism)</h3>
+<p>两个或两个以上的任务在同一时刻被同时执行。例如跑步的时候，边跑边听歌</p>
+<h2 id="线程模型">线程模型</h2>
+<p>从线程讲起，无论语言层面何种并发模型，到了操作系统层面，一定是以线程的形态存在的。而操作系统根据资源访问权限的不同，体系架构可分为用户空间和内核空间；内核空间主要操作访问CPU资源、I/O资源、内存资源等硬件资源，为上层应用程序提供最基本的基础资源，用户空间呢就是上层应用程序的固定活动空间，用户空间不可以直接访问资源，必须通过系统调用、库函数或Shell脚本,来调用内核空间提供的资源。</p>
+<p>现在的计算机语言，可以狭义的认为是一种“软件”，它们中所谓的“线程”，往往是用户态的线程，和操作系统本身内核态的线程（简称KSE），还是有区别的。可以分为以下几种模型</p>
+<h3 id="用户级线程模型">用户级线程模型</h3>
+<p>多个用户态的线程对应着一个内核线程，程序线程的创建、终止、切换或者同步等线程工作必须自身来完成。</p>
+<h3 id="内核级线程模型">内核级线程模型</h3>
+<p>直接调用操作系统的内核线程，所有线程的创建、终止、切换、同步等操作，都由内核来完成。</p>
+<h3 id="两级线程模型">两级线程模型</h3>
+<p>这种模型是介于用户级线程模型和内核级线程模型之间的一种线程模型。这种模型的实现非常复杂，和内核级线程模型类似，一个进程中可以对应多个内核级线程，但是进程中的线程不和内核线程一一对应；这种线程模型会先创建多个内核级线程，然后用自身的用户级线程去对应创建的多个内核级线程，自身的用户级线程需要本身程序去调度，内核级的线程交给操作系统内核去调度。</p>
+<p>Go语言的线程模型就是一种特殊的两极线程模型。我们称之为&quot;MPG&quot;模型</p>
+<h2 id="mpg模型">MPG模型</h2>
+<p>
+        <img class="mx-auto" alt="mpg模型图" src="img_0.png" />   
+    </p>
+<h3 id="g">G</h3>
+<p>G是Goroutine的缩写，其实本质上也是一种轻量级的线程，相当于操作系统中的进程控制块，在这里就是Goroutine的控制结构，是对Goroutine的抽象。其中包括执行的函数指令及参数；G保存的任务对象；线程上下文切换，现场保护和现场恢复需要的寄存器(SP、IP)等信息。</p>
+<h3 id="m">M</h3>
+<p>M是称为Machine，一个M直接关联了一个内核线程。M是有线程栈的。如果不对该线程栈提供内存的话，系统会给该线程栈提供内存。M的PC寄存器指向G提供的函数，然后去执行。</p>
+<h3 id="p">P</h3>
+<p>P是一个抽象的概念，并不是真正的物理CPU。所以当P有任务时需要创建或者唤醒一个系统线程来执行它队列里的任务。所以P/M需要进行绑定，构成一个执行单元。</p>
+<p>本地队列:当前P的队列，本地队列是Lock-Free，没有数据竞争问题，无需加锁处理，可以提升处理速度。</p>
+<p>全局队列:全局队列为了保证多个P之间任务的平衡。所有M共享P全局队列，为保证数据竞争问题，需要加锁处理。相比本地队列处理速度要低于全局队列。</p>
+<h3 id="调度过程">调度过程</h3>
+<p>首先创建一个G对象，G对象保存到P本地队列或者是全局队列。P此时去唤醒一个M。P继续执行它的执行序。M寻找是否有空闲的P，如果有则将该G对象移动到它本身。接下来M执行一个调度循环(调用G对象-&gt;执行-&gt;清理线程-&gt;继续找新的Goroutine执行)。</p>
+<p>M执行过程中，随时会发生上下文切换。当发生上线文切换时，需要对执行现场进行保护，以便下次被调度执行时进行现场恢复。Go调度器M的栈保存在G对象上，只需要将M所需要的寄存器(SP、PC等)保存到G对象上就可以实现现场保护。当这些寄存器数据被保护起来，就随时可以做上下文切换了，在中断之前把现场保存起来。如果此时G任务还没有执行完，M可以将任务重新丢到P的任务队列，等待下一次被调度执行。当再次被调度执行时，M通过访问G的vdsoSP、vdsoPC寄存器进行现场恢复(从上次中断位置继续执行)。</p>
+<h3 id="系统调用">系统调用</h3>
+<p>
+        <img class="mx-auto" alt="mpg模型图" src="img_1.png" />   
+    </p>
+<p>
+        <img class="mx-auto" alt="mpg模型图" src="img_2.png" />   
+    </p>
+<h3 id="netpoller">NetPoller</h3>
+<p>Go 将 epoll 进行了包装，会单独创建一个名为 NetPoller 的 M 异步处理网络IO，它不需要和 P 进行绑定。</p>
+<p>当 G 执行网络 IO 的时候，G 会和当前 M 、P 解绑，进入到 NetPoller 的 M 中，等待网络 IO 完成，这样即使执行网络 IO 的系统调用，也不会产生阻塞的 M.</p>
+<p>当网络 IO 完成后，M 的 Schedule 函数，会通过<code>findrunable</code>函数 取到这个 G，继续运行它。</p>
+<h3 id="均衡任务">均衡任务</h3>
+<p>
+        <img class="mx-auto" alt="mpg模型图" src="img_3.png" />   
+    </p>
+<h3 id="g的创建流程">G的创建流程</h3>
+<ol>
+<li>创建一个G对象，优选加入本地队列，本地队列满了则会将本地队列前一半和新建的G一起打乱顺序加入全局队列</li>
+<li>G会尝试唤醒其他空闲的P和M组合去执行</li>
+<li>M会启动一个底层线程，循环执行能找到的G任务</li>
+<li>G任务的执行顺序是，先从本地队列找，然后去全局队列找(一次拿全局G/P个数个任务)，再之后去其他P中找(偷一半的任务)</li>
+</ol>
+<h3 id="m的创建过程">M的创建过程</h3>
+<ol>
+<li>先找到一个空闲的P，如果没有则直接返回(保证了进程不会占用超过自己设定的cpu个数)</li>
+<li>调用系统api创建线程，不同的操作系统，调用不一样</li>
+<li>然后创建的这个线程里面才是真正做事的，循环执行G任务</li>
+</ol>
+<h3 id="如何终止长任务">如何终止长任务</h3>
+<ol>
+<li>启动的时候，专门创建一个线程sysmon，监控和管理任务</li>
+<li>该线程记录所有P的G任务计数schedtick，该数值每执行一个G任务后递增</li>
+<li>检测到某个schedtick一直没有递增，则说明这个P一直执行同一个G任务，则超过一段时间，就在这个G任务的栈信息中增加一个标记</li>
+<li>G任务在执行的时候，如果遇到非内联函数调用，则会检测一次上述标记，然后中断自己，把自己放到队列末尾，P就可以执行下一个G</li>
+</ol>
+<h3 id="g任务中断恢复">G任务中断恢复</h3>
+<ol>
+<li>中断的时候将寄存器里的栈信息，保存到自己的G对象里面</li>
+<li>当再次轮到自己执行时，将自己保存的栈信息复制到寄存器里面，这样就接着上次之后运行了</li>
+</ol>
+<h2 id="go启动流程">go启动流程</h2>
+<ul>
+<li>runtime创建最初的线程m0和goroutine g0，并把2者关联</li>
+<li>调度器初始化：初始化m0、栈、垃圾回收，以及创建和初始化由GOMAXPROCS个P构成的P列表</li>
+<li>示例代码中的main函数是<code>main.main</code>，runtime中也有1个main函数<code>runtime.main</code>，代码经过编译后，<code>runtime.main</code>会调用<code>main.main</code>，程序启动时会为<code>runtime.main</code>创建goroutine，称它为<code>main goroutine</code>，然后把<code>main goroutine</code>加入到P的本地队列</li>
+<li>启动m0，m0已经绑定了P，会从P的本地队列获取G，获取到<code>main goroutine</code></li>
+<li>G拥有栈，M根据G中的栈信息和调度信息设置运行环境</li>
+<li>M运行G</li>
+<li>G退出，再次回到M获取可运行的G，这样重复下去，直到<code>main.main</code>退出，<code>runtime.main</code>执行<code>defer</code>和<code>panic</code>处理，或调用<code>runtime.exit</code>退出程序</li>
+</ul>
+<p>
+        <img class="mx-auto" alt="main流程" src="img_4.png" />   
+    </p>
+<h2 id="g的寻找流程">G的寻找流程</h2>
+<h3 id="调度">调度</h3>
+<p>go程序初始化完毕后，调度器会进行调度(位于runtime中的schedule函数)，以让main函数中的G有机会开始运行。</p>
+<ul>
+<li>调度器会先查找全局（调度器的）可运行G队列以及本地P的可运行G队列</li>
+<li>找不到则进入==强力查找模式==：从任何可以获得G的地方查找G</li>
+<li>还是找不到，则该子流程暂停，直到有可运行的G出现才会继续下去</li>
+<li>子流程结束，意味着当前M抢到了一个可运行的G</li>
+</ul>
+<p>调度器找到G后的流程：</p>
+<ul>
+<li>如果调度器在调度之初发现当前M已经与某个G锁定，会立即停止调度并阻塞当前M，如果G到了可运行状态，M会被唤醒并继续运行G。</li>
+<li>如果当前M找到了可运行G，却发现该G与另外的M锁定，它会唤醒绑定的M来运行该G，并重新为当前M寻找可运行G</li>
+<li>如果当前M未与任何G锁定(gcwaiting值不为0)，那么停止Go调度器，即STW(Stop the world)并等待运行时串行任务正在执行</li>
+<li>当锁定和运行时串行任务都为假，执行寻找G</li>
+</ul>
+<h3 id="强力查找模式-调度开启强力找子流程时会多次尝试从任何可以获得g的地方查找g使用的函数是runtimefindrunnabel返回一个处于grunnable状态的g">强力查找模式 ==调度==开启强力找子流程时，会多次尝试从任何可以获得G的地方查找G，使用的函数是<code>runtime.findrunnabel</code>，返回一个处于Grunnable状态的G。</h3>
+<h4 id="阶段一-步骤一获取终结函数的g对象在未被任何其他对象引用时不可达就会被垃圾回收器回收回收前会调用函数runtimesetfinalizer将该对象与一个中终结函数绑定所有的终结函数由一个专用的g负责调度器如果发现该g完成任务会将其状态设置为grunnable并放入本地p的可运行g队列-步骤二从本地p的可运行g队列获取一个g-步骤三找不到则从调度器的可运行队列获取g-步骤四找不到则从网络io轮询器netpoller获取g-步骤五找不到则从其他p的可运行g队列获取g-如果上述步骤还是无法搜索到可用g那么搜索进入阶段二">==阶段一== 步骤一：获取终结函数的G。对象在未被任何其他对象引用时（不可达）就会被垃圾回收器回收，回收前会调用函数<code>runtime.SetFinalizer</code>将该对象与一个中终结函数绑定。所有的终结函数由一个专用的G负责。调度器如果发现该G完成任务，会将其状态设置为Grunnable并放入本地P的可运行G队列。 步骤二：从本地P的可运行G队列获取一个G 步骤三：找不到则从调度器的可运行队列获取G 步骤四：找不到则从网络I/O轮询器（netpoller）获取G 步骤五：找不到则从其他P的可运行G队列获取G 如果上述步骤还是无法搜索到可用G，那么搜索进入==阶段二==</h4>
+<h4 id="阶段二">==阶段二==</h4>
+<p>步骤一：调度器判断是否处于GC标记节点，如果是，则把本地P持有的GC标记的G状态改为Grunnable并返回结果 步骤二：再次从调度器可运行G队列获取G，找不到则解除本地P与当前M关联，并把P放入调度器的空闲P列表 步骤三：遍历全局P列表中的P，检查可运行G队列，如果发现某个P的可运行G队列不为空，则取出一个P，关联到当前M，进入阶段一重新执行 步骤四：全局P列表也没有可运行G队列，则判断是否正处于GC标记节点，以及相关资源是否可用，如果都是true，调度器会从空闲P列表拿出一个P，如果该P持有一个GC标记专用G，就关联P与M，执行阶段二的步骤一 步骤五：继续从I/O轮询器获取G 上述2个阶段都查找不到G，则调度器就会停止当前M。</p>
+<h2 id="g0和m0">G0和M0</h2>
+<p>M中拥有两个特殊的元素</p>
+<ul>
+<li>
+<p>g0：M初始化时运行时生成的线程，所在的栈称为调度栈/系统栈/调度栈/OS线程栈，用于执行调度、垃圾回收、栈管理</p>
+</li>
+<li>
+<p>gsignal：处理信号的G，所在的栈称为信号栈</p>
+</li>
+<li>
+<p><code>runtime.g0</code>：用于执行引导程序，位于Go程序第一个内核线程中，该内核线程是<code>runtime.m0</code></p>
+<h3 id="注意">注意</h3>
+</li>
+<li>
+<p>g0不会被阻塞，也不会包含在任何G队列或者列表中，其栈也不会再垃圾回收期被扫描</p>
+</li>
+<li>
+<p><code>runtime.m0</code>和<code>runtime.g0</code>都是静态分配的，无需分配内容</p>
+</li>
+<li>
+<p><code>runtime.m0</code>的g0级<code>runtime.g0</code></p>
+</li>
+</ul>
+<h2 id="参考">参考</h2>
+<ol>
+<li><a href="https://www.cnblogs.com/sunsky303/p/9705727.html">深入Golang调度器之GMP模型</a></li>
+<li><a href="https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part1.html">Scheduling In Go</a></li>
+<li><a href="https://i6448038.github.io/2017/12/04/golang-concurrency-principle/">Go并发原理</a></li>
+<li><a href="https://blog.csdn.net/liangzhiyang/article/details/52669851">golang的goroutine调度机制</a></li>
+<li><a href="https://mp.weixin.qq.com/s/SEPP56sr16bep4C_S0TLgA">30+张图讲解：Golang调度器GMP原理与调度全分析</a></li>
+<li><a href="https://www.cnblogs.com/cool2feel/articles/13115829.html">并发编程-Go协程调度模型（下）</a></li>
+</ol>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>相关文章</h2>
+    <ul class="listing">
+        
+        <li><a href="/blog/post/2020-03-15-Pprof/">Golang|pprof</a></li>
+        
+        <li><a href="/blog/post/2020-03-15-FileServer/">golang|FileServer</a></li>
+        
+        <li><a href="/blog/post/2020-03-15-%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/">golang|基础笔记</a></li>
+        
+        <li><a href="/blog/tools/2020-03-15-%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E7%AE%80%E4%BB%8B/">开源协议简介</a></li>
+        
+        <li><a href="/blog/tools/2020-03-14-VIM%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/">VIM|基础命令</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            没有标签
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "weiweng/blog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2022 <a href="https://weiweng.github.io/blog/">weiweng的博客 By weiweng</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdn.bootcdn.net/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/blog/js/totop.js?v=0.0.0' async=""></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XYCDHPQC9T"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-XYCDHPQC9T', { 'anonymize_ip': false });
+}
+</script>
+
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2022-12-30-plan9%E6%B1%87%E7%BC%96/" title="Golang|plan9汇编" target="_blank">Golang|plan9汇编</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2022-12-17-dmt/" title="Golang|分布式事务管理DTM" target="_blank">Golang|分布式事务管理DTM</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-09-26-LFU%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/" title="LFU简单学习" target="_blank">LFU简单学习</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-08-31-interface%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="Golang|interface" target="_blank">Golang|interface</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-08-19-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/" title="分布式锁实现简单总结" target="_blank">分布式锁实现简单总结</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-08-19-%E5%9B%BE%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/" title="图及其相关算法" target="_blank">图及其相关算法</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-25-SelectPollEpoll/" title="Select、Poll、Epoll" target="_blank">Select、Poll、Epoll</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-25-Unix%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E4%BA%94%E7%A7%8DIO%E6%A8%A1%E5%9E%8B/" title="Unix网络编程中的五种IO模型" target="_blank">Unix网络编程中的五种IO模型</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-11-golanggo-snowflake/" title="Golang|go-snowflake" target="_blank">Golang|go-snowflake</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-11-defer/" title="Golang|defer" target="_blank">Golang|defer</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (17)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">开源协议</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BF%83%E5%BE%97/">心得</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/">搜索引擎技巧</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://draveness.me/" title="面向信仰编程">面向信仰编程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://xargin.com/" title="No Headback">No Headback</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://eddycjy.com/" title="煎鱼的博客">煎鱼的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://polarisxu.studygolang.com/" title="polarisxu的博客">polarisxu的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://qcrao.com/" title="qcrao 的博客">qcrao 的博客</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://weiweng.github.io/blog/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

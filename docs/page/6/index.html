@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta name="generator" content="Hugo 0.104.1" />
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>weiweng的博客 | 记录所学所思所想，专注于Go语言、软件架构</title>
+    <meta property="og:title" content="weiweng的博客 | 记录所学所思所想，专注于Go语言、软件架构">
+    <meta property="og:type" content="website">
+    <meta name="Keywords" content="golang,go语言,go语言笔记,博客,项目管理,软件架构">
+    <meta name="description" content="专注于IT互联网,包括但不限于Go语言、软件架构等">
+    <meta property="og:url" content="https://weiweng.github.io/blog/">
+    <link rel="shortcut icon" href='/blog/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/blog/css/normalize.css'>
+    <link rel="stylesheet" href='/blog/css/style.css'>
+    <link rel="alternate" type="application/rss+xml" href="https://weiweng.github.io/blog/index.xml" title="weiweng的博客" />
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <h1>
+                        <a id="logo" href="https://weiweng.github.io/blog/">
+                            weiweng的博客
+                        </a>
+                    </h1>
+                
+                <p class="description">记录所学所思所想，专注于Go语言、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/read/" title="阅读">阅读</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/about/" title="关于">关于</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/archives/" title="归档">归档</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://weiweng.github.io/blog/post/2020-03-14-%E5%88%A0%E9%99%A4%E6%B5%81%E7%A8%8B/" title="mysql|删除流程" target="_blank">mysql|删除流程</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-03-13T19:02:00Z" class="post-meta meta-date dt-published">
+    2020年3月14日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/mysql' target="_blank">mysql</a>
+  
+</div>
+
+
+        <div class="post-content">
+            数据删除 删除整个表的时候，可以使用 drop table 命令回收表空间。但是，我们遇到的更多的删除数据的场景是删除某些行，这时就遇到了这样的问题：表中的数据被删除了，但是表空间却……
+        </div>
+        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-14-%E5%88%A0%E9%99%A4%E6%B5%81%E7%A8%8B/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://weiweng.github.io/blog/post/2020-03-14-%E6%8E%92%E5%BA%8F%E6%96%B9%E6%B3%95/" title="mysql|排序方法" target="_blank">mysql|排序方法</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-03-13T18:59:00Z" class="post-meta meta-date dt-published">
+    2020年3月14日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/mysql' target="_blank">mysql</a>
+  
+</div>
+
+
+        <div class="post-content">
+            排序方法……
+        </div>
+        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-14-%E6%8E%92%E5%BA%8F%E6%96%B9%E6%B3%95/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://weiweng.github.io/blog/post/2020-03-14-%E7%BB%9F%E8%AE%A1%E6%AF%94%E8%BE%83/" title="mysql|统计比较" target="_blank">mysql|统计比较</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-03-13T18:58:00Z" class="post-meta meta-date dt-published">
+    2020年3月14日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/mysql' target="_blank">mysql</a>
+  
+</div>
+
+
+        <div class="post-content">
+            count效率比较 在不同的 MySQL 引擎中，count(*)有不同的实现方式。 MyISAM 引擎把一个表的总行数存在了磁盘上，因此执行 count(*) 的时候会直接返回这个数，效率很高； InnoDB 引擎就麻……
+        </div>
+        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-14-%E7%BB%9F%E8%AE%A1%E6%AF%94%E8%BE%83/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://weiweng.github.io/blog/post/2020-03-14-%E6%97%A5%E5%BF%97%E7%B1%BB%E5%9E%8B/" title="mysql|日志类型" target="_blank">mysql|日志类型</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-03-13T18:57:00Z" class="post-meta meta-date dt-published">
+    2020年3月14日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/mysql' target="_blank">mysql</a>
+  
+</div>
+
+
+        <div class="post-content">
+            MySQL日志类型 MySQL数据库共有四种类型的日志：Error Log、General Query Log、Slow Query Log 和 Binary Log 错误日志 Error Log 即 错误日志，主要是记录 mysqld 发生的一些……
+        </div>
+        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-14-%E6%97%A5%E5%BF%97%E7%B1%BB%E5%9E%8B/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://weiweng.github.io/blog/post/2020-03-14-%E4%B8%80%E8%87%B4%E6%80%A7%E8%AF%BB/" title="mysql|一致性读" target="_blank">mysql|一致性读</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-03-13T18:55:00Z" class="post-meta meta-date dt-published">
+    2020年3月14日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/mysql' target="_blank">mysql</a>
+  
+</div>
+
+
+        <div class="post-content">
+            视图 view,它是一个用查询语句定义的虚拟表，在调用的时候执行查询语句并生成结果。 另一个是 InnoDB 在实现 MVCC 时用到的一致性读视图，即 consistent read view，用于支持 RC（Read……
+        </div>
+        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-14-%E4%B8%80%E8%87%B4%E6%80%A7%E8%AF%BB/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://weiweng.github.io/blog/post/2020-03-14-%E9%94%81%E7%9B%B8%E5%85%B3/" title="mysql|锁相关" target="_blank">mysql|锁相关</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-03-13T18:53:00Z" class="post-meta meta-date dt-published">
+    2020年3月14日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/mysql' target="_blank">mysql</a>
+  
+</div>
+
+
+        <div class="post-content">
+            全局锁(FTWRL) 全局锁就是对整个数据库实例加锁。 MySQL 提供了一个加全局读锁的方法，命令是 Flush tables with read lock 当你需要让整个库处于只读状态的时候，可以使用这个命令，之后其他……
+        </div>
+        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-14-%E9%94%81%E7%9B%B8%E5%85%B3/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://weiweng.github.io/blog/post/2020-03-14-%E7%B4%A2%E5%BC%95%E7%9B%B8%E5%85%B3/" title="mysql|索引相关 " target="_blank">mysql|索引相关 </a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-03-13T18:52:00Z" class="post-meta meta-date dt-published">
+    2020年3月14日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/mysql' target="_blank">mysql</a>
+  
+</div>
+
+
+        <div class="post-content">
+            索引 索引的出现是为了提高数据的查询效率，就行书本的目录一样，mysql中索引的实现是基于存储引擎的。 实现 哈希表 说明:以键值存储的数据结构 问题:哈希冲突的处理 范围……
+        </div>
+        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-14-%E7%B4%A2%E5%BC%95%E7%9B%B8%E5%85%B3/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://weiweng.github.io/blog/post/2020-03-14-%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B%E8%A7%A3%E6%9E%90/" title="mysql|更新流程解析" target="_blank">mysql|更新流程解析</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-03-13T18:51:00Z" class="post-meta meta-date dt-published">
+    2020年3月14日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/mysql' target="_blank">mysql</a>
+  
+</div>
+
+
+        <div class="post-content">
+            redo log 当有一条记录需要更新的时候，InnoDB 引擎就会先把记录写到 redo log里面，并更新内存，这个时候更新就算完成了。同时，InnoDB 引擎会在适当的时候，将这个操……
+        </div>
+        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-14-%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B%E8%A7%A3%E6%9E%90/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://weiweng.github.io/blog/post/2020-03-14-%E6%9F%A5%E8%AF%A2%E6%B5%81%E7%A8%8B%E8%A7%A3%E6%9E%90/" title="mysql|查询流程解析" target="_blank">mysql|查询流程解析</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-03-13T18:50:00Z" class="post-meta meta-date dt-published">
+    2020年3月14日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/mysql' target="_blank">mysql</a>
+  
+</div>
+
+
+        <div class="post-content">
+            Mysql基本架构图 MySQL 可以分为 Server 层和存储引擎层两部分。Server 层包括连接器、查询缓存、分析器、优化器、执行器等，涵盖 MySQL 的大多数核心服务功能，以及所有的内置函……
+        </div>
+        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-14-%E6%9F%A5%E8%AF%A2%E6%B5%81%E7%A8%8B%E8%A7%A3%E6%9E%90/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://weiweng.github.io/blog/post/2020-03-14-InnoDB%E7%9A%84ACID/" title="mysql|InnoDB的ACID" target="_blank">mysql|InnoDB的ACID</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-03-13T18:49:00Z" class="post-meta meta-date dt-published">
+    2020年3月14日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/mysql' target="_blank">mysql</a>
+  
+</div>
+
+
+        <div class="post-content">
+            基本概念 ACID 原子性（Atomicity）：一个事务必须被视为一个不可分割的最小工作单元，整个事务中的所有操作要么全部提交成功，要么全部失败回滚。 一致性（consi……
+        </div>
+        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-14-InnoDB%E7%9A%84ACID/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+
+
+
+<ol class="page-navigator">
+    
+    <li class="prev">
+        <a href="https://weiweng.github.io/blog/page/5/">上一页</a>
+    </li>
+    
+
+    
+    <li >
+        <a href="https://weiweng.github.io/blog/">1</a>
+    </li>
+    
+    <li >
+        <a href="https://weiweng.github.io/blog/page/2/">2</a>
+    </li>
+    
+    <li >
+        <a href="https://weiweng.github.io/blog/page/3/">3</a>
+    </li>
+    
+    <li >
+        <a href="https://weiweng.github.io/blog/page/4/">4</a>
+    </li>
+    
+    <li >
+        <a href="https://weiweng.github.io/blog/page/5/">5</a>
+    </li>
+    
+    <li  class="current">
+        <a href="https://weiweng.github.io/blog/page/6/">6</a>
+    </li>
+    
+    <li >
+        <a href="https://weiweng.github.io/blog/page/7/">7</a>
+    </li>
+    
+    <li >
+        <a href="https://weiweng.github.io/blog/page/8/">8</a>
+    </li>
+    
+    <li >
+        <a href="https://weiweng.github.io/blog/page/9/">9</a>
+    </li>
+    
+    <li >
+        <a href="https://weiweng.github.io/blog/page/10/">10</a>
+    </li>
+    
+
+    
+    <li class="next">
+        <a href="https://weiweng.github.io/blog/page/7/">下一页</a>
+    </li>
+    
+</ol>
+
+
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2022 <a href="https://weiweng.github.io/blog/">weiweng的博客 By weiweng</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/blog/js/totop.js?v=0.0.0' async=""></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XYCDHPQC9T"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-XYCDHPQC9T', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2022-12-30-plan9%E6%B1%87%E7%BC%96/" title="Golang|plan9汇编" target="_blank">Golang|plan9汇编</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2022-12-17-dmt/" title="Golang|分布式事务管理DTM" target="_blank">Golang|分布式事务管理DTM</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-09-26-LFU%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/" title="LFU简单学习" target="_blank">LFU简单学习</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-08-31-interface%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="Golang|interface" target="_blank">Golang|interface</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-08-19-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/" title="分布式锁实现简单总结" target="_blank">分布式锁实现简单总结</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-08-19-%E5%9B%BE%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/" title="图及其相关算法" target="_blank">图及其相关算法</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-25-SelectPollEpoll/" title="Select、Poll、Epoll" target="_blank">Select、Poll、Epoll</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-25-Unix%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E4%BA%94%E7%A7%8DIO%E6%A8%A1%E5%9E%8B/" title="Unix网络编程中的五种IO模型" target="_blank">Unix网络编程中的五种IO模型</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-11-golanggo-snowflake/" title="Golang|go-snowflake" target="_blank">Golang|go-snowflake</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-07-11-defer/" title="Golang|defer" target="_blank">Golang|defer</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (17)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">开源协议</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BF%83%E5%BE%97/">心得</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/">搜索引擎技巧</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://draveness.me/" title="面向信仰编程">面向信仰编程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://xargin.com/" title="No Headback">No Headback</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://eddycjy.com/" title="煎鱼的博客">煎鱼的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://polarisxu.studygolang.com/" title="polarisxu的博客">polarisxu的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://qcrao.com/" title="qcrao 的博客">qcrao 的博客</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://weiweng.github.io/blog/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,6 +1,5 @@
 +++
 title="Unix网络编程中的五种IO模型"
-tags=["linux","io"]
 categories=["linux"]
 date="2020-07-25T10:51:00+08:00"
 summary = 'Unix网络编程中的五种IO模型'

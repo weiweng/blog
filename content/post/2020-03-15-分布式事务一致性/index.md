@@ -1,7 +1,6 @@
 +++
 title="分布式事务一致性"
-tags=["分布式系统"]
-categories=["分布式系统"]
+categories=["微服务"]
 date="2020-03-15T06:04:00+08:00"
 summary = '分布式事务一致性'
 toc=false

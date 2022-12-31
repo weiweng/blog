@@ -1,7 +1,6 @@
 +++
 title="git|基础命令"
 tags=["git"]
-categories=["git"]
 date="2020-03-14T10:59:00+08:00"
 summary = 'git|基础命令'
 toc=false

@@ -1,7 +1,6 @@
 +++
 title="CURL简单使用"
-tags=["linux","curl"]
-categories=["linux"]
+tags=["curl"]
 date="2020-03-14T02:36:00+08:00"
 summary = 'CURL简单使用'
 toc=false
