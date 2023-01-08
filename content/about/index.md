@@ -74,6 +74,8 @@ date: 2022-11-30 10:20:30
 ### 其他平台
 Github：[https://github.com/weiweng](https://github.com/weiweng)
 
-<!-- 公众号，扫码关注 -->
-<!-- ![扫码关注](weixin.png) -->
-<!-- ![扫码关注](weixin.png) -->
+公众号，扫码关注
+
+![扫码关注](weixin.png)
+
+<!--![扫码关注](weixin1.png) -->
