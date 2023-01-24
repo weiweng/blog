@@ -6,7 +6,16 @@
     <description>Recent content in Posts on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 01 Jan 2023 19:43:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Jan 2023 09:43:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python|知识点拾遗(一)</title>
+      <link>https://weiweng.github.io/blog/post/2023-01-07-python%E7%9F%A5%E8%AF%86%E7%82%B9%E6%8B%BE%E9%81%97/</link>
+      <pubDate>Sat, 07 Jan 2023 09:43:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2023-01-07-python%E7%9F%A5%E8%AF%86%E7%82%B9%E6%8B%BE%E9%81%97/</guid>
+      <description>最近阅读《Python工匠：案例、技巧与工程实践》发现一些零零碎碎的之前不知道的知识点，因此总结记录方便以后翻找查阅。 变量与注释 变量解包是python里一种特殊</description>
+    </item>
+    
     <item>
       <title>Python|基础知识</title>
       <link>https://weiweng.github.io/blog/post/2023-01-01-python%E5%9F%BA%E7%A1%80/</link>

@@ -202,3 +202,4 @@ TEXT pkgname·add(SB), NOSPLIT, $0-8
 - [plan9 assembly 完全解析](https://github.com/cch123/golang-notes/blob/master/assembly.md)
 - [Go 汇编概述](https://hopehook.com/post/golang_assembly/)
 - [肝了一上午的Golang之Plan9入门](https://mp.weixin.qq.com/s/8wnMvROFQkVTKZ-qe4_eqw)
+- [视频资料-曹大讲解plan9](https://www.bilibili.com/video/BV1Xb411J7Yk/)

@@ -2,7 +2,7 @@
 title="Python|知识点拾遗(一)"
 date="2023-01-07T09:43:00+08:00"
 categories=["Python"]
-draft=true
+draft=false
 toc=true
 +++
 
@@ -162,3 +162,71 @@ True
 ```
 
 上面的例子需要注意，如果把23000改成100，则`x is y`会判断为True，这是因为Python语言使用了一种名为“整型驻留”（integer interning）的底层优化技术。对于从-5到256的这些常用小整数，Python会将它们缓存在内存里的一个数组中。当你的程序需要用到这些数字时，Python不会创建任何新的整型对象，而是会返回缓存中的对象。这样能为程序节约可观的内存。
+
+## 装饰器
+
+装饰器是一种通过包装目标函数来修改其行为的特殊高阶函数，绝大多数装饰器是利用函数的闭包原理实现的。
+
+```c
+def timer(func):
+    """装饰器：打印函数耗时"""
+    def decorated(*args, **kwargs):
+        st = time.perf_counter()
+        ret = func(*args,**kwargs)
+        print('time cost:{} seconds'.format(time.perf_counter() - st))
+        return st
+    return decorated
+
+// 使用timer装饰器
+
+@timer
+def random_sleep():
+    time.sleep(random.random())
+```
+
+如果一个类实现了__call__魔法方法，那么它的实例也会变成可调用对象。如果一个类实现了__call__魔法方法，那么它的实例也会变成可调用对象。
+
+```c
+>>> class Foo:
+...     def __call__(self, name):
+...         print(f'hello,{name}')
+...
+>>> foo=Foo()
+>>> callable(foo)
+True
+>>> foo('world')
+hello,world
+```
+
+书里面写的内容看着蛮复杂，后期专门整理博客介绍。
+
+## 面向对象
+
+在Python里，所有的类属性和方法默认都是公开的，不过我们可以通过添加双下划线前缀__的方式把它们标示为私有。
+
+```c
+class Foo:
+    def __init__(self):
+        self.__bar = 'baz'
+
+>>> foo = Foo()
+>>> foo.__bar
+AttributeError: 'Foo' object has no attribute '__bar'
+```
+
+代码中Foo类的bar就是一个私有属性，如果尝试从外部访问它，程序就会抛出异常。虽然上面是设置私有属性的标准做法，但Python里的私有只是一个“君子协议”。“君子协议”是指，虽然用属性的本名访问不了私有属性，但只要稍微调整一下名字，就可以继续操作`__bar`了
+
+```c
+>>> foo._Foo__bar
+'baz'
+```
+
+这是因为当我们使用`__{var}`的方式定义一个私有属性时，Python解释器只是重新给了它一个包含当前类名的别名`_{class}__{var}`，因此你仍然可以在外部用这个别名来访问和修改它。
+
+## 总结
+
+开始浏览了一遍，其中较多设计修饰器，这个后期再仔细学习一下。
+
+## 参考
+
+- [《Python工匠：案例、技巧与工程实践》](https://weread.qq.com/web/bookDetail/42a32930813ab6ddeg018ad1)
