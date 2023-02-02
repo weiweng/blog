@@ -6,7 +6,43 @@
     <description>Recent content in Golang on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 30 Dec 2022 19:56:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/categories/Golang/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Feb 2023 19:50:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/categories/Golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Golang|学习教程(三)-结构体</title>
+      <link>https://weiweng.github.io/blog/post/2023-02-02-golangstruct/</link>
+      <pubDate>Thu, 02 Feb 2023 19:50:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2023-02-02-golangstruct/</guid>
+      <description>本小节介绍go语言中的结构体，由于go语言没有面向对象的设计，但我们可以通过结构体去实现面向对象的继承、封装、多态特性。 指针 在介绍结构体之前，还需要了解一下go</description>
+    </item>
+    
+    <item>
+      <title>Golang|学习教程(二)-流程控制</title>
+      <link>https://weiweng.github.io/blog/post/2023-02-01-golangflow/</link>
+      <pubDate>Wed, 01 Feb 2023 21:50:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2023-02-01-golangflow/</guid>
+      <description>接下来学习go语言的基本流程控制，包含if、switch、for、defer四个关键字。 if go语言与其他语言的一个不同之处，就是控制语句不需要额外的括号包裹，i</description>
+    </item>
+    
+    <item>
+      <title>Golang|学习教程(一)-基础概念</title>
+      <link>https://weiweng.github.io/blog/post/2023-01-31-golangbasics/</link>
+      <pubDate>Tue, 31 Jan 2023 21:50:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2023-01-31-golangbasics/</guid>
+      <description>最新使用Python编写一些处理脚本，感觉与golang之间的语法开始模糊，因此决定根据官方文档，写一下golang的入门教程，顺便复习一下相关语法巩固基础。 包</description>
+    </item>
+    
+    <item>
+      <title>Golang|truetype解析</title>
+      <link>https://weiweng.github.io/blog/post/2023-01-14-golangttf/</link>
+      <pubDate>Sat, 07 Jan 2023 09:43:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2023-01-14-golangttf/</guid>
+      <description>最近工作上遇到需要解析ttf字库的需求，判断给到的数据中是否有不存在ttf字库中的汉字，结果查询一遍之后发现，使用golang解析ttf做判定的代码基本没有，因</description>
+    </item>
+    
     <item>
       <title>Golang|plan9汇编</title>
       <link>https://weiweng.github.io/blog/post/2022-12-30-plan9%E6%B1%87%E7%BC%96/</link>

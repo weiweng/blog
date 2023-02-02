@@ -374,6 +374,12 @@ func (f *Font) Index(x rune) Index {
 }
 ```
 
+## 后续
+
+研究了[`golang/freetype`](https://github.com/golang/freetype/blob/master/truetype/truetype.go)的go解析ttf流程，发现整体无问题，但是解析本地ttf文件，还是不能拿到完整的字符集合，利用python脚本解析是可以的，通过python的断点分析解析结构，发现cmap的子表有多个，python解析后有一个获取最佳子表的操作，而go语言解析中可以看到代码里面只判断了`platformID`，命中了3则直接返回了，因此我们拿到的cmap子表是不全的。
+
+后面github里面再次寻找，发现了一个全部解析cmap子表的库，[`fonts/truetype`](github.com/benoitkugler/textlayout/fonts/truetype)，测试后发现完美符合预期，不需要自己重新写代码解析了。
+
 ## 参考
 
 - [TTF字体格式入门](https://juejin.cn/post/7010064099027451912)
