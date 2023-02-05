@@ -6,7 +6,16 @@
     <description>Recent content in Golang on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 02 Feb 2023 19:50:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/categories/Golang/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Feb 2023 09:50:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/categories/Golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Golang|学习教程(四)-数组和切片</title>
+      <link>https://weiweng.github.io/blog/post/2023-02-05-golangslice/</link>
+      <pubDate>Sun, 05 Feb 2023 09:50:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2023-02-05-golangslice/</guid>
+      <description>本小节学习go语言的数组和切片，一门编程语言肯定少不了基本数据结构数组，go语言中还有另外的类型切片，和数组的区别是数组的大小是固定的，是不可改动的，而切片是可</description>
+    </item>
+    
     <item>
       <title>Golang|学习教程(三)-结构体</title>
       <link>https://weiweng.github.io/blog/post/2023-02-02-golangstruct/</link>
