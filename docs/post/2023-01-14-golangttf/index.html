@@ -1,0 +1,1358 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>Golang|truetype解析 | weiweng的博客</title>
+    <meta property="og:title" content="Golang|truetype解析 - weiweng的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2023-01-07T09:43:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2023-01-07T09:43:00&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,博客,项目管理,软件架构">
+    <meta name="description" content="Golang|truetype解析">
+        
+    <meta name="author" content="weiweng">
+    <meta property="og:url" content="https://weiweng.github.io/blog/post/2023-01-14-golangttf/">
+    <link rel="shortcut icon" href='/blog/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/blog/css/normalize.css'>
+    <link rel="stylesheet" href='/blog/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://weiweng.github.io/blog/">
+                        weiweng的博客
+                    </a>
+                
+                <p class="description">记录所学所思所想，专注于Go语言、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/read/" title="阅读">阅读</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/about/" title="关于">关于</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/archives/" title="归档">归档</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ttf">TTF</a>
+      <ul>
+        <li><a href="#truetype-字体文件">TrueType 字体文件</a></li>
+        <li><a href="#字体目录">字体目录</a></li>
+        <li><a href="#cmap">cmap</a></li>
+        <li><a href="#cmap-formats">cmap formats</a></li>
+      </ul>
+    </li>
+    <li><a href="#代码">代码</a></li>
+    <li><a href="#后续">后续</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if (leftPos < 220) {
+                postToc.css({ "width": leftPos - 10, "margin-left": (0 - leftPos) })
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+
+        if ($("#TableOfContents").children().length < 1) {
+            $(".post-toc").remove();
+        }
+    })
+</script>
+    <article class="post">
+        <header>
+            <h1 class="post-title">Golang|truetype解析</h1>
+        </header>
+        
+  <time datetime="2023-01-07T01:43:00Z" class="post-meta meta-date dt-published">
+    2023年1月7日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/Golang' target="_blank">Golang</a>
+  
+</div>
+
+
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
+        <div class="post-content">
+            <p>最近工作上遇到需要解析ttf字库的需求，判断给到的数据中是否有不存在ttf字库中的汉字，结果查询一遍之后发现，使用golang解析ttf做判定的代码基本没有，因此本文开始详细分析一波ttf字库文件，并尝试使用golang解析，实现相关需求。</p>
+<h2 id="ttf">TTF</h2>
+<p>TrueType是由美国苹果公司和微软公司共同开发的一种电脑轮廓字体（曲线描边字）类型标准。这种类型字体文件的扩展名是<code>.ttf</code>。</p>
+<p>早在1980年代末，苹果公司为了对抗Adobe公司的Type 1PostScript字体，设计开发了TrueType。之后微软加入了开发，Windows操作系统的字体格式基本上都统一成TrueType，TrueType后来也被Linux等系统使用，成为标准字体。TrueType的主要强项在于它能给开发者提供关于字体显示、不同字体大小的像素级显示等的高级控制。</p>
+<h3 id="truetype-字体文件">TrueType 字体文件</h3>
+<p>TrueType字体文件由一系列连接的表组成。表是单词的序列。每个表必须长对齐，并在必要时用零填充。所有的数据表中，第一重要的表是<strong>字体目录</strong>，这是一个特殊的表，便于访问字体中的其他表。该目录后面是一系列包含字体数据的表。这些表可以以任何顺序出现。有一些表格是所有字体都必须包含的，有些表是基于相关特殊功能可选择的包含对应数据表。</p>
+<p>必备表单</p>
+<table>
+<thead>
+<tr>
+<th>tag</th>
+<th>Table</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lsquo;camp&rsquo;</td>
+<td>character to glyph mapping</td>
+</tr>
+<tr>
+<td>&lsquo;glyf&rsquo;</td>
+<td>glyph data</td>
+</tr>
+<tr>
+<td>&lsquo;head&rsquo;</td>
+<td>font header</td>
+</tr>
+<tr>
+<td>&lsquo;hhea&rsquo;</td>
+<td>horizontal header</td>
+</tr>
+<tr>
+<td>&lsquo;hmtx&rsquo;</td>
+<td>horizontal metrics</td>
+</tr>
+<tr>
+<td>&rsquo;loca'</td>
+<td>index to location</td>
+</tr>
+<tr>
+<td>&lsquo;maxp&rsquo;</td>
+<td>maximum profile</td>
+</tr>
+<tr>
+<td>&rsquo;name'</td>
+<td>naming</td>
+</tr>
+<tr>
+<td>&lsquo;post&rsquo;</td>
+<td>PostScript</td>
+</tr>
+</tbody>
+</table>
+<h3 id="字体目录">字体目录</h3>
+<p>字体目录是所有表中最重要的，它是字体文件内的指导手册。通过它可以指导其他表格的相关信息。目录由两部分组成：偏移子表和表目录，偏移子表记录了表格数量，以及每个表格的对应存储偏移量，表目录则存储了具体的条目内容。</p>
+<p>偏移子表的格式如下：</p>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uint32</td>
+<td>scaler type</td>
+<td>一个标记，用于指示OFA缩放，重新定义字体大小</td>
+</tr>
+<tr>
+<td>uint16</td>
+<td>numTables</td>
+<td>表个数</td>
+</tr>
+<tr>
+<td>uint16</td>
+<td>searchRange</td>
+<td>(maximum power of 2 &lt;= numTables)*16</td>
+</tr>
+<tr>
+<td>uint16</td>
+<td>entrySelector</td>
+<td>log2(maximum power of 2 &lt;= numTables)</td>
+</tr>
+<tr>
+<td>uint16</td>
+<td>rangeShift</td>
+<td>numTables*16-searchRange</td>
+</tr>
+</tbody>
+</table>
+<p>表目录跟在offset子表后面。表目录中的条目必须按标签升序排序。字体文件中的每个表必须有自己的表目录条目。具体格式如下：</p>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uint32</td>
+<td>tag</td>
+<td>4字节的标识符</td>
+</tr>
+<tr>
+<td>uint32</td>
+<td>checkSum</td>
+<td>表的校验和</td>
+</tr>
+<tr>
+<td>uint32</td>
+<td>offset</td>
+<td>从SFNT开始的偏移量</td>
+</tr>
+<tr>
+<td>uint32</td>
+<td>length</td>
+<td>该表的长度(以字节为单位)</td>
+</tr>
+</tbody>
+</table>
+<p>从格式可以看出，具体表的内容存储在offset到offset+length之间。</p>
+<h3 id="cmap">cmap</h3>
+<p>了解了ttf字体文件的大概后，我们重点看看cmap表，cmap表将字符代码映射到字形索引。需要注意的是如果一种字体想要在多个平台上使用不同的编码显示约定，就需要多个编码表，因此，cmap表可能包含多个子表，每个子表对应支持的编码方案。</p>
+<p>在cmap表中，对于不可展示的字符，我们会将字符对应代码映射到字形索引0，通常0这个位置对应的字形是一个方框，，表示缺少的字符。需要注意的是，不应该将其映射到字形索引-1 (0xFFFF)，这是处理中保留的一个特殊值，用于指示从字形流中删除的字形的位置。</p>
+<p>接下来看看cmap表的格式：</p>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UInt16</td>
+<td>version</td>
+<td>版本号</td>
+</tr>
+<tr>
+<td>UInt16</td>
+<td>numberSubtables</td>
+<td>编码子表的个数</td>
+</tr>
+</tbody>
+</table>
+<p>camp的编码子表格式：</p>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UInt16</td>
+<td>platformID</td>
+<td>平台标识符</td>
+</tr>
+<tr>
+<td>UInt16</td>
+<td>platformSpecificID</td>
+<td>平台特定的编码标识符</td>
+</tr>
+<tr>
+<td>UInt32</td>
+<td>offset</td>
+<td>映射表的偏移量</td>
+</tr>
+</tbody>
+</table>
+<p>子表必须先按平台标识符升序排序，然后再按平台特定标识符进行排序。platformID和platformSpecificID具体的枚举定义可以参考官方文档，这里我们关注的是platformID为0时，就是Unicode编码平台，随后platformSpecificID标识对应的相关Unicode版本。</p>
+<h3 id="cmap-formats">cmap formats</h3>
+<p>每个“cmap”子表都是当前可用的九种格式之一。它们是下一节中描述的格式0、格式2、格式4、格式6、格式8、格式10、格式12、格式13和格式14。其中格式2支持混合8/16位映射，适用于日语、中文和韩语。不过在阅读<code>github.com/golang/freetype/truetype</code>的源码时，发现只解析了4和12两种格式，因此我们重点关注格式4的具体定义。</p>
+<p>格式4是一种双字节编码格式。当字体的字符代码落在几个连续的范围内时，允许存在一些空缺映射，即非密集的情况时，推荐使用格式4，密集映射的双字节字体时推荐使用格式6。</p>
+<p>格式4的设计格式如下：</p>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UInt16</td>
+<td>format</td>
+<td>固定数值4</td>
+</tr>
+<tr>
+<td>UInt16</td>
+<td>length</td>
+<td>长度(字节)</td>
+</tr>
+<tr>
+<td>UInt32</td>
+<td>language</td>
+<td>语言编码</td>
+</tr>
+<tr>
+<td>UInt16</td>
+<td>segCountX2</td>
+<td>2 * segCount</td>
+</tr>
+<tr>
+<td>UInt16</td>
+<td>searchRange</td>
+<td>2 * (2**FLOOR(log2(segCount)))</td>
+</tr>
+<tr>
+<td>UInt16</td>
+<td>entrySelector</td>
+<td>log2(searchRange/2)</td>
+</tr>
+<tr>
+<td>UInt16</td>
+<td>rangeShift</td>
+<td>(2 * segCount) - searchRange</td>
+</tr>
+<tr>
+<td>UInt16</td>
+<td>endCode[segCount]</td>
+<td>每个段的结束位置，最后一个数值为0xFFFF</td>
+</tr>
+<tr>
+<td>UInt16</td>
+<td>reservedPad</td>
+<td>理论上应该是0值</td>
+</tr>
+<tr>
+<td>UInt16</td>
+<td>startCode[segCount]</td>
+<td>每个段的起始位置</td>
+</tr>
+<tr>
+<td>UInt16</td>
+<td>idDelta[segCount]</td>
+<td>每个段的字符代码增量</td>
+</tr>
+<tr>
+<td>UInt16</td>
+<td>idRangeOffset[segCount]</td>
+<td>对应到glyph indexArray的偏移量，可能为0</td>
+</tr>
+<tr>
+<td>UInt16</td>
+<td>glyphIndexArray[variable]</td>
+<td>图形数据索引下标数组</td>
+</tr>
+</tbody>
+</table>
+<p>段可以理解为一个映射码范围，其总的个数定义为segCount，但这个变量没有显示的在格式中标注体现，不过可以大略计算出来。</p>
+<p>searchRange, entrySelector, rangeShift 这三个字段苹果平台上不使用，为了兼容其他平台需要正确设置数值。</p>
+<p>具体如何解析cmap的编码与图形映射关系表，我们之后看一下代码。</p>
+<h2 id="代码">代码</h2>
+<p>truetype解析代码，我们看一下相关<a href="https://github.com/golang/freetype/blob/master/truetype/truetype.go">开源库</a>，这里贴一下关键代码。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">118
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">119
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">120
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">121
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">122
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">123
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">124
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">125
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">126
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">127
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">128
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">129
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">130
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">131
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">132
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">133
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">134
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">135
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">136
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">137
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">138
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">139
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">140
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">141
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">142
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">143
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">144
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">145
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">146
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">147
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">148
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">149
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">150
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">151
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">152
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">153
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">154
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">155
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">156
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">157
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">158
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">159
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">160
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">161
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">162
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">163
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">164
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">165
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">166
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">167
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">168
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">169
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">170
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">171
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">172
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">173
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">174
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">175
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">176
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">177
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">178
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">179
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">180
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">181
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">182
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">183
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">184
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">185
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">186
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">187
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">188
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">189
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">190
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">191
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">192
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">193
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">194
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">195
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">196
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">197
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">198
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">199
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">200
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">201
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">202
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">203
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">204
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">205
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">206
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">207
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">208
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">209
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">210
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">211
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">212
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">213
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">214
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">215
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">216
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">217
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">218
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">219
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">220
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">221
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">222
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">223
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">224
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">225
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">226
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">227
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">228
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">229
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">230
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">231
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">232
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">233
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">234
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">235
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">236
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">237
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">238
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">239
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">240
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">241
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">242
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">243
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">244
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">245
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">246
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">247
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">248
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">249
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">250
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">251
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">252
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">253
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">254
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">255
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">256
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">257
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">258
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 首先是基础的读取字节数据
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// u32函数，在i位置后面读取32bit，返回uint32
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// u32 returns the big-endian uint32 at b[i:].
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>func <span style="color:#900;font-weight:bold">u32</span>(b []byte, i <span style="color:#458;font-weight:bold">int</span>) uint32 {
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> uint32(b[i])<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#099">24</span> <span style="color:#000;font-weight:bold">|</span> uint32(b[i<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>])<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#099">16</span> <span style="color:#000;font-weight:bold">|</span> uint32(b[i<span style="color:#000;font-weight:bold">+</span><span style="color:#099">2</span>])<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#099">8</span> <span style="color:#000;font-weight:bold">|</span> uint32(b[i<span style="color:#000;font-weight:bold">+</span><span style="color:#099">3</span>])
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// u16 returns the big-endian uint16 at b[i:].
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>func <span style="color:#900;font-weight:bold">u16</span>(b []byte, i <span style="color:#458;font-weight:bold">int</span>) uint16 {
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> uint16(b[i])<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#099">8</span> <span style="color:#000;font-weight:bold">|</span> uint16(b[i<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>])
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 读取表字节数据
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// readTable returns a slice of the TTF data given by a table&#39;s directory entry.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>func <span style="color:#900;font-weight:bold">readTable</span>(ttf []byte, offsetLength []byte) ([]byte, error) {
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 偏移量获取
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#900;font-weight:bold">offset</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(u32(offsetLength, <span style="color:#099">0</span>))
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> offset <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">0</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> nil, FormatError(fmt.Sprintf(<span style="color:#d14">&#34;offset too large: %d&#34;</span>, uint32(offset)))
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 长度获取
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#900;font-weight:bold">length</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(u32(offsetLength, <span style="color:#099">4</span>))
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> length <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">0</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> nil, FormatError(fmt.Sprintf(<span style="color:#d14">&#34;length too large: %d&#34;</span>, uint32(length)))
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">end</span> :<span style="color:#000;font-weight:bold">=</span> offset <span style="color:#000;font-weight:bold">+</span> length
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> end <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">||</span> end <span style="color:#000;font-weight:bold">&gt;</span> len(ttf) {
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> nil, FormatError(fmt.Sprintf(<span style="color:#d14">&#34;offset + length too large: %d&#34;</span>, uint32(offset)<span style="color:#000;font-weight:bold">+</span>uint32(length)))
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 返回字节内容
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">return</span> ttf[<span style="color:#900;font-weight:bold">offset</span>:end], nil
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// parse ttf文件解析核心函数，offset初始为0
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>func <span style="color:#900;font-weight:bold">parse</span>(ttf []byte, offset <span style="color:#458;font-weight:bold">int</span>) (font <span style="color:#000;font-weight:bold">*</span>Font, err error) {
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> len(ttf)<span style="color:#000;font-weight:bold">-</span>offset <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">12</span> {
+</span></span><span style="display:flex;"><span>		err <span style="color:#000;font-weight:bold">=</span> FormatError(<span style="color:#d14">&#34;TTF data is too short&#34;</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">originalOffset</span> :<span style="color:#000;font-weight:bold">=</span> offset
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 获取scaler type
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	magic, <span style="color:#900;font-weight:bold">offset</span> :<span style="color:#000;font-weight:bold">=</span> u32(ttf, offset), offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">switch</span> magic {
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">case</span> <span style="color:#099">0x00010000</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">// No-op.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">case</span> <span style="color:#099">0x74746366</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#998;font-style:italic">// &#34;ttcf&#34; as a big-endian uint32.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">if</span> originalOffset <span style="color:#000;font-weight:bold">!=</span> <span style="color:#099">0</span> {
+</span></span><span style="display:flex;"><span>			err <span style="color:#000;font-weight:bold">=</span> FormatError(<span style="color:#d14">&#34;recursive TTC&#34;</span>)
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		ttcVersion, <span style="color:#900;font-weight:bold">offset</span> :<span style="color:#000;font-weight:bold">=</span> u32(ttf, offset), offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> ttcVersion <span style="color:#000;font-weight:bold">!=</span> <span style="color:#099">0x00010000</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> ttcVersion <span style="color:#000;font-weight:bold">!=</span> <span style="color:#099">0x00020000</span> {
+</span></span><span style="display:flex;"><span>			err <span style="color:#000;font-weight:bold">=</span> FormatError(<span style="color:#d14">&#34;bad TTC version&#34;</span>)
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		numFonts, <span style="color:#900;font-weight:bold">offset</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(u32(ttf, offset)), offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> numFonts <span style="color:#000;font-weight:bold">&lt;=</span> <span style="color:#099">0</span> {
+</span></span><span style="display:flex;"><span>			err <span style="color:#000;font-weight:bold">=</span> FormatError(<span style="color:#d14">&#34;bad number of TTC fonts&#34;</span>)
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> len(ttf[<span style="color:#900;font-weight:bold">offset</span>:])<span style="color:#000;font-weight:bold">/</span><span style="color:#099">4</span> <span style="color:#000;font-weight:bold">&lt;</span> numFonts {
+</span></span><span style="display:flex;"><span>			err <span style="color:#000;font-weight:bold">=</span> FormatError(<span style="color:#d14">&#34;TTC offset table is too short&#34;</span>)
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">// TODO: provide an API to select which font in a TrueType collection to return,
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#998;font-style:italic">// not just the first one. This may require an API to parse a TTC&#39;s name tables,
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#998;font-style:italic">// so users of this package can select the font in a TTC by name.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		offset <span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(u32(ttf, offset))
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> offset <span style="color:#000;font-weight:bold">&lt;=</span> <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">||</span> offset <span style="color:#000;font-weight:bold">&gt;</span> len(ttf) {
+</span></span><span style="display:flex;"><span>			err <span style="color:#000;font-weight:bold">=</span> FormatError(<span style="color:#d14">&#34;bad TTC offset&#34;</span>)
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> parse(ttf, offset)
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">default</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>		err <span style="color:#000;font-weight:bold">=</span> FormatError(<span style="color:#d14">&#34;bad TTF version&#34;</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 读取表个数n
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	n, <span style="color:#900;font-weight:bold">offset</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(u16(ttf, offset)), offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">2</span>
+</span></span><span style="display:flex;"><span>	offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">6</span> <span style="color:#998;font-style:italic">// Skip the searchRange, entrySelector and rangeShift.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">if</span> len(ttf) <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">16</span><span style="color:#000;font-weight:bold">*</span>n<span style="color:#000;font-weight:bold">+</span>offset {
+</span></span><span style="display:flex;"><span>		err <span style="color:#000;font-weight:bold">=</span> FormatError(<span style="color:#d14">&#34;TTF data is too short&#34;</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">f</span> :<span style="color:#000;font-weight:bold">=</span> new(Font)
+</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// Assign the table slices.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>; i <span style="color:#000;font-weight:bold">&lt;</span> n; i<span style="color:#000;font-weight:bold">++</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">x</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">16</span><span style="color:#000;font-weight:bold">*</span>i <span style="color:#000;font-weight:bold">+</span> offset
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">switch</span> string(ttf[<span style="color:#900;font-weight:bold">x</span> : x<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>]) {
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 读取cmap表字节数据
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">case</span> <span style="color:#d14">&#34;cmap&#34;</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>			f.cmap, err <span style="color:#000;font-weight:bold">=</span> readTable(ttf, ttf[x<span style="color:#000;font-weight:bold">+</span><span style="color:#099">8</span><span style="color:#000;font-weight:bold">:</span>x<span style="color:#000;font-weight:bold">+</span><span style="color:#099">16</span>])
+</span></span><span style="display:flex;"><span>            ...
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> err <span style="color:#000;font-weight:bold">!=</span> nil {
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 解析cmap表
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">if</span> err <span style="color:#000;font-weight:bold">=</span> f.parseCmap(); err <span style="color:#000;font-weight:bold">!=</span> nil {
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>	font <span style="color:#000;font-weight:bold">=</span> f
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>func (f <span style="color:#000;font-weight:bold">*</span>Font) parseCmap() error {
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">const</span> (
+</span></span><span style="display:flex;"><span>		cmapFormat4         <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">4</span>
+</span></span><span style="display:flex;"><span>		cmapFormat12        <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">12</span>
+</span></span><span style="display:flex;"><span>		languageIndependent <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>
+</span></span><span style="display:flex;"><span>	)
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// cmap子表解析，返回最佳的使用子表
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	offset, _, <span style="color:#900;font-weight:bold">err</span> :<span style="color:#000;font-weight:bold">=</span> parseSubtables(f.cmap, <span style="color:#d14">&#34;cmap&#34;</span>, <span style="color:#099">4</span>, <span style="color:#099">8</span>, nil)
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> err <span style="color:#000;font-weight:bold">!=</span> nil {
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> err
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	offset <span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(u32(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>))
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> offset <span style="color:#000;font-weight:bold">&lt;=</span> <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">||</span> offset <span style="color:#000;font-weight:bold">&gt;</span> len(f.cmap) {
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> FormatError(<span style="color:#d14">&#34;bad cmap offset&#34;</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 读取cmap 格式类型
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#900;font-weight:bold">cmapFormat</span> :<span style="color:#000;font-weight:bold">=</span> u16(f.cmap, offset)
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">switch</span> cmapFormat {
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// format4 格式解析
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">case</span> <span style="color:#900;font-weight:bold">cmapFormat4</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">language</span> :<span style="color:#000;font-weight:bold">=</span> u16(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> language <span style="color:#000;font-weight:bold">!=</span> languageIndependent {
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> UnsupportedError(fmt.Sprintf(<span style="color:#d14">&#34;language: %d&#34;</span>, language))
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">segCountX2</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(u16(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">6</span>))
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> segCountX2<span style="color:#000;font-weight:bold">%</span><span style="color:#099">2</span> <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">1</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> FormatError(fmt.Sprintf(<span style="color:#d14">&#34;bad segCountX2: %d&#34;</span>, segCountX2))
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 计算段个数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#900;font-weight:bold">segCount</span> :<span style="color:#000;font-weight:bold">=</span> segCountX2 <span style="color:#000;font-weight:bold">/</span> <span style="color:#099">2</span>
+</span></span><span style="display:flex;"><span>		offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">14</span>
+</span></span><span style="display:flex;"><span>		f.cm <span style="color:#000;font-weight:bold">=</span> make([]cm, segCount)
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 读取end数组
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>; i <span style="color:#000;font-weight:bold">&lt;</span> segCount; i<span style="color:#000;font-weight:bold">++</span> {
+</span></span><span style="display:flex;"><span>			f.cm[i].end <span style="color:#000;font-weight:bold">=</span> uint32(u16(f.cmap, offset))
+</span></span><span style="display:flex;"><span>			offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">2</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 跳过字段
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 读取start数组
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>; i <span style="color:#000;font-weight:bold">&lt;</span> segCount; i<span style="color:#000;font-weight:bold">++</span> {
+</span></span><span style="display:flex;"><span>			f.cm[i].start <span style="color:#000;font-weight:bold">=</span> uint32(u16(f.cmap, offset))
+</span></span><span style="display:flex;"><span>			offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">2</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 读取delta数组
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>; i <span style="color:#000;font-weight:bold">&lt;</span> segCount; i<span style="color:#000;font-weight:bold">++</span> {
+</span></span><span style="display:flex;"><span>			f.cm[i].delta <span style="color:#000;font-weight:bold">=</span> uint32(u16(f.cmap, offset))
+</span></span><span style="display:flex;"><span>			offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">2</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 读取offset数组
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>; i <span style="color:#000;font-weight:bold">&lt;</span> segCount; i<span style="color:#000;font-weight:bold">++</span> {
+</span></span><span style="display:flex;"><span>			f.cm[i].offset <span style="color:#000;font-weight:bold">=</span> uint32(u16(f.cmap, offset))
+</span></span><span style="display:flex;"><span>			offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">2</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 字形下标数组
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		f.cmapIndexes <span style="color:#000;font-weight:bold">=</span> f.cmap[<span style="color:#900;font-weight:bold">offset</span>:]
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> nil
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">case</span> <span style="color:#900;font-weight:bold">cmapFormat12</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> u16(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">2</span>) <span style="color:#000;font-weight:bold">!=</span> <span style="color:#099">0</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> FormatError(fmt.Sprintf(<span style="color:#d14">&#34;cmap format: % x&#34;</span>, f.cmap[<span style="color:#900;font-weight:bold">offset</span>:offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>]))
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">length</span> :<span style="color:#000;font-weight:bold">=</span> u32(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">language</span> :<span style="color:#000;font-weight:bold">=</span> u32(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">8</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> language <span style="color:#000;font-weight:bold">!=</span> languageIndependent {
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> UnsupportedError(fmt.Sprintf(<span style="color:#d14">&#34;language: %d&#34;</span>, language))
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">nGroups</span> :<span style="color:#000;font-weight:bold">=</span> u32(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">12</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> length <span style="color:#000;font-weight:bold">!=</span> <span style="color:#099">12</span><span style="color:#000;font-weight:bold">*</span>nGroups<span style="color:#000;font-weight:bold">+</span><span style="color:#099">16</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> FormatError(<span style="color:#d14">&#34;inconsistent cmap length&#34;</span>)
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">16</span>
+</span></span><span style="display:flex;"><span>		f.cm <span style="color:#000;font-weight:bold">=</span> make([]cm, nGroups)
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> uint32(<span style="color:#099">0</span>); i <span style="color:#000;font-weight:bold">&lt;</span> nGroups; i<span style="color:#000;font-weight:bold">++</span> {
+</span></span><span style="display:flex;"><span>			f.cm[i].start <span style="color:#000;font-weight:bold">=</span> u32(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">0</span>)
+</span></span><span style="display:flex;"><span>			f.cm[i].end <span style="color:#000;font-weight:bold">=</span> u32(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>)
+</span></span><span style="display:flex;"><span>			f.cm[i].delta <span style="color:#000;font-weight:bold">=</span> u32(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">8</span>) <span style="color:#000;font-weight:bold">-</span> f.cm[i].start
+</span></span><span style="display:flex;"><span>			offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">12</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> nil
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> UnsupportedError(fmt.Sprintf(<span style="color:#d14">&#34;cmap format: %d&#34;</span>, cmapFormat))
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 子表选择，规定如下
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 优先使用unicode编码表
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 优先使用非BMP限制的unicode表
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 如果有4、12格式的unicode表，则优先使用
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>func parseSubtables(table []byte, name string, offset, size <span style="color:#458;font-weight:bold">int</span>, pred func([]byte) <span style="color:#458;font-weight:bold">bool</span>) (
+</span></span><span style="display:flex;"><span>	bestOffset <span style="color:#458;font-weight:bold">int</span>, bestPID uint32, retErr error) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> len(table) <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">4</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#099">0</span>, <span style="color:#099">0</span>, FormatError(name <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34; too short&#34;</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 表个数读取
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#900;font-weight:bold">nSubtables</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(u16(table, <span style="color:#099">2</span>))
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> len(table) <span style="color:#000;font-weight:bold">&lt;</span> size<span style="color:#000;font-weight:bold">*</span>nSubtables<span style="color:#000;font-weight:bold">+</span>offset {
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#099">0</span>, <span style="color:#099">0</span>, FormatError(name <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34; too short&#34;</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">ok</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#0086b3">false</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>; i <span style="color:#000;font-weight:bold">&lt;</span> nSubtables; i, offset <span style="color:#000;font-weight:bold">=</span> i<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>, offset<span style="color:#000;font-weight:bold">+</span>size {
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> pred <span style="color:#000;font-weight:bold">!=</span> nil <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#000;font-weight:bold">!</span>pred(table[<span style="color:#900;font-weight:bold">offset</span>:]) {
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">continue</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">// We read the 16-bit Platform ID and 16-bit Platform Specific ID as a single uint32.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#998;font-style:italic">// All values are big-endian.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#900;font-weight:bold">pidPsid</span> :<span style="color:#000;font-weight:bold">=</span> u32(table, offset)
+</span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">// We prefer the Unicode cmap encoding. Failing to find that, we fall
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#998;font-style:italic">// back onto the Microsoft cmap encoding.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">if</span> pidPsid <span style="color:#000;font-weight:bold">==</span> unicodeEncodingBMPOnly <span style="color:#000;font-weight:bold">||</span> pidPsid <span style="color:#000;font-weight:bold">==</span> unicodeEncodingFull {
+</span></span><span style="display:flex;"><span>			bestOffset, bestPID, ok <span style="color:#000;font-weight:bold">=</span> offset, pidPsid<span style="color:#000;font-weight:bold">&gt;&gt;</span><span style="color:#099">16</span>, <span style="color:#0086b3">true</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">break</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> pidPsid <span style="color:#000;font-weight:bold">==</span> microsoftSymbolEncoding <span style="color:#000;font-weight:bold">||</span>
+</span></span><span style="display:flex;"><span>			pidPsid <span style="color:#000;font-weight:bold">==</span> microsoftUCS2Encoding <span style="color:#000;font-weight:bold">||</span>
+</span></span><span style="display:flex;"><span>			pidPsid <span style="color:#000;font-weight:bold">==</span> microsoftUCS4Encoding {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>			bestOffset, bestPID, ok <span style="color:#000;font-weight:bold">=</span> offset, pidPsid<span style="color:#000;font-weight:bold">&gt;&gt;</span><span style="color:#099">16</span>, <span style="color:#0086b3">true</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#998;font-style:italic">// We don&#39;t break out of the for loop, so that Unicode can override Microsoft.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">!</span>ok {
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#099">0</span>, <span style="color:#099">0</span>, UnsupportedError(name <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34; encoding&#34;</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> bestOffset, bestPID, nil
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// cmap数据使用
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// Index returns a Font&#39;s index for the given rune.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>func (f <span style="color:#000;font-weight:bold">*</span>Font) Index(x rune) Index {
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">c</span> :<span style="color:#000;font-weight:bold">=</span> uint32(x)
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 二分查找，找打x所在范围的cm
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">for</span> i, <span style="color:#900;font-weight:bold">j</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>, len(f.cm); i <span style="color:#000;font-weight:bold">&lt;</span> j; {
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">h</span> :<span style="color:#000;font-weight:bold">=</span> i <span style="color:#000;font-weight:bold">+</span> (j<span style="color:#000;font-weight:bold">-</span>i)<span style="color:#000;font-weight:bold">/</span><span style="color:#099">2</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">cm</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">&amp;</span>f.cm[h]
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> c <span style="color:#000;font-weight:bold">&lt;</span> cm.start {
+</span></span><span style="display:flex;"><span>			j <span style="color:#000;font-weight:bold">=</span> h
+</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> cm.end <span style="color:#000;font-weight:bold">&lt;</span> c {
+</span></span><span style="display:flex;"><span>			i <span style="color:#000;font-weight:bold">=</span> h <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> cm.offset <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">0</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">// offset为0，则直接返回delta+c
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			<span style="color:#000;font-weight:bold">return</span> Index(c <span style="color:#000;font-weight:bold">+</span> cm.delta)
+</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">// offset不是0 ，则offset+ ？ +c在cm里的偏移量
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			<span style="color:#900;font-weight:bold">offset</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(cm.offset) <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">2</span><span style="color:#000;font-weight:bold">*</span>(h<span style="color:#000;font-weight:bold">-</span>len(f.cm)<span style="color:#000;font-weight:bold">+</span><span style="color:#458;font-weight:bold">int</span>(c<span style="color:#000;font-weight:bold">-</span>cm.start))
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> Index(u16(f.cmapIndexes, offset))
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#099">0</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="后续">后续</h2>
+<p>研究了<a href="https://github.com/golang/freetype/blob/master/truetype/truetype.go"><code>golang/freetype</code></a>的go解析ttf流程，发现整体无问题，但是解析本地ttf文件，还是不能拿到完整的字符集合，利用python脚本解析是可以的，通过python的断点分析解析结构，发现cmap的子表有多个，python解析后有一个获取最佳子表的操作，而go语言解析中可以看到代码里面只判断了<code>platformID</code>，命中了3则直接返回了，因此我们拿到的cmap子表是不全的。</p>
+<p>后面github里面再次寻找，发现了一个全部解析cmap子表的库，<a href="github.com/benoitkugler/textlayout/fonts/truetype"><code>fonts/truetype</code></a>，测试后发现完美符合预期，不需要自己重新写代码解析了。</p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://juejin.cn/post/7010064099027451912">TTF字体格式入门</a></li>
+<li><a href="https://www.truetype-typography.com/">TrueType Typography</a></li>
+<li><a href="https://zh.m.wikipedia.org/zh-hans/TrueType">TrueType Wiki</a></li>
+<li><a href="https://developer.apple.com/fonts/TrueType-Reference-Manual/">MAC TrueType Reference Manual</a></li>
+<li><a href="https://learn.microsoft.com/en-us/typography/truetype/">Microsoft TrueType overview</a></li>
+</ul>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>相关文章</h2>
+    <ul class="listing">
+        
+        <li><a href="/blog/post/2023-01-07-python%E7%9F%A5%E8%AF%86%E7%82%B9%E6%8B%BE%E9%81%97/">Python|知识点拾遗(一)</a></li>
+        
+        <li><a href="/blog/post/2023-01-01-python%E5%9F%BA%E7%A1%80/">Python|基础知识</a></li>
+        
+        <li><a href="/blog/post/2022-12-30-plan9%E6%B1%87%E7%BC%96/">Golang|plan9汇编</a></li>
+        
+        <li><a href="/blog/post/2022-12-17-dmt/">Golang|分布式事务管理DTM</a></li>
+        
+        <li><a href="/blog/read/2022-12-12-2022%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/">2022阅读书单</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            没有标签
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "weiweng/blog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2023 <a href="https://weiweng.github.io/blog/">weiweng的博客 By weiweng</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdn.bootcdn.net/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/blog/js/totop.js?v=0.0.0' async=""></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XYCDHPQC9T"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-XYCDHPQC9T', { 'anonymize_ip': false });
+}
+</script>
+
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-02-05-golangslice/" title="Golang|学习教程(四)-数组和切片" target="_blank">Golang|学习教程(四)-数组和切片</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-02-02-golangstruct/" title="Golang|学习教程(三)-结构体" target="_blank">Golang|学习教程(三)-结构体</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-02-01-golangflow/" title="Golang|学习教程(二)-流程控制" target="_blank">Golang|学习教程(二)-流程控制</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-01-31-golangbasics/" title="Golang|学习教程(一)-基础概念" target="_blank">Golang|学习教程(一)-基础概念</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-01-14-golangttf/" title="Golang|truetype解析" target="_blank">Golang|truetype解析</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-01-07-python%E7%9F%A5%E8%AF%86%E7%82%B9%E6%8B%BE%E9%81%97/" title="Python|知识点拾遗(一)" target="_blank">Python|知识点拾遗(一)</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-01-01-python%E5%9F%BA%E7%A1%80/" title="Python|基础知识" target="_blank">Python|基础知识</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2022-12-30-plan9%E6%B1%87%E7%BC%96/" title="Golang|plan9汇编" target="_blank">Golang|plan9汇编</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2022-12-17-dmt/" title="Golang|分布式事务管理DTM" target="_blank">Golang|分布式事务管理DTM</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-09-26-LFU%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/" title="LFU简单学习" target="_blank">LFU简单学习</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (22)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">开源协议</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BF%83%E5%BE%97/">心得</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/">搜索引擎技巧</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://draveness.me/" title="面向信仰编程">面向信仰编程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://xargin.com/" title="No Headback">No Headback</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://eddycjy.com/" title="煎鱼的博客">煎鱼的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://polarisxu.studygolang.com/" title="polarisxu的博客">polarisxu的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://qcrao.com/" title="qcrao 的博客">qcrao 的博客</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://weiweng.github.io/blog/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -6,7 +6,43 @@
     <description>Recent content on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 07 Jan 2023 12:45:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Feb 2023 09:50:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Golang|学习教程(四)-数组和切片</title>
+      <link>https://weiweng.github.io/blog/post/2023-02-05-golangslice/</link>
+      <pubDate>Sun, 05 Feb 2023 09:50:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2023-02-05-golangslice/</guid>
+      <description>本小节学习go语言的数组和切片，一门编程语言肯定少不了基本数据结构数组，go语言中还有另外的类型切片，和数组的区别是数组的大小是固定的，是不可改动的，而切片是可</description>
+    </item>
+    
+    <item>
+      <title>Golang|学习教程(三)-结构体</title>
+      <link>https://weiweng.github.io/blog/post/2023-02-02-golangstruct/</link>
+      <pubDate>Thu, 02 Feb 2023 19:50:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2023-02-02-golangstruct/</guid>
+      <description>本小节介绍go语言中的结构体，由于go语言没有面向对象的设计，但我们可以通过结构体去实现面向对象的继承、封装、多态特性。 指针 在介绍结构体之前，还需要了解一下go</description>
+    </item>
+    
+    <item>
+      <title>Golang|学习教程(二)-流程控制</title>
+      <link>https://weiweng.github.io/blog/post/2023-02-01-golangflow/</link>
+      <pubDate>Wed, 01 Feb 2023 21:50:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2023-02-01-golangflow/</guid>
+      <description>接下来学习go语言的基本流程控制，包含if、switch、for、defer四个关键字。 if go语言与其他语言的一个不同之处，就是控制语句不需要额外的括号包裹，i</description>
+    </item>
+    
+    <item>
+      <title>Golang|学习教程(一)-基础概念</title>
+      <link>https://weiweng.github.io/blog/post/2023-01-31-golangbasics/</link>
+      <pubDate>Tue, 31 Jan 2023 21:50:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2023-01-31-golangbasics/</guid>
+      <description>最新使用Python编写一些处理脚本，感觉与golang之间的语法开始模糊，因此决定根据官方文档，写一下golang的入门教程，顺便复习一下相关语法巩固基础。 包</description>
+    </item>
+    
     <item>
       <title>2023阅读书单</title>
       <link>https://weiweng.github.io/blog/read/2023-01-07-2023%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/</link>
@@ -14,6 +50,15 @@
       
       <guid>https://weiweng.github.io/blog/read/2023-01-07-2023%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/</guid>
       <description>2023阅读书单</description>
+    </item>
+    
+    <item>
+      <title>Golang|truetype解析</title>
+      <link>https://weiweng.github.io/blog/post/2023-01-14-golangttf/</link>
+      <pubDate>Sat, 07 Jan 2023 09:43:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2023-01-14-golangttf/</guid>
+      <description>最近工作上遇到需要解析ttf字库的需求，判断给到的数据中是否有不存在ttf字库中的汉字，结果查询一遍之后发现，使用golang解析ttf做判定的代码基本没有，因</description>
     </item>
     
     <item>

@@ -1,0 +1,832 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>Golang|学习教程(一)-基础概念 | weiweng的博客</title>
+    <meta property="og:title" content="Golang|学习教程(一)-基础概念 - weiweng的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2023-01-31T21:50:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2023-01-31T21:50:00&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,博客,项目管理,软件架构">
+    <meta name="description" content="Golang|学习教程(一)-基础概念">
+        
+    <meta name="author" content="weiweng">
+    <meta property="og:url" content="https://weiweng.github.io/blog/post/2023-01-31-golangbasics/">
+    <link rel="shortcut icon" href='/blog/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/blog/css/normalize.css'>
+    <link rel="stylesheet" href='/blog/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://weiweng.github.io/blog/">
+                        weiweng的博客
+                    </a>
+                
+                <p class="description">记录所学所思所想，专注于Go语言、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/read/" title="阅读">阅读</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/about/" title="关于">关于</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/archives/" title="归档">归档</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#包">包</a></li>
+    <li><a href="#导入">导入</a></li>
+    <li><a href="#导出">导出</a></li>
+    <li><a href="#函数">函数</a></li>
+    <li><a href="#变量">变量</a></li>
+    <li><a href="#类型">类型</a></li>
+    <li><a href="#常量">常量</a></li>
+    <li><a href="#运算符">运算符</a></li>
+    <li><a href="#参考资料">参考资料</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if (leftPos < 220) {
+                postToc.css({ "width": leftPos - 10, "margin-left": (0 - leftPos) })
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+
+        if ($("#TableOfContents").children().length < 1) {
+            $(".post-toc").remove();
+        }
+    })
+</script>
+    <article class="post">
+        <header>
+            <h1 class="post-title">Golang|学习教程(一)-基础概念</h1>
+        </header>
+        
+  <time datetime="2023-01-31T13:50:00Z" class="post-meta meta-date dt-published">
+    2023年1月31日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/Golang' target="_blank">Golang</a>
+  
+</div>
+
+
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
+        <div class="post-content">
+            <p>最新使用Python编写一些处理脚本，感觉与golang之间的语法开始模糊，因此决定根据官方文档，写一下golang的入门教程，顺便复习一下相关语法巩固基础。</p>
+<h2 id="包">包</h2>
+<p>包是golang里的最基本组成部件，go程序就是由一个个包组装起来的，例如程序入口main包。</p>
+<p>如何定义一个包，只要使用<code>package</code>关键字就行了，在go文件的第一行设定包名。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> me
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">do</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// code ...
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>需要注意的是，一个文件夹下面直接包含的文件只能属于一个包，同样一个包的文件不能在多个文件夹下。</p>
+<p>另一个需要注意的问题是包的导入流程，每个包都可以拥有一个特殊函数<code>init()</code>，当包导入时，首先执行全局变量的构建，之后执行包的默认初始化函数<code>init</code>。</p>
+<h2 id="导入">导入</h2>
+<p>包的导入，使用关键字<code>import</code>，具体使用如下，注意示例中常用的几种情况。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 单个包导入
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">import</span> <span style="color:#d14">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 多个包导入
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#d14">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d14">&#34;io&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 定义别名
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">import</span> m <span style="color:#d14">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 匿名导入
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">import</span> _ <span style="color:#d14">&#34;io&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="导出">导出</h2>
+<p>在包中，如果函数和变量是大写字母开头的，则是可以导出的函数和变量，即可以通过导入包，在外部使用包中对应的函数和变量。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#998;font-style:italic">// me/me.go
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">package</span> me
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">Do</span>() <span style="color:#458;font-weight:bold">int</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> <span style="color:#099">42</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// main.go
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">package</span> main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#d14">&#34;me&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">main</span>(){
+</span></span><span style="display:flex;"><span>    me.<span style="color:#900;font-weight:bold">Do</span>()
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="函数">函数</h2>
+<p>编程语言具有的基本组件——函数，通常将多次复用的代码块抽离为一个函数，多个调用方通过函数调用，实现具体逻辑，这样方便项目维护，代码逻辑上的统一管理。</p>
+<p>go语言中函数定义使用关键字<code>func</code>，后面接入参与出参，具体定义使用如下。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">add</span>(x <span style="color:#458;font-weight:bold">int</span>, y <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> x <span style="color:#000;font-weight:bold">+</span> y
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 相同类型参数可以缩写
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">add2</span>(x , y <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> x <span style="color:#000;font-weight:bold">+</span> y
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 多返回值的函数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">swap</span>(x, y <span style="color:#458;font-weight:bold">string</span>) (<span style="color:#458;font-weight:bold">string</span>, <span style="color:#458;font-weight:bold">string</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> y, x
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 带返回变量名的函数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">split</span>(sum <span style="color:#458;font-weight:bold">int</span>) (x, y <span style="color:#458;font-weight:bold">int</span>) {
+</span></span><span style="display:flex;"><span>	x = sum <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">4</span> <span style="color:#000;font-weight:bold">/</span> <span style="color:#099">9</span>
+</span></span><span style="display:flex;"><span>	y = sum <span style="color:#000;font-weight:bold">-</span> x
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面最后一个用例，带返回变量名的函数，函数最后直接return，不需要再写明返回变量名，注意，这样虽然简便，但日常开发中，业务逻辑复杂的时候，返回点多时这样的简略写法不利于代码阅读，因此不推荐使用。</p>
+<h2 id="变量">变量</h2>
+<p>go语言变量名由字母、数字、下划线组成，其中首个字符不能为数字。声明变量的一般形式是使用 var 关键字，例如<code>var name string</code>，可以发现go语言的变量定义，变量类型是放在变量名之后的。同样，当我们定义多个相同类型的变量时，可以使用如下方法：</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">var</span> a,b,c <span style="color:#458;font-weight:bold">int</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>变量定义之后如何初始化？我们使用<code>=</code>赋值符号进行操作，例如<code>var name string = &quot;ww&quot;</code>，定义变量类型后使用<code>=</code>符号直接进行初始化，此外我们也可以使用<code>:=</code>进行直接定义并赋值。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 两种赋值等价
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>a <span style="color:#000;font-weight:bold">:=</span> <span style="color:#d14">&#34;abc&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">var</span> a <span style="color:#458;font-weight:bold">string</span> = <span style="color:#d14">&#34;abc&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在使用<code>:=</code>符号时，go语言会基于右边的数据进行变量类型的判断，此外需要注意，不能重复定义已经存在的变量名。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>b <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 不能重复定义变量，以下语句会报错
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>b <span style="color:#000;font-weight:bold">:=</span> <span style="color:#d14">&#34;abc&#34;</span>
+</span></span><span style="display:flex;"><span>a,b <span style="color:#000;font-weight:bold">:=</span> <span style="color:#d14">&#39;a&#39;</span>,<span style="color:#d14">&#39;b&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="类型">类型</h2>
+<p>go语言中定义的默认类型有以下几种</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#458;font-weight:bold">bool</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#458;font-weight:bold">string</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#458;font-weight:bold">int</span>  <span style="color:#458;font-weight:bold">int8</span>  <span style="color:#458;font-weight:bold">int16</span>  <span style="color:#458;font-weight:bold">int32</span>  <span style="color:#458;font-weight:bold">int64</span>
+</span></span><span style="display:flex;"><span><span style="color:#458;font-weight:bold">uint</span> <span style="color:#458;font-weight:bold">uint8</span> <span style="color:#458;font-weight:bold">uint16</span> <span style="color:#458;font-weight:bold">uint32</span> <span style="color:#458;font-weight:bold">uint64</span> <span style="color:#458;font-weight:bold">uintptr</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#458;font-weight:bold">byte</span> <span style="color:#998;font-style:italic">// uint8类型的别名
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#458;font-weight:bold">rune</span> <span style="color:#998;font-style:italic">// int32类型的别名
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#458;font-weight:bold">float32</span> <span style="color:#458;font-weight:bold">float64</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#458;font-weight:bold">complex64</span> <span style="color:#458;font-weight:bold">complex128</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>需要注意的是，<code>int uint uintptr</code>这三种类型都是基于操作系统，如果是32位操作系统，则<code>int</code>对应的就是32 bits，同理64位操作系统，<code>int</code>对应的是64 bits。</p>
+<p>定义了基础类型，不得不说默认值的问题，数值型的类型默认零值就是0，<code>bool</code>类型的默认值是<code>false</code>，而字符串类型的默认值就是空字符串<code>&quot;&quot;</code>。</p>
+<p>针对基础类型，我们可以使用以下方法，实现类型转换：</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">var</span> i <span style="color:#458;font-weight:bold">int</span> = <span style="color:#099">42</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">var</span> f <span style="color:#458;font-weight:bold">float64</span> = <span style="color:#0086b3">float64</span>(i)
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">var</span> u <span style="color:#458;font-weight:bold">uint</span> = <span style="color:#0086b3">uint</span>(f)
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">var</span> j <span style="color:#458;font-weight:bold">int</span> = <span style="color:#0086b3">int</span>(u)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="常量">常量</h2>
+<p>常量的声明使用<code>const</code>关键字，例如<code>const pi = 3.1415926</code>。常量的声明可以是字符、字符串、布尔、数值类型，此外常量不能使用<code>:=</code>定义。</p>
+<h2 id="运算符">运算符</h2>
+<p>go语言内置的运算符有以下几种，算术运算符、关系运算符、逻辑运算符、位运算符、赋值运算符、其他运算符。</p>
+<p>算术运算符: + - * / % ++ &ndash;</p>
+<p>关系运算符: == != &gt; &lt; &gt;= &lt;=</p>
+<p>逻辑运算符: &amp;&amp; || !</p>
+<p>位运算符: &amp; | ^ &lt;&lt; &gt;&gt;</p>
+<p>赋值运算符: = += -= *= /= %= &lt;&lt;= &gt;&gt;= &amp;= ^= |=</p>
+<p>其他运算符: &amp; * ()</p>
+<p>具体表优先级由高到低如下排序：</p>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>运算符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>* / % &lt;&lt; &gt;&gt; &amp; &amp;^</td>
+</tr>
+<tr>
+<td>4</td>
+<td>+ - | ^</td>
+</tr>
+<tr>
+<td>3</td>
+<td>== != &lt; &lt;= &gt; &gt;=</td>
+</tr>
+<tr>
+<td>2</td>
+<td>&amp;&amp;</td>
+</tr>
+<tr>
+<td>1</td>
+<td>||</td>
+</tr>
+</tbody>
+</table>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li><a href="https://go.dev/tour/basics/1">A Tour of Go</a></li>
+</ul>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>相关文章</h2>
+    <ul class="listing">
+        
+        <li><a href="/blog/read/2023-01-07-2023%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/">2023阅读书单</a></li>
+        
+        <li><a href="/blog/post/2023-01-14-golangttf/">Golang|truetype解析</a></li>
+        
+        <li><a href="/blog/post/2023-01-07-python%E7%9F%A5%E8%AF%86%E7%82%B9%E6%8B%BE%E9%81%97/">Python|知识点拾遗(一)</a></li>
+        
+        <li><a href="/blog/post/2023-01-01-python%E5%9F%BA%E7%A1%80/">Python|基础知识</a></li>
+        
+        <li><a href="/blog/post/2022-12-30-plan9%E6%B1%87%E7%BC%96/">Golang|plan9汇编</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            没有标签
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "weiweng/blog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2023 <a href="https://weiweng.github.io/blog/">weiweng的博客 By weiweng</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdn.bootcdn.net/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/blog/js/totop.js?v=0.0.0' async=""></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XYCDHPQC9T"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-XYCDHPQC9T', { 'anonymize_ip': false });
+}
+</script>
+
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-02-05-golangslice/" title="Golang|学习教程(四)-数组和切片" target="_blank">Golang|学习教程(四)-数组和切片</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-02-02-golangstruct/" title="Golang|学习教程(三)-结构体" target="_blank">Golang|学习教程(三)-结构体</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-02-01-golangflow/" title="Golang|学习教程(二)-流程控制" target="_blank">Golang|学习教程(二)-流程控制</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-01-31-golangbasics/" title="Golang|学习教程(一)-基础概念" target="_blank">Golang|学习教程(一)-基础概念</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-01-14-golangttf/" title="Golang|truetype解析" target="_blank">Golang|truetype解析</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-01-07-python%E7%9F%A5%E8%AF%86%E7%82%B9%E6%8B%BE%E9%81%97/" title="Python|知识点拾遗(一)" target="_blank">Python|知识点拾遗(一)</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-01-01-python%E5%9F%BA%E7%A1%80/" title="Python|基础知识" target="_blank">Python|基础知识</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2022-12-30-plan9%E6%B1%87%E7%BC%96/" title="Golang|plan9汇编" target="_blank">Golang|plan9汇编</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2022-12-17-dmt/" title="Golang|分布式事务管理DTM" target="_blank">Golang|分布式事务管理DTM</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2020-09-26-LFU%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/" title="LFU简单学习" target="_blank">LFU简单学习</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (22)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">开源协议</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BF%83%E5%BE%97/">心得</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/">搜索引擎技巧</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://draveness.me/" title="面向信仰编程">面向信仰编程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://xargin.com/" title="No Headback">No Headback</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://eddycjy.com/" title="煎鱼的博客">煎鱼的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://polarisxu.studygolang.com/" title="polarisxu的博客">polarisxu的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://qcrao.com/" title="qcrao 的博客">qcrao 的博客</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://weiweng.github.io/blog/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
