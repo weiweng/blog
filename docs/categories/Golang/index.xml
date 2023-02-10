@@ -6,7 +6,34 @@
     <description>Recent content in Golang on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 05 Feb 2023 09:50:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/categories/Golang/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Feb 2023 20:50:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/categories/Golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Golang|学习教程(七)-协程</title>
+      <link>https://weiweng.github.io/blog/post/2023-02-09-golang%E5%8D%8F%E7%A8%8B/</link>
+      <pubDate>Thu, 09 Feb 2023 20:50:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2023-02-09-golang%E5%8D%8F%E7%A8%8B/</guid>
+      <description>Go 协程（Goroutine）是与其他函数同时运行的函数。可以认为 Go 协程是轻量级的线程，由 Go 运行时来管理。 对于 协程(用户级线程)，这是对内核透明的，也就是系统并不</description>
+    </item>
+    
+    <item>
+      <title>Golang|学习教程(六)-方法与接口</title>
+      <link>https://weiweng.github.io/blog/post/2023-02-07-golang%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Tue, 07 Feb 2023 20:50:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2023-02-07-golang%E6%96%B9%E6%B3%95/</guid>
+      <description>本小节学习go语言的方法和接口，虽然go语言没有提供类的设计，但可以通过结构体来类比实现对应功能，而类具有对应的方法，同理结构体也可以有自己的函数，我们称之为方</description>
+    </item>
+    
+    <item>
+      <title>Golang|学习教程(五)-map</title>
+      <link>https://weiweng.github.io/blog/post/2023-02-06-golangmap/</link>
+      <pubDate>Mon, 06 Feb 2023 22:50:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2023-02-06-golangmap/</guid>
+      <description>本小节学习go语言的map，map里面存储着键值对，通过键来快速获取对应的值，我们使用map[T]T格式来定义集合，需要注意的是key的限制，map中的key可</description>
+    </item>
+    
     <item>
       <title>Golang|学习教程(四)-数组和切片</title>
       <link>https://weiweng.github.io/blog/post/2023-02-05-golangslice/</link>
