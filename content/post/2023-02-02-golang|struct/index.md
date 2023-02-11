@@ -42,6 +42,12 @@ func main() {
 	v.X = 4
 	fmt.Println(v.X)
 
+<<<<<<< HEAD
+	z := new(Vertex)
+	fmt.Println(z.X)
+
+=======
+>>>>>>> main
     w := Vertex{X:4, Y:2}
     w.X = 42
 
@@ -70,6 +76,46 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+### 匿名结构体
+
+在定义结构体时，我们可以直接不指定字段名的情况下包含其他的结构体，这时这种被包含的结构体我们称之为匿名结构体。
+
+```go
+type innerS struct {
+    in1 int
+    in2 int
+}
+
+type outerS struct {
+    b    int
+    c    float32
+    innerS //anonymous field
+}
+```
+
+当我们要访问匿名结构体的字段时，可以依旧直接使用`.`进行读取。此外如果匿名结构体的字段名和外部定义的字段名重复的话，我们就需要指定结构体的名称去访问了。
+
+```go
+type inner struct {
+	a int
+	b int
+}
+
+type outer struct {
+	a int
+	inner
+}
+
+func read() {
+	o := outer{}
+	fmt.Println(o.a)
+	fmt.Println(o.inner.a)
+}
+```
+
+=======
+>>>>>>> main
 ## 参考
 
 - [A Tour of Go](https://go.dev/tour/moretypes/1)
