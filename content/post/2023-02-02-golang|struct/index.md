@@ -42,9 +42,12 @@ func main() {
 	v.X = 4
 	fmt.Println(v.X)
 
+<<<<<<< HEAD
 	z := new(Vertex)
 	fmt.Println(z.X)
 
+=======
+>>>>>>> main
     w := Vertex{X:4, Y:2}
     w.X = 42
 
@@ -73,6 +76,7 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
 ### 匿名结构体
 
 在定义结构体时，我们可以直接不指定字段名的情况下包含其他的结构体，这时这种被包含的结构体我们称之为匿名结构体。
@@ -110,6 +114,8 @@ func read() {
 }
 ```
 
+=======
+>>>>>>> main
 ## 参考
 
 - [A Tour of Go](https://go.dev/tour/moretypes/1)
