@@ -3,12 +3,14 @@ title="k8s|基础概念"
 date="2023-03-21T20:00:00+08:00"
 categories=["k8s"]
 toc=true
-draft=true
+draft=false
 +++
 
 参考官网，k8s的定义是：Kubernetes 是一个可移植、可扩展的开源平台，用于管理容器化的工作负载和服务，可促进声明式配置和自动化。 Kubernetes 拥有一个庞大且快速增长的生态，其服务、支持和工具的使用范围相当广泛。
 
 简单来说，k8s是用于容器管理的一个完整全面的开源平台工具。它能够为我们提供了一个可弹性运行分布式系统的框架，满足服务的扩展要求、故障转移、提供部署模式等功能。
+
+![k8s集群结构](m1.png)
 
 Kubernetes 可以提供：
 
@@ -38,7 +40,7 @@ Kubernetes 可以提供：
 
 # 组件
 
-## 控制面板
+## Control Plane
 
 控制面板组件是k8s集群的决策中心，负责检测和响应集群事件。其中包括以下几个部分：
 
@@ -52,11 +54,15 @@ Kubernetes 可以提供：
 
 - kube-scheduler
 
-    调度控制中心
+    调度控制中心，监听新pod的创建，为新pod选择合适的node。
 
 - kube-controller-manager
 
+    控制管理，处理node、job、endpoint等事件。
+
 - cloud-controller-manager
+
+    关联云平台相关接口的控制器。
 
 ## node
 
@@ -73,6 +79,10 @@ k8s集群有一些列工作节点组成，每个工作节点包含以下几部�
 - container runtime
 
     运行时容器，实现了k8s CRI接口的都是k8s支持的容器类型。
+
+## DNS
+
+k8s集群中的dns服务，辅助集群的网络调度。
 
 ## pod
 

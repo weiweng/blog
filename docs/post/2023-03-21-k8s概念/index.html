@@ -138,8 +138,10 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#控制面板">控制面板</a></li>
+    <li><a href="#control-plane">Control Plane</a></li>
     <li><a href="#node">node</a></li>
+    <li><a href="#dns">DNS</a></li>
+    <li><a href="#pod">pod</a></li>
   </ul>
 </nav>
     </div>
@@ -204,6 +206,9 @@
         <div class="post-content">
             <p>参考官网，k8s的定义是：Kubernetes 是一个可移植、可扩展的开源平台，用于管理容器化的工作负载和服务，可促进声明式配置和自动化。 Kubernetes 拥有一个庞大且快速增长的生态，其服务、支持和工具的使用范围相当广泛。</p>
 <p>简单来说，k8s是用于容器管理的一个完整全面的开源平台工具。它能够为我们提供了一个可弹性运行分布式系统的框架，满足服务的扩展要求、故障转移、提供部署模式等功能。</p>
+<p>
+        <img class="mx-auto" alt="k8s集群结构" src="m1.png" />   
+    </p>
 <p>Kubernetes 可以提供：</p>
 <ul>
 <li>
@@ -232,7 +237,7 @@
 </li>
 </ul>
 <h1 id="组件">组件</h1>
-<h2 id="控制面板">控制面板</h2>
+<h2 id="control-plane">Control Plane</h2>
 <p>控制面板组件是k8s集群的决策中心，负责检测和响应集群事件。其中包括以下几个部分：</p>
 <ul>
 <li>
@@ -245,13 +250,15 @@
 </li>
 <li>
 <p>kube-scheduler</p>
-<p>调度控制中心</p>
+<p>调度控制中心，监听新pod的创建，为新pod选择合适的node。</p>
 </li>
 <li>
 <p>kube-controller-manager</p>
+<p>控制管理，处理node、job、endpoint等事件。</p>
 </li>
 <li>
 <p>cloud-controller-manager</p>
+<p>关联云平台相关接口的控制器。</p>
 </li>
 </ul>
 <h2 id="node">node</h2>
@@ -270,6 +277,10 @@
 <p>运行时容器，实现了k8s CRI接口的都是k8s支持的容器类型。</p>
 </li>
 </ul>
+<h2 id="dns">DNS</h2>
+<p>k8s集群中的dns服务，辅助集群的网络调度。</p>
+<h2 id="pod">pod</h2>
+<p>pod是k8s中管理资源的仔细粒度，是最基础单元。每个Pod都有一个特殊的被称为“根容器”的Pause容器。Pause容器对应的镜像属于Kubernetes平台的一部分，除了Pause容器，每个Pod还包含一个或多个紧密相关的用户业务容器。</p>
 <h1 id="参考">参考</h1>
 <ul>
 <li><a href="https://kubernetes.io/zh-cn/docs/concepts/overview/">k8s官网</a></li>
