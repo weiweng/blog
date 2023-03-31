@@ -73,6 +73,90 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://weiweng.github.io/blog/post/2020-03-14-Group%E7%9B%B8%E5%85%B3/" title="mysql|Group相关" target="_blank">mysql|Group相关</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-03-13T19:06:00Z" class="post-meta meta-date dt-published">
+    2020年3月14日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/mysql' target="_blank">mysql</a>
+  
+</div>
+
+
+        <div class="post-content">
+            Group相关……
+        </div>
+        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-14-Group%E7%9B%B8%E5%85%B3/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://weiweng.github.io/blog/post/2020-03-14-join%E7%9B%B8%E5%85%B3/" title="mysql|join" target="_blank">mysql|join</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-03-13T19:04:00Z" class="post-meta meta-date dt-published">
+    2020年3月14日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/mysql' target="_blank">mysql</a>
+  
+</div>
+
+
+        <div class="post-content">
+            join流程分类 Index Nested-Loop Join 分析语句select * from t1 straight_join t2 on (t1.a=t2.a); 上述语句中t2的a字段存在索引，则join流程如下 从表 t1 中读入一行数据 R； 从数据行 R 中，取出 a 字段到表 t2……
+        </div>
+        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-14-join%E7%9B%B8%E5%85%B3/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://weiweng.github.io/blog/post/2020-03-14-%E5%85%A8%E8%A1%A8%E6%89%AB%E6%8F%8F%E9%97%AE%E9%A2%98/" title="mysql|全表扫描问题" target="_blank">mysql|全表扫描问题</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-03-13T19:03:00Z" class="post-meta meta-date dt-published">
+    2020年3月14日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/mysql' target="_blank">mysql</a>
+  
+</div>
+
+
+        <div class="post-content">
+            全表扫描流程 InnoDB 的数据是保存在主键索引上的，所以全表扫描实际上是直接扫描表 t 的主键索引。这条查询语句由于没有其他的判断条件，所以查到的每一行都可以直接放到结果集里……
+        </div>
+        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-14-%E5%85%A8%E8%A1%A8%E6%89%AB%E6%8F%8F%E9%97%AE%E9%A2%98/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://weiweng.github.io/blog/post/2020-03-14-%E5%88%A0%E9%99%A4%E6%B5%81%E7%A8%8B/" title="mysql|删除流程" target="_blank">mysql|删除流程</a>
             </h1>
         </header>
@@ -266,90 +350,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://weiweng.github.io/blog/post/2020-03-14-%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B%E8%A7%A3%E6%9E%90/" title="mysql|更新流程解析" target="_blank">mysql|更新流程解析</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-03-13T18:51:00Z" class="post-meta meta-date dt-published">
-    2020年3月14日
-  </time>
-
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/blog/categories/mysql' target="_blank">mysql</a>
-  
-</div>
-
-
-        <div class="post-content">
-            redo log 当有一条记录需要更新的时候，InnoDB 引擎就会先把记录写到 redo log里面，并更新内存，这个时候更新就算完成了。同时，InnoDB 引擎会在适当的时候，将这个操……
-        </div>
-        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-14-%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B%E8%A7%A3%E6%9E%90/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://weiweng.github.io/blog/post/2020-03-14-%E6%9F%A5%E8%AF%A2%E6%B5%81%E7%A8%8B%E8%A7%A3%E6%9E%90/" title="mysql|查询流程解析" target="_blank">mysql|查询流程解析</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-03-13T18:50:00Z" class="post-meta meta-date dt-published">
-    2020年3月14日
-  </time>
-
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/blog/categories/mysql' target="_blank">mysql</a>
-  
-</div>
-
-
-        <div class="post-content">
-            Mysql基本架构图 MySQL 可以分为 Server 层和存储引擎层两部分。Server 层包括连接器、查询缓存、分析器、优化器、执行器等，涵盖 MySQL 的大多数核心服务功能，以及所有的内置函……
-        </div>
-        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-14-%E6%9F%A5%E8%AF%A2%E6%B5%81%E7%A8%8B%E8%A7%A3%E6%9E%90/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://weiweng.github.io/blog/post/2020-03-14-InnoDB%E7%9A%84ACID/" title="mysql|InnoDB的ACID" target="_blank">mysql|InnoDB的ACID</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-03-13T18:49:00Z" class="post-meta meta-date dt-published">
-    2020年3月14日
-  </time>
-
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/blog/categories/mysql' target="_blank">mysql</a>
-  
-</div>
-
-
-        <div class="post-content">
-            基本概念 ACID 原子性（Atomicity）：一个事务必须被视为一个不可分割的最小工作单元，整个事务中的所有操作要么全部提交成功，要么全部失败回滚。 一致性（consi……
-        </div>
-        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-14-InnoDB%E7%9A%84ACID/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -501,6 +501,18 @@ if (!doNotTrack) {
 <ul class="widget-list">
     
     <li>
+        <a href="https://weiweng.github.io/blog/post/2023-03-21-k8s%E6%A6%82%E5%BF%B5/" title="k8s|基础概念" target="_blank">k8s|基础概念</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-02-18-%E4%BA%91%E5%8E%9F%E7%94%9Fdocker/" title="k8s|Docker学习" target="_blank">k8s|Docker学习</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-02-17-golangcobra/" title="Golang|Cobra学习" target="_blank">Golang|Cobra学习</a>
+    </li>
+    
+    <li>
         <a href="https://weiweng.github.io/blog/post/2023-02-09-golang%E5%8D%8F%E7%A8%8B/" title="Golang|学习教程(七)-协程" target="_blank">Golang|学习教程(七)-协程</a>
     </li>
     
@@ -528,18 +540,6 @@ if (!doNotTrack) {
         <a href="https://weiweng.github.io/blog/post/2023-01-31-golangbasics/" title="Golang|学习教程(一)-基础概念" target="_blank">Golang|学习教程(一)-基础概念</a>
     </li>
     
-    <li>
-        <a href="https://weiweng.github.io/blog/post/2023-01-14-golangttf/" title="Golang|truetype解析" target="_blank">Golang|truetype解析</a>
-    </li>
-    
-    <li>
-        <a href="https://weiweng.github.io/blog/post/2023-01-07-python%E7%9F%A5%E8%AF%86%E7%82%B9%E6%8B%BE%E9%81%97/" title="Python|知识点拾遗(一)" target="_blank">Python|知识点拾遗(一)</a>
-    </li>
-    
-    <li>
-        <a href="https://weiweng.github.io/blog/post/2023-01-01-python%E5%9F%BA%E7%A1%80/" title="Python|基础知识" target="_blank">Python|基础知识</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -549,13 +549,15 @@ if (!doNotTrack) {
         <h3 class="widget-title"><a href='/blog/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (25)</a></li>
+    <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (26)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (2)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (2)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
     
