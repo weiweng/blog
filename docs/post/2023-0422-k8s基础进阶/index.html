@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>k8s|基础进阶 | weiweng的博客</title>
+    <meta property="og:title" content="k8s|基础进阶 - weiweng的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2023-04-22T10:00:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2023-04-22T10:00:00&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,博客,项目管理,软件架构">
+    <meta name="description" content="k8s|基础进阶">
+        
+    <meta name="author" content="weiweng">
+    <meta property="og:url" content="https://weiweng.github.io/blog/post/2023-0422-k8s%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6/">
+    <link rel="shortcut icon" href='/blog/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/blog/css/normalize.css'>
+    <link rel="stylesheet" href='/blog/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://weiweng.github.io/blog/">
+                        weiweng的博客
+                    </a>
+                
+                <p class="description">记录所学所思所想，专注于Go语言、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/read/" title="阅读">阅读</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/about/" title="关于">关于</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/archives/" title="归档">归档</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一章">第一章</a></li>
+    <li><a href="#第二章">第二章</a></li>
+    <li><a href="#第三章">第三章</a></li>
+    <li><a href="#第四章">第四章</a></li>
+    <li><a href="#第五章">第五章</a></li>
+    <li><a href="#第六章">第六章</a></li>
+    <li><a href="#第七章">第七章</a></li>
+    <li><a href="#第八章">第八章</a></li>
+    <li><a href="#第九章">第九章</a></li>
+    <li><a href="#第十章">第十章</a></li>
+    <li><a href="#其他">其他</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if (leftPos < 220) {
+                postToc.css({ "width": leftPos - 10, "margin-left": (0 - leftPos) })
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+
+        if ($("#TableOfContents").children().length < 1) {
+            $(".post-toc").remove();
+        }
+    })
+</script>
+    <article class="post">
+        <header>
+            <h1 class="post-title">k8s|基础进阶</h1>
+        </header>
+        
+  <time datetime="2023-04-22T02:00:00Z" class="post-meta meta-date dt-published">
+    2023年4月22日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/k8s' target="_blank">k8s</a>
+  
+</div>
+
+
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
+        <div class="post-content">
+            <p>最近看了k8s的一本基础英文入门书籍《The Kubernetes Book》，不得不说还是英文教程写的通透，至少是可以一气呵成的从头读到尾，中文书籍可能有些作者自己都不知道写的是啥。当然学习技术相关的知识，主要还是跟踪官网获取最新动态，不过官网的资料大而全而细，因此看一些前人总结的快速入门书籍也是不错的路子，所谓的先总后方，先大后小，简单的从大、总的角度了解一下k8s，然后细致的学习其中的每个小点，这算是我自己这些天的学习总结吧。话不多说，开始记录一些书籍中的学习心得。</p>
+<h2 id="第一章">第一章</h2>
+<p>首先，本书最开始章节，介绍了什么是k8s，说明了k8s的作用，以及提及的docker，顺带说明了docker的基础功能，以及和k8s的关系。这些我之前的<a href="https://weiweng.github.io/blog/post/2023-03-21-k8s%E6%A6%82%E5%BF%B5/">k8s基础概念</a>里已经提及过，不再赘述。</p>
+<h2 id="第二章">第二章</h2>
+<p>开始介绍k8s的组成，首先是作为k8s集群组成的两种节点类型，一个是master节点，一个是node节点，其中master节点我们也称之为control plane，它的组要部件包含API、cluster store(etcd)、controller manager、scheduler、cloud controller manager。而node的组要组件包含kubelet、CRI、kube-proxy这三个部分，关于上面的各个组件的作用，可以看之前的k8s基础概念。</p>
+<p>上面的介绍中，API是k8s对外的api接口统一入口，我们通过api接口来操控k8s集群，具体设计操控对象有很多，比如pos、deployments、services、columns、configMaps、statefulSets等，这些对象就是之后章节介绍的主要内容。</p>
+<h2 id="第三章">第三章</h2>
+<p>这里主要介绍k8s的几种安装方法，当然作为个人学习者，这里推荐官方的一个k8s单机学习部署方法，可以参考官方推荐的<a href="https://minikube.sigs.k8s.io/docs/start/">本地搭建环境文档</a>。</p>
+<h2 id="第四章">第四章</h2>
+<p>这一章讲解了pod相关知识，pod是k8s的最基础的调度管理单元，每个pod里面可以包含多个容器，并且单个pod内的所有容器都是协同部署和协同调度的，即理解成”原子性“，这个pod只要部署完成，里面的容器都是可用的。此外，pod内部的容器都是共享内存、网络和volume(存储)的。</p>
+<p>pod的部署流程，参见
+        <img class="mx-auto" alt="部署流程" src="img1.png" />   
+    </p>
+<p>pod的生命周期图，参见
+        <img class="mx-auto" alt="生命周期" src="img2.png" />   
+    </p>
+<h2 id="第五章">第五章</h2>
+<p>这一章节简单介绍了deployments，deployments是api中的一个成熟的控制工具，通过相关配置，可以让我们期望部署的应用稳定持续运行起来，支持实现动态扩容、滚动更新、回滚功能。</p>
+<p>需要注意的是，deployments通过管理replicaSet来实现自动修复和动态扩容功能，replicaSet底层管理着对应的一系列pod，而pod是k8s里面最基础的调度部署单元。</p>
+<p>我们通过deployments申明预期的状态(例如指定的部署应用，副本个数，关联的卷，指定配置等等)，将对应yaml文件传给api实现应用，k8s之后将任务分发到集群，部署好我们需要的应用，满足我们指定的需求，同时也实时监控整个deployments的全部状态，如果出现某个pod运行异常下线了，k8s会分配一个新的pod来部署我们的指定应用服务和配置，从而尽可能的确保符合预期状态。</p>
+<p>deployments的相关流程，见
+        <img class="mx-auto" alt="deployments流程" src="img3.png" />   
+    </p>
+<h2 id="第六章">第六章</h2>
+<p>这一章介绍了services，通过deployments的声明，我们选择node节点部署pod，但deployments提供的动态扩容，自主修复以及滚动更新的能力使得pod是变动的，因此这些pod的ip也随着pod的创建和注销而变调。</p>
+<p>这就导致了一个问题，我们应该如何监听这种变动的ip，以及如何使用。</p>
+<p>因此这里提出了Service这个概念，大概可以理解为在动态变化的ip列表上封装一层稳定的”接口“，通过这个”接口“对外提供一个固定的ip或者一个域名或者一个固定端口来实现客户端的链接使用。</p>
+<p>Service通过标签选择器来关联我们需要监听的pod。具体而言，k8s通过不间断的监听健康pod列表，将符合Service指定的标签放入Endpoints里面，如果pod注销了，就会从Endpoints里面移除。</p>
+<p>Service提供了不同类型模式，默认的是ClusterIP模式，ClusterIP是集群内部的通信ip，通过内部DNS查询到内部的唯一ip来通信，此外对外部网络的情况，Service提供了NodePort模式，即对外公开的端口。</p>
+<p>此外Service提供了其他模式，具体参考官网。</p>
+<p>下面这个图展示了Service的使用，通过更新Service的标签，将请求流量打到新版本的集群服务，当然也可以将标签指向老版本实现切流。见
+        <img class="mx-auto" alt="滚动更新服务请求地址变化" src="img4.png" />   
+    </p>
+<h2 id="第七章">第七章</h2>
+<p>这一章讲了服务发现，之前我们提及因为pod的有限生命周期，我们不能依赖它的ip地址，因此增加了一层Service来保证可用ip通信，随后的问题就是怎么发现这个Service，这里就需要服务发现的功能，说到服务发现，首先需要知道服务注册，只有其他微服务注册了它的地址，才有服务发现一说。</p>
+<p>k8s是使用一个内部的dns服务来实现服务注册功能，这个内部dns服务是基于CoreDNS实现的，是k8s的内部原生应用，建立kube-system的Namespace里。由于是内部的原生应用，因此当我们申明Service的时候，k8s会检查到这个object的创建，从而自动的实现服务注册。</p>
+<p>服务注册之后就是其他微服务的服务发现逻辑，在申明微服务的时候已经会填写需要通信的服务name，在k8s中通过name去内部dns查询ip，从而实现通信，那怎么知道dns的服务地址呢，这里是k8s统一在服务启动配置里写好的，因此部署服务都是知道dns地址的。</p>
+<p>dns的服务注册和服务发现流程，如下：
+
+        <img class="mx-auto" alt="dns注册流程" src="img6.png" />   
+    </p>
+<p>
+        <img class="mx-auto" alt="dns发现流程" src="img7.png" />   
+    </p>
+<h2 id="第八章">第八章</h2>
+<p>这一章介绍了数据集volume的概念，在k8s中提出了pv和pvc的设计，其中pv是针对外部数据卷的统一接口封装，pvc是从使用视角提出的需求清单，再pod部署时申明需要的存储需求pvc，由k8s去调度匹配对应的pv实现绑定从而使用。</p>
+<p>然后还有一个sc的概念，sc的提成目的是方便管理大量pv和pvc的情况，通过设定不同等级或指定划分的不同类型的sc，再使用时指定所需数据卷的sc类型，就可以方便的关联挂载数据集，实现快速管理。</p>
+<h2 id="第九章">第九章</h2>
+<p>这一章节介绍了k8s中的配置，在我们部署服务链接mysql等相关服务时需要指定对应账户密码，这种数据不建议明文写在deployments声明中，不安全，所以需要配置，此外不同的环境需要指定的配置也不一样，即生产环境和测试环境的不同需要不同的配置。</p>
+<p>在k8s中提供了ConfigMaps这一概念来实现配置。当然链接数据库密码这些需要使用secret来配置，它的设计和用法和ConfigMaps一样，多的只是对配置内容加密。</p>
+<p>ConfigMaps可以通过yaml文件配置申明，然后在服务部署配置中关联使用。ConfigMaps的大概实现是通过挂载数据卷的形式，把数据加载到对应pod里。</p>
+<h2 id="第十章">第十章</h2>
+<p>这一章节介绍了StatefulSets，这是一个类似于deployments的对象，有区别的地方在于以下几点。</p>
+<p>第一个是StatefulSets声明部署的pod是比较固定格式的，首先是名字的格式，从0开始，基于<code>StatefulSets-Name+序列</code>的格式命名，此外pod的创建也是从0开始依序列部署，删除的话也是从最后一个序列号开始删除，并且在服务运行中，如果某个pod出问题了，k8s会重新部署一个pod，但对应的序列号已经绑定的数据卷关系都是和之前pod是一样的，这样确保保持之前的”状态“。</p>
+<p>第二个是StatefulSets对应的Service，它是一个<code>headless Service</code>，和普通Service不同的点就是，这个类型的Service会返回所有对应关联的Endpoint的ip地址，此外对于关联的每个pod，其实都有对应的dns可以查询到，其对应dns名称也是有固定格式的。主打的就是一个稳定！</p>
+<h2 id="其他">其他</h2>
+<p>剩下章节是安全相关，但感觉写的不是很清晰，也可能是我自己没看懂，不过总的来说，结合本书的大概说明和书里面展示的用例，基本可以入门了。</p>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>相关文章</h2>
+    <ul class="listing">
+        
+        <li><a href="/blog/read/2023-04-12-%E6%9D%82%E8%AE%B0/">20230412杂记</a></li>
+        
+        <li><a href="/blog/post/2023-03-21-k8s%E6%A6%82%E5%BF%B5/">k8s|基础概念</a></li>
+        
+        <li><a href="/blog/post/2023-02-18-%E4%BA%91%E5%8E%9F%E7%94%9Fdocker/">k8s|Docker学习</a></li>
+        
+        <li><a href="/blog/post/2023-02-17-golangcobra/">Golang|Cobra学习</a></li>
+        
+        <li><a href="/blog/post/2023-02-09-golang%E5%8D%8F%E7%A8%8B/">Golang|学习教程(七)-协程</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            没有标签
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "weiweng/blog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2023 <a href="https://weiweng.github.io/blog/">weiweng的博客 By weiweng</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdn.bootcdn.net/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/blog/js/totop.js?v=0.0.0' async=""></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XYCDHPQC9T"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-XYCDHPQC9T', { 'anonymize_ip': false });
+}
+</script>
+
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-0422-k8s%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6/" title="k8s|基础进阶" target="_blank">k8s|基础进阶</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-03-21-k8s%E6%A6%82%E5%BF%B5/" title="k8s|基础概念" target="_blank">k8s|基础概念</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-02-18-%E4%BA%91%E5%8E%9F%E7%94%9Fdocker/" title="k8s|Docker学习" target="_blank">k8s|Docker学习</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-02-17-golangcobra/" title="Golang|Cobra学习" target="_blank">Golang|Cobra学习</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-02-09-golang%E5%8D%8F%E7%A8%8B/" title="Golang|学习教程(七)-协程" target="_blank">Golang|学习教程(七)-协程</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-02-07-golang%E6%96%B9%E6%B3%95/" title="Golang|学习教程(六)-方法与接口" target="_blank">Golang|学习教程(六)-方法与接口</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-02-06-golangmap/" title="Golang|学习教程(五)-map" target="_blank">Golang|学习教程(五)-map</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-02-05-golangslice/" title="Golang|学习教程(四)-数组和切片" target="_blank">Golang|学习教程(四)-数组和切片</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-02-02-golangstruct/" title="Golang|学习教程(三)-结构体" target="_blank">Golang|学习教程(三)-结构体</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-02-01-golangflow/" title="Golang|学习教程(二)-流程控制" target="_blank">Golang|学习教程(二)-流程控制</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (26)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">开源协议</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BF%83%E5%BE%97/">心得</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/">搜索引擎技巧</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://draveness.me/" title="面向信仰编程">面向信仰编程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://xargin.com/" title="No Headback">No Headback</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://eddycjy.com/" title="煎鱼的博客">煎鱼的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://polarisxu.studygolang.com/" title="polarisxu的博客">polarisxu的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://qcrao.com/" title="qcrao 的博客">qcrao 的博客</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://weiweng.github.io/blog/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
