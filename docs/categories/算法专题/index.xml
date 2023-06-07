@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>算法专题 on weiweng的博客</title>
+    <link>https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/</link>
+    <description>Recent content in 算法专题 on weiweng的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 06 Jun 2023 08:00:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>算法专题|动态规划</title>
+      <link>https://weiweng.github.io/blog/post/2023-06-06-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
+      <pubDate>Tue, 06 Jun 2023 08:00:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2023-06-06-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid>
+      <description>动态规划（Dynamic Programming，DP）是运筹学的一个分支，是求解决策过程。总结有以下特征和解题步骤： 肯定是求最值问题，并且具备重叠子问题 定义问题</description>
+    </item>
+    
+  </channel>
+</rss>
