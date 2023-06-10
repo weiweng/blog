@@ -56,7 +56,9 @@ dp[0][0] = 1
 dp[0][j] = 0 j>=1
 ```
 
+
 **代码**
+
 ```go
 func findTargetSumWays(nums []int, target int) int {
     sum := 0
@@ -108,7 +110,9 @@ dp[0][nums[0]] = true
 dp[0][i] = false , i!=nums[[0]
 ```
 
+
 **代码**
+
 ```go
 func canPartition(nums []int) bool {
     n := len(nums)
@@ -188,7 +192,9 @@ dp[i] = min(dp[i],dp[i-coins[j]]+1), 0<=j<n
 dp[0] = 0
 ```
 
+
 **代码**
+
 ```go
 func coinChange(coins []int, amount int) int {
     var dp = make([]int, amount+1)
@@ -237,7 +243,9 @@ dp[i] = sum(dp[i-coins[j]]), i>coins[j] and 0<=j<n
 dp[0] = 1
 ```
 
+
 **代码**
+
 ```go
 func change(amount int, coins []int) int {
     dp := make([]int, amount+1)
@@ -287,7 +295,9 @@ func change(amount int, coins []int) int {
 
 通过下标1开始映射字符串下标0，因此不用考虑边界值。
 
+
 **代码**
+
 ```go
 func longestCommonSubsequence(text1, text2 string) int {
     m, n := len(text1), len(text2)
@@ -332,7 +342,9 @@ func max(a, b int) int {
 
 通过下标1开始映射字符串下标0，因此不用考虑边界值。
 
+
 **代码**
+
 ```go
 func longestCommonSubsequence(text1, text2 string) int {
     ans := -1
@@ -383,7 +395,9 @@ func max(a, b int) int {
 dp[0][j] = 1, 0<=j<=m
 ```
 
+
 **代码**
+
 ```go
 func numDistinct(s, t string) int {
     m, n := len(s), len(t)
@@ -431,7 +445,9 @@ func numDistinct(s, t string) int {
 dp[i][i] = true, 0<=i<m
 ```
 
+
 **代码**
+
 ```go
 func countSubstrings(s string) int {
 	count := 0
@@ -478,7 +494,9 @@ func countSubstrings(s string) int {
 dp[i][i] = true, 0<=i<m
 ```
 
+
 **代码**
+
 ```go
 func longestPalindrome(s string) string {
     dp := make([][]bool,len(s))
@@ -525,7 +543,9 @@ func longestPalindrome(s string) string {
 dp[i][i] = true, 0<=i<m
 ```
 
+
 **代码**
+
 ```go
 func partition(s string) (ans [][]string) {
     n := len(s)
@@ -593,7 +613,9 @@ dp[i][i] = true, 0<=i<m
 f[j] = 0, dp[0][j]=true
 ```
 
+
 **代码**
+
 ```go
 func minCut(s string) int {
     n := len(s)
@@ -653,7 +675,9 @@ dp[0][j] = MAX_INT, 0<j<n
 dp[0][0]=grid[1][1]
 ```
 
+
 **代码**
+
 ```go
 func palindromePartition(s string, k int) int {
     if s == "" || k >= len(s) {
@@ -720,7 +744,9 @@ func min(a, b int) int {
 dp[i][i] = true, 0<=i<m
 ```
 
+
 **代码**
+
 ```go
 func checkPartitioning(s string) bool {
 	length := len(s)
@@ -776,7 +802,9 @@ dp[i][0]=false             //  空模式无法匹配非空字符串
 dp[0][j]=true, p[j]='*'    //   星号才能匹配空字符串
 ```
 ​
+
 **代码**
+
 ```go
 func isMatch(s string, p string) bool {
     m, n := len(s), len(p)
@@ -828,7 +856,9 @@ func isMatch(s string, p string) bool {
 dp[0][0]=true              // 当字符串 s 和模式 p 均为空时，匹配成功
 ```
 ​
+
 **代码**
+
 ```go
 func isMatch(s string, p string) bool {
     m, n := len(s), len(p)
@@ -869,6 +899,7 @@ func isMatch(s string, p string) bool {
 
 
 **题解**
+
 由于可以拿取前后两处的石头，很明显，考虑子问题的时候需要2个变量标识取值范围的变动
 
 定义二维数组`dp[i][j]` 表示当剩下的数字中拿取下标 `i` 到下标 `j` 时，即在下标范围`[i,j]`中，当前玩家与另一个玩家的分数之差的最大值。
@@ -882,6 +913,8 @@ func isMatch(s string, p string) bool {
 * 只有当`i≤j`时，选取数值有意义，因此当 `i>j`时，`dp[i][j]=0`。
 * 当`i=j` 时，只剩下一堆数值中，当前玩家只能取走唯一的数值，因此对于所有`0≤i<nums.length`，都有 `dp[i][i]=nums[i]`。
 ​
+
+
 **代码**
 
 ```go
@@ -924,6 +957,8 @@ func max(x, y int) int {
 * 只有当`i≤j`时，剩下的石子堆才有意义，因此当 `i>j`时，`dp[i][j]=0`。
 * 当`i=j` 时，只剩下一堆石子，当前玩家只能取走这堆石子，因此对于所有`0≤i<piles.length`，都有 `dp[i][i]=piles[i]`。
 ​
+
+
 **代码**
 
 ```go
@@ -960,6 +995,8 @@ func max(x, y int) int {
 * 考虑`i + 2M >= len`时，可以获取剩余所有石子，因此有`,dp[i][M] = sum[i : len - 1]`
 * 考虑`i + 2M < len`时，可以获取的最大石子数是剩余所有石子总和减去下一轮先手可获得的最大石子数，因此有`dp[i][M] = max(dp[i][M], sum[i : len - 1] - dp[i + x][max(M, x)])`, 其中 `1 <= x <= 2M`
 
+
+
 **代码**
 
 ```go
@@ -995,7 +1032,9 @@ func max(i int, j int) int {
 
 ### **题目[leetcode1406 石子游戏III](https://leetcode-cn.com/problems/stone-game-iii/)**
 
+
 **题解**
+
 
 当对于当前状态的选择，需要考虑到以后的选择的影响的时候。这个时候，往往需要倒过来考虑，从后往前递推，构造dp公式
 很明显，本题应该是[石子游戏II](石子游戏II)的一个变种
@@ -1006,6 +1045,8 @@ func max(i int, j int) int {
 * 考虑`i+j < len, 1<=j<=3`时，先手可以尝试获取`1-3`堆石头数，而其中最大收益便是，剩余可以获取的石子数总和减去下一轮先手可获得的最大石子数，因此有`dp[i] = max(dp[i], sum[i : len - 1] - dp[i+j]`, 其中 `1 <= j <= 3 && i+j < len`
 
 `dp[len]=0`
+
+
 ​
 **代码**
 
@@ -1063,6 +1104,7 @@ func min(a, b int) int {
 
 当没有石子可以提取时，先手就输了，因此有`dp[0]=false`
 ​
+
 **代码**
 
 ```go
@@ -1093,6 +1135,8 @@ func winnerSquareGame(n int) bool {
 * 如果`sum(i,t)<sum(t+1,j)`时，则Alice可以选择`sum(i,t)`的数值和，则有`dp[i][j]=dp[i][t]+sum(i,t)`
 * 如果`sum(i,t)>sum(t+1,j)`时，则Alice可以选择`sum(i,t)`的数值和，则有`dp[i][j]=dp[t+1][j]+sum(t+1,j)`
 * 如果`sum(i,t)=sum(t+1,j)`时，则Alice可以选择`sum(i,t)`的数值和，则有`dp[i][j]=max(dp[t+1][j],dp[i][t])+sum(i,t)`
+
+
 
 **代码**
 
@@ -1146,6 +1190,8 @@ func max(a, b int) int {
 * 考虑`i-j=1`时，有`,dp[i][j] = max(stones[i],stones[j])`
 * 考虑`i-j>1`时，有`dp[i][j] = max(sum[i][j-1]-dp[i][j-1], sum[i+1][j] - dp[i+1][j])`
 
+
+
 **代码**
 
 ```go
@@ -1193,6 +1239,8 @@ func stoneGameVII(stones []int) int {
 考虑`i=n-1`时，`dp[i+1]`是边界，因此考虑`dp[n-1]`为边界，`i`从`n-2`开始
 `dp[n-1]=sum[0-n]`
 ​
+
+
 **代码**
 
 ```go
@@ -1266,6 +1314,7 @@ dp[0][0] = 0
 dp[0][1] = -nums[0]
 ```
 ​
+
 **代码**
 
 ```go
@@ -1301,6 +1350,7 @@ func max(a,b int) int {
 
 参考*股票买卖问题-总纲*
 
+
 ```c
 // 参考大纲，本题的k定义为无穷大
 dp[i][k][0] = max(dp[i-1][k][0],dp[i-1][k][1]+nums[i])
@@ -1312,6 +1362,8 @@ dp[i][1] = max(dp[i-1][1],dp[i-1][0]-nums[i])
 dp[0][0] = 0
 dp[0][1] = -nums[0]
 ```
+
+
 **代码**
 
 ```go
@@ -1360,6 +1412,7 @@ dp[0][2][0] = 0
 dp[0][2][1] = -nums[0]
 ```
 ​
+
 **代码**
 
 ```go
@@ -1412,6 +1465,7 @@ dp[i][k][1] = max(dp[i-1][k][1],dp[i-1][k-1][0]-nums[i])
 dp[0][k][0] = 0
 dp[0][k][1] = -nums[0]
 ```
+
 ​
 **代码**
 
@@ -1479,7 +1533,9 @@ dp[0][k][1] = -nums[0]
 ### **题目 买卖股票的最佳时机VI**
 
 给定一个数组`nums`，其中第`i`个元素表示股票当天的价格`nums[i]`，每天都可以随时交易，每次交易后需要提交`fee`手续费，求解交易后的最大收益
+
 注意：不能同时参与多笔交易，每次买入前必须卖掉手头的股票
+
 **题解**
 
 参考*股票买卖问题-总纲*
@@ -1517,6 +1573,7 @@ dp[0] = nums[0]
 dp[1] = max(nums[1],nums[0])
 ```
 ​
+
 **代码**
 
 ```go
@@ -1555,6 +1612,7 @@ dp[0] = nums[0]
 dp[1] = max(nums[1],nums[0])
 ```
 ​
+
 **代码**
 
 ```go
@@ -1613,6 +1671,7 @@ func max(a, b int) int {
 dp[null][0] = 0
 dp[null][1] = 0
 ```
+
 ​
 **代码**
 
@@ -1659,6 +1718,7 @@ func max(x, y int) int {
 ```c
 dp[i][1] = i // 由于只有1个鸡蛋，只能线性的一层一层试，所以最少也要i次
 ```
+
 
 **代码**
 
@@ -1728,6 +1788,8 @@ func min(x, y int) int {
 dp[0][j]=sum(grid[0][k]), 0<=k<=j
 dp[i][0]=sum(grid[i][0]), 0<=k<=i
 ```
+
+
 **代码**
 
 ```go
@@ -1779,6 +1841,8 @@ func min(a,b int) int{
 dp[0][j]=1
 dp[i][0]=1
 ```
+
+
 **代码**
 
 ```go
@@ -1823,6 +1887,7 @@ dp[i][0] = 0 // // 存在grid[k][0]=1,k<=i
 
 ```
 ​
+
 **代码**
 
 ```go
@@ -1877,6 +1942,7 @@ func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 dp[i][j]=1 // matrix[i][j]=1，初始化的时候设置为1
 ```
 ​
+
 **代码**
 
 ```go
@@ -1921,6 +1987,7 @@ func min(x, y int) int {
 
 本题目其实是[最大正方形](最大正方形.md)的变体，如果知道了已`matrix[i][j]`为右下角可以构成的最大正方形，则统计可以构建的个数就是答案。
 
+
 **代码**
 
 ```go
@@ -1964,6 +2031,7 @@ func min(a,b,c int) int{
 `dp[i][j][1]`:表示第i行第j列的1往 上面 最长连续的1的个数
 
 考虑走到`grid[i][j]`时，左边和上边可以拿到可能构建的最大正方形边长`maxLine`，之后我们就需要考虑右上角的点是否符合预期，即`dp[i-maxLine+1][j][1]`和`dp[i][j-maxLine+1][0]`是否都可以取到`maxLine`，如果可以就能够构建，因此只需要再考虑是否是最大的就好
+
 
 **代码**
 
@@ -2032,6 +2100,7 @@ dp[0] = 1
 dp[1] = 1
 ```
 ​
+
 **代码**
 
 ```go
@@ -2054,6 +2123,8 @@ func numTrees(n int) int {
 
 **题解**
 该题不是动态规划题目，只是丑数系列，因此收入，简单的判断即可
+
+
 
 **代码**
 
@@ -2088,6 +2159,7 @@ func isUgly(n int) bool {
 dp[0] =1
 ```
 ​
+
 **代码**
 
 ```go
@@ -2132,6 +2204,8 @@ func min(a, b int) int {
 
 考虑`s[i]=')' 且 s[i-1]='('`时，则有`dp[i]=dp[i−2]+2`
 如果`s[i]=')' 且 s[i−1]=')'`时，则可以往前推断，考虑`dp[i-1]`之前的一个字符，是否符合与`s[i]`配对的情况，如果`s[i−dp[i−1]−1]='('`，则有`dp[i]=dp[i−1]+dp[i−dp[i−1]−2]+2`
+
+
 
 **代码**
 
@@ -2180,6 +2254,7 @@ dp[0]=[""]
 dp[1]=["()"]
 ```
 ​
+
 **代码**
 
 ```go
