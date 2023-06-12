@@ -6,7 +6,16 @@
     <description>Recent content on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 11 Jun 2023 07:00:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Jun 2023 07:00:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>算法专题|双指针</title>
+      <link>https://weiweng.github.io/blog/post/2023-06-11-%E5%8F%8C%E6%8C%87%E9%92%88/</link>
+      <pubDate>Mon, 12 Jun 2023 07:00:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2023-06-11-%E5%8F%8C%E6%8C%87%E9%92%88/</guid>
+      <description>双指针是一种简单而又灵活的技巧和思想，单独使用可以轻松解决一些特定问题，和其他算法结合也能发挥多样的用处。 双指针顾名思义，就是同时使用两个指针，在序列、链表结构</description>
+    </item>
+    
     <item>
       <title>算法专题|二分查找</title>
       <link>https://weiweng.github.io/blog/post/2023-06-11-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</link>
@@ -14,15 +23,6 @@
       
       <guid>https://weiweng.github.io/blog/post/2023-06-11-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</guid>
       <description>二分查找 (Binary Search) 也称折半查找，它是一种效率较高的查找方法。但是，折半查找要求线性表必须采用顺序存储结构，而且表中元素按关键字有序排列。 总结有以下特征和解题步骤： 寻找</description>
-    </item>
-    
-    <item>
-      <title>算法专题|双指针</title>
-      <link>https://weiweng.github.io/blog/post/2023-06-11-%E5%8F%8C%E6%8C%87%E9%92%88/</link>
-      <pubDate>Sun, 11 Jun 2023 07:00:00 +0800</pubDate>
-      
-      <guid>https://weiweng.github.io/blog/post/2023-06-11-%E5%8F%8C%E6%8C%87%E9%92%88/</guid>
-      <description>双指针是一种简单而又灵活的技巧和思想，单独使用可以轻松解决一些特定问题，和其他算法结合也能发挥多样的用处。 双指针顾名思义，就是同时使用两个指针，在序列、链表结构</description>
     </item>
     
     <item>
