@@ -1,0 +1,1526 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>算法专题|单调栈 | weiweng的博客</title>
+    <meta property="og:title" content="算法专题|单调栈 - weiweng的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2023-06-16T06:00:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2023-06-16T06:00:00&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,博客,项目管理,软件架构">
+    <meta name="description" content="算法专题|单调栈">
+        
+    <meta name="author" content="weiweng">
+    <meta property="og:url" content="https://weiweng.github.io/blog/post/2023-06-16-%E5%8D%95%E8%B0%83%E6%A0%88/">
+    <link rel="shortcut icon" href='/blog/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/blog/css/normalize.css'>
+    <link rel="stylesheet" href='/blog/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://weiweng.github.io/blog/">
+                        weiweng的博客
+                    </a>
+                
+                <p class="description">记录所学所思所想，专注于Go语言、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/read/" title="阅读">阅读</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/about/" title="关于">关于</a>
+                    
+                    <a  href="https://weiweng.github.io/blog/archives/" title="归档">归档</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#初级练习">初级练习</a>
+      <ul>
+        <li><a href="#下一个更大元素-ihttpsleetcodecnproblemsnext-greater-element-i"><strong><a href="https://leetcode.cn/problems/next-greater-element-i/">下一个更大元素 I</a></strong></a></li>
+        <li><a href="#商品折扣后的最终价格httpsleetcodecnproblemsfinal-prices-with-a-special-discount-in-a-shop"><strong><a href="https://leetcode.cn/problems/final-prices-with-a-special-discount-in-a-shop/">商品折扣后的最终价格</a></strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#中级练习">中级练习</a>
+      <ul>
+        <li><a href="#叶值的最小代价生成树httpsleetcodecnproblemsminimum-cost-tree-from-leaf-values"><strong><a href="https://leetcode.cn/problems/minimum-cost-tree-from-leaf-values/">叶值的最小代价生成树</a></strong></a></li>
+        <li><a href="#链表中的下一个更大节点httpsleetcodecnproblemsnext-greater-node-in-linked-list"><strong><a href="https://leetcode.cn/problems/next-greater-node-in-linked-list/">链表中的下一个更大节点</a></strong></a></li>
+        <li><a href="#最多能完成排序的块httpsleetcodecnproblemsmax-chunks-to-make-sorted"><strong><a href="https://leetcode.cn/problems/max-chunks-to-make-sorted/">最多能完成排序的块</a></strong></a></li>
+        <li><a href="#去除重复字母httpsleetcodecnproblemsremove-duplicate-letters"><strong><a href="https://leetcode.cn/problems/remove-duplicate-letters/">去除重复字母</a></strong></a></li>
+        <li><a href="#最大宽度坡httpsleetcodecnproblemsmaximum-width-ramp"><strong><a href="https://leetcode.cn/problems/maximum-width-ramp/">最大宽度坡</a></strong></a></li>
+        <li><a href="#车队-httpsleetcodecnproblemscar-fleet"><strong><a href="https://leetcode.cn/problems/car-fleet/">车队 </a></strong></a></li>
+        <li><a href="#子数组的最小值之和httpsleetcodecnproblemssum-of-subarray-minimums"><strong><a href="https://leetcode.cn/problems/sum-of-subarray-minimums/">子数组的最小值之和</a></strong></a></li>
+        <li><a href="#子数组最小乘积的最大值httpsleetcodecnproblemsmaximum-subarray-min-product"><strong><a href="https://leetcode.cn/problems/maximum-subarray-min-product/">子数组最小乘积的最大值</a></strong></a></li>
+        <li><a href="#132-模式httpsleetcodecnproblems132-pattern"><strong><a href="https://leetcode.cn/problems/132-pattern/">132 模式</a></strong></a></li>
+        <li><a href="#移掉-k-位数字httpsleetcodecnproblemsremove-k-digits"><strong><a href="https://leetcode.cn/problems/remove-k-digits/">移掉 K 位数字</a></strong></a></li>
+        <li><a href="#使数组按非递减顺序排列httpsleetcodecnproblemssteps-to-make-array-non-decreasing"><strong><a href="https://leetcode.cn/problems/steps-to-make-array-non-decreasing/">使数组按非递减顺序排列</a></strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#高级练习">高级练习</a>
+      <ul>
+        <li><a href="#接雨水httpsleetcodecnproblemstrapping-rain-watersolutions"><strong><a href="https://leetcode.cn/problems/trapping-rain-water/solutions/">接雨水</a></strong></a></li>
+        <li><a href="#队列中可以看到的人数httpsleetcodecnproblemsnumber-of-visible-people-in-a-queue"><strong><a href="https://leetcode.cn/problems/number-of-visible-people-in-a-queue/">队列中可以看到的人数</a></strong></a></li>
+        <li><a href="#最多能完成排序的块-iihttpsleetcodecnproblemsmax-chunks-to-make-sorted-ii"><strong><a href="https://leetcode.cn/problems/max-chunks-to-make-sorted-ii/">最多能完成排序的块 II</a></strong></a></li>
+        <li><a href="#下一个更大元素-ivhttpsleetcodecnproblemsnext-greater-element-iv"><strong><a href="https://leetcode.cn/problems/next-greater-element-iv/">下一个更大元素 IV</a></strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if (leftPos < 220) {
+                postToc.css({ "width": leftPos - 10, "margin-left": (0 - leftPos) })
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+
+        if ($("#TableOfContents").children().length < 1) {
+            $(".post-toc").remove();
+        }
+    })
+</script>
+    <article class="post">
+        <header>
+            <h1 class="post-title">算法专题|单调栈</h1>
+        </header>
+        
+  <time datetime="2023-06-15T22:00:00Z" class="post-meta meta-date dt-published">
+    2023年6月16日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98' target="_blank">算法专题</a>
+  
+</div>
+
+
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
+        <div class="post-content">
+            <h2 id="初级练习">初级练习</h2>
+<h3 id="下一个更大元素-ihttpsleetcodecnproblemsnext-greater-element-i"><strong><a href="https://leetcode.cn/problems/next-greater-element-i/">下一个更大元素 I</a></strong></h3>
+<p><strong>思路</strong></p>
+<p>最基础的单调栈用法。</p>
+<p><strong>代码</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">nextGreaterElement</span>(nums1, nums2 []<span style="color:#458;font-weight:bold">int</span>) []<span style="color:#458;font-weight:bold">int</span> {
+</span></span><span style="display:flex;"><span>    mp <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">map</span>[<span style="color:#458;font-weight:bold">int</span>]<span style="color:#458;font-weight:bold">int</span>{}
+</span></span><span style="display:flex;"><span>    stack <span style="color:#000;font-weight:bold">:=</span> []<span style="color:#458;font-weight:bold">int</span>{}
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">len</span>(nums2) <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>; i <span style="color:#000;font-weight:bold">&gt;=</span> <span style="color:#099">0</span>; i<span style="color:#000;font-weight:bold">--</span> {
+</span></span><span style="display:flex;"><span>        num <span style="color:#000;font-weight:bold">:=</span> nums2[i]
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">for</span> <span style="color:#0086b3">len</span>(stack) &gt; <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> num <span style="color:#000;font-weight:bold">&gt;=</span> stack[<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>] {
+</span></span><span style="display:flex;"><span>            stack = stack[:<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> <span style="color:#0086b3">len</span>(stack) &gt; <span style="color:#099">0</span> {
+</span></span><span style="display:flex;"><span>            mp[num] = stack[<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>        } <span style="color:#000;font-weight:bold">else</span> {
+</span></span><span style="display:flex;"><span>            mp[num] = <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        stack = <span style="color:#0086b3">append</span>(stack, num)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    res <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>([]<span style="color:#458;font-weight:bold">int</span>, <span style="color:#0086b3">len</span>(nums1))
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> i, num <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> nums1 {
+</span></span><span style="display:flex;"><span>        res[i] = mp[num]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> res
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="商品折扣后的最终价格httpsleetcodecnproblemsfinal-prices-with-a-special-discount-in-a-shop"><strong><a href="https://leetcode.cn/problems/final-prices-with-a-special-discount-in-a-shop/">商品折扣后的最终价格</a></strong></h3>
+<p><strong>思路</strong></p>
+<p>最基础的单调栈用法，加一个逆向思维。</p>
+<p><strong>代码</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">finalPrices</span>(prices []<span style="color:#458;font-weight:bold">int</span>) []<span style="color:#458;font-weight:bold">int</span> {
+</span></span><span style="display:flex;"><span>    n <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">len</span>(prices)
+</span></span><span style="display:flex;"><span>    ans <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>([]<span style="color:#458;font-weight:bold">int</span>, n)
+</span></span><span style="display:flex;"><span>    st <span style="color:#000;font-weight:bold">:=</span> []<span style="color:#458;font-weight:bold">int</span>{<span style="color:#099">0</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> n <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>; i <span style="color:#000;font-weight:bold">&gt;=</span> <span style="color:#099">0</span>; i<span style="color:#000;font-weight:bold">--</span> {
+</span></span><span style="display:flex;"><span>        p <span style="color:#000;font-weight:bold">:=</span> prices[i]
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">for</span> <span style="color:#0086b3">len</span>(st) &gt; <span style="color:#099">1</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> st[<span style="color:#0086b3">len</span>(st)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>] &gt; p {
+</span></span><span style="display:flex;"><span>            st = st[:<span style="color:#0086b3">len</span>(st)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        ans[i] = p <span style="color:#000;font-weight:bold">-</span> st[<span style="color:#0086b3">len</span>(st)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>        st = <span style="color:#0086b3">append</span>(st, p)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> ans
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="中级练习">中级练习</h2>
+<h3 id="叶值的最小代价生成树httpsleetcodecnproblemsminimum-cost-tree-from-leaf-values"><strong><a href="https://leetcode.cn/problems/minimum-cost-tree-from-leaf-values/">叶值的最小代价生成树</a></strong></h3>
+<p><strong>思路</strong></p>
+<p>还是利用单调栈管理顺序，核心是尽量找相邻的最小数值相互乘积。</p>
+<p><strong>代码</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">min</span>(x, y <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">if</span> x &gt; y {
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> y
+</span></span><span style="display:flex;"><span>    }<span style="color:#000;font-weight:bold">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> x
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">mctFromLeafValues</span>(arr []<span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
+</span></span><span style="display:flex;"><span>    ans <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>
+</span></span><span style="display:flex;"><span>    stack <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>([]<span style="color:#458;font-weight:bold">int</span>, <span style="color:#099">0</span>)
+</span></span><span style="display:flex;"><span>    stack = <span style="color:#0086b3">append</span>(stack, math.MaxInt32)
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> _, v <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> arr {
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">for</span> <span style="color:#0086b3">len</span>(stack) &gt; <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> v &gt; stack[<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>] {
+</span></span><span style="display:flex;"><span>            ans <span style="color:#000;font-weight:bold">+=</span> stack[<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>] <span style="color:#000;font-weight:bold">*</span> <span style="color:#900;font-weight:bold">min</span>(v, stack[<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">2</span>])
+</span></span><span style="display:flex;"><span>            stack = stack[:<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        stack = <span style="color:#0086b3">append</span>(stack, v)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> <span style="color:#0086b3">len</span>(stack) &gt; <span style="color:#099">2</span> {
+</span></span><span style="display:flex;"><span>        ans <span style="color:#000;font-weight:bold">+=</span> stack[<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>] <span style="color:#000;font-weight:bold">*</span> stack[<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">2</span>]
+</span></span><span style="display:flex;"><span>        stack = stack[:<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> ans
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="链表中的下一个更大节点httpsleetcodecnproblemsnext-greater-node-in-linked-list"><strong><a href="https://leetcode.cn/problems/next-greater-node-in-linked-list/">链表中的下一个更大节点</a></strong></h3>
+<p><strong>思路</strong></p>
+<p>基础的单调栈的使用，将链表转换成数组在操作，利用单调栈记录范围内的最大值。</p>
+<p><strong>代码</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">nextLargerNodes</span>(head <span style="color:#000;font-weight:bold">*</span>ListNode) []<span style="color:#458;font-weight:bold">int</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 定义一个栈（注意：这里不存元素，我们只存切片的索引！！！）
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    stack <span style="color:#000;font-weight:bold">:=</span> []<span style="color:#458;font-weight:bold">int</span>{}
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 定义一个数组存放链表
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    nums <span style="color:#000;font-weight:bold">:=</span> []<span style="color:#458;font-weight:bold">int</span>{}
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 1、将链表遍历，存入切片
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">for</span> {
+</span></span><span style="display:flex;"><span>        nums = <span style="color:#0086b3">append</span>(nums,head.Val)
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> head.Next <span style="color:#000;font-weight:bold">==</span><span style="color:#000;font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">break</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        head = head.Next
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    res <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>([]<span style="color:#458;font-weight:bold">int</span>,<span style="color:#0086b3">len</span>(nums))
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 2、使用栈对比是否符合
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">for</span> i<span style="color:#000;font-weight:bold">:=</span><span style="color:#099">0</span>;i&lt;<span style="color:#0086b3">len</span>(nums);i<span style="color:#000;font-weight:bold">++</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 这里是最重要的核心思路：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">// 判断栈不为空，然后取当前元素和整个栈进行挨个对比，直到找到那个比当前元素大的为止
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">for</span> <span style="color:#0086b3">len</span>(stack)&gt;<span style="color:#099">0</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> nums[i]&gt;nums[stack[<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]] {
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">// 这就是为什么栈存索引，替换索引的元素，为当前遍历的元素
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            res[stack[<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]] = nums[i]
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">// 删除栈顶元素
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            stack = stack[:<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 仍旧，存放 nums 的索引
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        stack = <span style="color:#0086b3">append</span>(stack,i) 
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> res
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="最多能完成排序的块httpsleetcodecnproblemsmax-chunks-to-make-sorted"><strong><a href="https://leetcode.cn/problems/max-chunks-to-make-sorted/">最多能完成排序的块</a></strong></h3>
+<p><strong>思路</strong></p>
+<p>还是单调栈，划定范围，通过单调增的栈，如果下一个元素小于栈顶，则弹出栈顶，一直到大于等于当前值，这样当前值作为左边界的点可以加入栈内，最后栈的大小就是答案。</p>
+<p><strong>代码</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">maxChunksToSorted</span>(arr []<span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
+</span></span><span style="display:flex;"><span>    stk <span style="color:#000;font-weight:bold">:=</span> []<span style="color:#458;font-weight:bold">int</span>{}
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> _, v <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> arr {
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> <span style="color:#0086b3">len</span>(stk) <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">||</span> v <span style="color:#000;font-weight:bold">&gt;=</span> stk[<span style="color:#0086b3">len</span>(stk)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>] {
+</span></span><span style="display:flex;"><span>            stk = <span style="color:#0086b3">append</span>(stk, v)
+</span></span><span style="display:flex;"><span>        } <span style="color:#000;font-weight:bold">else</span> {
+</span></span><span style="display:flex;"><span>            mx <span style="color:#000;font-weight:bold">:=</span> stk[<span style="color:#0086b3">len</span>(stk)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>            stk = stk[:<span style="color:#0086b3">len</span>(stk)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">for</span> <span style="color:#0086b3">len</span>(stk) &gt; <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> stk[<span style="color:#0086b3">len</span>(stk)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>] &gt; v {
+</span></span><span style="display:flex;"><span>                stk = stk[:<span style="color:#0086b3">len</span>(stk)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            stk = <span style="color:#0086b3">append</span>(stk, mx)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> <span style="color:#0086b3">len</span>(stk)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="去除重复字母httpsleetcodecnproblemsremove-duplicate-letters"><strong><a href="https://leetcode.cn/problems/remove-duplicate-letters/">去除重复字母</a></strong></h3>
+<p><strong>思路</strong></p>
+<p>这一题蛮有意思，通过单调栈获取最小的字符排序，此外需要使用map记录是不是使用过，还需要判断是否有余数，如果存在更小的字符序列。</p>
+<p><strong>代码</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">removeDuplicateLetters</span>(s <span style="color:#458;font-weight:bold">string</span>) <span style="color:#458;font-weight:bold">string</span> {
+</span></span><span style="display:flex;"><span>    left <span style="color:#000;font-weight:bold">:=</span> [<span style="color:#099">26</span>]<span style="color:#458;font-weight:bold">int</span>{}
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> _, ch <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> s {
+</span></span><span style="display:flex;"><span>        left[ch<span style="color:#000;font-weight:bold">-</span><span style="color:#d14">&#39;a&#39;</span>]<span style="color:#000;font-weight:bold">++</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    stack <span style="color:#000;font-weight:bold">:=</span> []<span style="color:#458;font-weight:bold">byte</span>{}
+</span></span><span style="display:flex;"><span>    inStack <span style="color:#000;font-weight:bold">:=</span> [<span style="color:#099">26</span>]<span style="color:#458;font-weight:bold">bool</span>{}
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> s {
+</span></span><span style="display:flex;"><span>        ch <span style="color:#000;font-weight:bold">:=</span> s[i]
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> !inStack[ch<span style="color:#000;font-weight:bold">-</span><span style="color:#d14">&#39;a&#39;</span>] {
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">for</span> <span style="color:#0086b3">len</span>(stack) &gt; <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> ch &lt; stack[<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>] {
+</span></span><span style="display:flex;"><span>                last <span style="color:#000;font-weight:bold">:=</span> stack[<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>] <span style="color:#000;font-weight:bold">-</span> <span style="color:#d14">&#39;a&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">if</span> left[last] <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">0</span> {
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">break</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>                stack = stack[:<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>                inStack[last] = <span style="color:#000;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            stack = <span style="color:#0086b3">append</span>(stack, ch)
+</span></span><span style="display:flex;"><span>            inStack[ch<span style="color:#000;font-weight:bold">-</span><span style="color:#d14">&#39;a&#39;</span>] = <span style="color:#000;font-weight:bold">true</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        left[ch<span style="color:#000;font-weight:bold">-</span><span style="color:#d14">&#39;a&#39;</span>]<span style="color:#000;font-weight:bold">--</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> <span style="color:#0086b3">string</span>(stack)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="最大宽度坡httpsleetcodecnproblemsmaximum-width-ramp"><strong><a href="https://leetcode.cn/problems/maximum-width-ramp/">最大宽度坡</a></strong></h3>
+<p><strong>思路</strong></p>
+<p>这一题的单调栈思路很妙，利用单调递减栈的逻辑先记录左边界的值，然后在原始数组中的右边界开始尝试获取符合的答案。</p>
+<p><strong>代码</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">maxWidthRamp</span>(A []<span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
+</span></span><span style="display:flex;"><span>    stack <span style="color:#000;font-weight:bold">:=</span> []<span style="color:#458;font-weight:bold">int</span>{}
+</span></span><span style="display:flex;"><span>    n <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">len</span>(A)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> i<span style="color:#000;font-weight:bold">:=</span><span style="color:#099">0</span>; i&lt;n; i<span style="color:#000;font-weight:bold">++</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> <span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">==</span><span style="color:#099">0</span> <span style="color:#000;font-weight:bold">||</span> A[stack[<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]]&gt;A[i] {
+</span></span><span style="display:flex;"><span>            stack = <span style="color:#0086b3">append</span>(stack, i)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    res <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>
+</span></span><span style="display:flex;"><span>    i <span style="color:#000;font-weight:bold">:=</span> n <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> i&gt;res {
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">for</span> <span style="color:#0086b3">len</span>(stack)&gt;<span style="color:#099">0</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> A[stack[<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]] <span style="color:#000;font-weight:bold">&lt;=</span> A[i] {
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">if</span> i<span style="color:#000;font-weight:bold">-</span>stack[<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>] &gt; res {
+</span></span><span style="display:flex;"><span>                res = i<span style="color:#000;font-weight:bold">-</span>stack[<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            stack = stack[:<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        i<span style="color:#000;font-weight:bold">--</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> res
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="车队-httpsleetcodecnproblemscar-fleet"><strong><a href="https://leetcode.cn/problems/car-fleet/">车队 </a></strong></h3>
+<p><strong>思路</strong></p>
+<p>这一题更像是模拟，思路是计算每辆车到的终点的时间，之后按照起始位置倒序查看，这里利用了单调栈的思路，寻找阶段性最大值的个数。</p>
+<p><strong>代码</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> double = <span style="color:#458;font-weight:bold">float64</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> Car <span style="color:#000;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>    Position <span style="color:#458;font-weight:bold">int</span>
+</span></span><span style="display:flex;"><span>    Speed    <span style="color:#458;font-weight:bold">int</span>
+</span></span><span style="display:flex;"><span>    Time     double
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">carFleet</span>(target <span style="color:#458;font-weight:bold">int</span>, position []<span style="color:#458;font-weight:bold">int</span>, speed []<span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
+</span></span><span style="display:flex;"><span>    n <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">len</span>(speed)
+</span></span><span style="display:flex;"><span>    cars <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>([]Car, n)
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>; i &lt; n; i<span style="color:#000;font-weight:bold">++</span> {
+</span></span><span style="display:flex;"><span>        cars[i].Position = position[i]
+</span></span><span style="display:flex;"><span>        cars[i].Speed = speed[i]
+</span></span><span style="display:flex;"><span>        cars[i].Time = <span style="color:#900;font-weight:bold">double</span>(target<span style="color:#000;font-weight:bold">-</span>position[i]) <span style="color:#000;font-weight:bold">/</span> <span style="color:#900;font-weight:bold">double</span>(speed[i])
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    sort.<span style="color:#900;font-weight:bold">Slice</span>(cars, <span style="color:#000;font-weight:bold">func</span> (i, j <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">bool</span> { <span style="color:#000;font-weight:bold">return</span> cars[i].Position &lt; cars[j].Position })
+</span></span><span style="display:flex;"><span>    res <span style="color:#000;font-weight:bold">:=</span> n
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> n<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>; i &gt; <span style="color:#099">0</span>; i<span style="color:#000;font-weight:bold">--</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> cars[i].Time <span style="color:#000;font-weight:bold">&gt;=</span> cars[i<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>].Time {
+</span></span><span style="display:flex;"><span>            cars[i<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>].Time = cars[i].Time
+</span></span><span style="display:flex;"><span>            res<span style="color:#000;font-weight:bold">--</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> res
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="子数组的最小值之和httpsleetcodecnproblemssum-of-subarray-minimums"><strong><a href="https://leetcode.cn/problems/sum-of-subarray-minimums/">子数组的最小值之和</a></strong></h3>
+<p><strong>思路</strong></p>
+<p>这个只能看题解了，结合动态规划，有点难
+官方题解：子数组的最小值之和 - 力扣（LeetCode）</p>
+<p><strong>代码</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">sumSubarrayMins</span>(arr []<span style="color:#458;font-weight:bold">int</span>) (ans <span style="color:#458;font-weight:bold">int</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">const</span> mod <span style="color:#458;font-weight:bold">int</span> = <span style="color:#099">1e9</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">7</span>
+</span></span><span style="display:flex;"><span>    n <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">len</span>(arr)
+</span></span><span style="display:flex;"><span>    monoStack <span style="color:#000;font-weight:bold">:=</span> []<span style="color:#458;font-weight:bold">int</span>{}
+</span></span><span style="display:flex;"><span>    dp <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>([]<span style="color:#458;font-weight:bold">int</span>, n)
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> i, x <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> arr {
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">for</span> <span style="color:#0086b3">len</span>(monoStack) &gt; <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> arr[monoStack[<span style="color:#0086b3">len</span>(monoStack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]] &gt; x {
+</span></span><span style="display:flex;"><span>            monoStack = monoStack[:<span style="color:#0086b3">len</span>(monoStack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        k <span style="color:#000;font-weight:bold">:=</span> i <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> <span style="color:#0086b3">len</span>(monoStack) &gt; <span style="color:#099">0</span> {
+</span></span><span style="display:flex;"><span>            k = i <span style="color:#000;font-weight:bold">-</span> monoStack[<span style="color:#0086b3">len</span>(monoStack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        dp[i] = k <span style="color:#000;font-weight:bold">*</span> x
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> <span style="color:#0086b3">len</span>(monoStack) &gt; <span style="color:#099">0</span> {
+</span></span><span style="display:flex;"><span>            dp[i] <span style="color:#000;font-weight:bold">+=</span> dp[i<span style="color:#000;font-weight:bold">-</span>k]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        ans = (ans <span style="color:#000;font-weight:bold">+</span> dp[i]) <span style="color:#000;font-weight:bold">%</span> mod
+</span></span><span style="display:flex;"><span>        monoStack = <span style="color:#0086b3">append</span>(monoStack, i)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="子数组最小乘积的最大值httpsleetcodecnproblemsmaximum-subarray-min-product"><strong><a href="https://leetcode.cn/problems/maximum-subarray-min-product/">子数组最小乘积的最大值</a></strong></h3>
+<p><strong>思路</strong></p>
+<p>利用单调栈，左边开始遍历计算i位置的数为最小值时左边编辑，右边开始遍历，计算右边编辑，最后统计每种可能得到最小值。</p>
+<p><strong>代码</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">maxSumMinProduct</span>(a []<span style="color:#458;font-weight:bold">int</span>) (ans <span style="color:#458;font-weight:bold">int</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">type</span> pair <span style="color:#000;font-weight:bold">struct</span>{ v, i <span style="color:#458;font-weight:bold">int</span> }
+</span></span><span style="display:flex;"><span>    n <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">len</span>(a)
+</span></span><span style="display:flex;"><span>    sum <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>([]<span style="color:#458;font-weight:bold">int</span>, n<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>    posL <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>([]<span style="color:#458;font-weight:bold">int</span>, n)
+</span></span><span style="display:flex;"><span>    stk <span style="color:#000;font-weight:bold">:=</span> []pair{{<span style="color:#099">0</span>, <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>}}
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> i, v <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> a {
+</span></span><span style="display:flex;"><span>        sum[i<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>] = sum[i] <span style="color:#000;font-weight:bold">+</span> v
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">for</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">if</span> top <span style="color:#000;font-weight:bold">:=</span> stk[<span style="color:#0086b3">len</span>(stk)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]; top.v &lt; v {
+</span></span><span style="display:flex;"><span>                posL[i] = top.i
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">break</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            stk = stk[:<span style="color:#0086b3">len</span>(stk)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        stk = <span style="color:#0086b3">append</span>(stk, pair{v, i})
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    posR <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>([]<span style="color:#458;font-weight:bold">int</span>, n)
+</span></span><span style="display:flex;"><span>    stk = []pair{{<span style="color:#099">0</span>, n}}
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> n <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>; i <span style="color:#000;font-weight:bold">&gt;=</span> <span style="color:#099">0</span>; i<span style="color:#000;font-weight:bold">--</span> {
+</span></span><span style="display:flex;"><span>        v <span style="color:#000;font-weight:bold">:=</span> a[i]
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">for</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">if</span> top <span style="color:#000;font-weight:bold">:=</span> stk[<span style="color:#0086b3">len</span>(stk)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]; top.v &lt; v {
+</span></span><span style="display:flex;"><span>                posR[i] = top.i
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">break</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            stk = stk[:<span style="color:#0086b3">len</span>(stk)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        stk = <span style="color:#0086b3">append</span>(stk, pair{v, i})
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> i, v <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> a {
+</span></span><span style="display:flex;"><span>        ans = <span style="color:#900;font-weight:bold">max</span>(ans, v<span style="color:#000;font-weight:bold">*</span>(sum[posR[i]]<span style="color:#000;font-weight:bold">-</span>sum[posL[i]<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>]))
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> ans <span style="color:#000;font-weight:bold">%</span> (<span style="color:#099">1e9</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">7</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">max</span>(a, b <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">if</span> a &gt; b {
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> a
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> b
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="132-模式httpsleetcodecnproblems132-pattern"><strong><a href="https://leetcode.cn/problems/132-pattern/">132 模式</a></strong></h3>
+<p><strong>思路</strong></p>
+<p>这题不错，思路还是单调栈的利用，我们从后面统计，通过调度递减找顺序最大值，记录第二大的值，之后遍历的数小于第二大的值，即满足需求。</p>
+<p><strong>代码</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">find132pattern</span>(nums []<span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">bool</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">var</span> singleStack []<span style="color:#458;font-weight:bold">int</span>
+</span></span><span style="display:flex;"><span>    mid <span style="color:#000;font-weight:bold">:=</span> math.MinInt32
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">len</span>(nums) <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>; i <span style="color:#000;font-weight:bold">&gt;=</span> <span style="color:#099">0</span>; i<span style="color:#000;font-weight:bold">--</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//单调栈模式下找到了次大者，是否比次大者还小的元素存在
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">if</span> nums[i] &lt; mid {
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">true</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//保持单调栈的单调性
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">for</span> <span style="color:#0086b3">len</span>(singleStack) &gt; <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> nums[i] &gt; singleStack[<span style="color:#0086b3">len</span>(singleStack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>] {
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">//记录次大者
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            mid = singleStack[<span style="color:#0086b3">len</span>(singleStack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>            singleStack = singleStack[:<span style="color:#0086b3">len</span>(singleStack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//入栈
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        singleStack = <span style="color:#0086b3">append</span>(singleStack, nums[i])
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="移掉-k-位数字httpsleetcodecnproblemsremove-k-digits"><strong><a href="https://leetcode.cn/problems/remove-k-digits/">移掉 K 位数字</a></strong></h3>
+<p><strong>思路</strong></p>
+<p>通过单调递增栈，选择数据的最小值，通过k的计算来判定终止。此外需要考虑2个点，一个是k很大，全部移除数字，则返回0，一个是剩余字符中左边界剔除0的处理。</p>
+<p><strong>代码</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">removeKdigits</span>(num <span style="color:#458;font-weight:bold">string</span>, k <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">string</span> {
+</span></span><span style="display:flex;"><span>    stack <span style="color:#000;font-weight:bold">:=</span> []<span style="color:#458;font-weight:bold">byte</span>{}
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> num {
+</span></span><span style="display:flex;"><span>        digit <span style="color:#000;font-weight:bold">:=</span> num[i]
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">for</span> k &gt; <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#0086b3">len</span>(stack) &gt; <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> digit &lt; stack[<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>] {
+</span></span><span style="display:flex;"><span>            stack = stack[:<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>            k<span style="color:#000;font-weight:bold">--</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        stack = <span style="color:#0086b3">append</span>(stack, digit)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    stack = stack[:<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span>k]
+</span></span><span style="display:flex;"><span>    ans <span style="color:#000;font-weight:bold">:=</span> strings.<span style="color:#900;font-weight:bold">TrimLeft</span>(<span style="color:#0086b3">string</span>(stack), <span style="color:#d14">&#34;0&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">if</span> ans <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#34;&#34;</span> {
+</span></span><span style="display:flex;"><span>        ans = <span style="color:#d14">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> ans
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="使数组按非递减顺序排列httpsleetcodecnproblemssteps-to-make-array-non-decreasing"><strong><a href="https://leetcode.cn/problems/steps-to-make-array-non-decreasing/">使数组按非递减顺序排列</a></strong></h3>
+<p><strong>思路</strong></p>
+<p>利用单调栈记录阶段性最大处理步骤的数字，值得学习。</p>
+<p><strong>代码</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">totalSteps</span>(nums []<span style="color:#458;font-weight:bold">int</span>) (ans <span style="color:#458;font-weight:bold">int</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">type</span> pair <span style="color:#000;font-weight:bold">struct</span>{ v, t <span style="color:#458;font-weight:bold">int</span> }
+</span></span><span style="display:flex;"><span>    st <span style="color:#000;font-weight:bold">:=</span> []pair{}
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> _, num <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> nums {
+</span></span><span style="display:flex;"><span>        maxT <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">for</span> <span style="color:#0086b3">len</span>(st) &gt; <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> st[<span style="color:#0086b3">len</span>(st)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>].v <span style="color:#000;font-weight:bold">&lt;=</span> num {
+</span></span><span style="display:flex;"><span>            maxT = <span style="color:#900;font-weight:bold">max</span>(maxT, st[<span style="color:#0086b3">len</span>(st)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>].t)
+</span></span><span style="display:flex;"><span>            st = st[:<span style="color:#0086b3">len</span>(st)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> <span style="color:#0086b3">len</span>(st) &gt; <span style="color:#099">0</span> {
+</span></span><span style="display:flex;"><span>            maxT<span style="color:#000;font-weight:bold">++</span>
+</span></span><span style="display:flex;"><span>            ans = <span style="color:#900;font-weight:bold">max</span>(ans, maxT)
+</span></span><span style="display:flex;"><span>        } <span style="color:#000;font-weight:bold">else</span> {
+</span></span><span style="display:flex;"><span>            maxT = <span style="color:#099">0</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        st = <span style="color:#0086b3">append</span>(st, pair{num, maxT})
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">max</span>(a, b <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> { <span style="color:#000;font-weight:bold">if</span> b &gt; a { <span style="color:#000;font-weight:bold">return</span> b }; <span style="color:#000;font-weight:bold">return</span> a }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="高级练习">高级练习</h2>
+<h3 id="接雨水httpsleetcodecnproblemstrapping-rain-watersolutions"><strong><a href="https://leetcode.cn/problems/trapping-rain-water/solutions/">接雨水</a></strong></h3>
+<p><strong>思路</strong></p>
+<p>这一题通过动态规划可以做，也可以通过单调栈来做，通过单调递减栈，可以计算每次凹坑出现的装填雨水数。</p>
+<p><strong>代码</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">trap</span>(height []<span style="color:#458;font-weight:bold">int</span>) (ans <span style="color:#458;font-weight:bold">int</span>) {
+</span></span><span style="display:flex;"><span>    stack <span style="color:#000;font-weight:bold">:=</span> []<span style="color:#458;font-weight:bold">int</span>{}
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> i, h <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> height {
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 当前值大于栈顶元素，则出现了凹坑，可以装雨水
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">for</span> <span style="color:#0086b3">len</span>(stack) &gt; <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> h &gt; height[stack[<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]] {
+</span></span><span style="display:flex;"><span>            top <span style="color:#000;font-weight:bold">:=</span> stack[<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>            stack = stack[:<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">// 取出栈顶后必须还有一个左边界才能够算是一个凹坑
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            <span style="color:#000;font-weight:bold">if</span> <span style="color:#0086b3">len</span>(stack) <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">0</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">break</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            left <span style="color:#000;font-weight:bold">:=</span> stack[<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>            curWidth <span style="color:#000;font-weight:bold">:=</span> i <span style="color:#000;font-weight:bold">-</span> left <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>            curHeight <span style="color:#000;font-weight:bold">:=</span> <span style="color:#900;font-weight:bold">min</span>(height[left], h) <span style="color:#000;font-weight:bold">-</span> height[top]
+</span></span><span style="display:flex;"><span>            ans <span style="color:#000;font-weight:bold">+=</span> curWidth <span style="color:#000;font-weight:bold">*</span> curHeight
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        stack = <span style="color:#0086b3">append</span>(stack, i)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">min</span>(a, b <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">if</span> a &lt; b {
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> a
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> b
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="队列中可以看到的人数httpsleetcodecnproblemsnumber-of-visible-people-in-a-queue"><strong><a href="https://leetcode.cn/problems/number-of-visible-people-in-a-queue/">队列中可以看到的人数</a></strong></h3>
+<p><strong>思路</strong></p>
+<p>思考从后面开始计算，通过递增栈，计算当前位置可以看到的人数，最后栈里面还有数据，则是比当前高的人，计算加一。</p>
+<p><strong>代码</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">canSeePersonsCount</span>(heights []<span style="color:#458;font-weight:bold">int</span>) []<span style="color:#458;font-weight:bold">int</span> {
+</span></span><span style="display:flex;"><span>    stack<span style="color:#000;font-weight:bold">:=</span> []<span style="color:#458;font-weight:bold">int</span>{}
+</span></span><span style="display:flex;"><span>    ans<span style="color:#000;font-weight:bold">:=</span><span style="color:#0086b3">make</span>([]<span style="color:#458;font-weight:bold">int</span>,<span style="color:#0086b3">len</span>(heights))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> i<span style="color:#000;font-weight:bold">:=</span><span style="color:#0086b3">len</span>(heights)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>;i<span style="color:#000;font-weight:bold">&gt;=</span><span style="color:#099">0</span>;i<span style="color:#000;font-weight:bold">--</span>{
+</span></span><span style="display:flex;"><span>        count<span style="color:#000;font-weight:bold">:=</span><span style="color:#099">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">for</span> <span style="color:#0086b3">len</span>(stack)&gt;<span style="color:#099">0</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> stack[<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]&lt;heights[i]{   <span style="color:#998;font-style:italic">//递增栈 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            count<span style="color:#000;font-weight:bold">++</span>                           <span style="color:#998;font-style:italic">//计算比单前节点大的个数——&gt;看到的人数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            stack=stack[:<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span>(<span style="color:#0086b3">len</span>(stack)&gt;<span style="color:#099">0</span>) {
+</span></span><span style="display:flex;"><span>            ans[i]=count<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>     <span style="color:#998;font-style:italic">//栈不空，说明最后看到的是一个很高的，+1
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        }<span style="color:#000;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>            ans[i]=count
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        stack=<span style="color:#0086b3">append</span>(stack,heights[i])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> ans
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="最多能完成排序的块-iihttpsleetcodecnproblemsmax-chunks-to-make-sorted-ii"><strong><a href="https://leetcode.cn/problems/max-chunks-to-make-sorted-ii/">最多能完成排序的块 II</a></strong></h3>
+<p><strong>思路</strong></p>
+<p>一开始想到同构单调增栈记录递增的段落，不过考虑遇到第一个很小的边界时，如何处理确保保留这一段的有效信息？这里考虑保留当前段落的有边界。</p>
+<p><strong>代码</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">maxChunksToSorted</span>(a []<span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
+</span></span><span style="display:flex;"><span>    s <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>([]<span style="color:#458;font-weight:bold">int</span>,<span style="color:#099">0</span>,<span style="color:#0086b3">len</span>(a))
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> _,n <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> a{
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> <span style="color:#0086b3">len</span>(s)<span style="color:#000;font-weight:bold">==</span><span style="color:#099">0</span> <span style="color:#000;font-weight:bold">||</span> s[<span style="color:#0086b3">len</span>(s)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>] <span style="color:#000;font-weight:bold">&lt;=</span> n {
+</span></span><span style="display:flex;"><span>            s = <span style="color:#0086b3">append</span>(s,n)
+</span></span><span style="display:flex;"><span>        } <span style="color:#000;font-weight:bold">else</span> {
+</span></span><span style="display:flex;"><span>            m <span style="color:#000;font-weight:bold">:=</span> s[<span style="color:#0086b3">len</span>(s)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>            s = s[:<span style="color:#0086b3">len</span>(s)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">for</span> <span style="color:#0086b3">len</span>(s)&gt;<span style="color:#099">0</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> s[<span style="color:#0086b3">len</span>(s)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]&gt;n {
+</span></span><span style="display:flex;"><span>                s=s[:<span style="color:#0086b3">len</span>(s)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            s = <span style="color:#0086b3">append</span>(s,m)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> <span style="color:#0086b3">len</span>(s)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="下一个更大元素-ivhttpsleetcodecnproblemsnext-greater-element-iv"><strong><a href="https://leetcode.cn/problems/next-greater-element-iv/">下一个更大元素 IV</a></strong></h3>
+<p><strong>思路</strong></p>
+<p>单纯的单调递增栈可以得到第一大数，再套一层，得到第二大的数，值得学习。</p>
+<p><strong>代码</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">secondGreaterElement</span>(nums []<span style="color:#458;font-weight:bold">int</span>) []<span style="color:#458;font-weight:bold">int</span> {
+</span></span><span style="display:flex;"><span>    ans <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>([]<span style="color:#458;font-weight:bold">int</span>, <span style="color:#0086b3">len</span>(nums))
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> ans {
+</span></span><span style="display:flex;"><span>        ans[i] = <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    s, t <span style="color:#000;font-weight:bold">:=</span> []<span style="color:#458;font-weight:bold">int</span>{}, []<span style="color:#458;font-weight:bold">int</span>{}
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> i, x <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> nums {
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">for</span> <span style="color:#0086b3">len</span>(t) &gt; <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> nums[t[<span style="color:#0086b3">len</span>(t)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]] &lt; x {
+</span></span><span style="display:flex;"><span>            ans[t[<span style="color:#0086b3">len</span>(t)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]] = x
+</span></span><span style="display:flex;"><span>            t = t[:<span style="color:#0086b3">len</span>(t)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        j <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">len</span>(s) <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">&gt;=</span> <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> nums[s[j]] &lt; x {
+</span></span><span style="display:flex;"><span>            j<span style="color:#000;font-weight:bold">--</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        t = <span style="color:#0086b3">append</span>(t, s[j<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>:]<span style="color:#000;font-weight:bold">...</span>)
+</span></span><span style="display:flex;"><span>        s = <span style="color:#0086b3">append</span>(s[:j<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>], i)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> ans
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>相关文章</h2>
+    <ul class="listing">
+        
+        <li><a href="/blog/post/2023-06-16-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">算法专题|滑动窗口</a></li>
+        
+        <li><a href="/blog/post/2023-06-11-%E5%8F%8C%E6%8C%87%E9%92%88/">算法专题|双指针</a></li>
+        
+        <li><a href="/blog/post/2023-06-11-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">算法专题|二分查找</a></li>
+        
+        <li><a href="/blog/post/2023-06-10-%E5%9B%9E%E6%BA%AF/">算法专题|回溯</a></li>
+        
+        <li><a href="/blog/post/2023-06-06-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">算法专题|动态规划</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            没有标签
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "weiweng/blog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2023 <a href="https://weiweng.github.io/blog/">weiweng的博客 By weiweng</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdn.bootcdn.net/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/blog/js/totop.js?v=0.0.0' async=""></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XYCDHPQC9T"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-XYCDHPQC9T', { 'anonymize_ip': false });
+}
+</script>
+
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-06-16-%E5%8D%95%E8%B0%83%E6%A0%88/" title="算法专题|单调栈" target="_blank">算法专题|单调栈</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-06-16-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" title="算法专题|滑动窗口" target="_blank">算法专题|滑动窗口</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-06-11-%E5%8F%8C%E6%8C%87%E9%92%88/" title="算法专题|双指针" target="_blank">算法专题|双指针</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-06-11-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" title="算法专题|二分查找" target="_blank">算法专题|二分查找</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-06-10-%E5%9B%9E%E6%BA%AF/" title="算法专题|回溯" target="_blank">算法专题|回溯</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-06-06-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" title="算法专题|动态规划" target="_blank">算法专题|动态规划</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-04-22-k8s%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6/" title="k8s|基础进阶" target="_blank">k8s|基础进阶</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-03-21-k8s%E6%A6%82%E5%BF%B5/" title="k8s|基础概念" target="_blank">k8s|基础概念</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-02-18-%E4%BA%91%E5%8E%9F%E7%94%9Fdocker/" title="k8s|Docker学习" target="_blank">k8s|Docker学习</a>
+    </li>
+    
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-02-17-golangcobra/" title="Golang|Cobra学习" target="_blank">Golang|Cobra学习</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (26)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (6)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">开源协议</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E5%BF%83%E5%BE%97/">心得</a>
+    
+    <a href="https://weiweng.github.io/blog/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/">搜索引擎技巧</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://draveness.me/" title="面向信仰编程">面向信仰编程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://xargin.com/" title="No Headback">No Headback</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://eddycjy.com/" title="煎鱼的博客">煎鱼的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://polarisxu.studygolang.com/" title="polarisxu的博客">polarisxu的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://qcrao.com/" title="qcrao 的博客">qcrao 的博客</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://weiweng.github.io/blog/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
