@@ -7,21 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 
-    <title>Posts | weiweng的博客</title>
-    <meta property="og:title" content="Posts - weiweng的博客">
+    <title>算法专题|贪心 | weiweng的博客</title>
+    <meta property="og:title" content="算法专题|贪心 - weiweng的博客">
     <meta property="og:type" content="article">
         
+    <meta property="article:published_time" content='2023-06-26T06:00:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2023-06-26T06:00:00&#43;08:00'>
         
     <meta name="Keywords" content="golang,go语言,go语言笔记,博客,项目管理,软件架构">
-    <meta name="description" content="Posts">
+    <meta name="description" content="算法专题|贪心">
         
     <meta name="author" content="weiweng">
-    <meta property="og:url" content="https://weiweng.github.io/blog/post/">
+    <meta property="og:url" content="https://weiweng.github.io/blog/post/2023-06-26-%E8%B4%AA%E5%BF%83/">
     <link rel="shortcut icon" href='/blog/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='/blog/css/normalize.css'>
     <link rel="stylesheet" href='/blog/css/style.css'>
-    <link rel="alternate" type="application/rss+xml" href="https://weiweng.github.io/blog/post/index.xml" title="weiweng的博客" />
     <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -69,367 +72,190 @@
                 <div class="col-8" id="main">
                     
 <div class="res-cons">
-    
-    
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#初级练习">初级练习</a></li>
+    <li><a href="#中级练习">中级练习</a></li>
+    <li><a href="#高级练习">高级练习</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if (leftPos < 220) {
+                postToc.css({ "width": leftPos - 10, "margin-left": (0 - leftPos) })
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+
+        if ($("#TableOfContents").children().length < 1) {
+            $(".post-toc").remove();
+        }
+    })
+</script>
     <article class="post">
         <header>
-            <h1 class="post-title">
-                <a href="https://weiweng.github.io/blog/post/2020-03-13-%E4%BA%8C%E5%8F%89%E5%B9%B3%E8%A1%A1%E6%A0%91%E6%97%8B%E8%BD%AC/" title="二叉平衡树旋转" target="_blank">二叉平衡树旋转</a>
-            </h1>
+            <h1 class="post-title">算法专题|贪心</h1>
         </header>
         
-  <time datetime="2020-03-12T22:36:00Z" class="post-meta meta-date dt-published">
-    2020年3月13日
+  <time datetime="2023-06-25T22:00:00Z" class="post-meta meta-date dt-published">
+    2023年6月26日
   </time>
 
 
 <div class="post-meta meta-category">
   <span>&nbsp;|</span>
   
-    <a href='/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84' target="_blank">算法&amp;数据结构</a>
+    <a href='/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98' target="_blank">算法专题</a>
   
 </div>
 
 
-        <div class="post-content">
-            二叉平衡树旋转……
-        </div>
-        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-13-%E4%BA%8C%E5%8F%89%E5%B9%B3%E8%A1%A1%E6%A0%91%E6%97%8B%E8%BD%AC/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://weiweng.github.io/blog/post/2020-03-13-%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%E8%AF%A6%E6%83%85/" title="二叉排序树详情" target="_blank">二叉排序树详情</a>
-            </h1>
-        </header>
         
-  <time datetime="2020-03-12T22:33:00Z" class="post-meta meta-date dt-published">
-    2020年3月13日
-  </time>
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
+        <div class="post-content">
+            <p>贪心算法没有固定的模板，基本思路是找到问题的一个切入点，虽然证明这个解法是最优的。</p>
+<h2 id="初级练习">初级练习</h2>
+<h2 id="中级练习">中级练习</h2>
+<h2 id="高级练习">高级练习</h2>
+
+        </div>
+
+        
 
 
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84' target="_blank">算法&amp;数据结构</a>
-  
+        
+
+<div class="post-archive">
+    <h2>相关文章</h2>
+    <ul class="listing">
+        
+        <li><a href="/blog/post/2023-06-16-%E5%8D%95%E8%B0%83%E6%A0%88/">算法专题|单调栈</a></li>
+        
+        <li><a href="/blog/post/2023-06-16-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">算法专题|滑动窗口</a></li>
+        
+        <li><a href="/blog/post/2023-06-11-%E5%8F%8C%E6%8C%87%E9%92%88/">算法专题|双指针</a></li>
+        
+        <li><a href="/blog/post/2023-06-11-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">算法专题|二分查找</a></li>
+        
+        <li><a href="/blog/post/2023-06-10-%E5%9B%9E%E6%BA%AF/">算法专题|回溯</a></li>
+        
+    </ul>
 </div>
 
 
-        <div class="post-content">
-            二叉排序树详情……
+        <div class="post-meta meta-tags">
+            
+            没有标签
+            
         </div>
-        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-13-%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%E8%AF%A6%E6%83%85/" target="_blank">阅读全文</a></p>
     </article>
     
     
+
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://weiweng.github.io/blog/post/2020-03-13-%E7%BA%A2%E9%BB%91%E6%A0%91%E8%AF%A6%E6%83%85/" title="红黑树详情" target="_blank">红黑树详情</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-03-12T22:30:00Z" class="post-meta meta-date dt-published">
-    2020年3月13日
-  </time>
-
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84' target="_blank">算法&amp;数据结构</a>
-  
-</div>
-
-
-        <div class="post-content">
-            红黑树详情……
-        </div>
-        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-13-%E7%BA%A2%E9%BB%91%E6%A0%91%E8%AF%A6%E6%83%85/" target="_blank">阅读全文</a></p>
-    </article>
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "weiweng/blog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://weiweng.github.io/blog/post/2020-03-13-%E7%BA%A2%E9%BB%91%E6%A0%91%E5%AE%9E%E7%8E%B0/" title="红黑树实现" target="_blank">红黑树实现</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-03-12T22:25:00Z" class="post-meta meta-date dt-published">
-    2020年3月13日
-  </time>
-
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84' target="_blank">算法&amp;数据结构</a>
-  
-</div>
-
-
-        <div class="post-content">
-            红黑树实现……
-        </div>
-        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-13-%E7%BA%A2%E9%BB%91%E6%A0%91%E5%AE%9E%E7%8E%B0/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://weiweng.github.io/blog/post/2020-03-13-%E6%9F%A5%E5%B9%B6%E9%9B%86/" title="查并集" target="_blank">查并集</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-03-12T22:24:00Z" class="post-meta meta-date dt-published">
-    2020年3月13日
-  </time>
-
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84' target="_blank">算法&amp;数据结构</a>
-  
-</div>
-
-
-        <div class="post-content">
-            查并集……
-        </div>
-        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-13-%E6%9F%A5%E5%B9%B6%E9%9B%86/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://weiweng.github.io/blog/post/2020-03-13-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" title="动态规划" target="_blank">动态规划</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-03-12T22:22:00Z" class="post-meta meta-date dt-published">
-    2020年3月13日
-  </time>
-
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84' target="_blank">算法&amp;数据结构</a>
-  
-</div>
-
-
-        <div class="post-content">
-            动态规划……
-        </div>
-        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-13-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://weiweng.github.io/blog/post/2020-03-13-%E4%BD%8D%E6%93%8D%E4%BD%9C/" title="位操作" target="_blank">位操作</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-03-12T22:21:00Z" class="post-meta meta-date dt-published">
-    2020年3月13日
-  </time>
-
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84' target="_blank">算法&amp;数据结构</a>
-  
-</div>
-
-
-        <div class="post-content">
-            位操作……
-        </div>
-        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-13-%E4%BD%8D%E6%93%8D%E4%BD%9C/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://weiweng.github.io/blog/post/2020-03-13-%E5%AD%97%E5%85%B8%E6%A0%91/" title="字典树" target="_blank">字典树</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-03-12T22:20:00Z" class="post-meta meta-date dt-published">
-    2020年3月13日
-  </time>
-
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84' target="_blank">算法&amp;数据结构</a>
-  
-</div>
-
-
-        <div class="post-content">
-            字典树……
-        </div>
-        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-13-%E5%AD%97%E5%85%B8%E6%A0%91/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://weiweng.github.io/blog/post/2020-03-13-%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/" title="回溯算法" target="_blank">回溯算法</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-03-12T22:18:00Z" class="post-meta meta-date dt-published">
-    2020年3月13日
-  </time>
-
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84' target="_blank">算法&amp;数据结构</a>
-  
-</div>
-
-
-        <div class="post-content">
-            回溯算法……
-        </div>
-        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-13-%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://weiweng.github.io/blog/post/2020-03-13-%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" title="贪心算法" target="_blank">贪心算法</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-03-12T22:17:00Z" class="post-meta meta-date dt-published">
-    2020年3月13日
-  </time>
-
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84' target="_blank">算法&amp;数据结构</a>
-  
-</div>
-
-
-        <div class="post-content">
-            贪心算法……
-        </div>
-        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-13-%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
-
-
-
-<ol class="page-navigator">
-    
-    <li class="prev">
-        <a href="https://weiweng.github.io/blog/post/page/9/">上一页</a>
-    </li>
-    
-
-    
-
-    
-        
-        
-    
-    
-
-    
-        
-        
-        <li >
-            <a href="https://weiweng.github.io/blog/post/">1</a>
-        </li>
-        
-    
-        
-        <li>
-            <span>...</span>
-        </li>
-        
-    
-        
-        
-        <li >
-            <a href="https://weiweng.github.io/blog/post/page/8/">8</a>
-        </li>
-        
-    
-        
-        
-        <li >
-            <a href="https://weiweng.github.io/blog/post/page/9/">9</a>
-        </li>
-        
-    
-        
-        
-        <li  class="current">
-            <a href="https://weiweng.github.io/blog/post/page/10/">10</a>
-        </li>
-        
-    
-        
-        
-        <li >
-            <a href="https://weiweng.github.io/blog/post/page/11/">11</a>
-        </li>
-        
-    
-        
-        
-        <li >
-            <a href="https://weiweng.github.io/blog/post/page/12/">12</a>
-        </li>
-        
-    
-
-    
-
-
-    <li class="next">
-        <a href="https://weiweng.github.io/blog/post/page/11/">下一页</a>
-    </li>
-    
-</ol>
-
-
-
 
 </div>
 
@@ -453,6 +279,17 @@
 </footer>
 
 
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdn.bootcdn.net/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/blog/js/totop.js?v=0.0.0' async=""></script>
@@ -467,6 +304,80 @@ if (!doNotTrack) {
 }
 </script>
 
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
 
 
 

@@ -6,7 +6,16 @@
     <description>Recent content in 算法专题 on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 16 Jun 2023 06:00:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Jun 2023 06:00:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>算法专题|贪心</title>
+      <link>https://weiweng.github.io/blog/post/2023-06-26-%E8%B4%AA%E5%BF%83/</link>
+      <pubDate>Mon, 26 Jun 2023 06:00:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2023-06-26-%E8%B4%AA%E5%BF%83/</guid>
+      <description>贪心算法没有固定的模板，基本思路是找到问题的一个切入点，虽然证明这个解法是最优的。 初级练习 中级练习 高级练习</description>
+    </item>
+    
     <item>
       <title>算法专题|单调栈</title>
       <link>https://weiweng.github.io/blog/post/2023-06-16-%E5%8D%95%E8%B0%83%E6%A0%88/</link>
