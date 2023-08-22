@@ -93,22 +93,22 @@
 <p><strong>ssh公钥生成</strong></p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>cd <span style="color:#000;font-weight:bold">~/</span>.ssh
 </span></span><span style="display:flex;"><span>ssh<span style="color:#000;font-weight:bold">-</span>keygen <span style="color:#000;font-weight:bold">-</span>t rsa <span style="color:#000;font-weight:bold">-</span>b <span style="color:#099">4096</span> <span style="color:#000;font-weight:bold">-</span>C <span style="color:#d14">&#34;your_email@example.com&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic"># 你在公司用git，肯定已经生成了公私钥，id_rsa/id_rsa.pub
 </span></span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic"># 所以这里就需要重新生成了，名字不能和原来重复，可以叫id_rsa_github
-</span></span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic"></span>Enter file in which to save the key (<span style="color:#000;font-weight:bold">/</span>Users<span style="color:#000;font-weight:bold">/</span>weiweng<span style="color:#000;font-weight:bold">/</span>.ssh<span style="color:#000;font-weight:bold">/</span>id_rsa)<span style="color:#000;font-weight:bold">:</span> id_rsa_github
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic"></span>Enter file in which to save the <span style="color:#900;font-weight:bold">key</span> (<span style="color:#000;font-weight:bold">/</span>Users<span style="color:#000;font-weight:bold">/</span>weiweng<span style="color:#000;font-weight:bold">/</span>.ssh<span style="color:#000;font-weight:bold">/</span>id_rsa)<span style="color:#000;font-weight:bold">:</span> id_rsa_github
 </span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic"># 然后就直接两次回车吧
 </span></span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic"># 将生成的key加入 ssh-agent
 </span></span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic"></span>ssh<span style="color:#000;font-weight:bold">-</span>add <span style="color:#000;font-weight:bold">~/</span>.ssh<span style="color:#000;font-weight:bold">/</span>id_rsa_github
@@ -120,13 +120,13 @@
 <p><strong>配置不同git使用不同账户</strong></p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic"># 配置使用固定的公钥去访问github
@@ -519,10 +519,6 @@ if (!doNotTrack) {
 <ul class="widget-list">
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2023-06-26-%E8%B4%AA%E5%BF%83/" title="算法专题|贪心" target="_blank">算法专题|贪心</a>
-    </li>
-    
-    <li>
         <a href="https://weiweng.github.io/blog/post/2023-06-16-%E5%8D%95%E8%B0%83%E6%A0%88/" title="算法专题|单调栈" target="_blank">算法专题|单调栈</a>
     </li>
     
@@ -558,6 +554,10 @@ if (!doNotTrack) {
         <a href="https://weiweng.github.io/blog/post/2023-02-18-%E4%BA%91%E5%8E%9F%E7%94%9Fdocker/" title="k8s|Docker学习" target="_blank">k8s|Docker学习</a>
     </li>
     
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-02-17-golangcobra/" title="Golang|Cobra学习" target="_blank">Golang|Cobra学习</a>
+    </li>
+    
 </ul>
     </section>
 
@@ -585,7 +585,7 @@ if (!doNotTrack) {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (7)</a></li>
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (6)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
     

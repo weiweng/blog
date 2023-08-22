@@ -476,264 +476,264 @@
 <p>truetype解析代码，我们看一下相关<a href="https://github.com/golang/freetype/blob/master/truetype/truetype.go">开源库</a>，这里贴一下关键代码。</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">118
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">119
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">120
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">121
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">122
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">123
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">124
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">125
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">126
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">127
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">128
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">129
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">130
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">131
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">132
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">133
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">134
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">135
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">136
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">137
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">138
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">139
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">140
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">141
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">142
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">143
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">144
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">145
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">146
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">147
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">148
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">149
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">150
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">151
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">152
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">153
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">154
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">155
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">156
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">157
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">158
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">159
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">160
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">161
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">162
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">163
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">164
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">165
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">166
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">167
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">168
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">169
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">170
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">171
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">172
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">173
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">174
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">175
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">176
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">177
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">178
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">179
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">180
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">181
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">182
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">183
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">184
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">185
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">186
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">187
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">188
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">189
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">190
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">191
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">192
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">193
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">194
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">195
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">196
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">197
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">198
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">199
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">200
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">201
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">202
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">203
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">204
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">205
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">206
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">207
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">208
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">209
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">210
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">211
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">212
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">213
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">214
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">215
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">216
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">217
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">218
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">219
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">220
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">221
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">222
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">223
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">224
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">225
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">226
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">227
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">228
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">229
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">230
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">231
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">232
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">233
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">234
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">235
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">236
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">237
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">238
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">239
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">240
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">241
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">242
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">243
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">244
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">245
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">246
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">247
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">248
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">249
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">250
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">251
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">252
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">253
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">254
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">255
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">256
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">257
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">258
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">118
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">119
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">120
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">121
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">122
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">123
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">124
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">125
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">126
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">127
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">128
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">129
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">130
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">131
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">132
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">133
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">134
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">135
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">136
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">137
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">138
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">139
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">140
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">141
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">142
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">143
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">144
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">145
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">146
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">147
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">148
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">149
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">150
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">151
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">152
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">153
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">154
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">155
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">156
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">157
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">158
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">159
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">160
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">161
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">162
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">163
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">164
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">165
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">166
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">167
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">168
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">169
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">170
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">171
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">172
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">173
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">174
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">175
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">176
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">177
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">178
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">179
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">180
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">181
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">182
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">183
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">184
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">185
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">186
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">187
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">188
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">189
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">190
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">191
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">192
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">193
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">194
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">195
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">196
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">197
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">198
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">199
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">200
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">201
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">202
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">203
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">204
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">205
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">206
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">207
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">208
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">209
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">210
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">211
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">212
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">213
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">214
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">215
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">216
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">217
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">218
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">219
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">220
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">221
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">222
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">223
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">224
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">225
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">226
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">227
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">228
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">229
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">230
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">231
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">232
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">233
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">234
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">235
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">236
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">237
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">238
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">239
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">240
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">241
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">242
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">243
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">244
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">245
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">246
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">247
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">248
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">249
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">250
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">251
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">252
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">253
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">254
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">255
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">256
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">257
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">258
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 首先是基础的读取字节数据
@@ -741,30 +741,30 @@
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// u32函数，在i位置后面读取32bit，返回uint32
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// u32 returns the big-endian uint32 at b[i:].
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>func <span style="color:#900;font-weight:bold">u32</span>(b []byte, i <span style="color:#458;font-weight:bold">int</span>) uint32 {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> uint32(b[i])<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#099">24</span> <span style="color:#000;font-weight:bold">|</span> uint32(b[i<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>])<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#099">16</span> <span style="color:#000;font-weight:bold">|</span> uint32(b[i<span style="color:#000;font-weight:bold">+</span><span style="color:#099">2</span>])<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#099">8</span> <span style="color:#000;font-weight:bold">|</span> uint32(b[i<span style="color:#000;font-weight:bold">+</span><span style="color:#099">3</span>])
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">uint32</span>(b[i])<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#099">24</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#900;font-weight:bold">uint32</span>(b[i<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>])<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#099">16</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#900;font-weight:bold">uint32</span>(b[i<span style="color:#000;font-weight:bold">+</span><span style="color:#099">2</span>])<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#099">8</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#900;font-weight:bold">uint32</span>(b[i<span style="color:#000;font-weight:bold">+</span><span style="color:#099">3</span>])
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// u16 returns the big-endian uint16 at b[i:].
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>func <span style="color:#900;font-weight:bold">u16</span>(b []byte, i <span style="color:#458;font-weight:bold">int</span>) uint16 {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> uint16(b[i])<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#099">8</span> <span style="color:#000;font-weight:bold">|</span> uint16(b[i<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>])
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">uint16</span>(b[i])<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#099">8</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#900;font-weight:bold">uint16</span>(b[i<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>])
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 读取表字节数据
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// readTable returns a slice of the TTF data given by a table&#39;s directory entry.
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>func <span style="color:#900;font-weight:bold">readTable</span>(ttf []byte, offsetLength []byte) ([]byte, error) {
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 偏移量获取
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#900;font-weight:bold">offset</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(u32(offsetLength, <span style="color:#099">0</span>))
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#900;font-weight:bold">offset</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(<span style="color:#900;font-weight:bold">u32</span>(offsetLength, <span style="color:#099">0</span>))
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> offset <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> nil, FormatError(fmt.Sprintf(<span style="color:#d14">&#34;offset too large: %d&#34;</span>, uint32(offset)))
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> nil, <span style="color:#900;font-weight:bold">FormatError</span>(fmt.<span style="color:#900;font-weight:bold">Sprintf</span>(<span style="color:#d14">&#34;offset too large: %d&#34;</span>, <span style="color:#900;font-weight:bold">uint32</span>(offset)))
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 长度获取
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#900;font-weight:bold">length</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(u32(offsetLength, <span style="color:#099">4</span>))
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#900;font-weight:bold">length</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(<span style="color:#900;font-weight:bold">u32</span>(offsetLength, <span style="color:#099">4</span>))
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> length <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> nil, FormatError(fmt.Sprintf(<span style="color:#d14">&#34;length too large: %d&#34;</span>, uint32(length)))
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> nil, <span style="color:#900;font-weight:bold">FormatError</span>(fmt.<span style="color:#900;font-weight:bold">Sprintf</span>(<span style="color:#d14">&#34;length too large: %d&#34;</span>, <span style="color:#900;font-weight:bold">uint32</span>(length)))
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">end</span> :<span style="color:#000;font-weight:bold">=</span> offset <span style="color:#000;font-weight:bold">+</span> length
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> end <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">||</span> end <span style="color:#000;font-weight:bold">&gt;</span> len(ttf) {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> nil, FormatError(fmt.Sprintf(<span style="color:#d14">&#34;offset + length too large: %d&#34;</span>, uint32(offset)<span style="color:#000;font-weight:bold">+</span>uint32(length)))
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> end <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">||</span> end <span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#900;font-weight:bold">len</span>(ttf) {
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> nil, <span style="color:#900;font-weight:bold">FormatError</span>(fmt.<span style="color:#900;font-weight:bold">Sprintf</span>(<span style="color:#d14">&#34;offset + length too large: %d&#34;</span>, <span style="color:#900;font-weight:bold">uint32</span>(offset)<span style="color:#000;font-weight:bold">+</span><span style="color:#900;font-weight:bold">uint32</span>(length)))
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 返回字节内容
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">return</span> ttf[<span style="color:#900;font-weight:bold">offset</span>:end], nil
@@ -772,63 +772,63 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// parse ttf文件解析核心函数，offset初始为0
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>func <span style="color:#900;font-weight:bold">parse</span>(ttf []byte, offset <span style="color:#458;font-weight:bold">int</span>) (font <span style="color:#000;font-weight:bold">*</span>Font, err error) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> len(ttf)<span style="color:#000;font-weight:bold">-</span>offset <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">12</span> {
-</span></span><span style="display:flex;"><span>		err <span style="color:#000;font-weight:bold">=</span> FormatError(<span style="color:#d14">&#34;TTF data is too short&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">len</span>(ttf)<span style="color:#000;font-weight:bold">-</span>offset <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">12</span> {
+</span></span><span style="display:flex;"><span>		err <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">FormatError</span>(<span style="color:#d14">&#34;TTF data is too short&#34;</span>)
 </span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">originalOffset</span> :<span style="color:#000;font-weight:bold">=</span> offset
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 获取scaler type
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	magic, <span style="color:#900;font-weight:bold">offset</span> :<span style="color:#000;font-weight:bold">=</span> u32(ttf, offset), offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	magic, <span style="color:#900;font-weight:bold">offset</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">u32</span>(ttf, offset), offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">switch</span> magic {
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">case</span> <span style="color:#099">0x00010000</span><span style="color:#000;font-weight:bold">:</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">// No-op.
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">case</span> <span style="color:#099">0x74746366</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#998;font-style:italic">// &#34;ttcf&#34; as a big-endian uint32.
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">if</span> originalOffset <span style="color:#000;font-weight:bold">!=</span> <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>			err <span style="color:#000;font-weight:bold">=</span> FormatError(<span style="color:#d14">&#34;recursive TTC&#34;</span>)
+</span></span><span style="display:flex;"><span>			err <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">FormatError</span>(<span style="color:#d14">&#34;recursive TTC&#34;</span>)
 </span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span>
 </span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		ttcVersion, <span style="color:#900;font-weight:bold">offset</span> :<span style="color:#000;font-weight:bold">=</span> u32(ttf, offset), offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>
+</span></span><span style="display:flex;"><span>		ttcVersion, <span style="color:#900;font-weight:bold">offset</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">u32</span>(ttf, offset), offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> ttcVersion <span style="color:#000;font-weight:bold">!=</span> <span style="color:#099">0x00010000</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> ttcVersion <span style="color:#000;font-weight:bold">!=</span> <span style="color:#099">0x00020000</span> {
-</span></span><span style="display:flex;"><span>			err <span style="color:#000;font-weight:bold">=</span> FormatError(<span style="color:#d14">&#34;bad TTC version&#34;</span>)
+</span></span><span style="display:flex;"><span>			err <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">FormatError</span>(<span style="color:#d14">&#34;bad TTC version&#34;</span>)
 </span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span>
 </span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		numFonts, <span style="color:#900;font-weight:bold">offset</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(u32(ttf, offset)), offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>
+</span></span><span style="display:flex;"><span>		numFonts, <span style="color:#900;font-weight:bold">offset</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(<span style="color:#900;font-weight:bold">u32</span>(ttf, offset)), offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> numFonts <span style="color:#000;font-weight:bold">&lt;=</span> <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>			err <span style="color:#000;font-weight:bold">=</span> FormatError(<span style="color:#d14">&#34;bad number of TTC fonts&#34;</span>)
+</span></span><span style="display:flex;"><span>			err <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">FormatError</span>(<span style="color:#d14">&#34;bad number of TTC fonts&#34;</span>)
 </span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span>
 </span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> len(ttf[<span style="color:#900;font-weight:bold">offset</span>:])<span style="color:#000;font-weight:bold">/</span><span style="color:#099">4</span> <span style="color:#000;font-weight:bold">&lt;</span> numFonts {
-</span></span><span style="display:flex;"><span>			err <span style="color:#000;font-weight:bold">=</span> FormatError(<span style="color:#d14">&#34;TTC offset table is too short&#34;</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">len</span>(ttf[<span style="color:#900;font-weight:bold">offset</span>:])<span style="color:#000;font-weight:bold">/</span><span style="color:#099">4</span> <span style="color:#000;font-weight:bold">&lt;</span> numFonts {
+</span></span><span style="display:flex;"><span>			err <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">FormatError</span>(<span style="color:#d14">&#34;TTC offset table is too short&#34;</span>)
 </span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span>
 </span></span><span style="display:flex;"><span>		}
 </span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">// TODO: provide an API to select which font in a TrueType collection to return,
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#998;font-style:italic">// not just the first one. This may require an API to parse a TTC&#39;s name tables,
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#998;font-style:italic">// so users of this package can select the font in a TTC by name.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		offset <span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(u32(ttf, offset))
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> offset <span style="color:#000;font-weight:bold">&lt;=</span> <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">||</span> offset <span style="color:#000;font-weight:bold">&gt;</span> len(ttf) {
-</span></span><span style="display:flex;"><span>			err <span style="color:#000;font-weight:bold">=</span> FormatError(<span style="color:#d14">&#34;bad TTC offset&#34;</span>)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		offset <span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(<span style="color:#900;font-weight:bold">u32</span>(ttf, offset))
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> offset <span style="color:#000;font-weight:bold">&lt;=</span> <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">||</span> offset <span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#900;font-weight:bold">len</span>(ttf) {
+</span></span><span style="display:flex;"><span>			err <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">FormatError</span>(<span style="color:#d14">&#34;bad TTC offset&#34;</span>)
 </span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span>
 </span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> parse(ttf, offset)
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">parse</span>(ttf, offset)
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">default</span><span style="color:#000;font-weight:bold">:</span>
-</span></span><span style="display:flex;"><span>		err <span style="color:#000;font-weight:bold">=</span> FormatError(<span style="color:#d14">&#34;bad TTF version&#34;</span>)
+</span></span><span style="display:flex;"><span>		err <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">FormatError</span>(<span style="color:#d14">&#34;bad TTF version&#34;</span>)
 </span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 读取表个数n
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	n, <span style="color:#900;font-weight:bold">offset</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(u16(ttf, offset)), offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">2</span>
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	n, <span style="color:#900;font-weight:bold">offset</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(<span style="color:#900;font-weight:bold">u16</span>(ttf, offset)), offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">2</span>
 </span></span><span style="display:flex;"><span>	offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">6</span> <span style="color:#998;font-style:italic">// Skip the searchRange, entrySelector and rangeShift.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">if</span> len(ttf) <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">16</span><span style="color:#000;font-weight:bold">*</span>n<span style="color:#000;font-weight:bold">+</span>offset {
-</span></span><span style="display:flex;"><span>		err <span style="color:#000;font-weight:bold">=</span> FormatError(<span style="color:#d14">&#34;TTF data is too short&#34;</span>)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">len</span>(ttf) <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">16</span><span style="color:#000;font-weight:bold">*</span>n<span style="color:#000;font-weight:bold">+</span>offset {
+</span></span><span style="display:flex;"><span>		err <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">FormatError</span>(<span style="color:#d14">&#34;TTF data is too short&#34;</span>)
 </span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
 </span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">f</span> :<span style="color:#000;font-weight:bold">=</span> new(Font)
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">f</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">new</span>(Font)
 </span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// Assign the table slices.
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>; i <span style="color:#000;font-weight:bold">&lt;</span> n; i<span style="color:#000;font-weight:bold">++</span> {
 </span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">x</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">16</span><span style="color:#000;font-weight:bold">*</span>i <span style="color:#000;font-weight:bold">+</span> offset
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">switch</span> string(ttf[<span style="color:#900;font-weight:bold">x</span> : x<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>]) {
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">switch</span> <span style="color:#900;font-weight:bold">string</span>(ttf[<span style="color:#900;font-weight:bold">x</span> : x<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>]) {
 </span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 读取cmap表字节数据
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">case</span> <span style="color:#d14">&#34;cmap&#34;</span><span style="color:#000;font-weight:bold">:</span>
-</span></span><span style="display:flex;"><span>			f.cmap, err <span style="color:#000;font-weight:bold">=</span> readTable(ttf, ttf[x<span style="color:#000;font-weight:bold">+</span><span style="color:#099">8</span><span style="color:#000;font-weight:bold">:</span>x<span style="color:#000;font-weight:bold">+</span><span style="color:#099">16</span>])
+</span></span><span style="display:flex;"><span>			f.cmap, err <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">readTable</span>(ttf, ttf[x<span style="color:#000;font-weight:bold">+</span><span style="color:#099">8</span><span style="color:#000;font-weight:bold">:</span>x<span style="color:#000;font-weight:bold">+</span><span style="color:#099">16</span>])
 </span></span><span style="display:flex;"><span>            ...
 </span></span><span style="display:flex;"><span>		}
 </span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> err <span style="color:#000;font-weight:bold">!=</span> nil {
@@ -837,7 +837,7 @@
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>    ...
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 解析cmap表
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">if</span> err <span style="color:#000;font-weight:bold">=</span> f.parseCmap(); err <span style="color:#000;font-weight:bold">!=</span> nil {
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">if</span> err <span style="color:#000;font-weight:bold">=</span> f.<span style="color:#900;font-weight:bold">parseCmap</span>(); err <span style="color:#000;font-weight:bold">!=</span> nil {
 </span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>    ...
@@ -845,58 +845,58 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func (f <span style="color:#000;font-weight:bold">*</span>Font) parseCmap() error {
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">func</span> (f <span style="color:#000;font-weight:bold">*</span>Font) <span style="color:#900;font-weight:bold">parseCmap</span>() error {
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">const</span> (
 </span></span><span style="display:flex;"><span>		cmapFormat4         <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">4</span>
 </span></span><span style="display:flex;"><span>		cmapFormat12        <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">12</span>
 </span></span><span style="display:flex;"><span>		languageIndependent <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>
 </span></span><span style="display:flex;"><span>	)
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// cmap子表解析，返回最佳的使用子表
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	offset, _, <span style="color:#900;font-weight:bold">err</span> :<span style="color:#000;font-weight:bold">=</span> parseSubtables(f.cmap, <span style="color:#d14">&#34;cmap&#34;</span>, <span style="color:#099">4</span>, <span style="color:#099">8</span>, nil)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	offset, _, <span style="color:#900;font-weight:bold">err</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">parseSubtables</span>(f.cmap, <span style="color:#d14">&#34;cmap&#34;</span>, <span style="color:#099">4</span>, <span style="color:#099">8</span>, nil)
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> err <span style="color:#000;font-weight:bold">!=</span> nil {
 </span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> err
 </span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	offset <span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(u32(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>))
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> offset <span style="color:#000;font-weight:bold">&lt;=</span> <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">||</span> offset <span style="color:#000;font-weight:bold">&gt;</span> len(f.cmap) {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> FormatError(<span style="color:#d14">&#34;bad cmap offset&#34;</span>)
+</span></span><span style="display:flex;"><span>	offset <span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(<span style="color:#900;font-weight:bold">u32</span>(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>))
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> offset <span style="color:#000;font-weight:bold">&lt;=</span> <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">||</span> offset <span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#900;font-weight:bold">len</span>(f.cmap) {
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">FormatError</span>(<span style="color:#d14">&#34;bad cmap offset&#34;</span>)
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 读取cmap 格式类型
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#900;font-weight:bold">cmapFormat</span> :<span style="color:#000;font-weight:bold">=</span> u16(f.cmap, offset)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#900;font-weight:bold">cmapFormat</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">u16</span>(f.cmap, offset)
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">switch</span> cmapFormat {
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// format4 格式解析
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">case</span> <span style="color:#900;font-weight:bold">cmapFormat4</span>:
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">language</span> :<span style="color:#000;font-weight:bold">=</span> u16(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">language</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">u16</span>(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>)
 </span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> language <span style="color:#000;font-weight:bold">!=</span> languageIndependent {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> UnsupportedError(fmt.Sprintf(<span style="color:#d14">&#34;language: %d&#34;</span>, language))
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">UnsupportedError</span>(fmt.<span style="color:#900;font-weight:bold">Sprintf</span>(<span style="color:#d14">&#34;language: %d&#34;</span>, language))
 </span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">segCountX2</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(u16(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">6</span>))
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">segCountX2</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(<span style="color:#900;font-weight:bold">u16</span>(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">6</span>))
 </span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> segCountX2<span style="color:#000;font-weight:bold">%</span><span style="color:#099">2</span> <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">1</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> FormatError(fmt.Sprintf(<span style="color:#d14">&#34;bad segCountX2: %d&#34;</span>, segCountX2))
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">FormatError</span>(fmt.<span style="color:#900;font-weight:bold">Sprintf</span>(<span style="color:#d14">&#34;bad segCountX2: %d&#34;</span>, segCountX2))
 </span></span><span style="display:flex;"><span>		}
 </span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 计算段个数
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#900;font-weight:bold">segCount</span> :<span style="color:#000;font-weight:bold">=</span> segCountX2 <span style="color:#000;font-weight:bold">/</span> <span style="color:#099">2</span>
 </span></span><span style="display:flex;"><span>		offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">14</span>
-</span></span><span style="display:flex;"><span>		f.cm <span style="color:#000;font-weight:bold">=</span> make([]cm, segCount)
+</span></span><span style="display:flex;"><span>		f.cm <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">make</span>([]cm, segCount)
 </span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 读取end数组
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>; i <span style="color:#000;font-weight:bold">&lt;</span> segCount; i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>			f.cm[i].end <span style="color:#000;font-weight:bold">=</span> uint32(u16(f.cmap, offset))
+</span></span><span style="display:flex;"><span>			f.cm[i].end <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">uint32</span>(<span style="color:#900;font-weight:bold">u16</span>(f.cmap, offset))
 </span></span><span style="display:flex;"><span>			offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">2</span>
 </span></span><span style="display:flex;"><span>		}
 </span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 跳过字段
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">2</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 读取start数组
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>; i <span style="color:#000;font-weight:bold">&lt;</span> segCount; i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>			f.cm[i].start <span style="color:#000;font-weight:bold">=</span> uint32(u16(f.cmap, offset))
+</span></span><span style="display:flex;"><span>			f.cm[i].start <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">uint32</span>(<span style="color:#900;font-weight:bold">u16</span>(f.cmap, offset))
 </span></span><span style="display:flex;"><span>			offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">2</span>
 </span></span><span style="display:flex;"><span>		}
 </span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 读取delta数组
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>; i <span style="color:#000;font-weight:bold">&lt;</span> segCount; i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>			f.cm[i].delta <span style="color:#000;font-weight:bold">=</span> uint32(u16(f.cmap, offset))
+</span></span><span style="display:flex;"><span>			f.cm[i].delta <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">uint32</span>(<span style="color:#900;font-weight:bold">u16</span>(f.cmap, offset))
 </span></span><span style="display:flex;"><span>			offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">2</span>
 </span></span><span style="display:flex;"><span>		}
 </span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 读取offset数组
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>; i <span style="color:#000;font-weight:bold">&lt;</span> segCount; i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>			f.cm[i].offset <span style="color:#000;font-weight:bold">=</span> uint32(u16(f.cmap, offset))
+</span></span><span style="display:flex;"><span>			f.cm[i].offset <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">uint32</span>(<span style="color:#900;font-weight:bold">u16</span>(f.cmap, offset))
 </span></span><span style="display:flex;"><span>			offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">2</span>
 </span></span><span style="display:flex;"><span>		}
 </span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 字形下标数组
@@ -904,53 +904,53 @@
 </span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> nil
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">case</span> <span style="color:#900;font-weight:bold">cmapFormat12</span>:
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> u16(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">2</span>) <span style="color:#000;font-weight:bold">!=</span> <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> FormatError(fmt.Sprintf(<span style="color:#d14">&#34;cmap format: % x&#34;</span>, f.cmap[<span style="color:#900;font-weight:bold">offset</span>:offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>]))
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">u16</span>(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">2</span>) <span style="color:#000;font-weight:bold">!=</span> <span style="color:#099">0</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">FormatError</span>(fmt.<span style="color:#900;font-weight:bold">Sprintf</span>(<span style="color:#d14">&#34;cmap format: % x&#34;</span>, f.cmap[<span style="color:#900;font-weight:bold">offset</span>:offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>]))
 </span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">length</span> :<span style="color:#000;font-weight:bold">=</span> u32(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">language</span> :<span style="color:#000;font-weight:bold">=</span> u32(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">8</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">length</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">u32</span>(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">language</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">u32</span>(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">8</span>)
 </span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> language <span style="color:#000;font-weight:bold">!=</span> languageIndependent {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> UnsupportedError(fmt.Sprintf(<span style="color:#d14">&#34;language: %d&#34;</span>, language))
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">UnsupportedError</span>(fmt.<span style="color:#900;font-weight:bold">Sprintf</span>(<span style="color:#d14">&#34;language: %d&#34;</span>, language))
 </span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">nGroups</span> :<span style="color:#000;font-weight:bold">=</span> u32(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">12</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">nGroups</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">u32</span>(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">12</span>)
 </span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> length <span style="color:#000;font-weight:bold">!=</span> <span style="color:#099">12</span><span style="color:#000;font-weight:bold">*</span>nGroups<span style="color:#000;font-weight:bold">+</span><span style="color:#099">16</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> FormatError(<span style="color:#d14">&#34;inconsistent cmap length&#34;</span>)
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">FormatError</span>(<span style="color:#d14">&#34;inconsistent cmap length&#34;</span>)
 </span></span><span style="display:flex;"><span>		}
 </span></span><span style="display:flex;"><span>		offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">16</span>
-</span></span><span style="display:flex;"><span>		f.cm <span style="color:#000;font-weight:bold">=</span> make([]cm, nGroups)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> uint32(<span style="color:#099">0</span>); i <span style="color:#000;font-weight:bold">&lt;</span> nGroups; i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>			f.cm[i].start <span style="color:#000;font-weight:bold">=</span> u32(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">0</span>)
-</span></span><span style="display:flex;"><span>			f.cm[i].end <span style="color:#000;font-weight:bold">=</span> u32(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>)
-</span></span><span style="display:flex;"><span>			f.cm[i].delta <span style="color:#000;font-weight:bold">=</span> u32(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">8</span>) <span style="color:#000;font-weight:bold">-</span> f.cm[i].start
+</span></span><span style="display:flex;"><span>		f.cm <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">make</span>([]cm, nGroups)
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">uint32</span>(<span style="color:#099">0</span>); i <span style="color:#000;font-weight:bold">&lt;</span> nGroups; i<span style="color:#000;font-weight:bold">++</span> {
+</span></span><span style="display:flex;"><span>			f.cm[i].start <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">u32</span>(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">0</span>)
+</span></span><span style="display:flex;"><span>			f.cm[i].end <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">u32</span>(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>)
+</span></span><span style="display:flex;"><span>			f.cm[i].delta <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">u32</span>(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">8</span>) <span style="color:#000;font-weight:bold">-</span> f.cm[i].start
 </span></span><span style="display:flex;"><span>			offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">12</span>
 </span></span><span style="display:flex;"><span>		}
 </span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> nil
 </span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> UnsupportedError(fmt.Sprintf(<span style="color:#d14">&#34;cmap format: %d&#34;</span>, cmapFormat))
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">UnsupportedError</span>(fmt.<span style="color:#900;font-weight:bold">Sprintf</span>(<span style="color:#d14">&#34;cmap format: %d&#34;</span>, cmapFormat))
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 子表选择，规定如下
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 优先使用unicode编码表
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 优先使用非BMP限制的unicode表
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 如果有4、12格式的unicode表，则优先使用
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>func parseSubtables(table []byte, name string, offset, size <span style="color:#458;font-weight:bold">int</span>, pred func([]byte) <span style="color:#458;font-weight:bold">bool</span>) (
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>func <span style="color:#900;font-weight:bold">parseSubtables</span>(table []byte, name string, offset, size <span style="color:#458;font-weight:bold">int</span>, pred <span style="color:#900;font-weight:bold">func</span>([]byte) <span style="color:#458;font-weight:bold">bool</span>) (
 </span></span><span style="display:flex;"><span>	bestOffset <span style="color:#458;font-weight:bold">int</span>, bestPID uint32, retErr error) {
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> len(table) <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">4</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#099">0</span>, <span style="color:#099">0</span>, FormatError(name <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34; too short&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">len</span>(table) <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">4</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#099">0</span>, <span style="color:#099">0</span>, <span style="color:#900;font-weight:bold">FormatError</span>(name <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34; too short&#34;</span>)
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 表个数读取
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#900;font-weight:bold">nSubtables</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(u16(table, <span style="color:#099">2</span>))
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> len(table) <span style="color:#000;font-weight:bold">&lt;</span> size<span style="color:#000;font-weight:bold">*</span>nSubtables<span style="color:#000;font-weight:bold">+</span>offset {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#099">0</span>, <span style="color:#099">0</span>, FormatError(name <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34; too short&#34;</span>)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#900;font-weight:bold">nSubtables</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(<span style="color:#900;font-weight:bold">u16</span>(table, <span style="color:#099">2</span>))
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">len</span>(table) <span style="color:#000;font-weight:bold">&lt;</span> size<span style="color:#000;font-weight:bold">*</span>nSubtables<span style="color:#000;font-weight:bold">+</span>offset {
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#099">0</span>, <span style="color:#099">0</span>, <span style="color:#900;font-weight:bold">FormatError</span>(name <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34; too short&#34;</span>)
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">ok</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#0086b3">false</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>; i <span style="color:#000;font-weight:bold">&lt;</span> nSubtables; i, offset <span style="color:#000;font-weight:bold">=</span> i<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>, offset<span style="color:#000;font-weight:bold">+</span>size {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> pred <span style="color:#000;font-weight:bold">!=</span> nil <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#000;font-weight:bold">!</span>pred(table[<span style="color:#900;font-weight:bold">offset</span>:]) {
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> pred <span style="color:#000;font-weight:bold">!=</span> nil <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">pred</span>(table[<span style="color:#900;font-weight:bold">offset</span>:]) {
 </span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">continue</span>
 </span></span><span style="display:flex;"><span>		}
 </span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">// We read the 16-bit Platform ID and 16-bit Platform Specific ID as a single uint32.
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#998;font-style:italic">// All values are big-endian.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#900;font-weight:bold">pidPsid</span> :<span style="color:#000;font-weight:bold">=</span> u32(table, offset)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#900;font-weight:bold">pidPsid</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">u32</span>(table, offset)
 </span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">// We prefer the Unicode cmap encoding. Failing to find that, we fall
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#998;font-style:italic">// back onto the Microsoft cmap encoding.
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">if</span> pidPsid <span style="color:#000;font-weight:bold">==</span> unicodeEncodingBMPOnly <span style="color:#000;font-weight:bold">||</span> pidPsid <span style="color:#000;font-weight:bold">==</span> unicodeEncodingFull {
@@ -966,17 +966,17 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		}
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">!</span>ok {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#099">0</span>, <span style="color:#099">0</span>, UnsupportedError(name <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34; encoding&#34;</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#099">0</span>, <span style="color:#099">0</span>, <span style="color:#900;font-weight:bold">UnsupportedError</span>(name <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34; encoding&#34;</span>)
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> bestOffset, bestPID, nil
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// cmap数据使用
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// Index returns a Font&#39;s index for the given rune.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>func (f <span style="color:#000;font-weight:bold">*</span>Font) Index(x rune) Index {
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">c</span> :<span style="color:#000;font-weight:bold">=</span> uint32(x)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#900;font-weight:bold">func</span> (f <span style="color:#000;font-weight:bold">*</span>Font) <span style="color:#900;font-weight:bold">Index</span>(x rune) Index {
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">c</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">uint32</span>(x)
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 二分查找，找打x所在范围的cm
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">for</span> i, <span style="color:#900;font-weight:bold">j</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>, len(f.cm); i <span style="color:#000;font-weight:bold">&lt;</span> j; {
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">for</span> i, <span style="color:#900;font-weight:bold">j</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>, <span style="color:#900;font-weight:bold">len</span>(f.cm); i <span style="color:#000;font-weight:bold">&lt;</span> j; {
 </span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">h</span> :<span style="color:#000;font-weight:bold">=</span> i <span style="color:#000;font-weight:bold">+</span> (j<span style="color:#000;font-weight:bold">-</span>i)<span style="color:#000;font-weight:bold">/</span><span style="color:#099">2</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">cm</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">&amp;</span>f.cm[h]
 </span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> c <span style="color:#000;font-weight:bold">&lt;</span> cm.start {
@@ -985,11 +985,11 @@
 </span></span><span style="display:flex;"><span>			i <span style="color:#000;font-weight:bold">=</span> h <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
 </span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> cm.offset <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">0</span> {
 </span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">// offset为0，则直接返回delta+c
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			<span style="color:#000;font-weight:bold">return</span> Index(c <span style="color:#000;font-weight:bold">+</span> cm.delta)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">Index</span>(c <span style="color:#000;font-weight:bold">+</span> cm.delta)
 </span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> {
 </span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">// offset不是0 ，则offset+ ？ +c在cm里的偏移量
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			<span style="color:#900;font-weight:bold">offset</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(cm.offset) <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">2</span><span style="color:#000;font-weight:bold">*</span>(h<span style="color:#000;font-weight:bold">-</span>len(f.cm)<span style="color:#000;font-weight:bold">+</span><span style="color:#458;font-weight:bold">int</span>(c<span style="color:#000;font-weight:bold">-</span>cm.start))
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> Index(u16(f.cmapIndexes, offset))
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			<span style="color:#900;font-weight:bold">offset</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(cm.offset) <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">2</span><span style="color:#000;font-weight:bold">*</span>(h<span style="color:#000;font-weight:bold">-</span><span style="color:#900;font-weight:bold">len</span>(f.cm)<span style="color:#000;font-weight:bold">+</span><span style="color:#458;font-weight:bold">int</span>(c<span style="color:#000;font-weight:bold">-</span>cm.start))
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">Index</span>(<span style="color:#900;font-weight:bold">u16</span>(f.cmapIndexes, offset))
 </span></span><span style="display:flex;"><span>		}
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#099">0</span>
@@ -1200,10 +1200,6 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
 <ul class="widget-list">
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2023-06-26-%E8%B4%AA%E5%BF%83/" title="算法专题|贪心" target="_blank">算法专题|贪心</a>
-    </li>
-    
-    <li>
         <a href="https://weiweng.github.io/blog/post/2023-06-16-%E5%8D%95%E8%B0%83%E6%A0%88/" title="算法专题|单调栈" target="_blank">算法专题|单调栈</a>
     </li>
     
@@ -1239,6 +1235,10 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <a href="https://weiweng.github.io/blog/post/2023-02-18-%E4%BA%91%E5%8E%9F%E7%94%9Fdocker/" title="k8s|Docker学习" target="_blank">k8s|Docker学习</a>
     </li>
     
+    <li>
+        <a href="https://weiweng.github.io/blog/post/2023-02-17-golangcobra/" title="Golang|Cobra学习" target="_blank">Golang|Cobra学习</a>
+    </li>
+    
 </ul>
     </section>
 
@@ -1266,7 +1266,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (7)</a></li>
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (6)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
     
