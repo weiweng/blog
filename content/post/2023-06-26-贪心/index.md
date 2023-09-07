@@ -479,13 +479,462 @@ func findLongestChain(pairs [][]int) (ans int) {
 }
 ```
 
-## 高级练习
-
-### **[]()**
+### **[构造 K 个回文字符串](https://leetcode.cn/problems/construct-k-palindrome-strings/)**
 
 **思路**
+
+这个题目的切入点很简单，首先肯定饿是字符串长度肯定需要大于k，不然就算字符串单独拆分也没法构架k个的数量；其次我们要构造足够的回文串，肯定需要统计成双成对和最后单个的，如果单个字母的数量x超过k了，则肯定不能组装，那x小于等于k能否构架呢？答案是可以的，因为n>=k>=x，n-x >= k-x 我们可以用n-x的数据填补k-x的剩余回文队列，从而构建k个回文串。
 
 **代码**
 
 ```go
+func canConstruct(s string, k int) bool {
+    n:=len(s)
+    if k>n{return false}
+    dict:=map[byte]int{}
+    for i:=0;i<n;i++{
+        dict[s[i]]++
+    }
+    cnt:=0
+    for _,v:=range dict{
+        if v&1==1{cnt++}
+    }
+    return cnt<=k
+}
+```
+
+### **[森林中的兔子](https://leetcode.cn/problems/rabbits-in-forest/)**
+
+**思路**
+
+这题的核心很明显，是一个计算题，即有 x 只兔子都回答 y ，则至少有多少只兔子？如果回答了y种同色，则这个颜色最多y+1只兔子，而有x只兔子都回答y，则我们可以知道这x只兔子种最少可以有 `x/(y+1)` 种颜色，则至少有  `x/(y+1) * (y+1)` 只兔子。
+~
+**代码**
+
+```go
+func numRabbits(answers []int) (ans int) {
+    count := map[int]int{}
+    for _, y := range answers {
+        count[y]++
+    }
+    for y, x := range count {
+        ans += (x + y) / (y + 1) * (y + 1)
+    }
+    return
+}
+```
+
+### **[重新排列后的最大子矩阵](https://leetcode.cn/problems/largest-submatrix-with-rearrangements/)**
+
+**思路**
+
+最开始的思路肯定是计算列的连续1的个数，但我们应该怎么统计，什么时候统计，考虑统计最大的全1矩阵，我们可以每行统计对应列的向上连续1的个数，然后重新排序，计算最大面积。
+
+**代码**
+
+```go
+func largestSubmatrix(matrix [][]int) int {
+	/*
+		1. 对每一行，计算当前位置向上的连续列长，计算最大的子矩阵
+		2. 列长排序后，就容易以当前列长为边的最大子矩阵
+	*/
+	rows := len(matrix)
+	if rows == 0 {
+		return 0
+	}
+	res := 0
+	cols := len(matrix[0])
+	preHis := make([]int, cols) //记录上一行，每个点往上的连续列长
+	for rowID := 0; rowID < rows; rowID++ {
+		curHis := make([]int, 0)
+		for colID := 0; colID < cols; colID++ {
+			//计算 matrix[rowID][colID]开始向上的连续1的长度
+			if matrix[rowID][colID] == 0 {
+				preHis[colID] = 0 //注意这里要清0
+			} else {
+				preHis[colID]++
+			}
+			curHis = append(curHis, preHis[colID])
+		}
+		//对curHis排序,然后计算以当前列长为边的最大子矩阵
+		sort.Ints(curHis)
+		// tmpMax := 0
+		for i, h := range curHis {
+			res = max(res, h*(len(curHis)-i))
+		}
+	}
+	return res
+}
+
+func max(i, j int) int {
+	if i > j {
+		return i
+	}
+	return j
+}
+```
+
+### **[任务调度器](https://leetcode.cn/problems/task-scheduler/)**
+
+**思路**
+
+这题的思路，很明显我们假设出现最大次数的任务是A，次数是m，由于每个A的执行之后都会等n个时间，这样相当于可以构建一个`mx(n+1)`的矩阵，最开始一列都是放A任务，其他任务都可以放到矩阵后面。
+
+需要注意的是，这里最大任务可能有多个因此我们统计的时候要注意，最后结算时间需要注意这一点。
+
+**代码**
+
+```go
+func leastInterval(tasks []byte, n int) int {
+    cnt := map[byte]int{}
+    for _, t := range tasks {
+        cnt[t]++
+    }
+    maxExec, maxExecCnt := 0, 0
+    for _, c := range cnt {
+        if c > maxExec {
+            maxExec, maxExecCnt = c, 1
+        } else if c == maxExec {
+            maxExecCnt++
+        }
+    }
+    if time := (maxExec-1)*(n+1) + maxExecCnt; time > len(tasks) {
+        return time
+    }
+    return len(tasks)
+}
+```
+
+### **[字符频次唯一的最小删除次数](https://leetcode.cn/problems/minimum-deletions-to-make-character-frequencies-unique/)**
+
+**思路**
+
+这题不需要思路，只是代码上的计数和加减。
+
+**代码**
+
+```go
+package main
+
+func minDeletions(s string) int {
+	count := [26]int{}
+	for i := 0; i < len(s); i++ {
+		count[int(s[i]-'a')]++
+	}
+	t := map[int]int{}
+	res := 0
+	for i := 0; i < 26; i++ {
+		if count[i] == 0 {
+			continue
+		}
+		for t[count[i]] != 0 {
+			count[i]--
+			res++
+		}
+		if count[i] == 0 {
+			continue
+		}
+		t[count[i]]++
+	}
+	return res
+}
+```
+
+### **[将整数减少到零需要的最少操作数](https://leetcode.cn/problems/minimum-operations-to-reduce-an-integer-to-0/)**
+
+**思路**
+
+这题的思路需要换个角度，考虑到和2的幂相关，我们看n的二进制，这里的解法很巧妙，有贪心的思想，就是判断高位有没有连续1，有的话就加一下，这样把高位1都干掉，快速减小n。
+
+**代码**
+
+```go
+func minOperations(n int) int {
+	ans := 1
+	for n&(n-1) > 0 { // n 不是 2 的幂次，需要处理
+		lb := n & -n  // 拿到地位的2次幂，例如4&-4=4  5&-5=1
+		if n&(lb<<1) > 0 { // 低位的2次幂左移一下，和n做与运算，看前面一位是否是1，是的话就存在连续1，这样就+2次幂，可以顺带清除高位1
+			n += lb
+		} else {
+			n -= lb // 前面1位不是1，就把这个2次幂清除
+		}
+		ans++
+	}
+	return ans
+}
+```
+
+### **[判断一个括号字符串是否有效](https://leetcode.cn/problems/check-if-a-parentheses-string-can-be-valid/)**
+
+**思路**
+
+首先整个字符串必须是偶数，不然就无法平衡。其次由于特殊位置的设定，我们需要考虑如何平衡固定位置，这里的思路是做两次遍历，第一次左到右，特殊0值位置当做左括号，看看能否平衡固定位置的左右括号，如果不行肯定就不能构建了。需要注意的是这里会存在多余左括号的情况，例如最右边固定的左括号。因此我们需要从右到左在处理一下，这一次特殊位置当做右括号。
+**代码**
+
+```go
+func canBeValid(s string, locked string) bool {
+	if len(s)%2 == 1 {
+		return false
+	}
+
+	// 注：由于这里 len(s) 是偶数，所以循环结束后 x 也是偶数（这意味着可以通过配对来让括号平衡度为 0）
+	x := 0
+	for i, ch := range s {
+		if ch == '(' || locked[i] == '0' {
+			x++
+		} else if x > 0 {
+			x--
+		} else {
+			return false
+		}
+	}
+
+	x = 0
+	for i := len(s) - 1; i >= 0; i-- {
+		if s[i] == ')' || locked[i] == '0' {
+			x++
+		} else if x > 0 {
+			x--
+		} else {
+			return false
+		}
+	}
+	return true
+}
+```
+
+### **[坏了的计算器](https://leetcode.cn/problems/broken-calculator/)**
+
+**思路**
+
+很明显我们通过操作target来接近source，并且贪心的优先使用除2操作，因此首先判断是不是偶数，不是的话就需要加1再除。需要注意最后剩余的数与source的差。
+
+**代码**
+
+```go
+func brokenCalc(X int, Y int) int {
+    count := 0
+    for Y > X {
+        if Y % 2 == 0 {
+            Y = Y / 2
+        }else {
+            Y = (Y + 1) / 2
+            count++
+        }
+        count++
+    }
+    return count + X - Y
+}
+```
+
+### **[有效的括号字符串](https://leetcode.cn/problems/valid-parenthesis-string/)**
+
+**思路**
+
+这题其实和`判断一个括号字符串是否有效`的思路一样，我们两次遍历，一次左到右，星号可以视为左括号，判断右括号能不能都抵消完，同理右到左的遍历。
+
+**代码**
+
+```go
+func checkValidString(t string) bool {
+    l,r,s := 0,0,0
+    for _,w := range t {
+        if w == '(' {
+            l++
+        } else if w == ')' {
+            r++
+        } else {
+            s++
+        }
+        if r>l+s {
+            return false
+        }
+    }
+    l,r,s = 0,0,0
+    for i:=len(t)-1;i>=0;i--{
+        w := t[i]
+        if w == '(' {
+            l++
+        } else if w == ')' {
+            r++
+        } else {
+            s++
+        }
+        if l>r+s{
+            return false
+        }
+    }
+    return true
+}
+```
+
+### **[分割数组为连续子序列](https://leetcode.cn/problems/split-array-into-consecutive-subsequences/)**
+
+**思路**
+
+通过hash来统计序列，我们记录每个序列的最后一个数，遍历时查询hash里面当前数据里面是否可以接龙，可以的话就接上，否则返回false。
+
+**代码**
+
+```go
+func isPossible(nums []int) bool {
+    left := map[int]int{} // 每个数字的剩余个数
+    for _, v := range nums {
+        left[v]++
+    }
+    endCnt := map[int]int{} // 以某个数字结尾的连续子序列的个数
+    for _, v := range nums {
+        if left[v] == 0 {
+            continue
+        }
+        if endCnt[v-1] > 0 { // 若存在以 v-1 结尾的连续子序列，则将 v 加到其末尾
+            left[v]--
+            endCnt[v-1]--
+            endCnt[v]++
+        } else if left[v+1] > 0 && left[v+2] > 0 { // 否则，生成一个长度为 3 的连续子序列
+            left[v]--
+            left[v+1]--
+            left[v+2]--
+            endCnt[v+2]++
+        } else { // 无法生成
+            return false
+        }
+    }
+    return true
+}
+```
+## 高级练习
+
+### **[3n 块披萨](https://leetcode.cn/problems/pizza-with-3n-slices/)**
+
+**思路**
+
+感觉还是一个dp问题，思路见代码注释。
+
+**代码**
+
+```go
+// 有点类似打家劫舍2？但是如果一样的话显然不会是困难题，仔细看后发现有个比较大的变动
+// 拿完一次披萨后，对应数及其相邻的数都要从数组删去，此时原数组中部分数相邻的数发生变化
+// 因此 dp[i] = max(dp[i-1],dp[i-2]+slices[i]) 不成立，因为 i, i-1, i-2 指向的值可能发生变化
+// 也就是说，打家劫舍2 可以取到 n/2 个数，而本题，只能取到 n/3 个数
+// 接下来先明确本题目标：从3n块披萨中，选择n/3块的最大和，并且这n/3块不相邻
+// 接着将目标分解成小问题，从前 i 块披萨中选取 j 块最大和，并且这 j 块不相邻
+// 因此可以定义 dp[i][j] 表示从前 i 块披萨中选出 j 块不相邻的披萨达到最大和
+// 再继续考虑这个 dp 的转移方程
+// 如果我们要选第 i 块披萨，则不能选第i-1块披萨，并且之前要已经选出 j-1 个披萨 dp[i][j] = dp[i-2][j-1] + slices[i]
+// 如果我们不选第 i 块披萨，则之前要已经选过 j 个披萨，dp[i][j] = dp[i-1][j]
+// 因此 dp[i][j] = max( dp[i-2][j-1] + slices[i], dp[i-1][j] )
+func maxSizeSlices(slices []int) int {
+	n := len(slices)
+	return max(getMax(slices[1:]), getMax(slices[:n-1]))
+}
+
+func getMax(slices []int) int {
+	// dp数组初始化以及边界条件初始化
+	n, m := len(slices), int(math.Ceil(float64(len(slices))/3.0))
+	dp := make([][]int, n+1)
+	dp[0] = make([]int, m+1)
+	dp[1] = make([]int, m+1)
+	dp[1][1] = slices[0]
+	// 注意，这里是前 i 个披萨，因此再取 slices 时，需要 i-1，和上面推出来的转移方程本质无区别
+	for i := 2; i <= n; i++ {
+		dp[i] = make([]int, m+1)
+		for j := 1; j <= m; j++ {
+			dp[i][j] = max(dp[i-2][j-1]+slices[i-1], dp[i-1][j])
+		}
+	}
+	return dp[n][m]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+
+### **[情侣牵手](https://leetcode.cn/problems/couples-holding-hands/)**
+
+**思路**
+
+这一题的思路很巧妙，通过并查集，将成对牵手的划分联通分量。最后统计的时候，并查集里面记录了牵手对数，因此我们直接n/2减去已经牵手对数，得到答案。
+
+**代码**
+
+```go
+type unionFind struct {
+    parent, size []int
+    setCount     int // 当前连通分量数目
+}
+
+func newUnionFind(n int) *unionFind {
+    parent := make([]int, n)
+    size := make([]int, n)
+    for i := range parent {
+        parent[i] = i
+        size[i] = 1
+    }
+    return &unionFind{parent, size, n}
+}
+
+func (uf *unionFind) find(x int) int {
+    if uf.parent[x] != x {
+        uf.parent[x] = uf.find(uf.parent[x])
+    }
+    return uf.parent[x]
+}
+
+func (uf *unionFind) union(x, y int) {
+    fx, fy := uf.find(x), uf.find(y)
+    if fx == fy {
+        return
+    }
+    if uf.size[fx] < uf.size[fy] {
+        fx, fy = fy, fx
+    }
+    uf.size[fx] += uf.size[fy]
+    uf.parent[fy] = fx
+    uf.setCount--
+}
+
+func minSwapsCouples(row []int) int {
+    n := len(row)
+    uf := newUnionFind(n / 2)
+    for i := 0; i < n; i += 2 {
+        uf.union(row[i]/2, row[i+1]/2)
+    }
+    return n/2 - uf.setCount
+}
+```
+
+
+### **[全部开花的最早一天](https://leetcode.cn/problems/earliest-possible-day-of-full-bloom/)**
+
+**思路**
+
+这题是贪心的思路，按照花的生长周期大到小的排序，这样我可以知道生长周期最大的花需要的时间。为什么这么安排，因为生长周期大，越往后越花时间等。
+
+**代码**
+
+```go
+func earliestFullBloom(plantTime, growTime []int) (ans int) {
+	type pair struct{ p, g int }
+	a := make([]pair, len(plantTime))
+	for i, p := range plantTime {
+		a[i] = pair{p, growTime[i]}
+	}
+	sort.Slice(a, func(i, j int) bool { return a[i].g > a[j].g })
+	day := 0
+	for _, p := range a {
+		day += p.p
+		if day+p.g > ans {
+            // 当前种下花要等的最大时间
+			ans = day + p.g
+		}
+	}
+	return
+}
 ```
