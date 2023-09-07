@@ -109,6 +109,9 @@ summaryLength = 80
 ##    name = "知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议"
 ##    link = "https://creativecommons.org/licenses/by-nc-nd/4.0/"
 
+[[params.continueReading]]
+  other = "阅读全文"
+  
 ## 配置代码高亮
 [markup]
   [markup.highlight]
