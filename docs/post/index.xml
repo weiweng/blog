@@ -6,7 +6,25 @@
     <description>Recent content in Posts on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 16 Jun 2023 06:00:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Sep 2023 09:00:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>算法专题|图</title>
+      <link>https://weiweng.github.io/blog/post/2023-09-08-%E5%9B%BE/</link>
+      <pubDate>Fri, 08 Sep 2023 09:00:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2023-09-08-%E5%9B%BE/</guid>
+      <description>图相关的算法练习，需要掌握图的基本数据结构，图的连通性，图的遍历，最短路径，最小生成树等问题。 初级练习 找到小镇的法官 思路 思路很简单，基于图的度，由于法官不信任其</description>
+    </item>
+    
+    <item>
+      <title>算法专题|贪心</title>
+      <link>https://weiweng.github.io/blog/post/2023-06-26-%E8%B4%AA%E5%BF%83/</link>
+      <pubDate>Mon, 26 Jun 2023 06:00:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2023-06-26-%E8%B4%AA%E5%BF%83/</guid>
+      <description>贪心算法没有固定的模板，基本思路是找到问题的一个切入点，虽然证明这个解法是最优的。 初级练习 拆分数位后四位数字的最小和 思路 这题很简单，数据只有4个数，组合就3种，</description>
+    </item>
+    
     <item>
       <title>算法专题|单调栈</title>
       <link>https://weiweng.github.io/blog/post/2023-06-16-%E5%8D%95%E8%B0%83%E6%A0%88/</link>
