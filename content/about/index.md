@@ -87,6 +87,9 @@ date: 2022-11-30 10:20:30
 - 托人办事一定要比别人早到
 - 测试的重要性，理论分析可能自己想错了，因此实践是检验真理的唯一标准
 - 学会提问
+- I hear and I forget. I see and I remember. I do and I understand. 
+- 代码可追踪性第一
+- 一手消息
 
 ### 思考上
 
