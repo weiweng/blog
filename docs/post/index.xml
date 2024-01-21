@@ -6,7 +6,16 @@
     <description>Recent content in Posts on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 13 Dec 2023 18:00:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Jan 2024 10:00:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>python|requests</title>
+      <link>https://weiweng.github.io/blog/post/2024-01-20-pythonrequests/</link>
+      <pubDate>Sat, 20 Jan 2024 10:00:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2024-01-20-pythonrequests/</guid>
+      <description>最近工作开始转向使用python，因此更加深入的学习一下，通过阅读开源库学习python的使用。这一期学习使用requests库，这个是一个很漂亮的http包，</description>
+    </item>
+    
     <item>
       <title>python|学习路径</title>
       <link>https://weiweng.github.io/blog/post/2023-12-13-python%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84/</link>
