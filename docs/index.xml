@@ -6,7 +6,16 @@
     <description>Recent content on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 20 Jan 2024 10:00:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Jan 2024 08:00:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>算法专题|前缀和</title>
+      <link>https://weiweng.github.io/blog/post/2024-01-22-%E5%89%8D%E7%BC%80%E5%92%8C/</link>
+      <pubDate>Mon, 22 Jan 2024 08:00:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2024-01-22-%E5%89%8D%E7%BC%80%E5%92%8C/</guid>
+      <description>前缀和可以简单理解为「数列的前 n 项的和」，是一种重要的预处理方式，能大大降低查询的时间复杂度。 初级练习 左右元素和的差值 思路 思路简单，使用前缀和，不过需要左右两边</description>
+    </item>
+    
     <item>
       <title>python|requests</title>
       <link>https://weiweng.github.io/blog/post/2024-01-20-pythonrequests/</link>
