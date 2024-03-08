@@ -2,7 +2,7 @@ baseURL = "https://weiweng.github.io/blog/"
 languageCode = "zh-CN"
 title = "weiweng的博客"
 theme = "maupassant"
-googleAnalytics = "G-XYCDHPQC9T"
+googleAnalytics = "G-RYGRH6W54Q"
 defaultContentLanguage = 'zh-hans'
 publishDir = "docs"
 
