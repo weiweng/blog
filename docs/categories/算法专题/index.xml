@@ -2,89 +2,89 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>算法专题 on weiweng的博客</title>
-    <link>https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/</link>
+    <link>https://weiweng.github.io/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/</link>
     <description>Recent content in 算法专题 on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 22 Jan 2024 08:00:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Jan 2024 08:00:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>算法专题|前缀和</title>
-      <link>https://weiweng.github.io/blog/post/2024-01-22-%E5%89%8D%E7%BC%80%E5%92%8C/</link>
+      <link>https://weiweng.github.io/post/2024-01-22-%E5%89%8D%E7%BC%80%E5%92%8C/</link>
       <pubDate>Mon, 22 Jan 2024 08:00:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2024-01-22-%E5%89%8D%E7%BC%80%E5%92%8C/</guid>
+      <guid>https://weiweng.github.io/post/2024-01-22-%E5%89%8D%E7%BC%80%E5%92%8C/</guid>
       <description>前缀和可以简单理解为「数列的前 n 项的和」，是一种重要的预处理方式，能大大降低查询的时间复杂度。 初级练习 左右元素和的差值 思路 思路简单，使用前缀和，不过需要左右两边</description>
     </item>
     
     <item>
       <title>算法专题|图</title>
-      <link>https://weiweng.github.io/blog/post/2023-09-08-%E5%9B%BE/</link>
+      <link>https://weiweng.github.io/post/2023-09-08-%E5%9B%BE/</link>
       <pubDate>Fri, 08 Sep 2023 09:00:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2023-09-08-%E5%9B%BE/</guid>
+      <guid>https://weiweng.github.io/post/2023-09-08-%E5%9B%BE/</guid>
       <description>图相关的算法练习，需要掌握图的基本数据结构，图的连通性，图的遍历，最短路径，最小生成树等问题。 初级练习 找到小镇的法官 思路 思路很简单，基于图的度，由于法官不信任其</description>
     </item>
     
     <item>
       <title>算法专题|贪心</title>
-      <link>https://weiweng.github.io/blog/post/2023-06-26-%E8%B4%AA%E5%BF%83/</link>
+      <link>https://weiweng.github.io/post/2023-06-26-%E8%B4%AA%E5%BF%83/</link>
       <pubDate>Mon, 26 Jun 2023 06:00:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2023-06-26-%E8%B4%AA%E5%BF%83/</guid>
+      <guid>https://weiweng.github.io/post/2023-06-26-%E8%B4%AA%E5%BF%83/</guid>
       <description>贪心算法没有固定的模板，基本思路是找到问题的一个切入点，虽然证明这个解法是最优的。 初级练习 拆分数位后四位数字的最小和 思路 这题很简单，数据只有4个数，组合就3种，</description>
     </item>
     
     <item>
       <title>算法专题|单调栈</title>
-      <link>https://weiweng.github.io/blog/post/2023-06-16-%E5%8D%95%E8%B0%83%E6%A0%88/</link>
+      <link>https://weiweng.github.io/post/2023-06-16-%E5%8D%95%E8%B0%83%E6%A0%88/</link>
       <pubDate>Fri, 16 Jun 2023 06:00:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2023-06-16-%E5%8D%95%E8%B0%83%E6%A0%88/</guid>
+      <guid>https://weiweng.github.io/post/2023-06-16-%E5%8D%95%E8%B0%83%E6%A0%88/</guid>
       <description>初级练习 下一个更大元素 I 思路 最基础的单调栈用法。 代码 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 func nextGreaterElement(nums1, nums2 []int) []int { mp := map[int]int{} stack := []int{} for i := len(nums2) - 1; i &amp;gt;= 0; i-- { num := nums2[i] for len(stack) &amp;gt; 0 &amp;amp;&amp;amp; num &amp;gt;=</description>
     </item>
     
     <item>
       <title>算法专题|滑动窗口</title>
-      <link>https://weiweng.github.io/blog/post/2023-06-16-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</link>
+      <link>https://weiweng.github.io/post/2023-06-16-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</link>
       <pubDate>Fri, 16 Jun 2023 06:00:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2023-06-16-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</guid>
+      <guid>https://weiweng.github.io/post/2023-06-16-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</guid>
       <description>滑动窗口，这个算法思路非常简单，就是维护一个窗口，不断滑动，然后更新答案。 初级练习 学生分数的最小差值 思路 因为可以任意选k名学生，因此我们排序后，使用滑动窗口，维</description>
     </item>
     
     <item>
       <title>算法专题|双指针</title>
-      <link>https://weiweng.github.io/blog/post/2023-06-11-%E5%8F%8C%E6%8C%87%E9%92%88/</link>
+      <link>https://weiweng.github.io/post/2023-06-11-%E5%8F%8C%E6%8C%87%E9%92%88/</link>
       <pubDate>Mon, 12 Jun 2023 07:00:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2023-06-11-%E5%8F%8C%E6%8C%87%E9%92%88/</guid>
+      <guid>https://weiweng.github.io/post/2023-06-11-%E5%8F%8C%E6%8C%87%E9%92%88/</guid>
       <description>双指针是一种简单而又灵活的技巧和思想，单独使用可以轻松解决一些特定问题，和其他算法结合也能发挥多样的用处。 双指针顾名思义，就是同时使用两个指针，在序列、链表结构</description>
     </item>
     
     <item>
       <title>算法专题|二分查找</title>
-      <link>https://weiweng.github.io/blog/post/2023-06-11-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</link>
+      <link>https://weiweng.github.io/post/2023-06-11-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</link>
       <pubDate>Sun, 11 Jun 2023 07:00:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2023-06-11-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</guid>
+      <guid>https://weiweng.github.io/post/2023-06-11-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</guid>
       <description>二分查找 (Binary Search) 也称折半查找，它是一种效率较高的查找方法。但是，折半查找要求线性表必须采用顺序存储结构，而且表中元素按关键字有序排列。 总结有以下特征和解题步骤： 寻找</description>
     </item>
     
     <item>
       <title>算法专题|回溯</title>
-      <link>https://weiweng.github.io/blog/post/2023-06-10-%E5%9B%9E%E6%BA%AF/</link>
+      <link>https://weiweng.github.io/post/2023-06-10-%E5%9B%9E%E6%BA%AF/</link>
       <pubDate>Sat, 10 Jun 2023 08:00:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2023-06-10-%E5%9B%9E%E6%BA%AF/</guid>
+      <guid>https://weiweng.github.io/post/2023-06-10-%E5%9B%9E%E6%BA%AF/</guid>
       <description>回溯 (backtracking) 是暴力搜索的方法之一。 总结有以下特征和解题步骤： 问题的解在可预估的范围内 给出一个解能快速判断是否符合要求 代码有固定模板 1 2 3 4 5 6 7 8 9 10 result = [] def back</description>
     </item>
     
     <item>
       <title>算法专题|动态规划</title>
-      <link>https://weiweng.github.io/blog/post/2023-06-06-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
+      <link>https://weiweng.github.io/post/2023-06-06-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
       <pubDate>Tue, 06 Jun 2023 08:00:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/post/2023-06-06-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid>
+      <guid>https://weiweng.github.io/post/2023-06-06-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid>
       <description>动态规划（Dynamic Programming，DP）是运筹学的一个分支，是求解决策过程。总结有以下特征和解题步骤： 肯定是求最值问题，并且具备重叠子问题 定义问题</description>
     </item>
     
