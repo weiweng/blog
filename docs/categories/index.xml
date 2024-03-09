@@ -2,116 +2,116 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on weiweng的博客</title>
-    <link>https://weiweng.github.io/blog/categories/</link>
+    <link>https://weiweng.github.io/categories/</link>
     <description>Recent content in Categories on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 22 Jan 2024 08:00:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 Mar 2024 10:50:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Golang</title>
+      <link>https://weiweng.github.io/categories/Golang/</link>
+      <pubDate>Sat, 09 Mar 2024 10:50:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/categories/Golang/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>算法专题</title>
-      <link>https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/</link>
+      <link>https://weiweng.github.io/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/</link>
       <pubDate>Mon, 22 Jan 2024 08:00:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/</guid>
+      <guid>https://weiweng.github.io/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Python</title>
-      <link>https://weiweng.github.io/blog/categories/Python/</link>
+      <link>https://weiweng.github.io/categories/Python/</link>
       <pubDate>Sat, 20 Jan 2024 10:00:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/categories/Python/</guid>
+      <guid>https://weiweng.github.io/categories/Python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>k8s</title>
-      <link>https://weiweng.github.io/blog/categories/k8s/</link>
+      <link>https://weiweng.github.io/categories/k8s/</link>
       <pubDate>Sat, 22 Apr 2023 10:00:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/categories/k8s/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Golang</title>
-      <link>https://weiweng.github.io/blog/categories/Golang/</link>
-      <pubDate>Fri, 17 Feb 2023 20:50:00 +0800</pubDate>
-      
-      <guid>https://weiweng.github.io/blog/categories/Golang/</guid>
+      <guid>https://weiweng.github.io/categories/k8s/</guid>
       <description></description>
     </item>
     
     <item>
       <title>算法&amp;数据结构</title>
-      <link>https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+      <link>https://weiweng.github.io/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
       <pubDate>Sat, 26 Sep 2020 05:08:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+      <guid>https://weiweng.github.io/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
       <description></description>
     </item>
     
     <item>
       <title>微服务</title>
-      <link>https://weiweng.github.io/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
+      <link>https://weiweng.github.io/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
       <pubDate>Wed, 19 Aug 2020 04:12:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</guid>
+      <guid>https://weiweng.github.io/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</guid>
       <description></description>
     </item>
     
     <item>
       <title>linux</title>
-      <link>https://weiweng.github.io/blog/categories/linux/</link>
+      <link>https://weiweng.github.io/categories/linux/</link>
       <pubDate>Sat, 25 Jul 2020 11:18:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/categories/linux/</guid>
+      <guid>https://weiweng.github.io/categories/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mysql</title>
-      <link>https://weiweng.github.io/blog/categories/mysql/</link>
+      <link>https://weiweng.github.io/categories/mysql/</link>
       <pubDate>Wed, 22 Apr 2020 08:08:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/categories/mysql/</guid>
+      <guid>https://weiweng.github.io/categories/mysql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Redis</title>
-      <link>https://weiweng.github.io/blog/categories/Redis/</link>
+      <link>https://weiweng.github.io/categories/Redis/</link>
       <pubDate>Wed, 22 Apr 2020 03:57:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/categories/Redis/</guid>
+      <guid>https://weiweng.github.io/categories/Redis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>MQ</title>
-      <link>https://weiweng.github.io/blog/categories/MQ/</link>
+      <link>https://weiweng.github.io/categories/MQ/</link>
       <pubDate>Fri, 17 Apr 2020 11:52:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/categories/MQ/</guid>
+      <guid>https://weiweng.github.io/categories/MQ/</guid>
       <description></description>
     </item>
     
     <item>
       <title>计算机网络</title>
-      <link>https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
+      <link>https://weiweng.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
       <pubDate>Sun, 15 Mar 2020 06:10:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</guid>
+      <guid>https://weiweng.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</guid>
       <description></description>
     </item>
     
     <item>
       <title>操作系统</title>
-      <link>https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
+      <link>https://weiweng.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
       <pubDate>Sun, 15 Mar 2020 06:09:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</guid>
+      <guid>https://weiweng.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</guid>
       <description></description>
     </item>
     
