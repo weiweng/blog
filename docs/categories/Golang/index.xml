@@ -6,7 +6,16 @@
     <description>Recent content in Golang on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 09 Mar 2024 10:50:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/categories/Golang/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Mar 2024 08:00:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/categories/Golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Golang|groupcache</title>
+      <link>https://weiweng.github.io/blog/post/2024-03-15-golanggrroupcache/</link>
+      <pubDate>Fri, 15 Mar 2024 08:00:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2024-03-15-golanggrroupcache/</guid>
+      <description>groupcache 是 memcached 作者 Brad Fitzpatrick 用 Go 语言编写的缓存及缓存过滤库，作为 memcached 许多场景下的替代版本。 groupcache并不运行在单独的server上，而是作为library和app运行</description>
+    </item>
+    
     <item>
       <title>Golang|学习教程(八)-反射</title>
       <link>https://weiweng.github.io/blog/post/2024-03-09-golangreflect/</link>
