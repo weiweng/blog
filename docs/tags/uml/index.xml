@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>uml on weiweng的博客</title>
-    <link>https://weiweng.github.io/blog/tags/uml/</link>
+    <link>https://blog.weiweng.top/tags/uml/</link>
     <description>Recent content in uml on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 15 Mar 2020 06:01:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/tags/uml/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Mar 2020 06:01:00 +0800</lastBuildDate><atom:link href="https://blog.weiweng.top/tags/uml/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>StartUML</title>
-      <link>https://weiweng.github.io/blog/tools/2020-03-15-StartUML/</link>
+      <link>https://blog.weiweng.top/tools/2020-03-15-StartUML/</link>
       <pubDate>Sun, 15 Mar 2020 06:01:00 +0800</pubDate>
       
-      <guid>https://weiweng.github.io/blog/tools/2020-03-15-StartUML/</guid>
+      <guid>https://blog.weiweng.top/tools/2020-03-15-StartUML/</guid>
       <description>StartUML</description>
     </item>
     
