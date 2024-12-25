@@ -6,7 +6,16 @@
     <description>Recent content in Posts on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 15 Mar 2024 08:00:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 May 2024 08:00:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>算法专题|并查集</title>
+      <link>https://weiweng.github.io/blog/post/2024-05-06-%E5%B9%B6%E6%9F%A5%E9%9B%86/</link>
+      <pubDate>Mon, 06 May 2024 08:00:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2024-05-06-%E5%B9%B6%E6%9F%A5%E9%9B%86/</guid>
+      <description>并查集（Union-find Data Structure）是一种树型的数据结构。它的特点是由子结点找到父亲结点，用于处理一些不交集（Disjoint Sets）的合并及查</description>
+    </item>
+    
     <item>
       <title>Golang|groupcache</title>
       <link>https://weiweng.github.io/blog/post/2024-03-15-golanggrroupcache/</link>
