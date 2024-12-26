@@ -1,4 +1,4 @@
-baseURL = "https://blog.weiweng.top"
+# baseURL = "https://blog.weiweng.top"
 languageCode = "zh-CN"
 title = "weiweng的博客"
 theme = "maupassant"

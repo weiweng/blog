@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>k8s on weiweng的博客</title>
-    <link>https://blog.weiweng.top/categories/k8s/</link>
+    <link>/categories/k8s/</link>
     <description>Recent content in k8s on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 22 Apr 2023 10:00:00 +0800</lastBuildDate><atom:link href="https://blog.weiweng.top/categories/k8s/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Apr 2023 10:00:00 +0800</lastBuildDate><atom:link href="/categories/k8s/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>k8s|基础进阶</title>
-      <link>https://blog.weiweng.top/post/2023-04-22-k8s%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6/</link>
+      <link>/post/2023-04-22-k8s%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6/</link>
       <pubDate>Sat, 22 Apr 2023 10:00:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2023-04-22-k8s%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6/</guid>
+      <guid>/post/2023-04-22-k8s%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6/</guid>
       <description>最近看了k8s的一本基础英文入门书籍《The Kubernetes Book》，不得不说还是英文教程写的通透，至少是可以一气呵成的从头读到尾，中文书籍可能有些作者自己都不知道写的是啥</description>
     </item>
     
     <item>
       <title>k8s|基础概念</title>
-      <link>https://blog.weiweng.top/post/2023-03-21-k8s%E6%A6%82%E5%BF%B5/</link>
+      <link>/post/2023-03-21-k8s%E6%A6%82%E5%BF%B5/</link>
       <pubDate>Tue, 21 Mar 2023 20:00:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2023-03-21-k8s%E6%A6%82%E5%BF%B5/</guid>
+      <guid>/post/2023-03-21-k8s%E6%A6%82%E5%BF%B5/</guid>
       <description>参考官网，k8s的定义是：Kubernetes 是一个可移植、可扩展的开源平台，用于管理容器化的工作负载和服务，可促进声明式配置和自动化。 Kubernetes 拥有一个庞大且快速增长</description>
     </item>
     
     <item>
       <title>k8s|Docker学习</title>
-      <link>https://blog.weiweng.top/post/2023-02-18-%E4%BA%91%E5%8E%9F%E7%94%9Fdocker/</link>
+      <link>/post/2023-02-18-%E4%BA%91%E5%8E%9F%E7%94%9Fdocker/</link>
       <pubDate>Sat, 18 Feb 2023 21:50:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2023-02-18-%E4%BA%91%E5%8E%9F%E7%94%9Fdocker/</guid>
+      <guid>/post/2023-02-18-%E4%BA%91%E5%8E%9F%E7%94%9Fdocker/</guid>
       <description>最近思考如何拥有自己的一套部署体系，也许以后被辞退了可以开个淘宝店接接副业，因此开始研究云原生相关，最先 接触到的自然是Docker，本文简单介绍一下Docker</description>
     </item>
     

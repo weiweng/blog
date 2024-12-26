@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>find on weiweng的博客</title>
-    <link>https://blog.weiweng.top/tags/find/</link>
+    <link>/tags/find/</link>
     <description>Recent content in find on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 14 Mar 2020 02:34:00 +0800</lastBuildDate><atom:link href="https://blog.weiweng.top/tags/find/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 Mar 2020 02:34:00 +0800</lastBuildDate><atom:link href="/tags/find/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>FIND简单使用</title>
-      <link>https://blog.weiweng.top/tools/2020-03-14-FIND%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <link>/tools/2020-03-14-FIND%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sat, 14 Mar 2020 02:34:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/tools/2020-03-14-FIND%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <guid>/tools/2020-03-14-FIND%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
       <description>FIND简单使用</description>
     </item>
     

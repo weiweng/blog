@@ -2,614 +2,614 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://blog.weiweng.top/read/</loc>
+    <loc>/read/</loc>
     <lastmod>2024-06-14T08:21:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/</loc>
+    <loc>/</loc>
     <lastmod>2024-06-14T08:21:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2024-06-09-%E4%BA%BA%E7%89%A9%E8%A7%82%E5%AF%9F/</loc>
+    <loc>/read/2024-06-09-%E4%BA%BA%E7%89%A9%E8%A7%82%E5%AF%9F/</loc>
     <lastmod>2024-06-14T08:21:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/categories/</loc>
+    <loc>/categories/</loc>
     <lastmod>2024-05-06T08:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/</loc>
+    <loc>/post/</loc>
     <lastmod>2024-05-06T08:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/</loc>
+    <loc>/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/</loc>
     <lastmod>2024-05-06T08:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2024-05-06-%E5%B9%B6%E6%9F%A5%E9%9B%86/</loc>
+    <loc>/post/2024-05-06-%E5%B9%B6%E6%9F%A5%E9%9B%86/</loc>
     <lastmod>2024-05-06T08:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/categories/Golang/</loc>
+    <loc>/categories/Golang/</loc>
     <lastmod>2024-03-15T08:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2024-03-15-golanggrroupcache/</loc>
+    <loc>/post/2024-03-15-golanggrroupcache/</loc>
     <lastmod>2024-03-15T08:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2024-03-09-golangreflect/</loc>
+    <loc>/post/2024-03-09-golangreflect/</loc>
     <lastmod>2024-03-09T10:50:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2024-01-22-%E5%89%8D%E7%BC%80%E5%92%8C/</loc>
+    <loc>/post/2024-01-22-%E5%89%8D%E7%BC%80%E5%92%8C/</loc>
     <lastmod>2024-01-22T08:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/categories/Python/</loc>
+    <loc>/categories/Python/</loc>
     <lastmod>2024-01-20T10:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2024-01-20-pythonrequests/</loc>
+    <loc>/post/2024-01-20-pythonrequests/</loc>
     <lastmod>2024-01-20T10:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2023-12-13-python%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84/</loc>
+    <loc>/post/2023-12-13-python%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84/</loc>
     <lastmod>2023-12-13T18:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2023-11-18-%E8%80%81%E4%BF%9E%E5%AF%B9%E8%B0%88%E5%BD%95/</loc>
+    <loc>/read/2023-11-18-%E8%80%81%E4%BF%9E%E5%AF%B9%E8%B0%88%E5%BD%95/</loc>
     <lastmod>2023-11-18T12:21:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2023-10-25-%E6%95%85%E4%BA%8B%E8%AF%BE/</loc>
+    <loc>/read/2023-10-25-%E6%95%85%E4%BA%8B%E8%AF%BE/</loc>
     <lastmod>2023-10-25T20:55:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2023-10-25-%E9%9B%AA%E8%8A%B1%E5%86%99%E4%BD%9C%E6%B3%95/</loc>
+    <loc>/read/2023-10-25-%E9%9B%AA%E8%8A%B1%E5%86%99%E4%BD%9C%E6%B3%95/</loc>
     <lastmod>2023-10-25T20:55:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2023-09-08-%E5%9B%BE/</loc>
+    <loc>/post/2023-09-08-%E5%9B%BE/</loc>
     <lastmod>2023-09-08T09:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2023-06-26-%E8%B4%AA%E5%BF%83/</loc>
+    <loc>/post/2023-06-26-%E8%B4%AA%E5%BF%83/</loc>
     <lastmod>2023-06-26T06:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2023-06-16-%E5%8D%95%E8%B0%83%E6%A0%88/</loc>
+    <loc>/post/2023-06-16-%E5%8D%95%E8%B0%83%E6%A0%88/</loc>
     <lastmod>2023-06-16T06:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2023-06-16-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</loc>
+    <loc>/post/2023-06-16-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</loc>
     <lastmod>2023-06-16T06:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2023-06-11-%E5%8F%8C%E6%8C%87%E9%92%88/</loc>
+    <loc>/post/2023-06-11-%E5%8F%8C%E6%8C%87%E9%92%88/</loc>
     <lastmod>2023-06-12T07:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2023-06-11-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</loc>
+    <loc>/post/2023-06-11-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</loc>
     <lastmod>2023-06-11T07:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2023-06-10-%E5%9B%9E%E6%BA%AF/</loc>
+    <loc>/post/2023-06-10-%E5%9B%9E%E6%BA%AF/</loc>
     <lastmod>2023-06-10T08:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2023-06-06-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</loc>
+    <loc>/post/2023-06-06-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</loc>
     <lastmod>2023-06-06T08:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2023-05-22-%E6%9D%82%E8%AE%B0/</loc>
+    <loc>/read/2023-05-22-%E6%9D%82%E8%AE%B0/</loc>
     <lastmod>2023-05-22T08:35:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/categories/k8s/</loc>
+    <loc>/categories/k8s/</loc>
     <lastmod>2023-04-22T10:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2023-04-22-k8s%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6/</loc>
+    <loc>/post/2023-04-22-k8s%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6/</loc>
     <lastmod>2023-04-22T10:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2023-04-12-%E6%9D%82%E8%AE%B0/</loc>
+    <loc>/read/2023-04-12-%E6%9D%82%E8%AE%B0/</loc>
     <lastmod>2023-04-12T20:47:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2023-03-21-k8s%E6%A6%82%E5%BF%B5/</loc>
+    <loc>/post/2023-03-21-k8s%E6%A6%82%E5%BF%B5/</loc>
     <lastmod>2023-03-21T20:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2023-02-18-%E4%BA%91%E5%8E%9F%E7%94%9Fdocker/</loc>
+    <loc>/post/2023-02-18-%E4%BA%91%E5%8E%9F%E7%94%9Fdocker/</loc>
     <lastmod>2023-02-18T21:50:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2023-02-17-golangcobra/</loc>
+    <loc>/post/2023-02-17-golangcobra/</loc>
     <lastmod>2023-02-17T20:50:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2023-02-09-golang%E5%8D%8F%E7%A8%8B/</loc>
+    <loc>/post/2023-02-09-golang%E5%8D%8F%E7%A8%8B/</loc>
     <lastmod>2023-02-09T20:50:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2023-02-07-golang%E6%96%B9%E6%B3%95/</loc>
+    <loc>/post/2023-02-07-golang%E6%96%B9%E6%B3%95/</loc>
     <lastmod>2023-02-07T20:50:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2023-02-06-golangmap/</loc>
+    <loc>/post/2023-02-06-golangmap/</loc>
     <lastmod>2023-02-06T22:50:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2023-02-05-golangslice/</loc>
+    <loc>/post/2023-02-05-golangslice/</loc>
     <lastmod>2023-02-05T09:50:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2023-02-02-golangstruct/</loc>
+    <loc>/post/2023-02-02-golangstruct/</loc>
     <lastmod>2023-02-02T19:50:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2023-02-01-golangflow/</loc>
+    <loc>/post/2023-02-01-golangflow/</loc>
     <lastmod>2023-02-01T21:50:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2023-01-31-golangbasics/</loc>
+    <loc>/post/2023-01-31-golangbasics/</loc>
     <lastmod>2023-01-31T21:50:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2023-01-07-2023%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/</loc>
+    <loc>/read/2023-01-07-2023%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/</loc>
     <lastmod>2023-01-07T12:45:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2023-01-14-golangttf/</loc>
+    <loc>/post/2023-01-14-golangttf/</loc>
     <lastmod>2023-01-07T09:43:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2023-01-07-python%E7%9F%A5%E8%AF%86%E7%82%B9%E6%8B%BE%E9%81%97/</loc>
+    <loc>/post/2023-01-07-python%E7%9F%A5%E8%AF%86%E7%82%B9%E6%8B%BE%E9%81%97/</loc>
     <lastmod>2023-01-07T09:43:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2023-01-01-python%E5%9F%BA%E7%A1%80/</loc>
+    <loc>/post/2023-01-01-python%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2023-01-01T19:43:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2022-12-30-plan9%E6%B1%87%E7%BC%96/</loc>
+    <loc>/post/2022-12-30-plan9%E6%B1%87%E7%BC%96/</loc>
     <lastmod>2022-12-30T19:56:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2022-12-17-dmt/</loc>
+    <loc>/post/2022-12-17-dmt/</loc>
     <lastmod>2022-12-17T11:18:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2022-12-12-2022%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/</loc>
+    <loc>/read/2022-12-12-2022%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/</loc>
     <lastmod>2022-12-12T10:30:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2022-12-11T20:11:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2022-12-11-%E7%99%BE%E4%B8%87%E5%AF%8C%E7%BF%81%E5%BF%AB%E8%BD%A6%E9%81%93/</loc>
+    <loc>/read/2022-12-11-%E7%99%BE%E4%B8%87%E5%AF%8C%E7%BF%81%E5%BF%AB%E8%BD%A6%E9%81%93/</loc>
     <lastmod>2022-12-11T20:11:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2022-12-11-%E5%A6%82%E4%BD%95%E6%89%93%E9%80%A0%E4%BD%A0%E7%9A%84%E7%8B%AC%E7%AB%8B%E8%A7%82%E7%82%B9/</loc>
+    <loc>/read/2022-12-11-%E5%A6%82%E4%BD%95%E6%89%93%E9%80%A0%E4%BD%A0%E7%9A%84%E7%8B%AC%E7%AB%8B%E8%A7%82%E7%82%B9/</loc>
     <lastmod>2022-12-11T20:11:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tags/%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>/tags/%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2022-12-11T20:11:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2022-12-11-%E5%AD%A6%E4%B9%A0%E5%92%8C%E8%AE%B0%E5%BF%86/</loc>
+    <loc>/read/2022-12-11-%E5%AD%A6%E4%B9%A0%E5%92%8C%E8%AE%B0%E5%BF%86/</loc>
     <lastmod>2022-12-11T20:11:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/about/</loc>
+    <loc>/about/</loc>
     <lastmod>2022-11-30T10:20:30+00:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2021-04-24-2021%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/</loc>
+    <loc>/read/2021-04-24-2021%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/</loc>
     <lastmod>2021-04-24T07:51:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tags/git/</loc>
+    <loc>/tags/git/</loc>
     <lastmod>2020-10-31T03:04:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tools/2020-10-31-gitrebase/</loc>
+    <loc>/tools/2020-10-31-gitrebase/</loc>
     <lastmod>2020-10-31T03:04:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tools/</loc>
+    <loc>/tools/</loc>
     <lastmod>2020-10-31T03:04:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2020-10-27-6%E5%B8%BD%E6%80%9D%E8%80%83%E6%B3%95/</loc>
+    <loc>/read/2020-10-27-6%E5%B8%BD%E6%80%9D%E8%80%83%E6%B3%95/</loc>
     <lastmod>2020-10-27T05:23:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-09-26-LFU%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>/post/2020-09-26-LFU%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2020-09-26T05:08:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <loc>/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
     <lastmod>2020-09-26T05:08:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-08-31-interface%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/</loc>
+    <loc>/post/2020-08-31-interface%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/</loc>
     <lastmod>2020-08-31T09:26:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-08-19-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/</loc>
+    <loc>/post/2020-08-19-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2020-08-19T04:12:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</loc>
+    <loc>/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</loc>
     <lastmod>2020-08-19T04:12:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-08-19-%E5%9B%BE%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/</loc>
+    <loc>/post/2020-08-19-%E5%9B%BE%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2020-08-19T04:07:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/categories/linux/</loc>
+    <loc>/categories/linux/</loc>
     <lastmod>2020-07-25T11:18:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-07-25-SelectPollEpoll/</loc>
+    <loc>/post/2020-07-25-SelectPollEpoll/</loc>
     <lastmod>2020-07-25T11:18:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-07-25-Unix%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E4%BA%94%E7%A7%8DIO%E6%A8%A1%E5%9E%8B/</loc>
+    <loc>/post/2020-07-25-Unix%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E4%BA%94%E7%A7%8DIO%E6%A8%A1%E5%9E%8B/</loc>
     <lastmod>2020-07-25T10:51:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-07-11-golanggo-snowflake/</loc>
+    <loc>/post/2020-07-11-golanggo-snowflake/</loc>
     <lastmod>2020-07-11T03:06:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-07-11-defer/</loc>
+    <loc>/post/2020-07-11-defer/</loc>
     <lastmod>2020-07-11T02:43:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-07-04-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</loc>
+    <loc>/post/2020-07-04-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</loc>
     <lastmod>2020-07-04T02:40:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-07-04-%E5%BF%AB%E9%80%9F%E5%B9%82/</loc>
+    <loc>/post/2020-07-04-%E5%BF%AB%E9%80%9F%E5%B9%82/</loc>
     <lastmod>2020-07-04T02:36:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-06-18-Golang%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9/</loc>
+    <loc>/post/2020-06-18-Golang%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9/</loc>
     <lastmod>2020-06-18T12:20:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-06-13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7%E5%9F%BA%E7%A1%80%E8%AE%A4%E7%9F%A5/</loc>
+    <loc>/post/2020-06-13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7%E5%9F%BA%E7%A1%80%E8%AE%A4%E7%9F%A5/</loc>
     <lastmod>2020-06-13T05:43:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-05-30-KMP%E7%AE%97%E6%B3%95/</loc>
+    <loc>/post/2020-05-30-KMP%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2020-05-30T10:38:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-05-22-%E5%8D%95%E8%B0%83%E6%A0%88%E5%92%8C%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/</loc>
+    <loc>/post/2020-05-22-%E5%8D%95%E8%B0%83%E6%A0%88%E5%92%8C%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/</loc>
     <lastmod>2020-05-22T06:34:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-05-18-%E5%A0%86%E4%B8%8E%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/</loc>
+    <loc>/post/2020-05-18-%E5%A0%86%E4%B8%8E%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/</loc>
     <lastmod>2020-05-18T12:34:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-04-30-go-test%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/</loc>
+    <loc>/post/2020-04-30-go-test%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2020-04-30T06:56:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/categories/mysql/</loc>
+    <loc>/categories/mysql/</loc>
     <lastmod>2020-04-22T08:08:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-04-22-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/</loc>
+    <loc>/post/2020-04-22-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/</loc>
     <lastmod>2020-04-22T08:08:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/categories/Redis/</loc>
+    <loc>/categories/Redis/</loc>
     <lastmod>2020-04-22T03:57:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-04-22-Redis%E9%9B%86%E7%BE%A4/</loc>
+    <loc>/post/2020-04-22-Redis%E9%9B%86%E7%BE%A4/</loc>
     <lastmod>2020-04-22T03:57:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-04-21-RedisObject/</loc>
+    <loc>/post/2020-04-21-RedisObject/</loc>
     <lastmod>2020-04-21T04:01:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-04-18-panicrecover/</loc>
+    <loc>/post/2020-04-18-panicrecover/</loc>
     <lastmod>2020-04-18T03:02:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/categories/MQ/</loc>
+    <loc>/categories/MQ/</loc>
     <lastmod>2020-04-17T11:52:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-04-17-Kafka%E9%80%9F%E5%BA%A6%E5%88%86%E6%9E%90/</loc>
+    <loc>/post/2020-04-17-Kafka%E9%80%9F%E5%BA%A6%E5%88%86%E6%9E%90/</loc>
     <lastmod>2020-04-17T11:52:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-04-12-kafka%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</loc>
+    <loc>/post/2020-04-12-kafka%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</loc>
     <lastmod>2020-04-12T07:42:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-04-07-Golang%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</loc>
+    <loc>/post/2020-04-07-Golang%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</loc>
     <lastmod>2020-04-07T10:56:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-31-%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84BIT/</loc>
+    <loc>/post/2020-03-31-%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84BIT/</loc>
     <lastmod>2020-03-31T04:08:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-29-redis%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/</loc>
+    <loc>/post/2020-03-29-redis%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/</loc>
     <lastmod>2020-03-29T01:29:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2020-03-22-2020%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/</loc>
+    <loc>/read/2020-03-22-2020%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/</loc>
     <lastmod>2020-03-22T13:15:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-15-context%E4%BD%BF%E7%94%A8%E5%92%8C%E5%88%86%E6%9E%90/</loc>
+    <loc>/post/2020-03-15-context%E4%BD%BF%E7%94%A8%E5%92%8C%E5%88%86%E6%9E%90/</loc>
     <lastmod>2020-03-15T06:16:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-15-channel%E5%88%86%E6%9E%90/</loc>
+    <loc>/post/2020-03-15-channel%E5%88%86%E6%9E%90/</loc>
     <lastmod>2020-03-15T06:15:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tags/nginx/</loc>
+    <loc>/tags/nginx/</loc>
     <lastmod>2020-03-15T06:14:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tools/2020-03-15-Nginx%E5%9F%BA%E7%A1%80/</loc>
+    <loc>/tools/2020-03-15-Nginx%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2020-03-15T06:14:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tags/item2/</loc>
+    <loc>/tags/item2/</loc>
     <lastmod>2020-03-15T06:12:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tools/2020-03-15-item2/</loc>
+    <loc>/tools/2020-03-15-item2/</loc>
     <lastmod>2020-03-15T06:12:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/</loc>
+    <loc>/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/</loc>
     <lastmod>2020-03-15T06:11:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tools/2020-03-15-%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/</loc>
+    <loc>/tools/2020-03-15-%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/</loc>
     <lastmod>2020-03-15T06:11:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
+    <loc>/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2020-03-15T06:10:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-15-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/</loc>
+    <loc>/post/2020-03-15-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/</loc>
     <lastmod>2020-03-15T06:10:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
+    <loc>/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
     <lastmod>2020-03-15T06:09:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-15-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BF%9B%E7%A8%8B/</loc>
+    <loc>/post/2020-03-15-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BF%9B%E7%A8%8B/</loc>
     <lastmod>2020-03-15T06:09:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-15-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E4%B8%80%E8%87%B4%E6%80%A7/</loc>
+    <loc>/post/2020-03-15-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E4%B8%80%E8%87%B4%E6%80%A7/</loc>
     <lastmod>2020-03-15T06:04:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tools/2020-03-15-StartUML/</loc>
+    <loc>/tools/2020-03-15-StartUML/</loc>
     <lastmod>2020-03-15T06:01:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tags/uml/</loc>
+    <loc>/tags/uml/</loc>
     <lastmod>2020-03-15T06:01:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-15-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</loc>
+    <loc>/post/2020-03-15-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</loc>
     <lastmod>2020-03-15T06:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-15-MPG%E5%88%86%E6%9E%90/</loc>
+    <loc>/post/2020-03-15-MPG%E5%88%86%E6%9E%90/</loc>
     <lastmod>2020-03-15T05:57:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-15-Pprof/</loc>
+    <loc>/post/2020-03-15-Pprof/</loc>
     <lastmod>2020-03-15T05:53:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-15-FileServer/</loc>
+    <loc>/post/2020-03-15-FileServer/</loc>
     <lastmod>2020-03-15T05:52:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-15-%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/</loc>
+    <loc>/post/2020-03-15-%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2020-03-15T05:51:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/</loc>
+    <loc>/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/</loc>
     <lastmod>2020-03-15T05:50:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tools/2020-03-15-%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E7%AE%80%E4%BB%8B/</loc>
+    <loc>/tools/2020-03-15-%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E7%AE%80%E4%BB%8B/</loc>
     <lastmod>2020-03-15T05:50:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tags/vim/</loc>
+    <loc>/tags/vim/</loc>
     <lastmod>2020-03-14T11:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tools/2020-03-14-VIM%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</loc>
+    <loc>/tools/2020-03-14-VIM%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2020-03-14T11:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tools/2020-03-14-git%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</loc>
+    <loc>/tools/2020-03-14-git%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2020-03-14T10:59:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tools/2020-03-14-VIM%E5%A4%8D%E5%88%B6/</loc>
+    <loc>/tools/2020-03-14-VIM%E5%A4%8D%E5%88%B6/</loc>
     <lastmod>2020-03-14T10:58:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-SKIPLIST/</loc>
+    <loc>/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-SKIPLIST/</loc>
     <lastmod>2020-03-14T10:51:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-DICT/</loc>
+    <loc>/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-DICT/</loc>
     <lastmod>2020-03-14T10:49:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-INTSET/</loc>
+    <loc>/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-INTSET/</loc>
     <lastmod>2020-03-14T10:47:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-ZIPLIST/</loc>
+    <loc>/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-ZIPLIST/</loc>
     <lastmod>2020-03-14T10:45:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-SDS/</loc>
+    <loc>/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-SDS/</loc>
     <lastmod>2020-03-14T10:44:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-redis%E5%9F%BA%E7%A1%80/</loc>
+    <loc>/post/2020-03-14-redis%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2020-03-14T10:41:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-Mysql%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E9%A1%B9%E6%80%BB%E7%BB%93/</loc>
+    <loc>/post/2020-03-14-Mysql%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E9%A1%B9%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2020-03-14T03:10:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-explain%E4%BD%BF%E7%94%A8/</loc>
+    <loc>/post/2020-03-14-explain%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2020-03-14T03:09:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA%E7%9B%B8%E5%85%B3/</loc>
+    <loc>/post/2020-03-14-%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA%E7%9B%B8%E5%85%B3/</loc>
     <lastmod>2020-03-14T03:08:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-%E4%B8%B4%E6%97%B6%E8%A1%A8%E7%9B%B8%E5%85%B3/</loc>
+    <loc>/post/2020-03-14-%E4%B8%B4%E6%97%B6%E8%A1%A8%E7%9B%B8%E5%85%B3/</loc>
     <lastmod>2020-03-14T03:07:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-Group%E7%9B%B8%E5%85%B3/</loc>
+    <loc>/post/2020-03-14-Group%E7%9B%B8%E5%85%B3/</loc>
     <lastmod>2020-03-14T03:06:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-join%E7%9B%B8%E5%85%B3/</loc>
+    <loc>/post/2020-03-14-join%E7%9B%B8%E5%85%B3/</loc>
     <lastmod>2020-03-14T03:04:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-%E5%85%A8%E8%A1%A8%E6%89%AB%E6%8F%8F%E9%97%AE%E9%A2%98/</loc>
+    <loc>/post/2020-03-14-%E5%85%A8%E8%A1%A8%E6%89%AB%E6%8F%8F%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2020-03-14T03:03:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-%E5%88%A0%E9%99%A4%E6%B5%81%E7%A8%8B/</loc>
+    <loc>/post/2020-03-14-%E5%88%A0%E9%99%A4%E6%B5%81%E7%A8%8B/</loc>
     <lastmod>2020-03-14T03:02:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-%E6%8E%92%E5%BA%8F%E6%96%B9%E6%B3%95/</loc>
+    <loc>/post/2020-03-14-%E6%8E%92%E5%BA%8F%E6%96%B9%E6%B3%95/</loc>
     <lastmod>2020-03-14T02:59:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-%E7%BB%9F%E8%AE%A1%E6%AF%94%E8%BE%83/</loc>
+    <loc>/post/2020-03-14-%E7%BB%9F%E8%AE%A1%E6%AF%94%E8%BE%83/</loc>
     <lastmod>2020-03-14T02:58:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-%E6%97%A5%E5%BF%97%E7%B1%BB%E5%9E%8B/</loc>
+    <loc>/post/2020-03-14-%E6%97%A5%E5%BF%97%E7%B1%BB%E5%9E%8B/</loc>
     <lastmod>2020-03-14T02:57:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-%E4%B8%80%E8%87%B4%E6%80%A7%E8%AF%BB/</loc>
+    <loc>/post/2020-03-14-%E4%B8%80%E8%87%B4%E6%80%A7%E8%AF%BB/</loc>
     <lastmod>2020-03-14T02:55:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-%E9%94%81%E7%9B%B8%E5%85%B3/</loc>
+    <loc>/post/2020-03-14-%E9%94%81%E7%9B%B8%E5%85%B3/</loc>
     <lastmod>2020-03-14T02:53:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-%E7%B4%A2%E5%BC%95%E7%9B%B8%E5%85%B3/</loc>
+    <loc>/post/2020-03-14-%E7%B4%A2%E5%BC%95%E7%9B%B8%E5%85%B3/</loc>
     <lastmod>2020-03-14T02:52:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B%E8%A7%A3%E6%9E%90/</loc>
+    <loc>/post/2020-03-14-%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B%E8%A7%A3%E6%9E%90/</loc>
     <lastmod>2020-03-14T02:51:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-%E6%9F%A5%E8%AF%A2%E6%B5%81%E7%A8%8B%E8%A7%A3%E6%9E%90/</loc>
+    <loc>/post/2020-03-14-%E6%9F%A5%E8%AF%A2%E6%B5%81%E7%A8%8B%E8%A7%A3%E6%9E%90/</loc>
     <lastmod>2020-03-14T02:50:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-InnoDB%E7%9A%84ACID/</loc>
+    <loc>/post/2020-03-14-InnoDB%E7%9A%84ACID/</loc>
     <lastmod>2020-03-14T02:49:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-%E7%9F%A5%E8%AF%86%E7%82%B9%E6%94%B6%E9%9B%86/</loc>
+    <loc>/post/2020-03-14-%E7%9F%A5%E8%AF%86%E7%82%B9%E6%94%B6%E9%9B%86/</loc>
     <lastmod>2020-03-14T02:47:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8/</loc>
+    <loc>/post/2020-03-14-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2020-03-14T02:46:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-%E5%9F%BA%E7%A1%80%E8%AE%A4%E7%9F%A5/</loc>
+    <loc>/post/2020-03-14-%E5%9F%BA%E7%A1%80%E8%AE%A4%E7%9F%A5/</loc>
     <lastmod>2020-03-14T02:45:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-14-MQ%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E9%A1%B9%E6%80%BB%E7%BB%93/</loc>
+    <loc>/post/2020-03-14-MQ%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E9%A1%B9%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2020-03-14T02:41:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tags/tmux/</loc>
+    <loc>/tags/tmux/</loc>
     <lastmod>2020-03-14T02:40:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tools/2020-03-14-tmux%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
+    <loc>/tools/2020-03-14-tmux%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2020-03-14T02:40:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tags/shell/</loc>
+    <loc>/tags/shell/</loc>
     <lastmod>2020-03-14T02:39:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tools/2020-03-14-Shell%E7%AE%80%E5%8D%95%E5%AE%9E%E6%88%98/</loc>
+    <loc>/tools/2020-03-14-Shell%E7%AE%80%E5%8D%95%E5%AE%9E%E6%88%98/</loc>
     <lastmod>2020-03-14T02:39:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tools/2020-03-14-Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</loc>
+    <loc>/tools/2020-03-14-Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</loc>
     <lastmod>2020-03-14T02:38:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tags/curl/</loc>
+    <loc>/tags/curl/</loc>
     <lastmod>2020-03-14T02:36:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tools/2020-03-14-CURL%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
+    <loc>/tools/2020-03-14-CURL%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2020-03-14T02:36:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tags/grep/</loc>
+    <loc>/tags/grep/</loc>
     <lastmod>2020-03-14T02:35:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tools/2020-03-14-GREP%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
+    <loc>/tools/2020-03-14-GREP%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2020-03-14T02:35:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tags/find/</loc>
+    <loc>/tags/find/</loc>
     <lastmod>2020-03-14T02:34:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tools/2020-03-14-FIND%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
+    <loc>/tools/2020-03-14-FIND%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2020-03-14T02:34:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tags/sed/</loc>
+    <loc>/tags/sed/</loc>
     <lastmod>2020-03-14T02:33:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tools/2020-03-14-SED%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
+    <loc>/tools/2020-03-14-SED%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2020-03-14T02:33:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tags/awk/</loc>
+    <loc>/tags/awk/</loc>
     <lastmod>2020-03-14T02:32:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tools/2020-03-14-AWK%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
+    <loc>/tools/2020-03-14-AWK%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2020-03-14T02:32:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-B%E7%B1%BB%E6%A0%91/</loc>
+    <loc>/post/2020-03-13-B%E7%B1%BB%E6%A0%91/</loc>
     <lastmod>2020-03-13T06:47:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E4%BD%8D%E5%9B%BE/</loc>
+    <loc>/post/2020-03-13-%E4%BD%8D%E5%9B%BE/</loc>
     <lastmod>2020-03-13T06:42:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/</loc>
+    <loc>/post/2020-03-13-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/</loc>
     <lastmod>2020-03-13T06:41:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E9%93%BE%E8%A1%A8/</loc>
+    <loc>/post/2020-03-13-%E9%93%BE%E8%A1%A8/</loc>
     <lastmod>2020-03-13T06:39:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-map/</loc>
+    <loc>/post/2020-03-13-map/</loc>
     <lastmod>2020-03-13T06:38:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E4%BA%8C%E5%8F%89%E5%B9%B3%E8%A1%A1%E6%A0%91%E6%97%8B%E8%BD%AC/</loc>
+    <loc>/post/2020-03-13-%E4%BA%8C%E5%8F%89%E5%B9%B3%E8%A1%A1%E6%A0%91%E6%97%8B%E8%BD%AC/</loc>
     <lastmod>2020-03-13T06:36:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%E8%AF%A6%E6%83%85/</loc>
+    <loc>/post/2020-03-13-%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%E8%AF%A6%E6%83%85/</loc>
     <lastmod>2020-03-13T06:33:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E7%BA%A2%E9%BB%91%E6%A0%91%E8%AF%A6%E6%83%85/</loc>
+    <loc>/post/2020-03-13-%E7%BA%A2%E9%BB%91%E6%A0%91%E8%AF%A6%E6%83%85/</loc>
     <lastmod>2020-03-13T06:30:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E7%BA%A2%E9%BB%91%E6%A0%91%E5%AE%9E%E7%8E%B0/</loc>
+    <loc>/post/2020-03-13-%E7%BA%A2%E9%BB%91%E6%A0%91%E5%AE%9E%E7%8E%B0/</loc>
     <lastmod>2020-03-13T06:25:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E6%9F%A5%E5%B9%B6%E9%9B%86/</loc>
+    <loc>/post/2020-03-13-%E6%9F%A5%E5%B9%B6%E9%9B%86/</loc>
     <lastmod>2020-03-13T06:24:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</loc>
+    <loc>/post/2020-03-13-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</loc>
     <lastmod>2020-03-13T06:22:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E4%BD%8D%E6%93%8D%E4%BD%9C/</loc>
+    <loc>/post/2020-03-13-%E4%BD%8D%E6%93%8D%E4%BD%9C/</loc>
     <lastmod>2020-03-13T06:21:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E5%AD%97%E5%85%B8%E6%A0%91/</loc>
+    <loc>/post/2020-03-13-%E5%AD%97%E5%85%B8%E6%A0%91/</loc>
     <lastmod>2020-03-13T06:20:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/</loc>
+    <loc>/post/2020-03-13-%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2020-03-13T06:18:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</loc>
+    <loc>/post/2020-03-13-%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2020-03-13T06:17:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/</loc>
+    <loc>/post/2020-03-13-%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2020-03-13T06:16:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E4%BA%8C%E5%8F%89%E6%A0%91/</loc>
+    <loc>/post/2020-03-13-%E4%BA%8C%E5%8F%89%E6%A0%91/</loc>
     <lastmod>2020-03-13T06:15:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E5%93%88%E5%B8%8C/</loc>
+    <loc>/post/2020-03-13-%E5%93%88%E5%B8%8C/</loc>
     <lastmod>2020-03-13T05:30:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/</loc>
+    <loc>/post/2020-03-13-%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/</loc>
     <lastmod>2020-03-13T05:17:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/</loc>
+    <loc>/post/2020-03-13-%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/</loc>
     <lastmod>2020-03-13T05:16:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/</loc>
+    <loc>/post/2020-03-13-%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/</loc>
     <lastmod>2020-03-13T05:15:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E5%8D%95%E9%93%BE%E8%A1%A8/</loc>
+    <loc>/post/2020-03-13-%E5%8D%95%E9%93%BE%E8%A1%A8/</loc>
     <lastmod>2020-03-13T05:14:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%E7%AE%97%E6%B3%95/</loc>
+    <loc>/post/2020-03-13-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2020-03-13T05:12:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</loc>
+    <loc>/post/2020-03-13-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</loc>
     <lastmod>2020-03-13T05:11:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/</loc>
+    <loc>/post/2020-03-13-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/</loc>
     <lastmod>2020-03-13T05:09:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F/</loc>
+    <loc>/post/2020-03-13-%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F/</loc>
     <lastmod>2020-03-13T05:07:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</loc>
+    <loc>/post/2020-03-13-%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2020-03-13T05:06:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-Alpha-Beta%E7%AE%97%E6%B3%95/</loc>
+    <loc>/post/2020-03-13-Alpha-Beta%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2020-03-13T05:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/post/2020-03-13-%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/</loc>
+    <loc>/post/2020-03-13-%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2020-03-13T04:58:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2020-03-13-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BF%83%E6%99%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%93%B2%E5%AD%A6%E5%8E%9F%E7%90%86/</loc>
+    <loc>/read/2020-03-13-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BF%83%E6%99%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%93%B2%E5%AD%A6%E5%8E%9F%E7%90%86/</loc>
     <lastmod>2020-03-13T04:55:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2020-03-13-%E5%A6%82%E4%BD%95%E6%89%93%E9%80%A0%E4%BD%A0%E7%9A%84%E7%8B%AC%E7%AB%8B%E8%A7%82%E7%82%B9/</loc>
+    <loc>/read/2020-03-13-%E5%A6%82%E4%BD%95%E6%89%93%E9%80%A0%E4%BD%A0%E7%9A%84%E7%8B%AC%E7%AB%8B%E8%A7%82%E7%82%B9/</loc>
     <lastmod>2020-03-13T04:54:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2020-03-13-%E8%B6%85%E7%BA%A7%E8%AF%A2%E9%97%AE%E6%9C%AF/</loc>
+    <loc>/read/2020-03-13-%E8%B6%85%E7%BA%A7%E8%AF%A2%E9%97%AE%E6%9C%AF/</loc>
     <lastmod>2020-03-13T04:52:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2020-03-13-%E9%97%AE%E9%A2%98%E6%9C%AC%E8%B4%A8/</loc>
+    <loc>/read/2020-03-13-%E9%97%AE%E9%A2%98%E6%9C%AC%E8%B4%A8/</loc>
     <lastmod>2020-03-13T04:46:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2020-03-13-%E5%86%99%E4%BD%9C%E6%98%AF%E6%9C%80%E5%A5%BD%E7%9A%84%E8%87%AA%E6%88%91%E6%8A%95%E8%B5%84/</loc>
+    <loc>/read/2020-03-13-%E5%86%99%E4%BD%9C%E6%98%AF%E6%9C%80%E5%A5%BD%E7%9A%84%E8%87%AA%E6%88%91%E6%8A%95%E8%B5%84/</loc>
     <lastmod>2020-03-13T04:44:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2020-03-13-%E5%A4%A7%E4%BD%AC%E5%88%86%E4%BA%AB/</loc>
+    <loc>/read/2020-03-13-%E5%A4%A7%E4%BD%AC%E5%88%86%E4%BA%AB/</loc>
     <lastmod>2020-03-13T04:43:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2020-03-13-%E8%AE%B0%E5%BF%86%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/</loc>
+    <loc>/read/2020-03-13-%E8%AE%B0%E5%BF%86%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2020-03-13T04:41:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2020-03-13-%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E4%B8%80%E6%9C%AC%E4%B9%A6/</loc>
+    <loc>/read/2020-03-13-%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E4%B8%80%E6%9C%AC%E4%B9%A6/</loc>
     <lastmod>2020-03-13T04:38:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2020-03-13-%E8%AE%B2%E6%95%85%E4%BA%8B/</loc>
+    <loc>/read/2020-03-13-%E8%AE%B2%E6%95%85%E4%BA%8B/</loc>
     <lastmod>2020-03-13T04:32:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2020-03-13-%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/</loc>
+    <loc>/read/2020-03-13-%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2020-03-13T04:23:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/tags/%E5%BF%83%E5%BE%97/</loc>
+    <loc>/tags/%E5%BF%83%E5%BE%97/</loc>
     <lastmod>2020-03-13T04:23:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2020-03-13-2019%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/</loc>
+    <loc>/read/2020-03-13-2019%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/</loc>
     <lastmod>2020-03-13T04:21:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2020-03-13-2018%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/</loc>
+    <loc>/read/2020-03-13-2018%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/</loc>
     <lastmod>2020-03-13T04:18:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2020-03-13-2017%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/</loc>
+    <loc>/read/2020-03-13-2017%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/</loc>
     <lastmod>2020-03-13T04:17:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2020-03-13-2016%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/</loc>
+    <loc>/read/2020-03-13-2016%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/</loc>
     <lastmod>2020-03-13T04:14:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/read/2020-03-13-2015%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/</loc>
+    <loc>/read/2020-03-13-2015%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/</loc>
     <lastmod>2020-03-13T04:13:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.weiweng.top/archives/</loc>
+    <loc>/archives/</loc>
   </url><url>
-    <loc>https://blog.weiweng.top/search/</loc>
+    <loc>/search/</loc>
   </url>
 </urlset>
