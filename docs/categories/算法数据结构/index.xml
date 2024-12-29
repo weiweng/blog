@@ -2,332 +2,332 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>算法&amp;数据结构 on weiweng的博客</title>
-    <link>https://blog.weiweng.top/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+    <link>https://weiweng.top/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
     <description>Recent content in 算法&amp;数据结构 on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 26 Sep 2020 05:08:00 +0800</lastBuildDate><atom:link href="https://blog.weiweng.top/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 26 Sep 2020 05:08:00 +0800</lastBuildDate><atom:link href="https://weiweng.top/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LFU简单学习</title>
-      <link>https://blog.weiweng.top/post/2020-09-26-LFU%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://weiweng.top/post/2020-09-26-LFU%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Sat, 26 Sep 2020 05:08:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-09-26-LFU%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://weiweng.top/post/2020-09-26-LFU%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/</guid>
       <description>LFU简单学习</description>
     </item>
     
     <item>
       <title>图及其相关算法</title>
-      <link>https://blog.weiweng.top/post/2020-08-19-%E5%9B%BE%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/</link>
+      <link>https://weiweng.top/post/2020-08-19-%E5%9B%BE%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/</link>
       <pubDate>Wed, 19 Aug 2020 04:07:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-08-19-%E5%9B%BE%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://weiweng.top/post/2020-08-19-%E5%9B%BE%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/</guid>
       <description>图及其相关算法</description>
     </item>
     
     <item>
       <title>滑动窗口</title>
-      <link>https://blog.weiweng.top/post/2020-07-04-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</link>
+      <link>https://weiweng.top/post/2020-07-04-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</link>
       <pubDate>Sat, 04 Jul 2020 02:40:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-07-04-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</guid>
+      <guid>https://weiweng.top/post/2020-07-04-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</guid>
       <description>滑动窗口</description>
     </item>
     
     <item>
       <title>快速幂</title>
-      <link>https://blog.weiweng.top/post/2020-07-04-%E5%BF%AB%E9%80%9F%E5%B9%82/</link>
+      <link>https://weiweng.top/post/2020-07-04-%E5%BF%AB%E9%80%9F%E5%B9%82/</link>
       <pubDate>Sat, 04 Jul 2020 02:36:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-07-04-%E5%BF%AB%E9%80%9F%E5%B9%82/</guid>
+      <guid>https://weiweng.top/post/2020-07-04-%E5%BF%AB%E9%80%9F%E5%B9%82/</guid>
       <description>快速幂</description>
     </item>
     
     <item>
       <title>KMP算法</title>
-      <link>https://blog.weiweng.top/post/2020-05-30-KMP%E7%AE%97%E6%B3%95/</link>
+      <link>https://weiweng.top/post/2020-05-30-KMP%E7%AE%97%E6%B3%95/</link>
       <pubDate>Sat, 30 May 2020 10:38:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-05-30-KMP%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://weiweng.top/post/2020-05-30-KMP%E7%AE%97%E6%B3%95/</guid>
       <description>KMP算法</description>
     </item>
     
     <item>
       <title>单调栈和单调队列</title>
-      <link>https://blog.weiweng.top/post/2020-05-22-%E5%8D%95%E8%B0%83%E6%A0%88%E5%92%8C%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/</link>
+      <link>https://weiweng.top/post/2020-05-22-%E5%8D%95%E8%B0%83%E6%A0%88%E5%92%8C%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/</link>
       <pubDate>Fri, 22 May 2020 06:34:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-05-22-%E5%8D%95%E8%B0%83%E6%A0%88%E5%92%8C%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/</guid>
+      <guid>https://weiweng.top/post/2020-05-22-%E5%8D%95%E8%B0%83%E6%A0%88%E5%92%8C%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/</guid>
       <description>单调栈和单调队列</description>
     </item>
     
     <item>
       <title>堆与优先级队列</title>
-      <link>https://blog.weiweng.top/post/2020-05-18-%E5%A0%86%E4%B8%8E%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/</link>
+      <link>https://weiweng.top/post/2020-05-18-%E5%A0%86%E4%B8%8E%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/</link>
       <pubDate>Mon, 18 May 2020 12:34:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-05-18-%E5%A0%86%E4%B8%8E%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/</guid>
+      <guid>https://weiweng.top/post/2020-05-18-%E5%A0%86%E4%B8%8E%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/</guid>
       <description>堆与优先级队列</description>
     </item>
     
     <item>
       <title>树状数组BIT</title>
-      <link>https://blog.weiweng.top/post/2020-03-31-%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84BIT/</link>
+      <link>https://weiweng.top/post/2020-03-31-%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84BIT/</link>
       <pubDate>Tue, 31 Mar 2020 04:08:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-31-%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84BIT/</guid>
+      <guid>https://weiweng.top/post/2020-03-31-%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84BIT/</guid>
       <description>树状数组BIT</description>
     </item>
     
     <item>
       <title>B类树</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-B%E7%B1%BB%E6%A0%91/</link>
+      <link>https://weiweng.top/post/2020-03-13-B%E7%B1%BB%E6%A0%91/</link>
       <pubDate>Fri, 13 Mar 2020 06:47:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-B%E7%B1%BB%E6%A0%91/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-B%E7%B1%BB%E6%A0%91/</guid>
       <description>B类树</description>
     </item>
     
     <item>
       <title>位图</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E4%BD%8D%E5%9B%BE/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E4%BD%8D%E5%9B%BE/</link>
       <pubDate>Fri, 13 Mar 2020 06:42:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E4%BD%8D%E5%9B%BE/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E4%BD%8D%E5%9B%BE/</guid>
       <description>位图</description>
     </item>
     
     <item>
       <title>栈和队列</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/</link>
       <pubDate>Fri, 13 Mar 2020 06:41:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/</guid>
       <description>栈和队列</description>
     </item>
     
     <item>
       <title>链表</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E9%93%BE%E8%A1%A8/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E9%93%BE%E8%A1%A8/</link>
       <pubDate>Fri, 13 Mar 2020 06:39:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E9%93%BE%E8%A1%A8/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E9%93%BE%E8%A1%A8/</guid>
       <description>链表</description>
     </item>
     
     <item>
       <title>二叉平衡树旋转</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E4%BA%8C%E5%8F%89%E5%B9%B3%E8%A1%A1%E6%A0%91%E6%97%8B%E8%BD%AC/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E4%BA%8C%E5%8F%89%E5%B9%B3%E8%A1%A1%E6%A0%91%E6%97%8B%E8%BD%AC/</link>
       <pubDate>Fri, 13 Mar 2020 06:36:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E4%BA%8C%E5%8F%89%E5%B9%B3%E8%A1%A1%E6%A0%91%E6%97%8B%E8%BD%AC/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E4%BA%8C%E5%8F%89%E5%B9%B3%E8%A1%A1%E6%A0%91%E6%97%8B%E8%BD%AC/</guid>
       <description>二叉平衡树旋转</description>
     </item>
     
     <item>
       <title>二叉排序树详情</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%E8%AF%A6%E6%83%85/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%E8%AF%A6%E6%83%85/</link>
       <pubDate>Fri, 13 Mar 2020 06:33:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%E8%AF%A6%E6%83%85/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%E8%AF%A6%E6%83%85/</guid>
       <description>二叉排序树详情</description>
     </item>
     
     <item>
       <title>红黑树详情</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E7%BA%A2%E9%BB%91%E6%A0%91%E8%AF%A6%E6%83%85/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E7%BA%A2%E9%BB%91%E6%A0%91%E8%AF%A6%E6%83%85/</link>
       <pubDate>Fri, 13 Mar 2020 06:30:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E7%BA%A2%E9%BB%91%E6%A0%91%E8%AF%A6%E6%83%85/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E7%BA%A2%E9%BB%91%E6%A0%91%E8%AF%A6%E6%83%85/</guid>
       <description>红黑树详情</description>
     </item>
     
     <item>
       <title>红黑树实现</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E7%BA%A2%E9%BB%91%E6%A0%91%E5%AE%9E%E7%8E%B0/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E7%BA%A2%E9%BB%91%E6%A0%91%E5%AE%9E%E7%8E%B0/</link>
       <pubDate>Fri, 13 Mar 2020 06:25:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E7%BA%A2%E9%BB%91%E6%A0%91%E5%AE%9E%E7%8E%B0/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E7%BA%A2%E9%BB%91%E6%A0%91%E5%AE%9E%E7%8E%B0/</guid>
       <description>红黑树实现</description>
     </item>
     
     <item>
       <title>查并集</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E6%9F%A5%E5%B9%B6%E9%9B%86/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E6%9F%A5%E5%B9%B6%E9%9B%86/</link>
       <pubDate>Fri, 13 Mar 2020 06:24:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E6%9F%A5%E5%B9%B6%E9%9B%86/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E6%9F%A5%E5%B9%B6%E9%9B%86/</guid>
       <description>查并集</description>
     </item>
     
     <item>
       <title>动态规划</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
       <pubDate>Fri, 13 Mar 2020 06:22:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid>
       <description>动态规划</description>
     </item>
     
     <item>
       <title>位操作</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E4%BD%8D%E6%93%8D%E4%BD%9C/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E4%BD%8D%E6%93%8D%E4%BD%9C/</link>
       <pubDate>Fri, 13 Mar 2020 06:21:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E4%BD%8D%E6%93%8D%E4%BD%9C/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E4%BD%8D%E6%93%8D%E4%BD%9C/</guid>
       <description>位操作</description>
     </item>
     
     <item>
       <title>字典树</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E5%AD%97%E5%85%B8%E6%A0%91/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E5%AD%97%E5%85%B8%E6%A0%91/</link>
       <pubDate>Fri, 13 Mar 2020 06:20:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E5%AD%97%E5%85%B8%E6%A0%91/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E5%AD%97%E5%85%B8%E6%A0%91/</guid>
       <description>字典树</description>
     </item>
     
     <item>
       <title>回溯算法</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/</link>
       <pubDate>Fri, 13 Mar 2020 06:18:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/</guid>
       <description>回溯算法</description>
     </item>
     
     <item>
       <title>贪心算法</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</link>
       <pubDate>Fri, 13 Mar 2020 06:17:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</guid>
       <description>贪心算法</description>
     </item>
     
     <item>
       <title>分治算法</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/</link>
       <pubDate>Fri, 13 Mar 2020 06:16:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/</guid>
       <description>分治算法</description>
     </item>
     
     <item>
       <title>二叉树</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
       <pubDate>Fri, 13 Mar 2020 06:15:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
       <description>二叉树</description>
     </item>
     
     <item>
       <title>哈希</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E5%93%88%E5%B8%8C/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E5%93%88%E5%B8%8C/</link>
       <pubDate>Fri, 13 Mar 2020 05:30:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E5%93%88%E5%B8%8C/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E5%93%88%E5%B8%8C/</guid>
       <description>哈希</description>
     </item>
     
     <item>
       <title>双端队列</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/</link>
       <pubDate>Fri, 13 Mar 2020 05:17:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/</guid>
       <description>双端队列</description>
     </item>
     
     <item>
       <title>优先级队列</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/</link>
       <pubDate>Fri, 13 Mar 2020 05:16:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/</guid>
       <description>优先级队列</description>
     </item>
     
     <item>
       <title>栈与队列</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/</link>
       <pubDate>Fri, 13 Mar 2020 05:15:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/</guid>
       <description>栈与队列</description>
     </item>
     
     <item>
       <title>单链表</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E5%8D%95%E9%93%BE%E8%A1%A8/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E5%8D%95%E9%93%BE%E8%A1%A8/</link>
       <pubDate>Fri, 13 Mar 2020 05:14:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E5%8D%95%E9%93%BE%E8%A1%A8/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E5%8D%95%E9%93%BE%E8%A1%A8/</guid>
       <description>单链表</description>
     </item>
     
     <item>
       <title>广度优先遍历算法</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%E7%AE%97%E6%B3%95/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%E7%AE%97%E6%B3%95/</link>
       <pubDate>Fri, 13 Mar 2020 05:12:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%E7%AE%97%E6%B3%95/</guid>
       <description>广度优先遍历算法</description>
     </item>
     
     <item>
       <title>二分查找</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</link>
       <pubDate>Fri, 13 Mar 2020 05:11:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</guid>
       <description>二分查找</description>
     </item>
     
     <item>
       <title>计数排序</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/</link>
       <pubDate>Fri, 13 Mar 2020 05:09:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/</guid>
       <description>计数排序</description>
     </item>
     
     <item>
       <title>比较排序</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F/</link>
       <pubDate>Fri, 13 Mar 2020 05:07:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F/</guid>
       <description>比较排序</description>
     </item>
     
     <item>
       <title>经典排序算法</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</link>
       <pubDate>Fri, 13 Mar 2020 05:06:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</guid>
       <description>经典排序算法</description>
     </item>
     
     <item>
       <title>Alpha-Beta算法</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-Alpha-Beta%E7%AE%97%E6%B3%95/</link>
+      <link>https://weiweng.top/post/2020-03-13-Alpha-Beta%E7%AE%97%E6%B3%95/</link>
       <pubDate>Fri, 13 Mar 2020 05:00:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-Alpha-Beta%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-Alpha-Beta%E7%AE%97%E6%B3%95/</guid>
       <description>Alpha-Beta算法</description>
     </item>
     
     <item>
       <title>约瑟夫环问题</title>
-      <link>https://blog.weiweng.top/post/2020-03-13-%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/</link>
+      <link>https://weiweng.top/post/2020-03-13-%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/</link>
       <pubDate>Fri, 13 Mar 2020 04:58:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/post/2020-03-13-%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://weiweng.top/post/2020-03-13-%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/</guid>
       <description>约瑟夫环问题</description>
     </item>
     

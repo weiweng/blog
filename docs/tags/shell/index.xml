@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>shell on weiweng的博客</title>
-    <link>https://blog.weiweng.top/tags/shell/</link>
+    <link>https://weiweng.top/tags/shell/</link>
     <description>Recent content in shell on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 14 Mar 2020 02:39:00 +0800</lastBuildDate><atom:link href="https://blog.weiweng.top/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 Mar 2020 02:39:00 +0800</lastBuildDate><atom:link href="https://weiweng.top/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Shell简单实战</title>
-      <link>https://blog.weiweng.top/tools/2020-03-14-Shell%E7%AE%80%E5%8D%95%E5%AE%9E%E6%88%98/</link>
+      <link>https://weiweng.top/tools/2020-03-14-Shell%E7%AE%80%E5%8D%95%E5%AE%9E%E6%88%98/</link>
       <pubDate>Sat, 14 Mar 2020 02:39:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/tools/2020-03-14-Shell%E7%AE%80%E5%8D%95%E5%AE%9E%E6%88%98/</guid>
+      <guid>https://weiweng.top/tools/2020-03-14-Shell%E7%AE%80%E5%8D%95%E5%AE%9E%E6%88%98/</guid>
       <description>Shell简单实战</description>
     </item>
     
     <item>
       <title>Shell基本语法</title>
-      <link>https://blog.weiweng.top/tools/2020-03-14-Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
+      <link>https://weiweng.top/tools/2020-03-14-Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
       <pubDate>Sat, 14 Mar 2020 02:38:00 +0800</pubDate>
       
-      <guid>https://blog.weiweng.top/tools/2020-03-14-Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
+      <guid>https://weiweng.top/tools/2020-03-14-Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
       <description>Shell基本语法</description>
     </item>
     
