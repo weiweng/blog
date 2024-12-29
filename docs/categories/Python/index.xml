@@ -2,44 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on weiweng的博客</title>
-    <link>/categories/Python/</link>
+    <link>https://weiweng.top/categories/Python/</link>
     <description>Recent content in Python on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 20 Jan 2024 10:00:00 +0800</lastBuildDate><atom:link href="/categories/Python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Jan 2024 10:00:00 +0800</lastBuildDate><atom:link href="https://weiweng.top/categories/Python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>python|requests</title>
-      <link>/post/2024-01-20-pythonrequests/</link>
+      <link>https://weiweng.top/post/2024-01-20-pythonrequests/</link>
       <pubDate>Sat, 20 Jan 2024 10:00:00 +0800</pubDate>
       
-      <guid>/post/2024-01-20-pythonrequests/</guid>
+      <guid>https://weiweng.top/post/2024-01-20-pythonrequests/</guid>
       <description>最近工作开始转向使用python，因此更加深入的学习一下，通过阅读开源库学习python的使用。这一期学习使用requests库，这个是一个很漂亮的http包，</description>
     </item>
     
     <item>
       <title>python|学习路径</title>
-      <link>/post/2023-12-13-python%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84/</link>
+      <link>https://weiweng.top/post/2023-12-13-python%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84/</link>
       <pubDate>Wed, 13 Dec 2023 18:00:00 +0800</pubDate>
       
-      <guid>/post/2023-12-13-python%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84/</guid>
+      <guid>https://weiweng.top/post/2023-12-13-python%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84/</guid>
       <description>最近工作原因开始转向写python，发现之前学习的python还是很肤浅，真到用时还是发现很多奇奇怪怪的语法设定，这里记录一下python的学习路径，将学习资料</description>
     </item>
     
     <item>
       <title>Python|知识点拾遗(一)</title>
-      <link>/post/2023-01-07-python%E7%9F%A5%E8%AF%86%E7%82%B9%E6%8B%BE%E9%81%97/</link>
+      <link>https://weiweng.top/post/2023-01-07-python%E7%9F%A5%E8%AF%86%E7%82%B9%E6%8B%BE%E9%81%97/</link>
       <pubDate>Sat, 07 Jan 2023 09:43:00 +0800</pubDate>
       
-      <guid>/post/2023-01-07-python%E7%9F%A5%E8%AF%86%E7%82%B9%E6%8B%BE%E9%81%97/</guid>
+      <guid>https://weiweng.top/post/2023-01-07-python%E7%9F%A5%E8%AF%86%E7%82%B9%E6%8B%BE%E9%81%97/</guid>
       <description>最近阅读《Python工匠：案例、技巧与工程实践》发现一些零零碎碎的之前不知道的知识点，因此总结记录方便以后翻找查阅。 变量与注释 变量解包是python里一种特殊</description>
     </item>
     
     <item>
       <title>Python|基础知识</title>
-      <link>/post/2023-01-01-python%E5%9F%BA%E7%A1%80/</link>
+      <link>https://weiweng.top/post/2023-01-01-python%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Sun, 01 Jan 2023 19:43:00 +0800</pubDate>
       
-      <guid>/post/2023-01-01-python%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://weiweng.top/post/2023-01-01-python%E5%9F%BA%E7%A1%80/</guid>
       <description>python3的基础知识点</description>
     </item>
     

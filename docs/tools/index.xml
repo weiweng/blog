@@ -2,161 +2,161 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tools on weiweng的博客</title>
-    <link>/tools/</link>
+    <link>https://weiweng.top/tools/</link>
     <description>Recent content in Tools on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 31 Oct 2020 03:04:00 +0800</lastBuildDate><atom:link href="/tools/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 31 Oct 2020 03:04:00 +0800</lastBuildDate><atom:link href="https://weiweng.top/tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>git|rebase</title>
-      <link>/tools/2020-10-31-gitrebase/</link>
+      <link>https://weiweng.top/tools/2020-10-31-gitrebase/</link>
       <pubDate>Sat, 31 Oct 2020 03:04:00 +0800</pubDate>
       
-      <guid>/tools/2020-10-31-gitrebase/</guid>
+      <guid>https://weiweng.top/tools/2020-10-31-gitrebase/</guid>
       <description>git rebase的简介以及使用方法</description>
     </item>
     
     <item>
       <title>Nginx|基础</title>
-      <link>/tools/2020-03-15-Nginx%E5%9F%BA%E7%A1%80/</link>
+      <link>https://weiweng.top/tools/2020-03-15-Nginx%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Sun, 15 Mar 2020 06:14:00 +0800</pubDate>
       
-      <guid>/tools/2020-03-15-Nginx%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://weiweng.top/tools/2020-03-15-Nginx%E5%9F%BA%E7%A1%80/</guid>
       <description>Nginx|基础</description>
     </item>
     
     <item>
       <title>item2</title>
-      <link>/tools/2020-03-15-item2/</link>
+      <link>https://weiweng.top/tools/2020-03-15-item2/</link>
       <pubDate>Sun, 15 Mar 2020 06:12:00 +0800</pubDate>
       
-      <guid>/tools/2020-03-15-item2/</guid>
+      <guid>https://weiweng.top/tools/2020-03-15-item2/</guid>
       <description>item2</description>
     </item>
     
     <item>
       <title>搜索引擎技巧</title>
-      <link>/tools/2020-03-15-%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/</link>
+      <link>https://weiweng.top/tools/2020-03-15-%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/</link>
       <pubDate>Sun, 15 Mar 2020 06:11:00 +0800</pubDate>
       
-      <guid>/tools/2020-03-15-%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/</guid>
+      <guid>https://weiweng.top/tools/2020-03-15-%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/</guid>
       <description>搜索引擎技巧</description>
     </item>
     
     <item>
       <title>StartUML</title>
-      <link>/tools/2020-03-15-StartUML/</link>
+      <link>https://weiweng.top/tools/2020-03-15-StartUML/</link>
       <pubDate>Sun, 15 Mar 2020 06:01:00 +0800</pubDate>
       
-      <guid>/tools/2020-03-15-StartUML/</guid>
+      <guid>https://weiweng.top/tools/2020-03-15-StartUML/</guid>
       <description>StartUML</description>
     </item>
     
     <item>
       <title>开源协议简介</title>
-      <link>/tools/2020-03-15-%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E7%AE%80%E4%BB%8B/</link>
+      <link>https://weiweng.top/tools/2020-03-15-%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E7%AE%80%E4%BB%8B/</link>
       <pubDate>Sun, 15 Mar 2020 05:50:00 +0800</pubDate>
       
-      <guid>/tools/2020-03-15-%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E7%AE%80%E4%BB%8B/</guid>
+      <guid>https://weiweng.top/tools/2020-03-15-%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E7%AE%80%E4%BB%8B/</guid>
       <description>开源协议简介</description>
     </item>
     
     <item>
       <title>VIM|基础命令</title>
-      <link>/tools/2020-03-14-VIM%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</link>
+      <link>https://weiweng.top/tools/2020-03-14-VIM%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Sat, 14 Mar 2020 11:00:00 +0800</pubDate>
       
-      <guid>/tools/2020-03-14-VIM%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</guid>
+      <guid>https://weiweng.top/tools/2020-03-14-VIM%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</guid>
       <description>VIM|基础命令</description>
     </item>
     
     <item>
       <title>git|基础命令</title>
-      <link>/tools/2020-03-14-git%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</link>
+      <link>https://weiweng.top/tools/2020-03-14-git%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Sat, 14 Mar 2020 10:59:00 +0800</pubDate>
       
-      <guid>/tools/2020-03-14-git%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</guid>
+      <guid>https://weiweng.top/tools/2020-03-14-git%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</guid>
       <description>git|基础命令</description>
     </item>
     
     <item>
       <title>VIM|复制</title>
-      <link>/tools/2020-03-14-VIM%E5%A4%8D%E5%88%B6/</link>
+      <link>https://weiweng.top/tools/2020-03-14-VIM%E5%A4%8D%E5%88%B6/</link>
       <pubDate>Sat, 14 Mar 2020 10:58:00 +0800</pubDate>
       
-      <guid>/tools/2020-03-14-VIM%E5%A4%8D%E5%88%B6/</guid>
+      <guid>https://weiweng.top/tools/2020-03-14-VIM%E5%A4%8D%E5%88%B6/</guid>
       <description>VIM|复制</description>
     </item>
     
     <item>
       <title>tmux简单使用</title>
-      <link>/tools/2020-03-14-tmux%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <link>https://weiweng.top/tools/2020-03-14-tmux%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sat, 14 Mar 2020 02:40:00 +0800</pubDate>
       
-      <guid>/tools/2020-03-14-tmux%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://weiweng.top/tools/2020-03-14-tmux%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
       <description>tmux简单使用</description>
     </item>
     
     <item>
       <title>Shell简单实战</title>
-      <link>/tools/2020-03-14-Shell%E7%AE%80%E5%8D%95%E5%AE%9E%E6%88%98/</link>
+      <link>https://weiweng.top/tools/2020-03-14-Shell%E7%AE%80%E5%8D%95%E5%AE%9E%E6%88%98/</link>
       <pubDate>Sat, 14 Mar 2020 02:39:00 +0800</pubDate>
       
-      <guid>/tools/2020-03-14-Shell%E7%AE%80%E5%8D%95%E5%AE%9E%E6%88%98/</guid>
+      <guid>https://weiweng.top/tools/2020-03-14-Shell%E7%AE%80%E5%8D%95%E5%AE%9E%E6%88%98/</guid>
       <description>Shell简单实战</description>
     </item>
     
     <item>
       <title>Shell基本语法</title>
-      <link>/tools/2020-03-14-Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
+      <link>https://weiweng.top/tools/2020-03-14-Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
       <pubDate>Sat, 14 Mar 2020 02:38:00 +0800</pubDate>
       
-      <guid>/tools/2020-03-14-Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
+      <guid>https://weiweng.top/tools/2020-03-14-Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
       <description>Shell基本语法</description>
     </item>
     
     <item>
       <title>CURL简单使用</title>
-      <link>/tools/2020-03-14-CURL%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <link>https://weiweng.top/tools/2020-03-14-CURL%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sat, 14 Mar 2020 02:36:00 +0800</pubDate>
       
-      <guid>/tools/2020-03-14-CURL%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://weiweng.top/tools/2020-03-14-CURL%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
       <description>CURL简单使用</description>
     </item>
     
     <item>
       <title>GREP简单使用</title>
-      <link>/tools/2020-03-14-GREP%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <link>https://weiweng.top/tools/2020-03-14-GREP%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sat, 14 Mar 2020 02:35:00 +0800</pubDate>
       
-      <guid>/tools/2020-03-14-GREP%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://weiweng.top/tools/2020-03-14-GREP%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
       <description>GREP简单使用</description>
     </item>
     
     <item>
       <title>FIND简单使用</title>
-      <link>/tools/2020-03-14-FIND%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <link>https://weiweng.top/tools/2020-03-14-FIND%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sat, 14 Mar 2020 02:34:00 +0800</pubDate>
       
-      <guid>/tools/2020-03-14-FIND%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://weiweng.top/tools/2020-03-14-FIND%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
       <description>FIND简单使用</description>
     </item>
     
     <item>
       <title>SED简单使用</title>
-      <link>/tools/2020-03-14-SED%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <link>https://weiweng.top/tools/2020-03-14-SED%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sat, 14 Mar 2020 02:33:00 +0800</pubDate>
       
-      <guid>/tools/2020-03-14-SED%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://weiweng.top/tools/2020-03-14-SED%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
       <description>SED简单使用</description>
     </item>
     
     <item>
       <title>AWK简单使用</title>
-      <link>/tools/2020-03-14-AWK%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <link>https://weiweng.top/tools/2020-03-14-AWK%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sat, 14 Mar 2020 02:32:00 +0800</pubDate>
       
-      <guid>/tools/2020-03-14-AWK%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://weiweng.top/tools/2020-03-14-AWK%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
       <description>AWK简单使用</description>
     </item>
     

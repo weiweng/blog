@@ -2,152 +2,152 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on weiweng的博客</title>
-    <link>/tags/</link>
+    <link>https://weiweng.top/tags/</link>
     <description>Recent content in Tags on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 11 Dec 2022 20:11:00 +0800</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Dec 2022 20:11:00 +0800</lastBuildDate><atom:link href="https://weiweng.top/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>学习</title>
-      <link>/tags/%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://weiweng.top/tags/%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Sun, 11 Dec 2022 20:11:00 +0800</pubDate>
       
-      <guid>/tags/%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://weiweng.top/tags/%E5%AD%A6%E4%B9%A0/</guid>
       <description></description>
     </item>
     
     <item>
       <title>git</title>
-      <link>/tags/git/</link>
+      <link>https://weiweng.top/tags/git/</link>
       <pubDate>Sat, 31 Oct 2020 03:04:00 +0800</pubDate>
       
-      <guid>/tags/git/</guid>
+      <guid>https://weiweng.top/tags/git/</guid>
       <description></description>
     </item>
     
     <item>
       <title>nginx</title>
-      <link>/tags/nginx/</link>
+      <link>https://weiweng.top/tags/nginx/</link>
       <pubDate>Sun, 15 Mar 2020 06:14:00 +0800</pubDate>
       
-      <guid>/tags/nginx/</guid>
+      <guid>https://weiweng.top/tags/nginx/</guid>
       <description></description>
     </item>
     
     <item>
       <title>item2</title>
-      <link>/tags/item2/</link>
+      <link>https://weiweng.top/tags/item2/</link>
       <pubDate>Sun, 15 Mar 2020 06:12:00 +0800</pubDate>
       
-      <guid>/tags/item2/</guid>
+      <guid>https://weiweng.top/tags/item2/</guid>
       <description></description>
     </item>
     
     <item>
       <title>搜索引擎技巧</title>
-      <link>/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/</link>
+      <link>https://weiweng.top/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/</link>
       <pubDate>Sun, 15 Mar 2020 06:11:00 +0800</pubDate>
       
-      <guid>/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/</guid>
+      <guid>https://weiweng.top/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/</guid>
       <description></description>
     </item>
     
     <item>
       <title>uml</title>
-      <link>/tags/uml/</link>
+      <link>https://weiweng.top/tags/uml/</link>
       <pubDate>Sun, 15 Mar 2020 06:01:00 +0800</pubDate>
       
-      <guid>/tags/uml/</guid>
+      <guid>https://weiweng.top/tags/uml/</guid>
       <description></description>
     </item>
     
     <item>
       <title>开源协议</title>
-      <link>/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/</link>
+      <link>https://weiweng.top/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/</link>
       <pubDate>Sun, 15 Mar 2020 05:50:00 +0800</pubDate>
       
-      <guid>/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/</guid>
+      <guid>https://weiweng.top/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/</guid>
       <description></description>
     </item>
     
     <item>
       <title>vim</title>
-      <link>/tags/vim/</link>
+      <link>https://weiweng.top/tags/vim/</link>
       <pubDate>Sat, 14 Mar 2020 11:00:00 +0800</pubDate>
       
-      <guid>/tags/vim/</guid>
+      <guid>https://weiweng.top/tags/vim/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tmux</title>
-      <link>/tags/tmux/</link>
+      <link>https://weiweng.top/tags/tmux/</link>
       <pubDate>Sat, 14 Mar 2020 02:40:00 +0800</pubDate>
       
-      <guid>/tags/tmux/</guid>
+      <guid>https://weiweng.top/tags/tmux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>shell</title>
-      <link>/tags/shell/</link>
+      <link>https://weiweng.top/tags/shell/</link>
       <pubDate>Sat, 14 Mar 2020 02:39:00 +0800</pubDate>
       
-      <guid>/tags/shell/</guid>
+      <guid>https://weiweng.top/tags/shell/</guid>
       <description></description>
     </item>
     
     <item>
       <title>curl</title>
-      <link>/tags/curl/</link>
+      <link>https://weiweng.top/tags/curl/</link>
       <pubDate>Sat, 14 Mar 2020 02:36:00 +0800</pubDate>
       
-      <guid>/tags/curl/</guid>
+      <guid>https://weiweng.top/tags/curl/</guid>
       <description></description>
     </item>
     
     <item>
       <title>grep</title>
-      <link>/tags/grep/</link>
+      <link>https://weiweng.top/tags/grep/</link>
       <pubDate>Sat, 14 Mar 2020 02:35:00 +0800</pubDate>
       
-      <guid>/tags/grep/</guid>
+      <guid>https://weiweng.top/tags/grep/</guid>
       <description></description>
     </item>
     
     <item>
       <title>find</title>
-      <link>/tags/find/</link>
+      <link>https://weiweng.top/tags/find/</link>
       <pubDate>Sat, 14 Mar 2020 02:34:00 +0800</pubDate>
       
-      <guid>/tags/find/</guid>
+      <guid>https://weiweng.top/tags/find/</guid>
       <description></description>
     </item>
     
     <item>
       <title>sed</title>
-      <link>/tags/sed/</link>
+      <link>https://weiweng.top/tags/sed/</link>
       <pubDate>Sat, 14 Mar 2020 02:33:00 +0800</pubDate>
       
-      <guid>/tags/sed/</guid>
+      <guid>https://weiweng.top/tags/sed/</guid>
       <description></description>
     </item>
     
     <item>
       <title>awk</title>
-      <link>/tags/awk/</link>
+      <link>https://weiweng.top/tags/awk/</link>
       <pubDate>Sat, 14 Mar 2020 02:32:00 +0800</pubDate>
       
-      <guid>/tags/awk/</guid>
+      <guid>https://weiweng.top/tags/awk/</guid>
       <description></description>
     </item>
     
     <item>
       <title>心得</title>
-      <link>/tags/%E5%BF%83%E5%BE%97/</link>
+      <link>https://weiweng.top/tags/%E5%BF%83%E5%BE%97/</link>
       <pubDate>Fri, 13 Mar 2020 04:23:00 +0800</pubDate>
       
-      <guid>/tags/%E5%BF%83%E5%BE%97/</guid>
+      <guid>https://weiweng.top/tags/%E5%BF%83%E5%BE%97/</guid>
       <description></description>
     </item>
     
