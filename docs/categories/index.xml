@@ -2,116 +2,116 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on weiweng的博客</title>
-    <link>https://weiweng.top/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 06 May 2024 08:00:00 +0800</lastBuildDate><atom:link href="https://weiweng.top/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 May 2024 08:00:00 +0800</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>算法专题</title>
-      <link>https://weiweng.top/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/</link>
+      <link>/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/</link>
       <pubDate>Mon, 06 May 2024 08:00:00 +0800</pubDate>
       
-      <guid>https://weiweng.top/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/</guid>
+      <guid>/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Golang</title>
-      <link>https://weiweng.top/categories/Golang/</link>
+      <link>/categories/Golang/</link>
       <pubDate>Fri, 15 Mar 2024 08:00:00 +0800</pubDate>
       
-      <guid>https://weiweng.top/categories/Golang/</guid>
+      <guid>/categories/Golang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Python</title>
-      <link>https://weiweng.top/categories/Python/</link>
+      <link>/categories/Python/</link>
       <pubDate>Sat, 20 Jan 2024 10:00:00 +0800</pubDate>
       
-      <guid>https://weiweng.top/categories/Python/</guid>
+      <guid>/categories/Python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>k8s</title>
-      <link>https://weiweng.top/categories/k8s/</link>
+      <link>/categories/k8s/</link>
       <pubDate>Sat, 22 Apr 2023 10:00:00 +0800</pubDate>
       
-      <guid>https://weiweng.top/categories/k8s/</guid>
+      <guid>/categories/k8s/</guid>
       <description></description>
     </item>
     
     <item>
       <title>算法&amp;数据结构</title>
-      <link>https://weiweng.top/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+      <link>/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
       <pubDate>Sat, 26 Sep 2020 05:08:00 +0800</pubDate>
       
-      <guid>https://weiweng.top/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+      <guid>/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
       <description></description>
     </item>
     
     <item>
       <title>微服务</title>
-      <link>https://weiweng.top/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
+      <link>/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
       <pubDate>Wed, 19 Aug 2020 04:12:00 +0800</pubDate>
       
-      <guid>https://weiweng.top/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</guid>
+      <guid>/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</guid>
       <description></description>
     </item>
     
     <item>
       <title>linux</title>
-      <link>https://weiweng.top/categories/linux/</link>
+      <link>/categories/linux/</link>
       <pubDate>Sat, 25 Jul 2020 11:18:00 +0800</pubDate>
       
-      <guid>https://weiweng.top/categories/linux/</guid>
+      <guid>/categories/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mysql</title>
-      <link>https://weiweng.top/categories/mysql/</link>
+      <link>/categories/mysql/</link>
       <pubDate>Wed, 22 Apr 2020 08:08:00 +0800</pubDate>
       
-      <guid>https://weiweng.top/categories/mysql/</guid>
+      <guid>/categories/mysql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Redis</title>
-      <link>https://weiweng.top/categories/Redis/</link>
+      <link>/categories/Redis/</link>
       <pubDate>Wed, 22 Apr 2020 03:57:00 +0800</pubDate>
       
-      <guid>https://weiweng.top/categories/Redis/</guid>
+      <guid>/categories/Redis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>MQ</title>
-      <link>https://weiweng.top/categories/MQ/</link>
+      <link>/categories/MQ/</link>
       <pubDate>Fri, 17 Apr 2020 11:52:00 +0800</pubDate>
       
-      <guid>https://weiweng.top/categories/MQ/</guid>
+      <guid>/categories/MQ/</guid>
       <description></description>
     </item>
     
     <item>
       <title>计算机网络</title>
-      <link>https://weiweng.top/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
+      <link>/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
       <pubDate>Sun, 15 Mar 2020 06:10:00 +0800</pubDate>
       
-      <guid>https://weiweng.top/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</guid>
+      <guid>/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</guid>
       <description></description>
     </item>
     
     <item>
       <title>操作系统</title>
-      <link>https://weiweng.top/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
+      <link>/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
       <pubDate>Sun, 15 Mar 2020 06:09:00 +0800</pubDate>
       
-      <guid>https://weiweng.top/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</guid>
+      <guid>/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</guid>
       <description></description>
     </item>
     
