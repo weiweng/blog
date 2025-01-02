@@ -17,8 +17,8 @@ summaryLength = 80
 
 # disqusShortname = "yourdiscussshortname"  ## 是否开启disqus评论，不要和utteranc同时开启
 
-[author]
-  name = "weiweng"
+# [author]
+#  name = "weiweng"
 
 [params]
   author = "weiweng"
