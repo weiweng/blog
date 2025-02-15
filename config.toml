@@ -1,5 +1,5 @@
 # baseURL = "https://blog.weiweng.top"
-# baseURL = "https://weiweng.top"
+baseURL = "https://github.com/weiweng/blog"
 languageCode = "zh-CN"
 title = "weiweng的博客"
 theme = "maupassant"
@@ -17,8 +17,8 @@ summaryLength = 80
 
 # disqusShortname = "yourdiscussshortname"  ## 是否开启disqus评论，不要和utteranc同时开启
 
-[author]
-  name = "weiweng"
+# [author]
+#  name = "weiweng"
 
 [params]
   author = "weiweng"
