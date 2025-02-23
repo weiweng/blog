@@ -6,7 +6,16 @@
     <description>Recent content in Posts on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 06 May 2024 08:00:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Feb 2025 08:00:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>大模型专题|LangChain rag实践</title>
+      <link>https://weiweng.github.io/blog/post/2025-02-23-langchain/</link>
+      <pubDate>Sun, 23 Feb 2025 08:00:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2025-02-23-langchain/</guid>
+      <description>Retrieval-Augmented Generation (RAG) 是一种赋予生成式人工智能模型信息检索能力的技术。它修改了与大型语言模型（LLM）的交互方式，使模型能够根据指定的文档集对用户查询进行响应，利用这些信息来增</description>
+    </item>
+    
     <item>
       <title>算法专题|并查集</title>
       <link>https://weiweng.github.io/blog/post/2024-05-06-%E5%B9%B6%E6%9F%A5%E9%9B%86/</link>
