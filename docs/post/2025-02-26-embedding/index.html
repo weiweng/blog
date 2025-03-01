@@ -7,20 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 
-    <title>mysql|基础认知 | weiweng的博客</title>
-    <meta property="og:title" content="mysql|基础认知 - weiweng的博客">
+    <title>大模型专题|embedding | weiweng的博客</title>
+    <meta property="og:title" content="大模型专题|embedding - weiweng的博客">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content='2020-03-14T02:45:00&#43;08:00'>
+    <meta property="article:published_time" content='2025-02-26T22:00:00&#43;08:00'>
         
         
-    <meta property="article:modified_time" content='2020-03-14T02:45:00&#43;08:00'>
+    <meta property="article:modified_time" content='2025-02-26T22:00:00&#43;08:00'>
         
     <meta name="Keywords" content="golang,go语言,go语言笔记,博客,项目管理,软件架构">
-    <meta name="description" content="mysql|基础认知">
+    <meta name="description" content="大模型专题|embedding">
         
     <meta name="author" content="">
-    <meta property="og:url" content="https://weiweng.github.io/blog/post/2020-03-14-%E5%9F%BA%E7%A1%80%E8%AE%A4%E7%9F%A5/">
+    <meta property="og:url" content="https://weiweng.github.io/blog/post/2025-02-26-embedding/">
     <link rel="shortcut icon" href='/blog/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='/blog/css/normalize.css'>
@@ -72,129 +72,200 @@
                 <div class="col-8" id="main">
                     
 <div class="res-cons">
-    
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一传统词表示方法的局限性">一、传统词表示方法的局限性</a>
+      <ul>
+        <li><a href="#1-one-hot编码">1. One-Hot编码</a></li>
+        <li><a href="#2-tf-idf">2. TF-IDF</a></li>
+      </ul>
+    </li>
+    <li><a href="#二词嵌入的优势">二、词嵌入的优势</a></li>
+    <li><a href="#三word2vec模型详解">三、Word2Vec模型详解</a></li>
+    <li><a href="#四应用场景">四、应用场景</a></li>
+    <li><a href="#五总结与展望">五、总结与展望</a></li>
+    <li><a href="#参考资料">参考资料</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if (leftPos < 220) {
+                postToc.css({ "width": leftPos - 10, "margin-left": (0 - leftPos) })
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+
+        if ($("#TableOfContents").children().length < 1) {
+            $(".post-toc").remove();
+        }
+    })
+</script>
     <article class="post">
         <header>
-            <h1 class="post-title">mysql|基础认知</h1>
+            <h1 class="post-title">大模型专题|embedding</h1>
         </header>
         
-  <time datetime="2020-03-13T18:45:00Z" class="post-meta meta-date dt-published">
-    2020年3月14日
+  <time datetime="2025-02-26T14:00:00Z" class="post-meta meta-date dt-published">
+    2025年2月26日
   </time>
 
 
 <div class="post-meta meta-category">
   <span>&nbsp;|</span>
   
-    <a href='/blog/categories/mysql' target="_blank">mysql</a>
+    <a href='/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98' target="_blank">大模型专题</a>
   
 </div>
 
 
         
         
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
         <div class="post-content">
-            <h3 id="基本概念">基本概念</h3>
+            <p>文本是一种非结构化的数据信息，是不可以直接被计算的。</p>
+<p>文本表示的作用就是将这些非结构化的信息转化为结构化的信息，这样就可以针对文本信息做计算，来完成我们日常所能见到的文本分类，情感判断等任务。</p>
+<p>文本表示的方法有很多种，下面只介绍 3 类方式：</p>
+<ul>
+<li>独热编码 | one-hot representation</li>
+<li>整数编码</li>
+<li>词嵌入 | word embedding</li>
+</ul>
+<p>词嵌入（Word Embedding）是自然语言处理（NLP）中的核心技术，旨在将词语映射到低维稠密的实数向量空间中，以捕捉词与词之间的语义和语法关系。传统的符号化表示（如One-Hot编码）因高维稀疏和语义缺失等问题逐渐被分布式表示取代。本文将深入解析词嵌入的核心思想，并重点探讨Google提出的经典模型——<strong>Word2Vec</strong>。</p>
+<h2 id="一传统词表示方法的局限性">一、传统词表示方法的局限性</h2>
+<h3 id="1-one-hot编码">1. One-Hot编码</h3>
+<p>One-Hot编码将每个词表示为长度为词典大小的向量，其中仅有一个位置为1，其余为0。</p>
+<p>例如，“猫”表示为<code>[1,0,0,0]</code>，而“狗”为<code>[0,1,0,0]</code>。</p>
+<p>其缺点包括：</p>
+<ul>
+<li><strong>高维稀疏性</strong>：词典规模大时向量维度极高，且99%以上的元素为0。</li>
+<li><strong>语义鸿沟</strong>：任意两个词的余弦相似度均为0，无法表达语义关联。</li>
+</ul>
+<h3 id="2-tf-idf">2. TF-IDF</h3>
+<p>TF-IDF通过词频和逆文档频率加权，试图衡量词的重要性。但它仍无法解决以下问题：</p>
+<ul>
+<li><strong>位置信息缺失</strong>：忽略词在文本中的位置权重。</li>
+<li><strong>语义表达不足</strong>：仅依赖统计信息，无法捕捉上下文关联。</li>
+</ul>
+<h2 id="二词嵌入的优势">二、词嵌入的优势</h2>
+<p>词嵌入通过<strong>分布式表示</strong>（Distributed Representation）将词映射到向量空间，其核心思想基于<strong>分布假说</strong>：上下文相似的词，其语义也相似。优势包括：</p>
 <ol>
-<li>DBMS(数据库管理系统):由一个相互关联的数据的集合和一组用以访问这些数据的程序组成。</li>
-<li>数据库:数据集合的通称</li>
-<li>文件存储系统和数据库管理系统比较的弊端
-<ul>
-<li>数据的冗余和不一致</li>
-<li>数据访问困难</li>
-<li>数据孤立:数据分散在不同文件中，这些文件综合检索困难</li>
-<li>完整性问题:对数据的特定一致性约束，文件系统很难实现</li>
-<li>原子性问题:并发读写的数据一致性问题</li>
-<li>并发访问异常:并发读写的幻读问题</li>
-<li>安全性问题</li>
-</ul>
-</li>
-<li>数据抽象
-<ul>
-<li>物理层:最低层次的抽象，描述复杂的底层数据结构</li>
-<li>逻辑层:更高层次的抽象，实现物理数据独立性，隔离复杂的底层物理结构</li>
-<li>视图层:最高层次抽象，描述数据库的某个部分</li>
-</ul>
-</li>
-<li>实例:数据库特定时刻存储在数据库中的信息的集合，即给定时刻数据库中数据的一个快照</li>
-<li>模式:数据库的总体设计称之为数据库模式，数据库的逻辑设计</li>
-<li>数据模式:数据模式是一个描述数据、数据联系、数据语义以及一致性约束的概念工具的集合
-<ul>
-<li>关系模型</li>
-<li>实体-联系模型</li>
-<li>基于对象的数据模型</li>
-<li>半结构化数据模型</li>
-</ul>
-</li>
-<li>数据库系统功能部件
-<ul>
-<li>存储管理器:负责与文件管理器进行交互，将各种DML语句翻译为底层文件系统命令
-<ul>
-<li>权限及完整性管理器</li>
-<li>事务管理器</li>
-<li>文件管理器</li>
-<li>缓冲区管理器</li>
-<li>数据文件</li>
-<li>数据字典</li>
-<li>索引</li>
-</ul>
-</li>
-<li>查询处理部件
-<ul>
-<li>DDL解释器</li>
-<li>DML编译器</li>
-<li>查询执行引擎</li>
-</ul>
-</li>
-</ul>
-</li>
+<li><strong>低维稠密</strong>：向量维度可控，计算效率高</li>
+<li><strong>语义关联</strong>：相似词在向量空间中距离更近（如“国王-王后≈男人-女人”）</li>
+<li><strong>迁移学习</strong>：预训练的词向量可直接用于下游任务（如情感分析、命名实体识别）</li>
 </ol>
-<h3 id="mysql服务器架构图">Mysql服务器架构图</h3>
-<p>
-        <img class="mx-auto" alt="Mysql服务器架构图" src="img_0.png" />   
-    </p>
-<h3 id="基本命令行">基本命令行</h3>
+<h2 id="三word2vec模型详解">三、Word2Vec模型详解</h2>
+<p>Word2Vec是2013年Google提出的经典词嵌入工具，Word2vec 将单词表示为高维数字向量，这些向量捕捉了单词之间的关系。特别是，在相似上下文中出现的单词被映射到通过余弦相似度测量的邻近向量。</p>
+<p>包含两种模型架构和两种优化方法：</p>
+<p><strong>Skip-gram跳字模型</strong>假设基于某个词来生成它在文本序列周围的词。举个例子，假设文本序列是“the”“man”“loves”“his”“son”。以“loves”作为中心词，设背景窗口大小为2。如图10.1所示，跳字模型所关心的是，给定中心词“loves”，生成与它距离不超过2个词的背景词“the”“man”“his”“son”的条件概率</p>
+<p><strong>Continuous Bag of Words (CBOW)连续词袋模型</strong>与跳字模型类似。与跳字模型最大的不同在于，连续词袋模型假设基于某中心词在文本序列前后的背景词来生成该中心词。在同样的文本序列“the”“man”“loves”“his”“son”里，以“loves”作为中心词，且背景窗口大小为2时，连续词袋模型关心的是，给定背景词“the”“man”“his”“son”生成中心词“loves”的条件概率</p>
+<h2 id="四应用场景">四、应用场景</h2>
 <ol>
-<li>连接 <code>mysql -h 127.0.0.1 -P 3306 -u root -p</code></li>
-<li>选择数据库 <code>use SomeDataBaseName;</code></li>
-<li>显示数据库列表 <code>show databases;</code></li>
-<li>显示表列表 <code>show tables;</code></li>
-<li>显示表项 <code>show columns from TableName;</code></li>
-<li>显示表项 <code>desc TableName;</code></li>
-<li>显示建表语句 <code>show create TableName;</code></li>
-<li>显示建库语句 <code>show create DataBaseName;</code></li>
-<li>显示错误 <code>show errors;</code></li>
-<li>显示警告 <code>show warnings;</code></li>
-<li>显示授权用户 <code>show grants;</code></li>
-<li>给用户赋权 <code>grant select,insert on database.table to user_name@&quot;ip_addr&quot; Identified by &quot;password&quot;;</code></li>
-<li>导出数据库 <code>mysqldump -u user_name -p123456 database_name &gt; outfile_name.sql</code></li>
-<li>导出数据表 <code>mysqldump -u user_name -p database_name table_name &gt; outfile_name.sql</code></li>
+<li><strong>语义相似度计算</strong>：通过余弦相似度衡量词间关系（如“手机”与“电话”）</li>
+<li><strong>文本分类</strong>：将词向量加权平均作为文本特征输入分类器</li>
+<li><strong>推荐系统</strong>：用用户行为序列的嵌入向量进行物品推荐</li>
+<li><strong>机器翻译</strong>：跨语言词向量对齐实现语义迁移</li>
 </ol>
-<h3 id="sql">SQL</h3>
+<h2 id="五总结与展望">五、总结与展望</h2>
+<p>Word2Vec通过简单的神经网络结构解决了词向量表示的核心问题，但其局限性（如静态向量无法处理一词多义）催生了后续模型如GloVe、BERT等。未来，词嵌入技术将更多结合上下文动态表示和多模态信息，推动NLP迈向更深层的语义理解。</p>
+<h2 id="参考资料">参考资料</h2>
 <ol>
-<li>SQL语言构成
-<ol>
-<li>数据定义语言DDL:提供定义关系模式、删除关系以及修改关系模式的命令</li>
-<li>数据操纵语言DML:提供查询信息，插入、删除、修改元组的能力</li>
-<li>完整性:DDL包括定义完整性约束的命令，保存在数据库中的数据必须满足所定义的完整性约束</li>
-<li>试图定义:试图相关命令</li>
-<li>事务控制:事务开始和结束的命令</li>
-<li>嵌入式SQL和动态SQL:定义SQL如何嵌入通用编程语言</li>
-<li>授权:对关系和试图的访问权限和命令</li>
-</ol>
-</li>
-<li>定义内容
-<ol>
-<li>每个关系的模式</li>
-<li>每个属性的取值类型</li>
-<li>完整性约束</li>
-<li>每个关系维护的索引集合</li>
-<li>每个关系的安全性和权限信息</li>
-<li>每个关系在磁盘上的物理存储结构</li>
-</ol>
-</li>
-<li>基本命令</li>
-<li><a href="http://www.runoob.com/mysql/mysql-select-database.html">mysql命令</a></li>
+<li><a href="https://blog.csdn.net/lizzy05/article/details/88653163">词向量 — word2vec（CSDN博客）</a></li>
+<li><a href="https://blog.csdn.net/yyhhlancelot/article/details/100005022">Word2Vec的优化算法（CSDN博客）</a></li>
+<li><a href="https://blog.csdn.net/weixin_40651515/article/details/109963179">词嵌入方法解析（CSDN博客）</a></li>
+<li><a href="https://blog.csdn.net/tototuzuoquan/article/details/113059788">One-Hot与Embedding对比（CSDN博客）</a></li>
+<li><a href="https://blog.csdn.net/qq_37457202/article/details/108697461">Word2Vec的应用（CSDN博客）</a></li>
+<li><a href="https://ieeexplore.ieee.org/document/10098736">nlp 中 embedding综述论文</a></li>
+<li><a href="https://paddlepedia.readthedocs.io/en/latest/tutorials/sequence_model/word_representation/word2vec.html">Word2Vec 训练方法</a></li>
+<li><a href="https://blog.csdn.net/dn_mug/article/details/69852740">理解word2vec的训练过程</a></li>
 </ol>
 
         </div>
@@ -208,15 +279,15 @@
     <h2>相关文章</h2>
     <ul class="listing">
         
-        <li><a href="/blog/post/2020-03-14-MQ%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E9%A1%B9%E6%80%BB%E7%BB%93/">mq|使用注意项</a></li>
+        <li><a href="/blog/post/2025-02-23-langchain/">大模型专题|LangChain rag实践</a></li>
         
-        <li><a href="/blog/tools/2020-03-14-tmux%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">tmux简单使用</a></li>
+        <li><a href="/blog/read/2024-12-31-2024%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/">2024阅读书单</a></li>
         
-        <li><a href="/blog/tools/2020-03-14-Shell%E7%AE%80%E5%8D%95%E5%AE%9E%E6%88%98/">Shell简单实战</a></li>
+        <li><a href="/blog/post/2024-05-06-%E5%B9%B6%E6%9F%A5%E9%9B%86/">算法专题|并查集</a></li>
         
-        <li><a href="/blog/tools/2020-03-14-Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">Shell基本语法</a></li>
+        <li><a href="/blog/post/2024-03-15-golanggrroupcache/">Golang|groupcache</a></li>
         
-        <li><a href="/blog/tools/2020-03-14-CURL%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">CURL简单使用</a></li>
+        <li><a href="/blog/post/2024-03-09-golangreflect/">Golang|学习教程(八)-反射</a></li>
         
     </ul>
 </div>

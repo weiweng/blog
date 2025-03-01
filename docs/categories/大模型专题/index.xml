@@ -6,7 +6,16 @@
     <description>Recent content in 大模型专题 on weiweng的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 23 Feb 2025 08:00:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Feb 2025 22:00:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>大模型专题|embedding</title>
+      <link>https://weiweng.github.io/blog/post/2025-02-26-embedding/</link>
+      <pubDate>Wed, 26 Feb 2025 22:00:00 +0800</pubDate>
+      
+      <guid>https://weiweng.github.io/blog/post/2025-02-26-embedding/</guid>
+      <description>文本是一种非结构化的数据信息，是不可以直接被计算的。 文本表示的作用就是将这些非结构化的信息转化为结构化的信息，这样就可以针对文本信息做计算，来完成我们日常所能见</description>
+    </item>
+    
     <item>
       <title>大模型专题|LangChain rag实践</title>
       <link>https://weiweng.github.io/blog/post/2025-02-23-langchain/</link>
