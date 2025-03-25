@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -233,25 +233,25 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> main
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">package</span> <span style="color:#1f2328">main</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> (
-</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;math&#34;</span>
-</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;math&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> Vertex <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	X, Y <span style="color:#458;font-weight:bold">float64</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">Vertex</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">X</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">Y</span> <span style="color:#cf222e">float64</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (v Vertex) <span style="color:#900;font-weight:bold">Abs</span>() <span style="color:#458;font-weight:bold">float64</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> math.<span style="color:#900;font-weight:bold">Sqrt</span>(v.X<span style="color:#000;font-weight:bold">*</span>v.X <span style="color:#000;font-weight:bold">+</span> v.Y<span style="color:#000;font-weight:bold">*</span>v.Y)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">v</span> <span style="color:#1f2328">Vertex</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Abs</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">float64</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">math</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Sqrt</span><span style="color:#1f2328">(</span><span style="color:#1f2328">v</span><span style="color:#1f2328">.</span><span style="color:#1f2328">X</span><span style="color:#0550ae">*</span><span style="color:#1f2328">v</span><span style="color:#1f2328">.</span><span style="color:#1f2328">X</span> <span style="color:#0550ae">+</span> <span style="color:#1f2328">v</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Y</span><span style="color:#0550ae">*</span><span style="color:#1f2328">v</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Y</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">main</span>() {
-</span></span><span style="display:flex;"><span>	v <span style="color:#000;font-weight:bold">:=</span> Vertex{<span style="color:#099">3</span>, <span style="color:#099">4</span>}
-</span></span><span style="display:flex;"><span>	fmt.<span style="color:#900;font-weight:bold">Println</span>(v.<span style="color:#900;font-weight:bold">Abs</span>())
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">main</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">v</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">Vertex</span><span style="color:#1f2328">{</span><span style="color:#0550ae">3</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">4</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#1f2328">v</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Abs</span><span style="color:#1f2328">())</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>当然在go语言中，我们除了可以定义结构体的方法，还能够指定自定义类型的方法。</p>
@@ -279,26 +279,26 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> main
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">package</span> <span style="color:#1f2328">main</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> (
-</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;math&#34;</span>
-</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;math&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> MyFloat <span style="color:#458;font-weight:bold">float64</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">MyFloat</span> <span style="color:#cf222e">float64</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (f MyFloat) <span style="color:#900;font-weight:bold">Abs</span>() <span style="color:#458;font-weight:bold">float64</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> f &lt; <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#0086b3">float64</span>(<span style="color:#000;font-weight:bold">-</span>f)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#0086b3">float64</span>(f)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">f</span> <span style="color:#1f2328">MyFloat</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Abs</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">float64</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">f</span> <span style="color:#1f2328">&lt;</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#6639ba">float64</span><span style="color:#1f2328">(</span><span style="color:#0550ae">-</span><span style="color:#1f2328">f</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#6639ba">float64</span><span style="color:#1f2328">(</span><span style="color:#1f2328">f</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">main</span>() {
-</span></span><span style="display:flex;"><span>	f <span style="color:#000;font-weight:bold">:=</span> <span style="color:#900;font-weight:bold">MyFloat</span>(<span style="color:#000;font-weight:bold">-</span>math.Sqrt2)
-</span></span><span style="display:flex;"><span>	fmt.<span style="color:#900;font-weight:bold">Println</span>(f.<span style="color:#900;font-weight:bold">Abs</span>())
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">main</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">f</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">MyFloat</span><span style="color:#1f2328">(</span><span style="color:#0550ae">-</span><span style="color:#1f2328">math</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Sqrt2</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#1f2328">f</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Abs</span><span style="color:#1f2328">())</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>定义结构体的方法时，我们既可以定义在结构体上也可以定义在结构体指针上，这两种有什么区别呢？其实，单从指针上可以看出，定义在指针上的方法，方法内可以更改结构体的数据，此外由于是基于指针的传递，因此传递开销较少，如果是复杂结构体上定义的方法，则调用方法时存在拷贝结构体的问题，因此会有性能开销。</p>
@@ -331,31 +331,31 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> main
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">package</span> <span style="color:#1f2328">main</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> (
-</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;math&#34;</span>
-</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;math&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> Vertex <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	X, Y <span style="color:#458;font-weight:bold">float64</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">Vertex</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">X</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">Y</span> <span style="color:#cf222e">float64</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (v Vertex) <span style="color:#900;font-weight:bold">Abs</span>() <span style="color:#458;font-weight:bold">float64</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> math.<span style="color:#900;font-weight:bold">Sqrt</span>(v.X<span style="color:#000;font-weight:bold">*</span>v.X <span style="color:#000;font-weight:bold">+</span> v.Y<span style="color:#000;font-weight:bold">*</span>v.Y)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">v</span> <span style="color:#1f2328">Vertex</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Abs</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">float64</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">math</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Sqrt</span><span style="color:#1f2328">(</span><span style="color:#1f2328">v</span><span style="color:#1f2328">.</span><span style="color:#1f2328">X</span><span style="color:#0550ae">*</span><span style="color:#1f2328">v</span><span style="color:#1f2328">.</span><span style="color:#1f2328">X</span> <span style="color:#0550ae">+</span> <span style="color:#1f2328">v</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Y</span><span style="color:#0550ae">*</span><span style="color:#1f2328">v</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Y</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (v <span style="color:#000;font-weight:bold">*</span>Vertex) <span style="color:#900;font-weight:bold">Scale</span>(f <span style="color:#458;font-weight:bold">float64</span>) {
-</span></span><span style="display:flex;"><span>	v.X = v.X <span style="color:#000;font-weight:bold">*</span> f
-</span></span><span style="display:flex;"><span>	v.Y = v.Y <span style="color:#000;font-weight:bold">*</span> f
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">v</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Vertex</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Scale</span><span style="color:#1f2328">(</span><span style="color:#1f2328">f</span> <span style="color:#cf222e">float64</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">v</span><span style="color:#1f2328">.</span><span style="color:#1f2328">X</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">v</span><span style="color:#1f2328">.</span><span style="color:#1f2328">X</span> <span style="color:#0550ae">*</span> <span style="color:#1f2328">f</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">v</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Y</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">v</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Y</span> <span style="color:#0550ae">*</span> <span style="color:#1f2328">f</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">main</span>() {
-</span></span><span style="display:flex;"><span>	v <span style="color:#000;font-weight:bold">:=</span> Vertex{<span style="color:#099">3</span>, <span style="color:#099">4</span>}
-</span></span><span style="display:flex;"><span>	v.<span style="color:#900;font-weight:bold">Scale</span>(<span style="color:#099">10</span>)
-</span></span><span style="display:flex;"><span>	fmt.<span style="color:#900;font-weight:bold">Println</span>(v.<span style="color:#900;font-weight:bold">Abs</span>())
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">main</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">v</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">Vertex</span><span style="color:#1f2328">{</span><span style="color:#0550ae">3</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">4</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">v</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Scale</span><span style="color:#1f2328">(</span><span style="color:#0550ae">10</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#1f2328">v</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Abs</span><span style="color:#1f2328">())</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>我们在学习指针时了解到，结构体的指针可以直接通过指针访问结构体的数据，同样是语法优化，方法的接收者为结构体的指针时，结构体的值也可以直接调用方法。</p>
@@ -387,26 +387,26 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> Abser <span style="color:#000;font-weight:bold">interface</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">Abs</span>() <span style="color:#458;font-weight:bold">float64</span>
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">Abser</span> <span style="color:#cf222e">interface</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6639ba">Abs</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">float64</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> MyFloat <span style="color:#458;font-weight:bold">float64</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">MyFloat</span> <span style="color:#cf222e">float64</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (f MyFloat) <span style="color:#900;font-weight:bold">Abs</span>() <span style="color:#458;font-weight:bold">float64</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> f &lt; <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#0086b3">float64</span>(<span style="color:#000;font-weight:bold">-</span>f)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#0086b3">float64</span>(f)
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">main</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">var</span> a Abser
-</span></span><span style="display:flex;"><span>	f <span style="color:#000;font-weight:bold">:=</span> <span style="color:#900;font-weight:bold">MyFloat</span>(<span style="color:#000;font-weight:bold">-</span>math.Sqrt2)
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">f</span> <span style="color:#1f2328">MyFloat</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Abs</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">float64</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">f</span> <span style="color:#1f2328">&lt;</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#6639ba">float64</span><span style="color:#1f2328">(</span><span style="color:#0550ae">-</span><span style="color:#1f2328">f</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#6639ba">float64</span><span style="color:#1f2328">(</span><span style="color:#1f2328">f</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">main</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">var</span> <span style="color:#1f2328">a</span> <span style="color:#1f2328">Abser</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">f</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">MyFloat</span><span style="color:#1f2328">(</span><span style="color:#0550ae">-</span><span style="color:#1f2328">math</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Sqrt2</span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	a = f  <span style="color:#998;font-style:italic">// a MyFloat implements Abser
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>	fmt.<span style="color:#900;font-weight:bold">Println</span>(a.<span style="color:#900;font-weight:bold">Abs</span>())
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">a</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">f</span>  <span style="color:#57606a">// a MyFloat implements Abser</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Abs</span><span style="color:#1f2328">())</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>通过接口的定义，我们可以知道如果定义了一个空的接口，则任何类型都可以算作实现了这个空接口，因此我们有了<code>interface{}</code>这一个特殊类型。</p>
@@ -432,21 +432,21 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">main</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">var</span> i <span style="color:#000;font-weight:bold">interface</span>{} = <span style="color:#d14">&#34;hello&#34;</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">main</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">var</span> <span style="color:#1f2328">i</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{}</span> <span style="color:#1f2328">=</span> <span style="color:#0a3069">&#34;hello&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	s <span style="color:#000;font-weight:bold">:=</span> i.(<span style="color:#458;font-weight:bold">string</span>)
-</span></span><span style="display:flex;"><span>	fmt.<span style="color:#900;font-weight:bold">Println</span>(s)
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">s</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">.(</span><span style="color:#cf222e">string</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#1f2328">s</span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	s, ok <span style="color:#000;font-weight:bold">:=</span> i.(<span style="color:#458;font-weight:bold">string</span>)
-</span></span><span style="display:flex;"><span>	fmt.<span style="color:#900;font-weight:bold">Println</span>(s, ok)
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">s</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">ok</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">.(</span><span style="color:#cf222e">string</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#1f2328">s</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">ok</span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	f, ok <span style="color:#000;font-weight:bold">:=</span> i.(<span style="color:#458;font-weight:bold">float64</span>)
-</span></span><span style="display:flex;"><span>	fmt.<span style="color:#900;font-weight:bold">Println</span>(f, ok)
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">f</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">ok</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">.(</span><span style="color:#cf222e">float64</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#1f2328">f</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">ok</span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	f = i.(<span style="color:#458;font-weight:bold">float64</span>) <span style="color:#998;font-style:italic">// panic
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	fmt.<span style="color:#900;font-weight:bold">Println</span>(f)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">f</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">.(</span><span style="color:#cf222e">float64</span><span style="color:#1f2328">)</span> <span style="color:#57606a">// panic</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#1f2328">f</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>此外结合switch关键字我们还有一种接口判断的逻辑。</p>
@@ -464,16 +464,16 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">do</span>(i <span style="color:#000;font-weight:bold">interface</span>{}) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">switch</span> v <span style="color:#000;font-weight:bold">:=</span> i.(<span style="color:#000;font-weight:bold">type</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">case</span> <span style="color:#458;font-weight:bold">int</span>:
-</span></span><span style="display:flex;"><span>		fmt.<span style="color:#900;font-weight:bold">Printf</span>(<span style="color:#d14">&#34;Twice %v is %v\n&#34;</span>, v, v<span style="color:#000;font-weight:bold">*</span><span style="color:#099">2</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">case</span> <span style="color:#458;font-weight:bold">string</span>:
-</span></span><span style="display:flex;"><span>		fmt.<span style="color:#900;font-weight:bold">Printf</span>(<span style="color:#d14">&#34;%q is %v bytes long\n&#34;</span>, v, <span style="color:#0086b3">len</span>(v))
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">default</span>:
-</span></span><span style="display:flex;"><span>		fmt.<span style="color:#900;font-weight:bold">Printf</span>(<span style="color:#d14">&#34;I don&#39;t know about type %T!\n&#34;</span>, v)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">do</span><span style="color:#1f2328">(</span><span style="color:#1f2328">i</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{})</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">switch</span> <span style="color:#1f2328">v</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">.(</span><span style="color:#cf222e">type</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">case</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Printf</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Twice %v is %v\n&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">v</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">v</span><span style="color:#0550ae">*</span><span style="color:#0550ae">2</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">case</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Printf</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;%q is %v bytes long\n&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">v</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">v</span><span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">default</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Printf</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;I don&#39;t know about type %T!\n&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">v</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="参考">参考</h2>
@@ -487,23 +487,6 @@
 
 
         
-
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/post/2023-02-06-golangmap/">Golang|学习教程(五)-map</a></li>
-        
-        <li><a href="/blog/post/2023-02-05-golangslice/">Golang|学习教程(四)-数组和切片</a></li>
-        
-        <li><a href="/blog/post/2023-02-02-golangstruct/">Golang|学习教程(三)-结构体</a></li>
-        
-        <li><a href="/blog/post/2023-02-01-golangflow/">Golang|学习教程(二)-流程控制</a></li>
-        
-        <li><a href="/blog/post/2023-01-31-golangbasics/">Golang|学习教程(一)-基础概念</a></li>
-        
-    </ul>
-</div>
 
 
         <div class="post-meta meta-tags">
@@ -534,7 +517,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -655,7 +638,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -715,17 +698,17 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -733,9 +716,9 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -746,29 +729,29 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

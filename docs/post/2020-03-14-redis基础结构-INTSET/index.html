@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -118,19 +118,19 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">typedef</span> <span style="color:#000;font-weight:bold">struct</span> intset {
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//保存元素所使用类型的长度
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#458;font-weight:bold">uint32_t</span> encoding;
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//保存元素的个数
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#458;font-weight:bold">uint32_t</span> length;
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//保存元素的数组
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#458;font-weight:bold">int8_t</span> contents[];
-</span></span><span style="display:flex;"><span>} intset;
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/* Note that these encodings are ordered, so:
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">* INTSET_ENC_INT16 &lt; INTSET_ENC_INT32 &lt; INTSET_ENC_INT64. */</span>
-</span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic">#define INTSET_ENC_INT16 (sizeof(int16_t))
-</span></span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic">#define INTSET_ENC_INT32 (sizeof(int32_t))
-</span></span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic">#define INTSET_ENC_INT64 (sizeof(int64_t))
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#cf222e">typedef</span> <span style="color:#cf222e">struct</span> intset <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//保存元素所使用类型的长度
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">uint32_t</span> encoding<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//保存元素的个数
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">uint32_t</span> length<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//保存元素的数组
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">int8_t</span> contents<span style="color:#1f2328">[];</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span> intset<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/* Note that these encodings are ordered, so:
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">* INTSET_ENC_INT16 &lt; INTSET_ENC_INT32 &lt; INTSET_ENC_INT64. */</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">#define INTSET_ENC_INT16 (sizeof(int16_t))
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">#define INTSET_ENC_INT32 (sizeof(int32_t))
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">#define INTSET_ENC_INT64 (sizeof(int64_t))
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="intset搜索流程">intset搜索流程</h2>
@@ -329,108 +329,108 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#998;font-style:italic">/* Insert an integer in the intset */</span>
-</span></span><span style="display:flex;"><span>intset <span style="color:#000;font-weight:bold">*</span><span style="color:#900;font-weight:bold">intsetAdd</span>(intset <span style="color:#000;font-weight:bold">*</span>is, <span style="color:#458;font-weight:bold">int64_t</span> value, <span style="color:#458;font-weight:bold">uint8_t</span> <span style="color:#000;font-weight:bold">*</span>success) {
-</span></span><span style="display:flex;"><span><span style="color:#458;font-weight:bold">uint8_t</span> valenc <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">_intsetValueEncoding</span>(value);
-</span></span><span style="display:flex;"><span><span style="color:#458;font-weight:bold">uint32_t</span> pos;
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> (success) <span style="color:#000;font-weight:bold">*</span>success <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">1</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/* Upgrade encoding if necessary. If we need to upgrade, we know that
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    * this value should be either appended (if &gt; 0) or prepended (if &lt; 0),
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    * because it lies outside the range of existing values. */</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 需要插入整数的所需内存超出了原有集合整数的范围，即内存类型不同，
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// 则升级整数类型
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">if</span> (valenc <span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#900;font-weight:bold">intrev32ifbe</span>(is<span style="color:#000;font-weight:bold">-&gt;</span>encoding)) {
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/* This always succeeds, so we don&#39;t need to curry *success. */</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">intsetUpgradeAndAdd</span>(is,value);
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 正常，分配内存，插入
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    } <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// intset 内部不允许重复
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">/* Abort if the value is already present in the set.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    * This call will populate &#34;pos&#34; with the right position to insert
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    * the value when it cannot be found. */</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">if</span> (<span style="color:#900;font-weight:bold">intsetSearch</span>(is,value,<span style="color:#000;font-weight:bold">&amp;</span>pos)) {
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">if</span> (success) <span style="color:#000;font-weight:bold">*</span>success <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> is;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// realloc
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    is <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">intsetResize</span>(is,<span style="color:#900;font-weight:bold">intrev32ifbe</span>(is<span style="color:#000;font-weight:bold">-&gt;</span>length)<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 迁移内存，腾出空间给新的数据。intsetMoveTail() 完成内存迁移工作
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">if</span> (pos <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#900;font-weight:bold">intrev32ifbe</span>(is<span style="color:#000;font-weight:bold">-&gt;</span>length)) <span style="color:#900;font-weight:bold">intsetMoveTail</span>(is,pos,pos<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 在腾出的空间中设置新的数据
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#900;font-weight:bold">_intsetSet</span>(is,pos,value);
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 更新intset size
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        is<span style="color:#000;font-weight:bold">-&gt;</span>length <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">intrev32ifbe</span>(<span style="color:#900;font-weight:bold">intrev32ifbe</span>(is<span style="color:#000;font-weight:bold">-&gt;</span>length)<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> is;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/*整数数组有可能遇到需要升级的时候，譬如往 int32_t 数组插入一个 ing64_t 整数的时候。*/</span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/*当插入数据的内存占用比原有数据大的时候，intsetUpgradeAndAdd() 会被调用。*/</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#57606a">/* Insert an integer in the intset */</span>
+</span></span><span style="display:flex;"><span>intset <span style="color:#0550ae">*</span><span style="color:#6639ba">intsetAdd</span><span style="color:#1f2328">(</span>intset <span style="color:#0550ae">*</span>is<span style="color:#1f2328">,</span> <span style="color:#cf222e">int64_t</span> value<span style="color:#1f2328">,</span> <span style="color:#cf222e">uint8_t</span> <span style="color:#0550ae">*</span>success<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">uint8_t</span> valenc <span style="color:#0550ae">=</span> <span style="color:#6639ba">_intsetValueEncoding</span><span style="color:#1f2328">(</span>value<span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">uint32_t</span> pos<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span>success<span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span>success <span style="color:#0550ae">=</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">/* Upgrade encoding if necessary. If we need to upgrade, we know that
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">    * this value should be either appended (if &gt; 0) or prepended (if &lt; 0),
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">    * because it lies outside the range of existing values. */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 需要插入整数的所需内存超出了原有集合整数的范围，即内存类型不同，
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 则升级整数类型
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span>valenc <span style="color:#0550ae">&gt;</span> <span style="color:#6639ba">intrev32ifbe</span><span style="color:#1f2328">(</span>is<span style="color:#0550ae">-&gt;</span>encoding<span style="color:#1f2328">))</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">/* This always succeeds, so we don&#39;t need to curry *success. */</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#6639ba">intsetUpgradeAndAdd</span><span style="color:#1f2328">(</span>is<span style="color:#1f2328">,</span>value<span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 正常，分配内存，插入
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// intset 内部不允许重复
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">/* Abort if the value is already present in the set.
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">    * This call will populate &#34;pos&#34; with the right position to insert
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">    * the value when it cannot be found. */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span><span style="color:#6639ba">intsetSearch</span><span style="color:#1f2328">(</span>is<span style="color:#1f2328">,</span>value<span style="color:#1f2328">,</span><span style="color:#0550ae">&amp;</span>pos<span style="color:#1f2328">))</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span>success<span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span>success <span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> is<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// realloc
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    is <span style="color:#0550ae">=</span> <span style="color:#6639ba">intsetResize</span><span style="color:#1f2328">(</span>is<span style="color:#1f2328">,</span><span style="color:#6639ba">intrev32ifbe</span><span style="color:#1f2328">(</span>is<span style="color:#0550ae">-&gt;</span>length<span style="color:#1f2328">)</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 迁移内存，腾出空间给新的数据。intsetMoveTail() 完成内存迁移工作
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span>pos <span style="color:#0550ae">&lt;</span> <span style="color:#6639ba">intrev32ifbe</span><span style="color:#1f2328">(</span>is<span style="color:#0550ae">-&gt;</span>length<span style="color:#1f2328">))</span> <span style="color:#6639ba">intsetMoveTail</span><span style="color:#1f2328">(</span>is<span style="color:#1f2328">,</span>pos<span style="color:#1f2328">,</span>pos<span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 在腾出的空间中设置新的数据
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>        <span style="color:#6639ba">_intsetSet</span><span style="color:#1f2328">(</span>is<span style="color:#1f2328">,</span>pos<span style="color:#1f2328">,</span>value<span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 更新intset size
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>        is<span style="color:#0550ae">-&gt;</span>length <span style="color:#0550ae">=</span> <span style="color:#6639ba">intrev32ifbe</span><span style="color:#1f2328">(</span><span style="color:#6639ba">intrev32ifbe</span><span style="color:#1f2328">(</span>is<span style="color:#0550ae">-&gt;</span>length<span style="color:#1f2328">)</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> is<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/*整数数组有可能遇到需要升级的时候，譬如往 int32_t 数组插入一个 ing64_t 整数的时候。*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/*当插入数据的内存占用比原有数据大的时候，intsetUpgradeAndAdd() 会被调用。*/</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">static</span> intset <span style="color:#000;font-weight:bold">*</span><span style="color:#900;font-weight:bold">intsetUpgradeAndAdd</span>(intset <span style="color:#000;font-weight:bold">*</span>is, <span style="color:#458;font-weight:bold">int64_t</span> value) {
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">static</span> intset <span style="color:#0550ae">*</span><span style="color:#6639ba">intsetUpgradeAndAdd</span><span style="color:#1f2328">(</span>intset <span style="color:#0550ae">*</span>is<span style="color:#1f2328">,</span> <span style="color:#cf222e">int64_t</span> value<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 当前的编码方式
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#458;font-weight:bold">uint8_t</span> curenc <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">intrev32ifbe</span>(is<span style="color:#000;font-weight:bold">-&gt;</span>encoding);
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 当前的编码方式
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">uint8_t</span> curenc <span style="color:#0550ae">=</span> <span style="color:#6639ba">intrev32ifbe</span><span style="color:#1f2328">(</span>is<span style="color:#0550ae">-&gt;</span>encoding<span style="color:#1f2328">);</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 新值所需的编码方式
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#458;font-weight:bold">uint8_t</span> newenc <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">_intsetValueEncoding</span>(value);
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 新值所需的编码方式
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">uint8_t</span> newenc <span style="color:#0550ae">=</span> <span style="color:#6639ba">_intsetValueEncoding</span><span style="color:#1f2328">(</span>value<span style="color:#1f2328">);</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 当前集合的元素数量
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#458;font-weight:bold">int</span> length <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">intrev32ifbe</span>(is<span style="color:#000;font-weight:bold">-&gt;</span>length);
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 当前集合的元素数量
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">int</span> length <span style="color:#0550ae">=</span> <span style="color:#6639ba">intrev32ifbe</span><span style="color:#1f2328">(</span>is<span style="color:#0550ae">-&gt;</span>length<span style="color:#1f2328">);</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 根据 value 的值，决定是将它添加到底层数组的最前端还是最后端
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// 注意，因为 value 的编码比集合原有的其他元素的编码都要大
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// 所以 value 要么大于集合中的所有元素，要么小于集合中的所有元素
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// 因此，value 只能添加到底层数组的最前端或最后端
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#458;font-weight:bold">int</span> prepend <span style="color:#000;font-weight:bold">=</span> value <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">?</span> <span style="color:#099">1</span> <span style="color:#000;font-weight:bold">:</span> <span style="color:#099">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 根据 value 的值，决定是将它添加到底层数组的最前端还是最后端
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 注意，因为 value 的编码比集合原有的其他元素的编码都要大
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 所以 value 要么大于集合中的所有元素，要么小于集合中的所有元素
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 因此，value 只能添加到底层数组的最前端或最后端
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">int</span> prepend <span style="color:#0550ae">=</span> value <span style="color:#0550ae">&lt;</span> <span style="color:#0550ae">0</span> <span style="color:#0550ae">?</span> <span style="color:#0550ae">1</span> <span style="color:#0550ae">:</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/* First set new encoding and resize */</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 更新集合的编码方式
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    is<span style="color:#000;font-weight:bold">-&gt;</span>encoding <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">intrev32ifbe</span>(newenc);
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 根据新编码对集合（的底层数组）进行空间调整
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// T = O(N)
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    is <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">intsetResize</span>(is,<span style="color:#900;font-weight:bold">intrev32ifbe</span>(is<span style="color:#000;font-weight:bold">-&gt;</span>length)<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">/* First set new encoding and resize */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 更新集合的编码方式
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    is<span style="color:#0550ae">-&gt;</span>encoding <span style="color:#0550ae">=</span> <span style="color:#6639ba">intrev32ifbe</span><span style="color:#1f2328">(</span>newenc<span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 根据新编码对集合（的底层数组）进行空间调整
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// T = O(N)
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    is <span style="color:#0550ae">=</span> <span style="color:#6639ba">intsetResize</span><span style="color:#1f2328">(</span>is<span style="color:#1f2328">,</span><span style="color:#6639ba">intrev32ifbe</span><span style="color:#1f2328">(</span>is<span style="color:#0550ae">-&gt;</span>length<span style="color:#1f2328">)</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">);</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/* Upgrade back-to-front so we don&#39;t overwrite values.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * Note that the &#34;prepend&#34; variable is used to make sure we have an empty
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * space at either the beginning or the end of the intset. */</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 根据集合原来的编码方式，从底层数组中取出集合元素
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// 然后再将元素以新编码的方式添加到集合中
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// 当完成了这个步骤之后，集合中所有原有的元素就完成了从旧编码到新编码的转换
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// 因为新分配的空间都放在数组的后端，所以程序先从后端向前端移动元素
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// 举个例子，假设原来有 curenc 编码的三个元素，它们在数组中排列如下：
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// | x | y | z | 
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// 当程序对数组进行重分配之后，数组就被扩容了（符号 ？ 表示未使用的内存）：
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// | x | y | z | ? |   ?   |   ?   |
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// 这时程序从数组后端开始，重新插入元素：
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// | x | y | z | ? |   z   |   ?   |
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// | x | y |   y   |   z   |   ?   |
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// |   x   |   y   |   z   |   ?   |
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// 最后，程序可以将新元素添加到最后 ？ 号标示的位置中：
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// |   x   |   y   |   z   |  new  |
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// 上面演示的是新元素比原来的所有元素都大的情况，也即是 prepend == 0
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// 当新元素比原来的所有元素都小时（prepend == 1），调整的过程如下：
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// | x | y | z | ? |   ?   |   ?   |
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// | x | y | z | ? |   ?   |   z   |
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// | x | y | z | ? |   y   |   z   |
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// | x | y |   x   |   y   |   z   |
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// 当添加新值时，原本的 | x | y | 的数据将被新值代替
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// |  new  |   x   |   y   |   z   |
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// T = O(N)
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">while</span>(length<span style="color:#000;font-weight:bold">--</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#900;font-weight:bold">_intsetSet</span>(is,length<span style="color:#000;font-weight:bold">+</span>prepend,<span style="color:#900;font-weight:bold">_intsetGetEncoded</span>(is,length,curenc));
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">/* Upgrade back-to-front so we don&#39;t overwrite values.
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">     * Note that the &#34;prepend&#34; variable is used to make sure we have an empty
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">     * space at either the beginning or the end of the intset. */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 根据集合原来的编码方式，从底层数组中取出集合元素
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 然后再将元素以新编码的方式添加到集合中
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 当完成了这个步骤之后，集合中所有原有的元素就完成了从旧编码到新编码的转换
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 因为新分配的空间都放在数组的后端，所以程序先从后端向前端移动元素
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 举个例子，假设原来有 curenc 编码的三个元素，它们在数组中排列如下：
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// | x | y | z | 
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 当程序对数组进行重分配之后，数组就被扩容了（符号 ？ 表示未使用的内存）：
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// | x | y | z | ? |   ?   |   ?   |
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 这时程序从数组后端开始，重新插入元素：
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// | x | y | z | ? |   z   |   ?   |
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// | x | y |   y   |   z   |   ?   |
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// |   x   |   y   |   z   |   ?   |
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 最后，程序可以将新元素添加到最后 ？ 号标示的位置中：
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// |   x   |   y   |   z   |  new  |
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 上面演示的是新元素比原来的所有元素都大的情况，也即是 prepend == 0
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 当新元素比原来的所有元素都小时（prepend == 1），调整的过程如下：
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// | x | y | z | ? |   ?   |   ?   |
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// | x | y | z | ? |   ?   |   z   |
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// | x | y | z | ? |   y   |   z   |
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// | x | y |   x   |   y   |   z   |
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 当添加新值时，原本的 | x | y | 的数据将被新值代替
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// |  new  |   x   |   y   |   z   |
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// T = O(N)
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">while</span><span style="color:#1f2328">(</span>length<span style="color:#0550ae">--</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6639ba">_intsetSet</span><span style="color:#1f2328">(</span>is<span style="color:#1f2328">,</span>length<span style="color:#0550ae">+</span>prepend<span style="color:#1f2328">,</span><span style="color:#6639ba">_intsetGetEncoded</span><span style="color:#1f2328">(</span>is<span style="color:#1f2328">,</span>length<span style="color:#1f2328">,</span>curenc<span style="color:#1f2328">));</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/* Set the value at the beginning or the end. */</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 设置新值，根据 prepend 的值来决定是添加到数组头还是数组尾
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">if</span> (prepend)
-</span></span><span style="display:flex;"><span>        <span style="color:#900;font-weight:bold">_intsetSet</span>(is,<span style="color:#099">0</span>,value);
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">else</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#900;font-weight:bold">_intsetSet</span>(is,<span style="color:#900;font-weight:bold">intrev32ifbe</span>(is<span style="color:#000;font-weight:bold">-&gt;</span>length),value);
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">/* Set the value at the beginning or the end. */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 设置新值，根据 prepend 的值来决定是添加到数组头还是数组尾
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span>prepend<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6639ba">_intsetSet</span><span style="color:#1f2328">(</span>is<span style="color:#1f2328">,</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span>value<span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6639ba">_intsetSet</span><span style="color:#1f2328">(</span>is<span style="color:#1f2328">,</span><span style="color:#6639ba">intrev32ifbe</span><span style="color:#1f2328">(</span>is<span style="color:#0550ae">-&gt;</span>length<span style="color:#1f2328">),</span>value<span style="color:#1f2328">);</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 更新整数集合的元素数量
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    is<span style="color:#000;font-weight:bold">-&gt;</span>length <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">intrev32ifbe</span>(<span style="color:#900;font-weight:bold">intrev32ifbe</span>(is<span style="color:#000;font-weight:bold">-&gt;</span>length)<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 更新整数集合的元素数量
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    is<span style="color:#0550ae">-&gt;</span>length <span style="color:#0550ae">=</span> <span style="color:#6639ba">intrev32ifbe</span><span style="color:#1f2328">(</span><span style="color:#6639ba">intrev32ifbe</span><span style="color:#1f2328">(</span>is<span style="color:#0550ae">-&gt;</span>length<span style="color:#1f2328">)</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">);</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> is;
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> is<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>
@@ -448,23 +448,6 @@
 
 
         
-
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-ZIPLIST/">redis|ziplist</a></li>
-        
-        <li><a href="/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-SDS/">redis|SDS</a></li>
-        
-        <li><a href="/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80/">redis|基础</a></li>
-        
-        <li><a href="/blog/post/2020-03-14-Mysql%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E9%A1%B9%E6%80%BB%E7%BB%93/">mysql|使用注意</a></li>
-        
-        <li><a href="/blog/post/2020-03-14-explain%E4%BD%BF%E7%94%A8/">mysql|explain</a></li>
-        
-    </ul>
-</div>
 
 
         <div class="post-meta meta-tags">
@@ -495,7 +478,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -616,7 +599,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -676,17 +659,17 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -694,9 +677,9 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -707,29 +690,29 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

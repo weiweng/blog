@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -154,60 +154,60 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> Trie <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	IsWord <span style="color:#458;font-weight:bold">bool</span>
-</span></span><span style="display:flex;"><span>	Buff   [<span style="color:#099">26</span>]<span style="color:#000;font-weight:bold">*</span>Trie
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">Trie</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">IsWord</span> <span style="color:#cf222e">bool</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">Buff</span>   <span style="color:#1f2328">[</span><span style="color:#0550ae">26</span><span style="color:#1f2328">]</span><span style="color:#0550ae">*</span><span style="color:#1f2328">Trie</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">NewNode</span>() <span style="color:#000;font-weight:bold">*</span>Trie {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">&amp;</span>Trie{<span style="color:#000;font-weight:bold">false</span>, [<span style="color:#099">26</span>]<span style="color:#000;font-weight:bold">*</span>Trie{}}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">NewNode</span><span style="color:#1f2328">()</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Trie</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">Trie</span><span style="color:#1f2328">{</span><span style="color:#cf222e">false</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">[</span><span style="color:#0550ae">26</span><span style="color:#1f2328">]</span><span style="color:#0550ae">*</span><span style="color:#1f2328">Trie</span><span style="color:#1f2328">{}}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/** Initialize your data structure here. */</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">Constructor</span>() Trie {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> Trie{<span style="color:#000;font-weight:bold">false</span>, [<span style="color:#099">26</span>]<span style="color:#000;font-weight:bold">*</span>Trie{}}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/** Initialize your data structure here. */</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">Constructor</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">Trie</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">Trie</span><span style="color:#1f2328">{</span><span style="color:#cf222e">false</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">[</span><span style="color:#0550ae">26</span><span style="color:#1f2328">]</span><span style="color:#0550ae">*</span><span style="color:#1f2328">Trie</span><span style="color:#1f2328">{}}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/** Inserts a word into the trie. */</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (n <span style="color:#000;font-weight:bold">*</span>Trie) <span style="color:#900;font-weight:bold">Insert</span>(word <span style="color:#458;font-weight:bold">string</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">var</span> p = n
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i, _ <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> word {
-</span></span><span style="display:flex;"><span>		j <span style="color:#000;font-weight:bold">:=</span> word[i] <span style="color:#000;font-weight:bold">-</span> <span style="color:#d14">&#39;a&#39;</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> p.Buff[j] <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>			p.Buff[j] = <span style="color:#900;font-weight:bold">NewNode</span>()
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		p = p.Buff[j]
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	p.IsWord = <span style="color:#000;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/** Inserts a word into the trie. */</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">n</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Trie</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Insert</span><span style="color:#1f2328">(</span><span style="color:#1f2328">word</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">var</span> <span style="color:#1f2328">p</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">n</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">_</span> <span style="color:#0550ae">:=</span> <span style="color:#cf222e">range</span> <span style="color:#1f2328">word</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">j</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">word</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">-</span> <span style="color:#0a3069">&#39;a&#39;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Buff</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Buff</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">NewNode</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">p</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Buff</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">IsWord</span> <span style="color:#1f2328">=</span> <span style="color:#cf222e">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/** Returns if the word is in the trie. */</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (n <span style="color:#000;font-weight:bold">*</span>Trie) <span style="color:#900;font-weight:bold">Search</span>(word <span style="color:#458;font-weight:bold">string</span>) <span style="color:#458;font-weight:bold">bool</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">var</span> p = n
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i, _ <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> word {
-</span></span><span style="display:flex;"><span>		pn <span style="color:#000;font-weight:bold">:=</span> p.Buff[word[i]<span style="color:#000;font-weight:bold">-</span><span style="color:#d14">&#39;a&#39;</span>]
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> pn <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>			p = pn
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> p.IsWord
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/** Returns if the word is in the trie. */</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">n</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Trie</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Search</span><span style="color:#1f2328">(</span><span style="color:#1f2328">word</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">var</span> <span style="color:#1f2328">p</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">n</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">_</span> <span style="color:#0550ae">:=</span> <span style="color:#cf222e">range</span> <span style="color:#1f2328">word</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">pn</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Buff</span><span style="color:#1f2328">[</span><span style="color:#1f2328">word</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span><span style="color:#0550ae">-</span><span style="color:#0a3069">&#39;a&#39;</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">pn</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">p</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">pn</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#cf222e">false</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">IsWord</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/** Returns if there is any word in the trie that starts with the given prefix. */</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (n <span style="color:#000;font-weight:bold">*</span>Trie) <span style="color:#900;font-weight:bold">StartsWith</span>(prefix <span style="color:#458;font-weight:bold">string</span>) <span style="color:#458;font-weight:bold">bool</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">var</span> p = n
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i, _ <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> prefix {
-</span></span><span style="display:flex;"><span>		pn <span style="color:#000;font-weight:bold">:=</span> p.Buff[prefix[i]<span style="color:#000;font-weight:bold">-</span><span style="color:#d14">&#39;a&#39;</span>]
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> pn <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>			p = pn
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/** Returns if there is any word in the trie that starts with the given prefix. */</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">n</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Trie</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">StartsWith</span><span style="color:#1f2328">(</span><span style="color:#1f2328">prefix</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">var</span> <span style="color:#1f2328">p</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">n</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">_</span> <span style="color:#0550ae">:=</span> <span style="color:#cf222e">range</span> <span style="color:#1f2328">prefix</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">pn</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Buff</span><span style="color:#1f2328">[</span><span style="color:#1f2328">prefix</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span><span style="color:#0550ae">-</span><span style="color:#0a3069">&#39;a&#39;</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">pn</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">p</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">pn</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#cf222e">false</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#cf222e">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="word-search-ii">Word Search II</h2>
@@ -319,102 +319,102 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">96
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> Trie
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">package</span> <span style="color:#1f2328">Trie</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> Trie <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	IsWord <span style="color:#458;font-weight:bold">bool</span>
-</span></span><span style="display:flex;"><span>	Buff   [<span style="color:#099">26</span>]<span style="color:#000;font-weight:bold">*</span>Trie
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">Trie</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">IsWord</span> <span style="color:#cf222e">bool</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">Buff</span>   <span style="color:#1f2328">[</span><span style="color:#0550ae">26</span><span style="color:#1f2328">]</span><span style="color:#0550ae">*</span><span style="color:#1f2328">Trie</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">NewNode</span>() <span style="color:#000;font-weight:bold">*</span>Trie {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">&amp;</span>Trie{<span style="color:#000;font-weight:bold">false</span>, [<span style="color:#099">26</span>]<span style="color:#000;font-weight:bold">*</span>Trie{}}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">NewNode</span><span style="color:#1f2328">()</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Trie</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">Trie</span><span style="color:#1f2328">{</span><span style="color:#cf222e">false</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">[</span><span style="color:#0550ae">26</span><span style="color:#1f2328">]</span><span style="color:#0550ae">*</span><span style="color:#1f2328">Trie</span><span style="color:#1f2328">{}}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/** Initialize your data structure here. */</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">Constructor</span>() Trie {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> Trie{<span style="color:#000;font-weight:bold">false</span>, [<span style="color:#099">26</span>]<span style="color:#000;font-weight:bold">*</span>Trie{}}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/** Initialize your data structure here. */</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">Constructor</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">Trie</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">Trie</span><span style="color:#1f2328">{</span><span style="color:#cf222e">false</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">[</span><span style="color:#0550ae">26</span><span style="color:#1f2328">]</span><span style="color:#0550ae">*</span><span style="color:#1f2328">Trie</span><span style="color:#1f2328">{}}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/** Inserts a word into the trie. */</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (n <span style="color:#000;font-weight:bold">*</span>Trie) <span style="color:#900;font-weight:bold">Insert</span>(word <span style="color:#458;font-weight:bold">string</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">var</span> p = n
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i, _ <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> word {
-</span></span><span style="display:flex;"><span>		j <span style="color:#000;font-weight:bold">:=</span> word[i] <span style="color:#000;font-weight:bold">-</span> <span style="color:#d14">&#39;a&#39;</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> p.Buff[j] <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>			p.Buff[j] = <span style="color:#900;font-weight:bold">NewNode</span>()
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		p = p.Buff[j]
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	p.IsWord = <span style="color:#000;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/** Inserts a word into the trie. */</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">n</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Trie</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Insert</span><span style="color:#1f2328">(</span><span style="color:#1f2328">word</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">var</span> <span style="color:#1f2328">p</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">n</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">_</span> <span style="color:#0550ae">:=</span> <span style="color:#cf222e">range</span> <span style="color:#1f2328">word</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">j</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">word</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">-</span> <span style="color:#0a3069">&#39;a&#39;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Buff</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Buff</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">NewNode</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">p</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Buff</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">IsWord</span> <span style="color:#1f2328">=</span> <span style="color:#cf222e">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/** Returns if the word is in the trie. */</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (n <span style="color:#000;font-weight:bold">*</span>Trie) <span style="color:#900;font-weight:bold">Search</span>(word <span style="color:#458;font-weight:bold">string</span>) <span style="color:#458;font-weight:bold">bool</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">var</span> p = n
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i, _ <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> word {
-</span></span><span style="display:flex;"><span>		pn <span style="color:#000;font-weight:bold">:=</span> p.Buff[word[i]<span style="color:#000;font-weight:bold">-</span><span style="color:#d14">&#39;a&#39;</span>]
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> pn <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>			p = pn
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> p.IsWord
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/** Returns if the word is in the trie. */</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">n</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Trie</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Search</span><span style="color:#1f2328">(</span><span style="color:#1f2328">word</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">var</span> <span style="color:#1f2328">p</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">n</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">_</span> <span style="color:#0550ae">:=</span> <span style="color:#cf222e">range</span> <span style="color:#1f2328">word</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">pn</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Buff</span><span style="color:#1f2328">[</span><span style="color:#1f2328">word</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span><span style="color:#0550ae">-</span><span style="color:#0a3069">&#39;a&#39;</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">pn</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">p</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">pn</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#cf222e">false</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">IsWord</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/** Returns if there is any word in the trie that starts with the given prefix. */</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (n <span style="color:#000;font-weight:bold">*</span>Trie) <span style="color:#900;font-weight:bold">StartsWith</span>(prefix <span style="color:#458;font-weight:bold">string</span>) <span style="color:#458;font-weight:bold">bool</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">var</span> p = n
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i, _ <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> prefix {
-</span></span><span style="display:flex;"><span>		pn <span style="color:#000;font-weight:bold">:=</span> p.Buff[prefix[i]<span style="color:#000;font-weight:bold">-</span><span style="color:#d14">&#39;a&#39;</span>]
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> pn <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>			p = pn
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/** Returns if there is any word in the trie that starts with the given prefix. */</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">n</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Trie</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">StartsWith</span><span style="color:#1f2328">(</span><span style="color:#1f2328">prefix</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">var</span> <span style="color:#1f2328">p</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">n</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">_</span> <span style="color:#0550ae">:=</span> <span style="color:#cf222e">range</span> <span style="color:#1f2328">prefix</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">pn</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Buff</span><span style="color:#1f2328">[</span><span style="color:#1f2328">prefix</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span><span style="color:#0550ae">-</span><span style="color:#0a3069">&#39;a&#39;</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">pn</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">p</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">pn</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#cf222e">false</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#cf222e">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">FindWords</span>(board [][]<span style="color:#458;font-weight:bold">byte</span>, words []<span style="color:#458;font-weight:bold">string</span>) []<span style="color:#458;font-weight:bold">string</span> {
-</span></span><span style="display:flex;"><span>	ret <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>([]<span style="color:#458;font-weight:bold">string</span>, <span style="color:#099">0</span>, <span style="color:#0086b3">len</span>(words))
-</span></span><span style="display:flex;"><span>	tree <span style="color:#000;font-weight:bold">:=</span> <span style="color:#900;font-weight:bold">NewNode</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i, _ <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> words {
-</span></span><span style="display:flex;"><span>		tree.<span style="color:#900;font-weight:bold">Insert</span>(words[i])
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	retMap <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>(<span style="color:#000;font-weight:bold">map</span>[<span style="color:#458;font-weight:bold">string</span>]<span style="color:#458;font-weight:bold">bool</span>, <span style="color:#0086b3">len</span>(words))
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>; i &lt; <span style="color:#0086b3">len</span>(board); i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>; j &lt; <span style="color:#0086b3">len</span>(board[<span style="color:#099">0</span>]); j<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#900;font-weight:bold">dsp</span>(tree, board, i, j, <span style="color:#d14">&#34;&#34;</span>, <span style="color:#000;font-weight:bold">&amp;</span>retMap)
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> k, _ <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> retMap {
-</span></span><span style="display:flex;"><span>		ret = <span style="color:#0086b3">append</span>(ret, k)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> ret
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">FindWords</span><span style="color:#1f2328">(</span><span style="color:#1f2328">board</span> <span style="color:#1f2328">[][]</span><span style="color:#cf222e">byte</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">words</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">string</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">string</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">ret</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">make</span><span style="color:#1f2328">([]</span><span style="color:#cf222e">string</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">words</span><span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">tree</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">NewNode</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">_</span> <span style="color:#0550ae">:=</span> <span style="color:#cf222e">range</span> <span style="color:#1f2328">words</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">tree</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Insert</span><span style="color:#1f2328">(</span><span style="color:#1f2328">words</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">])</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">retMap</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">make</span><span style="color:#1f2328">(</span><span style="color:#cf222e">map</span><span style="color:#1f2328">[</span><span style="color:#cf222e">string</span><span style="color:#1f2328">]</span><span style="color:#cf222e">bool</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">words</span><span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">board</span><span style="color:#1f2328">);</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">for</span> <span style="color:#1f2328">j</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">j</span> <span style="color:#1f2328">&lt;</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">board</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">]);</span> <span style="color:#1f2328">j</span><span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#6639ba">dsp</span><span style="color:#1f2328">(</span><span style="color:#1f2328">tree</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">board</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">j</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">retMap</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">k</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">_</span> <span style="color:#0550ae">:=</span> <span style="color:#cf222e">range</span> <span style="color:#1f2328">retMap</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">ret</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ret</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">k</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">ret</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">dsp</span>(tree <span style="color:#000;font-weight:bold">*</span>Trie, board [][]<span style="color:#458;font-weight:bold">byte</span>, i <span style="color:#458;font-weight:bold">int</span>, j <span style="color:#458;font-weight:bold">int</span>, tmp <span style="color:#458;font-weight:bold">string</span>, ret <span style="color:#000;font-weight:bold">*</span><span style="color:#000;font-weight:bold">map</span>[<span style="color:#458;font-weight:bold">string</span>]<span style="color:#458;font-weight:bold">bool</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> i &lt; <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">||</span> i <span style="color:#000;font-weight:bold">&gt;=</span> <span style="color:#0086b3">len</span>(board) <span style="color:#000;font-weight:bold">||</span> j &lt; <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">||</span> j <span style="color:#000;font-weight:bold">&gt;=</span> <span style="color:#0086b3">len</span>(board[<span style="color:#099">0</span>]) <span style="color:#000;font-weight:bold">||</span> board[i][j] <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;#&#39;</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	tmp <span style="color:#000;font-weight:bold">+=</span> <span style="color:#0086b3">string</span>(board[i][j])
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">dsp</span><span style="color:#1f2328">(</span><span style="color:#1f2328">tree</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Trie</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">board</span> <span style="color:#1f2328">[][]</span><span style="color:#cf222e">byte</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">j</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">tmp</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">ret</span> <span style="color:#0550ae">*</span><span style="color:#cf222e">map</span><span style="color:#1f2328">[</span><span style="color:#cf222e">string</span><span style="color:#1f2328">]</span><span style="color:#cf222e">bool</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#0550ae">0</span> <span style="color:#0550ae">||</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">&gt;=</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">board</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">||</span> <span style="color:#1f2328">j</span> <span style="color:#1f2328">&lt;</span> <span style="color:#0550ae">0</span> <span style="color:#0550ae">||</span> <span style="color:#1f2328">j</span> <span style="color:#0550ae">&gt;=</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">board</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">])</span> <span style="color:#0550ae">||</span> <span style="color:#1f2328">board</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">][</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">==</span> <span style="color:#0a3069">&#39;#&#39;</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">tmp</span> <span style="color:#0550ae">+=</span> <span style="color:#6639ba">string</span><span style="color:#1f2328">(</span><span style="color:#1f2328">board</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">][</span><span style="color:#1f2328">j</span><span style="color:#1f2328">])</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> !tree.<span style="color:#900;font-weight:bold">StartsWith</span>(tmp) {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> tree.<span style="color:#900;font-weight:bold">Search</span>(tmp) {
-</span></span><span style="display:flex;"><span>		(<span style="color:#000;font-weight:bold">*</span>ret)[tmp] = <span style="color:#000;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">//*ret = append(*ret, tmp)
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	}
-</span></span><span style="display:flex;"><span>	tmpc <span style="color:#000;font-weight:bold">:=</span> board[i][j]
-</span></span><span style="display:flex;"><span>	board[i][j] = <span style="color:#d14">&#39;#&#39;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">dsp</span>(tree, board, i, j<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>, tmp, ret)
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">dsp</span>(tree, board, i, j<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>, tmp, ret)
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">dsp</span>(tree, board, i<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>, j, tmp, ret)
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">dsp</span>(tree, board, i<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>, j, tmp, ret)
-</span></span><span style="display:flex;"><span>	board[i][j] = tmpc
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">!</span><span style="color:#1f2328">tree</span><span style="color:#1f2328">.</span><span style="color:#6639ba">StartsWith</span><span style="color:#1f2328">(</span><span style="color:#1f2328">tmp</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">tree</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Search</span><span style="color:#1f2328">(</span><span style="color:#1f2328">tmp</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">(</span><span style="color:#0550ae">*</span><span style="color:#1f2328">ret</span><span style="color:#1f2328">)[</span><span style="color:#1f2328">tmp</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#cf222e">true</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#57606a">//*ret = append(*ret, tmp)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">tmpc</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">board</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">][</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">board</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">][</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#0a3069">&#39;#&#39;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6639ba">dsp</span><span style="color:#1f2328">(</span><span style="color:#1f2328">tree</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">board</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">j</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">tmp</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">ret</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6639ba">dsp</span><span style="color:#1f2328">(</span><span style="color:#1f2328">tree</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">board</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">j</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">tmp</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">ret</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6639ba">dsp</span><span style="color:#1f2328">(</span><span style="color:#1f2328">tree</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">board</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">j</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">tmp</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">ret</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6639ba">dsp</span><span style="color:#1f2328">(</span><span style="color:#1f2328">tree</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">board</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">j</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">tmp</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">ret</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">board</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">][</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">tmpc</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>
@@ -424,23 +424,6 @@
 
 
         
-
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/post/2020-03-13-%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">回溯算法</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">贪心算法</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/">分治算法</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E5%93%88%E5%B8%8C/">哈希</a></li>
-        
-    </ul>
-</div>
 
 
         <div class="post-meta meta-tags">
@@ -471,7 +454,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -592,7 +575,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -652,17 +635,17 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -670,9 +653,9 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -683,29 +666,29 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

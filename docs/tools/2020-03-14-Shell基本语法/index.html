@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -104,17 +104,17 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 定义变量(注意等号两边不能有空格) user=123</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#57606a"># 定义变量(注意等号两边不能有空格) user=123</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 使用变量(使用花括号确定变量边界)</span>
-</span></span><span style="display:flex;"><span><span style="color:#0086b3">echo</span> <span style="color:#d14">${</span><span style="color:#008080">user</span><span style="color:#d14">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;my age is </span><span style="color:#d14">${</span><span style="color:#008080">user</span><span style="color:#d14">}</span><span style="color:#d14">old&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># 使用变量(使用花括号确定变量边界)</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">echo</span> <span style="color:#0a3069">${</span><span style="color:#953800">user</span><span style="color:#0a3069">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">echo</span> <span style="color:#0a3069">&#34;my age is </span><span style="color:#0a3069">${</span><span style="color:#953800">user</span><span style="color:#0a3069">}</span><span style="color:#0a3069">old&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 只读变量</span>
-</span></span><span style="display:flex;"><span><span style="color:#0086b3">readonly</span> user
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># 只读变量</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">readonly</span> user
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 删除变量</span>
-</span></span><span style="display:flex;"><span><span style="color:#0086b3">unset</span> user
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># 删除变量</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">unset</span> user
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="作用域">作用域</h2>
@@ -343,168 +343,168 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">163
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>## 运算 ```shell a=10 b=20
-</span></span><span style="display:flex;"><span># 加减乘除 val=`expr $a + $b`
-</span></span><span style="display:flex;"><span>echo &#34;a + b : $val&#34; val=`expr $a - $b`
-</span></span><span style="display:flex;"><span>echo &#34;a - b : $val&#34; val=`expr $a \* $b`
-</span></span><span style="display:flex;"><span>echo &#34;a * b : $val&#34; val=`expr $b / $a`
-</span></span><span style="display:flex;"><span>echo &#34;b / a : $val&#34; val=`expr $b % $a`
-</span></span><span style="display:flex;"><span>echo &#34;b % a : $val&#34;
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">## 运算 ```shell a=10 b=20</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># 加减乘除 val=`expr $a + $b`</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#0a3069">&#34;a + b : $val&#34;</span> val<span style="color:#0550ae">=</span><span style="color:#f6f8fa;background-color:#82071e">`</span>expr <span style="color:#0550ae">$</span>a <span style="color:#0550ae">-</span> <span style="color:#0550ae">$</span>b<span style="color:#f6f8fa;background-color:#82071e">`</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#0a3069">&#34;a - b : $val&#34;</span> val<span style="color:#0550ae">=</span><span style="color:#f6f8fa;background-color:#82071e">`</span>expr <span style="color:#0550ae">$</span>a \<span style="color:#0550ae">*</span> <span style="color:#0550ae">$</span>b<span style="color:#f6f8fa;background-color:#82071e">`</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#0a3069">&#34;a * b : $val&#34;</span> val<span style="color:#0550ae">=</span><span style="color:#f6f8fa;background-color:#82071e">`</span>expr <span style="color:#0550ae">$</span>b <span style="color:#0550ae">/</span> <span style="color:#0550ae">$</span>a<span style="color:#f6f8fa;background-color:#82071e">`</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#0a3069">&#34;b / a : $val&#34;</span> val<span style="color:#0550ae">=</span><span style="color:#f6f8fa;background-color:#82071e">`</span>expr <span style="color:#0550ae">$</span>b <span style="color:#0550ae">%</span> <span style="color:#0550ae">$</span>a<span style="color:#f6f8fa;background-color:#82071e">`</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#0a3069">&#34;b % a : $val&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span># 比较
-</span></span><span style="display:flex;"><span>if [ $a -eq $b ]
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># 比较</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">[</span> <span style="color:#0550ae">$</span>a <span style="color:#0550ae">-</span>eq <span style="color:#0550ae">$</span>b <span style="color:#1f2328">]</span>
 </span></span><span style="display:flex;"><span>then
-</span></span><span style="display:flex;"><span>   echo &#34;$a -eq $b : a 等于 b&#34;
-</span></span><span style="display:flex;"><span>else
-</span></span><span style="display:flex;"><span>   echo &#34;$a -eq $b: a 不等于 b&#34;
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a -eq $b : a 等于 b&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a -eq $b: a 不等于 b&#34;</span>
 </span></span><span style="display:flex;"><span>fi
-</span></span><span style="display:flex;"><span>if [ $a -ne $b ]
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">[</span> <span style="color:#0550ae">$</span>a <span style="color:#0550ae">-</span>ne <span style="color:#0550ae">$</span>b <span style="color:#1f2328">]</span>
 </span></span><span style="display:flex;"><span>then
-</span></span><span style="display:flex;"><span>   echo &#34;$a -ne $b: a 不等于 b&#34;
-</span></span><span style="display:flex;"><span>else
-</span></span><span style="display:flex;"><span>   echo &#34;$a -ne $b : a 等于 b&#34;
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a -ne $b: a 不等于 b&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a -ne $b : a 等于 b&#34;</span>
 </span></span><span style="display:flex;"><span>fi
-</span></span><span style="display:flex;"><span>if [ $a -gt $b ]
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">[</span> <span style="color:#0550ae">$</span>a <span style="color:#0550ae">-</span>gt <span style="color:#0550ae">$</span>b <span style="color:#1f2328">]</span>
 </span></span><span style="display:flex;"><span>then
-</span></span><span style="display:flex;"><span>   echo &#34;$a -gt $b: a 大于 b&#34;
-</span></span><span style="display:flex;"><span>else
-</span></span><span style="display:flex;"><span>   echo &#34;$a -gt $b: a 不大于 b&#34;
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a -gt $b: a 大于 b&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a -gt $b: a 不大于 b&#34;</span>
 </span></span><span style="display:flex;"><span>fi
-</span></span><span style="display:flex;"><span>if [ $a -lt $b ]
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">[</span> <span style="color:#0550ae">$</span>a <span style="color:#0550ae">-</span>lt <span style="color:#0550ae">$</span>b <span style="color:#1f2328">]</span>
 </span></span><span style="display:flex;"><span>then
-</span></span><span style="display:flex;"><span>   echo &#34;$a -lt $b: a 小于 b&#34;
-</span></span><span style="display:flex;"><span>else
-</span></span><span style="display:flex;"><span>   echo &#34;$a -lt $b: a 不小于 b&#34;
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a -lt $b: a 小于 b&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a -lt $b: a 不小于 b&#34;</span>
 </span></span><span style="display:flex;"><span>fi
-</span></span><span style="display:flex;"><span>if [ $a -ge $b ]
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">[</span> <span style="color:#0550ae">$</span>a <span style="color:#0550ae">-</span>ge <span style="color:#0550ae">$</span>b <span style="color:#1f2328">]</span>
 </span></span><span style="display:flex;"><span>then
-</span></span><span style="display:flex;"><span>   echo &#34;$a -ge $b: a 大于或等于 b&#34;
-</span></span><span style="display:flex;"><span>else
-</span></span><span style="display:flex;"><span>   echo &#34;$a -ge $b: a 小于 b&#34;
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a -ge $b: a 大于或等于 b&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a -ge $b: a 小于 b&#34;</span>
 </span></span><span style="display:flex;"><span>fi
-</span></span><span style="display:flex;"><span>if [ $a -le $b ]
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">[</span> <span style="color:#0550ae">$</span>a <span style="color:#0550ae">-</span>le <span style="color:#0550ae">$</span>b <span style="color:#1f2328">]</span>
 </span></span><span style="display:flex;"><span>then
-</span></span><span style="display:flex;"><span>   echo &#34;$a -le $b: a 小于或等于 b&#34;
-</span></span><span style="display:flex;"><span>else
-</span></span><span style="display:flex;"><span>   echo &#34;$a -le $b: a 大于 b&#34;
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a -le $b: a 小于或等于 b&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a -le $b: a 大于 b&#34;</span>
 </span></span><span style="display:flex;"><span>fi
-</span></span><span style="display:flex;"><span># a o ! 与 或 非
-</span></span><span style="display:flex;"><span>if [ $a != $b ]
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># a o ! 与 或 非</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">[</span> <span style="color:#0550ae">$</span>a <span style="color:#0550ae">!=</span> <span style="color:#0550ae">$</span>b <span style="color:#1f2328">]</span>
 </span></span><span style="display:flex;"><span>then
-</span></span><span style="display:flex;"><span>   echo &#34;$a != $b : a 不等于 b&#34;
-</span></span><span style="display:flex;"><span>else
-</span></span><span style="display:flex;"><span>   echo &#34;$a == $b: a 等于 b&#34;
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a != $b : a 不等于 b&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a == $b: a 等于 b&#34;</span>
 </span></span><span style="display:flex;"><span>fi
-</span></span><span style="display:flex;"><span>if [ $a -lt 100 -a $b -gt 15 ]
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">[</span> <span style="color:#0550ae">$</span>a <span style="color:#0550ae">-</span>lt <span style="color:#0550ae">100</span> <span style="color:#0550ae">-</span>a <span style="color:#0550ae">$</span>b <span style="color:#0550ae">-</span>gt <span style="color:#0550ae">15</span> <span style="color:#1f2328">]</span>
 </span></span><span style="display:flex;"><span>then
-</span></span><span style="display:flex;"><span>   echo &#34;$a 小于 100 且 $b 大于 15 : 返回 true&#34;
-</span></span><span style="display:flex;"><span>else
-</span></span><span style="display:flex;"><span>   echo &#34;$a 小于 100 且 $b 大于 15 : 返回 false&#34;
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a 小于 100 且 $b 大于 15 : 返回 true&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a 小于 100 且 $b 大于 15 : 返回 false&#34;</span>
 </span></span><span style="display:flex;"><span>fi
-</span></span><span style="display:flex;"><span>if [ $a -lt 100 -o $b -gt 100 ]
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">[</span> <span style="color:#0550ae">$</span>a <span style="color:#0550ae">-</span>lt <span style="color:#0550ae">100</span> <span style="color:#0550ae">-</span>o <span style="color:#0550ae">$</span>b <span style="color:#0550ae">-</span>gt <span style="color:#0550ae">100</span> <span style="color:#1f2328">]</span>
 </span></span><span style="display:flex;"><span>then
-</span></span><span style="display:flex;"><span>   echo &#34;$a 小于 100 或 $b 大于 100 : 返回 true&#34;
-</span></span><span style="display:flex;"><span>else
-</span></span><span style="display:flex;"><span>   echo &#34;$a 小于 100 或 $b 大于 100 : 返回 false&#34;
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a 小于 100 或 $b 大于 100 : 返回 true&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a 小于 100 或 $b 大于 100 : 返回 false&#34;</span>
 </span></span><span style="display:flex;"><span>fi
-</span></span><span style="display:flex;"><span>if [ $a -lt 5 -o $b -gt 100 ]
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">[</span> <span style="color:#0550ae">$</span>a <span style="color:#0550ae">-</span>lt <span style="color:#0550ae">5</span> <span style="color:#0550ae">-</span>o <span style="color:#0550ae">$</span>b <span style="color:#0550ae">-</span>gt <span style="color:#0550ae">100</span> <span style="color:#1f2328">]</span>
 </span></span><span style="display:flex;"><span>then
-</span></span><span style="display:flex;"><span>   echo &#34;$a 小于 5 或 $b 大于 100 : 返回 true&#34;
-</span></span><span style="display:flex;"><span>else
-</span></span><span style="display:flex;"><span>   echo &#34;$a 小于 5 或 $b 大于 100 : 返回 false&#34;
-</span></span><span style="display:flex;"><span>fi
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span># 逻辑运算
-</span></span><span style="display:flex;"><span>if [[ $a -lt 100 &amp;&amp; $b -gt 100 ]]
-</span></span><span style="display:flex;"><span>then
-</span></span><span style="display:flex;"><span>   echo &#34;返回 true&#34;
-</span></span><span style="display:flex;"><span>else
-</span></span><span style="display:flex;"><span>   echo &#34;返回 false&#34;
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a 小于 5 或 $b 大于 100 : 返回 true&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a 小于 5 或 $b 大于 100 : 返回 false&#34;</span>
 </span></span><span style="display:flex;"><span>fi
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>if [[ $a -lt 100 || $b -gt 100 ]]
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># 逻辑运算</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">[[</span> <span style="color:#0550ae">$</span>a <span style="color:#0550ae">-</span>lt <span style="color:#0550ae">100</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#0550ae">$</span>b <span style="color:#0550ae">-</span>gt <span style="color:#0550ae">100</span> <span style="color:#1f2328">]]</span>
 </span></span><span style="display:flex;"><span>then
-</span></span><span style="display:flex;"><span>   echo &#34;返回 true&#34;
-</span></span><span style="display:flex;"><span>else
-</span></span><span style="display:flex;"><span>   echo &#34;返回 false&#34;
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;返回 true&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;返回 false&#34;</span>
 </span></span><span style="display:flex;"><span>fi
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span># 字符串相关 a=&#34;abc&#34; b=&#34;efg&#34;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>if [ $a = $b ]
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">[[</span> <span style="color:#0550ae">$</span>a <span style="color:#0550ae">-</span>lt <span style="color:#0550ae">100</span> <span style="color:#0550ae">||</span> <span style="color:#0550ae">$</span>b <span style="color:#0550ae">-</span>gt <span style="color:#0550ae">100</span> <span style="color:#1f2328">]]</span>
 </span></span><span style="display:flex;"><span>then
-</span></span><span style="display:flex;"><span>   echo &#34;$a = $b : a 等于 b&#34;
-</span></span><span style="display:flex;"><span>else
-</span></span><span style="display:flex;"><span>   echo &#34;$a = $b: a 不等于 b&#34;
-</span></span><span style="display:flex;"><span>fi
-</span></span><span style="display:flex;"><span>if [ $a != $b ]
-</span></span><span style="display:flex;"><span>then
-</span></span><span style="display:flex;"><span>   echo &#34;$a != $b : a 不等于 b&#34;
-</span></span><span style="display:flex;"><span>else
-</span></span><span style="display:flex;"><span>   echo &#34;$a != $b: a 等于 b&#34;
-</span></span><span style="display:flex;"><span>fi
-</span></span><span style="display:flex;"><span>if [ -z $a ]
-</span></span><span style="display:flex;"><span>then
-</span></span><span style="display:flex;"><span>   echo &#34;-z $a : 字符串长度为 0&#34;
-</span></span><span style="display:flex;"><span>else
-</span></span><span style="display:flex;"><span>   echo &#34;-z $a : 字符串长度不为 0&#34;
-</span></span><span style="display:flex;"><span>fi
-</span></span><span style="display:flex;"><span>if [ -n &#34;$a&#34; ]
-</span></span><span style="display:flex;"><span>then
-</span></span><span style="display:flex;"><span>   echo &#34;-n $a : 字符串长度不为 0&#34;
-</span></span><span style="display:flex;"><span>else
-</span></span><span style="display:flex;"><span>   echo &#34;-n $a : 字符串长度为 0&#34;
-</span></span><span style="display:flex;"><span>fi
-</span></span><span style="display:flex;"><span>if [ $a ]
-</span></span><span style="display:flex;"><span>then
-</span></span><span style="display:flex;"><span>   echo &#34;$a : 字符串不为空&#34;
-</span></span><span style="display:flex;"><span>else
-</span></span><span style="display:flex;"><span>   echo &#34;$a : 字符串为空&#34;
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;返回 true&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;返回 false&#34;</span>
 </span></span><span style="display:flex;"><span>fi
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span># 文件相关 file=&#34;/var/www/runoob/test.sh&#34;
-</span></span><span style="display:flex;"><span>if [ -r $file ]
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># 字符串相关 a=&#34;abc&#34; b=&#34;efg&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">[</span> <span style="color:#0550ae">$</span>a <span style="color:#0550ae">=</span> <span style="color:#0550ae">$</span>b <span style="color:#1f2328">]</span>
 </span></span><span style="display:flex;"><span>then
-</span></span><span style="display:flex;"><span>   echo &#34;文件可读&#34;
-</span></span><span style="display:flex;"><span>else
-</span></span><span style="display:flex;"><span>   echo &#34;文件不可读&#34;
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a = $b : a 等于 b&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a = $b: a 不等于 b&#34;</span>
 </span></span><span style="display:flex;"><span>fi
-</span></span><span style="display:flex;"><span>if [ -w $file ]
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">[</span> <span style="color:#0550ae">$</span>a <span style="color:#0550ae">!=</span> <span style="color:#0550ae">$</span>b <span style="color:#1f2328">]</span>
 </span></span><span style="display:flex;"><span>then
-</span></span><span style="display:flex;"><span>   echo &#34;文件可写&#34;
-</span></span><span style="display:flex;"><span>else
-</span></span><span style="display:flex;"><span>   echo &#34;文件不可写&#34;
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a != $b : a 不等于 b&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a != $b: a 等于 b&#34;</span>
 </span></span><span style="display:flex;"><span>fi
-</span></span><span style="display:flex;"><span>if [ -x $file ]
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">[</span> <span style="color:#0550ae">-</span>z <span style="color:#0550ae">$</span>a <span style="color:#1f2328">]</span>
 </span></span><span style="display:flex;"><span>then
-</span></span><span style="display:flex;"><span>   echo &#34;文件可执行&#34;
-</span></span><span style="display:flex;"><span>else
-</span></span><span style="display:flex;"><span>   echo &#34;文件不可执行&#34;
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;-z $a : 字符串长度为 0&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;-z $a : 字符串长度不为 0&#34;</span>
 </span></span><span style="display:flex;"><span>fi
-</span></span><span style="display:flex;"><span>if [ -f $file ]
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">[</span> <span style="color:#0550ae">-</span>n <span style="color:#0a3069">&#34;$a&#34;</span> <span style="color:#1f2328">]</span>
 </span></span><span style="display:flex;"><span>then
-</span></span><span style="display:flex;"><span>   echo &#34;文件为普通文件&#34;
-</span></span><span style="display:flex;"><span>else
-</span></span><span style="display:flex;"><span>   echo &#34;文件为特殊文件&#34;
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;-n $a : 字符串长度不为 0&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;-n $a : 字符串长度为 0&#34;</span>
 </span></span><span style="display:flex;"><span>fi
-</span></span><span style="display:flex;"><span>if [ -d $file ]
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">[</span> <span style="color:#0550ae">$</span>a <span style="color:#1f2328">]</span>
 </span></span><span style="display:flex;"><span>then
-</span></span><span style="display:flex;"><span>   echo &#34;文件是个目录&#34;
-</span></span><span style="display:flex;"><span>else
-</span></span><span style="display:flex;"><span>   echo &#34;文件不是个目录&#34;
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a : 字符串不为空&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;$a : 字符串为空&#34;</span>
 </span></span><span style="display:flex;"><span>fi
-</span></span><span style="display:flex;"><span>if [ -s $file ]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># 文件相关 file=&#34;/var/www/runoob/test.sh&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">[</span> <span style="color:#0550ae">-</span>r <span style="color:#0550ae">$</span>file <span style="color:#1f2328">]</span>
 </span></span><span style="display:flex;"><span>then
-</span></span><span style="display:flex;"><span>   echo &#34;文件不为空&#34;
-</span></span><span style="display:flex;"><span>else
-</span></span><span style="display:flex;"><span>   echo &#34;文件为空&#34;
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;文件可读&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;文件不可读&#34;</span>
 </span></span><span style="display:flex;"><span>fi
-</span></span><span style="display:flex;"><span>if [ -e $file ]
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">[</span> <span style="color:#0550ae">-</span>w <span style="color:#0550ae">$</span>file <span style="color:#1f2328">]</span>
 </span></span><span style="display:flex;"><span>then
-</span></span><span style="display:flex;"><span>   echo &#34;文件存在&#34;
-</span></span><span style="display:flex;"><span>else
-</span></span><span style="display:flex;"><span>   echo &#34;文件不存在&#34;
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;文件可写&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;文件不可写&#34;</span>
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">[</span> <span style="color:#0550ae">-</span>x <span style="color:#0550ae">$</span>file <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;文件可执行&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;文件不可执行&#34;</span>
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">[</span> <span style="color:#0550ae">-</span>f <span style="color:#0550ae">$</span>file <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;文件为普通文件&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;文件为特殊文件&#34;</span>
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">[</span> <span style="color:#0550ae">-</span>d <span style="color:#0550ae">$</span>file <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;文件是个目录&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;文件不是个目录&#34;</span>
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">[</span> <span style="color:#0550ae">-</span>s <span style="color:#0550ae">$</span>file <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;文件不为空&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;文件为空&#34;</span>
+</span></span><span style="display:flex;"><span>fi
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">[</span> <span style="color:#0550ae">-</span>e <span style="color:#0550ae">$</span>file <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>then
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;文件存在&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>   echo <span style="color:#0a3069">&#34;文件不存在&#34;</span>
 </span></span><span style="display:flex;"><span>fi
 </span></span></code></pre></td></tr></table>
 </div>
@@ -519,12 +519,12 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;hello world!&#34;</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#6639ba">echo</span> <span style="color:#0a3069">&#34;hello world!&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0086b3">printf</span> <span style="color:#d14">&#34;%-10s %-8s %-4s\n&#34;</span> 姓名 性别 体重kg  
-</span></span><span style="display:flex;"><span><span style="color:#0086b3">printf</span> <span style="color:#d14">&#34;%-10s %-8s %-4.2f\n&#34;</span> 郭靖 男 66.1234 
-</span></span><span style="display:flex;"><span><span style="color:#0086b3">printf</span> <span style="color:#d14">&#34;%-10s %-8s %-4.2f\n&#34;</span> 杨过 男 48.6543 
-</span></span><span style="display:flex;"><span><span style="color:#0086b3">printf</span> <span style="color:#d14">&#34;%-10s %-8s %-4.2f\n&#34;</span> 郭芙 女 47.9876 
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">printf</span> <span style="color:#0a3069">&#34;%-10s %-8s %-4s\n&#34;</span> 姓名 性别 体重kg  
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">printf</span> <span style="color:#0a3069">&#34;%-10s %-8s %-4.2f\n&#34;</span> 郭靖 男 66.1234 
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">printf</span> <span style="color:#0a3069">&#34;%-10s %-8s %-4.2f\n&#34;</span> 杨过 男 48.6543 
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">printf</span> <span style="color:#0a3069">&#34;%-10s %-8s %-4.2f\n&#34;</span> 郭芙 女 47.9876 
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="控制">控制</h2>
@@ -589,10 +589,10 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">until</span> <span style="color:#000;font-weight:bold">[</span> ! <span style="color:#008080">$a</span> -lt <span style="color:#099">10</span> <span style="color:#000;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#0086b3">echo</span> <span style="color:#008080">$a</span> <span style="color:#008080">a</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">`</span>expr <span style="color:#008080">$a</span> + 1<span style="color:#d14">`</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">done</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#cf222e">until</span> <span style="color:#0550ae">[</span> ! <span style="color:#953800">$a</span> -lt <span style="color:#0550ae">10</span> <span style="color:#0550ae">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#6639ba">echo</span> <span style="color:#953800">$a</span> <span style="color:#953800">a</span><span style="color:#0550ae">=</span><span style="color:#0a3069">`</span>expr <span style="color:#953800">$a</span> + 1<span style="color:#0a3069">`</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">done</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="case">case</h3>
@@ -615,21 +615,21 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#39;输入 1 到 4 之间的数字:&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#39;你输入的数字为:&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#0086b3">read</span> aNum
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">case</span> <span style="color:#008080">$aNum</span> in
-</span></span><span style="display:flex;"><span>    1<span style="color:#000;font-weight:bold">)</span>  <span style="color:#0086b3">echo</span> <span style="color:#d14">&#39;你选择了 1&#39;</span>
-</span></span><span style="display:flex;"><span>    ;;
-</span></span><span style="display:flex;"><span>    2<span style="color:#000;font-weight:bold">)</span>  <span style="color:#0086b3">echo</span> <span style="color:#d14">&#39;你选择了 2&#39;</span>
-</span></span><span style="display:flex;"><span>    ;;
-</span></span><span style="display:flex;"><span>    3<span style="color:#000;font-weight:bold">)</span>  <span style="color:#0086b3">echo</span> <span style="color:#d14">&#39;你选择了 3&#39;</span>
-</span></span><span style="display:flex;"><span>    ;;
-</span></span><span style="display:flex;"><span>    4<span style="color:#000;font-weight:bold">)</span>  <span style="color:#0086b3">echo</span> <span style="color:#d14">&#39;你选择了 4&#39;</span>
-</span></span><span style="display:flex;"><span>    ;;
-</span></span><span style="display:flex;"><span>    *<span style="color:#000;font-weight:bold">)</span>  <span style="color:#0086b3">echo</span> <span style="color:#d14">&#39;你没有输入 1 到 4 之间的数字&#39;</span>
-</span></span><span style="display:flex;"><span>    ;;
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">esac</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#6639ba">echo</span> <span style="color:#0a3069">&#39;输入 1 到 4 之间的数字:&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">echo</span> <span style="color:#0a3069">&#39;你输入的数字为:&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">read</span> aNum
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">case</span> <span style="color:#953800">$aNum</span> in
+</span></span><span style="display:flex;"><span>    1<span style="color:#0550ae">)</span>  <span style="color:#6639ba">echo</span> <span style="color:#0a3069">&#39;你选择了 1&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">;;</span>
+</span></span><span style="display:flex;"><span>    2<span style="color:#0550ae">)</span>  <span style="color:#6639ba">echo</span> <span style="color:#0a3069">&#39;你选择了 2&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">;;</span>
+</span></span><span style="display:flex;"><span>    3<span style="color:#0550ae">)</span>  <span style="color:#6639ba">echo</span> <span style="color:#0a3069">&#39;你选择了 3&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">;;</span>
+</span></span><span style="display:flex;"><span>    4<span style="color:#0550ae">)</span>  <span style="color:#6639ba">echo</span> <span style="color:#0a3069">&#39;你选择了 4&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">;;</span>
+</span></span><span style="display:flex;"><span>    *<span style="color:#0550ae">)</span>  <span style="color:#6639ba">echo</span> <span style="color:#0a3069">&#39;你没有输入 1 到 4 之间的数字&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">;;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">esac</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="break">break</h3>
@@ -663,17 +663,17 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 函数定义</span>
-</span></span><span style="display:flex;"><span>funWithReturn<span style="color:#000;font-weight:bold">(){</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;这个函数会对输入的两个数字进行相加运算...&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;输入第一个数字: </span><span style="color:#008080">$1</span><span style="color:#d14">&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;输入第二个数字: </span><span style="color:#008080">$2</span><span style="color:#d14">&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">$((</span><span style="color:#008080">$1</span><span style="color:#000;font-weight:bold">+</span><span style="color:#008080">$2</span><span style="color:#000;font-weight:bold">))</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#57606a"># 函数定义</span>
+</span></span><span style="display:flex;"><span>funWithReturn<span style="color:#0550ae">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">echo</span> <span style="color:#0a3069">&#34;这个函数会对输入的两个数字进行相加运算...&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">echo</span> <span style="color:#0a3069">&#34;输入第一个数字: </span><span style="color:#953800">$1</span><span style="color:#0a3069">&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">echo</span> <span style="color:#0a3069">&#34;输入第二个数字: </span><span style="color:#953800">$2</span><span style="color:#0a3069">&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#cf222e">$((</span><span style="color:#953800">$1</span><span style="color:#0550ae">+</span><span style="color:#953800">$2</span><span style="color:#cf222e">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#0550ae">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 函数调用</span>
-</span></span><span style="display:flex;"><span>funWithReturn <span style="color:#099">1</span> <span style="color:#099">2</span>
-</span></span><span style="display:flex;"><span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;输入的两个数字之和为 </span><span style="color:#008080">$?</span><span style="color:#d14"> !&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># 函数调用</span>
+</span></span><span style="display:flex;"><span>funWithReturn <span style="color:#0550ae">1</span> <span style="color:#0550ae">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">echo</span> <span style="color:#0a3069">&#34;输入的两个数字之和为 </span><span style="color:#953800">$?</span><span style="color:#0a3069"> !&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="导入">导入</h2>
@@ -689,13 +689,13 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#使用 . 号来引用test1.sh 文件</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#57606a">#使用 . 号来引用test1.sh 文件</span>
 </span></span><span style="display:flex;"><span>. ./test1.sh
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 或者使用以下包含文件代码</span>
-</span></span><span style="display:flex;"><span><span style="color:#0086b3">source</span> ./test1.sh
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># 或者使用以下包含文件代码</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">source</span> ./test1.sh
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;导入其他文件&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">echo</span> <span style="color:#0a3069">&#34;导入其他文件&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>
@@ -705,23 +705,6 @@
 
 
         
-
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/tools/2020-03-14-CURL%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">CURL简单使用</a></li>
-        
-        <li><a href="/blog/tools/2020-03-14-GREP%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">GREP简单使用</a></li>
-        
-        <li><a href="/blog/tools/2020-03-14-FIND%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">FIND简单使用</a></li>
-        
-        <li><a href="/blog/tools/2020-03-14-SED%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">SED简单使用</a></li>
-        
-        <li><a href="/blog/tools/2020-03-14-AWK%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">AWK简单使用</a></li>
-        
-    </ul>
-</div>
 
 
         <div class="post-meta meta-tags">
@@ -756,7 +739,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -803,7 +786,7 @@
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -863,17 +846,17 @@
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -881,9 +864,9 @@
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -894,29 +877,29 @@
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

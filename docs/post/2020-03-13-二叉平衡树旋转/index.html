@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -414,302 +414,302 @@
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>package AVLT
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>type AVLT <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	value <span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>	h <span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>	left <span style="color:#000;font-weight:bold">*</span>AVLT
-</span></span><span style="display:flex;"><span>	right <span style="color:#000;font-weight:bold">*</span>AVLT
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>type AVLT <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	value <span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span>	h <span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span>	left <span style="color:#0550ae">*</span>AVLT
+</span></span><span style="display:flex;"><span>	right <span style="color:#0550ae">*</span>AVLT
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">InitAVLT</span>(v <span style="color:#458;font-weight:bold">int</span>, h <span style="color:#458;font-weight:bold">int</span>) <span style="color:#000;font-weight:bold">*</span>AVLT{
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">t</span> :<span style="color:#000;font-weight:bold">=</span> AVLT{
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">value</span>:v,
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">h</span>:h,
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">left</span>:nil,
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">right</span>:nil,
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">&amp;</span>t
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">InitAVLT</span><span style="color:#1f2328">(</span>v <span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> h <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span>AVLT<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">t</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> AVLT<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">value</span><span style="color:#1f2328">:</span>v<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">h</span><span style="color:#1f2328">:</span>h<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">left</span><span style="color:#1f2328">:</span>nil<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">right</span><span style="color:#1f2328">:</span>nil<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#0550ae">&amp;</span>t
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">FindMax</span>(root <span style="color:#000;font-weight:bold">*</span>AVLT) <span style="color:#000;font-weight:bold">*</span>AVLT{
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> nil
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root.right <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> root
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">FindMax</span>(root.right)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">FindMax</span><span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>AVLT<span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span>AVLT<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> nil
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>right <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> root
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#6639ba">FindMax</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">FindMin</span>(root <span style="color:#000;font-weight:bold">*</span>AVLT) <span style="color:#000;font-weight:bold">*</span>AVLT{
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> nil
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root.left <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> root
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">FindMin</span>(root.left)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">FindMin</span><span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>AVLT<span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span>AVLT<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> nil
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>left <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> root
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#6639ba">FindMin</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">GetHeight</span>(root <span style="color:#000;font-weight:bold">*</span>AVLT) <span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> root.h
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>AVLT<span style="color:#1f2328">)</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> root<span style="color:#1f2328">.</span>h
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">LL</span>(root <span style="color:#000;font-weight:bold">*</span>AVLT) <span style="color:#000;font-weight:bold">*</span>AVLT{
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">tmp</span> :<span style="color:#000;font-weight:bold">=</span> root.left
-</span></span><span style="display:flex;"><span>	root.left <span style="color:#000;font-weight:bold">=</span> tmp.right
-</span></span><span style="display:flex;"><span>	root.h <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">max</span>(<span style="color:#900;font-weight:bold">GetHeight</span>(root.left),<span style="color:#900;font-weight:bold">GetHeight</span>(root.right)) <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>	tmp.right <span style="color:#000;font-weight:bold">=</span> root
-</span></span><span style="display:flex;"><span>	root <span style="color:#000;font-weight:bold">=</span> tmp
-</span></span><span style="display:flex;"><span>	tmp.h <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">max</span>(<span style="color:#900;font-weight:bold">GetHeight</span>(tmp.left),<span style="color:#900;font-weight:bold">GetHeight</span>(tmp.right)) <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> tmp
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">LL</span><span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>AVLT<span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span>AVLT<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">tmp</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> root<span style="color:#1f2328">.</span>left
+</span></span><span style="display:flex;"><span>	root<span style="color:#1f2328">.</span>left <span style="color:#0550ae">=</span> tmp<span style="color:#1f2328">.</span>right
+</span></span><span style="display:flex;"><span>	root<span style="color:#1f2328">.</span>h <span style="color:#0550ae">=</span> <span style="color:#6639ba">max</span><span style="color:#1f2328">(</span><span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">),</span><span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">))</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>	tmp<span style="color:#1f2328">.</span>right <span style="color:#0550ae">=</span> root
+</span></span><span style="display:flex;"><span>	root <span style="color:#0550ae">=</span> tmp
+</span></span><span style="display:flex;"><span>	tmp<span style="color:#1f2328">.</span>h <span style="color:#0550ae">=</span> <span style="color:#6639ba">max</span><span style="color:#1f2328">(</span><span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>tmp<span style="color:#1f2328">.</span>left<span style="color:#1f2328">),</span><span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>tmp<span style="color:#1f2328">.</span>right<span style="color:#1f2328">))</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> tmp
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">RR</span>(root <span style="color:#000;font-weight:bold">*</span>AVLT) <span style="color:#000;font-weight:bold">*</span>AVLT{
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">tmp</span> :<span style="color:#000;font-weight:bold">=</span> root.right
-</span></span><span style="display:flex;"><span>	root.right <span style="color:#000;font-weight:bold">=</span> tmp.left
-</span></span><span style="display:flex;"><span>	root.h <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">max</span>(<span style="color:#900;font-weight:bold">GetHeight</span>(root.left),<span style="color:#900;font-weight:bold">GetHeight</span>(root.right)) <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>	tmp.left <span style="color:#000;font-weight:bold">=</span> root
-</span></span><span style="display:flex;"><span>	root <span style="color:#000;font-weight:bold">=</span> tmp
-</span></span><span style="display:flex;"><span>	tmp.h <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">max</span>(<span style="color:#900;font-weight:bold">GetHeight</span>(tmp.left),<span style="color:#900;font-weight:bold">GetHeight</span>(tmp.right)) <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> tmp
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">RR</span><span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>AVLT<span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span>AVLT<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">tmp</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> root<span style="color:#1f2328">.</span>right
+</span></span><span style="display:flex;"><span>	root<span style="color:#1f2328">.</span>right <span style="color:#0550ae">=</span> tmp<span style="color:#1f2328">.</span>left
+</span></span><span style="display:flex;"><span>	root<span style="color:#1f2328">.</span>h <span style="color:#0550ae">=</span> <span style="color:#6639ba">max</span><span style="color:#1f2328">(</span><span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">),</span><span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">))</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>	tmp<span style="color:#1f2328">.</span>left <span style="color:#0550ae">=</span> root
+</span></span><span style="display:flex;"><span>	root <span style="color:#0550ae">=</span> tmp
+</span></span><span style="display:flex;"><span>	tmp<span style="color:#1f2328">.</span>h <span style="color:#0550ae">=</span> <span style="color:#6639ba">max</span><span style="color:#1f2328">(</span><span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>tmp<span style="color:#1f2328">.</span>left<span style="color:#1f2328">),</span><span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>tmp<span style="color:#1f2328">.</span>right<span style="color:#1f2328">))</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> tmp
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">LR</span>(root <span style="color:#000;font-weight:bold">*</span>AVLT) <span style="color:#000;font-weight:bold">*</span>AVLT{
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">//tmp := root.left.RR()
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">//root.left = tmp
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#900;font-weight:bold">RR</span>(root.left)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">LL</span>(root)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">LR</span><span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>AVLT<span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span>AVLT<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">//tmp := root.left.RR()
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#57606a">//root.left = tmp
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#6639ba">RR</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#6639ba">LL</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">RL</span>(root <span style="color:#000;font-weight:bold">*</span>AVLT) <span style="color:#000;font-weight:bold">*</span>AVLT{
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">//tmp := root.right.LL()
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">//root.right = tmp
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#900;font-weight:bold">LL</span>(root.right)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">RR</span>(root)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">RL</span><span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>AVLT<span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span>AVLT<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">//tmp := root.right.LL()
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#57606a">//root.right = tmp
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#6639ba">LL</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#6639ba">RR</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">Insert</span>(root <span style="color:#000;font-weight:bold">*</span>AVLT,x <span style="color:#458;font-weight:bold">int</span>) <span style="color:#000;font-weight:bold">*</span>AVLT{
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>		root <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">InitAVLT</span>(x,<span style="color:#099">1</span>)
-</span></span><span style="display:flex;"><span>	} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> x <span style="color:#000;font-weight:bold">&lt;</span> root.value {
-</span></span><span style="display:flex;"><span>		root.left <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">Insert</span>(root.left,x)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">GetHeight</span>(root.left) <span style="color:#000;font-weight:bold">-</span> <span style="color:#900;font-weight:bold">GetHeight</span>(root.right) <span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#099">1</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span> x <span style="color:#000;font-weight:bold">&lt;</span> root.left.value {
-</span></span><span style="display:flex;"><span>				root <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">LL</span>(root)
-</span></span><span style="display:flex;"><span>			} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>				root <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">LR</span>(root)
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> root.value <span style="color:#000;font-weight:bold">&lt;</span> x {
-</span></span><span style="display:flex;"><span>		root.right <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">Insert</span>(root.right,x)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">GetHeight</span>(root.right) <span style="color:#000;font-weight:bold">-</span> <span style="color:#900;font-weight:bold">GetHeight</span>(root.left) <span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#099">1</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span> x <span style="color:#000;font-weight:bold">&gt;</span> root.right.value {
-</span></span><span style="display:flex;"><span>				root <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">RR</span>(root)
-</span></span><span style="display:flex;"><span>			} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>				root <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">RL</span>(root)
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	root.h <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">max</span>(<span style="color:#900;font-weight:bold">GetHeight</span>(root.left),<span style="color:#900;font-weight:bold">GetHeight</span>(root.right)) <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> root
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">Insert</span><span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>AVLT<span style="color:#1f2328">,</span>x <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span>AVLT<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		root <span style="color:#0550ae">=</span> <span style="color:#6639ba">InitAVLT</span><span style="color:#1f2328">(</span>x<span style="color:#1f2328">,</span><span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> x <span style="color:#0550ae">&lt;</span> root<span style="color:#1f2328">.</span>value <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		root<span style="color:#1f2328">.</span>left <span style="color:#0550ae">=</span> <span style="color:#6639ba">Insert</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">,</span>x<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">)</span> <span style="color:#0550ae">-</span> <span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">)</span> <span style="color:#0550ae">&gt;</span> <span style="color:#0550ae">1</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">if</span> x <span style="color:#0550ae">&lt;</span> root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">.</span>value <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				root <span style="color:#0550ae">=</span> <span style="color:#6639ba">LL</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				root <span style="color:#0550ae">=</span> <span style="color:#6639ba">LR</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>value <span style="color:#0550ae">&lt;</span> x <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		root<span style="color:#1f2328">.</span>right <span style="color:#0550ae">=</span> <span style="color:#6639ba">Insert</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">,</span>x<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">)</span> <span style="color:#0550ae">-</span> <span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">)</span> <span style="color:#0550ae">&gt;</span> <span style="color:#0550ae">1</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">if</span> x <span style="color:#0550ae">&gt;</span> root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">.</span>value <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				root <span style="color:#0550ae">=</span> <span style="color:#6639ba">RR</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				root <span style="color:#0550ae">=</span> <span style="color:#6639ba">RL</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	root<span style="color:#1f2328">.</span>h <span style="color:#0550ae">=</span> <span style="color:#6639ba">max</span><span style="color:#1f2328">(</span><span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">),</span><span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">))</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> root
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">Delete</span>(root <span style="color:#000;font-weight:bold">*</span>AVLT,x <span style="color:#458;font-weight:bold">int</span>) <span style="color:#000;font-weight:bold">*</span>AVLT{
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> nil
-</span></span><span style="display:flex;"><span>	} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> root.value <span style="color:#000;font-weight:bold">==</span> x {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> root.left <span style="color:#000;font-weight:bold">!=</span> nil <span style="color:#000;font-weight:bold">&amp;&amp;</span> root.right <span style="color:#000;font-weight:bold">!=</span> nil {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">GetHeight</span>(root.left) <span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#900;font-weight:bold">GetHeight</span>(root.right) {
-</span></span><span style="display:flex;"><span>				root.value <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">FindMax</span>(root.left).value
-</span></span><span style="display:flex;"><span>				root.left <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">Delete</span>(root.left,root.value)
-</span></span><span style="display:flex;"><span>			} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>				root.value <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">FindMin</span>(root.right).value
-</span></span><span style="display:flex;"><span>				root.right <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">Delete</span>(root.right,root.value)
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span> root.left <span style="color:#000;font-weight:bold">!=</span> nil {
-</span></span><span style="display:flex;"><span>				root <span style="color:#000;font-weight:bold">=</span> root.left
-</span></span><span style="display:flex;"><span>			} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> root.right <span style="color:#000;font-weight:bold">!=</span> nil {
-</span></span><span style="display:flex;"><span>				root <span style="color:#000;font-weight:bold">=</span> root.right
-</span></span><span style="display:flex;"><span>			} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>				root <span style="color:#000;font-weight:bold">=</span> nil
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> root.value <span style="color:#000;font-weight:bold">&gt;</span> x {
-</span></span><span style="display:flex;"><span>		root.left <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">Delete</span>(root.left,x)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">GetHeight</span>(root.right) <span style="color:#000;font-weight:bold">-</span> <span style="color:#900;font-weight:bold">GetHeight</span>(root.left) <span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#099">1</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">GetHeight</span>(root.right.left) <span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#900;font-weight:bold">GetHeight</span>(root.right.right) {
-</span></span><span style="display:flex;"><span>				root <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">RL</span>(root)
-</span></span><span style="display:flex;"><span>			} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>				root <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">RR</span>(root)
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>			root.h <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">max</span>(<span style="color:#900;font-weight:bold">GetHeight</span>(root.left),<span style="color:#900;font-weight:bold">GetHeight</span>(root.right)) <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>		root.right <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">Delete</span>(root.right,x)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">GetHeight</span>(root.left) <span style="color:#000;font-weight:bold">-</span> <span style="color:#900;font-weight:bold">GetHeight</span>(root.right) <span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#099">1</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">GetHeight</span>(root.left.left) <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#900;font-weight:bold">GetHeight</span>(root.left.right) {
-</span></span><span style="display:flex;"><span>				root <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">LR</span>(root)
-</span></span><span style="display:flex;"><span>			} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>				root <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">LL</span>(root)
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>			root.h <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">max</span>(<span style="color:#900;font-weight:bold">GetHeight</span>(root.left),<span style="color:#900;font-weight:bold">GetHeight</span>(root.right)) <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> root;
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">Delete</span><span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>AVLT<span style="color:#1f2328">,</span>x <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span>AVLT<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> nil
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>value <span style="color:#0550ae">==</span> x <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>left <span style="color:#0550ae">!=</span> nil <span style="color:#0550ae">&amp;&amp;</span> root<span style="color:#1f2328">.</span>right <span style="color:#0550ae">!=</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">if</span> <span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">)</span> <span style="color:#0550ae">&gt;</span> <span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				root<span style="color:#1f2328">.</span>value <span style="color:#0550ae">=</span> <span style="color:#6639ba">FindMax</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">).</span>value
+</span></span><span style="display:flex;"><span>				root<span style="color:#1f2328">.</span>left <span style="color:#0550ae">=</span> <span style="color:#6639ba">Delete</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">,</span>root<span style="color:#1f2328">.</span>value<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				root<span style="color:#1f2328">.</span>value <span style="color:#0550ae">=</span> <span style="color:#6639ba">FindMin</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">).</span>value
+</span></span><span style="display:flex;"><span>				root<span style="color:#1f2328">.</span>right <span style="color:#0550ae">=</span> <span style="color:#6639ba">Delete</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">,</span>root<span style="color:#1f2328">.</span>value<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>left <span style="color:#0550ae">!=</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				root <span style="color:#0550ae">=</span> root<span style="color:#1f2328">.</span>left
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>right <span style="color:#0550ae">!=</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				root <span style="color:#0550ae">=</span> root<span style="color:#1f2328">.</span>right
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				root <span style="color:#0550ae">=</span> nil
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>value <span style="color:#0550ae">&gt;</span> x <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		root<span style="color:#1f2328">.</span>left <span style="color:#0550ae">=</span> <span style="color:#6639ba">Delete</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">,</span>x<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">)</span> <span style="color:#0550ae">-</span> <span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">)</span> <span style="color:#0550ae">&gt;</span> <span style="color:#0550ae">1</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">if</span> <span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">.</span>left<span style="color:#1f2328">)</span> <span style="color:#0550ae">&gt;</span> <span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">.</span>right<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				root <span style="color:#0550ae">=</span> <span style="color:#6639ba">RL</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				root <span style="color:#0550ae">=</span> <span style="color:#6639ba">RR</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			root<span style="color:#1f2328">.</span>h <span style="color:#0550ae">=</span> <span style="color:#6639ba">max</span><span style="color:#1f2328">(</span><span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">),</span><span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">))</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		root<span style="color:#1f2328">.</span>right <span style="color:#0550ae">=</span> <span style="color:#6639ba">Delete</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">,</span>x<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">)</span> <span style="color:#0550ae">-</span> <span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">)</span> <span style="color:#0550ae">&gt;</span> <span style="color:#0550ae">1</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">if</span> <span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">.</span>left<span style="color:#1f2328">)</span> <span style="color:#0550ae">&lt;</span> <span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">.</span>right<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				root <span style="color:#0550ae">=</span> <span style="color:#6639ba">LR</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				root <span style="color:#0550ae">=</span> <span style="color:#6639ba">LL</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			root<span style="color:#1f2328">.</span>h <span style="color:#0550ae">=</span> <span style="color:#6639ba">max</span><span style="color:#1f2328">(</span><span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">),</span><span style="color:#6639ba">GetHeight</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">))</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> root<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">max</span>(a,b <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span>{
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> a<span style="color:#000;font-weight:bold">&lt;</span>b {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> b
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> a
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">max</span><span style="color:#1f2328">(</span>a<span style="color:#1f2328">,</span>b <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> a<span style="color:#0550ae">&lt;</span>b <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> b
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> a
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">min</span>(a,b <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> a<span style="color:#000;font-weight:bold">&lt;</span>b {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> a
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> b
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">min</span><span style="color:#1f2328">(</span>a<span style="color:#1f2328">,</span>b <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> a<span style="color:#0550ae">&lt;</span>b <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> a
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> b
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">abs</span>(a,b <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">t1</span> :<span style="color:#000;font-weight:bold">=</span> a<span style="color:#000;font-weight:bold">-</span>b
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> t1<span style="color:#000;font-weight:bold">&lt;</span><span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>		t1 <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span> <span style="color:#000;font-weight:bold">*</span> t1
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">t2</span> :<span style="color:#000;font-weight:bold">=</span> b<span style="color:#000;font-weight:bold">-</span>a
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> t2<span style="color:#000;font-weight:bold">&lt;</span><span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>		t2 <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span> <span style="color:#000;font-weight:bold">*</span> t2
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">max</span>(t1,t2) } <span style="color:#998;font-style:italic">//===================单测=================
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>package AVLT
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">abs</span><span style="color:#1f2328">(</span>a<span style="color:#1f2328">,</span>b <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">t1</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> a<span style="color:#0550ae">-</span>b
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> t1<span style="color:#0550ae">&lt;</span><span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		t1 <span style="color:#0550ae">=</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span> <span style="color:#0550ae">*</span> t1
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">t2</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> b<span style="color:#0550ae">-</span>a
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> t2<span style="color:#0550ae">&lt;</span><span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		t2 <span style="color:#0550ae">=</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span> <span style="color:#0550ae">*</span> t2
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#6639ba">max</span><span style="color:#1f2328">(</span>t1<span style="color:#1f2328">,</span>t2<span style="color:#1f2328">)</span> <span style="color:#1f2328">}</span> <span style="color:#57606a">//===================单测=================
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>package AVLT
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">import</span> (
-</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;math/rand&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;testing&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;time&#34;</span>
-</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">import</span> <span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;math/rand&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;testing&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;time&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">TestInsert</span>(t <span style="color:#000;font-weight:bold">*</span>testing.T) {
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">a</span> :<span style="color:#000;font-weight:bold">=</span> []<span style="color:#458;font-weight:bold">int</span>{<span style="color:#099">1</span>, <span style="color:#099">2</span>, <span style="color:#099">3</span>, <span style="color:#099">4</span>, <span style="color:#099">5</span>, <span style="color:#099">6</span>, <span style="color:#099">7</span>, <span style="color:#099">8</span>}
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">root</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">InitAVLT</span>(<span style="color:#099">0</span>, <span style="color:#099">1</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i, <span style="color:#900;font-weight:bold">_</span> :<span style="color:#000;font-weight:bold">=</span> range a {
-</span></span><span style="display:flex;"><span>		root <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">Insert</span>(root, a[i])
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">PrintAVLT</span>(root,<span style="color:#099">4</span>)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">TestInsert</span><span style="color:#1f2328">(</span>t <span style="color:#0550ae">*</span>testing<span style="color:#1f2328">.</span>T<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">a</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">2</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">3</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">4</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">5</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">6</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">7</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">8</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">root</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">InitAVLT</span><span style="color:#1f2328">(</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> i<span style="color:#1f2328">,</span> <span style="color:#900;font-weight:bold">_</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> range a <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		root <span style="color:#0550ae">=</span> <span style="color:#6639ba">Insert</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">,</span> a<span style="color:#1f2328">[</span>i<span style="color:#1f2328">])</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6639ba">PrintAVLT</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">,</span><span style="color:#0550ae">4</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">TestDelete</span>(t <span style="color:#000;font-weight:bold">*</span>testing.T) {
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">a</span> :<span style="color:#000;font-weight:bold">=</span> []<span style="color:#458;font-weight:bold">int</span>{<span style="color:#099">1</span>, <span style="color:#099">2</span>, <span style="color:#099">3</span>, <span style="color:#099">4</span>, <span style="color:#099">5</span>, <span style="color:#099">6</span>, <span style="color:#099">7</span>, <span style="color:#099">8</span>}
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">ra</span> :<span style="color:#000;font-weight:bold">=</span> []<span style="color:#458;font-weight:bold">int</span>{<span style="color:#099">0</span>,<span style="color:#099">1</span>, <span style="color:#099">2</span>, <span style="color:#099">3</span>, <span style="color:#099">4</span>, <span style="color:#099">5</span>, <span style="color:#099">6</span>, <span style="color:#099">7</span>, <span style="color:#099">8</span>}
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">root</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">InitAVLT</span>(<span style="color:#099">0</span>, <span style="color:#099">1</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i, <span style="color:#900;font-weight:bold">_</span> :<span style="color:#000;font-weight:bold">=</span> range a {
-</span></span><span style="display:flex;"><span>		root <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">Insert</span>(root, a[i])
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	ra <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">getRandomArray</span>(ra)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i,<span style="color:#900;font-weight:bold">_</span> :<span style="color:#000;font-weight:bold">=</span> range ra {
-</span></span><span style="display:flex;"><span>		root  <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">Delete</span>(root,ra[i])
-</span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">//PrintAVLT(root,4)
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#900;font-weight:bold">PrintAVLTNoHeight</span>(root,<span style="color:#099">4</span>)
-</span></span><span style="display:flex;"><span>		fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;===============&#34;</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">TestDelete</span><span style="color:#1f2328">(</span>t <span style="color:#0550ae">*</span>testing<span style="color:#1f2328">.</span>T<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">a</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">2</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">3</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">4</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">5</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">6</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">7</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">8</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">ra</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">2</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">3</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">4</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">5</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">6</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">7</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">8</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">root</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">InitAVLT</span><span style="color:#1f2328">(</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> i<span style="color:#1f2328">,</span> <span style="color:#900;font-weight:bold">_</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> range a <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		root <span style="color:#0550ae">=</span> <span style="color:#6639ba">Insert</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">,</span> a<span style="color:#1f2328">[</span>i<span style="color:#1f2328">])</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	ra <span style="color:#0550ae">=</span> <span style="color:#6639ba">getRandomArray</span><span style="color:#1f2328">(</span>ra<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> i<span style="color:#1f2328">,</span><span style="color:#900;font-weight:bold">_</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> range ra <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		root  <span style="color:#0550ae">=</span> <span style="color:#6639ba">Delete</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">,</span>ra<span style="color:#1f2328">[</span>i<span style="color:#1f2328">])</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#57606a">//PrintAVLT(root,4)
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>		<span style="color:#6639ba">PrintAVLTNoHeight</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">,</span><span style="color:#0550ae">4</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		fmt<span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;===============&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">PrintAVLT</span>(root <span style="color:#000;font-weight:bold">*</span>AVLT, C <span style="color:#458;font-weight:bold">int</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>		fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;weng&#34;</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	var q []<span style="color:#000;font-weight:bold">*</span>AVLT
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">tmp</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>	q <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(q,root)
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">j</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">c</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#900;font-weight:bold">len</span>(q) <span style="color:#000;font-weight:bold">&amp;&amp;</span> c <span style="color:#000;font-weight:bold">&lt;</span> C{
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span>:<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0</span>;i<span style="color:#000;font-weight:bold">&lt;</span>tmp <span style="color:#000;font-weight:bold">&amp;&amp;</span> j<span style="color:#000;font-weight:bold">+</span>i <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#900;font-weight:bold">len</span>(q);i<span style="color:#000;font-weight:bold">++</span>{
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span> q[j<span style="color:#000;font-weight:bold">+</span>i].h <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#099">2</span> {
-</span></span><span style="display:flex;"><span>				fmt.<span style="color:#900;font-weight:bold">Printf</span>(<span style="color:#d14">&#34;x,x  &#34;</span>)
-</span></span><span style="display:flex;"><span>			} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>				fmt.<span style="color:#900;font-weight:bold">Printf</span>(<span style="color:#d14">&#34;%d,%d  &#34;</span>,q[j<span style="color:#000;font-weight:bold">+</span>i].value,q[j<span style="color:#000;font-weight:bold">+</span>i].h)
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span> q[j<span style="color:#000;font-weight:bold">+</span>i].left <span style="color:#000;font-weight:bold">!=</span> nil <span style="color:#000;font-weight:bold">&amp;&amp;</span> q[j<span style="color:#000;font-weight:bold">+</span>i].right <span style="color:#000;font-weight:bold">!=</span> nil{
-</span></span><span style="display:flex;"><span>				q <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(q,q[j<span style="color:#000;font-weight:bold">+</span>i].left)
-</span></span><span style="display:flex;"><span>				q <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(q,q[j<span style="color:#000;font-weight:bold">+</span>i].right)
-</span></span><span style="display:flex;"><span>			} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> q[j<span style="color:#000;font-weight:bold">+</span>i].left <span style="color:#000;font-weight:bold">==</span> nil <span style="color:#000;font-weight:bold">&amp;&amp;</span> q[j<span style="color:#000;font-weight:bold">+</span>i].right <span style="color:#000;font-weight:bold">!=</span> nil{
-</span></span><span style="display:flex;"><span>				q <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(q,<span style="color:#000;font-weight:bold">&amp;</span>AVLT{<span style="color:#099">0</span>,<span style="color:#000;font-weight:bold">-</span><span style="color:#099">2</span>,nil,nil})
-</span></span><span style="display:flex;"><span>				q <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(q,q[j<span style="color:#000;font-weight:bold">+</span>i].right)
-</span></span><span style="display:flex;"><span>			} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> q[j<span style="color:#000;font-weight:bold">+</span>i].left <span style="color:#000;font-weight:bold">!=</span> nil <span style="color:#000;font-weight:bold">&amp;&amp;</span> q[j<span style="color:#000;font-weight:bold">+</span>i].right <span style="color:#000;font-weight:bold">==</span> nil{
-</span></span><span style="display:flex;"><span>				q <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(q,q[j<span style="color:#000;font-weight:bold">+</span>i].left)
-</span></span><span style="display:flex;"><span>				q <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(q,<span style="color:#000;font-weight:bold">&amp;</span>AVLT{<span style="color:#099">0</span>,<span style="color:#000;font-weight:bold">-</span><span style="color:#099">2</span>,nil,nil})
-</span></span><span style="display:flex;"><span>			} <span style="color:#000;font-weight:bold">else</span>  {
-</span></span><span style="display:flex;"><span>				q <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(q,<span style="color:#000;font-weight:bold">&amp;</span>AVLT{<span style="color:#099">0</span>,<span style="color:#000;font-weight:bold">-</span><span style="color:#099">2</span>,nil,nil})
-</span></span><span style="display:flex;"><span>				q <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(q,<span style="color:#000;font-weight:bold">&amp;</span>AVLT{<span style="color:#099">0</span>,<span style="color:#000;font-weight:bold">-</span><span style="color:#099">2</span>,nil,nil})
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		fmt.<span style="color:#900;font-weight:bold">Println</span>()
-</span></span><span style="display:flex;"><span>		j <span style="color:#000;font-weight:bold">+=</span> tmp
-</span></span><span style="display:flex;"><span>		tmp <span style="color:#000;font-weight:bold">=</span> tmp <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">2</span>
-</span></span><span style="display:flex;"><span>		c <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">PrintAVLT</span><span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>AVLT<span style="color:#1f2328">,</span> C <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		fmt<span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;weng&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	var q <span style="color:#1f2328">[]</span><span style="color:#0550ae">*</span>AVLT
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">tmp</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>	q <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>q<span style="color:#1f2328">,</span>root<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">j</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">c</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> j <span style="color:#0550ae">&lt;</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>q<span style="color:#1f2328">)</span> <span style="color:#0550ae">&amp;&amp;</span> c <span style="color:#0550ae">&lt;</span> C<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">for</span> <span style="color:#900;font-weight:bold">i</span><span style="color:#1f2328">:</span><span style="color:#0550ae">=</span><span style="color:#0550ae">0</span><span style="color:#1f2328">;</span>i<span style="color:#0550ae">&lt;</span>tmp <span style="color:#0550ae">&amp;&amp;</span> j<span style="color:#0550ae">+</span>i <span style="color:#0550ae">&lt;</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>q<span style="color:#1f2328">);</span>i<span style="color:#0550ae">++</span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">if</span> q<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span>i<span style="color:#1f2328">].</span>h <span style="color:#0550ae">==</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">2</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				fmt<span style="color:#1f2328">.</span><span style="color:#6639ba">Printf</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;x,x  &#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				fmt<span style="color:#1f2328">.</span><span style="color:#6639ba">Printf</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;%d,%d  &#34;</span><span style="color:#1f2328">,</span>q<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span>i<span style="color:#1f2328">].</span>value<span style="color:#1f2328">,</span>q<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span>i<span style="color:#1f2328">].</span>h<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">if</span> q<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span>i<span style="color:#1f2328">].</span>left <span style="color:#0550ae">!=</span> nil <span style="color:#0550ae">&amp;&amp;</span> q<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span>i<span style="color:#1f2328">].</span>right <span style="color:#0550ae">!=</span> nil<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				q <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>q<span style="color:#1f2328">,</span>q<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span>i<span style="color:#1f2328">].</span>left<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>				q <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>q<span style="color:#1f2328">,</span>q<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span>i<span style="color:#1f2328">].</span>right<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> q<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span>i<span style="color:#1f2328">].</span>left <span style="color:#0550ae">==</span> nil <span style="color:#0550ae">&amp;&amp;</span> q<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span>i<span style="color:#1f2328">].</span>right <span style="color:#0550ae">!=</span> nil<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				q <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>q<span style="color:#1f2328">,</span><span style="color:#0550ae">&amp;</span>AVLT<span style="color:#1f2328">{</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span><span style="color:#0550ae">-</span><span style="color:#0550ae">2</span><span style="color:#1f2328">,</span>nil<span style="color:#1f2328">,</span>nil<span style="color:#1f2328">})</span>
+</span></span><span style="display:flex;"><span>				q <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>q<span style="color:#1f2328">,</span>q<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span>i<span style="color:#1f2328">].</span>right<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> q<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span>i<span style="color:#1f2328">].</span>left <span style="color:#0550ae">!=</span> nil <span style="color:#0550ae">&amp;&amp;</span> q<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span>i<span style="color:#1f2328">].</span>right <span style="color:#0550ae">==</span> nil<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				q <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>q<span style="color:#1f2328">,</span>q<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span>i<span style="color:#1f2328">].</span>left<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>				q <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>q<span style="color:#1f2328">,</span><span style="color:#0550ae">&amp;</span>AVLT<span style="color:#1f2328">{</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span><span style="color:#0550ae">-</span><span style="color:#0550ae">2</span><span style="color:#1f2328">,</span>nil<span style="color:#1f2328">,</span>nil<span style="color:#1f2328">})</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span>  <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				q <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>q<span style="color:#1f2328">,</span><span style="color:#0550ae">&amp;</span>AVLT<span style="color:#1f2328">{</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span><span style="color:#0550ae">-</span><span style="color:#0550ae">2</span><span style="color:#1f2328">,</span>nil<span style="color:#1f2328">,</span>nil<span style="color:#1f2328">})</span>
+</span></span><span style="display:flex;"><span>				q <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>q<span style="color:#1f2328">,</span><span style="color:#0550ae">&amp;</span>AVLT<span style="color:#1f2328">{</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span><span style="color:#0550ae">-</span><span style="color:#0550ae">2</span><span style="color:#1f2328">,</span>nil<span style="color:#1f2328">,</span>nil<span style="color:#1f2328">})</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		fmt<span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>		j <span style="color:#0550ae">+=</span> tmp
+</span></span><span style="display:flex;"><span>		tmp <span style="color:#0550ae">=</span> tmp <span style="color:#0550ae">*</span> <span style="color:#0550ae">2</span>
+</span></span><span style="display:flex;"><span>		c <span style="color:#0550ae">+=</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">PrintAVLTNoHeight</span>(root <span style="color:#000;font-weight:bold">*</span>AVLT, C <span style="color:#458;font-weight:bold">int</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>		fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;weng&#34;</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	var q []<span style="color:#000;font-weight:bold">*</span>AVLT
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">tmp</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>	q <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(q,root)
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">j</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">c</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#900;font-weight:bold">len</span>(q) <span style="color:#000;font-weight:bold">&amp;&amp;</span> c <span style="color:#000;font-weight:bold">&lt;</span> C{
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span>:<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0</span>;i<span style="color:#000;font-weight:bold">&lt;</span>tmp <span style="color:#000;font-weight:bold">&amp;&amp;</span> j<span style="color:#000;font-weight:bold">+</span>i <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#900;font-weight:bold">len</span>(q);i<span style="color:#000;font-weight:bold">++</span>{
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span> q[j<span style="color:#000;font-weight:bold">+</span>i].h <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#099">2</span> {
-</span></span><span style="display:flex;"><span>				fmt.<span style="color:#900;font-weight:bold">Printf</span>(<span style="color:#d14">&#34;x  &#34;</span>)
-</span></span><span style="display:flex;"><span>			} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>				fmt.<span style="color:#900;font-weight:bold">Printf</span>(<span style="color:#d14">&#34;%d  &#34;</span>,q[j<span style="color:#000;font-weight:bold">+</span>i].value)
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span> q[j<span style="color:#000;font-weight:bold">+</span>i].left <span style="color:#000;font-weight:bold">!=</span> nil <span style="color:#000;font-weight:bold">&amp;&amp;</span> q[j<span style="color:#000;font-weight:bold">+</span>i].right <span style="color:#000;font-weight:bold">!=</span> nil{
-</span></span><span style="display:flex;"><span>				q <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(q,q[j<span style="color:#000;font-weight:bold">+</span>i].left)
-</span></span><span style="display:flex;"><span>				q <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(q,q[j<span style="color:#000;font-weight:bold">+</span>i].right)
-</span></span><span style="display:flex;"><span>			} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> q[j<span style="color:#000;font-weight:bold">+</span>i].left <span style="color:#000;font-weight:bold">==</span> nil <span style="color:#000;font-weight:bold">&amp;&amp;</span> q[j<span style="color:#000;font-weight:bold">+</span>i].right <span style="color:#000;font-weight:bold">!=</span> nil{
-</span></span><span style="display:flex;"><span>				q <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(q,<span style="color:#000;font-weight:bold">&amp;</span>AVLT{<span style="color:#099">0</span>,<span style="color:#000;font-weight:bold">-</span><span style="color:#099">2</span>,nil,nil})
-</span></span><span style="display:flex;"><span>				q <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(q,q[j<span style="color:#000;font-weight:bold">+</span>i].right)
-</span></span><span style="display:flex;"><span>			} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> q[j<span style="color:#000;font-weight:bold">+</span>i].left <span style="color:#000;font-weight:bold">!=</span> nil <span style="color:#000;font-weight:bold">&amp;&amp;</span> q[j<span style="color:#000;font-weight:bold">+</span>i].right <span style="color:#000;font-weight:bold">==</span> nil{
-</span></span><span style="display:flex;"><span>				q <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(q,q[j<span style="color:#000;font-weight:bold">+</span>i].left)
-</span></span><span style="display:flex;"><span>				q <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(q,<span style="color:#000;font-weight:bold">&amp;</span>AVLT{<span style="color:#099">0</span>,<span style="color:#000;font-weight:bold">-</span><span style="color:#099">2</span>,nil,nil})
-</span></span><span style="display:flex;"><span>			} <span style="color:#000;font-weight:bold">else</span>  {
-</span></span><span style="display:flex;"><span>				q <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(q,<span style="color:#000;font-weight:bold">&amp;</span>AVLT{<span style="color:#099">0</span>,<span style="color:#000;font-weight:bold">-</span><span style="color:#099">2</span>,nil,nil})
-</span></span><span style="display:flex;"><span>				q <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(q,<span style="color:#000;font-weight:bold">&amp;</span>AVLT{<span style="color:#099">0</span>,<span style="color:#000;font-weight:bold">-</span><span style="color:#099">2</span>,nil,nil})
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		fmt.<span style="color:#900;font-weight:bold">Println</span>()
-</span></span><span style="display:flex;"><span>		j <span style="color:#000;font-weight:bold">+=</span> tmp
-</span></span><span style="display:flex;"><span>		tmp <span style="color:#000;font-weight:bold">=</span> tmp <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">2</span>
-</span></span><span style="display:flex;"><span>		c <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">PrintAVLTNoHeight</span><span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>AVLT<span style="color:#1f2328">,</span> C <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		fmt<span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;weng&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	var q <span style="color:#1f2328">[]</span><span style="color:#0550ae">*</span>AVLT
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">tmp</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>	q <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>q<span style="color:#1f2328">,</span>root<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">j</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">c</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> j <span style="color:#0550ae">&lt;</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>q<span style="color:#1f2328">)</span> <span style="color:#0550ae">&amp;&amp;</span> c <span style="color:#0550ae">&lt;</span> C<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">for</span> <span style="color:#900;font-weight:bold">i</span><span style="color:#1f2328">:</span><span style="color:#0550ae">=</span><span style="color:#0550ae">0</span><span style="color:#1f2328">;</span>i<span style="color:#0550ae">&lt;</span>tmp <span style="color:#0550ae">&amp;&amp;</span> j<span style="color:#0550ae">+</span>i <span style="color:#0550ae">&lt;</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>q<span style="color:#1f2328">);</span>i<span style="color:#0550ae">++</span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">if</span> q<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span>i<span style="color:#1f2328">].</span>h <span style="color:#0550ae">==</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">2</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				fmt<span style="color:#1f2328">.</span><span style="color:#6639ba">Printf</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;x  &#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				fmt<span style="color:#1f2328">.</span><span style="color:#6639ba">Printf</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;%d  &#34;</span><span style="color:#1f2328">,</span>q<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span>i<span style="color:#1f2328">].</span>value<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">if</span> q<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span>i<span style="color:#1f2328">].</span>left <span style="color:#0550ae">!=</span> nil <span style="color:#0550ae">&amp;&amp;</span> q<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span>i<span style="color:#1f2328">].</span>right <span style="color:#0550ae">!=</span> nil<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				q <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>q<span style="color:#1f2328">,</span>q<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span>i<span style="color:#1f2328">].</span>left<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>				q <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>q<span style="color:#1f2328">,</span>q<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span>i<span style="color:#1f2328">].</span>right<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> q<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span>i<span style="color:#1f2328">].</span>left <span style="color:#0550ae">==</span> nil <span style="color:#0550ae">&amp;&amp;</span> q<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span>i<span style="color:#1f2328">].</span>right <span style="color:#0550ae">!=</span> nil<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				q <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>q<span style="color:#1f2328">,</span><span style="color:#0550ae">&amp;</span>AVLT<span style="color:#1f2328">{</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span><span style="color:#0550ae">-</span><span style="color:#0550ae">2</span><span style="color:#1f2328">,</span>nil<span style="color:#1f2328">,</span>nil<span style="color:#1f2328">})</span>
+</span></span><span style="display:flex;"><span>				q <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>q<span style="color:#1f2328">,</span>q<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span>i<span style="color:#1f2328">].</span>right<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> q<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span>i<span style="color:#1f2328">].</span>left <span style="color:#0550ae">!=</span> nil <span style="color:#0550ae">&amp;&amp;</span> q<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span>i<span style="color:#1f2328">].</span>right <span style="color:#0550ae">==</span> nil<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				q <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>q<span style="color:#1f2328">,</span>q<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span>i<span style="color:#1f2328">].</span>left<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>				q <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>q<span style="color:#1f2328">,</span><span style="color:#0550ae">&amp;</span>AVLT<span style="color:#1f2328">{</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span><span style="color:#0550ae">-</span><span style="color:#0550ae">2</span><span style="color:#1f2328">,</span>nil<span style="color:#1f2328">,</span>nil<span style="color:#1f2328">})</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span>  <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				q <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>q<span style="color:#1f2328">,</span><span style="color:#0550ae">&amp;</span>AVLT<span style="color:#1f2328">{</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span><span style="color:#0550ae">-</span><span style="color:#0550ae">2</span><span style="color:#1f2328">,</span>nil<span style="color:#1f2328">,</span>nil<span style="color:#1f2328">})</span>
+</span></span><span style="display:flex;"><span>				q <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>q<span style="color:#1f2328">,</span><span style="color:#0550ae">&amp;</span>AVLT<span style="color:#1f2328">{</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span><span style="color:#0550ae">-</span><span style="color:#0550ae">2</span><span style="color:#1f2328">,</span>nil<span style="color:#1f2328">,</span>nil<span style="color:#1f2328">})</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		fmt<span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>		j <span style="color:#0550ae">+=</span> tmp
+</span></span><span style="display:flex;"><span>		tmp <span style="color:#0550ae">=</span> tmp <span style="color:#0550ae">*</span> <span style="color:#0550ae">2</span>
+</span></span><span style="display:flex;"><span>		c <span style="color:#0550ae">+=</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">getRandomArray</span>(vs []<span style="color:#458;font-weight:bold">int</span>) []<span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>	rand.<span style="color:#900;font-weight:bold">Seed</span>(time.<span style="color:#900;font-weight:bold">Now</span>().<span style="color:#900;font-weight:bold">UnixNano</span>())
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>; i <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">6</span>; i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">ri</span> :<span style="color:#000;font-weight:bold">=</span> rand.<span style="color:#900;font-weight:bold">Intn</span>(<span style="color:#099">6</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">tmp</span> :<span style="color:#000;font-weight:bold">=</span> vs[i]
-</span></span><span style="display:flex;"><span>		vs[i] <span style="color:#000;font-weight:bold">=</span> vs[ri]
-</span></span><span style="display:flex;"><span>		vs[ri] <span style="color:#000;font-weight:bold">=</span> tmp
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> vs
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">getRandomArray</span><span style="color:#1f2328">(</span>vs <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	rand<span style="color:#1f2328">.</span><span style="color:#6639ba">Seed</span><span style="color:#1f2328">(</span>time<span style="color:#1f2328">.</span><span style="color:#6639ba">Now</span><span style="color:#1f2328">().</span><span style="color:#6639ba">UnixNano</span><span style="color:#1f2328">())</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#900;font-weight:bold">i</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> i <span style="color:#0550ae">&lt;</span> <span style="color:#0550ae">6</span><span style="color:#1f2328">;</span> i<span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">ri</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> rand<span style="color:#1f2328">.</span><span style="color:#6639ba">Intn</span><span style="color:#1f2328">(</span><span style="color:#0550ae">6</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">tmp</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> vs<span style="color:#1f2328">[</span>i<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>		vs<span style="color:#1f2328">[</span>i<span style="color:#1f2328">]</span> <span style="color:#0550ae">=</span> vs<span style="color:#1f2328">[</span>ri<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>		vs<span style="color:#1f2328">[</span>ri<span style="color:#1f2328">]</span> <span style="color:#0550ae">=</span> tmp
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> vs
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>
@@ -719,23 +719,6 @@
 
 
         
-
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/post/2020-03-13-%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%E8%AF%A6%E6%83%85/">二叉排序树详情</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E7%BA%A2%E9%BB%91%E6%A0%91%E8%AF%A6%E6%83%85/">红黑树详情</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E7%BA%A2%E9%BB%91%E6%A0%91%E5%AE%9E%E7%8E%B0/">红黑树实现</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E6%9F%A5%E5%B9%B6%E9%9B%86/">查并集</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a></li>
-        
-    </ul>
-</div>
 
 
         <div class="post-meta meta-tags">
@@ -766,7 +749,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -887,7 +870,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -947,17 +930,17 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -965,9 +948,9 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -978,29 +961,29 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -281,17 +281,17 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>FROM nginx:v1<span style="color:#099">.12.2</span>
-</span></span><span style="display:flex;"><span>USER root
-</span></span><span style="display:flex;"><span>ENV WWW <span style="color:#000;font-weight:bold">/</span>usr<span style="color:#000;font-weight:bold">/</span>share<span style="color:#000;font-weight:bold">/</span>nginx<span style="color:#000;font-weight:bold">/</span>html
-</span></span><span style="display:flex;"><span>ENV CONF <span style="color:#000;font-weight:bold">/</span>etc<span style="color:#000;font-weight:bold">/</span>nginx<span style="color:#000;font-weight:bold">/</span>conf.d
-</span></span><span style="display:flex;"><span>RUN <span style="color:#000;font-weight:bold">/</span>bin<span style="color:#000;font-weight:bold">/</span>cp <span style="color:#000;font-weight:bold">/</span>usr<span style="color:#000;font-weight:bold">/</span>share<span style="color:#000;font-weight:bold">/</span>zoneinfo<span style="color:#000;font-weight:bold">/</span>Asia<span style="color:#000;font-weight:bold">/</span>Shanghai <span style="color:#000;font-weight:bold">/</span>etc<span style="color:#000;font-weight:bold">/</span>localtime <span style="color:#000;font-weight:bold">&amp;&amp;</span><span style="color:#a61717;background-color:#e3d2d2">\</span> 
-</span></span><span style="display:flex;"><span>    echo <span style="color:#a61717;background-color:#e3d2d2">&#39;</span>Asia<span style="color:#000;font-weight:bold">/</span>Shanghai<span style="color:#a61717;background-color:#e3d2d2">&#39;</span> &gt;<span style="color:#000;font-weight:bold">/</span>etc<span style="color:#000;font-weight:bold">/</span>timezone
-</span></span><span style="display:flex;"><span>WORKDIR <span style="color:#a61717;background-color:#e3d2d2">$</span>WWW
-</span></span><span style="display:flex;"><span>ADD index.html <span style="color:#a61717;background-color:#e3d2d2">$</span>WWW<span style="color:#000;font-weight:bold">/</span>index.html
-</span></span><span style="display:flex;"><span>ADD demo.od.com.conf <span style="color:#a61717;background-color:#e3d2d2">$</span>CONF<span style="color:#000;font-weight:bold">/</span>demo.od.com.conf
-</span></span><span style="display:flex;"><span>EXPOSE <span style="color:#099">80</span>
-</span></span><span style="display:flex;"><span>CMD [<span style="color:#d14">&#34;nginx&#34;</span>,<span style="color:#d14">&#34;-g&#34;</span>,<span style="color:#d14">&#34;daemon off;&#34;</span>]
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#1f2328">FROM</span> <span style="color:#1f2328">nginx</span><span style="color:#1f2328">:</span><span style="color:#1f2328">v1</span><span style="color:#0550ae">.12.2</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">USER</span> <span style="color:#1f2328">root</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">ENV</span> <span style="color:#1f2328">WWW</span> <span style="color:#0550ae">/</span><span style="color:#1f2328">usr</span><span style="color:#0550ae">/</span><span style="color:#1f2328">share</span><span style="color:#0550ae">/</span><span style="color:#1f2328">nginx</span><span style="color:#0550ae">/</span><span style="color:#1f2328">html</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">ENV</span> <span style="color:#1f2328">CONF</span> <span style="color:#0550ae">/</span><span style="color:#1f2328">etc</span><span style="color:#0550ae">/</span><span style="color:#1f2328">nginx</span><span style="color:#0550ae">/</span><span style="color:#1f2328">conf</span><span style="color:#1f2328">.</span><span style="color:#1f2328">d</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">RUN</span> <span style="color:#0550ae">/</span><span style="color:#1f2328">bin</span><span style="color:#0550ae">/</span><span style="color:#1f2328">cp</span> <span style="color:#0550ae">/</span><span style="color:#1f2328">usr</span><span style="color:#0550ae">/</span><span style="color:#1f2328">share</span><span style="color:#0550ae">/</span><span style="color:#1f2328">zoneinfo</span><span style="color:#0550ae">/</span><span style="color:#1f2328">Asia</span><span style="color:#0550ae">/</span><span style="color:#1f2328">Shanghai</span> <span style="color:#0550ae">/</span><span style="color:#1f2328">etc</span><span style="color:#0550ae">/</span><span style="color:#1f2328">localtime</span> <span style="color:#0550ae">&amp;&amp;</span><span style="color:#f6f8fa;background-color:#82071e">\</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">echo</span> <span style="color:#f6f8fa;background-color:#82071e">&#39;</span><span style="color:#1f2328">Asia</span><span style="color:#0550ae">/</span><span style="color:#1f2328">Shanghai</span><span style="color:#f6f8fa;background-color:#82071e">&#39;</span> <span style="color:#1f2328">&gt;</span><span style="color:#0550ae">/</span><span style="color:#1f2328">etc</span><span style="color:#0550ae">/</span><span style="color:#1f2328">timezone</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">WORKDIR</span> <span style="color:#f6f8fa;background-color:#82071e">$</span><span style="color:#1f2328">WWW</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">ADD</span> <span style="color:#1f2328">index</span><span style="color:#1f2328">.</span><span style="color:#1f2328">html</span> <span style="color:#f6f8fa;background-color:#82071e">$</span><span style="color:#1f2328">WWW</span><span style="color:#0550ae">/</span><span style="color:#1f2328">index</span><span style="color:#1f2328">.</span><span style="color:#1f2328">html</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">ADD</span> <span style="color:#1f2328">demo</span><span style="color:#1f2328">.</span><span style="color:#1f2328">od</span><span style="color:#1f2328">.</span><span style="color:#1f2328">com</span><span style="color:#1f2328">.</span><span style="color:#1f2328">conf</span> <span style="color:#f6f8fa;background-color:#82071e">$</span><span style="color:#1f2328">CONF</span><span style="color:#0550ae">/</span><span style="color:#1f2328">demo</span><span style="color:#1f2328">.</span><span style="color:#1f2328">od</span><span style="color:#1f2328">.</span><span style="color:#1f2328">com</span><span style="color:#1f2328">.</span><span style="color:#1f2328">conf</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">EXPOSE</span> <span style="color:#0550ae">80</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">CMD</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;nginx&#34;</span><span style="color:#1f2328">,</span><span style="color:#0a3069">&#34;-g&#34;</span><span style="color:#1f2328">,</span><span style="color:#0a3069">&#34;daemon off;&#34;</span><span style="color:#1f2328">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="参考">参考</h2>
@@ -307,23 +307,6 @@
 
 
         
-
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/post/2023-02-17-golangcobra/">Golang|Cobra学习</a></li>
-        
-        <li><a href="/blog/post/2023-02-09-golang%E5%8D%8F%E7%A8%8B/">Golang|学习教程(七)-协程</a></li>
-        
-        <li><a href="/blog/post/2023-02-07-golang%E6%96%B9%E6%B3%95/">Golang|学习教程(六)-方法与接口</a></li>
-        
-        <li><a href="/blog/post/2023-02-06-golangmap/">Golang|学习教程(五)-map</a></li>
-        
-        <li><a href="/blog/post/2023-02-05-golangslice/">Golang|学习教程(四)-数组和切片</a></li>
-        
-    </ul>
-</div>
 
 
         <div class="post-meta meta-tags">
@@ -354,7 +337,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -475,7 +458,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -535,17 +518,17 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -553,9 +536,9 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -566,29 +549,29 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

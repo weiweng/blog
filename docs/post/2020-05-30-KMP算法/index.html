@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -102,7 +102,7 @@
     </p>
 <p>匹配模式串会生成next数组，其中<code>next[i]</code>，表示匹配模式串i位置的字符和文本串不匹配时，需要重新回退到<code>next[i]</code>的位置，继续和文本串进行匹配</p>
 <p>如图，需要匹配的字符串是<code>BBCABCDABABCDABCDABDE</code>， 匹配模式串<code>ABCDABD</code>，比较到D时，和文本串不匹配，则回退到下标2，开始重新匹配，而文本串的下标不需要回退，重而节省比较次数。</p>
-<h1 id="next数组构建-next数组的使用含义上部分已经说明即匹配模式串i位置的字符和文本串不匹配时需要重新回退到nexti的位置重新进行比较因此可以理解-nextij表示i下标之前存在i-j1i和0j的相同字符这样才能回退到j的位置继续和文本串比较-回退原理img_1png-利用动态规划的观点看如何求解next数组-定义nextij表示i下标之前存在i-j1i和0j的相同字符则nexti1的求解">next数组构建 next数组的使用含义，上部分已经说明，即匹配模式串i位置的字符和文本串不匹配时，需要重新回退到<code>next[i]</code>的位置，重新进行比较。因此可以理解 next[i]=j表示i下标之前存在<code>[i-j+1,i)</code>和<code>[0,j)</code>的相同字符，这样才能回退到j的位置，继续和文本串比较 
+<h1 id="next数组构建-next数组的使用含义上部分已经说明即匹配模式串i位置的字符和文本串不匹配时需要重新回退到nexti的位置重新进行比较因此可以理解-nextij表示i下标之前存在i-j1i和0j的相同字符这样才能回退到j的位置继续和文本串比较-回退原理-利用动态规划的观点看如何求解next数组-定义nextij表示i下标之前存在i-j1i和0j的相同字符则nexti1的求解">next数组构建 next数组的使用含义，上部分已经说明，即匹配模式串i位置的字符和文本串不匹配时，需要重新回退到<code>next[i]</code>的位置，重新进行比较。因此可以理解 next[i]=j表示i下标之前存在<code>[i-j+1,i)</code>和<code>[0,j)</code>的相同字符，这样才能回退到j的位置，继续和文本串比较 
         <img class="mx-auto" alt="回退原理" src="img_1.png" />   
      利用动态规划的观点看，如何求解next数组 定义<code>next[I]=j</code>表示i下标之前存在<code>[i-j+1,i)</code>和<code>[0,j)</code>的相同字符，则<code>next[i+1]</code>的求解</h1>
 <ul>
@@ -155,46 +155,46 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">GetNext</span>(p <span style="color:#458;font-weight:bold">string</span>) []<span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>	pl <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">len</span>(p)
-</span></span><span style="display:flex;"><span>	j <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>	i <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>	ret <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>([]<span style="color:#458;font-weight:bold">int</span>, pl)
-</span></span><span style="display:flex;"><span>	ret[<span style="color:#099">0</span>] = <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i &lt; pl<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> j <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span> <span style="color:#000;font-weight:bold">||</span> p[i] <span style="color:#000;font-weight:bold">==</span> p[j] {
-</span></span><span style="display:flex;"><span>			j<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>			i<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>			ret[i] = j
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>			j = ret[j]
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> ret
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">GetNext</span><span style="color:#1f2328">(</span><span style="color:#1f2328">p</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">pl</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">p</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">j</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">ret</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">make</span><span style="color:#1f2328">([]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">pl</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">ret</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">pl</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">j</span> <span style="color:#0550ae">==</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span> <span style="color:#0550ae">||</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">j</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">i</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">ret</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">j</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">j</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">ret</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">ret</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//优化版本
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">GetNext2</span>(p <span style="color:#458;font-weight:bold">string</span>) []<span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>	pl <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">len</span>(p)
-</span></span><span style="display:flex;"><span>	j <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>	i <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>	ret <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>([]<span style="color:#458;font-weight:bold">int</span>, pl)
-</span></span><span style="display:flex;"><span>	ret[<span style="color:#099">0</span>] = <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i &lt; pl<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> j <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span> <span style="color:#000;font-weight:bold">||</span> p[i] <span style="color:#000;font-weight:bold">==</span> p[j] {
-</span></span><span style="display:flex;"><span>			j<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>			i<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span> p[i] <span style="color:#000;font-weight:bold">!=</span> p[j] { <span style="color:#998;font-style:italic">//在使用时，i位置的字符已经和要匹配的文本字符已经不一致了，所以回退到j后，肯定还是要回退，所以有这个改动
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				ret[i] = j
-</span></span><span style="display:flex;"><span>			} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>				ret[i] = ret[j]
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>			j = ret[j]
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> ret
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//优化版本</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">GetNext2</span><span style="color:#1f2328">(</span><span style="color:#1f2328">p</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">pl</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">p</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">j</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">ret</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">make</span><span style="color:#1f2328">([]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">pl</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">ret</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">pl</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">j</span> <span style="color:#0550ae">==</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span> <span style="color:#0550ae">||</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">j</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">i</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">if</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">!=</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span> <span style="color:#57606a">//在使用时，i位置的字符已经和要匹配的文本字符已经不一致了，所以回退到j后，肯定还是要回退，所以有这个改动</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">ret</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">j</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">ret</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">ret</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">j</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">ret</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">ret</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="算法使用">算法使用</h1>
@@ -224,28 +224,28 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> KMPer <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	Next []<span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">KMPer</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">Next</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (k <span style="color:#000;font-weight:bold">*</span>KMPer) <span style="color:#900;font-weight:bold">GetNext</span>(p <span style="color:#458;font-weight:bold">string</span>) {
-</span></span><span style="display:flex;"><span>	k.Next = <span style="color:#900;font-weight:bold">GetNext2</span>(p)
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (k <span style="color:#000;font-weight:bold">*</span>KMPer) <span style="color:#900;font-weight:bold">KMP</span>(s <span style="color:#458;font-weight:bold">string</span>, p <span style="color:#458;font-weight:bold">string</span>) <span style="color:#458;font-weight:bold">bool</span> {
-</span></span><span style="display:flex;"><span>	i, j <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>, <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i &lt; <span style="color:#0086b3">len</span>(s) <span style="color:#000;font-weight:bold">&amp;&amp;</span> j &lt; <span style="color:#0086b3">len</span>(p) {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> j <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span> <span style="color:#000;font-weight:bold">||</span> s[i] <span style="color:#000;font-weight:bold">==</span> p[j] {
-</span></span><span style="display:flex;"><span>			i<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>			j<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>			j = k.Next[j]
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> j <span style="color:#000;font-weight:bold">!=</span> <span style="color:#0086b3">len</span>(p) {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">k</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">KMPer</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">GetNext</span><span style="color:#1f2328">(</span><span style="color:#1f2328">p</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">k</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">GetNext2</span><span style="color:#1f2328">(</span><span style="color:#1f2328">p</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">k</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">KMPer</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">KMP</span><span style="color:#1f2328">(</span><span style="color:#1f2328">s</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">p</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">j</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">s</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">j</span> <span style="color:#1f2328">&lt;</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">p</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">j</span> <span style="color:#0550ae">==</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span> <span style="color:#0550ae">||</span> <span style="color:#1f2328">s</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">i</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">j</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">j</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">k</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">j</span> <span style="color:#0550ae">!=</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">p</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#cf222e">false</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#cf222e">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="参考">参考</h1>
@@ -261,23 +261,6 @@
 
 
         
-
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/post/2020-05-22-%E5%8D%95%E8%B0%83%E6%A0%88%E5%92%8C%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/">单调栈和单调队列</a></li>
-        
-        <li><a href="/blog/post/2020-05-18-%E5%A0%86%E4%B8%8E%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/">堆与优先级队列</a></li>
-        
-        <li><a href="/blog/post/2020-04-30-go-test%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/">Golang|test</a></li>
-        
-        <li><a href="/blog/post/2020-04-22-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/">mysql|分库分表</a></li>
-        
-        <li><a href="/blog/post/2020-04-22-Redis%E9%9B%86%E7%BE%A4/">redis|集群</a></li>
-        
-    </ul>
-</div>
 
 
         <div class="post-meta meta-tags">
@@ -308,7 +291,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -429,7 +412,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -489,17 +472,17 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -507,9 +490,9 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -520,29 +503,29 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -149,14 +149,14 @@
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">struct</span> eventpoll{
-</span></span><span style="display:flex;"><span>    ....
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/*红黑树的根节点，这颗树中存储着所有添加到epoll中的需要监控的事件*/</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">struct</span> rb_root  rbr;
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/*双链表中则存放着将要通过epoll_wait返回给用户的满足条件的事件*/</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">struct</span> list_head rdlist;
-</span></span><span style="display:flex;"><span>    ....
-</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">struct</span> eventpoll<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">....</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">/*红黑树的根节点，这颗树中存储着所有添加到epoll中的需要监控的事件*/</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">struct</span> rb_root  rbr<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">/*双链表中则存放着将要通过epoll_wait返回给用户的满足条件的事件*/</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">struct</span> list_head rdlist<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">....</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>每一个epoll对象都有一个独立的eventpoll结构体，用于存放通过epoll_ctl方法向epoll对象中添加进来的事件。这些事件都会挂载在红黑树中，如此，重复添加的事件就可以通过红黑树而高效的识别出来(红黑树的插入时间效率是lgn，其中n为树的高度)。</p>
@@ -175,13 +175,13 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">struct</span> epitem{
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">struct</span> rb_node  rbn;<span style="color:#998;font-style:italic">//红黑树节点
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">struct</span> list_head    rdllink;<span style="color:#998;font-style:italic">//双向链表节点
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">struct</span> epoll_filefd  ffd;  <span style="color:#998;font-style:italic">//事件句柄信息
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">struct</span> eventpoll <span style="color:#000;font-weight:bold">*</span>ep;    <span style="color:#998;font-style:italic">//指向其所属的eventpoll对象
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">struct</span> epoll_event event; <span style="color:#998;font-style:italic">//期待发生的事件类型
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#cf222e">struct</span> epitem<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">struct</span> rb_node  rbn<span style="color:#1f2328">;</span><span style="color:#57606a">//红黑树节点
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">struct</span> list_head    rdllink<span style="color:#1f2328">;</span><span style="color:#57606a">//双向链表节点
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">struct</span> epoll_filefd  ffd<span style="color:#1f2328">;</span>  <span style="color:#57606a">//事件句柄信息
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">struct</span> eventpoll <span style="color:#0550ae">*</span>ep<span style="color:#1f2328">;</span>    <span style="color:#57606a">//指向其所属的eventpoll对象
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">struct</span> epoll_event event<span style="color:#1f2328">;</span> <span style="color:#57606a">//期待发生的事件类型
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>当调用epoll_wait检查是否有事件发生时，只需要检查eventpoll对象中的rdlist双链表中是否有epitem元素即可。如果rdlist不为空，则把发生的事件复制到用户态，同时将事件数量返回给用户。</p>
@@ -190,46 +190,46 @@
     </p>
 <h2 id="对比总结">对比总结</h2>
 <table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">select</th>
-<th style="text-align:center">poll</th>
-<th style="text-align:center">epoll</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">操作方式</td>
-<td style="text-align:center">遍历</td>
-<td style="text-align:center">遍历</td>
-<td style="text-align:center">回调</td>
-</tr>
-<tr>
-<td style="text-align:center">底层实现</td>
-<td style="text-align:center">数组</td>
-<td style="text-align:center">链表</td>
-<td style="text-align:center">红黑树</td>
-</tr>
-<tr>
-<td style="text-align:center">IO效率</td>
-<td style="text-align:center">每次调用都进行线性遍历，时间复杂度为O(n)</td>
-<td style="text-align:center">每次调用都进行线性遍历，时间复杂度为O(n)</td>
-<td style="text-align:center">事件通知方式，每当fd就绪，系统注册的回调函数就会被调用，将就绪fd放到readyList里面，时间复杂度O(1)</td>
-</tr>
-<tr>
-<td style="text-align:center">最大连接数式</td>
-<td style="text-align:center">1024</td>
-<td style="text-align:center">无上限</td>
-<td style="text-align:center">无上限</td>
-</tr>
-<tr>
-<td style="text-align:center">fd拷贝</td>
-<td style="text-align:center">每次调用，都需要把fd集合从用户态拷贝到内核态</td>
-<td style="text-align:center">每次调用，都需要把fd集合从用户态拷贝到内核态</td>
-<td style="text-align:center">调用epoll_ctl时拷贝进内核并保存，之后每次epoll_wait不拷贝</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: center"></th>
+          <th style="text-align: center">select</th>
+          <th style="text-align: center">poll</th>
+          <th style="text-align: center">epoll</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">操作方式</td>
+          <td style="text-align: center">遍历</td>
+          <td style="text-align: center">遍历</td>
+          <td style="text-align: center">回调</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">底层实现</td>
+          <td style="text-align: center">数组</td>
+          <td style="text-align: center">链表</td>
+          <td style="text-align: center">红黑树</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">IO效率</td>
+          <td style="text-align: center">每次调用都进行线性遍历，时间复杂度为O(n)</td>
+          <td style="text-align: center">每次调用都进行线性遍历，时间复杂度为O(n)</td>
+          <td style="text-align: center">事件通知方式，每当fd就绪，系统注册的回调函数就会被调用，将就绪fd放到readyList里面，时间复杂度O(1)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">最大连接数式</td>
+          <td style="text-align: center">1024</td>
+          <td style="text-align: center">无上限</td>
+          <td style="text-align: center">无上限</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">fd拷贝</td>
+          <td style="text-align: center">每次调用，都需要把fd集合从用户态拷贝到内核态</td>
+          <td style="text-align: center">每次调用，都需要把fd集合从用户态拷贝到内核态</td>
+          <td style="text-align: center">调用epoll_ctl时拷贝进内核并保存，之后每次epoll_wait不拷贝</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="参考">参考</h2>
 <ul>
@@ -243,23 +243,6 @@
 
 
         
-
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/post/2020-07-25-Unix%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E4%BA%94%E7%A7%8DIO%E6%A8%A1%E5%9E%8B/">Unix网络编程中的五种IO模型</a></li>
-        
-        <li><a href="/blog/post/2020-07-11-golanggo-snowflake/">Golang|go-snowflake</a></li>
-        
-        <li><a href="/blog/post/2020-07-11-defer/">Golang|defer</a></li>
-        
-        <li><a href="/blog/post/2020-07-04-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">滑动窗口</a></li>
-        
-        <li><a href="/blog/post/2020-07-04-%E5%BF%AB%E9%80%9F%E5%B9%82/">快速幂</a></li>
-        
-    </ul>
-</div>
 
 
         <div class="post-meta meta-tags">
@@ -290,7 +273,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -411,7 +394,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -471,17 +454,17 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -489,9 +472,9 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -502,29 +485,29 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

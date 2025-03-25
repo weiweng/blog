@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -115,19 +115,19 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> Node <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	Val  <span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>	Next <span style="color:#000;font-weight:bold">*</span>Node
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">Node</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">Val</span>  <span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">Next</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Node</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">reverseList</span>(h <span style="color:#000;font-weight:bold">*</span>Node) <span style="color:#000;font-weight:bold">*</span>Node {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">var</span> cur <span style="color:#000;font-weight:bold">*</span>Node = h
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">var</span> prev <span style="color:#000;font-weight:bold">*</span>Node = <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> cur <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		cur.Next, prev, cur = prev, cur, cur.Next
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> prev
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">reverseList</span><span style="color:#1f2328">(</span><span style="color:#1f2328">h</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Node</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Node</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">var</span> <span style="color:#1f2328">cur</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Node</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">h</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">var</span> <span style="color:#1f2328">prev</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Node</span> <span style="color:#1f2328">=</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">cur</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">cur</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">prev</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">cur</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">prev</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">cur</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">cur</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">prev</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="交互相邻节点">交互相邻节点</h2>
@@ -154,22 +154,22 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">swapPairs</span>(head <span style="color:#000;font-weight:bold">*</span>Node) <span style="color:#000;font-weight:bold">*</span>Node {
-</span></span><span style="display:flex;"><span>	list <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">&amp;</span>Node{Next: head}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> prev, node <span style="color:#000;font-weight:bold">:=</span> list, list.Next; node <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span>; node = node.Next {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> node.Next <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#900;font-weight:bold">swapNode</span>(prev, node, node.Next)
-</span></span><span style="display:flex;"><span>			prev = node
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> list.Next
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">swapPairs</span><span style="color:#1f2328">(</span><span style="color:#1f2328">head</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Node</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Node</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">list</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">Node</span><span style="color:#1f2328">{</span><span style="color:#1f2328">Next</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">head</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">prev</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">node</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">list</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">list</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">node</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">node</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">node</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">node</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#6639ba">swapNode</span><span style="color:#1f2328">(</span><span style="color:#1f2328">prev</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">node</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">node</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">prev</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">node</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">list</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">swapNode</span>(prev, node, next <span style="color:#000;font-weight:bold">*</span>Node) {
-</span></span><span style="display:flex;"><span>	prev.Next = next
-</span></span><span style="display:flex;"><span>	node.Next = next.Next
-</span></span><span style="display:flex;"><span>	next.Next = node
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">swapNode</span><span style="color:#1f2328">(</span><span style="color:#1f2328">prev</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">node</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">next</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Node</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">prev</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">next</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">node</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">next</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">next</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">node</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="检测是否有环">检测是否有环</h2>
@@ -201,23 +201,23 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">hasCycle</span>(head <span style="color:#000;font-weight:bold">*</span>Node) <span style="color:#458;font-weight:bold">bool</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> head <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">||</span> head.Next <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	quickP, slowP <span style="color:#000;font-weight:bold">:=</span> head, head
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> quickP <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		quickP = quickP.Next
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> quickP <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>			quickP = quickP.Next
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		slowP = slowP.Next
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> slowP <span style="color:#000;font-weight:bold">==</span> quickP {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">hasCycle</span><span style="color:#1f2328">(</span><span style="color:#1f2328">head</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Node</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">head</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#0550ae">||</span> <span style="color:#1f2328">head</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#cf222e">false</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">quickP</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">slowP</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">head</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">head</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">quickP</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">quickP</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">quickP</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">quickP</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">quickP</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">quickP</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">slowP</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">slowP</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">slowP</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">quickP</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#cf222e">true</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#cf222e">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -256,25 +256,25 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">detectCycle</span>(head <span style="color:#000;font-weight:bold">*</span>ListNode) <span style="color:#000;font-weight:bold">*</span>ListNode {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> head <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">||</span> head.Next <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>	}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">detectCycle</span><span style="color:#1f2328">(</span><span style="color:#1f2328">head</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">ListNode</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">ListNode</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">head</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#0550ae">||</span> <span style="color:#1f2328">head</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	slow, fast <span style="color:#000;font-weight:bold">:=</span> head.Next, head.Next.Next
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> fast <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> fast.Next <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> slow <span style="color:#000;font-weight:bold">!=</span> fast {
-</span></span><span style="display:flex;"><span>		slow, fast = slow.Next, fast.Next.Next
-</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">slow</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">fast</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">head</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">head</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">fast</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">fast</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">slow</span> <span style="color:#0550ae">!=</span> <span style="color:#1f2328">fast</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">slow</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">fast</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">slow</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">fast</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> slow <span style="color:#000;font-weight:bold">!=</span> fast {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">slow</span> <span style="color:#0550ae">!=</span> <span style="color:#1f2328">fast</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> slow <span style="color:#000;font-weight:bold">!=</span> head {
-</span></span><span style="display:flex;"><span>		slow, head = slow.Next, head.Next
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> slow
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">slow</span> <span style="color:#0550ae">!=</span> <span style="color:#1f2328">head</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">slow</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">head</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">slow</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">head</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">slow</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -331,43 +331,43 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">reverseKGroup</span>(head <span style="color:#000;font-weight:bold">*</span>ListNode, k <span style="color:#458;font-weight:bold">int</span>) <span style="color:#000;font-weight:bold">*</span>ListNode {
-</span></span><span style="display:flex;"><span>	l <span style="color:#000;font-weight:bold">:=</span> head
-</span></span><span style="display:flex;"><span>	s <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> l <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		s<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>		l = l.Next
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	ks <span style="color:#000;font-weight:bold">:=</span> head
-</span></span><span style="display:flex;"><span>	ke <span style="color:#000;font-weight:bold">:=</span> head
-</span></span><span style="display:flex;"><span>	retHead <span style="color:#000;font-weight:bold">:=</span> ListNode{}
-</span></span><span style="display:flex;"><span>	retList <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">&amp;</span>retHead
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> count <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">int</span>(s <span style="color:#000;font-weight:bold">/</span> k); count <span style="color:#000;font-weight:bold">!=</span> <span style="color:#099">0</span>; count<span style="color:#000;font-weight:bold">--</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">1</span>; i &lt; k; i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>			ke = ke.Next
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		ken <span style="color:#000;font-weight:bold">:=</span> ke
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> ke <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>			ken = ke.Next
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		ke.Next = <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>		retList.Next = <span style="color:#900;font-weight:bold">reverseList</span>(ks)
-</span></span><span style="display:flex;"><span>		retList = ks
-</span></span><span style="display:flex;"><span>		ks = ken
-</span></span><span style="display:flex;"><span>		ke = ken
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	retList.Next = ke
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> retHead.Next
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">reverseKGroup</span><span style="color:#1f2328">(</span><span style="color:#1f2328">head</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">ListNode</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">k</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">ListNode</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">l</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">head</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">s</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">l</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">s</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">l</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">ks</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">head</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">ke</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">head</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">retHead</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">ListNode</span><span style="color:#1f2328">{}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">retList</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">retHead</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">count</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">int</span><span style="color:#1f2328">(</span><span style="color:#1f2328">s</span> <span style="color:#0550ae">/</span> <span style="color:#1f2328">k</span><span style="color:#1f2328">);</span> <span style="color:#1f2328">count</span> <span style="color:#0550ae">!=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">count</span><span style="color:#0550ae">--</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">k</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">ke</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">ke</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">ken</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">ke</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">ke</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">ken</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">ke</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">ke</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#1f2328">=</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">retList</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">reverseList</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ks</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">retList</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">ks</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">ks</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">ken</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">ke</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">ken</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">retList</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">ke</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">retHead</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">reverseList</span>(h <span style="color:#000;font-weight:bold">*</span>ListNode) <span style="color:#000;font-weight:bold">*</span>ListNode {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">var</span> cur <span style="color:#000;font-weight:bold">*</span>ListNode = h
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">var</span> prev <span style="color:#000;font-weight:bold">*</span>ListNode = <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> cur <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		cur.Next, prev, cur = prev, cur, cur.Next
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> prev
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">reverseList</span><span style="color:#1f2328">(</span><span style="color:#1f2328">h</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">ListNode</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">ListNode</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">var</span> <span style="color:#1f2328">cur</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">ListNode</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">h</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">var</span> <span style="color:#1f2328">prev</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">ListNode</span> <span style="color:#1f2328">=</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">cur</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">cur</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">prev</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">cur</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">prev</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">cur</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">cur</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">prev</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -379,23 +379,6 @@
 
 
         
-
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/post/2020-03-13-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%E7%AE%97%E6%B3%95/">广度优先遍历算法</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">二分查找</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/">计数排序</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F/">比较排序</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">经典排序算法</a></li>
-        
-    </ul>
-</div>
 
 
         <div class="post-meta meta-tags">
@@ -426,7 +409,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -547,7 +530,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -607,17 +590,17 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -625,9 +608,9 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -638,29 +621,29 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

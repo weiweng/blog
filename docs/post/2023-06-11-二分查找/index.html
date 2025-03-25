@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -159,62 +159,62 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 默认a[]int 是递增序列，在a中寻找值等于t的下标，没有返回-1
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">binarySearch</span>(a []<span style="color:#458;font-weight:bold">int</span>, t <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span>{
-</span></span><span style="display:flex;"><span>	l,r <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>,<span style="color:#0086b3">len</span>(a)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span> <span style="color:#998;font-style:italic">// 这里r的取值是可取的
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">for</span> l<span style="color:#000;font-weight:bold">&lt;=</span>r { <span style="color:#998;font-style:italic">// 由于r是可读取的下标，这里l&lt;=r
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		mid <span style="color:#000;font-weight:bold">:=</span> l <span style="color:#000;font-weight:bold">+</span> (r<span style="color:#000;font-weight:bold">-</span>l)<span style="color:#000;font-weight:bold">&gt;&gt;</span><span style="color:#099">1</span>  <span style="color:#998;font-style:italic">// 防止越界
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">if</span> a[mid] <span style="color:#000;font-weight:bold">==</span> t {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> mid
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> a[mid] &lt; t {  <span style="color:#998;font-style:italic">// 小于目标值，左移l
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			l = mid<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> {  <span style="color:#998;font-style:italic">// 大于目标值，右移r
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			r = mid<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span> 
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">// 默认a[]int 是递增序列，在a中寻找值等于t的下标，没有返回-1</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">binarySearch</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">t</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">l</span><span style="color:#1f2328">,</span><span style="color:#1f2328">r</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span><span style="color:#1f2328">)</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span> <span style="color:#57606a">// 这里r的取值是可取的</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">l</span><span style="color:#0550ae">&lt;=</span><span style="color:#1f2328">r</span> <span style="color:#1f2328">{</span> <span style="color:#57606a">// 由于r是可读取的下标，这里l&lt;=r</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">mid</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">l</span> <span style="color:#0550ae">+</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">r</span><span style="color:#0550ae">-</span><span style="color:#1f2328">l</span><span style="color:#1f2328">)</span><span style="color:#0550ae">&gt;&gt;</span><span style="color:#0550ae">1</span>  <span style="color:#57606a">// 防止越界</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">t</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#1f2328">mid</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">t</span> <span style="color:#1f2328">{</span>  <span style="color:#57606a">// 小于目标值，左移l</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">l</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>  <span style="color:#57606a">// 大于目标值，右移r</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">r</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span> 
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 默认a[]int 是递增序列，在a中寻找第一个值等于t的下标，没有返回-1
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">bs_first</span>(a []<span style="color:#458;font-weight:bold">int</span>, t <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>	l, r <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>, <span style="color:#0086b3">len</span>(a)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> l <span style="color:#000;font-weight:bold">&lt;=</span> r {
-</span></span><span style="display:flex;"><span>		mid <span style="color:#000;font-weight:bold">:=</span> l <span style="color:#000;font-weight:bold">+</span> (r<span style="color:#000;font-weight:bold">-</span>l)<span style="color:#000;font-weight:bold">&gt;&gt;</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> a[mid] <span style="color:#000;font-weight:bold">==</span> t { <span style="color:#998;font-style:italic">// 相等时，右边压缩，找到最左值
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			r = mid <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> a[mid] &lt; t {
-</span></span><span style="display:flex;"><span>			l = mid <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>			r = mid <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> l <span style="color:#000;font-weight:bold">&gt;=</span> <span style="color:#0086b3">len</span>(a) <span style="color:#000;font-weight:bold">||</span> a[l] <span style="color:#000;font-weight:bold">!=</span> t {  <span style="color:#998;font-style:italic">//这里判断一下，是否等于t
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> l
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 默认a[]int 是递增序列，在a中寻找第一个值等于t的下标，没有返回-1</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">bs_first</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">t</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">l</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">r</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span><span style="color:#1f2328">)</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">l</span> <span style="color:#0550ae">&lt;=</span> <span style="color:#1f2328">r</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">mid</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">l</span> <span style="color:#0550ae">+</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">r</span><span style="color:#0550ae">-</span><span style="color:#1f2328">l</span><span style="color:#1f2328">)</span><span style="color:#0550ae">&gt;&gt;</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">t</span> <span style="color:#1f2328">{</span> <span style="color:#57606a">// 相等时，右边压缩，找到最左值</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">r</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">t</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">l</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">r</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">l</span> <span style="color:#0550ae">&gt;=</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">||</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">l</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">!=</span> <span style="color:#1f2328">t</span> <span style="color:#1f2328">{</span>  <span style="color:#57606a">//这里判断一下，是否等于t</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">l</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 默认a[]int 是递增序列，在a中寻找最后一个值等于t的下标，没有返回-1
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">bs_last</span>(a []<span style="color:#458;font-weight:bold">int</span>, t <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>	l, r <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>, <span style="color:#0086b3">len</span>(a)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> l <span style="color:#000;font-weight:bold">&lt;=</span> r {
-</span></span><span style="display:flex;"><span>		mid <span style="color:#000;font-weight:bold">:=</span> l <span style="color:#000;font-weight:bold">+</span> (r<span style="color:#000;font-weight:bold">-</span>l)<span style="color:#000;font-weight:bold">&gt;&gt;</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> a[mid] <span style="color:#000;font-weight:bold">==</span> t { <span style="color:#998;font-style:italic">// 相等时，左边压缩，找到最右边
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			l = mid <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> a[mid] &lt; t {
-</span></span><span style="display:flex;"><span>			l = mid <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>			r = mid <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> r &lt; <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">||</span> a[r] <span style="color:#000;font-weight:bold">!=</span> t {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> r
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 默认a[]int 是递增序列，在a中寻找最后一个值等于t的下标，没有返回-1</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">bs_last</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">t</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">l</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">r</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span><span style="color:#1f2328">)</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">l</span> <span style="color:#0550ae">&lt;=</span> <span style="color:#1f2328">r</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">mid</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">l</span> <span style="color:#0550ae">+</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">r</span><span style="color:#0550ae">-</span><span style="color:#1f2328">l</span><span style="color:#1f2328">)</span><span style="color:#0550ae">&gt;&gt;</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">t</span> <span style="color:#1f2328">{</span> <span style="color:#57606a">// 相等时，左边压缩，找到最右边</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">l</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">t</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">l</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">r</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">r</span> <span style="color:#1f2328">&lt;</span> <span style="color:#0550ae">0</span> <span style="color:#0550ae">||</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">r</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">!=</span> <span style="color:#1f2328">t</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">r</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="题目leetcode69-x的平方根httpsleetcodecnproblemssqrtx"><strong>题目<a href="https://leetcode.cn/problems/sqrtx/">leetcode69 x的平方根</a></strong></h3>
+</div><h3 id="题目"><strong>题目<a href="https://leetcode.cn/problems/sqrtx/">leetcode69 x的平方根</a></strong></h3>
 <p><strong>题解</strong></p>
 <p>很明显，<code>0-n</code>的取值是一个递增序列，寻找的值是<code>x</code>，经典的二分查找
 ​</p>
@@ -238,24 +238,24 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">mySqrt</span>(x <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>    l,r <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">1</span>,x
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> l<span style="color:#000;font-weight:bold">&lt;=</span>r {
-</span></span><span style="display:flex;"><span>        mid <span style="color:#000;font-weight:bold">:=</span> l<span style="color:#000;font-weight:bold">+</span>(r<span style="color:#000;font-weight:bold">-</span>l)<span style="color:#000;font-weight:bold">&gt;&gt;</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>        t <span style="color:#000;font-weight:bold">:=</span> mid<span style="color:#000;font-weight:bold">*</span>mid
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> t<span style="color:#000;font-weight:bold">==</span>x {
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">return</span> mid
-</span></span><span style="display:flex;"><span>        } <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> t &gt; x {
-</span></span><span style="display:flex;"><span>            r = mid <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>        }<span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>            l = mid <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> r
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">mySqrt</span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">l</span><span style="color:#1f2328">,</span><span style="color:#1f2328">r</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">,</span><span style="color:#1f2328">x</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#1f2328">l</span><span style="color:#0550ae">&lt;=</span><span style="color:#1f2328">r</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">mid</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">l</span><span style="color:#0550ae">+</span><span style="color:#1f2328">(</span><span style="color:#1f2328">r</span><span style="color:#0550ae">-</span><span style="color:#1f2328">l</span><span style="color:#1f2328">)</span><span style="color:#0550ae">&gt;&gt;</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">t</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">mid</span><span style="color:#0550ae">*</span><span style="color:#1f2328">mid</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#1f2328">t</span><span style="color:#0550ae">==</span><span style="color:#1f2328">x</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">return</span> <span style="color:#1f2328">mid</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> <span style="color:#1f2328">t</span> <span style="color:#1f2328">&gt;</span> <span style="color:#1f2328">x</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">r</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span><span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">l</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">r</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="题目leetcode1539-第k个缺失的正整数httpsleetcodecnproblemskth-missing-positive-number"><strong>题目<a href="https://leetcode.cn/problems/kth-missing-positive-number/">leetcode1539 第k个缺失的正整数</a></strong></h3>
+</div><h3 id="题目-1"><strong>题目<a href="https://leetcode.cn/problems/kth-missing-positive-number/">leetcode1539 第k个缺失的正整数</a></strong></h3>
 <p><strong>题解</strong></p>
 <p>有点动态规划的意思，考虑第i个元素的缺失数量，从而定位出第k个缺失值所在的位置，​然后计算其值。</p>
 <p><strong>代码</strong></p>
@@ -279,25 +279,25 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">findKthPositive</span>(a []<span style="color:#458;font-weight:bold">int</span>, k <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> a[<span style="color:#099">0</span>] &gt; k {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> k
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	l, r <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>, <span style="color:#0086b3">len</span>(a)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> l &lt; r {
-</span></span><span style="display:flex;"><span>		mid <span style="color:#000;font-weight:bold">:=</span> l <span style="color:#000;font-weight:bold">+</span> (r<span style="color:#000;font-weight:bold">-</span>l)<span style="color:#000;font-weight:bold">&gt;&gt;</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> a[mid]<span style="color:#000;font-weight:bold">-</span>mid<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span> <span style="color:#000;font-weight:bold">&gt;=</span> k {
-</span></span><span style="display:flex;"><span>			r = mid
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>			l = mid <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	l <span style="color:#000;font-weight:bold">-=</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> a[l] <span style="color:#000;font-weight:bold">+</span> k <span style="color:#000;font-weight:bold">-</span> (a[l] <span style="color:#000;font-weight:bold">-</span> l <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>)
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">findKthPositive</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">k</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">&gt;</span> <span style="color:#1f2328">k</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#1f2328">k</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">l</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">r</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">l</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">r</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">mid</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">l</span> <span style="color:#0550ae">+</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">r</span><span style="color:#0550ae">-</span><span style="color:#1f2328">l</span><span style="color:#1f2328">)</span><span style="color:#0550ae">&gt;&gt;</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#1f2328">]</span><span style="color:#0550ae">-</span><span style="color:#1f2328">mid</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span> <span style="color:#0550ae">&gt;=</span> <span style="color:#1f2328">k</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">r</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">l</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">l</span> <span style="color:#0550ae">-=</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">l</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">+</span> <span style="color:#1f2328">k</span> <span style="color:#0550ae">-</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">l</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">-</span> <span style="color:#1f2328">l</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="题目leetcode1608-特殊数组的特征值httpsleetcodecnproblemsspecial-array-with-x-elements-greater-than-or-equal-x"><strong>题目<a href="https://leetcode.cn/problems/special-array-with-x-elements-greater-than-or-equal-x/">leetcode1608 特殊数组的特征值</a></strong></h3>
+</div><h3 id="题目-2"><strong>题目<a href="https://leetcode.cn/problems/special-array-with-x-elements-greater-than-or-equal-x/">leetcode1608 特殊数组的特征值</a></strong></h3>
 <p><strong>题解</strong></p>
 <p>很明显，找的数要满足的条件就是恰好有x个数大于或等于x，将给定的数组排序后，取值越小，我们得到的大于等于它的数就越多，因此存在有序性，考虑二分查找。</p>
 <p>因为结果的取值范围在<code>0-len(nums)-1</code>，因此我们取<code>i</code>找到<code>nums</code>中第一个大于或等于<code>i</code>的下标，然后统计<code>nums</code>中大于等于<code>i</code>的个数，如果和<code>i</code>相等，则就是我们要的答案</p>
@@ -337,40 +337,40 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">specialArray</span>(a []<span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>    sort.<span style="color:#900;font-weight:bold">Ints</span>(a)
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">var</span> bs <span style="color:#000;font-weight:bold">func</span>(<span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>    bs = <span style="color:#000;font-weight:bold">func</span>(x <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span>{
-</span></span><span style="display:flex;"><span>        l,r <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>,<span style="color:#0086b3">len</span>(a)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">for</span> l<span style="color:#000;font-weight:bold">&lt;=</span>r {
-</span></span><span style="display:flex;"><span>            mid <span style="color:#000;font-weight:bold">:=</span> l <span style="color:#000;font-weight:bold">+</span> (r<span style="color:#000;font-weight:bold">-</span>l)<span style="color:#000;font-weight:bold">&gt;&gt;</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">if</span> a[mid] <span style="color:#000;font-weight:bold">==</span> x {
-</span></span><span style="display:flex;"><span>                r = mid <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>            }<span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> a[mid] &lt; x {
-</span></span><span style="display:flex;"><span>                l = mid <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>            }<span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>                r = mid <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> l <span style="color:#000;font-weight:bold">==</span> <span style="color:#0086b3">len</span>(a) {
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> l
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> i<span style="color:#000;font-weight:bold">:=</span><span style="color:#099">1</span>;i<span style="color:#000;font-weight:bold">&lt;=</span><span style="color:#0086b3">len</span>(a);i<span style="color:#000;font-weight:bold">++</span>{
-</span></span><span style="display:flex;"><span>        r <span style="color:#000;font-weight:bold">:=</span> <span style="color:#900;font-weight:bold">bs</span>(i)
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> r <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span> {
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">continue</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> <span style="color:#0086b3">len</span>(a) <span style="color:#000;font-weight:bold">-</span> r  <span style="color:#000;font-weight:bold">==</span> i {
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">return</span> i
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">specialArray</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">sort</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Ints</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">var</span> <span style="color:#1f2328">bs</span> <span style="color:#cf222e">func</span><span style="color:#1f2328">(</span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">bs</span> <span style="color:#1f2328">=</span> <span style="color:#cf222e">func</span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">l</span><span style="color:#1f2328">,</span><span style="color:#1f2328">r</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span><span style="color:#1f2328">)</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">for</span> <span style="color:#1f2328">l</span><span style="color:#0550ae">&lt;=</span><span style="color:#1f2328">r</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">mid</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">l</span> <span style="color:#0550ae">+</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">r</span><span style="color:#0550ae">-</span><span style="color:#1f2328">l</span><span style="color:#1f2328">)</span><span style="color:#0550ae">&gt;&gt;</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">if</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">x</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">r</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">}</span><span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">x</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">l</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">}</span><span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">r</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#1f2328">l</span> <span style="color:#0550ae">==</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">return</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#1f2328">l</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">:=</span><span style="color:#0550ae">1</span><span style="color:#1f2328">;</span><span style="color:#1f2328">i</span><span style="color:#0550ae">&lt;=</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span><span style="color:#1f2328">);</span><span style="color:#1f2328">i</span><span style="color:#0550ae">++</span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">r</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">bs</span><span style="color:#1f2328">(</span><span style="color:#1f2328">i</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#1f2328">r</span> <span style="color:#0550ae">==</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">continue</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-</span> <span style="color:#1f2328">r</span>  <span style="color:#0550ae">==</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">return</span> <span style="color:#1f2328">i</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="题目leetcode852-山脉数组的峰顶索引httpsleetcodecnproblemspeak-index-in-a-mountain-array"><strong>题目<a href="https://leetcode.cn/problems/peak-index-in-a-mountain-array/">leetcode852 山脉数组的峰顶索引</a></strong></h3>
+</div><h3 id="题目-3"><strong>题目<a href="https://leetcode.cn/problems/peak-index-in-a-mountain-array/">leetcode852 山脉数组的峰顶索引</a></strong></h3>
 <p><strong>题解</strong></p>
 <p>还是基于二分查找的思路，只是这里换一个思考，如果取得的三个数<code>l,mid,r</code>，是递增的情况，则峰值在右边，否则峰值在左边，这样就可以找到其中的一个峰值了</p>
 <p><strong>代码</strong></p>
@@ -392,23 +392,23 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">peakIndexInMountainArray</span>(arr []<span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>	l, r <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">1</span>, <span style="color:#0086b3">len</span>(arr)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">2</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> l <span style="color:#000;font-weight:bold">&lt;=</span> r {
-</span></span><span style="display:flex;"><span>		mid <span style="color:#000;font-weight:bold">:=</span> l <span style="color:#000;font-weight:bold">+</span> (r<span style="color:#000;font-weight:bold">-</span>l)<span style="color:#000;font-weight:bold">&gt;&gt;</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> arr[mid<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>] &lt; arr[mid] <span style="color:#000;font-weight:bold">&amp;&amp;</span> arr[mid] &gt; arr[mid<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>] {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> mid
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> arr[mid<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>] &lt; arr[mid] <span style="color:#000;font-weight:bold">&amp;&amp;</span> arr[mid] &lt; arr[mid<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>] {
-</span></span><span style="display:flex;"><span>			l = mid <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>			r = mid <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">peakIndexInMountainArray</span><span style="color:#1f2328">(</span><span style="color:#1f2328">arr</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">l</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">r</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">arr</span><span style="color:#1f2328">)</span><span style="color:#0550ae">-</span><span style="color:#0550ae">2</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">l</span> <span style="color:#0550ae">&lt;=</span> <span style="color:#1f2328">r</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">mid</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">l</span> <span style="color:#0550ae">+</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">r</span><span style="color:#0550ae">-</span><span style="color:#1f2328">l</span><span style="color:#1f2328">)</span><span style="color:#0550ae">&gt;&gt;</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">arr</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">arr</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">arr</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">&gt;</span> <span style="color:#1f2328">arr</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#1f2328">mid</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> <span style="color:#1f2328">arr</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">arr</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">arr</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">arr</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">l</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">r</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="题目leetcode287-寻找重复数httpsleetcodecnproblemsfind-the-duplicate-number"><strong>题目<a href="https://leetcode.cn/problems/find-the-duplicate-number/">leetcode287 寻找重复数</a></strong></h3>
+</div><h3 id="题目-4"><strong>题目<a href="https://leetcode.cn/problems/find-the-duplicate-number/">leetcode287 寻找重复数</a></strong></h3>
 <p><strong>题解</strong></p>
 <p>题目可知，结果范围在<code>1-n</code>，通过遍历<code>x</code>，可以统计出数组里小于<code>x</code>的个数，可以判断出是否是重复的整数，因此可以使用二分查找</p>
 <p><strong>代码</strong></p>
@@ -437,30 +437,30 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">findDuplicate</span>(nums []<span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>    n <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">len</span>(nums)
-</span></span><span style="display:flex;"><span>    l, r <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">1</span>, n <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>    ans <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> l <span style="color:#000;font-weight:bold">&lt;=</span> r {
-</span></span><span style="display:flex;"><span>        mid <span style="color:#000;font-weight:bold">:=</span> (l <span style="color:#000;font-weight:bold">+</span> r) <span style="color:#000;font-weight:bold">&gt;&gt;</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>        cnt <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>; i &lt; n; i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">if</span> nums[i] <span style="color:#000;font-weight:bold">&lt;=</span> mid {
-</span></span><span style="display:flex;"><span>                cnt<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> cnt <span style="color:#000;font-weight:bold">&lt;=</span> mid {
-</span></span><span style="display:flex;"><span>            l = mid <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>        } <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>            r = mid <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>            ans = mid
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> ans
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">findDuplicate</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">n</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">l</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">r</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">n</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">ans</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#1f2328">l</span> <span style="color:#0550ae">&lt;=</span> <span style="color:#1f2328">r</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">mid</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">l</span> <span style="color:#0550ae">+</span> <span style="color:#1f2328">r</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">&gt;&gt;</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">cnt</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">n</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">if</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">&lt;=</span> <span style="color:#1f2328">mid</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">cnt</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#1f2328">cnt</span> <span style="color:#0550ae">&lt;=</span> <span style="color:#1f2328">mid</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">l</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">r</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">ans</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">ans</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="题目leetcode378-有序矩阵中的第k小元素httpsleetcodecnproblemskth-smallest-element-in-a-sorted-matrix"><strong>题目<a href="https://leetcode.cn/problems/kth-smallest-element-in-a-sorted-matrix/">leetcode378 有序矩阵中的第k小元素</a></strong></h3>
+</div><h3 id="题目-5"><strong>题目<a href="https://leetcode.cn/problems/kth-smallest-element-in-a-sorted-matrix/">leetcode378 有序矩阵中的第k小元素</a></strong></h3>
 <p><strong>题解</strong></p>
 <p>矩阵里面是有序的，因此可以通过二分查找，既然要找到第k小的数，那我们需要知道矩阵里某个数<code>x</code>是第几位，因此需要辅助函数，统计小于<code>x</code>的个数</p>
 <p><strong>代码</strong></p>
@@ -495,36 +495,36 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">kthSmallest</span>(matrix [][]<span style="color:#458;font-weight:bold">int</span>, k <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>    n <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">len</span>(matrix)
-</span></span><span style="display:flex;"><span>    left, right <span style="color:#000;font-weight:bold">:=</span> matrix[<span style="color:#099">0</span>][<span style="color:#099">0</span>], matrix[n<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>][n<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> left &lt; right {
-</span></span><span style="display:flex;"><span>        mid <span style="color:#000;font-weight:bold">:=</span> left <span style="color:#000;font-weight:bold">+</span> (right <span style="color:#000;font-weight:bold">-</span> left) <span style="color:#000;font-weight:bold">/</span> <span style="color:#099">2</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">check</span>(matrix, mid, k, n) {
-</span></span><span style="display:flex;"><span>            right = mid
-</span></span><span style="display:flex;"><span>        } <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>            left = mid <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> left
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 辅助函数，统计mid在matrix里面的排序情况
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">check</span>(matrix [][]<span style="color:#458;font-weight:bold">int</span>, mid, k, n <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">bool</span> {
-</span></span><span style="display:flex;"><span>    i, j <span style="color:#000;font-weight:bold">:=</span> n <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>, <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>    num <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">&gt;=</span> <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> j &lt; n {
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> matrix[i][j] <span style="color:#000;font-weight:bold">&lt;=</span> mid {
-</span></span><span style="display:flex;"><span>            num <span style="color:#000;font-weight:bold">+=</span> i <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>            j<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>        } <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>            i<span style="color:#000;font-weight:bold">--</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> num <span style="color:#000;font-weight:bold">&gt;=</span> k
-</span></span><span style="display:flex;"><span>} 
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">kthSmallest</span><span style="color:#1f2328">(</span><span style="color:#1f2328">matrix</span> <span style="color:#1f2328">[][]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">k</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">n</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">matrix</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">left</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">right</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">matrix</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">][</span><span style="color:#0550ae">0</span><span style="color:#1f2328">],</span> <span style="color:#1f2328">matrix</span><span style="color:#1f2328">[</span><span style="color:#1f2328">n</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">][</span><span style="color:#1f2328">n</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#1f2328">left</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">right</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">mid</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">left</span> <span style="color:#0550ae">+</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">right</span> <span style="color:#0550ae">-</span> <span style="color:#1f2328">left</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">/</span> <span style="color:#0550ae">2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#6639ba">check</span><span style="color:#1f2328">(</span><span style="color:#1f2328">matrix</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">mid</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">k</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">n</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">right</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">left</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">left</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 辅助函数，统计mid在matrix里面的排序情况</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">check</span><span style="color:#1f2328">(</span><span style="color:#1f2328">matrix</span> <span style="color:#1f2328">[][]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">mid</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">k</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">n</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">j</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">n</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">num</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">&gt;=</span> <span style="color:#0550ae">0</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">j</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">n</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#1f2328">matrix</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">][</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">&lt;=</span> <span style="color:#1f2328">mid</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">num</span> <span style="color:#0550ae">+=</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">j</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">i</span><span style="color:#0550ae">--</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">num</span> <span style="color:#0550ae">&gt;=</span> <span style="color:#1f2328">k</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span> 
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="题目leetcode153-寻找旋转排序数组中的最小值httpsleetcodecnproblemsfind-minimum-in-rotated-sorted-array"><strong>题目<a href="https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/">leetcode153 寻找旋转排序数组中的最小值</a></strong></h3>
+</div><h3 id="题目-6"><strong>题目<a href="https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/">leetcode153 寻找旋转排序数组中的最小值</a></strong></h3>
 <p><strong>题解</strong></p>
 <p>虽然有旋转操作，但最终情况是在一个准有序的数组里查找，这里的准有序是指一个凹的数组，通过比较左右两端，可以找最低点位置</p>
 <p><strong>代码</strong></p>
@@ -544,21 +544,21 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">findMin</span>(nums []<span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>    low, high <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>, <span style="color:#0086b3">len</span>(nums) <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> low &lt; high {
-</span></span><span style="display:flex;"><span>        pivot <span style="color:#000;font-weight:bold">:=</span> low <span style="color:#000;font-weight:bold">+</span> (high <span style="color:#000;font-weight:bold">-</span> low) <span style="color:#000;font-weight:bold">/</span> <span style="color:#099">2</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> nums[pivot] &lt; nums[high] {
-</span></span><span style="display:flex;"><span>            high = pivot
-</span></span><span style="display:flex;"><span>        } <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>            low = pivot <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> nums[low]
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">findMin</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">low</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">high</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#1f2328">low</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">high</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">pivot</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">low</span> <span style="color:#0550ae">+</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">high</span> <span style="color:#0550ae">-</span> <span style="color:#1f2328">low</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">/</span> <span style="color:#0550ae">2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">pivot</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">high</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">high</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">pivot</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">low</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">pivot</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">low</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="题目leetcode1300-转变数组后最接近目标值的数组和httpsleetcodecnproblemssum-of-mutated-array-closest-to-target"><strong>题目<a href="https://leetcode.cn/problems/sum-of-mutated-array-closest-to-target/">leetcode1300 转变数组后最接近目标值的数组和</a></strong></h3>
+</div><h3 id="题目-7"><strong>题目<a href="https://leetcode.cn/problems/sum-of-mutated-array-closest-to-target/">leetcode1300 转变数组后最接近目标值的数组和</a></strong></h3>
 <p><strong>题解</strong></p>
 <p>很明显，结果的取值范围在数组的最大值和最小值之间，具有有序性，因此使用二分查找，不过这里还是用了累加和的小技巧</p>
 <p><strong>代码</strong></p>
@@ -614,57 +614,57 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">findBestValue</span>(arr []<span style="color:#458;font-weight:bold">int</span>, target <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>    sort.<span style="color:#900;font-weight:bold">Ints</span>(arr)
-</span></span><span style="display:flex;"><span>    n <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">len</span>(arr)
-</span></span><span style="display:flex;"><span>    prefix <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>([]<span style="color:#458;font-weight:bold">int</span>, n <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">1</span>; i <span style="color:#000;font-weight:bold">&lt;=</span> n; i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>        prefix[i] = prefix[i<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>] <span style="color:#000;font-weight:bold">+</span> arr[i<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    l, r, ans <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>, arr[n<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>], <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> l <span style="color:#000;font-weight:bold">&lt;=</span> r {
-</span></span><span style="display:flex;"><span>        mid <span style="color:#000;font-weight:bold">:=</span> (l <span style="color:#000;font-weight:bold">+</span> r) <span style="color:#000;font-weight:bold">/</span> <span style="color:#099">2</span>
-</span></span><span style="display:flex;"><span>        index <span style="color:#000;font-weight:bold">:=</span> sort.<span style="color:#900;font-weight:bold">SearchInts</span>(arr, mid)
-</span></span><span style="display:flex;"><span>        cur <span style="color:#000;font-weight:bold">:=</span> prefix[index] <span style="color:#000;font-weight:bold">+</span> (n <span style="color:#000;font-weight:bold">-</span> index) <span style="color:#000;font-weight:bold">*</span> mid
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> cur <span style="color:#000;font-weight:bold">&lt;=</span> target {
-</span></span><span style="display:flex;"><span>            ans = mid
-</span></span><span style="display:flex;"><span>            l = mid <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>        } <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>            r = mid <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    chooseSmall <span style="color:#000;font-weight:bold">:=</span> <span style="color:#900;font-weight:bold">check</span>(arr, ans)
-</span></span><span style="display:flex;"><span>    chooseBig <span style="color:#000;font-weight:bold">:=</span> <span style="color:#900;font-weight:bold">check</span>(arr, ans <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">abs</span>(chooseSmall <span style="color:#000;font-weight:bold">-</span> target) &gt; <span style="color:#900;font-weight:bold">abs</span>(chooseBig <span style="color:#000;font-weight:bold">-</span> target) {
-</span></span><span style="display:flex;"><span>        ans<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> ans
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">findBestValue</span><span style="color:#1f2328">(</span><span style="color:#1f2328">arr</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">target</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">sort</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Ints</span><span style="color:#1f2328">(</span><span style="color:#1f2328">arr</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">n</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">arr</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">prefix</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">make</span><span style="color:#1f2328">([]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">n</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">&lt;=</span> <span style="color:#1f2328">n</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">prefix</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">prefix</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">+</span> <span style="color:#1f2328">arr</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">l</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">r</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">ans</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">arr</span><span style="color:#1f2328">[</span><span style="color:#1f2328">n</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">],</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#1f2328">l</span> <span style="color:#0550ae">&lt;=</span> <span style="color:#1f2328">r</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">mid</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">l</span> <span style="color:#0550ae">+</span> <span style="color:#1f2328">r</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">/</span> <span style="color:#0550ae">2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">index</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">sort</span><span style="color:#1f2328">.</span><span style="color:#6639ba">SearchInts</span><span style="color:#1f2328">(</span><span style="color:#1f2328">arr</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">mid</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">cur</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">prefix</span><span style="color:#1f2328">[</span><span style="color:#1f2328">index</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">+</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">n</span> <span style="color:#0550ae">-</span> <span style="color:#1f2328">index</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span> <span style="color:#1f2328">mid</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#1f2328">cur</span> <span style="color:#0550ae">&lt;=</span> <span style="color:#1f2328">target</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">ans</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">l</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">r</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">chooseSmall</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">check</span><span style="color:#1f2328">(</span><span style="color:#1f2328">arr</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">ans</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">chooseBig</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">check</span><span style="color:#1f2328">(</span><span style="color:#1f2328">arr</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">ans</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#6639ba">abs</span><span style="color:#1f2328">(</span><span style="color:#1f2328">chooseSmall</span> <span style="color:#0550ae">-</span> <span style="color:#1f2328">target</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">&gt;</span> <span style="color:#6639ba">abs</span><span style="color:#1f2328">(</span><span style="color:#1f2328">chooseBig</span> <span style="color:#0550ae">-</span> <span style="color:#1f2328">target</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">ans</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">ans</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">check</span>(arr []<span style="color:#458;font-weight:bold">int</span>, x <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>    ret <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> _, num <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> arr {
-</span></span><span style="display:flex;"><span>        ret <span style="color:#000;font-weight:bold">+=</span> <span style="color:#900;font-weight:bold">min</span>(num, x)
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> ret
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">check</span><span style="color:#1f2328">(</span><span style="color:#1f2328">arr</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">x</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">ret</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#1f2328">_</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">num</span> <span style="color:#0550ae">:=</span> <span style="color:#cf222e">range</span> <span style="color:#1f2328">arr</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">ret</span> <span style="color:#0550ae">+=</span> <span style="color:#6639ba">min</span><span style="color:#1f2328">(</span><span style="color:#1f2328">num</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">x</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">ret</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">min</span>(x, y <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">if</span> x &lt; y {
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> x
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> y
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">min</span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">y</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">x</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">y</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#1f2328">x</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">y</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">abs</span>(x <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">if</span> x &lt; <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span> <span style="color:#000;font-weight:bold">*</span> x
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> x
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">abs</span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">x</span> <span style="color:#1f2328">&lt;</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span> <span style="color:#0550ae">*</span> <span style="color:#1f2328">x</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">x</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="leetcode1901-寻找峰值-iihttpsleetcodecnproblemsfind-a-peak-element-ii"><strong><a href="https://leetcode.cn/problems/find-a-peak-element-ii/">leetcode1901 寻找峰值 II</a></strong></h3>
+</div><h3 id="leetcode1901-寻找峰值-ii"><strong><a href="https://leetcode.cn/problems/find-a-peak-element-ii/">leetcode1901 寻找峰值 II</a></strong></h3>
 <p><strong>题解</strong></p>
 <p>基于有序的二维数组的搜索，我们也只要找其中一个峰值，因此可以分别基于x和y分别是用二分查找，找到符合要求的x和y</p>
 <p><strong>代码</strong></p>
@@ -690,27 +690,27 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">findPeakGrid</span>(mat [][]<span style="color:#458;font-weight:bold">int</span>) []<span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>    m,n <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">len</span>(mat),<span style="color:#0086b3">len</span>(mat[<span style="color:#099">0</span>])
-</span></span><span style="display:flex;"><span>    r,c <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>,<span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">true</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> r<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>&lt;m<span style="color:#000;font-weight:bold">&amp;&amp;</span>mat[r][c]&lt;mat[r<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>][c] {
-</span></span><span style="display:flex;"><span>            r<span style="color:#000;font-weight:bold">+=</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>        } <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> r<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span><span style="color:#000;font-weight:bold">&gt;=</span><span style="color:#099">0</span><span style="color:#000;font-weight:bold">&amp;&amp;</span>mat[r][c]&lt;mat[r<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>][c] {
-</span></span><span style="display:flex;"><span>            r<span style="color:#000;font-weight:bold">-=</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>        }<span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> c<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>&lt;n<span style="color:#000;font-weight:bold">&amp;&amp;</span>mat[r][c]&lt;mat[r][c<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>] {
-</span></span><span style="display:flex;"><span>            c<span style="color:#000;font-weight:bold">+=</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>        }<span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> c<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span><span style="color:#000;font-weight:bold">&gt;=</span><span style="color:#099">0</span><span style="color:#000;font-weight:bold">&amp;&amp;</span>mat[r][c]&lt;mat[r][c<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>] {
-</span></span><span style="display:flex;"><span>            c<span style="color:#000;font-weight:bold">-=</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>        }<span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">return</span> []<span style="color:#458;font-weight:bold">int</span>{r,c}
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> []<span style="color:#458;font-weight:bold">int</span>{<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>,<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>}
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">findPeakGrid</span><span style="color:#1f2328">(</span><span style="color:#1f2328">mat</span> <span style="color:#1f2328">[][]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">m</span><span style="color:#1f2328">,</span><span style="color:#1f2328">n</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">mat</span><span style="color:#1f2328">),</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">mat</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">])</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">r</span><span style="color:#1f2328">,</span><span style="color:#1f2328">c</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span><span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#cf222e">true</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#1f2328">r</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">&lt;</span><span style="color:#1f2328">m</span><span style="color:#0550ae">&amp;&amp;</span><span style="color:#1f2328">mat</span><span style="color:#1f2328">[</span><span style="color:#1f2328">r</span><span style="color:#1f2328">][</span><span style="color:#1f2328">c</span><span style="color:#1f2328">]&lt;</span><span style="color:#1f2328">mat</span><span style="color:#1f2328">[</span><span style="color:#1f2328">r</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">][</span><span style="color:#1f2328">c</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">r</span><span style="color:#0550ae">+=</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> <span style="color:#1f2328">r</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#0550ae">&gt;=</span><span style="color:#0550ae">0</span><span style="color:#0550ae">&amp;&amp;</span><span style="color:#1f2328">mat</span><span style="color:#1f2328">[</span><span style="color:#1f2328">r</span><span style="color:#1f2328">][</span><span style="color:#1f2328">c</span><span style="color:#1f2328">]&lt;</span><span style="color:#1f2328">mat</span><span style="color:#1f2328">[</span><span style="color:#1f2328">r</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">][</span><span style="color:#1f2328">c</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">r</span><span style="color:#0550ae">-=</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span><span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> <span style="color:#1f2328">c</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">&lt;</span><span style="color:#1f2328">n</span><span style="color:#0550ae">&amp;&amp;</span><span style="color:#1f2328">mat</span><span style="color:#1f2328">[</span><span style="color:#1f2328">r</span><span style="color:#1f2328">][</span><span style="color:#1f2328">c</span><span style="color:#1f2328">]&lt;</span><span style="color:#1f2328">mat</span><span style="color:#1f2328">[</span><span style="color:#1f2328">r</span><span style="color:#1f2328">][</span><span style="color:#1f2328">c</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">c</span><span style="color:#0550ae">+=</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span><span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> <span style="color:#1f2328">c</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#0550ae">&gt;=</span><span style="color:#0550ae">0</span><span style="color:#0550ae">&amp;&amp;</span><span style="color:#1f2328">mat</span><span style="color:#1f2328">[</span><span style="color:#1f2328">r</span><span style="color:#1f2328">][</span><span style="color:#1f2328">c</span><span style="color:#1f2328">]&lt;</span><span style="color:#1f2328">mat</span><span style="color:#1f2328">[</span><span style="color:#1f2328">r</span><span style="color:#1f2328">][</span><span style="color:#1f2328">c</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">c</span><span style="color:#0550ae">-=</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span><span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">return</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#1f2328">r</span><span style="color:#1f2328">,</span><span style="color:#1f2328">c</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="leetcode74-搜索二维矩阵httpsleetcodecnproblemssearch-a-2d-matrix"><strong><a href="https://leetcode.cn/problems/search-a-2d-matrix/">leetcode74 搜索二维矩阵</a></strong></h3>
+</div><h3 id="leetcode74-搜索二维矩阵"><strong><a href="https://leetcode.cn/problems/search-a-2d-matrix/">leetcode74 搜索二维矩阵</a></strong></h3>
 <p><strong>题解</strong></p>
 <p>在整体有序的二维数组里面搜素，是很经典的问题，我们的一般思路也是二分查找，要点是左下角到右上角的搜索</p>
 <p><strong>代码</strong></p>
@@ -738,29 +738,29 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">searchMatrix</span>(matrix [][]<span style="color:#458;font-weight:bold">int</span>, target <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">bool</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">if</span> <span style="color:#0086b3">len</span>(matrix)<span style="color:#000;font-weight:bold">==</span><span style="color:#099">0</span>{
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    row<span style="color:#000;font-weight:bold">:=</span><span style="color:#0086b3">len</span>(matrix)
-</span></span><span style="display:flex;"><span>    col<span style="color:#000;font-weight:bold">:=</span><span style="color:#0086b3">len</span>(matrix[<span style="color:#099">0</span>])
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//1. 规定起始点
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    i,j<span style="color:#000;font-weight:bold">:=</span>row<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>,<span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> i<span style="color:#000;font-weight:bold">&gt;=</span><span style="color:#099">0</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> j&lt;col{
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> matrix[i][j]<span style="color:#000;font-weight:bold">==</span>target{  <span style="color:#998;font-style:italic">//2.找到则返回
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span>        }<span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> matrix[i][j]&lt;target{  <span style="color:#998;font-style:italic">//3.小于target，向右查找
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            j<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>        }<span style="color:#000;font-weight:bold">else</span>{  <span style="color:#998;font-style:italic">//4.大于target，向上查找
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            i<span style="color:#000;font-weight:bold">--</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">searchMatrix</span><span style="color:#1f2328">(</span><span style="color:#1f2328">matrix</span> <span style="color:#1f2328">[][]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">target</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">matrix</span><span style="color:#1f2328">)</span><span style="color:#0550ae">==</span><span style="color:#0550ae">0</span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#cf222e">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">row</span><span style="color:#0550ae">:=</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">matrix</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">col</span><span style="color:#0550ae">:=</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">matrix</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">])</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//1. 规定起始点</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">i</span><span style="color:#1f2328">,</span><span style="color:#1f2328">j</span><span style="color:#0550ae">:=</span><span style="color:#1f2328">row</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span><span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">&gt;=</span><span style="color:#0550ae">0</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">j</span><span style="color:#1f2328">&lt;</span><span style="color:#1f2328">col</span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#1f2328">matrix</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">][</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span><span style="color:#0550ae">==</span><span style="color:#1f2328">target</span><span style="color:#1f2328">{</span>  <span style="color:#57606a">//2.找到则返回</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">return</span> <span style="color:#cf222e">true</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span><span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> <span style="color:#1f2328">matrix</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">][</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]&lt;</span><span style="color:#1f2328">target</span><span style="color:#1f2328">{</span>  <span style="color:#57606a">//3.小于target，向右查找</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">j</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span><span style="color:#cf222e">else</span><span style="color:#1f2328">{</span>  <span style="color:#57606a">//4.大于target，向上查找</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">i</span><span style="color:#0550ae">--</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#cf222e">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="leetcode240-搜索二维矩阵iihttpsleetcodecnproblemssearch-a-2d-matrix-ii"><strong><a href="https://leetcode.cn/problems/search-a-2d-matrix-ii/">leetcode240 搜索二维矩阵II</a></strong></h3>
+</div><h3 id="leetcode240-搜索二维矩阵ii"><strong><a href="https://leetcode.cn/problems/search-a-2d-matrix-ii/">leetcode240 搜索二维矩阵II</a></strong></h3>
 <p><strong>题解</strong></p>
 <p>思路一: 每一行都有序，因此可以每一行使用二分查找</p>
 <p>思路二: 有序的二维数组搜索，经典的考虑左下角到右上角的查找</p>
@@ -794,34 +794,34 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">searchMatrix</span>(matrix [][]<span style="color:#458;font-weight:bold">int</span>, target <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">bool</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> _, row <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> matrix {
-</span></span><span style="display:flex;"><span>        i <span style="color:#000;font-weight:bold">:=</span> sort.<span style="color:#900;font-weight:bold">SearchInts</span>(row, target)
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> i &lt; <span style="color:#0086b3">len</span>(row) <span style="color:#000;font-weight:bold">&amp;&amp;</span> row[i] <span style="color:#000;font-weight:bold">==</span> target {
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">searchMatrix</span><span style="color:#1f2328">(</span><span style="color:#1f2328">matrix</span> <span style="color:#1f2328">[][]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">target</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#1f2328">_</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">row</span> <span style="color:#0550ae">:=</span> <span style="color:#cf222e">range</span> <span style="color:#1f2328">matrix</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">sort</span><span style="color:#1f2328">.</span><span style="color:#6639ba">SearchInts</span><span style="color:#1f2328">(</span><span style="color:#1f2328">row</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">target</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">row</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">row</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">target</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">return</span> <span style="color:#cf222e">true</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#cf222e">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">searchMatrix</span>(matrix [][]<span style="color:#458;font-weight:bold">int</span>, target <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">bool</span> {
-</span></span><span style="display:flex;"><span>    m, n <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">len</span>(matrix), <span style="color:#0086b3">len</span>(matrix[<span style="color:#099">0</span>])
-</span></span><span style="display:flex;"><span>    x, y <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>, n<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> x &lt; m <span style="color:#000;font-weight:bold">&amp;&amp;</span> y <span style="color:#000;font-weight:bold">&gt;=</span> <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> matrix[x][y] <span style="color:#000;font-weight:bold">==</span> target {
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> matrix[x][y] &gt; target {
-</span></span><span style="display:flex;"><span>            y<span style="color:#000;font-weight:bold">--</span>
-</span></span><span style="display:flex;"><span>        } <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>            x<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">searchMatrix</span><span style="color:#1f2328">(</span><span style="color:#1f2328">matrix</span> <span style="color:#1f2328">[][]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">target</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">m</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">n</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">matrix</span><span style="color:#1f2328">),</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">matrix</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">])</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">x</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">y</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">n</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#1f2328">x</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">m</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">y</span> <span style="color:#0550ae">&gt;=</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#1f2328">matrix</span><span style="color:#1f2328">[</span><span style="color:#1f2328">x</span><span style="color:#1f2328">][</span><span style="color:#1f2328">y</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">target</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">return</span> <span style="color:#cf222e">true</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#1f2328">matrix</span><span style="color:#1f2328">[</span><span style="color:#1f2328">x</span><span style="color:#1f2328">][</span><span style="color:#1f2328">y</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">&gt;</span> <span style="color:#1f2328">target</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">y</span><span style="color:#0550ae">--</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">x</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#cf222e">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="题目leetcode154-寻找旋转排序数组中的最小值iihttpsleetcodecnproblemsfind-minimum-in-rotated-sorted-array-ii"><strong>题目<a href="https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array-ii/">leetcode154 寻找旋转排序数组中的最小值II</a></strong></h3>
+</div><h3 id="题目-8"><strong>题目<a href="https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array-ii/">leetcode154 寻找旋转排序数组中的最小值II</a></strong></h3>
 <p><strong>题解</strong></p>
 <p>虽然有旋转操作，但最终情况是在一个准有序的数组里查找，这里的准有序是指一个凹的数组，通过比较左右两端，可以找最低点位置，需要注意的是里面有重复值，因此判断需要注意跳出循环条件</p>
 <p><strong>代码</strong></p>
@@ -843,23 +843,23 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">findMin</span>(nums []<span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>    low, high <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>, <span style="color:#0086b3">len</span>(nums) <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> low &lt; high {
-</span></span><span style="display:flex;"><span>        pivot <span style="color:#000;font-weight:bold">:=</span> low <span style="color:#000;font-weight:bold">+</span> (high <span style="color:#000;font-weight:bold">-</span> low) <span style="color:#000;font-weight:bold">/</span> <span style="color:#099">2</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> nums[pivot] &lt; nums[high] {
-</span></span><span style="display:flex;"><span>            high = pivot
-</span></span><span style="display:flex;"><span>        } <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> nums[pivot] &gt; nums[high] {
-</span></span><span style="display:flex;"><span>            low = pivot <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>        } <span style="color:#000;font-weight:bold">else</span> { <span style="color:#998;font-style:italic">// 相等则往左边推进
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            high<span style="color:#000;font-weight:bold">--</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> nums[low]
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">findMin</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">low</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">high</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#1f2328">low</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">high</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">pivot</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">low</span> <span style="color:#0550ae">+</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">high</span> <span style="color:#0550ae">-</span> <span style="color:#1f2328">low</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">/</span> <span style="color:#0550ae">2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">pivot</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">high</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">high</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">pivot</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">pivot</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">&gt;</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">high</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">low</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">pivot</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span> <span style="color:#57606a">// 相等则往左边推进</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">high</span><span style="color:#0550ae">--</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">low</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="题目leetcode33-搜索旋转排序数组httpsleetcodecnproblemssearch-in-rotated-sorted-array"><strong>题目<a href="https://leetcode.cn/problems/search-in-rotated-sorted-array/">leetcode33 搜索旋转排序数组</a></strong></h3>
+</div><h3 id="题目-9"><strong>题目<a href="https://leetcode.cn/problems/search-in-rotated-sorted-array/">leetcode33 搜索旋转排序数组</a></strong></h3>
 <p><strong>题解</strong></p>
 <p>
         <img class="mx-auto" alt="" src="1.png" />   
@@ -898,32 +898,32 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">search</span>(nums []<span style="color:#458;font-weight:bold">int</span>, target <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>    left, right <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>, <span style="color:#0086b3">len</span>(nums)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> left <span style="color:#000;font-weight:bold">&lt;=</span> right {
-</span></span><span style="display:flex;"><span>        mid <span style="color:#000;font-weight:bold">:=</span> (right <span style="color:#000;font-weight:bold">-</span> left) <span style="color:#000;font-weight:bold">/</span> <span style="color:#099">2</span> <span style="color:#000;font-weight:bold">+</span> left
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> nums[mid] <span style="color:#000;font-weight:bold">==</span> target {
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">return</span> mid
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> nums[mid] <span style="color:#000;font-weight:bold">&gt;=</span> nums[left] {
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">if</span> nums[mid] &gt; target <span style="color:#000;font-weight:bold">&amp;&amp;</span> target <span style="color:#000;font-weight:bold">&gt;=</span> nums[left] {
-</span></span><span style="display:flex;"><span>                right = mid <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>            } <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>                left = mid <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>        } <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">if</span> nums[mid] &lt; target <span style="color:#000;font-weight:bold">&amp;&amp;</span> target <span style="color:#000;font-weight:bold">&lt;=</span> nums[right] {
-</span></span><span style="display:flex;"><span>                left = mid <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>            } <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>                right = mid <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">search</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">target</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">left</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">right</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums</span><span style="color:#1f2328">)</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#1f2328">left</span> <span style="color:#0550ae">&lt;=</span> <span style="color:#1f2328">right</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">mid</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">right</span> <span style="color:#0550ae">-</span> <span style="color:#1f2328">left</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">/</span> <span style="color:#0550ae">2</span> <span style="color:#0550ae">+</span> <span style="color:#1f2328">left</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">target</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">return</span> <span style="color:#1f2328">mid</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">&gt;=</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">left</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">if</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">&gt;</span> <span style="color:#1f2328">target</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">target</span> <span style="color:#0550ae">&gt;=</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">left</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">right</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">left</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">if</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">target</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">target</span> <span style="color:#0550ae">&lt;=</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">right</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">left</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">right</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="题目leetcode81-搜索旋转排序数组iihttpsleetcodecnproblemssearch-in-rotated-sorted-array-ii"><strong>题目<a href="https://leetcode.cn/problems/search-in-rotated-sorted-array-ii/">leetcode81 搜索旋转排序数组II</a></strong></h3>
+</div><h3 id="题目-10"><strong>题目<a href="https://leetcode.cn/problems/search-in-rotated-sorted-array-ii/">leetcode81 搜索旋转排序数组II</a></strong></h3>
 <p><strong>题解</strong></p>
 <p>参考<strong>搜索旋转排序数组</strong>的解法，只是对重复值的考虑做相关调整，对于存在的重复值，影响的地方便是无法判断target落在哪一段，因此需要做处理</p>
 <p><strong>代码</strong></p>
@@ -965,40 +965,40 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">search</span>(nums []<span style="color:#458;font-weight:bold">int</span>, target <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">bool</span> {
-</span></span><span style="display:flex;"><span>    n <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">len</span>(nums)
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">if</span> n <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">if</span> n <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">1</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> nums[<span style="color:#099">0</span>] <span style="color:#000;font-weight:bold">==</span> target
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    l, r <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>, n<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> l <span style="color:#000;font-weight:bold">&lt;=</span> r {
-</span></span><span style="display:flex;"><span>        mid <span style="color:#000;font-weight:bold">:=</span> (l <span style="color:#000;font-weight:bold">+</span> r) <span style="color:#000;font-weight:bold">/</span> <span style="color:#099">2</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> nums[mid] <span style="color:#000;font-weight:bold">==</span> target {
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 与33题的特殊地方，这里的处理就是为了判断target落在那一段上，如果l、r相等则无法判断了，因此这里将相等的情况，两边都剔除
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">if</span> nums[l] <span style="color:#000;font-weight:bold">==</span> nums[mid] <span style="color:#000;font-weight:bold">&amp;&amp;</span> nums[mid] <span style="color:#000;font-weight:bold">==</span> nums[r] {
-</span></span><span style="display:flex;"><span>            l<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>            r<span style="color:#000;font-weight:bold">--</span>
-</span></span><span style="display:flex;"><span>        } <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> nums[mid] <span style="color:#000;font-weight:bold">&gt;=</span> nums[l] {
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">if</span> nums[l] <span style="color:#000;font-weight:bold">&lt;=</span> target <span style="color:#000;font-weight:bold">&amp;&amp;</span> target &lt; nums[mid] {
-</span></span><span style="display:flex;"><span>                r = mid <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>            } <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>                l = mid <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>        } <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">if</span> nums[mid] &lt; target <span style="color:#000;font-weight:bold">&amp;&amp;</span> target <span style="color:#000;font-weight:bold">&lt;=</span> nums[n<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>] {
-</span></span><span style="display:flex;"><span>                l = mid <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>            } <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>                r = mid <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">search</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">target</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">n</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">n</span> <span style="color:#0550ae">==</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#cf222e">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">n</span> <span style="color:#0550ae">==</span> <span style="color:#0550ae">1</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">target</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">l</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">r</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">n</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#1f2328">l</span> <span style="color:#0550ae">&lt;=</span> <span style="color:#1f2328">r</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">mid</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">l</span> <span style="color:#0550ae">+</span> <span style="color:#1f2328">r</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">/</span> <span style="color:#0550ae">2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">target</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">return</span> <span style="color:#cf222e">true</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a">// 与33题的特殊地方，这里的处理就是为了判断target落在那一段上，如果l、r相等则无法判断了，因此这里将相等的情况，两边都剔除</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">l</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">r</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">l</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">r</span><span style="color:#0550ae">--</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">&gt;=</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">l</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">if</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">l</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">&lt;=</span> <span style="color:#1f2328">target</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">target</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">r</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">l</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">if</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">mid</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">target</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">target</span> <span style="color:#0550ae">&lt;=</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">n</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">l</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">r</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mid</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#cf222e">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>
@@ -1008,23 +1008,6 @@
 
 
         
-
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/post/2023-06-10-%E5%9B%9E%E6%BA%AF/">算法专题|回溯</a></li>
-        
-        <li><a href="/blog/post/2023-06-06-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">算法专题|动态规划</a></li>
-        
-        <li><a href="/blog/read/2023-05-22-%E6%9D%82%E8%AE%B0/">20230522杂记</a></li>
-        
-        <li><a href="/blog/post/2023-04-22-k8s%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6/">k8s|基础进阶</a></li>
-        
-        <li><a href="/blog/read/2023-04-12-%E6%9D%82%E8%AE%B0/">20230412杂记</a></li>
-        
-    </ul>
-</div>
 
 
         <div class="post-meta meta-tags">
@@ -1055,7 +1038,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -1176,7 +1159,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -1236,17 +1219,17 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -1254,9 +1237,9 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -1267,29 +1250,29 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

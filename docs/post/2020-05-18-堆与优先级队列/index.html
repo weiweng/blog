@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -121,23 +121,23 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#998;font-style:italic">//heap.Interface定义
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">type</span> Interface <span style="color:#000;font-weight:bold">interface</span> {
-</span></span><span style="display:flex;"><span>	sort.Interface
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">Push</span>(x <span style="color:#000;font-weight:bold">interface</span>{}) <span style="color:#998;font-style:italic">// add x as element Len()
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#900;font-weight:bold">Pop</span>() <span style="color:#000;font-weight:bold">interface</span>{}   <span style="color:#998;font-style:italic">// remove and return element Len() - 1.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">//heap.Interface定义</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">Interface</span> <span style="color:#cf222e">interface</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">sort</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Interface</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6639ba">Push</span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{})</span> <span style="color:#57606a">// add x as element Len()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6639ba">Pop</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{}</span>   <span style="color:#57606a">// remove and return element Len() - 1.</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//sort.Interface定义
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">type</span> Interface <span style="color:#000;font-weight:bold">interface</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// Len is the number of elements in the collection.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#900;font-weight:bold">Len</span>() <span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// Less reports whether the element with
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">// index i should sort before the element with index j.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#900;font-weight:bold">Less</span>(i, j <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">bool</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// Swap swaps the elements with indexes i and j.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#900;font-weight:bold">Swap</span>(i, j <span style="color:#458;font-weight:bold">int</span>)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//sort.Interface定义</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">Interface</span> <span style="color:#cf222e">interface</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// Len is the number of elements in the collection.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6639ba">Len</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// Less reports whether the element with</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// index i should sort before the element with index j.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6639ba">Less</span><span style="color:#1f2328">(</span><span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">j</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// Swap swaps the elements with indexes i and j.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6639ba">Swap</span><span style="color:#1f2328">(</span><span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">j</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="使用方法">使用方法</h2>
@@ -166,27 +166,27 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> IntHeap []<span style="color:#458;font-weight:bold">int</span> <span style="color:#998;font-style:italic">// 定义一个类型
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (h IntHeap) <span style="color:#900;font-weight:bold">Len</span>() <span style="color:#458;font-weight:bold">int</span> { <span style="color:#000;font-weight:bold">return</span> <span style="color:#0086b3">len</span>(h) } <span style="color:#998;font-style:italic">// 绑定len方法,返回长度
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (h IntHeap) <span style="color:#900;font-weight:bold">Less</span>(i, j <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">bool</span> { <span style="color:#998;font-style:italic">// 绑定less方法
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">return</span> h[i] &lt; h[j] <span style="color:#998;font-style:italic">// 如果h[i]&lt;h[j]生成的就是小根堆，如果h[i]&gt;h[j]生成的就是大根堆
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>}
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (h IntHeap) <span style="color:#900;font-weight:bold">Swap</span>(i, j <span style="color:#458;font-weight:bold">int</span>) { <span style="color:#998;font-style:italic">// 绑定swap方法，交换两个元素位置
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	h[i], h[j] = h[j], h[i]
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">IntHeap</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span> <span style="color:#57606a">// 定义一个类型</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (h <span style="color:#000;font-weight:bold">*</span>IntHeap) <span style="color:#900;font-weight:bold">Pop</span>() <span style="color:#000;font-weight:bold">interface</span>{} { <span style="color:#998;font-style:italic">// 绑定pop方法，从最后拿出一个元素并返回
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	old <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">*</span>h
-</span></span><span style="display:flex;"><span>	n <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">len</span>(old)
-</span></span><span style="display:flex;"><span>	x <span style="color:#000;font-weight:bold">:=</span> old[n<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">*</span>h = old[<span style="color:#099">0</span> : n<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> x
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">h</span> <span style="color:#1f2328">IntHeap</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Len</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span> <span style="color:#cf222e">return</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">h</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">}</span> <span style="color:#57606a">// 绑定len方法,返回长度</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">h</span> <span style="color:#1f2328">IntHeap</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Less</span><span style="color:#1f2328">(</span><span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">j</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span> <span style="color:#1f2328">{</span> <span style="color:#57606a">// 绑定less方法</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span> <span style="color:#57606a">// 如果h[i]&lt;h[j]生成的就是小根堆，如果h[i]&gt;h[j]生成的就是大根堆</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">h</span> <span style="color:#1f2328">IntHeap</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Swap</span><span style="color:#1f2328">(</span><span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">j</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span> <span style="color:#57606a">// 绑定swap方法，交换两个元素位置</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">h</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">],</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">],</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (h <span style="color:#000;font-weight:bold">*</span>IntHeap) <span style="color:#900;font-weight:bold">Push</span>(x <span style="color:#000;font-weight:bold">interface</span>{}) { <span style="color:#998;font-style:italic">// 绑定push方法，插入新元素
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">*</span>h = <span style="color:#0086b3">append</span>(<span style="color:#000;font-weight:bold">*</span>h, x.(<span style="color:#458;font-weight:bold">int</span>))
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">h</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">IntHeap</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Pop</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{}</span> <span style="color:#1f2328">{</span> <span style="color:#57606a">// 绑定pop方法，从最后拿出一个元素并返回</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">old</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">h</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">n</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">old</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">x</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">old</span><span style="color:#1f2328">[</span><span style="color:#1f2328">n</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0550ae">*</span><span style="color:#1f2328">h</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">old</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span> <span style="color:#1f2328">:</span> <span style="color:#1f2328">n</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">x</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">h</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">IntHeap</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Push</span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{})</span> <span style="color:#1f2328">{</span> <span style="color:#57606a">// 绑定push方法，插入新元素</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0550ae">*</span><span style="color:#1f2328">h</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span><span style="color:#0550ae">*</span><span style="color:#1f2328">h</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">x</span><span style="color:#1f2328">.(</span><span style="color:#cf222e">int</span><span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="源码分析">源码分析</h1>
@@ -306,118 +306,118 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#998;font-style:italic">// Copyright 2009 The Go Authors. All rights reserved.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// Use of this source code is governed by a BSD-style
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// license that can be found in the LICENSE file.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// Package heap provides heap operations for any type that implements
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// heap.Interface. A heap is a tree with the property that each node is the
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// minimum-valued node in its subtree.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// The minimum element in the tree is the root, at index 0.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// A heap is a common way to implement a priority queue. To build a priority
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// queue, implement the Heap interface with the (negative) priority as the
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// ordering for the Less method, so Push adds items while Pop removes the
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// highest-priority item from the queue. The Examples include such an
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// implementation; the file example_pq_test.go has the complete source.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">package</span> heap
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">// Copyright 2009 The Go Authors. All rights reserved.</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// Use of this source code is governed by a BSD-style</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// license that can be found in the LICENSE file.</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#d14">&#34;sort&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// Package heap provides heap operations for any type that implements</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// heap.Interface. A heap is a tree with the property that each node is the</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// minimum-valued node in its subtree.</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// The minimum element in the tree is the root, at index 0.</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// A heap is a common way to implement a priority queue. To build a priority</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// queue, implement the Heap interface with the (negative) priority as the</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// ordering for the Less method, so Push adds items while Pop removes the</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// highest-priority item from the queue. The Examples include such an</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// implementation; the file example_pq_test.go has the complete source.</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">package</span> <span style="color:#1f2328">heap</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// The Interface type describes the requirements
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// for a type using the routines in this package.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// Any type that implements it may be used as a
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// min-heap with the following invariants (established after
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// Init has been called or if the data is empty or sorted):
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//	!h.Less(j, i) for 0 &lt;= i &lt; h.Len() and 2*i+1 &lt;= j &lt;= 2*i+2 and j &lt; h.Len()
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// Note that Push and Pop in this interface are for package heap&#39;s
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// implementation to call. To add and remove things from the heap,
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// use heap.Push and heap.Pop.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">type</span> Interface <span style="color:#000;font-weight:bold">interface</span> {
-</span></span><span style="display:flex;"><span>	sort.Interface
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">Push</span>(x <span style="color:#000;font-weight:bold">interface</span>{}) <span style="color:#998;font-style:italic">// add x as element Len()
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#900;font-weight:bold">Pop</span>() <span style="color:#000;font-weight:bold">interface</span>{}   <span style="color:#998;font-style:italic">// remove and return element Len() - 1.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#0a3069">&#34;sort&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 初始化，调整一般数据就已经OK了
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">Init</span>(h Interface) {
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// heapify
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	n <span style="color:#000;font-weight:bold">:=</span> h.<span style="color:#900;font-weight:bold">Len</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> n<span style="color:#000;font-weight:bold">/</span><span style="color:#099">2</span> <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>; i <span style="color:#000;font-weight:bold">&gt;=</span> <span style="color:#099">0</span>; i<span style="color:#000;font-weight:bold">--</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">down</span>(h, i, n)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// The Interface type describes the requirements</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// for a type using the routines in this package.</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// Any type that implements it may be used as a</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// min-heap with the following invariants (established after</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// Init has been called or if the data is empty or sorted):</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//	!h.Less(j, i) for 0 &lt;= i &lt; h.Len() and 2*i+1 &lt;= j &lt;= 2*i+2 and j &lt; h.Len()</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// Note that Push and Pop in this interface are for package heap&#39;s</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// implementation to call. To add and remove things from the heap,</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// use heap.Push and heap.Pop.</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">Interface</span> <span style="color:#cf222e">interface</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">sort</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Interface</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6639ba">Push</span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{})</span> <span style="color:#57606a">// add x as element Len()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6639ba">Pop</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{}</span>   <span style="color:#57606a">// remove and return element Len() - 1.</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//把元素放在最后面，然后向上调整
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">Push</span>(h Interface, x <span style="color:#000;font-weight:bold">interface</span>{}) {
-</span></span><span style="display:flex;"><span>	h.<span style="color:#900;font-weight:bold">Push</span>(x)
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">up</span>(h, h.<span style="color:#900;font-weight:bold">Len</span>()<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 初始化，调整一般数据就已经OK了</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">Init</span><span style="color:#1f2328">(</span><span style="color:#1f2328">h</span> <span style="color:#1f2328">Interface</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// heapify</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">n</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Len</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">n</span><span style="color:#0550ae">/</span><span style="color:#0550ae">2</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">&gt;=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">--</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#6639ba">down</span><span style="color:#1f2328">(</span><span style="color:#1f2328">h</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">n</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//交换第一个和最后一个元素，然后从第一个元素开始向下调整，调整到n-1，然后弹出n-1的数据
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">Pop</span>(h Interface) <span style="color:#000;font-weight:bold">interface</span>{} {
-</span></span><span style="display:flex;"><span>	n <span style="color:#000;font-weight:bold">:=</span> h.<span style="color:#900;font-weight:bold">Len</span>() <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>	h.<span style="color:#900;font-weight:bold">Swap</span>(<span style="color:#099">0</span>, n)
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">down</span>(h, <span style="color:#099">0</span>, n)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> h.<span style="color:#900;font-weight:bold">Pop</span>()
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//把元素放在最后面，然后向上调整</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">Push</span><span style="color:#1f2328">(</span><span style="color:#1f2328">h</span> <span style="color:#1f2328">Interface</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">x</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{})</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">h</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Push</span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6639ba">up</span><span style="color:#1f2328">(</span><span style="color:#1f2328">h</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Len</span><span style="color:#1f2328">()</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 移除下标i的数据，即把下标i和最后一个元素互换，然后调整
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//先向下调整，如果不需要调整，则位置不变，即也不需要向上调整了，不然就需要向上调整了
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">Remove</span>(h Interface, i <span style="color:#458;font-weight:bold">int</span>) <span style="color:#000;font-weight:bold">interface</span>{} {
-</span></span><span style="display:flex;"><span>	n <span style="color:#000;font-weight:bold">:=</span> h.<span style="color:#900;font-weight:bold">Len</span>() <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> n <span style="color:#000;font-weight:bold">!=</span> i {
-</span></span><span style="display:flex;"><span>		h.<span style="color:#900;font-weight:bold">Swap</span>(i, n)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> !<span style="color:#900;font-weight:bold">down</span>(h, i, n) {
-</span></span><span style="display:flex;"><span>			<span style="color:#900;font-weight:bold">up</span>(h, i)
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> h.<span style="color:#900;font-weight:bold">Pop</span>()
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//交换第一个和最后一个元素，然后从第一个元素开始向下调整，调整到n-1，然后弹出n-1的数据</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">Pop</span><span style="color:#1f2328">(</span><span style="color:#1f2328">h</span> <span style="color:#1f2328">Interface</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{}</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">n</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Len</span><span style="color:#1f2328">()</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">h</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Swap</span><span style="color:#1f2328">(</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">n</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6639ba">down</span><span style="color:#1f2328">(</span><span style="color:#1f2328">h</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">n</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Pop</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 下标i的调整逻辑
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">Fix</span>(h Interface, i <span style="color:#458;font-weight:bold">int</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> !<span style="color:#900;font-weight:bold">down</span>(h, i, h.<span style="color:#900;font-weight:bold">Len</span>()) {
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">up</span>(h, i)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 移除下标i的数据，即把下标i和最后一个元素互换，然后调整</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//先向下调整，如果不需要调整，则位置不变，即也不需要向上调整了，不然就需要向上调整了</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">Remove</span><span style="color:#1f2328">(</span><span style="color:#1f2328">h</span> <span style="color:#1f2328">Interface</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{}</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">n</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Len</span><span style="color:#1f2328">()</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">n</span> <span style="color:#0550ae">!=</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">h</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Swap</span><span style="color:#1f2328">(</span><span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">n</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">!</span><span style="color:#6639ba">down</span><span style="color:#1f2328">(</span><span style="color:#1f2328">h</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">n</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#6639ba">up</span><span style="color:#1f2328">(</span><span style="color:#1f2328">h</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Pop</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//向上调整逻辑
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">up</span>(h Interface, j <span style="color:#458;font-weight:bold">int</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> {
-</span></span><span style="display:flex;"><span>		i <span style="color:#000;font-weight:bold">:=</span> (j <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>) <span style="color:#000;font-weight:bold">/</span> <span style="color:#099">2</span>             <span style="color:#998;font-style:italic">// 父节点的下标
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">if</span> i <span style="color:#000;font-weight:bold">==</span> j <span style="color:#000;font-weight:bold">||</span> !h.<span style="color:#900;font-weight:bold">Less</span>(j, i) { <span style="color:#998;font-style:italic">//已经到顶了，或者不满足要求了，则跳出for循环
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			<span style="color:#000;font-weight:bold">break</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		h.<span style="color:#900;font-weight:bold">Swap</span>(i, j) <span style="color:#998;font-style:italic">//否则交互父节点和当前节点
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		j = i        <span style="color:#998;font-style:italic">//继续向上调整
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 下标i的调整逻辑</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">Fix</span><span style="color:#1f2328">(</span><span style="color:#1f2328">h</span> <span style="color:#1f2328">Interface</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">!</span><span style="color:#6639ba">down</span><span style="color:#1f2328">(</span><span style="color:#1f2328">h</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Len</span><span style="color:#1f2328">())</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#6639ba">up</span><span style="color:#1f2328">(</span><span style="color:#1f2328">h</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//向下调整逻辑
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">down</span>(h Interface, i0, n <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">bool</span> {
-</span></span><span style="display:flex;"><span>	i <span style="color:#000;font-weight:bold">:=</span> i0
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> {
-</span></span><span style="display:flex;"><span>		j1 <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">2</span><span style="color:#000;font-weight:bold">*</span>i <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> j1 <span style="color:#000;font-weight:bold">&gt;=</span> n <span style="color:#000;font-weight:bold">||</span> j1 &lt; <span style="color:#099">0</span> { <span style="color:#998;font-style:italic">// j1 &lt; 0 after int overflow  溢出或者已经到堆底了，则跳出
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			<span style="color:#000;font-weight:bold">break</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		j <span style="color:#000;font-weight:bold">:=</span> j1 <span style="color:#998;font-style:italic">// 左边子节点
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">if</span> j2 <span style="color:#000;font-weight:bold">:=</span> j1 <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>; j2 &lt; n <span style="color:#000;font-weight:bold">&amp;&amp;</span> h.<span style="color:#900;font-weight:bold">Less</span>(j2, j1) {
-</span></span><span style="display:flex;"><span>			j = j2 <span style="color:#998;font-style:italic">// = 2*i + 2  // 右边节点存在并且比左节点的值更大(大顶堆)或更小(小顶堆) 则选择右节点
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> !h.<span style="color:#900;font-weight:bold">Less</span>(j, i) { <span style="color:#998;font-style:italic">//不满足条件，跳出
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			<span style="color:#000;font-weight:bold">break</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		h.<span style="color:#900;font-weight:bold">Swap</span>(i, j) <span style="color:#998;font-style:italic">//交换，继续向下调整
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		i = j
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> i &gt; i0 <span style="color:#998;font-style:italic">//判断是否有调整
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//向上调整逻辑</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">up</span><span style="color:#1f2328">(</span><span style="color:#1f2328">h</span> <span style="color:#1f2328">Interface</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">j</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">j</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">/</span> <span style="color:#0550ae">2</span>             <span style="color:#57606a">// 父节点的下标</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">j</span> <span style="color:#0550ae">||</span> <span style="color:#1f2328">!</span><span style="color:#1f2328">h</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Less</span><span style="color:#1f2328">(</span><span style="color:#1f2328">j</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span> <span style="color:#57606a">//已经到顶了，或者不满足要求了，则跳出for循环</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">break</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">h</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Swap</span><span style="color:#1f2328">(</span><span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">j</span><span style="color:#1f2328">)</span> <span style="color:#57606a">//否则交互父节点和当前节点</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">j</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">i</span>        <span style="color:#57606a">//继续向上调整</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//向下调整逻辑</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">down</span><span style="color:#1f2328">(</span><span style="color:#1f2328">h</span> <span style="color:#1f2328">Interface</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i0</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">n</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">i0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">j1</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">2</span><span style="color:#0550ae">*</span><span style="color:#1f2328">i</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">j1</span> <span style="color:#0550ae">&gt;=</span> <span style="color:#1f2328">n</span> <span style="color:#0550ae">||</span> <span style="color:#1f2328">j1</span> <span style="color:#1f2328">&lt;</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span> <span style="color:#57606a">// j1 &lt; 0 after int overflow  溢出或者已经到堆底了，则跳出</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">break</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">j</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">j1</span> <span style="color:#57606a">// 左边子节点</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">j2</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">j1</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">j2</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">n</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Less</span><span style="color:#1f2328">(</span><span style="color:#1f2328">j2</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">j1</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">j</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">j2</span> <span style="color:#57606a">// = 2*i + 2  // 右边节点存在并且比左节点的值更大(大顶堆)或更小(小顶堆) 则选择右节点</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">!</span><span style="color:#1f2328">h</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Less</span><span style="color:#1f2328">(</span><span style="color:#1f2328">j</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span> <span style="color:#57606a">//不满足条件，跳出</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">break</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">h</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Swap</span><span style="color:#1f2328">(</span><span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">j</span><span style="color:#1f2328">)</span> <span style="color:#57606a">//交换，继续向下调整</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">i</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">j</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&gt;</span> <span style="color:#1f2328">i0</span> <span style="color:#57606a">//判断是否有调整</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>#优先级队列 #实现</p>
@@ -499,80 +499,80 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> Item <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	value    <span style="color:#458;font-weight:bold">string</span> <span style="color:#998;font-style:italic">// 优先级队列中的数据，可以是任意类型，这里使用string
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	priority <span style="color:#458;font-weight:bold">int</span>    <span style="color:#998;font-style:italic">// 优先级队列中节点的优先级
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	index    <span style="color:#458;font-weight:bold">int</span>    <span style="color:#998;font-style:italic">// index是该节点在堆中的位置
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">Item</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">value</span>    <span style="color:#cf222e">string</span> <span style="color:#57606a">// 优先级队列中的数据，可以是任意类型，这里使用string</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">priority</span> <span style="color:#cf222e">int</span>    <span style="color:#57606a">// 优先级队列中节点的优先级</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">index</span>    <span style="color:#cf222e">int</span>    <span style="color:#57606a">// index是该节点在堆中的位置</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 优先级队列需要实现heap的interface
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">type</span> PriorityQueue []<span style="color:#000;font-weight:bold">*</span>Item
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 优先级队列需要实现heap的interface</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">PriorityQueue</span> <span style="color:#1f2328">[]</span><span style="color:#0550ae">*</span><span style="color:#1f2328">Item</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 绑定Len方法
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (pq PriorityQueue) <span style="color:#900;font-weight:bold">Len</span>() <span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#0086b3">len</span>(pq)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 绑定Len方法</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">pq</span> <span style="color:#1f2328">PriorityQueue</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Len</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">pq</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 绑定Less方法，这里用的是小于号，生成的是小根堆
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (pq PriorityQueue) <span style="color:#900;font-weight:bold">Less</span>(i, j <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">bool</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> pq[i].priority &lt; pq[j].priority
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 绑定Less方法，这里用的是小于号，生成的是小根堆</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">pq</span> <span style="color:#1f2328">PriorityQueue</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Less</span><span style="color:#1f2328">(</span><span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">j</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">pq</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">].</span><span style="color:#1f2328">priority</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">pq</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">].</span><span style="color:#1f2328">priority</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 绑定swap方法
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (pq PriorityQueue) <span style="color:#900;font-weight:bold">Swap</span>(i, j <span style="color:#458;font-weight:bold">int</span>) {
-</span></span><span style="display:flex;"><span>	pq[i], pq[j] = pq[j], pq[i]
-</span></span><span style="display:flex;"><span>	pq[i].index, pq[j].index = i, j
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 绑定swap方法</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">pq</span> <span style="color:#1f2328">PriorityQueue</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Swap</span><span style="color:#1f2328">(</span><span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">j</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">pq</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">],</span> <span style="color:#1f2328">pq</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">pq</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">],</span> <span style="color:#1f2328">pq</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">pq</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">].</span><span style="color:#1f2328">index</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">pq</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">].</span><span style="color:#1f2328">index</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">j</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 绑定put方法，将index置为-1是为了标识该数据已经出了优先级队列了
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (pq <span style="color:#000;font-weight:bold">*</span>PriorityQueue) <span style="color:#900;font-weight:bold">Pop</span>() <span style="color:#000;font-weight:bold">interface</span>{} {
-</span></span><span style="display:flex;"><span>	old <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">*</span>pq
-</span></span><span style="display:flex;"><span>	n <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">len</span>(old)
-</span></span><span style="display:flex;"><span>	item <span style="color:#000;font-weight:bold">:=</span> old[n<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">*</span>pq = old[<span style="color:#099">0</span> : n<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
-</span></span><span style="display:flex;"><span>	item.index = <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> item
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 绑定put方法，将index置为-1是为了标识该数据已经出了优先级队列了</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">pq</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">PriorityQueue</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Pop</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{}</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">old</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">pq</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">n</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">old</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">item</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">old</span><span style="color:#1f2328">[</span><span style="color:#1f2328">n</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0550ae">*</span><span style="color:#1f2328">pq</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">old</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span> <span style="color:#1f2328">:</span> <span style="color:#1f2328">n</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">item</span><span style="color:#1f2328">.</span><span style="color:#1f2328">index</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">item</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 绑定push方法
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (pq <span style="color:#000;font-weight:bold">*</span>PriorityQueue) <span style="color:#900;font-weight:bold">Push</span>(x <span style="color:#000;font-weight:bold">interface</span>{}) {
-</span></span><span style="display:flex;"><span>	n <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">len</span>(<span style="color:#000;font-weight:bold">*</span>pq)
-</span></span><span style="display:flex;"><span>	item <span style="color:#000;font-weight:bold">:=</span> x.(<span style="color:#000;font-weight:bold">*</span>Item)
-</span></span><span style="display:flex;"><span>	item.index = n
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">*</span>pq = <span style="color:#0086b3">append</span>(<span style="color:#000;font-weight:bold">*</span>pq, item)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 绑定push方法</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">pq</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">PriorityQueue</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Push</span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{})</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">n</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#0550ae">*</span><span style="color:#1f2328">pq</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">item</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">x</span><span style="color:#1f2328">.(</span><span style="color:#0550ae">*</span><span style="color:#1f2328">Item</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">item</span><span style="color:#1f2328">.</span><span style="color:#1f2328">index</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">n</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0550ae">*</span><span style="color:#1f2328">pq</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span><span style="color:#0550ae">*</span><span style="color:#1f2328">pq</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">item</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 更新修改了优先级和值的item在优先级队列中的位置
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (pq <span style="color:#000;font-weight:bold">*</span>PriorityQueue) <span style="color:#900;font-weight:bold">update</span>(item <span style="color:#000;font-weight:bold">*</span>Item, value <span style="color:#458;font-weight:bold">string</span>, priority <span style="color:#458;font-weight:bold">int</span>) {
-</span></span><span style="display:flex;"><span>	item.value = value
-</span></span><span style="display:flex;"><span>	item.priority = priority
-</span></span><span style="display:flex;"><span>	heap.<span style="color:#900;font-weight:bold">Fix</span>(pq, item.index)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 更新修改了优先级和值的item在优先级队列中的位置</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">pq</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">PriorityQueue</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">update</span><span style="color:#1f2328">(</span><span style="color:#1f2328">item</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Item</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">value</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">priority</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">item</span><span style="color:#1f2328">.</span><span style="color:#1f2328">value</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">value</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">item</span><span style="color:#1f2328">.</span><span style="color:#1f2328">priority</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">priority</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">heap</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Fix</span><span style="color:#1f2328">(</span><span style="color:#1f2328">pq</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">item</span><span style="color:#1f2328">.</span><span style="color:#1f2328">index</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">main</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// 创建节点并设计他们的优先级
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	items <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">map</span>[<span style="color:#458;font-weight:bold">string</span>]<span style="color:#458;font-weight:bold">int</span>{<span style="color:#d14">&#34;二毛&#34;</span>: <span style="color:#099">5</span>, <span style="color:#d14">&#34;张三&#34;</span>: <span style="color:#099">3</span>, <span style="color:#d14">&#34;狗蛋&#34;</span>: <span style="color:#099">9</span>}
-</span></span><span style="display:flex;"><span>	i <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>	pq <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>(PriorityQueue, <span style="color:#0086b3">len</span>(items)) <span style="color:#998;font-style:italic">// 创建优先级队列，并初始化
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">for</span> k, v <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> items {             <span style="color:#998;font-style:italic">// 将节点放到优先级队列中
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		pq[i] = <span style="color:#000;font-weight:bold">&amp;</span>Item{
-</span></span><span style="display:flex;"><span>			value:    k,
-</span></span><span style="display:flex;"><span>			priority: v,
-</span></span><span style="display:flex;"><span>			index:    i}
-</span></span><span style="display:flex;"><span>		i<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	heap.<span style="color:#900;font-weight:bold">Init</span>(<span style="color:#000;font-weight:bold">&amp;</span>pq) <span style="color:#998;font-style:italic">// 初始化堆
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	item <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">&amp;</span>Item{ <span style="color:#998;font-style:italic">// 创建一个item
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		value:    <span style="color:#d14">&#34;李四&#34;</span>,
-</span></span><span style="display:flex;"><span>		priority: <span style="color:#099">1</span>,
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	heap.<span style="color:#900;font-weight:bold">Push</span>(<span style="color:#000;font-weight:bold">&amp;</span>pq, item)           <span style="color:#998;font-style:italic">// 入优先级队列
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	pq.<span style="color:#900;font-weight:bold">update</span>(item, item.value, <span style="color:#099">6</span>) <span style="color:#998;font-style:italic">// 更新item的优先级
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">for</span> <span style="color:#0086b3">len</span>(pq) &gt; <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>		item <span style="color:#000;font-weight:bold">:=</span> heap.<span style="color:#900;font-weight:bold">Pop</span>(<span style="color:#000;font-weight:bold">&amp;</span>pq).(<span style="color:#000;font-weight:bold">*</span>Item)
-</span></span><span style="display:flex;"><span>		fmt.<span style="color:#900;font-weight:bold">Printf</span>(<span style="color:#d14">&#34;%.2d:%s index:%.2d\n&#34;</span>, item.priority, item.value, item.index)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">main</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// 创建节点并设计他们的优先级</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">items</span> <span style="color:#0550ae">:=</span> <span style="color:#cf222e">map</span><span style="color:#1f2328">[</span><span style="color:#cf222e">string</span><span style="color:#1f2328">]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;二毛&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">5</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;张三&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">3</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;狗蛋&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">9</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">pq</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">make</span><span style="color:#1f2328">(</span><span style="color:#1f2328">PriorityQueue</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">items</span><span style="color:#1f2328">))</span> <span style="color:#57606a">// 创建优先级队列，并初始化</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">k</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">v</span> <span style="color:#0550ae">:=</span> <span style="color:#cf222e">range</span> <span style="color:#1f2328">items</span> <span style="color:#1f2328">{</span>             <span style="color:#57606a">// 将节点放到优先级队列中</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">pq</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">Item</span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">value</span><span style="color:#1f2328">:</span>    <span style="color:#1f2328">k</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">priority</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">v</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">index</span><span style="color:#1f2328">:</span>    <span style="color:#1f2328">i</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">i</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">heap</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Init</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">pq</span><span style="color:#1f2328">)</span> <span style="color:#57606a">// 初始化堆</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">item</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">Item</span><span style="color:#1f2328">{</span> <span style="color:#57606a">// 创建一个item</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">value</span><span style="color:#1f2328">:</span>    <span style="color:#0a3069">&#34;李四&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">priority</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">heap</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Push</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">pq</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">item</span><span style="color:#1f2328">)</span>           <span style="color:#57606a">// 入优先级队列</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">pq</span><span style="color:#1f2328">.</span><span style="color:#6639ba">update</span><span style="color:#1f2328">(</span><span style="color:#1f2328">item</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">item</span><span style="color:#1f2328">.</span><span style="color:#1f2328">value</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">6</span><span style="color:#1f2328">)</span> <span style="color:#57606a">// 更新item的优先级</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">pq</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">&gt;</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">item</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">heap</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Pop</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">pq</span><span style="color:#1f2328">).(</span><span style="color:#0550ae">*</span><span style="color:#1f2328">Item</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Printf</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;%.2d:%s index:%.2d\n&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">item</span><span style="color:#1f2328">.</span><span style="color:#1f2328">priority</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">item</span><span style="color:#1f2328">.</span><span style="color:#1f2328">value</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">item</span><span style="color:#1f2328">.</span><span style="color:#1f2328">index</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="参考">参考</h1>
@@ -586,23 +586,6 @@
 
 
         
-
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/post/2020-04-30-go-test%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/">Golang|test</a></li>
-        
-        <li><a href="/blog/post/2020-04-22-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/">mysql|分库分表</a></li>
-        
-        <li><a href="/blog/post/2020-04-22-Redis%E9%9B%86%E7%BE%A4/">redis|集群</a></li>
-        
-        <li><a href="/blog/post/2020-04-21-RedisObject/">redis|RedisObject</a></li>
-        
-        <li><a href="/blog/post/2020-04-18-panicrecover/">Golang|panic、recover</a></li>
-        
-    </ul>
-</div>
 
 
         <div class="post-meta meta-tags">
@@ -633,7 +616,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -754,7 +737,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -814,17 +797,17 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -832,9 +815,9 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -845,29 +828,29 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

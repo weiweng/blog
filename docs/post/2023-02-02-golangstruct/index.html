@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -226,15 +226,15 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">var</span> p <span style="color:#000;font-weight:bold">*</span><span style="color:#458;font-weight:bold">int</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">var</span> <span style="color:#1f2328">p</span> <span style="color:#0550ae">*</span><span style="color:#cf222e">int</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>i <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">42</span>
-</span></span><span style="display:flex;"><span>p = <span style="color:#000;font-weight:bold">&amp;</span>i
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">42</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">p</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">i</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#000;font-weight:bold">*</span>p) <span style="color:#998;font-style:italic">// 打印p指向的变量i的数值
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">*</span>p = <span style="color:#099">21</span> <span style="color:#998;font-style:italic">// 通过指针修改 i 的值
-</span></span></span></code></pre></td></tr></table>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#0550ae">*</span><span style="color:#1f2328">p</span><span style="color:#1f2328">)</span> <span style="color:#57606a">// 打印p指向的变量i的数值</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0550ae">*</span><span style="color:#1f2328">p</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">21</span> <span style="color:#57606a">// 通过指针修改 i 的值</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="结构体">结构体</h2>
 <p>go语言的结构体，可以理解为一些字段的合集。我们通过<code>type</code>和<code>struct</code>两个关键字定义结构体。</p>
@@ -260,24 +260,24 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> Vertex <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	X <span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>	Y <span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>    z <span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">Vertex</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">X</span> <span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">Y</span> <span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">z</span> <span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">main</span>() {
-</span></span><span style="display:flex;"><span>	v <span style="color:#000;font-weight:bold">:=</span> Vertex{<span style="color:#099">1</span>, <span style="color:#099">2</span>}
-</span></span><span style="display:flex;"><span>	v.X = <span style="color:#099">4</span>
-</span></span><span style="display:flex;"><span>	fmt.<span style="color:#900;font-weight:bold">Println</span>(v.X)
-</span></span><span style="display:flex;"><span>	z <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">new</span>(Vertex)
-</span></span><span style="display:flex;"><span>	fmt.<span style="color:#900;font-weight:bold">Println</span>(z.X)
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">main</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">v</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">Vertex</span><span style="color:#1f2328">{</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">2</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">v</span><span style="color:#1f2328">.</span><span style="color:#1f2328">X</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">4</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#1f2328">v</span><span style="color:#1f2328">.</span><span style="color:#1f2328">X</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">z</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">new</span><span style="color:#1f2328">(</span><span style="color:#1f2328">Vertex</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#1f2328">z</span><span style="color:#1f2328">.</span><span style="color:#1f2328">X</span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    w <span style="color:#000;font-weight:bold">:=</span> Vertex{X:<span style="color:#099">4</span>, Y:<span style="color:#099">2</span>}
-</span></span><span style="display:flex;"><span>    w.X = <span style="color:#099">42</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">w</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">Vertex</span><span style="color:#1f2328">{</span><span style="color:#1f2328">X</span><span style="color:#1f2328">:</span><span style="color:#0550ae">4</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">Y</span><span style="color:#1f2328">:</span><span style="color:#0550ae">2</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">w</span><span style="color:#1f2328">.</span><span style="color:#1f2328">X</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">42</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    w.z <span style="color:#998;font-style:italic">// 这里会报错，无法导出小写字段
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">w</span><span style="color:#1f2328">.</span><span style="color:#1f2328">z</span> <span style="color:#57606a">// 这里会报错，无法导出小写字段</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>通过示例可以看到，结构体的初始化方式，通过结构体字段赋值即可，可以指定字段名赋值，如果没有指定字段名，则按照结构体定义从上到下，将初始化给定的数据自动赋值对应字段。</p>
@@ -299,18 +299,18 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> Vertex <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	X <span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>	Y <span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">Vertex</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">X</span> <span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">Y</span> <span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">main</span>() {
-</span></span><span style="display:flex;"><span>	v <span style="color:#000;font-weight:bold">:=</span> Vertex{<span style="color:#099">1</span>, <span style="color:#099">2</span>}
-</span></span><span style="display:flex;"><span>	p <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">&amp;</span>v
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// p是一个结构体指针，这里可以直接通过 . 获取并使用字段
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	p.X = <span style="color:#099">1e9</span>
-</span></span><span style="display:flex;"><span>	fmt.<span style="color:#900;font-weight:bold">Println</span>(v)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">main</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">v</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">Vertex</span><span style="color:#1f2328">{</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">2</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">p</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">v</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// p是一个结构体指针，这里可以直接通过 . 获取并使用字段</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">X</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">1e9</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#1f2328">v</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="匿名结构体">匿名结构体</h3>
@@ -329,16 +329,16 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> innerS <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>    in1 <span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>    in2 <span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">innerS</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">in1</span> <span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">in2</span> <span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> outerS <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>    b    <span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>    c    <span style="color:#458;font-weight:bold">float32</span>
-</span></span><span style="display:flex;"><span>    innerS <span style="color:#998;font-style:italic">//anonymous field
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">outerS</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">b</span>    <span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">c</span>    <span style="color:#cf222e">float32</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">innerS</span> <span style="color:#57606a">//anonymous field</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>当我们要访问匿名结构体的字段时，可以依旧直接使用<code>.</code>进行读取。此外如果匿名结构体的字段名和外部定义的字段名重复的话，我们就需要指定结构体的名称去访问了。</p>
@@ -361,21 +361,21 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> inner <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	a <span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>	b <span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">inner</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">a</span> <span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">b</span> <span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> outer <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	a <span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>	inner
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">outer</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">a</span> <span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">inner</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">read</span>() {
-</span></span><span style="display:flex;"><span>	o <span style="color:#000;font-weight:bold">:=</span> outer{}
-</span></span><span style="display:flex;"><span>	fmt.<span style="color:#900;font-weight:bold">Println</span>(o.a)
-</span></span><span style="display:flex;"><span>	fmt.<span style="color:#900;font-weight:bold">Println</span>(o.inner.a)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">read</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">o</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">outer</span><span style="color:#1f2328">{}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#1f2328">o</span><span style="color:#1f2328">.</span><span style="color:#1f2328">a</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#1f2328">o</span><span style="color:#1f2328">.</span><span style="color:#1f2328">inner</span><span style="color:#1f2328">.</span><span style="color:#1f2328">a</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="参考">参考</h2>
@@ -389,23 +389,6 @@
 
 
         
-
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/post/2023-02-01-golangflow/">Golang|学习教程(二)-流程控制</a></li>
-        
-        <li><a href="/blog/post/2023-01-31-golangbasics/">Golang|学习教程(一)-基础概念</a></li>
-        
-        <li><a href="/blog/read/2023-01-07-2023%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/">2023阅读书单</a></li>
-        
-        <li><a href="/blog/post/2023-01-14-golangttf/">Golang|truetype解析</a></li>
-        
-        <li><a href="/blog/post/2023-01-07-python%E7%9F%A5%E8%AF%86%E7%82%B9%E6%8B%BE%E9%81%97/">Python|知识点拾遗(一)</a></li>
-        
-    </ul>
-</div>
 
 
         <div class="post-meta meta-tags">
@@ -436,7 +419,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -557,7 +540,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -617,17 +600,17 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -635,9 +618,9 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -648,29 +631,29 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

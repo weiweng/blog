@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-	<meta name="generator" content="Hugo 0.117.0">
+	<meta name="generator" content="Hugo 0.145.0">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1207188090915424" crossorigin="anonymous"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,7 +36,7 @@
             <div class="site-name ">
                 
                     <h1>
-                        <a id="logo" href="https://weiweng.github.io/blog">
+                        <a id="logo" href="https://weiweng.github.io/blog/">
                             weiweng的博客
                         </a>
                     </h1>
@@ -45,7 +45,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -147,7 +147,9 @@
 
 
         <div class="post-content">
-            内存分配 GO语言内存管理子系统主要由两部分组成：内存分配器和垃圾回收器（gc）。内存分配器主要解决小对象的分配管理和多线程的内存分配问题。 Golang运行时的内……
+            <h2 id="内存分配">内存分配</h2>
+<p>GO语言内存管理子系统主要由两部分组成：内存分配器和垃圾回收器（gc）。内存分配器主要解决小对象的分配管理和多线程的内存分配问题。</p>
+<p>Golang运行时的内存分配算法主要源自 Google 为 C 语言开发的TCMalloc算法，全称<code>Thread-Caching Malloc</code>。核心思想就是把内存分为多级管理，从而降低锁的粒度。它将可用的堆内存采用二级分配的方式进行管理：每个线程都会自行维护一个独立的内存池，进行内存分配时优先从该内存池中分配，当内存池不足时才会向全局内存池申请，以避免不同线程对全局内存池的频繁竞争。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-15-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" target="_blank">阅读全文</a></p>
     </article>
@@ -175,7 +177,13 @@
 
 
         <div class="post-content">
-            并行和并发 并发(concurrency) 两个或两个以上的任务在一段时间内被执行。例如跑步的时候，停下来系鞋带 并行(parallelism) 两个或两个以上的任务在……
+            <h2 id="并行和并发">并行和并发</h2>
+<h3 id="并发concurrency">并发(concurrency)</h3>
+<p>两个或两个以上的任务在一段时间内被执行。例如跑步的时候，停下来系鞋带</p>
+<h3 id="并行parallelism">并行(parallelism)</h3>
+<p>两个或两个以上的任务在同一时刻被同时执行。例如跑步的时候，边跑边听歌</p>
+<h2 id="线程模型">线程模型</h2>
+<p>从线程讲起，无论语言层面何种并发模型，到了操作系统层面，一定是以线程的形态存在的。而操作系统根据资源访问权限的不同，体系架构可分为用户空间和内核空间；内核空间主要操作访问CPU资源、I/O资源、内存资源等硬件资源，为上层应用程序提供最基本的基础资源，用户空间呢就是上层应用程序的固定活动空间，用户空间不可以直接访问资源，必须通过系统调用、库函数或Shell脚本,来调用内核空间提供的资源。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-15-MPG%E5%88%86%E6%9E%90/" target="_blank">阅读全文</a></p>
     </article>
@@ -259,7 +267,59 @@
 
 
         <div class="post-content">
-            go课程 本文阅读课程来源见此go系列教程 变量 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 //声明方式一 //var name type var age int age = 25 //声明并初始化 var age int = 25 //让go类型推……
+            <h3 id="go课程">go课程</h3>
+<p>本文阅读课程来源见此<a href="https://studygolang.com/subject/2">go系列教程</a></p>
+<h3 id="变量">变量</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#57606a">//声明方式一
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">//var name type
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>var age <span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span>age <span style="color:#0550ae">=</span> <span style="color:#0550ae">25</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//声明并初始化
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>var age <span style="color:#cf222e">int</span> <span style="color:#0550ae">=</span> <span style="color:#0550ae">25</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//让go类型推断
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>var age <span style="color:#0550ae">=</span> <span style="color:#0550ae">25</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//声明多个变量，注意变量不能重复定义
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>var width<span style="color:#1f2328">,</span> heigth <span style="color:#cf222e">int</span> <span style="color:#0550ae">=</span> <span style="color:#0550ae">210</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">220</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//简短声明
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#900;font-weight:bold">age</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#0550ae">25</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//简短声明多变量，
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>age<span style="color:#1f2328">,</span> <span style="color:#900;font-weight:bold">name</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#0550ae">25</span><span style="color:#1f2328">,</span><span style="color:#0a3069">&#34;wengwei&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//注意多变量声明不能完全重复
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>age<span style="color:#1f2328">,</span> <span style="color:#900;font-weight:bold">name</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#0550ae">25</span><span style="color:#1f2328">,</span><span style="color:#0a3069">&#34;wengwei&#34;</span>
+</span></span><span style="display:flex;"><span>age<span style="color:#1f2328">,</span> <span style="color:#900;font-weight:bold">name</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#0550ae">26</span><span style="color:#1f2328">,</span><span style="color:#0a3069">&#34;wengwei&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//上面定义会报错
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>age<span style="color:#1f2328">,</span> <span style="color:#900;font-weight:bold">name</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#0550ae">25</span><span style="color:#1f2328">,</span><span style="color:#0a3069">&#34;wengwei&#34;</span>
+</span></span><span style="display:flex;"><span>age<span style="color:#1f2328">,</span> <span style="color:#900;font-weight:bold">name2</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#0550ae">26</span><span style="color:#1f2328">,</span><span style="color:#0a3069">&#34;wengwei&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//上面定义不会报错
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="类型">类型</h3>
+<p>go支持一下几类基本类型</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-15-%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/" target="_blank">阅读全文</a></p>
     </article>
@@ -315,7 +375,19 @@
 
 
         <div class="post-content">
-            DICT Redis字典具dd有以下特点： Redis字典的底层实现为哈希表， 每个字典使用两个哈希表， 一般情况下只使用 0 号哈希表， 只有在 rehash 进行时， 才会同时使用 0 号和 1 号哈……
+            <h2 id="dict">DICT</h2>
+<p>Redis字典具dd有以下特点：</p>
+<ul>
+<li>Redis字典的底层实现为哈希表，</li>
+<li>每个字典使用两个哈希表， 一般情况下只使用 0 号哈希表， 只有在 rehash 进行时， 才会同时使用 0 号和 1 号哈希表。</li>
+<li>哈希表使用链地址法来解决键冲突的问题。</li>
+<li>自动 Rehash 扩展或收缩哈希表。</li>
+<li>对哈希表的 rehash 是分多次、渐进式地进行的。</li>
+</ul>
+<h2 id="结构定义">结构定义</h2>
+<p>
+        <img class="mx-auto" alt="dict整体结构图" src="img_0.png" />   
+    </p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-DICT/" target="_blank">阅读全文</a></p>
     </article>
@@ -343,7 +415,348 @@
 
 
         <div class="post-content">
-            INTSET intset是集合键的底层实现之一， 保存的元素是有序的。可作为集合键底层实现， 如果一个集合满足以下两个条件： 保存可转化为long long类型的元素 元素数量不多……
+            <h2 id="intset">INTSET</h2>
+<p>intset是集合键的底层实现之一， 保存的元素是有序的。可作为集合键底层实现， 如果一个集合满足以下两个条件：</p>
+<ol>
+<li>保存可转化为long long类型的元素</li>
+<li>元素数量不多</li>
+</ol>
+<h2 id="结构定义">结构定义</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#cf222e">typedef</span> <span style="color:#cf222e">struct</span> intset <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//保存元素所使用类型的长度
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">uint32_t</span> encoding<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//保存元素的个数
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">uint32_t</span> length<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//保存元素的数组
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">int8_t</span> contents<span style="color:#1f2328">[];</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span> intset<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/* Note that these encodings are ordered, so:
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">* INTSET_ENC_INT16 &lt; INTSET_ENC_INT32 &lt; INTSET_ENC_INT64. */</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">#define INTSET_ENC_INT16 (sizeof(int16_t))
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">#define INTSET_ENC_INT32 (sizeof(int32_t))
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">#define INTSET_ENC_INT64 (sizeof(int64_t))
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="intset搜索流程">intset搜索流程</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>static uint8_t intsetSearch(intset *is, int64_t value, uint32_t *pos) {
+</span></span><span style="display:flex;"><span>   int min = 0, max = intrev32ifbe(is-&gt;length)-1, mid = -1;
+</span></span><span style="display:flex;"><span>   int64_t cur = -1;
+</span></span><span style="display:flex;"><span>   /* The value can never be found when the set is empty */
+</span></span><span style="display:flex;"><span>   // 集合为空
+</span></span><span style="display:flex;"><span>      if (intrev32ifbe(is-&gt;length) == 0) {
+</span></span><span style="display:flex;"><span>      if (pos) *pos = 0;
+</span></span><span style="display:flex;"><span>         return 0;
+</span></span><span style="display:flex;"><span>      } else {
+</span></span><span style="display:flex;"><span>      /* Check for the case where we know we cannot find the value,
+</span></span><span style="display:flex;"><span>      * but do know the insert position. */
+</span></span><span style="display:flex;"><span>      // value 比最大元素还大
+</span></span><span style="display:flex;"><span>      if (value &gt; _intsetGet(is,intrev32ifbe(is-&gt;length)-1)) {
+</span></span><span style="display:flex;"><span>      if (pos) *pos = intrev32ifbe(is-&gt;length);
+</span></span><span style="display:flex;"><span>      return 0;
+</span></span><span style="display:flex;"><span>      // value 比最小元素还小
+</span></span><span style="display:flex;"><span>      } else if (value &lt; _intsetGet(is,0)) {
+</span></span><span style="display:flex;"><span>      if (pos) *pos = 0;
+</span></span><span style="display:flex;"><span>      return 0;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>   // 熟悉的二分查找
+</span></span><span style="display:flex;"><span>   while(max &gt;= min) {
+</span></span><span style="display:flex;"><span>      mid = (min+max)/2;
+</span></span><span style="display:flex;"><span>      cur = _intsetGet(is,mid);
+</span></span><span style="display:flex;"><span>   if (value &gt; cur) {
+</span></span><span style="display:flex;"><span>      min = mid+1;
+</span></span><span style="display:flex;"><span>   } else if (value &lt; cur) {
+</span></span><span style="display:flex;"><span>      max = mid-1;
+</span></span><span style="display:flex;"><span>   } else {
+</span></span><span style="display:flex;"><span>      break;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>   if (value == cur) {
+</span></span><span style="display:flex;"><span>   if (pos) *pos = mid;
+</span></span><span style="display:flex;"><span>      return 1;
+</span></span><span style="display:flex;"><span>   } else {
+</span></span><span style="display:flex;"><span>   if (pos) *pos = min;
+</span></span><span style="display:flex;"><span>      return 0;
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="intset添加流程">intset添加流程</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#57606a">/* Insert an integer in the intset */</span>
+</span></span><span style="display:flex;"><span>intset <span style="color:#0550ae">*</span><span style="color:#6639ba">intsetAdd</span><span style="color:#1f2328">(</span>intset <span style="color:#0550ae">*</span>is<span style="color:#1f2328">,</span> <span style="color:#cf222e">int64_t</span> value<span style="color:#1f2328">,</span> <span style="color:#cf222e">uint8_t</span> <span style="color:#0550ae">*</span>success<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">uint8_t</span> valenc <span style="color:#0550ae">=</span> <span style="color:#6639ba">_intsetValueEncoding</span><span style="color:#1f2328">(</span>value<span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">uint32_t</span> pos<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span>success<span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span>success <span style="color:#0550ae">=</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">/* Upgrade encoding if necessary. If we need to upgrade, we know that
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">    * this value should be either appended (if &gt; 0) or prepended (if &lt; 0),
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">    * because it lies outside the range of existing values. */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 需要插入整数的所需内存超出了原有集合整数的范围，即内存类型不同，
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 则升级整数类型
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span>valenc <span style="color:#0550ae">&gt;</span> <span style="color:#6639ba">intrev32ifbe</span><span style="color:#1f2328">(</span>is<span style="color:#0550ae">-&gt;</span>encoding<span style="color:#1f2328">))</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">/* This always succeeds, so we don&#39;t need to curry *success. */</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#6639ba">intsetUpgradeAndAdd</span><span style="color:#1f2328">(</span>is<span style="color:#1f2328">,</span>value<span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 正常，分配内存，插入
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// intset 内部不允许重复
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">/* Abort if the value is already present in the set.
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">    * This call will populate &#34;pos&#34; with the right position to insert
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">    * the value when it cannot be found. */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span><span style="color:#6639ba">intsetSearch</span><span style="color:#1f2328">(</span>is<span style="color:#1f2328">,</span>value<span style="color:#1f2328">,</span><span style="color:#0550ae">&amp;</span>pos<span style="color:#1f2328">))</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span>success<span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span>success <span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> is<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// realloc
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    is <span style="color:#0550ae">=</span> <span style="color:#6639ba">intsetResize</span><span style="color:#1f2328">(</span>is<span style="color:#1f2328">,</span><span style="color:#6639ba">intrev32ifbe</span><span style="color:#1f2328">(</span>is<span style="color:#0550ae">-&gt;</span>length<span style="color:#1f2328">)</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 迁移内存，腾出空间给新的数据。intsetMoveTail() 完成内存迁移工作
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span>pos <span style="color:#0550ae">&lt;</span> <span style="color:#6639ba">intrev32ifbe</span><span style="color:#1f2328">(</span>is<span style="color:#0550ae">-&gt;</span>length<span style="color:#1f2328">))</span> <span style="color:#6639ba">intsetMoveTail</span><span style="color:#1f2328">(</span>is<span style="color:#1f2328">,</span>pos<span style="color:#1f2328">,</span>pos<span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 在腾出的空间中设置新的数据
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>        <span style="color:#6639ba">_intsetSet</span><span style="color:#1f2328">(</span>is<span style="color:#1f2328">,</span>pos<span style="color:#1f2328">,</span>value<span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 更新intset size
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>        is<span style="color:#0550ae">-&gt;</span>length <span style="color:#0550ae">=</span> <span style="color:#6639ba">intrev32ifbe</span><span style="color:#1f2328">(</span><span style="color:#6639ba">intrev32ifbe</span><span style="color:#1f2328">(</span>is<span style="color:#0550ae">-&gt;</span>length<span style="color:#1f2328">)</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> is<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/*整数数组有可能遇到需要升级的时候，譬如往 int32_t 数组插入一个 ing64_t 整数的时候。*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/*当插入数据的内存占用比原有数据大的时候，intsetUpgradeAndAdd() 会被调用。*/</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">static</span> intset <span style="color:#0550ae">*</span><span style="color:#6639ba">intsetUpgradeAndAdd</span><span style="color:#1f2328">(</span>intset <span style="color:#0550ae">*</span>is<span style="color:#1f2328">,</span> <span style="color:#cf222e">int64_t</span> value<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 当前的编码方式
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">uint8_t</span> curenc <span style="color:#0550ae">=</span> <span style="color:#6639ba">intrev32ifbe</span><span style="color:#1f2328">(</span>is<span style="color:#0550ae">-&gt;</span>encoding<span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 新值所需的编码方式
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">uint8_t</span> newenc <span style="color:#0550ae">=</span> <span style="color:#6639ba">_intsetValueEncoding</span><span style="color:#1f2328">(</span>value<span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 当前集合的元素数量
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">int</span> length <span style="color:#0550ae">=</span> <span style="color:#6639ba">intrev32ifbe</span><span style="color:#1f2328">(</span>is<span style="color:#0550ae">-&gt;</span>length<span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 根据 value 的值，决定是将它添加到底层数组的最前端还是最后端
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 注意，因为 value 的编码比集合原有的其他元素的编码都要大
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 所以 value 要么大于集合中的所有元素，要么小于集合中的所有元素
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 因此，value 只能添加到底层数组的最前端或最后端
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">int</span> prepend <span style="color:#0550ae">=</span> value <span style="color:#0550ae">&lt;</span> <span style="color:#0550ae">0</span> <span style="color:#0550ae">?</span> <span style="color:#0550ae">1</span> <span style="color:#0550ae">:</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">/* First set new encoding and resize */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 更新集合的编码方式
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    is<span style="color:#0550ae">-&gt;</span>encoding <span style="color:#0550ae">=</span> <span style="color:#6639ba">intrev32ifbe</span><span style="color:#1f2328">(</span>newenc<span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 根据新编码对集合（的底层数组）进行空间调整
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// T = O(N)
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    is <span style="color:#0550ae">=</span> <span style="color:#6639ba">intsetResize</span><span style="color:#1f2328">(</span>is<span style="color:#1f2328">,</span><span style="color:#6639ba">intrev32ifbe</span><span style="color:#1f2328">(</span>is<span style="color:#0550ae">-&gt;</span>length<span style="color:#1f2328">)</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">/* Upgrade back-to-front so we don&#39;t overwrite values.
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">     * Note that the &#34;prepend&#34; variable is used to make sure we have an empty
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">     * space at either the beginning or the end of the intset. */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 根据集合原来的编码方式，从底层数组中取出集合元素
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 然后再将元素以新编码的方式添加到集合中
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 当完成了这个步骤之后，集合中所有原有的元素就完成了从旧编码到新编码的转换
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 因为新分配的空间都放在数组的后端，所以程序先从后端向前端移动元素
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 举个例子，假设原来有 curenc 编码的三个元素，它们在数组中排列如下：
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// | x | y | z | 
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 当程序对数组进行重分配之后，数组就被扩容了（符号 ？ 表示未使用的内存）：
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// | x | y | z | ? |   ?   |   ?   |
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 这时程序从数组后端开始，重新插入元素：
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// | x | y | z | ? |   z   |   ?   |
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// | x | y |   y   |   z   |   ?   |
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// |   x   |   y   |   z   |   ?   |
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 最后，程序可以将新元素添加到最后 ？ 号标示的位置中：
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// |   x   |   y   |   z   |  new  |
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 上面演示的是新元素比原来的所有元素都大的情况，也即是 prepend == 0
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 当新元素比原来的所有元素都小时（prepend == 1），调整的过程如下：
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// | x | y | z | ? |   ?   |   ?   |
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// | x | y | z | ? |   ?   |   z   |
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// | x | y | z | ? |   y   |   z   |
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// | x | y |   x   |   y   |   z   |
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// 当添加新值时，原本的 | x | y | 的数据将被新值代替
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// |  new  |   x   |   y   |   z   |
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">// T = O(N)
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">while</span><span style="color:#1f2328">(</span>length<span style="color:#0550ae">--</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6639ba">_intsetSet</span><span style="color:#1f2328">(</span>is<span style="color:#1f2328">,</span>length<span style="color:#0550ae">+</span>prepend<span style="color:#1f2328">,</span><span style="color:#6639ba">_intsetGetEncoded</span><span style="color:#1f2328">(</span>is<span style="color:#1f2328">,</span>length<span style="color:#1f2328">,</span>curenc<span style="color:#1f2328">));</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">/* Set the value at the beginning or the end. */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 设置新值，根据 prepend 的值来决定是添加到数组头还是数组尾
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span>prepend<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6639ba">_intsetSet</span><span style="color:#1f2328">(</span>is<span style="color:#1f2328">,</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span>value<span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6639ba">_intsetSet</span><span style="color:#1f2328">(</span>is<span style="color:#1f2328">,</span><span style="color:#6639ba">intrev32ifbe</span><span style="color:#1f2328">(</span>is<span style="color:#0550ae">-&gt;</span>length<span style="color:#1f2328">),</span>value<span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 更新整数集合的元素数量
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    is<span style="color:#0550ae">-&gt;</span>length <span style="color:#0550ae">=</span> <span style="color:#6639ba">intrev32ifbe</span><span style="color:#1f2328">(</span><span style="color:#6639ba">intrev32ifbe</span><span style="color:#1f2328">(</span>is<span style="color:#0550ae">-&gt;</span>length<span style="color:#1f2328">)</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> is<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+        <img class="mx-auto" alt="intset添加元素流程图" src="img_0.png" />   
+    </p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-INTSET/" target="_blank">阅读全文</a></p>
     </article>
@@ -447,7 +860,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -483,7 +896,7 @@
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -543,17 +956,17 @@
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -561,9 +974,9 @@
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -574,29 +987,29 @@
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

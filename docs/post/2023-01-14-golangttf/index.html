@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -219,121 +219,121 @@
 <p>TrueType字体文件由一系列连接的表组成。表是单词的序列。每个表必须长对齐，并在必要时用零填充。所有的数据表中，第一重要的表是<strong>字体目录</strong>，这是一个特殊的表，便于访问字体中的其他表。该目录后面是一系列包含字体数据的表。这些表可以以任何顺序出现。有一些表格是所有字体都必须包含的，有些表是基于相关特殊功能可选择的包含对应数据表。</p>
 <p>必备表单</p>
 <table>
-<thead>
-<tr>
-<th>tag</th>
-<th>Table</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>&lsquo;camp&rsquo;</td>
-<td>character to glyph mapping</td>
-</tr>
-<tr>
-<td>&lsquo;glyf&rsquo;</td>
-<td>glyph data</td>
-</tr>
-<tr>
-<td>&lsquo;head&rsquo;</td>
-<td>font header</td>
-</tr>
-<tr>
-<td>&lsquo;hhea&rsquo;</td>
-<td>horizontal header</td>
-</tr>
-<tr>
-<td>&lsquo;hmtx&rsquo;</td>
-<td>horizontal metrics</td>
-</tr>
-<tr>
-<td>&rsquo;loca'</td>
-<td>index to location</td>
-</tr>
-<tr>
-<td>&lsquo;maxp&rsquo;</td>
-<td>maximum profile</td>
-</tr>
-<tr>
-<td>&rsquo;name'</td>
-<td>naming</td>
-</tr>
-<tr>
-<td>&lsquo;post&rsquo;</td>
-<td>PostScript</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>tag</th>
+          <th>Table</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>&lsquo;camp&rsquo;</td>
+          <td>character to glyph mapping</td>
+      </tr>
+      <tr>
+          <td>&lsquo;glyf&rsquo;</td>
+          <td>glyph data</td>
+      </tr>
+      <tr>
+          <td>&lsquo;head&rsquo;</td>
+          <td>font header</td>
+      </tr>
+      <tr>
+          <td>&lsquo;hhea&rsquo;</td>
+          <td>horizontal header</td>
+      </tr>
+      <tr>
+          <td>&lsquo;hmtx&rsquo;</td>
+          <td>horizontal metrics</td>
+      </tr>
+      <tr>
+          <td>&rsquo;loca'</td>
+          <td>index to location</td>
+      </tr>
+      <tr>
+          <td>&lsquo;maxp&rsquo;</td>
+          <td>maximum profile</td>
+      </tr>
+      <tr>
+          <td>&rsquo;name'</td>
+          <td>naming</td>
+      </tr>
+      <tr>
+          <td>&lsquo;post&rsquo;</td>
+          <td>PostScript</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="字体目录">字体目录</h3>
 <p>字体目录是所有表中最重要的，它是字体文件内的指导手册。通过它可以指导其他表格的相关信息。目录由两部分组成：偏移子表和表目录，偏移子表记录了表格数量，以及每个表格的对应存储偏移量，表目录则存储了具体的条目内容。</p>
 <p>偏移子表的格式如下：</p>
 <table>
-<thead>
-<tr>
-<th>type</th>
-<th>name</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>uint32</td>
-<td>scaler type</td>
-<td>一个标记，用于指示OFA缩放，重新定义字体大小</td>
-</tr>
-<tr>
-<td>uint16</td>
-<td>numTables</td>
-<td>表个数</td>
-</tr>
-<tr>
-<td>uint16</td>
-<td>searchRange</td>
-<td>(maximum power of 2 &lt;= numTables)*16</td>
-</tr>
-<tr>
-<td>uint16</td>
-<td>entrySelector</td>
-<td>log2(maximum power of 2 &lt;= numTables)</td>
-</tr>
-<tr>
-<td>uint16</td>
-<td>rangeShift</td>
-<td>numTables*16-searchRange</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>type</th>
+          <th>name</th>
+          <th>description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>uint32</td>
+          <td>scaler type</td>
+          <td>一个标记，用于指示OFA缩放，重新定义字体大小</td>
+      </tr>
+      <tr>
+          <td>uint16</td>
+          <td>numTables</td>
+          <td>表个数</td>
+      </tr>
+      <tr>
+          <td>uint16</td>
+          <td>searchRange</td>
+          <td>(maximum power of 2 &lt;= numTables)*16</td>
+      </tr>
+      <tr>
+          <td>uint16</td>
+          <td>entrySelector</td>
+          <td>log2(maximum power of 2 &lt;= numTables)</td>
+      </tr>
+      <tr>
+          <td>uint16</td>
+          <td>rangeShift</td>
+          <td>numTables*16-searchRange</td>
+      </tr>
+  </tbody>
 </table>
 <p>表目录跟在offset子表后面。表目录中的条目必须按标签升序排序。字体文件中的每个表必须有自己的表目录条目。具体格式如下：</p>
 <table>
-<thead>
-<tr>
-<th>type</th>
-<th>name</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>uint32</td>
-<td>tag</td>
-<td>4字节的标识符</td>
-</tr>
-<tr>
-<td>uint32</td>
-<td>checkSum</td>
-<td>表的校验和</td>
-</tr>
-<tr>
-<td>uint32</td>
-<td>offset</td>
-<td>从SFNT开始的偏移量</td>
-</tr>
-<tr>
-<td>uint32</td>
-<td>length</td>
-<td>该表的长度(以字节为单位)</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>type</th>
+          <th>name</th>
+          <th>description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>uint32</td>
+          <td>tag</td>
+          <td>4字节的标识符</td>
+      </tr>
+      <tr>
+          <td>uint32</td>
+          <td>checkSum</td>
+          <td>表的校验和</td>
+      </tr>
+      <tr>
+          <td>uint32</td>
+          <td>offset</td>
+          <td>从SFNT开始的偏移量</td>
+      </tr>
+      <tr>
+          <td>uint32</td>
+          <td>length</td>
+          <td>该表的长度(以字节为单位)</td>
+      </tr>
+  </tbody>
 </table>
 <p>从格式可以看出，具体表的内容存储在offset到offset+length之间。</p>
 <h3 id="cmap">cmap</h3>
@@ -341,52 +341,52 @@
 <p>在cmap表中，对于不可展示的字符，我们会将字符对应代码映射到字形索引0，通常0这个位置对应的字形是一个方框，，表示缺少的字符。需要注意的是，不应该将其映射到字形索引-1 (0xFFFF)，这是处理中保留的一个特殊值，用于指示从字形流中删除的字形的位置。</p>
 <p>接下来看看cmap表的格式：</p>
 <table>
-<thead>
-<tr>
-<th>type</th>
-<th>name</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>UInt16</td>
-<td>version</td>
-<td>版本号</td>
-</tr>
-<tr>
-<td>UInt16</td>
-<td>numberSubtables</td>
-<td>编码子表的个数</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>type</th>
+          <th>name</th>
+          <th>description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>UInt16</td>
+          <td>version</td>
+          <td>版本号</td>
+      </tr>
+      <tr>
+          <td>UInt16</td>
+          <td>numberSubtables</td>
+          <td>编码子表的个数</td>
+      </tr>
+  </tbody>
 </table>
 <p>camp的编码子表格式：</p>
 <table>
-<thead>
-<tr>
-<th>type</th>
-<th>name</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>UInt16</td>
-<td>platformID</td>
-<td>平台标识符</td>
-</tr>
-<tr>
-<td>UInt16</td>
-<td>platformSpecificID</td>
-<td>平台特定的编码标识符</td>
-</tr>
-<tr>
-<td>UInt32</td>
-<td>offset</td>
-<td>映射表的偏移量</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>type</th>
+          <th>name</th>
+          <th>description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>UInt16</td>
+          <td>platformID</td>
+          <td>平台标识符</td>
+      </tr>
+      <tr>
+          <td>UInt16</td>
+          <td>platformSpecificID</td>
+          <td>平台特定的编码标识符</td>
+      </tr>
+      <tr>
+          <td>UInt32</td>
+          <td>offset</td>
+          <td>映射表的偏移量</td>
+      </tr>
+  </tbody>
 </table>
 <p>子表必须先按平台标识符升序排序，然后再按平台特定标识符进行排序。platformID和platformSpecificID具体的枚举定义可以参考官方文档，这里我们关注的是platformID为0时，就是Unicode编码平台，随后platformSpecificID标识对应的相关Unicode版本。</p>
 <h3 id="cmap-formats">cmap formats</h3>
@@ -394,80 +394,80 @@
 <p>格式4是一种双字节编码格式。当字体的字符代码落在几个连续的范围内时，允许存在一些空缺映射，即非密集的情况时，推荐使用格式4，密集映射的双字节字体时推荐使用格式6。</p>
 <p>格式4的设计格式如下：</p>
 <table>
-<thead>
-<tr>
-<th>type</th>
-<th>name</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>UInt16</td>
-<td>format</td>
-<td>固定数值4</td>
-</tr>
-<tr>
-<td>UInt16</td>
-<td>length</td>
-<td>长度(字节)</td>
-</tr>
-<tr>
-<td>UInt32</td>
-<td>language</td>
-<td>语言编码</td>
-</tr>
-<tr>
-<td>UInt16</td>
-<td>segCountX2</td>
-<td>2 * segCount</td>
-</tr>
-<tr>
-<td>UInt16</td>
-<td>searchRange</td>
-<td>2 * (2**FLOOR(log2(segCount)))</td>
-</tr>
-<tr>
-<td>UInt16</td>
-<td>entrySelector</td>
-<td>log2(searchRange/2)</td>
-</tr>
-<tr>
-<td>UInt16</td>
-<td>rangeShift</td>
-<td>(2 * segCount) - searchRange</td>
-</tr>
-<tr>
-<td>UInt16</td>
-<td>endCode[segCount]</td>
-<td>每个段的结束位置，最后一个数值为0xFFFF</td>
-</tr>
-<tr>
-<td>UInt16</td>
-<td>reservedPad</td>
-<td>理论上应该是0值</td>
-</tr>
-<tr>
-<td>UInt16</td>
-<td>startCode[segCount]</td>
-<td>每个段的起始位置</td>
-</tr>
-<tr>
-<td>UInt16</td>
-<td>idDelta[segCount]</td>
-<td>每个段的字符代码增量</td>
-</tr>
-<tr>
-<td>UInt16</td>
-<td>idRangeOffset[segCount]</td>
-<td>对应到glyph indexArray的偏移量，可能为0</td>
-</tr>
-<tr>
-<td>UInt16</td>
-<td>glyphIndexArray[variable]</td>
-<td>图形数据索引下标数组</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>type</th>
+          <th>name</th>
+          <th>description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>UInt16</td>
+          <td>format</td>
+          <td>固定数值4</td>
+      </tr>
+      <tr>
+          <td>UInt16</td>
+          <td>length</td>
+          <td>长度(字节)</td>
+      </tr>
+      <tr>
+          <td>UInt32</td>
+          <td>language</td>
+          <td>语言编码</td>
+      </tr>
+      <tr>
+          <td>UInt16</td>
+          <td>segCountX2</td>
+          <td>2 * segCount</td>
+      </tr>
+      <tr>
+          <td>UInt16</td>
+          <td>searchRange</td>
+          <td>2 * (2**FLOOR(log2(segCount)))</td>
+      </tr>
+      <tr>
+          <td>UInt16</td>
+          <td>entrySelector</td>
+          <td>log2(searchRange/2)</td>
+      </tr>
+      <tr>
+          <td>UInt16</td>
+          <td>rangeShift</td>
+          <td>(2 * segCount) - searchRange</td>
+      </tr>
+      <tr>
+          <td>UInt16</td>
+          <td>endCode[segCount]</td>
+          <td>每个段的结束位置，最后一个数值为0xFFFF</td>
+      </tr>
+      <tr>
+          <td>UInt16</td>
+          <td>reservedPad</td>
+          <td>理论上应该是0值</td>
+      </tr>
+      <tr>
+          <td>UInt16</td>
+          <td>startCode[segCount]</td>
+          <td>每个段的起始位置</td>
+      </tr>
+      <tr>
+          <td>UInt16</td>
+          <td>idDelta[segCount]</td>
+          <td>每个段的字符代码增量</td>
+      </tr>
+      <tr>
+          <td>UInt16</td>
+          <td>idRangeOffset[segCount]</td>
+          <td>对应到glyph indexArray的偏移量，可能为0</td>
+      </tr>
+      <tr>
+          <td>UInt16</td>
+          <td>glyphIndexArray[variable]</td>
+          <td>图形数据索引下标数组</td>
+      </tr>
+  </tbody>
 </table>
 <p>段可以理解为一个映射码范围，其总的个数定义为segCount，但这个变量没有显示的在格式中标注体现，不过可以大略计算出来。</p>
 <p>searchRange, entrySelector, rangeShift 这三个字段苹果平台上不使用，为了兼容其他平台需要正确设置数值。</p>
@@ -736,264 +736,264 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">258
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 首先是基础的读取字节数据
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// u32函数，在i位置后面读取32bit，返回uint32
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// u32 returns the big-endian uint32 at b[i:].
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>func <span style="color:#900;font-weight:bold">u32</span>(b []byte, i <span style="color:#458;font-weight:bold">int</span>) uint32 {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">uint32</span>(b[i])<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#099">24</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#900;font-weight:bold">uint32</span>(b[i<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>])<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#099">16</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#900;font-weight:bold">uint32</span>(b[i<span style="color:#000;font-weight:bold">+</span><span style="color:#099">2</span>])<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#099">8</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#900;font-weight:bold">uint32</span>(b[i<span style="color:#000;font-weight:bold">+</span><span style="color:#099">3</span>])
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#57606a">// 首先是基础的读取字节数据
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// u32函数，在i位置后面读取32bit，返回uint32
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">// u32 returns the big-endian uint32 at b[i:].
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>func <span style="color:#6639ba">u32</span><span style="color:#1f2328">(</span>b <span style="color:#1f2328">[]</span>byte<span style="color:#1f2328">,</span> i <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> uint32 <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#6639ba">uint32</span><span style="color:#1f2328">(</span>b<span style="color:#1f2328">[</span>i<span style="color:#1f2328">])</span><span style="color:#0550ae">&lt;&lt;</span><span style="color:#0550ae">24</span> <span style="color:#0550ae">|</span> <span style="color:#6639ba">uint32</span><span style="color:#1f2328">(</span>b<span style="color:#1f2328">[</span>i<span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">])</span><span style="color:#0550ae">&lt;&lt;</span><span style="color:#0550ae">16</span> <span style="color:#0550ae">|</span> <span style="color:#6639ba">uint32</span><span style="color:#1f2328">(</span>b<span style="color:#1f2328">[</span>i<span style="color:#0550ae">+</span><span style="color:#0550ae">2</span><span style="color:#1f2328">])</span><span style="color:#0550ae">&lt;&lt;</span><span style="color:#0550ae">8</span> <span style="color:#0550ae">|</span> <span style="color:#6639ba">uint32</span><span style="color:#1f2328">(</span>b<span style="color:#1f2328">[</span>i<span style="color:#0550ae">+</span><span style="color:#0550ae">3</span><span style="color:#1f2328">])</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// u16 returns the big-endian uint16 at b[i:].
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>func <span style="color:#900;font-weight:bold">u16</span>(b []byte, i <span style="color:#458;font-weight:bold">int</span>) uint16 {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">uint16</span>(b[i])<span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#099">8</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#900;font-weight:bold">uint16</span>(b[i<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>])
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// u16 returns the big-endian uint16 at b[i:].
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>func <span style="color:#6639ba">u16</span><span style="color:#1f2328">(</span>b <span style="color:#1f2328">[]</span>byte<span style="color:#1f2328">,</span> i <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> uint16 <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#6639ba">uint16</span><span style="color:#1f2328">(</span>b<span style="color:#1f2328">[</span>i<span style="color:#1f2328">])</span><span style="color:#0550ae">&lt;&lt;</span><span style="color:#0550ae">8</span> <span style="color:#0550ae">|</span> <span style="color:#6639ba">uint16</span><span style="color:#1f2328">(</span>b<span style="color:#1f2328">[</span>i<span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">])</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 读取表字节数据
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// readTable returns a slice of the TTF data given by a table&#39;s directory entry.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>func <span style="color:#900;font-weight:bold">readTable</span>(ttf []byte, offsetLength []byte) ([]byte, error) {
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 偏移量获取
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#900;font-weight:bold">offset</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(<span style="color:#900;font-weight:bold">u32</span>(offsetLength, <span style="color:#099">0</span>))
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> offset <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> nil, <span style="color:#900;font-weight:bold">FormatError</span>(fmt.<span style="color:#900;font-weight:bold">Sprintf</span>(<span style="color:#d14">&#34;offset too large: %d&#34;</span>, <span style="color:#900;font-weight:bold">uint32</span>(offset)))
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 长度获取
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#900;font-weight:bold">length</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(<span style="color:#900;font-weight:bold">u32</span>(offsetLength, <span style="color:#099">4</span>))
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> length <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> nil, <span style="color:#900;font-weight:bold">FormatError</span>(fmt.<span style="color:#900;font-weight:bold">Sprintf</span>(<span style="color:#d14">&#34;length too large: %d&#34;</span>, <span style="color:#900;font-weight:bold">uint32</span>(length)))
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">end</span> :<span style="color:#000;font-weight:bold">=</span> offset <span style="color:#000;font-weight:bold">+</span> length
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> end <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">||</span> end <span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#900;font-weight:bold">len</span>(ttf) {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> nil, <span style="color:#900;font-weight:bold">FormatError</span>(fmt.<span style="color:#900;font-weight:bold">Sprintf</span>(<span style="color:#d14">&#34;offset + length too large: %d&#34;</span>, <span style="color:#900;font-weight:bold">uint32</span>(offset)<span style="color:#000;font-weight:bold">+</span><span style="color:#900;font-weight:bold">uint32</span>(length)))
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 返回字节内容
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">return</span> ttf[<span style="color:#900;font-weight:bold">offset</span>:end], nil
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 读取表字节数据
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">// readTable returns a slice of the TTF data given by a table&#39;s directory entry.
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>func <span style="color:#6639ba">readTable</span><span style="color:#1f2328">(</span>ttf <span style="color:#1f2328">[]</span>byte<span style="color:#1f2328">,</span> offsetLength <span style="color:#1f2328">[]</span>byte<span style="color:#1f2328">)</span> <span style="color:#1f2328">([]</span>byte<span style="color:#1f2328">,</span> error<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 偏移量获取
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#900;font-weight:bold">offset</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">(</span><span style="color:#6639ba">u32</span><span style="color:#1f2328">(</span>offsetLength<span style="color:#1f2328">,</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> offset <span style="color:#0550ae">&lt;</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> nil<span style="color:#1f2328">,</span> <span style="color:#6639ba">FormatError</span><span style="color:#1f2328">(</span>fmt<span style="color:#1f2328">.</span><span style="color:#6639ba">Sprintf</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;offset too large: %d&#34;</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">uint32</span><span style="color:#1f2328">(</span>offset<span style="color:#1f2328">)))</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 长度获取
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#900;font-weight:bold">length</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">(</span><span style="color:#6639ba">u32</span><span style="color:#1f2328">(</span>offsetLength<span style="color:#1f2328">,</span> <span style="color:#0550ae">4</span><span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> length <span style="color:#0550ae">&lt;</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> nil<span style="color:#1f2328">,</span> <span style="color:#6639ba">FormatError</span><span style="color:#1f2328">(</span>fmt<span style="color:#1f2328">.</span><span style="color:#6639ba">Sprintf</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;length too large: %d&#34;</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">uint32</span><span style="color:#1f2328">(</span>length<span style="color:#1f2328">)))</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">end</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> offset <span style="color:#0550ae">+</span> length
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> end <span style="color:#0550ae">&lt;</span> <span style="color:#0550ae">0</span> <span style="color:#0550ae">||</span> end <span style="color:#0550ae">&gt;</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>ttf<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> nil<span style="color:#1f2328">,</span> <span style="color:#6639ba">FormatError</span><span style="color:#1f2328">(</span>fmt<span style="color:#1f2328">.</span><span style="color:#6639ba">Sprintf</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;offset + length too large: %d&#34;</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">uint32</span><span style="color:#1f2328">(</span>offset<span style="color:#1f2328">)</span><span style="color:#0550ae">+</span><span style="color:#6639ba">uint32</span><span style="color:#1f2328">(</span>length<span style="color:#1f2328">)))</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 返回字节内容
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">return</span> ttf<span style="color:#1f2328">[</span><span style="color:#900;font-weight:bold">offset</span><span style="color:#1f2328">:</span>end<span style="color:#1f2328">],</span> nil
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// parse ttf文件解析核心函数，offset初始为0
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>func <span style="color:#900;font-weight:bold">parse</span>(ttf []byte, offset <span style="color:#458;font-weight:bold">int</span>) (font <span style="color:#000;font-weight:bold">*</span>Font, err error) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">len</span>(ttf)<span style="color:#000;font-weight:bold">-</span>offset <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">12</span> {
-</span></span><span style="display:flex;"><span>		err <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">FormatError</span>(<span style="color:#d14">&#34;TTF data is too short&#34;</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">originalOffset</span> :<span style="color:#000;font-weight:bold">=</span> offset
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 获取scaler type
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	magic, <span style="color:#900;font-weight:bold">offset</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">u32</span>(ttf, offset), offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">switch</span> magic {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">case</span> <span style="color:#099">0x00010000</span><span style="color:#000;font-weight:bold">:</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">// No-op.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">case</span> <span style="color:#099">0x74746366</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#998;font-style:italic">// &#34;ttcf&#34; as a big-endian uint32.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">if</span> originalOffset <span style="color:#000;font-weight:bold">!=</span> <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>			err <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">FormatError</span>(<span style="color:#d14">&#34;recursive TTC&#34;</span>)
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		ttcVersion, <span style="color:#900;font-weight:bold">offset</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">u32</span>(ttf, offset), offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> ttcVersion <span style="color:#000;font-weight:bold">!=</span> <span style="color:#099">0x00010000</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> ttcVersion <span style="color:#000;font-weight:bold">!=</span> <span style="color:#099">0x00020000</span> {
-</span></span><span style="display:flex;"><span>			err <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">FormatError</span>(<span style="color:#d14">&#34;bad TTC version&#34;</span>)
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		numFonts, <span style="color:#900;font-weight:bold">offset</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(<span style="color:#900;font-weight:bold">u32</span>(ttf, offset)), offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> numFonts <span style="color:#000;font-weight:bold">&lt;=</span> <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>			err <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">FormatError</span>(<span style="color:#d14">&#34;bad number of TTC fonts&#34;</span>)
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">len</span>(ttf[<span style="color:#900;font-weight:bold">offset</span>:])<span style="color:#000;font-weight:bold">/</span><span style="color:#099">4</span> <span style="color:#000;font-weight:bold">&lt;</span> numFonts {
-</span></span><span style="display:flex;"><span>			err <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">FormatError</span>(<span style="color:#d14">&#34;TTC offset table is too short&#34;</span>)
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">// TODO: provide an API to select which font in a TrueType collection to return,
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#998;font-style:italic">// not just the first one. This may require an API to parse a TTC&#39;s name tables,
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#998;font-style:italic">// so users of this package can select the font in a TTC by name.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		offset <span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(<span style="color:#900;font-weight:bold">u32</span>(ttf, offset))
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> offset <span style="color:#000;font-weight:bold">&lt;=</span> <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">||</span> offset <span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#900;font-weight:bold">len</span>(ttf) {
-</span></span><span style="display:flex;"><span>			err <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">FormatError</span>(<span style="color:#d14">&#34;bad TTC offset&#34;</span>)
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">parse</span>(ttf, offset)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">default</span><span style="color:#000;font-weight:bold">:</span>
-</span></span><span style="display:flex;"><span>		err <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">FormatError</span>(<span style="color:#d14">&#34;bad TTF version&#34;</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 读取表个数n
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	n, <span style="color:#900;font-weight:bold">offset</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(<span style="color:#900;font-weight:bold">u16</span>(ttf, offset)), offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">2</span>
-</span></span><span style="display:flex;"><span>	offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">6</span> <span style="color:#998;font-style:italic">// Skip the searchRange, entrySelector and rangeShift.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">len</span>(ttf) <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">16</span><span style="color:#000;font-weight:bold">*</span>n<span style="color:#000;font-weight:bold">+</span>offset {
-</span></span><span style="display:flex;"><span>		err <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">FormatError</span>(<span style="color:#d14">&#34;TTF data is too short&#34;</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">f</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">new</span>(Font)
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// Assign the table slices.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>; i <span style="color:#000;font-weight:bold">&lt;</span> n; i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">x</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">16</span><span style="color:#000;font-weight:bold">*</span>i <span style="color:#000;font-weight:bold">+</span> offset
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">switch</span> <span style="color:#900;font-weight:bold">string</span>(ttf[<span style="color:#900;font-weight:bold">x</span> : x<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>]) {
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 读取cmap表字节数据
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">case</span> <span style="color:#d14">&#34;cmap&#34;</span><span style="color:#000;font-weight:bold">:</span>
-</span></span><span style="display:flex;"><span>			f.cmap, err <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">readTable</span>(ttf, ttf[x<span style="color:#000;font-weight:bold">+</span><span style="color:#099">8</span><span style="color:#000;font-weight:bold">:</span>x<span style="color:#000;font-weight:bold">+</span><span style="color:#099">16</span>])
-</span></span><span style="display:flex;"><span>            ...
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> err <span style="color:#000;font-weight:bold">!=</span> nil {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>    ...
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 解析cmap表
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">if</span> err <span style="color:#000;font-weight:bold">=</span> f.<span style="color:#900;font-weight:bold">parseCmap</span>(); err <span style="color:#000;font-weight:bold">!=</span> nil {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>    ...
-</span></span><span style="display:flex;"><span>	font <span style="color:#000;font-weight:bold">=</span> f
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// parse ttf文件解析核心函数，offset初始为0
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>func <span style="color:#6639ba">parse</span><span style="color:#1f2328">(</span>ttf <span style="color:#1f2328">[]</span>byte<span style="color:#1f2328">,</span> offset <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">(</span>font <span style="color:#0550ae">*</span>Font<span style="color:#1f2328">,</span> err error<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>ttf<span style="color:#1f2328">)</span><span style="color:#0550ae">-</span>offset <span style="color:#0550ae">&lt;</span> <span style="color:#0550ae">12</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		err <span style="color:#0550ae">=</span> <span style="color:#6639ba">FormatError</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;TTF data is too short&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">originalOffset</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> offset
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 获取scaler type
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	magic<span style="color:#1f2328">,</span> <span style="color:#900;font-weight:bold">offset</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">u32</span><span style="color:#1f2328">(</span>ttf<span style="color:#1f2328">,</span> offset<span style="color:#1f2328">),</span> offset<span style="color:#0550ae">+</span><span style="color:#0550ae">4</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">switch</span> magic <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">case</span> <span style="color:#0550ae">0x00010000</span><span style="color:#0550ae">:</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#57606a">// No-op.
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">case</span> <span style="color:#0550ae">0x74746366</span><span style="color:#0550ae">:</span> <span style="color:#57606a">// &#34;ttcf&#34; as a big-endian uint32.
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>		<span style="color:#cf222e">if</span> originalOffset <span style="color:#0550ae">!=</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			err <span style="color:#0550ae">=</span> <span style="color:#6639ba">FormatError</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;recursive TTC&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		ttcVersion<span style="color:#1f2328">,</span> <span style="color:#900;font-weight:bold">offset</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">u32</span><span style="color:#1f2328">(</span>ttf<span style="color:#1f2328">,</span> offset<span style="color:#1f2328">),</span> offset<span style="color:#0550ae">+</span><span style="color:#0550ae">4</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> ttcVersion <span style="color:#0550ae">!=</span> <span style="color:#0550ae">0x00010000</span> <span style="color:#0550ae">&amp;&amp;</span> ttcVersion <span style="color:#0550ae">!=</span> <span style="color:#0550ae">0x00020000</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			err <span style="color:#0550ae">=</span> <span style="color:#6639ba">FormatError</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;bad TTC version&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		numFonts<span style="color:#1f2328">,</span> <span style="color:#900;font-weight:bold">offset</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">(</span><span style="color:#6639ba">u32</span><span style="color:#1f2328">(</span>ttf<span style="color:#1f2328">,</span> offset<span style="color:#1f2328">)),</span> offset<span style="color:#0550ae">+</span><span style="color:#0550ae">4</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> numFonts <span style="color:#0550ae">&lt;=</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			err <span style="color:#0550ae">=</span> <span style="color:#6639ba">FormatError</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;bad number of TTC fonts&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>ttf<span style="color:#1f2328">[</span><span style="color:#900;font-weight:bold">offset</span><span style="color:#1f2328">:])</span><span style="color:#0550ae">/</span><span style="color:#0550ae">4</span> <span style="color:#0550ae">&lt;</span> numFonts <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			err <span style="color:#0550ae">=</span> <span style="color:#6639ba">FormatError</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;TTC offset table is too short&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#57606a">// TODO: provide an API to select which font in a TrueType collection to return,
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>		<span style="color:#57606a">// not just the first one. This may require an API to parse a TTC&#39;s name tables,
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>		<span style="color:#57606a">// so users of this package can select the font in a TTC by name.
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>		offset <span style="color:#0550ae">=</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">(</span><span style="color:#6639ba">u32</span><span style="color:#1f2328">(</span>ttf<span style="color:#1f2328">,</span> offset<span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> offset <span style="color:#0550ae">&lt;=</span> <span style="color:#0550ae">0</span> <span style="color:#0550ae">||</span> offset <span style="color:#0550ae">&gt;</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>ttf<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			err <span style="color:#0550ae">=</span> <span style="color:#6639ba">FormatError</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;bad TTC offset&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#6639ba">parse</span><span style="color:#1f2328">(</span>ttf<span style="color:#1f2328">,</span> offset<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">default</span><span style="color:#0550ae">:</span>
+</span></span><span style="display:flex;"><span>		err <span style="color:#0550ae">=</span> <span style="color:#6639ba">FormatError</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;bad TTF version&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 读取表个数n
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	n<span style="color:#1f2328">,</span> <span style="color:#900;font-weight:bold">offset</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">(</span><span style="color:#6639ba">u16</span><span style="color:#1f2328">(</span>ttf<span style="color:#1f2328">,</span> offset<span style="color:#1f2328">)),</span> offset<span style="color:#0550ae">+</span><span style="color:#0550ae">2</span>
+</span></span><span style="display:flex;"><span>	offset <span style="color:#0550ae">+=</span> <span style="color:#0550ae">6</span> <span style="color:#57606a">// Skip the searchRange, entrySelector and rangeShift.
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">if</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>ttf<span style="color:#1f2328">)</span> <span style="color:#0550ae">&lt;</span> <span style="color:#0550ae">16</span><span style="color:#0550ae">*</span>n<span style="color:#0550ae">+</span>offset <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		err <span style="color:#0550ae">=</span> <span style="color:#6639ba">FormatError</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;TTF data is too short&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">f</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">new</span><span style="color:#1f2328">(</span>Font<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// Assign the table slices.
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">for</span> <span style="color:#900;font-weight:bold">i</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> i <span style="color:#0550ae">&lt;</span> n<span style="color:#1f2328">;</span> i<span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">x</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#0550ae">16</span><span style="color:#0550ae">*</span>i <span style="color:#0550ae">+</span> offset
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">switch</span> <span style="color:#6639ba">string</span><span style="color:#1f2328">(</span>ttf<span style="color:#1f2328">[</span><span style="color:#900;font-weight:bold">x</span> <span style="color:#1f2328">:</span> x<span style="color:#0550ae">+</span><span style="color:#0550ae">4</span><span style="color:#1f2328">])</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a">// 读取cmap表字节数据
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>		<span style="color:#cf222e">case</span> <span style="color:#0a3069">&#34;cmap&#34;</span><span style="color:#0550ae">:</span>
+</span></span><span style="display:flex;"><span>			f<span style="color:#1f2328">.</span>cmap<span style="color:#1f2328">,</span> err <span style="color:#0550ae">=</span> <span style="color:#6639ba">readTable</span><span style="color:#1f2328">(</span>ttf<span style="color:#1f2328">,</span> ttf<span style="color:#1f2328">[</span>x<span style="color:#0550ae">+</span><span style="color:#0550ae">8</span><span style="color:#0550ae">:</span>x<span style="color:#0550ae">+</span><span style="color:#0550ae">16</span><span style="color:#1f2328">])</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">...</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> err <span style="color:#0550ae">!=</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 解析cmap表
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">if</span> err <span style="color:#0550ae">=</span> f<span style="color:#1f2328">.</span><span style="color:#6639ba">parseCmap</span><span style="color:#1f2328">();</span> err <span style="color:#0550ae">!=</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">...</span>
+</span></span><span style="display:flex;"><span>	font <span style="color:#0550ae">=</span> f
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">func</span> (f <span style="color:#000;font-weight:bold">*</span>Font) <span style="color:#900;font-weight:bold">parseCmap</span>() error {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">const</span> (
-</span></span><span style="display:flex;"><span>		cmapFormat4         <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">4</span>
-</span></span><span style="display:flex;"><span>		cmapFormat12        <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">12</span>
-</span></span><span style="display:flex;"><span>		languageIndependent <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>	)
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// cmap子表解析，返回最佳的使用子表
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	offset, _, <span style="color:#900;font-weight:bold">err</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">parseSubtables</span>(f.cmap, <span style="color:#d14">&#34;cmap&#34;</span>, <span style="color:#099">4</span>, <span style="color:#099">8</span>, nil)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> err <span style="color:#000;font-weight:bold">!=</span> nil {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> err
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	offset <span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(<span style="color:#900;font-weight:bold">u32</span>(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>))
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> offset <span style="color:#000;font-weight:bold">&lt;=</span> <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">||</span> offset <span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#900;font-weight:bold">len</span>(f.cmap) {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">FormatError</span>(<span style="color:#d14">&#34;bad cmap offset&#34;</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 读取cmap 格式类型
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#900;font-weight:bold">cmapFormat</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">u16</span>(f.cmap, offset)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">switch</span> cmapFormat {
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// format4 格式解析
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">case</span> <span style="color:#900;font-weight:bold">cmapFormat4</span>:
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">language</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">u16</span>(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> language <span style="color:#000;font-weight:bold">!=</span> languageIndependent {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">UnsupportedError</span>(fmt.<span style="color:#900;font-weight:bold">Sprintf</span>(<span style="color:#d14">&#34;language: %d&#34;</span>, language))
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">segCountX2</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(<span style="color:#900;font-weight:bold">u16</span>(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">6</span>))
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> segCountX2<span style="color:#000;font-weight:bold">%</span><span style="color:#099">2</span> <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">1</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">FormatError</span>(fmt.<span style="color:#900;font-weight:bold">Sprintf</span>(<span style="color:#d14">&#34;bad segCountX2: %d&#34;</span>, segCountX2))
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 计算段个数
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#900;font-weight:bold">segCount</span> :<span style="color:#000;font-weight:bold">=</span> segCountX2 <span style="color:#000;font-weight:bold">/</span> <span style="color:#099">2</span>
-</span></span><span style="display:flex;"><span>		offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">14</span>
-</span></span><span style="display:flex;"><span>		f.cm <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">make</span>([]cm, segCount)
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 读取end数组
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>; i <span style="color:#000;font-weight:bold">&lt;</span> segCount; i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>			f.cm[i].end <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">uint32</span>(<span style="color:#900;font-weight:bold">u16</span>(f.cmap, offset))
-</span></span><span style="display:flex;"><span>			offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">2</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 跳过字段
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">2</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 读取start数组
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>; i <span style="color:#000;font-weight:bold">&lt;</span> segCount; i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>			f.cm[i].start <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">uint32</span>(<span style="color:#900;font-weight:bold">u16</span>(f.cmap, offset))
-</span></span><span style="display:flex;"><span>			offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">2</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 读取delta数组
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>; i <span style="color:#000;font-weight:bold">&lt;</span> segCount; i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>			f.cm[i].delta <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">uint32</span>(<span style="color:#900;font-weight:bold">u16</span>(f.cmap, offset))
-</span></span><span style="display:flex;"><span>			offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">2</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 读取offset数组
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>; i <span style="color:#000;font-weight:bold">&lt;</span> segCount; i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>			f.cm[i].offset <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">uint32</span>(<span style="color:#900;font-weight:bold">u16</span>(f.cmap, offset))
-</span></span><span style="display:flex;"><span>			offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">2</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 字形下标数组
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		f.cmapIndexes <span style="color:#000;font-weight:bold">=</span> f.cmap[<span style="color:#900;font-weight:bold">offset</span>:]
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> nil
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">func</span> <span style="color:#1f2328">(</span>f <span style="color:#0550ae">*</span>Font<span style="color:#1f2328">)</span> <span style="color:#6639ba">parseCmap</span><span style="color:#1f2328">()</span> error <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">const</span> <span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>		cmapFormat4         <span style="color:#0550ae">=</span> <span style="color:#0550ae">4</span>
+</span></span><span style="display:flex;"><span>		cmapFormat12        <span style="color:#0550ae">=</span> <span style="color:#0550ae">12</span>
+</span></span><span style="display:flex;"><span>		languageIndependent <span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// cmap子表解析，返回最佳的使用子表
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	offset<span style="color:#1f2328">,</span> _<span style="color:#1f2328">,</span> <span style="color:#900;font-weight:bold">err</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">parseSubtables</span><span style="color:#1f2328">(</span>f<span style="color:#1f2328">.</span>cmap<span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;cmap&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">4</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">8</span><span style="color:#1f2328">,</span> nil<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> err <span style="color:#0550ae">!=</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> err
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	offset <span style="color:#0550ae">=</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">(</span><span style="color:#6639ba">u32</span><span style="color:#1f2328">(</span>f<span style="color:#1f2328">.</span>cmap<span style="color:#1f2328">,</span> offset<span style="color:#0550ae">+</span><span style="color:#0550ae">4</span><span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> offset <span style="color:#0550ae">&lt;=</span> <span style="color:#0550ae">0</span> <span style="color:#0550ae">||</span> offset <span style="color:#0550ae">&gt;</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>f<span style="color:#1f2328">.</span>cmap<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#6639ba">FormatError</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;bad cmap offset&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 读取cmap 格式类型
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#900;font-weight:bold">cmapFormat</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">u16</span><span style="color:#1f2328">(</span>f<span style="color:#1f2328">.</span>cmap<span style="color:#1f2328">,</span> offset<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">switch</span> cmapFormat <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// format4 格式解析
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">case</span> <span style="color:#900;font-weight:bold">cmapFormat4</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">language</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">u16</span><span style="color:#1f2328">(</span>f<span style="color:#1f2328">.</span>cmap<span style="color:#1f2328">,</span> offset<span style="color:#0550ae">+</span><span style="color:#0550ae">4</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> language <span style="color:#0550ae">!=</span> languageIndependent <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#6639ba">UnsupportedError</span><span style="color:#1f2328">(</span>fmt<span style="color:#1f2328">.</span><span style="color:#6639ba">Sprintf</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;language: %d&#34;</span><span style="color:#1f2328">,</span> language<span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">segCountX2</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">(</span><span style="color:#6639ba">u16</span><span style="color:#1f2328">(</span>f<span style="color:#1f2328">.</span>cmap<span style="color:#1f2328">,</span> offset<span style="color:#0550ae">+</span><span style="color:#0550ae">6</span><span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> segCountX2<span style="color:#0550ae">%</span><span style="color:#0550ae">2</span> <span style="color:#0550ae">==</span> <span style="color:#0550ae">1</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#6639ba">FormatError</span><span style="color:#1f2328">(</span>fmt<span style="color:#1f2328">.</span><span style="color:#6639ba">Sprintf</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;bad segCountX2: %d&#34;</span><span style="color:#1f2328">,</span> segCountX2<span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a">// 计算段个数
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>		<span style="color:#900;font-weight:bold">segCount</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> segCountX2 <span style="color:#0550ae">/</span> <span style="color:#0550ae">2</span>
+</span></span><span style="display:flex;"><span>		offset <span style="color:#0550ae">+=</span> <span style="color:#0550ae">14</span>
+</span></span><span style="display:flex;"><span>		f<span style="color:#1f2328">.</span>cm <span style="color:#0550ae">=</span> <span style="color:#6639ba">make</span><span style="color:#1f2328">([]</span>cm<span style="color:#1f2328">,</span> segCount<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a">// 读取end数组
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>		<span style="color:#cf222e">for</span> <span style="color:#900;font-weight:bold">i</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> i <span style="color:#0550ae">&lt;</span> segCount<span style="color:#1f2328">;</span> i<span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			f<span style="color:#1f2328">.</span>cm<span style="color:#1f2328">[</span>i<span style="color:#1f2328">].</span>end <span style="color:#0550ae">=</span> <span style="color:#6639ba">uint32</span><span style="color:#1f2328">(</span><span style="color:#6639ba">u16</span><span style="color:#1f2328">(</span>f<span style="color:#1f2328">.</span>cmap<span style="color:#1f2328">,</span> offset<span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>			offset <span style="color:#0550ae">+=</span> <span style="color:#0550ae">2</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a">// 跳过字段
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>		offset <span style="color:#0550ae">+=</span> <span style="color:#0550ae">2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a">// 读取start数组
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>		<span style="color:#cf222e">for</span> <span style="color:#900;font-weight:bold">i</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> i <span style="color:#0550ae">&lt;</span> segCount<span style="color:#1f2328">;</span> i<span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			f<span style="color:#1f2328">.</span>cm<span style="color:#1f2328">[</span>i<span style="color:#1f2328">].</span>start <span style="color:#0550ae">=</span> <span style="color:#6639ba">uint32</span><span style="color:#1f2328">(</span><span style="color:#6639ba">u16</span><span style="color:#1f2328">(</span>f<span style="color:#1f2328">.</span>cmap<span style="color:#1f2328">,</span> offset<span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>			offset <span style="color:#0550ae">+=</span> <span style="color:#0550ae">2</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a">// 读取delta数组
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>		<span style="color:#cf222e">for</span> <span style="color:#900;font-weight:bold">i</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> i <span style="color:#0550ae">&lt;</span> segCount<span style="color:#1f2328">;</span> i<span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			f<span style="color:#1f2328">.</span>cm<span style="color:#1f2328">[</span>i<span style="color:#1f2328">].</span>delta <span style="color:#0550ae">=</span> <span style="color:#6639ba">uint32</span><span style="color:#1f2328">(</span><span style="color:#6639ba">u16</span><span style="color:#1f2328">(</span>f<span style="color:#1f2328">.</span>cmap<span style="color:#1f2328">,</span> offset<span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>			offset <span style="color:#0550ae">+=</span> <span style="color:#0550ae">2</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a">// 读取offset数组
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>		<span style="color:#cf222e">for</span> <span style="color:#900;font-weight:bold">i</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> i <span style="color:#0550ae">&lt;</span> segCount<span style="color:#1f2328">;</span> i<span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			f<span style="color:#1f2328">.</span>cm<span style="color:#1f2328">[</span>i<span style="color:#1f2328">].</span>offset <span style="color:#0550ae">=</span> <span style="color:#6639ba">uint32</span><span style="color:#1f2328">(</span><span style="color:#6639ba">u16</span><span style="color:#1f2328">(</span>f<span style="color:#1f2328">.</span>cmap<span style="color:#1f2328">,</span> offset<span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>			offset <span style="color:#0550ae">+=</span> <span style="color:#0550ae">2</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a">// 字形下标数组
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>		f<span style="color:#1f2328">.</span>cmapIndexes <span style="color:#0550ae">=</span> f<span style="color:#1f2328">.</span>cmap<span style="color:#1f2328">[</span><span style="color:#900;font-weight:bold">offset</span><span style="color:#1f2328">:]</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> nil
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">case</span> <span style="color:#900;font-weight:bold">cmapFormat12</span>:
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">u16</span>(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">2</span>) <span style="color:#000;font-weight:bold">!=</span> <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">FormatError</span>(fmt.<span style="color:#900;font-weight:bold">Sprintf</span>(<span style="color:#d14">&#34;cmap format: % x&#34;</span>, f.cmap[<span style="color:#900;font-weight:bold">offset</span>:offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>]))
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">length</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">u32</span>(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">language</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">u32</span>(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">8</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> language <span style="color:#000;font-weight:bold">!=</span> languageIndependent {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">UnsupportedError</span>(fmt.<span style="color:#900;font-weight:bold">Sprintf</span>(<span style="color:#d14">&#34;language: %d&#34;</span>, language))
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">nGroups</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">u32</span>(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">12</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> length <span style="color:#000;font-weight:bold">!=</span> <span style="color:#099">12</span><span style="color:#000;font-weight:bold">*</span>nGroups<span style="color:#000;font-weight:bold">+</span><span style="color:#099">16</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">FormatError</span>(<span style="color:#d14">&#34;inconsistent cmap length&#34;</span>)
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">16</span>
-</span></span><span style="display:flex;"><span>		f.cm <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">make</span>([]cm, nGroups)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">uint32</span>(<span style="color:#099">0</span>); i <span style="color:#000;font-weight:bold">&lt;</span> nGroups; i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>			f.cm[i].start <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">u32</span>(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">0</span>)
-</span></span><span style="display:flex;"><span>			f.cm[i].end <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">u32</span>(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">4</span>)
-</span></span><span style="display:flex;"><span>			f.cm[i].delta <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">u32</span>(f.cmap, offset<span style="color:#000;font-weight:bold">+</span><span style="color:#099">8</span>) <span style="color:#000;font-weight:bold">-</span> f.cm[i].start
-</span></span><span style="display:flex;"><span>			offset <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">12</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> nil
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">UnsupportedError</span>(fmt.<span style="color:#900;font-weight:bold">Sprintf</span>(<span style="color:#d14">&#34;cmap format: %d&#34;</span>, cmapFormat))
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 子表选择，规定如下
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 优先使用unicode编码表
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 优先使用非BMP限制的unicode表
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 如果有4、12格式的unicode表，则优先使用
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>func <span style="color:#900;font-weight:bold">parseSubtables</span>(table []byte, name string, offset, size <span style="color:#458;font-weight:bold">int</span>, pred <span style="color:#900;font-weight:bold">func</span>([]byte) <span style="color:#458;font-weight:bold">bool</span>) (
-</span></span><span style="display:flex;"><span>	bestOffset <span style="color:#458;font-weight:bold">int</span>, bestPID uint32, retErr error) {
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">case</span> <span style="color:#900;font-weight:bold">cmapFormat12</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#6639ba">u16</span><span style="color:#1f2328">(</span>f<span style="color:#1f2328">.</span>cmap<span style="color:#1f2328">,</span> offset<span style="color:#0550ae">+</span><span style="color:#0550ae">2</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">!=</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#6639ba">FormatError</span><span style="color:#1f2328">(</span>fmt<span style="color:#1f2328">.</span><span style="color:#6639ba">Sprintf</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;cmap format: % x&#34;</span><span style="color:#1f2328">,</span> f<span style="color:#1f2328">.</span>cmap<span style="color:#1f2328">[</span><span style="color:#900;font-weight:bold">offset</span><span style="color:#1f2328">:</span>offset<span style="color:#0550ae">+</span><span style="color:#0550ae">4</span><span style="color:#1f2328">]))</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">length</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">u32</span><span style="color:#1f2328">(</span>f<span style="color:#1f2328">.</span>cmap<span style="color:#1f2328">,</span> offset<span style="color:#0550ae">+</span><span style="color:#0550ae">4</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">language</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">u32</span><span style="color:#1f2328">(</span>f<span style="color:#1f2328">.</span>cmap<span style="color:#1f2328">,</span> offset<span style="color:#0550ae">+</span><span style="color:#0550ae">8</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> language <span style="color:#0550ae">!=</span> languageIndependent <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#6639ba">UnsupportedError</span><span style="color:#1f2328">(</span>fmt<span style="color:#1f2328">.</span><span style="color:#6639ba">Sprintf</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;language: %d&#34;</span><span style="color:#1f2328">,</span> language<span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">nGroups</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">u32</span><span style="color:#1f2328">(</span>f<span style="color:#1f2328">.</span>cmap<span style="color:#1f2328">,</span> offset<span style="color:#0550ae">+</span><span style="color:#0550ae">12</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> length <span style="color:#0550ae">!=</span> <span style="color:#0550ae">12</span><span style="color:#0550ae">*</span>nGroups<span style="color:#0550ae">+</span><span style="color:#0550ae">16</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#6639ba">FormatError</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;inconsistent cmap length&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		offset <span style="color:#0550ae">+=</span> <span style="color:#0550ae">16</span>
+</span></span><span style="display:flex;"><span>		f<span style="color:#1f2328">.</span>cm <span style="color:#0550ae">=</span> <span style="color:#6639ba">make</span><span style="color:#1f2328">([]</span>cm<span style="color:#1f2328">,</span> nGroups<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">for</span> <span style="color:#900;font-weight:bold">i</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">uint32</span><span style="color:#1f2328">(</span><span style="color:#0550ae">0</span><span style="color:#1f2328">);</span> i <span style="color:#0550ae">&lt;</span> nGroups<span style="color:#1f2328">;</span> i<span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			f<span style="color:#1f2328">.</span>cm<span style="color:#1f2328">[</span>i<span style="color:#1f2328">].</span>start <span style="color:#0550ae">=</span> <span style="color:#6639ba">u32</span><span style="color:#1f2328">(</span>f<span style="color:#1f2328">.</span>cmap<span style="color:#1f2328">,</span> offset<span style="color:#0550ae">+</span><span style="color:#0550ae">0</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			f<span style="color:#1f2328">.</span>cm<span style="color:#1f2328">[</span>i<span style="color:#1f2328">].</span>end <span style="color:#0550ae">=</span> <span style="color:#6639ba">u32</span><span style="color:#1f2328">(</span>f<span style="color:#1f2328">.</span>cmap<span style="color:#1f2328">,</span> offset<span style="color:#0550ae">+</span><span style="color:#0550ae">4</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			f<span style="color:#1f2328">.</span>cm<span style="color:#1f2328">[</span>i<span style="color:#1f2328">].</span>delta <span style="color:#0550ae">=</span> <span style="color:#6639ba">u32</span><span style="color:#1f2328">(</span>f<span style="color:#1f2328">.</span>cmap<span style="color:#1f2328">,</span> offset<span style="color:#0550ae">+</span><span style="color:#0550ae">8</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-</span> f<span style="color:#1f2328">.</span>cm<span style="color:#1f2328">[</span>i<span style="color:#1f2328">].</span>start
+</span></span><span style="display:flex;"><span>			offset <span style="color:#0550ae">+=</span> <span style="color:#0550ae">12</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> nil
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#6639ba">UnsupportedError</span><span style="color:#1f2328">(</span>fmt<span style="color:#1f2328">.</span><span style="color:#6639ba">Sprintf</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;cmap format: %d&#34;</span><span style="color:#1f2328">,</span> cmapFormat<span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 子表选择，规定如下
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">// 优先使用unicode编码表
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">// 优先使用非BMP限制的unicode表
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">// 如果有4、12格式的unicode表，则优先使用
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>func <span style="color:#6639ba">parseSubtables</span><span style="color:#1f2328">(</span>table <span style="color:#1f2328">[]</span>byte<span style="color:#1f2328">,</span> name string<span style="color:#1f2328">,</span> offset<span style="color:#1f2328">,</span> size <span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> pred <span style="color:#6639ba">func</span><span style="color:#1f2328">([]</span>byte<span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>	bestOffset <span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> bestPID uint32<span style="color:#1f2328">,</span> retErr error<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">len</span>(table) <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">4</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#099">0</span>, <span style="color:#099">0</span>, <span style="color:#900;font-weight:bold">FormatError</span>(name <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34; too short&#34;</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 表个数读取
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#900;font-weight:bold">nSubtables</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(<span style="color:#900;font-weight:bold">u16</span>(table, <span style="color:#099">2</span>))
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">len</span>(table) <span style="color:#000;font-weight:bold">&lt;</span> size<span style="color:#000;font-weight:bold">*</span>nSubtables<span style="color:#000;font-weight:bold">+</span>offset {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#099">0</span>, <span style="color:#099">0</span>, <span style="color:#900;font-weight:bold">FormatError</span>(name <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34; too short&#34;</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">ok</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#0086b3">false</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>; i <span style="color:#000;font-weight:bold">&lt;</span> nSubtables; i, offset <span style="color:#000;font-weight:bold">=</span> i<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>, offset<span style="color:#000;font-weight:bold">+</span>size {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> pred <span style="color:#000;font-weight:bold">!=</span> nil <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">pred</span>(table[<span style="color:#900;font-weight:bold">offset</span>:]) {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">continue</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">// We read the 16-bit Platform ID and 16-bit Platform Specific ID as a single uint32.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#998;font-style:italic">// All values are big-endian.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#900;font-weight:bold">pidPsid</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">u32</span>(table, offset)
-</span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">// We prefer the Unicode cmap encoding. Failing to find that, we fall
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#998;font-style:italic">// back onto the Microsoft cmap encoding.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">if</span> pidPsid <span style="color:#000;font-weight:bold">==</span> unicodeEncodingBMPOnly <span style="color:#000;font-weight:bold">||</span> pidPsid <span style="color:#000;font-weight:bold">==</span> unicodeEncodingFull {
-</span></span><span style="display:flex;"><span>			bestOffset, bestPID, ok <span style="color:#000;font-weight:bold">=</span> offset, pidPsid<span style="color:#000;font-weight:bold">&gt;&gt;</span><span style="color:#099">16</span>, <span style="color:#0086b3">true</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">break</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>table<span style="color:#1f2328">)</span> <span style="color:#0550ae">&lt;</span> <span style="color:#0550ae">4</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">FormatError</span><span style="color:#1f2328">(</span>name <span style="color:#0550ae">+</span> <span style="color:#0a3069">&#34; too short&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 表个数读取
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#900;font-weight:bold">nSubtables</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">(</span><span style="color:#6639ba">u16</span><span style="color:#1f2328">(</span>table<span style="color:#1f2328">,</span> <span style="color:#0550ae">2</span><span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>table<span style="color:#1f2328">)</span> <span style="color:#0550ae">&lt;</span> size<span style="color:#0550ae">*</span>nSubtables<span style="color:#0550ae">+</span>offset <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">FormatError</span><span style="color:#1f2328">(</span>name <span style="color:#0550ae">+</span> <span style="color:#0a3069">&#34; too short&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">ok</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">false</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#900;font-weight:bold">i</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> i <span style="color:#0550ae">&lt;</span> nSubtables<span style="color:#1f2328">;</span> i<span style="color:#1f2328">,</span> offset <span style="color:#0550ae">=</span> i<span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> offset<span style="color:#0550ae">+</span>size <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> pred <span style="color:#0550ae">!=</span> nil <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#0550ae">!</span><span style="color:#6639ba">pred</span><span style="color:#1f2328">(</span>table<span style="color:#1f2328">[</span><span style="color:#900;font-weight:bold">offset</span><span style="color:#1f2328">:])</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">continue</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#57606a">// We read the 16-bit Platform ID and 16-bit Platform Specific ID as a single uint32.
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>		<span style="color:#57606a">// All values are big-endian.
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>		<span style="color:#900;font-weight:bold">pidPsid</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">u32</span><span style="color:#1f2328">(</span>table<span style="color:#1f2328">,</span> offset<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#57606a">// We prefer the Unicode cmap encoding. Failing to find that, we fall
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>		<span style="color:#57606a">// back onto the Microsoft cmap encoding.
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>		<span style="color:#cf222e">if</span> pidPsid <span style="color:#0550ae">==</span> unicodeEncodingBMPOnly <span style="color:#0550ae">||</span> pidPsid <span style="color:#0550ae">==</span> unicodeEncodingFull <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			bestOffset<span style="color:#1f2328">,</span> bestPID<span style="color:#1f2328">,</span> ok <span style="color:#0550ae">=</span> offset<span style="color:#1f2328">,</span> pidPsid<span style="color:#0550ae">&gt;&gt;</span><span style="color:#0550ae">16</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">true</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">break</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> pidPsid <span style="color:#000;font-weight:bold">==</span> microsoftSymbolEncoding <span style="color:#000;font-weight:bold">||</span>
-</span></span><span style="display:flex;"><span>			pidPsid <span style="color:#000;font-weight:bold">==</span> microsoftUCS2Encoding <span style="color:#000;font-weight:bold">||</span>
-</span></span><span style="display:flex;"><span>			pidPsid <span style="color:#000;font-weight:bold">==</span> microsoftUCS4Encoding {
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> pidPsid <span style="color:#0550ae">==</span> microsoftSymbolEncoding <span style="color:#0550ae">||</span>
+</span></span><span style="display:flex;"><span>			pidPsid <span style="color:#0550ae">==</span> microsoftUCS2Encoding <span style="color:#0550ae">||</span>
+</span></span><span style="display:flex;"><span>			pidPsid <span style="color:#0550ae">==</span> microsoftUCS4Encoding <span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>			bestOffset, bestPID, ok <span style="color:#000;font-weight:bold">=</span> offset, pidPsid<span style="color:#000;font-weight:bold">&gt;&gt;</span><span style="color:#099">16</span>, <span style="color:#0086b3">true</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#998;font-style:italic">// We don&#39;t break out of the for loop, so that Unicode can override Microsoft.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">!</span>ok {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#099">0</span>, <span style="color:#099">0</span>, <span style="color:#900;font-weight:bold">UnsupportedError</span>(name <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34; encoding&#34;</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> bestOffset, bestPID, nil
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>			bestOffset<span style="color:#1f2328">,</span> bestPID<span style="color:#1f2328">,</span> ok <span style="color:#0550ae">=</span> offset<span style="color:#1f2328">,</span> pidPsid<span style="color:#0550ae">&gt;&gt;</span><span style="color:#0550ae">16</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">true</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#57606a">// We don&#39;t break out of the for loop, so that Unicode can override Microsoft.
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#0550ae">!</span>ok <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">UnsupportedError</span><span style="color:#1f2328">(</span>name <span style="color:#0550ae">+</span> <span style="color:#0a3069">&#34; encoding&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> bestOffset<span style="color:#1f2328">,</span> bestPID<span style="color:#1f2328">,</span> nil
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// cmap数据使用
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// Index returns a Font&#39;s index for the given rune.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#900;font-weight:bold">func</span> (f <span style="color:#000;font-weight:bold">*</span>Font) <span style="color:#900;font-weight:bold">Index</span>(x rune) Index {
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">c</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">uint32</span>(x)
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 二分查找，找打x所在范围的cm
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">for</span> i, <span style="color:#900;font-weight:bold">j</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>, <span style="color:#900;font-weight:bold">len</span>(f.cm); i <span style="color:#000;font-weight:bold">&lt;</span> j; {
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">h</span> :<span style="color:#000;font-weight:bold">=</span> i <span style="color:#000;font-weight:bold">+</span> (j<span style="color:#000;font-weight:bold">-</span>i)<span style="color:#000;font-weight:bold">/</span><span style="color:#099">2</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">cm</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">&amp;</span>f.cm[h]
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> c <span style="color:#000;font-weight:bold">&lt;</span> cm.start {
-</span></span><span style="display:flex;"><span>			j <span style="color:#000;font-weight:bold">=</span> h
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> cm.end <span style="color:#000;font-weight:bold">&lt;</span> c {
-</span></span><span style="display:flex;"><span>			i <span style="color:#000;font-weight:bold">=</span> h <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> cm.offset <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">// offset为0，则直接返回delta+c
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">Index</span>(c <span style="color:#000;font-weight:bold">+</span> cm.delta)
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">// offset不是0 ，则offset+ ？ +c在cm里的偏移量
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			<span style="color:#900;font-weight:bold">offset</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">int</span>(cm.offset) <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">2</span><span style="color:#000;font-weight:bold">*</span>(h<span style="color:#000;font-weight:bold">-</span><span style="color:#900;font-weight:bold">len</span>(f.cm)<span style="color:#000;font-weight:bold">+</span><span style="color:#458;font-weight:bold">int</span>(c<span style="color:#000;font-weight:bold">-</span>cm.start))
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">Index</span>(<span style="color:#900;font-weight:bold">u16</span>(f.cmapIndexes, offset))
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// cmap数据使用
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">// Index returns a Font&#39;s index for the given rune.
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#6639ba">func</span> <span style="color:#1f2328">(</span>f <span style="color:#0550ae">*</span>Font<span style="color:#1f2328">)</span> <span style="color:#6639ba">Index</span><span style="color:#1f2328">(</span>x rune<span style="color:#1f2328">)</span> Index <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">c</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">uint32</span><span style="color:#1f2328">(</span>x<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 二分查找，找打x所在范围的cm
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">for</span> i<span style="color:#1f2328">,</span> <span style="color:#900;font-weight:bold">j</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>f<span style="color:#1f2328">.</span>cm<span style="color:#1f2328">);</span> i <span style="color:#0550ae">&lt;</span> j<span style="color:#1f2328">;</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">h</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> i <span style="color:#0550ae">+</span> <span style="color:#1f2328">(</span>j<span style="color:#0550ae">-</span>i<span style="color:#1f2328">)</span><span style="color:#0550ae">/</span><span style="color:#0550ae">2</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">cm</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#0550ae">&amp;</span>f<span style="color:#1f2328">.</span>cm<span style="color:#1f2328">[</span>h<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> c <span style="color:#0550ae">&lt;</span> cm<span style="color:#1f2328">.</span>start <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			j <span style="color:#0550ae">=</span> h
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> cm<span style="color:#1f2328">.</span>end <span style="color:#0550ae">&lt;</span> c <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			i <span style="color:#0550ae">=</span> h <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> cm<span style="color:#1f2328">.</span>offset <span style="color:#0550ae">==</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#57606a">// offset为0，则直接返回delta+c
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>			<span style="color:#cf222e">return</span> <span style="color:#6639ba">Index</span><span style="color:#1f2328">(</span>c <span style="color:#0550ae">+</span> cm<span style="color:#1f2328">.</span>delta<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#57606a">// offset不是0 ，则offset+ ？ +c在cm里的偏移量
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>			<span style="color:#900;font-weight:bold">offset</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">(</span>cm<span style="color:#1f2328">.</span>offset<span style="color:#1f2328">)</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">2</span><span style="color:#0550ae">*</span><span style="color:#1f2328">(</span>h<span style="color:#0550ae">-</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>f<span style="color:#1f2328">.</span>cm<span style="color:#1f2328">)</span><span style="color:#0550ae">+</span><span style="color:#cf222e">int</span><span style="color:#1f2328">(</span>c<span style="color:#0550ae">-</span>cm<span style="color:#1f2328">.</span>start<span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#6639ba">Index</span><span style="color:#1f2328">(</span><span style="color:#6639ba">u16</span><span style="color:#1f2328">(</span>f<span style="color:#1f2328">.</span>cmapIndexes<span style="color:#1f2328">,</span> offset<span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="后续">后续</h2>
@@ -1014,23 +1014,6 @@
 
 
         
-
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/post/2023-01-07-python%E7%9F%A5%E8%AF%86%E7%82%B9%E6%8B%BE%E9%81%97/">Python|知识点拾遗(一)</a></li>
-        
-        <li><a href="/blog/post/2023-01-01-python%E5%9F%BA%E7%A1%80/">Python|基础知识</a></li>
-        
-        <li><a href="/blog/post/2022-12-30-plan9%E6%B1%87%E7%BC%96/">Golang|plan9汇编</a></li>
-        
-        <li><a href="/blog/post/2022-12-17-dmt/">Golang|分布式事务管理DTM</a></li>
-        
-        <li><a href="/blog/read/2022-12-12-2022%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/">2022阅读书单</a></li>
-        
-    </ul>
-</div>
 
 
         <div class="post-meta meta-tags">
@@ -1061,7 +1044,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -1182,7 +1165,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -1242,17 +1225,17 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -1260,9 +1243,9 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -1273,29 +1256,29 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -216,11 +216,11 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">var</span> p [<span style="color:#099">5</span>]<span style="color:#458;font-weight:bold">int</span> = [<span style="color:#099">5</span>]<span style="color:#458;font-weight:bold">int</span>{<span style="color:#099">1</span>,<span style="color:#099">2</span>,<span style="color:#099">3</span>,<span style="color:#099">4</span>,<span style="color:#099">5</span>}
-</span></span><span style="display:flex;"><span>q <span style="color:#000;font-weight:bold">:=</span> [<span style="color:#099">5</span>]<span style="color:#458;font-weight:bold">int</span>{<span style="color:#099">1</span>,<span style="color:#099">2</span>,<span style="color:#099">3</span>,<span style="color:#099">4</span>,<span style="color:#099">5</span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">var</span> <span style="color:#1f2328">p</span> <span style="color:#1f2328">[</span><span style="color:#0550ae">5</span><span style="color:#1f2328">]</span><span style="color:#cf222e">int</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">[</span><span style="color:#0550ae">5</span><span style="color:#1f2328">]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span><span style="color:#0550ae">2</span><span style="color:#1f2328">,</span><span style="color:#0550ae">3</span><span style="color:#1f2328">,</span><span style="color:#0550ae">4</span><span style="color:#1f2328">,</span><span style="color:#0550ae">5</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">q</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">[</span><span style="color:#0550ae">5</span><span style="color:#1f2328">]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span><span style="color:#0550ae">2</span><span style="color:#1f2328">,</span><span style="color:#0550ae">3</span><span style="color:#1f2328">,</span><span style="color:#0550ae">4</span><span style="color:#1f2328">,</span><span style="color:#0550ae">5</span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 可以使用... go会自动计算数组大小
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">var</span> t = [<span style="color:#000;font-weight:bold">...</span>]<span style="color:#458;font-weight:bold">int</span>{<span style="color:#099">1</span>,<span style="color:#099">2</span>,<span style="color:#099">3</span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 可以使用... go会自动计算数组大小</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">var</span> <span style="color:#1f2328">t</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">[</span><span style="color:#0550ae">...</span><span style="color:#1f2328">]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span><span style="color:#0550ae">2</span><span style="color:#1f2328">,</span><span style="color:#0550ae">3</span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>获取数组的内部指，我们可以使用下标，下标从0开始计数，最大的下标<code>len(数组)-1</code>，如果下标超过了最大值，则会发出下标越界的panic。</p>
@@ -230,8 +230,8 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>p <span style="color:#000;font-weight:bold">:=</span> [<span style="color:#099">3</span>]<span style="color:#458;font-weight:bold">int</span>{<span style="color:#099">1</span>,<span style="color:#099">2</span>,<span style="color:#099">3</span>}
-</span></span><span style="display:flex;"><span>fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;%d%d&#34;</span>,p[<span style="color:#099">0</span>],p[<span style="color:#099">1</span>])
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#1f2328">p</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">[</span><span style="color:#0550ae">3</span><span style="color:#1f2328">]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span><span style="color:#0550ae">2</span><span style="color:#1f2328">,</span><span style="color:#0550ae">3</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;%d%d&#34;</span><span style="color:#1f2328">,</span><span style="color:#1f2328">p</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">],</span><span style="color:#1f2328">p</span><span style="color:#1f2328">[</span><span style="color:#0550ae">1</span><span style="color:#1f2328">])</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>除了使用指定下标获取指定数值，我们还可以使用<code>p[low:high]</code>的形式，获取范围内的数据，这里返回的就是一个切片了，后续介绍切片。需要注意的是，这种范围取值是<strong>左闭右开</strong>的，即包括左边值，但不包括右边值，此外如果<code>low==high</code>则返回的就是空切片了。</p>
@@ -243,10 +243,10 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>s <span style="color:#000;font-weight:bold">:=</span> [<span style="color:#099">6</span>]<span style="color:#458;font-weight:bold">int</span>{<span style="color:#099">2</span>, <span style="color:#099">3</span>, <span style="color:#099">5</span>, <span style="color:#099">7</span>, <span style="color:#099">11</span>, <span style="color:#099">13</span>}
-</span></span><span style="display:flex;"><span>fmt.<span style="color:#900;font-weight:bold">Println</span>(s[<span style="color:#099">0</span>:<span style="color:#099">3</span>])
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#1f2328">s</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">[</span><span style="color:#0550ae">6</span><span style="color:#1f2328">]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#0550ae">2</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">3</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">5</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">7</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">11</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">13</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#1f2328">s</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">:</span><span style="color:#0550ae">3</span><span style="color:#1f2328">])</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>fmt.<span style="color:#900;font-weight:bold">Println</span>(s[<span style="color:#099">0</span>:<span style="color:#099">0</span>])
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#1f2328">s</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">:</span><span style="color:#0550ae">0</span><span style="color:#1f2328">])</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>数组的遍历可以使用<code>for</code>循环基于下标的遍历，也可以配合<code>range</code>来遍历。</p>
@@ -261,13 +261,13 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>s <span style="color:#000;font-weight:bold">:=</span> [<span style="color:#099">6</span>]<span style="color:#458;font-weight:bold">int</span>{<span style="color:#099">2</span>, <span style="color:#099">3</span>, <span style="color:#099">5</span>, <span style="color:#099">7</span>, <span style="color:#099">11</span>, <span style="color:#099">13</span>}
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">for</span> i<span style="color:#000;font-weight:bold">:=</span><span style="color:#099">0</span>;i&lt;<span style="color:#0086b3">len</span>(s);i<span style="color:#000;font-weight:bold">++</span>{
-</span></span><span style="display:flex;"><span>    fmt.<span style="color:#900;font-weight:bold">Println</span>(s[i])
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">for</span> idx,val <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> s{
-</span></span><span style="display:flex;"><span>    fmt.<span style="color:#900;font-weight:bold">Println</span>(idx,val)
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#1f2328">s</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">[</span><span style="color:#0550ae">6</span><span style="color:#1f2328">]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#0550ae">2</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">3</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">5</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">7</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">11</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">13</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">:=</span><span style="color:#0550ae">0</span><span style="color:#1f2328">;</span><span style="color:#1f2328">i</span><span style="color:#1f2328">&lt;</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">s</span><span style="color:#1f2328">);</span><span style="color:#1f2328">i</span><span style="color:#0550ae">++</span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#1f2328">s</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">])</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">for</span> <span style="color:#1f2328">idx</span><span style="color:#1f2328">,</span><span style="color:#1f2328">val</span> <span style="color:#0550ae">:=</span> <span style="color:#cf222e">range</span> <span style="color:#1f2328">s</span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#1f2328">idx</span><span style="color:#1f2328">,</span><span style="color:#1f2328">val</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>学习了基础的一维数组，自然而然还需要知道多维数组，多维数组的定义和其他语言类似，通过多个<code>[]</code>制定大小即可。</p>
@@ -276,8 +276,8 @@
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">var</span> p [<span style="color:#099">2</span>][<span style="color:#099">3</span>]<span style="color:#458;font-weight:bold">int</span> <span style="color:#998;font-style:italic">// 定义了2x3的二维数组
-</span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">var</span> <span style="color:#1f2328">p</span> <span style="color:#1f2328">[</span><span style="color:#0550ae">2</span><span style="color:#1f2328">][</span><span style="color:#0550ae">3</span><span style="color:#1f2328">]</span><span style="color:#cf222e">int</span> <span style="color:#57606a">// 定义了2x3的二维数组</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="切片">切片</h2>
 <p>切片是一种可以动态扩展的数组，它可以动态扩展，但也正因为可以动态扩展，也存在一些奇怪的特性需要注意。</p>
@@ -298,18 +298,18 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 定义切片p，定义后p位nil
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">var</span> p []<span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>p = []<span style="color:#458;font-weight:bold">int</span>{<span style="color:#099">1</span>,<span style="color:#099">2</span>,<span style="color:#099">3</span>}
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 使用make初始化，后面只有一个参数是，是指定大小
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 元素默认值是类型默认值
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>p = <span style="color:#0086b3">make</span>([]<span style="color:#458;font-weight:bold">int</span>,<span style="color:#099">3</span>)
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 使用make初始化，后续2个参数，则一个是指定大小，一个是指定容量
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>p = <span style="color:#0086b3">make</span>([]<span style="color:#458;font-weight:bold">int</span>,<span style="color:#099">2</span>,<span style="color:#099">5</span>)
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">// 定义切片p，定义后p位nil</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">var</span> <span style="color:#1f2328">p</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">p</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span><span style="color:#0550ae">2</span><span style="color:#1f2328">,</span><span style="color:#0550ae">3</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 使用make初始化，后面只有一个参数是，是指定大小</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 元素默认值是类型默认值</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">p</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">make</span><span style="color:#1f2328">([]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span><span style="color:#0550ae">3</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 使用make初始化，后续2个参数，则一个是指定大小，一个是指定容量</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">p</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">make</span><span style="color:#1f2328">([]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span><span style="color:#0550ae">2</span><span style="color:#1f2328">,</span><span style="color:#0550ae">5</span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// pp是数组，切片可以使用数组来初始化
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>pp <span style="color:#000;font-weight:bold">:=</span> [<span style="color:#099">3</span>]<span style="color:#458;font-weight:bold">int</span>{<span style="color:#099">1</span>,<span style="color:#099">2</span>,<span style="color:#099">3</span>}
-</span></span><span style="display:flex;"><span>p = pp[:]
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// pp是数组，切片可以使用数组来初始化</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">pp</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">[</span><span style="color:#0550ae">3</span><span style="color:#1f2328">]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span><span style="color:#0550ae">2</span><span style="color:#1f2328">,</span><span style="color:#0550ae">3</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">p</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">pp</span><span style="color:#1f2328">[:]</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>上面的例子可以看到，切片利用数组进行初始化，这里我们需要对切片的内部进行详细的了解，其实切片可以理解为数组的一种特殊引用，和c语言中字符串的定义类似，切片包含三个元素，即指向底层数组的指针，切片的大小以及切片的容量</p>
@@ -330,15 +330,15 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>num <span style="color:#000;font-weight:bold">:=</span> [<span style="color:#099">5</span>]<span style="color:#458;font-weight:bold">int</span>{<span style="color:#099">1</span>,<span style="color:#099">2</span>,<span style="color:#099">3</span>,<span style="color:#099">4</span>,<span style="color:#099">5</span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#1f2328">num</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">[</span><span style="color:#0550ae">5</span><span style="color:#1f2328">]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span><span style="color:#0550ae">2</span><span style="color:#1f2328">,</span><span style="color:#0550ae">3</span><span style="color:#1f2328">,</span><span style="color:#0550ae">4</span><span style="color:#1f2328">,</span><span style="color:#0550ae">5</span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>p <span style="color:#000;font-weight:bold">:=</span> num[<span style="color:#099">1</span>:<span style="color:#099">3</span>]
-</span></span><span style="display:flex;"><span>q <span style="color:#000;font-weight:bold">:=</span> num[<span style="color:#099">1</span>:<span style="color:#099">4</span>]
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">p</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">num</span><span style="color:#1f2328">[</span><span style="color:#0550ae">1</span><span style="color:#1f2328">:</span><span style="color:#0550ae">3</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">q</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">num</span><span style="color:#1f2328">[</span><span style="color:#0550ae">1</span><span style="color:#1f2328">:</span><span style="color:#0550ae">4</span><span style="color:#1f2328">]</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>num[<span style="color:#099">1</span>] = <span style="color:#099">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">num</span><span style="color:#1f2328">[</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">10</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>fmt.<span style="color:#900;font-weight:bold">Printf</span>(<span style="color:#d14">&#34;%v&#34;</span>,p)
-</span></span><span style="display:flex;"><span>fmt.<span style="color:#900;font-weight:bold">Printf</span>(<span style="color:#d14">&#34;%v&#34;</span>,q)
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Printf</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;%v&#34;</span><span style="color:#1f2328">,</span><span style="color:#1f2328">p</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Printf</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;%v&#34;</span><span style="color:#1f2328">,</span><span style="color:#1f2328">q</span><span style="color:#1f2328">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>切片是可以动态变动大小的，因此我们如何添加元素？这里使用<code>append</code>函数。</p>
@@ -353,13 +353,13 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>p <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>([]<span style="color:#458;font-weight:bold">int</span>,<span style="color:#099">0</span>,<span style="color:#099">4</span>)
-</span></span><span style="display:flex;"><span>p = <span style="color:#0086b3">append</span>(p,<span style="color:#099">1</span>)
-</span></span><span style="display:flex;"><span>p = <span style="color:#0086b3">append</span>(p,<span style="color:#099">2</span>)
-</span></span><span style="display:flex;"><span>p = <span style="color:#0086b3">append</span>(p,[]<span style="color:#458;font-weight:bold">int</span>{<span style="color:#099">1</span>,<span style="color:#099">2</span>,<span style="color:#099">3</span>}<span style="color:#000;font-weight:bold">...</span>)
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#1f2328">p</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">make</span><span style="color:#1f2328">([]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span><span style="color:#0550ae">4</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">p</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span><span style="color:#1f2328">p</span><span style="color:#1f2328">,</span><span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">p</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span><span style="color:#1f2328">p</span><span style="color:#1f2328">,</span><span style="color:#0550ae">2</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">p</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span><span style="color:#1f2328">p</span><span style="color:#1f2328">,[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span><span style="color:#0550ae">2</span><span style="color:#1f2328">,</span><span style="color:#0550ae">3</span><span style="color:#1f2328">}</span><span style="color:#0550ae">...</span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">var</span> q []<span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>q = <span style="color:#0086b3">append</span>(q,<span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">var</span> <span style="color:#1f2328">q</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">q</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span><span style="color:#1f2328">q</span><span style="color:#1f2328">,</span><span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>从用例可以看出，append函数还可以一次性添加多元素，不过需要在后面通过<code>...</code>符号来指定。</p>
@@ -375,23 +375,6 @@
 
 
         
-
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/post/2023-02-02-golangstruct/">Golang|学习教程(三)-结构体</a></li>
-        
-        <li><a href="/blog/post/2023-02-01-golangflow/">Golang|学习教程(二)-流程控制</a></li>
-        
-        <li><a href="/blog/post/2023-01-31-golangbasics/">Golang|学习教程(一)-基础概念</a></li>
-        
-        <li><a href="/blog/read/2023-01-07-2023%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/">2023阅读书单</a></li>
-        
-        <li><a href="/blog/post/2023-01-14-golangttf/">Golang|truetype解析</a></li>
-        
-    </ul>
-</div>
 
 
         <div class="post-meta meta-tags">
@@ -422,7 +405,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -543,7 +526,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -603,17 +586,17 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -621,9 +604,9 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -634,29 +617,29 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

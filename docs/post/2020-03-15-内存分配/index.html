@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -139,9 +139,9 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#998;font-style:italic">// path: /usr/local/go/src/runtime/sizeclasses.go
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">const</span> _NumSizeClasses = <span style="color:#099">67</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">var</span> class_to_size = [_NumSizeClasses]<span style="color:#458;font-weight:bold">uint16</span>{<span style="color:#099">0</span>, <span style="color:#099">8</span>, <span style="color:#099">16</span>, <span style="color:#099">32</span>, <span style="color:#000;font-weight:bold">...</span> , <span style="color:#099">32768</span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">// path: /usr/local/go/src/runtime/sizeclasses.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">_NumSizeClasses</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">67</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">var</span> <span style="color:#1f2328">class_to_size</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">[</span><span style="color:#1f2328">_NumSizeClasses</span><span style="color:#1f2328">]</span><span style="color:#cf222e">uint16</span><span style="color:#1f2328">{</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">8</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">16</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">32</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">...</span> <span style="color:#1f2328">,</span> <span style="color:#0550ae">32768</span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>根据mspan的<code>Size Class</code>可以得到它划分的object大小。 比如Size Class等于3，object大小就是32B。32B大小的object可以存储对象大小范围在<code>17B~32B</code>的对象。而对于微小对象（<code>&lt;16B</code>），分配器会将其进行合并，将几个对象分配到同一个object中。数组里最大的数是32768，也就是32KB，超过32KB就是大对象了，它会被特别对待。</p>
@@ -154,9 +154,9 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#998;font-style:italic">// path: /usr/local/go/src/runtime/sizeclasses.go
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">const</span> _NumSizeClasses = <span style="color:#099">67</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">var</span> class_to_allocnpages = [_NumSizeClasses]<span style="color:#458;font-weight:bold">uint8</span>{<span style="color:#099">0</span>, <span style="color:#099">1</span>, <span style="color:#099">1</span>, <span style="color:#099">1</span>, <span style="color:#099">1</span>, <span style="color:#000;font-weight:bold">...</span>, <span style="color:#099">7</span>, <span style="color:#099">5</span>, <span style="color:#099">8</span>, <span style="color:#099">3</span>, <span style="color:#099">10</span>, <span style="color:#099">7</span>, <span style="color:#099">4</span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">// path: /usr/local/go/src/runtime/sizeclasses.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">_NumSizeClasses</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">67</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">var</span> <span style="color:#1f2328">class_to_allocnpages</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">[</span><span style="color:#1f2328">_NumSizeClasses</span><span style="color:#1f2328">]</span><span style="color:#cf222e">uint8</span><span style="color:#1f2328">{</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">...</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">7</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">5</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">8</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">3</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">10</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">7</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">4</span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h5 id="mspan结构体">mspan结构体</h5>
@@ -189,31 +189,31 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#998;font-style:italic">// path: /usr/local/go/src/runtime/mheap.go
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> mspan <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">//链表前向指针，用于将span链接起来
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	next <span style="color:#000;font-weight:bold">*</span>mspan
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">//链表前向指针，用于将span链接起来
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	prev <span style="color:#000;font-weight:bold">*</span>mspan
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// 起始地址，也即所管理页的地址
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	startAddr <span style="color:#458;font-weight:bold">uintptr</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// 管理的页数
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	npages <span style="color:#458;font-weight:bold">uintptr</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// 块个数，表示有多少个块可供分配
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	nelems <span style="color:#458;font-weight:bold">uintptr</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">// path: /usr/local/go/src/runtime/mheap.go</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">//分配位图，每一位代表一个块是否已分配
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	allocBits <span style="color:#000;font-weight:bold">*</span>gcBits
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">mspan</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">//链表前向指针，用于将span链接起来</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">next</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">mspan</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">//链表前向指针，用于将span链接起来</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">prev</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">mspan</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// 起始地址，也即所管理页的地址</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">startAddr</span> <span style="color:#cf222e">uintptr</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// 管理的页数</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">npages</span> <span style="color:#cf222e">uintptr</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// 块个数，表示有多少个块可供分配</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">nelems</span> <span style="color:#cf222e">uintptr</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// 已分配块的个数
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	allocCount <span style="color:#458;font-weight:bold">uint16</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// class表中的class ID，和Size Classs相关
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	spanclass spanClass
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">//分配位图，每一位代表一个块是否已分配</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">allocBits</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">gcBits</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// class表中的对象大小，也即块大小
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	elemsize <span style="color:#458;font-weight:bold">uintptr</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// 已分配块的个数</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">allocCount</span> <span style="color:#cf222e">uint16</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// class表中的class ID，和Size Classs相关</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">spanclass</span> <span style="color:#1f2328">spanClass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// class表中的对象大小，也即块大小</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">elemsize</span> <span style="color:#cf222e">uintptr</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>
@@ -284,11 +284,11 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#998;font-style:italic">//path: /usr/local/go/src/runtime/mcache.go
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">type</span> mcache <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	alloc [numSpanClasses]<span style="color:#000;font-weight:bold">*</span>mspan
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>numSpanClasses = _NumSizeClasses <span style="color:#000;font-weight:bold">&lt;&lt;</span> <span style="color:#099">1</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">//path: /usr/local/go/src/runtime/mcache.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">mcache</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">alloc</span> <span style="color:#1f2328">[</span><span style="color:#1f2328">numSpanClasses</span><span style="color:#1f2328">]</span><span style="color:#0550ae">*</span><span style="color:#1f2328">mspan</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">numSpanClasses</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">_NumSizeClasses</span> <span style="color:#0550ae">&lt;&lt;</span> <span style="color:#0550ae">1</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="mcentral">mcentral</h4>
@@ -312,19 +312,19 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#998;font-style:italic">//path: /usr/local/go/src/runtime/mcentral.go
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">type</span> mcentral <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// 互斥锁
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	lock mutex
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// 规格
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	sizeclass <span style="color:#458;font-weight:bold">int32</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// 尚有空闲object的mspan链表
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	nonempty mSpanList
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// 没有空闲object的mspan链表，或者是已被mcache取走的msapn链表
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	empty mSpanList
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// 已累计分配的对象个数
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	nmalloc <span style="color:#458;font-weight:bold">uint64</span>
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">//path: /usr/local/go/src/runtime/mcentral.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">mcentral</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// 互斥锁</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">lock</span> <span style="color:#1f2328">mutex</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// 规格</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">sizeclass</span> <span style="color:#cf222e">int32</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// 尚有空闲object的mspan链表</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">nonempty</span> <span style="color:#1f2328">mSpanList</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// 没有空闲object的mspan链表，或者是已被mcache取走的msapn链表</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">empty</span> <span style="color:#1f2328">mSpanList</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// 已累计分配的对象个数</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">nmalloc</span> <span style="color:#cf222e">uint64</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="mheap">mheap</h4>
@@ -356,27 +356,27 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#998;font-style:italic">//path: /usr/local/go/src/runtime/mheap.go
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> mheap <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	lock mutex
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// spans: 指向mspans区域，用于映射mspan和page的关系
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	spans []<span style="color:#000;font-weight:bold">*</span>mspan
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// 指向bitmap首地址，bitmap是从高地址向低地址增长的
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	bitmap <span style="color:#458;font-weight:bold">uintptr</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">//path: /usr/local/go/src/runtime/mheap.go</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// 指示arena区首地址
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	arena_start <span style="color:#458;font-weight:bold">uintptr</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// 指示arena区已使用地址位置
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	arena_used <span style="color:#458;font-weight:bold">uintptr</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// 指示arena区末地址
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	arena_end <span style="color:#458;font-weight:bold">uintptr</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">mheap</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">lock</span> <span style="color:#1f2328">mutex</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// spans: 指向mspans区域，用于映射mspan和page的关系</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">spans</span> <span style="color:#1f2328">[]</span><span style="color:#0550ae">*</span><span style="color:#1f2328">mspan</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// 指向bitmap首地址，bitmap是从高地址向低地址增长的</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">bitmap</span> <span style="color:#cf222e">uintptr</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	central [<span style="color:#099">67</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">2</span>]<span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>		mcentral mcentral
-</span></span><span style="display:flex;"><span>		pad      [sys.CacheLineSize <span style="color:#000;font-weight:bold">-</span> unsafe.<span style="color:#900;font-weight:bold">Sizeof</span>(mcentral{})<span style="color:#000;font-weight:bold">%</span>sys.CacheLineSize]<span style="color:#458;font-weight:bold">byte</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// 指示arena区首地址</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">arena_start</span> <span style="color:#cf222e">uintptr</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// 指示arena区已使用地址位置</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">arena_used</span> <span style="color:#cf222e">uintptr</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// 指示arena区末地址</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">arena_end</span> <span style="color:#cf222e">uintptr</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">central</span> <span style="color:#1f2328">[</span><span style="color:#0550ae">67</span> <span style="color:#0550ae">*</span> <span style="color:#0550ae">2</span><span style="color:#1f2328">]</span><span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">mcentral</span> <span style="color:#1f2328">mcentral</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">pad</span>      <span style="color:#1f2328">[</span><span style="color:#1f2328">sys</span><span style="color:#1f2328">.</span><span style="color:#1f2328">CacheLineSize</span> <span style="color:#0550ae">-</span> <span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Sizeof</span><span style="color:#1f2328">(</span><span style="color:#1f2328">mcentral</span><span style="color:#1f2328">{})</span><span style="color:#0550ae">%</span><span style="color:#1f2328">sys</span><span style="color:#1f2328">.</span><span style="color:#1f2328">CacheLineSize</span><span style="color:#1f2328">]</span><span style="color:#cf222e">byte</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="分配流程">分配流程</h3>
@@ -416,23 +416,6 @@
 
         
 
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/post/2020-03-15-MPG%E5%88%86%E6%9E%90/">Golang|MPG</a></li>
-        
-        <li><a href="/blog/post/2020-03-15-Pprof/">Golang|pprof</a></li>
-        
-        <li><a href="/blog/post/2020-03-15-FileServer/">golang|FileServer</a></li>
-        
-        <li><a href="/blog/post/2020-03-15-%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/">golang|基础笔记</a></li>
-        
-        <li><a href="/blog/tools/2020-03-15-%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E7%AE%80%E4%BB%8B/">开源协议简介</a></li>
-        
-    </ul>
-</div>
-
 
         <div class="post-meta meta-tags">
             
@@ -462,7 +445,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -583,7 +566,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -643,17 +626,17 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -661,9 +644,9 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -674,29 +657,29 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

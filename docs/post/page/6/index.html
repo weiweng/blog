@@ -38,7 +38,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -46,7 +46,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -120,7 +120,38 @@
 
 
         <div class="post-content">
-            panic 结构体 panic 关键字在 Go 语言的源代码是由数据结构runtime._panic表示的。每当我们调用 panic 都会创建一个如下所示的数据结构存储相关信息： 1 2 3 4 5 6 7 8 9 10 11……
+            <h1 id="panic">panic</h1>
+<h2 id="结构体">结构体</h2>
+<p>panic 关键字在 Go 语言的源代码是由数据结构<code>runtime._panic</code>表示的。每当我们调用 panic 都会创建一个如下所示的数据结构存储相关信息：</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">_panic</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">argp</span>      <span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Pointer</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">arg</span>       <span style="color:#cf222e">interface</span><span style="color:#1f2328">{}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">link</span>      <span style="color:#0550ae">*</span><span style="color:#1f2328">_panic</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">recovered</span> <span style="color:#cf222e">bool</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">aborted</span>   <span style="color:#cf222e">bool</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">pc</span>     <span style="color:#cf222e">uintptr</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">sp</span>     <span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Pointer</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">goexit</span> <span style="color:#cf222e">bool</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>结构体中字段含义说明：</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-04-18-panicrecover/" target="_blank">阅读全文</a></p>
     </article>
@@ -148,7 +179,8 @@
 
 
         <div class="post-content">
-            现状 Kafka的消息是保存或缓存在磁盘上的，一般认为在磁盘上读写数据是会降低性能的，因为寻址会比较消耗时间，但是实际上，Kafka的特性之一就是高吞吐率。 即使是……
+            <p>Kafka的消息是保存或缓存在磁盘上的，一般认为在磁盘上读写数据是会降低性能的，因为寻址会比较消耗时间，但是实际上，Kafka的特性之一就是高吞吐率。</p>
+<p>即使是普通的服务器，Kafka也可以轻松支持每秒百万级的写入请求，超过了大部分的消息中间件，这种特性也使得Kafka在日志处理等海量数据场景广泛应用。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-04-17-Kafka%E9%80%9F%E5%BA%A6%E5%88%86%E6%9E%90/" target="_blank">阅读全文</a></p>
     </article>
@@ -158,7 +190,7 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://weiweng.github.io/blog/post/2020-04-12-kafka%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" title="mq|kafka简单介绍" target="_blank">mq|kafka简单介绍</a>
+                <a href="https://weiweng.github.io/blog/post/2020-04-12-kafka%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" title="mq|kafka基础知识" target="_blank">mq|kafka基础知识</a>
             </h1>
         </header>
         
@@ -176,7 +208,7 @@
 
 
         <div class="post-content">
-            kafka Kafka是最初由Linkedin公司开发，是一个分布式、支持分区的、多副本的，基于zookeeper协调的分布式消息系统，它的最大的特性就是可以实时的处理大……
+            <p><strong>kafka</strong>最初由Linkedin公司开发，是一个分布式、支持分区的、多副本的，基于zookeeper协调的分布式消息系统，用scala语言编写，Linkedin于2010年贡献给了Apache基金会并成为顶级开源项目。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-04-12-kafka%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" target="_blank">阅读全文</a></p>
     </article>
@@ -204,7 +236,9 @@
 
 
         <div class="post-content">
-            垃圾回收 垃圾回收(Garbage Collection，简称GC)是编程语言中提供的内存管理功能。 通过引入了语言层面的自动内存管理，也就是语言的使用者只用关注内存……
+            <h2 id="垃圾回收">垃圾回收</h2>
+<p>垃圾回收(Garbage Collection，简称GC)是编程语言中提供的内存管理功能。</p>
+<p>通过引入了语言层面的自动内存管理，也就是语言的使用者只用关注内存的申请而不必关心内存的释放，内存释放由虚拟机（virtual machine）或运行时（runtime）来自动进行管理。这种对不再使用的内存资源进行自动回收的功能就被称为垃圾回收。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-04-07-Golang%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" target="_blank">阅读全文</a></p>
     </article>
@@ -260,7 +294,15 @@
 
 
         <div class="post-content">
-            持久化流程 客户端向服务端发送写操作(数据在客户端的内存中)。 数据库服务端接收到写请求的数据(数据在服务端的内存中)。 服务端调用write这个系统调用，将数据往磁……
+            <h2 id="持久化流程">持久化流程</h2>
+<ul>
+<li>客户端向服务端发送写操作(数据在客户端的内存中)。</li>
+<li>数据库服务端接收到写请求的数据(数据在服务端的内存中)。</li>
+<li>服务端调用write这个系统调用，将数据往磁盘上写(数据在系统内存的缓冲区中)。</li>
+<li>操作系统将缓冲区中的数据转移到磁盘控制器上(数据在磁盘缓存中)。</li>
+<li>磁盘控制器将数据写到磁盘的物理介质中(数据真正落到磁盘上)。</li>
+</ul>
+<p>redis提供了RDB和AOF两种持久化存储方案</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-29-redis%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/" target="_blank">阅读全文</a></p>
     </article>
@@ -288,7 +330,251 @@
 
 
         <div class="post-content">
-            context意义 Go 中的 context 包在与 API 和慢处理交互时可以派上用场，特别是在生产级的 Web 服务中。在这些场景中，您可能想要通知所有的 goroutine 停止运行并返回。 context使用 c……
+            <h2 id="context意义">context意义</h2>
+<p>Go 中的 context 包在与 API 和慢处理交互时可以派上用场，特别是在生产级的 Web 服务中。在这些场景中，您可能想要通知所有的 goroutine 停止运行并返回。</p>
+<h2 id="context使用">context使用</h2>
+<h3 id="context相关函数">context相关函数</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">//返回一个空 context， 这只能用于高等级（在 main 或顶级请求中），作为context的根节点</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Background</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">Context</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//返回一个空的 context，不知道用什么的时候就上这个</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">TODO</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">Context</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">WithValue</span><span style="color:#1f2328">(</span><span style="color:#1f2328">parent</span> <span style="color:#1f2328">Context</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">key</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">val</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{})</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span> <span style="color:#1f2328">Context</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">cancel</span> <span style="color:#1f2328">CancelFunc</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">WithCancel</span><span style="color:#1f2328">(</span><span style="color:#1f2328">parent</span> <span style="color:#1f2328">Context</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span> <span style="color:#1f2328">Context</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">cancel</span> <span style="color:#1f2328">CancelFunc</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">WithDeadline</span><span style="color:#1f2328">(</span><span style="color:#1f2328">parent</span> <span style="color:#1f2328">Context</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">d</span> <span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Time</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span> <span style="color:#1f2328">Context</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">cancel</span> <span style="color:#1f2328">CancelFunc</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">WithTimeout</span><span style="color:#1f2328">(</span><span style="color:#1f2328">parent</span> <span style="color:#1f2328">Context</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">timeout</span> <span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Duration</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span> <span style="color:#1f2328">Context</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">cancel</span> <span style="color:#1f2328">CancelFunc</span><span style="color:#1f2328">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="context相关使用">context相关使用</h3>
+<h4 id="done方法取消">Done方法取消</h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">Stream</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span> <span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Context</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">out</span> <span style="color:#cf222e">chan</span><span style="color:#0550ae">&lt;-</span> <span style="color:#1f2328">Value</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">error</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">v</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">err</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">DoSomething</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">err</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#1f2328">err</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">select</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">case</span> <span style="color:#0550ae">&lt;-</span><span style="color:#1f2328">ctx</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Done</span><span style="color:#1f2328">():</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#1f2328">ctx</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Err</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">case</span> <span style="color:#1f2328">out</span> <span style="color:#0550ae">&lt;-</span> <span style="color:#1f2328">v</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="withvalue传值">WithValue传值</h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">main</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">ctx</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">cancel</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">WithCancel</span><span style="color:#1f2328">(</span><span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Background</span><span style="color:#1f2328">())</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">valueCtx</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">WithValue</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">key</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;add value&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">go</span> <span style="color:#6639ba">watch</span><span style="color:#1f2328">(</span><span style="color:#1f2328">valueCtx</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Sleep</span><span style="color:#1f2328">(</span><span style="color:#0550ae">10</span> <span style="color:#0550ae">*</span> <span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Second</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6639ba">cancel</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Sleep</span><span style="color:#1f2328">(</span><span style="color:#0550ae">5</span> <span style="color:#0550ae">*</span> <span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Second</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">watch</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span> <span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Context</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">select</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">case</span> <span style="color:#0550ae">&lt;-</span><span style="color:#1f2328">ctx</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Done</span><span style="color:#1f2328">():</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#57606a">//get value</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Value</span><span style="color:#1f2328">(</span><span style="color:#1f2328">key</span><span style="color:#1f2328">),</span> <span style="color:#0a3069">&#34;is cancel&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">default</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#57606a">//get value</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Value</span><span style="color:#1f2328">(</span><span style="color:#1f2328">key</span><span style="color:#1f2328">),</span> <span style="color:#0a3069">&#34;int goroutine&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Sleep</span><span style="color:#1f2328">(</span><span style="color:#0550ae">2</span> <span style="color:#0550ae">*</span> <span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Second</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="withtimeout超时取消">WithTimeout超时取消</h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">package</span> <span style="color:#1f2328">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;golang.org/x/net/context&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;sync&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;time&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">var</span> <span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">wg</span> <span style="color:#1f2328">sync</span><span style="color:#1f2328">.</span><span style="color:#1f2328">WaitGroup</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">work</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span> <span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Context</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">error</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">defer</span> <span style="color:#1f2328">wg</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Done</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#0550ae">1000</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">select</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">case</span> <span style="color:#0550ae">&lt;-</span><span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#6639ba">After</span><span style="color:#1f2328">(</span><span style="color:#0550ae">2</span> <span style="color:#0550ae">*</span> <span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Second</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Doing some work &#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#57606a">// we received the signal of cancelation in this channel</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">case</span> <span style="color:#0550ae">&lt;-</span><span style="color:#1f2328">ctx</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Done</span><span style="color:#1f2328">():</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Cancel the context &#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#1f2328">ctx</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Err</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">main</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">ctx</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">cancel</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">WithTimeout</span><span style="color:#1f2328">(</span><span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Background</span><span style="color:#1f2328">(),</span> <span style="color:#0550ae">4</span><span style="color:#0550ae">*</span><span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Second</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">defer</span> <span style="color:#6639ba">cancel</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Hey, I&#39;m going to do some work&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">wg</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Add</span><span style="color:#1f2328">(</span><span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">go</span> <span style="color:#6639ba">work</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">wg</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Wait</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Finished. I&#39;m going home&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="withdeadline截止时间">WithDeadline截止时间</h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">package</span> <span style="color:#1f2328">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;context&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;time&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">main</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">d</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Now</span><span style="color:#1f2328">().</span><span style="color:#6639ba">Add</span><span style="color:#1f2328">(</span><span style="color:#0550ae">1</span> <span style="color:#0550ae">*</span> <span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Second</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">ctx</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">cancel</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">WithDeadline</span><span style="color:#1f2328">(</span><span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Background</span><span style="color:#1f2328">(),</span> <span style="color:#1f2328">d</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">defer</span> <span style="color:#6639ba">cancel</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">select</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">case</span> <span style="color:#0550ae">&lt;-</span><span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#6639ba">After</span><span style="color:#1f2328">(</span><span style="color:#0550ae">2</span> <span style="color:#0550ae">*</span> <span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Second</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;oversleep&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">case</span> <span style="color:#0550ae">&lt;-</span><span style="color:#1f2328">ctx</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Done</span><span style="color:#1f2328">():</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Err</span><span style="color:#1f2328">())</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="参考">参考</h2>
+<ol>
+<li><a href="https://studygolang.com/articles/13866?fr=sidebar">理解 golang 中的 context（上下文）包</a></li>
+<li><a href="https://www.jianshu.com/p/e5df3cd0708b">Golang Context分析</a></li>
+<li><a href="https://www.flysnow.org/2017/05/12/go-in-action-go-context.html">Go语言实战笔记（二十）Go Context</a></li>
+</ol>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-15-context%E4%BD%BF%E7%94%A8%E5%92%8C%E5%88%86%E6%9E%90/" target="_blank">阅读全文</a></p>
     </article>
@@ -316,7 +602,57 @@
 
 
         <div class="post-content">
-            channel结构体 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 type hchan struct { qcount uint //大小 dataqsiz uint //有缓存的队列大小 buf unsafe.Pointer //有缓存的循环队列指针 elemsize uint16 closed uint32 elemtype *_type //类型 sendx uint //有缓存……
+            <h2 id="channel结构体">channel结构体</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">hchan</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">qcount</span>   <span style="color:#cf222e">uint</span>           <span style="color:#57606a">//大小</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">dataqsiz</span> <span style="color:#cf222e">uint</span>           <span style="color:#57606a">//有缓存的队列大小</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">buf</span>      <span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Pointer</span> <span style="color:#57606a">//有缓存的循环队列指针</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">elemsize</span> <span style="color:#cf222e">uint16</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">closed</span>   <span style="color:#cf222e">uint32</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">elemtype</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">_type</span> <span style="color:#57606a">//类型</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">sendx</span>    <span style="color:#cf222e">uint</span>   <span style="color:#57606a">//有缓存的可发送下标</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">recvx</span>    <span style="color:#cf222e">uint</span>   <span style="color:#57606a">//有缓存的可存储下标</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">recvq</span>    <span style="color:#1f2328">waitq</span>  <span style="color:#57606a">//接受的goroutine抽象出来的结构体sudog的队列，是一个双向链表</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">sendq</span>    <span style="color:#1f2328">waitq</span>  <span style="color:#57606a">//同上，是发送的相关链表</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">lock</span>     <span style="color:#1f2328">mutex</span>  <span style="color:#57606a">//互斥锁</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">waitq</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">first</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">sudog</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">last</span>  <span style="color:#0550ae">*</span><span style="color:#1f2328">sudog</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="channel创建">channel创建</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#1f2328">ch</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">make</span><span style="color:#1f2328">(</span><span style="color:#cf222e">chan</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">3</span><span style="color:#1f2328">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>创建channel实际上就是在内存中实例化了一个hchan的结构体，并返回一个ch指针，我们使用过程中channel在函数之间的传递都是用的这个指针，这就是为什么函数传递中无需使用channel的指针，而直接用channel就行了，因为channel本身就是一个指针。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-15-channel%E5%88%86%E6%9E%90/" target="_blank">阅读全文</a></p>
     </article>
@@ -448,7 +784,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -484,7 +820,7 @@
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -544,17 +880,17 @@
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -562,9 +898,9 @@
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -575,29 +911,29 @@
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     
