@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -244,36 +244,36 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> Value <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//typ_ 保存由 value 表示的值的类型。
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//使用 typ 方法访问以避免 v 的转义。
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    typ_ <span style="color:#000;font-weight:bold">*</span>abi.Type
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">Value</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//typ_ 保存由 value 表示的值的类型。</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//使用 typ 方法访问以避免 v 的转义。</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">typ_</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">abi</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Type</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//指针值数据，或者，如果设置了 flagIndir，则为指向数据的指针。
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//当 flagIndir 被设置或 typ.pointers（）为true时有效。
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    ptr unsafe.Pointer
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//指针值数据，或者，如果设置了 flagIndir，则为指向数据的指针。</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//当 flagIndir 被设置或 typ.pointers（）为true时有效。</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">ptr</span> <span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Pointer</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//标志保存有关该值的元数据。
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//最低的五位给出值的种类，镜像类型。Kind（）。
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//下一组位是标志位：
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//-flagStickyRO：通过未过期未嵌入字段获取，因此为只读
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//-flagEmbedRO: 通过未导出的嵌入字段获取，因此为只读
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//-flagIndir:   val持有指向数据的指针
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//-flagAddr:    v.CanAddr为true（表示flagIndir和ptr为非零）
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//-flagMethod:  v是一个方法值。
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//如果ifaceIndir（typ），代码可以假设flagIndir已设置。
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//剩下的22+位给出了方法值的方法编号。
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//If flag.kind（）！=Func，代码可以假设flagMethod是未设置的。
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    flag
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//标志保存有关该值的元数据。</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//最低的五位给出值的种类，镜像类型。Kind（）。</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//下一组位是标志位：</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//-flagStickyRO：通过未过期未嵌入字段获取，因此为只读</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//-flagEmbedRO: 通过未导出的嵌入字段获取，因此为只读</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//-flagIndir:   val持有指向数据的指针</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//-flagAddr:    v.CanAddr为true（表示flagIndir和ptr为非零）</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//-flagMethod:  v是一个方法值。</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//如果ifaceIndir（typ），代码可以假设flagIndir已设置。</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//剩下的22+位给出了方法值的方法编号。</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//If flag.kind（）！=Func，代码可以假设flagMethod是未设置的。</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">flag</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//方法值表示当前的方法调用
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//类似r。读取某些接收器r。典型值+val+标志位描述
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//接收器r，但标志的Kind位表示Func（方法为
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//函数），并且标志的顶部位给出方法编号
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//在r的类型的方法表中。
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//方法值表示当前的方法调用</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//类似r。读取某些接收器r。典型值+val+标志位描述</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//接收器r，但标志的Kind位表示Func（方法为</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//函数），并且标志的顶部位给出方法编号</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//在r的类型的方法表中。</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> flag <span style="color:#458;font-weight:bold">uintptr</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">flag</span> <span style="color:#cf222e">uintptr</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="reflecttype">reflect.Type</h2>
@@ -348,73 +348,73 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> Type <span style="color:#000;font-weight:bold">interface</span> {
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">Type</span> <span style="color:#cf222e">interface</span> <span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 返回值的对齐方式（以字节为单位）
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// 用作在内存中分配时
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#900;font-weight:bold">Align</span>() <span style="color:#458;font-weight:bold">int</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 返回值的对齐方式（以字节为单位）</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 用作在内存中分配时</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">Align</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">int</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 返回值的对齐方式（以字节为单位）
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// 用作结构中的字段
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#900;font-weight:bold">FieldAlign</span>() <span style="color:#458;font-weight:bold">int</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 返回值的对齐方式（以字节为单位）</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 用作结构中的字段</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">FieldAlign</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">int</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 返回已定义类型的包中的类型名称
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#900;font-weight:bold">Name</span>() <span style="color:#458;font-weight:bold">string</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 返回已定义类型的包中的类型名称</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">Name</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">string</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 返回定义类型的包路径，即导入路径
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#900;font-weight:bold">PkgPath</span>() <span style="color:#458;font-weight:bold">string</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 返回定义类型的包路径，即导入路径</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">PkgPath</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">string</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 返回存储所需的字节数
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#900;font-weight:bold">Size</span>() <span style="color:#458;font-weight:bold">uintptr</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 返回存储所需的字节数</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">Size</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">uintptr</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 返回该类型的字符串表示形式
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#900;font-weight:bold">String</span>() <span style="color:#458;font-weight:bold">string</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 返回该类型的字符串表示形式</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">String</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">string</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#900;font-weight:bold">Implements</span>(u Type) <span style="color:#458;font-weight:bold">bool</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#900;font-weight:bold">AssignableTo</span>(u Type) <span style="color:#458;font-weight:bold">bool</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#900;font-weight:bold">ConvertibleTo</span>(u Type) <span style="color:#458;font-weight:bold">bool</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#900;font-weight:bold">Comparable</span>() <span style="color:#458;font-weight:bold">bool</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">Implements</span><span style="color:#1f2328">(</span><span style="color:#1f2328">u</span> <span style="color:#1f2328">Type</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">AssignableTo</span><span style="color:#1f2328">(</span><span style="color:#1f2328">u</span> <span style="color:#1f2328">Type</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">ConvertibleTo</span><span style="color:#1f2328">(</span><span style="color:#1f2328">u</span> <span style="color:#1f2328">Type</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">Comparable</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">bool</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 以位为单位返回类型的大小
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#900;font-weight:bold">Bits</span>() <span style="color:#458;font-weight:bold">int</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 以位为单位返回类型的大小</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">Bits</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">int</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 返回通道类型的方向
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#900;font-weight:bold">ChanDir</span>() ChanDir
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 返回通道类型的方向</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">ChanDir</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">ChanDir</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 报告函数类型的最终输入参数
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#900;font-weight:bold">IsVariadic</span>() <span style="color:#458;font-weight:bold">bool</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 报告函数类型的最终输入参数</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">IsVariadic</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">bool</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 返回函数类型的第i个输入参数的类型
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#900;font-weight:bold">In</span>(i <span style="color:#458;font-weight:bold">int</span>) Type
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 返回函数类型的第i个输入参数的类型</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">In</span><span style="color:#1f2328">(</span><span style="color:#1f2328">i</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">Type</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 返回映射类型的键类型
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#900;font-weight:bold">Key</span>() Type
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 返回映射类型的键类型</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">Key</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">Type</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 返回数组类型的长度
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#900;font-weight:bold">Len</span>() <span style="color:#458;font-weight:bold">int</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 返回数组类型的长度</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">Len</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">int</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 返回函数类型的输入参数计数
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#900;font-weight:bold">NumIn</span>() <span style="color:#458;font-weight:bold">int</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 返回函数类型的输入参数计数</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">NumIn</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">int</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 返回函数类型的输出参数计数
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#900;font-weight:bold">NumOut</span>() <span style="color:#458;font-weight:bold">int</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 返回函数类型的输出参数计数</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">NumOut</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">int</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 返回函数类型的第i个输出参数的类型
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#900;font-weight:bold">Out</span>(i <span style="color:#458;font-weight:bold">int</span>) Type
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 返回函数类型的第i个输出参数的类型</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">Out</span><span style="color:#1f2328">(</span><span style="color:#1f2328">i</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">Type</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 以下这些方法与 Value 结构体的功能相同
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#900;font-weight:bold">Kind</span>() Kind
-</span></span><span style="display:flex;"><span>    <span style="color:#900;font-weight:bold">Method</span>(<span style="color:#458;font-weight:bold">int</span>) Method
-</span></span><span style="display:flex;"><span>    <span style="color:#900;font-weight:bold">MethodByName</span>(<span style="color:#458;font-weight:bold">string</span>) (Method, <span style="color:#458;font-weight:bold">bool</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#900;font-weight:bold">NumMethod</span>() <span style="color:#458;font-weight:bold">int</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 以下这些方法与 Value 结构体的功能相同</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">Kind</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">Kind</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">Method</span><span style="color:#1f2328">(</span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">Method</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">MethodByName</span><span style="color:#1f2328">(</span><span style="color:#cf222e">string</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">Method</span><span style="color:#1f2328">,</span> <span style="color:#cf222e">bool</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">NumMethod</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">int</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#900;font-weight:bold">Elem</span>() Type
-</span></span><span style="display:flex;"><span>    <span style="color:#900;font-weight:bold">Field</span>(i <span style="color:#458;font-weight:bold">int</span>) StructField
-</span></span><span style="display:flex;"><span>    <span style="color:#900;font-weight:bold">FieldByIndex</span>(index []<span style="color:#458;font-weight:bold">int</span>) StructField
-</span></span><span style="display:flex;"><span>    <span style="color:#900;font-weight:bold">FieldByName</span>(name <span style="color:#458;font-weight:bold">string</span>) (StructField, <span style="color:#458;font-weight:bold">bool</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#900;font-weight:bold">FieldByNameFunc</span>(match <span style="color:#000;font-weight:bold">func</span>(<span style="color:#458;font-weight:bold">string</span>) <span style="color:#458;font-weight:bold">bool</span>) (StructField, <span style="color:#458;font-weight:bold">bool</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#900;font-weight:bold">NumField</span>() <span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">Elem</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">Type</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">Field</span><span style="color:#1f2328">(</span><span style="color:#1f2328">i</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">StructField</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">FieldByIndex</span><span style="color:#1f2328">(</span><span style="color:#1f2328">index</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">StructField</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">FieldByName</span><span style="color:#1f2328">(</span><span style="color:#1f2328">name</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">StructField</span><span style="color:#1f2328">,</span> <span style="color:#cf222e">bool</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">FieldByNameFunc</span><span style="color:#1f2328">(</span><span style="color:#1f2328">match</span> <span style="color:#cf222e">func</span><span style="color:#1f2328">(</span><span style="color:#cf222e">string</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">StructField</span><span style="color:#1f2328">,</span> <span style="color:#cf222e">bool</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">NumField</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="反射定律">反射定律</h2>
@@ -469,38 +469,38 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> main
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">package</span> <span style="color:#1f2328">main</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> (
-</span></span><span style="display:flex;"><span>    <span style="color:#d14">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#d14">&#34;io&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#d14">&#34;reflect&#34;</span>
-</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;io&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;reflect&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> persion <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>    Name <span style="color:#458;font-weight:bold">string</span> <span style="color:#d14">`json:&#34;name&#34;`</span>
-</span></span><span style="display:flex;"><span>    Age  <span style="color:#458;font-weight:bold">int</span>    <span style="color:#d14">`json:&#34;age&#34;`</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">persion</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">Name</span> <span style="color:#cf222e">string</span> <span style="color:#0a3069">`json:&#34;name&#34;`</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">Age</span>  <span style="color:#cf222e">int</span>    <span style="color:#0a3069">`json:&#34;age&#34;`</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 为 persion 增加一个方法 String ，返回对应的字符串信息
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 这样 persion 结构体就实现了 fmt.Stringer 接口
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (p persion) <span style="color:#900;font-weight:bold">String</span>() <span style="color:#458;font-weight:bold">string</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> fmt.<span style="color:#900;font-weight:bold">Sprintf</span>(<span style="color:#d14">&#34;Name is %s, Age is %d&#34;</span>, p.Name, p.Age)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 为 persion 增加一个方法 String ，返回对应的字符串信息</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 这样 persion 结构体就实现了 fmt.Stringer 接口</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">p</span> <span style="color:#1f2328">persion</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">String</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">string</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Sprintf</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Name is %s, Age is %d&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Name</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Age</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">main</span>() {
-</span></span><span style="display:flex;"><span>    p <span style="color:#000;font-weight:bold">:=</span> persion{
-</span></span><span style="display:flex;"><span>       Name: <span style="color:#d14">&#34;码一行&#34;</span>,
-</span></span><span style="display:flex;"><span>       Age:  <span style="color:#099">26</span>,
-</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">main</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">p</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">persion</span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#1f2328">Name</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;码一行&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#1f2328">Age</span><span style="color:#1f2328">:</span>  <span style="color:#0550ae">26</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    pt <span style="color:#000;font-weight:bold">:=</span> reflect.<span style="color:#900;font-weight:bold">TypeOf</span>(p)
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">pt</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">reflect</span><span style="color:#1f2328">.</span><span style="color:#6639ba">TypeOf</span><span style="color:#1f2328">(</span><span style="color:#1f2328">p</span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    stringerType <span style="color:#000;font-weight:bold">:=</span> reflect.<span style="color:#900;font-weight:bold">TypeOf</span>((<span style="color:#000;font-weight:bold">*</span>fmt.Stringer)(<span style="color:#000;font-weight:bold">nil</span>)).<span style="color:#900;font-weight:bold">Elem</span>()
-</span></span><span style="display:flex;"><span>    writerType <span style="color:#000;font-weight:bold">:=</span> reflect.<span style="color:#900;font-weight:bold">TypeOf</span>((<span style="color:#000;font-weight:bold">*</span>io.Writer)(<span style="color:#000;font-weight:bold">nil</span>)).<span style="color:#900;font-weight:bold">Elem</span>()
-</span></span><span style="display:flex;"><span>    fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;是否实现了 fmt.Stringer: &#34;</span>, pt.<span style="color:#900;font-weight:bold">Implements</span>(stringerType))
-</span></span><span style="display:flex;"><span>    fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;是否实现了 io.Writer: &#34;</span>, pt.<span style="color:#900;font-weight:bold">Implements</span>(writerType))
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">stringerType</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">reflect</span><span style="color:#1f2328">.</span><span style="color:#6639ba">TypeOf</span><span style="color:#1f2328">((</span><span style="color:#0550ae">*</span><span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Stringer</span><span style="color:#1f2328">)(</span><span style="color:#cf222e">nil</span><span style="color:#1f2328">)).</span><span style="color:#6639ba">Elem</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">writerType</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">reflect</span><span style="color:#1f2328">.</span><span style="color:#6639ba">TypeOf</span><span style="color:#1f2328">((</span><span style="color:#0550ae">*</span><span style="color:#1f2328">io</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Writer</span><span style="color:#1f2328">)(</span><span style="color:#cf222e">nil</span><span style="color:#1f2328">)).</span><span style="color:#6639ba">Elem</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;是否实现了 fmt.Stringer: &#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">pt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Implements</span><span style="color:#1f2328">(</span><span style="color:#1f2328">stringerType</span><span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;是否实现了 io.Writer: &#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">pt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Implements</span><span style="color:#1f2328">(</span><span style="color:#1f2328">writerType</span><span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>通过 reflect.Type 实现一个contains逻辑，可以传入的字符串、map、数组、切片。</p>
@@ -536,34 +536,34 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">Contains</span>(in <span style="color:#000;font-weight:bold">interface</span>{}, elem <span style="color:#000;font-weight:bold">interface</span>{}) <span style="color:#458;font-weight:bold">bool</span> {
-</span></span><span style="display:flex;"><span>	inValue <span style="color:#000;font-weight:bold">:=</span> reflect.<span style="color:#900;font-weight:bold">ValueOf</span>(in)
-</span></span><span style="display:flex;"><span>	elemValue <span style="color:#000;font-weight:bold">:=</span> reflect.<span style="color:#900;font-weight:bold">ValueOf</span>(elem)
-</span></span><span style="display:flex;"><span>	inType <span style="color:#000;font-weight:bold">:=</span> inValue.<span style="color:#900;font-weight:bold">Type</span>()
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">Contains</span><span style="color:#1f2328">(</span><span style="color:#1f2328">in</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{},</span> <span style="color:#1f2328">elem</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{})</span> <span style="color:#cf222e">bool</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">inValue</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">reflect</span><span style="color:#1f2328">.</span><span style="color:#6639ba">ValueOf</span><span style="color:#1f2328">(</span><span style="color:#1f2328">in</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">elemValue</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">reflect</span><span style="color:#1f2328">.</span><span style="color:#6639ba">ValueOf</span><span style="color:#1f2328">(</span><span style="color:#1f2328">elem</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">inType</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">inValue</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Type</span><span style="color:#1f2328">()</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">switch</span> inType.<span style="color:#900;font-weight:bold">Kind</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">case</span> reflect.String:
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> strings.<span style="color:#900;font-weight:bold">Contains</span>(inValue.<span style="color:#900;font-weight:bold">String</span>(), elemValue.<span style="color:#900;font-weight:bold">String</span>())
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">case</span> reflect.Map:
-</span></span><span style="display:flex;"><span>		equalTo <span style="color:#000;font-weight:bold">:=</span> <span style="color:#900;font-weight:bold">equal</span>(elem, <span style="color:#000;font-weight:bold">true</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">for</span> _, key <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> inValue.<span style="color:#900;font-weight:bold">MapKeys</span>() {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">equalTo</span>(key, inValue.<span style="color:#900;font-weight:bold">MapIndex</span>(key)) {
-</span></span><span style="display:flex;"><span>				<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">case</span> reflect.Slice, reflect.Array:
-</span></span><span style="display:flex;"><span>		equalTo <span style="color:#000;font-weight:bold">:=</span> <span style="color:#900;font-weight:bold">equal</span>(elem)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>; i &lt; inValue.<span style="color:#900;font-weight:bold">Len</span>(); i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">equalTo</span>(reflect.Value{}, inValue.<span style="color:#900;font-weight:bold">Index</span>(i)) {
-</span></span><span style="display:flex;"><span>				<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">default</span>:
-</span></span><span style="display:flex;"><span>		<span style="color:#0086b3">panic</span>(fmt.<span style="color:#900;font-weight:bold">Sprintf</span>(<span style="color:#d14">&#34;Type %s is not supported by Contains, supported types are String, Map, Slice, Array&#34;</span>, inType.<span style="color:#900;font-weight:bold">String</span>()))
-</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">switch</span> <span style="color:#1f2328">inType</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Kind</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">case</span> <span style="color:#1f2328">reflect</span><span style="color:#1f2328">.</span><span style="color:#1f2328">String</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#1f2328">strings</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Contains</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inValue</span><span style="color:#1f2328">.</span><span style="color:#6639ba">String</span><span style="color:#1f2328">(),</span> <span style="color:#1f2328">elemValue</span><span style="color:#1f2328">.</span><span style="color:#6639ba">String</span><span style="color:#1f2328">())</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">case</span> <span style="color:#1f2328">reflect</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Map</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">equalTo</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">equal</span><span style="color:#1f2328">(</span><span style="color:#1f2328">elem</span><span style="color:#1f2328">,</span> <span style="color:#cf222e">true</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">for</span> <span style="color:#1f2328">_</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">key</span> <span style="color:#0550ae">:=</span> <span style="color:#cf222e">range</span> <span style="color:#1f2328">inValue</span><span style="color:#1f2328">.</span><span style="color:#6639ba">MapKeys</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">if</span> <span style="color:#6639ba">equalTo</span><span style="color:#1f2328">(</span><span style="color:#1f2328">key</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">inValue</span><span style="color:#1f2328">.</span><span style="color:#6639ba">MapIndex</span><span style="color:#1f2328">(</span><span style="color:#1f2328">key</span><span style="color:#1f2328">))</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#cf222e">return</span> <span style="color:#cf222e">true</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">case</span> <span style="color:#1f2328">reflect</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Slice</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">reflect</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Array</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">equalTo</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">equal</span><span style="color:#1f2328">(</span><span style="color:#1f2328">elem</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">inValue</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Len</span><span style="color:#1f2328">();</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">if</span> <span style="color:#6639ba">equalTo</span><span style="color:#1f2328">(</span><span style="color:#1f2328">reflect</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Value</span><span style="color:#1f2328">{},</span> <span style="color:#1f2328">inValue</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Index</span><span style="color:#1f2328">(</span><span style="color:#1f2328">i</span><span style="color:#1f2328">))</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#cf222e">return</span> <span style="color:#cf222e">true</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">default</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#6639ba">panic</span><span style="color:#1f2328">(</span><span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Sprintf</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Type %s is not supported by Contains, supported types are String, Map, Slice, Array&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">inType</span><span style="color:#1f2328">.</span><span style="color:#6639ba">String</span><span style="color:#1f2328">()))</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#cf222e">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="参考">参考</h2>
@@ -579,23 +579,6 @@
 
 
         
-
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/post/2024-01-22-%E5%89%8D%E7%BC%80%E5%92%8C/">算法专题|前缀和</a></li>
-        
-        <li><a href="/blog/post/2024-01-20-pythonrequests/">python|requests</a></li>
-        
-        <li><a href="/blog/post/2023-12-13-python%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84/">python|学习路径</a></li>
-        
-        <li><a href="/blog/read/2023-11-18-%E8%80%81%E4%BF%9E%E5%AF%B9%E8%B0%88%E5%BD%95/">老俞对谈录阅读笔记</a></li>
-        
-        <li><a href="/blog/read/2023-10-25-%E6%95%85%E4%BA%8B%E8%AF%BE/">故事课</a></li>
-        
-    </ul>
-</div>
 
 
         <div class="post-meta meta-tags">
@@ -626,7 +609,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -747,7 +730,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -807,17 +790,17 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -825,9 +808,9 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -838,29 +821,29 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

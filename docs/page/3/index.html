@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-	<meta name="generator" content="Hugo 0.117.0">
+	<meta name="generator" content="Hugo 0.145.0">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1207188090915424" crossorigin="anonymous"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,7 +36,7 @@
             <div class="site-name ">
                 
                     <h1>
-                        <a id="logo" href="https://weiweng.github.io/blog">
+                        <a id="logo" href="https://weiweng.github.io/blog/">
                             weiweng的博客
                         </a>
                     </h1>
@@ -45,7 +45,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -91,7 +91,8 @@
 
 
         <div class="post-content">
-            Go 协程（Goroutine）是与其他函数同时运行的函数。可以认为 Go 协程是轻量级的线程，由 Go 运行时来管理。 对于 协程(用户级线程)，这是对内核透明的，也就是系统并不……
+            <p>Go 协程（Goroutine）是与其他函数同时运行的函数。可以认为 Go 协程是轻量级的线程，由 Go 运行时来管理。</p>
+<p>对于 协程(用户级线程)，这是对内核透明的，也就是系统并不知道有协程的存在，是完全由用户自己的程序进行调度的，因为是由用户程序自己控制，那么就很难像抢占式调度那样做到强制的 CPU 控制权切换到其他进程/线程，通常只能进行 协作式调度，需要协程自己主动把控制权转让出去之后，其他协程才能被执行到。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-02-09-golang%E5%8D%8F%E7%A8%8B/" target="_blank">阅读全文</a></p>
     </article>
@@ -119,7 +120,7 @@
 
 
         <div class="post-content">
-            本小节学习go语言的方法和接口，虽然go语言没有提供类的设计，但可以通过结构体来类比实现对应功能，而类具有对应的方法，同理结构体也可以有自己的函数，我们称之为方……
+            <p>本小节学习go语言的方法和接口，虽然go语言没有提供类的设计，但可以通过结构体来类比实现对应功能，而类具有对应的方法，同理结构体也可以有自己的函数，我们称之为方法，具体定义是在函数前面加上接收者。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-02-07-golang%E6%96%B9%E6%B3%95/" target="_blank">阅读全文</a></p>
     </article>
@@ -147,7 +148,7 @@
 
 
         <div class="post-content">
-            本小节学习go语言的map，map里面存储着键值对，通过键来快速获取对应的值，我们使用map[T]T格式来定义集合，需要注意的是key的限制，map中的key可……
+            <p>本小节学习go语言的map，map里面存储着键值对，通过键来快速获取对应的值，我们使用<code>map[T]T</code>格式来定义集合，需要注意的是key的限制，map中的key可以是bool，数字，string，指针，channel还可以是只包含前面几个类型的接口，结构体，数组，但是不能使用slice，map还有function作为key，因为这几个没法用==来判断。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-02-06-golangmap/" target="_blank">阅读全文</a></p>
     </article>
@@ -175,7 +176,7 @@
 
 
         <div class="post-content">
-            本小节学习go语言的数组和切片，一门编程语言肯定少不了基本数据结构数组，go语言中还有另外的类型切片，和数组的区别是数组的大小是固定的，是不可改动的，而切片是可……
+            <p>本小节学习go语言的数组和切片，一门编程语言肯定少不了基本数据结构数组，go语言中还有另外的类型切片，和数组的区别是数组的大小是固定的，是不可改动的，而切片是可以动态扩展的。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-02-05-golangslice/" target="_blank">阅读全文</a></p>
     </article>
@@ -203,7 +204,9 @@
 
 
         <div class="post-content">
-            本小节介绍go语言中的结构体，由于go语言没有面向对象的设计，但我们可以通过结构体去实现面向对象的继承、封装、多态特性。 指针 在介绍结构体之前，还需要了解一下go……
+            <p>本小节介绍go语言中的结构体，由于go语言没有面向对象的设计，但我们可以通过结构体去实现面向对象的继承、封装、多态特性。</p>
+<h2 id="指针">指针</h2>
+<p>在介绍结构体之前，还需要了解一下go语言中指针的相关概念和用法。和c语言一样，如果一个变量是指针，则表示这个变量存储的数据是指向其目标变量的存储地址。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-02-02-golangstruct/" target="_blank">阅读全文</a></p>
     </article>
@@ -231,7 +234,9 @@
 
 
         <div class="post-content">
-            接下来学习go语言的基本流程控制，包含if、switch、for、defer四个关键字。 if go语言与其他语言的一个不同之处，就是控制语句不需要额外的括号包裹，i……
+            <p>接下来学习go语言的基本流程控制，包含if、switch、for、defer四个关键字。</p>
+<h2 id="if">if</h2>
+<p>go语言与其他语言的一个不同之处，就是控制语句不需要额外的括号包裹，if语句的使用如下</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-02-01-golangflow/" target="_blank">阅读全文</a></p>
     </article>
@@ -259,7 +264,9 @@
 
 
         <div class="post-content">
-            最新使用Python编写一些处理脚本，感觉与golang之间的语法开始模糊，因此决定根据官方文档，写一下golang的入门教程，顺便复习一下相关语法巩固基础。 包……
+            <p>最新使用Python编写一些处理脚本，感觉与golang之间的语法开始模糊，因此决定根据官方文档，写一下golang的入门教程，顺便复习一下相关语法巩固基础。</p>
+<h2 id="包">包</h2>
+<p>包是golang里的最基本组成部件，go程序就是由一个个包组装起来的，例如程序入口main包。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-01-31-golangbasics/" target="_blank">阅读全文</a></p>
     </article>
@@ -287,7 +294,7 @@
 
 
         <div class="post-content">
-            最近工作上遇到需要解析ttf字库的需求，判断给到的数据中是否有不存在ttf字库中的汉字，结果查询一遍之后发现，使用golang解析ttf做判定的代码基本没有，因……
+            <p>最近工作上遇到需要解析ttf字库的需求，判断给到的数据中是否有不存在ttf字库中的汉字，结果查询一遍之后发现，使用golang解析ttf做判定的代码基本没有，因此本文开始详细分析一波ttf字库文件，并尝试使用golang解析，实现相关需求。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-01-14-golangttf/" target="_blank">阅读全文</a></p>
     </article>
@@ -315,7 +322,9 @@
 
 
         <div class="post-content">
-            最近阅读《Python工匠：案例、技巧与工程实践》发现一些零零碎碎的之前不知道的知识点，因此总结记录方便以后翻找查阅。 变量与注释 变量解包是python里一种特殊……
+            <p>最近阅读《Python工匠：案例、技巧与工程实践》发现一些零零碎碎的之前不知道的知识点，因此总结记录方便以后翻找查阅。</p>
+<h2 id="变量与注释">变量与注释</h2>
+<p><strong>变量解包</strong>是python里一种特殊的赋值操作，允许把可迭代的对象所有成员一次性赋值给多个变量。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-01-07-python%E7%9F%A5%E8%AF%86%E7%82%B9%E6%8B%BE%E9%81%97/" target="_blank">阅读全文</a></p>
     </article>
@@ -433,7 +442,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -469,7 +478,7 @@
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -529,17 +538,17 @@
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -547,9 +556,9 @@
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -560,29 +569,29 @@
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -109,22 +109,22 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic"></span><span style="color:#998;font-style:italic"># 等腰三角形</span>
-</span></span><span style="display:flex;"><span><span style="color:#0086b3">read</span> -p <span style="color:#d14">&#34;Please input the length: &#34;</span> n
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">for</span> i in <span style="color:#d14">`</span>seq <span style="color:#099">1</span> <span style="color:#008080">$n</span><span style="color:#d14">`</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">((</span><span style="color:#008080">j</span><span style="color:#000;font-weight:bold">=</span><span style="color:#008080">$n</span>;j&gt;i;j--<span style="color:#000;font-weight:bold">))</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#0086b3">echo</span> -n <span style="color:#d14">&#34; &#34;</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">done</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#57606a">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#57606a"># 等腰三角形</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">read</span> -p <span style="color:#0a3069">&#34;Please input the length: &#34;</span> n
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">for</span> i in <span style="color:#0a3069">`</span>seq <span style="color:#0550ae">1</span> <span style="color:#953800">$n</span><span style="color:#0a3069">`</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#cf222e">for</span> <span style="color:#0550ae">((</span><span style="color:#953800">j</span><span style="color:#0550ae">=</span><span style="color:#953800">$n</span><span style="color:#1f2328">;</span>j&gt;i<span style="color:#1f2328">;</span>j--<span style="color:#0550ae">))</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#6639ba">echo</span> -n <span style="color:#0a3069">&#34; &#34;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#cf222e">done</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">for</span> m in <span style="color:#d14">`</span>seq <span style="color:#099">1</span> <span style="color:#008080">$i</span><span style="color:#d14">`</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#0086b3">echo</span> -n <span style="color:#d14">&#34;* &#34;</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">done</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#0086b3">echo</span> 
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">done</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#cf222e">for</span> m in <span style="color:#0a3069">`</span>seq <span style="color:#0550ae">1</span> <span style="color:#953800">$i</span><span style="color:#0a3069">`</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#6639ba">echo</span> -n <span style="color:#0a3069">&#34;* &#34;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#cf222e">done</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#6639ba">echo</span> 
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">done</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="打印倒三角">打印倒三角</h2>
@@ -143,16 +143,16 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic"></span><span style="color:#998;font-style:italic"># 直角三角形</span>
-</span></span><span style="display:flex;"><span><span style="color:#0086b3">read</span> -p <span style="color:#d14">&#34;Please input the length: &#34;</span> len
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">for</span> i in <span style="color:#d14">`</span>seq <span style="color:#099">1</span> <span style="color:#008080">$len</span><span style="color:#d14">`</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">do</span> <span style="color:#000;font-weight:bold">for</span><span style="color:#000;font-weight:bold">((</span><span style="color:#008080">j</span><span style="color:#000;font-weight:bold">=</span>1;j&lt;<span style="color:#000;font-weight:bold">=</span><span style="color:#008080">$i</span>;j++<span style="color:#000;font-weight:bold">))</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#0086b3">echo</span> -n <span style="color:#d14">&#34;* &#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">done</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">echo</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">done</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#57606a">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#57606a"># 直角三角形</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">read</span> -p <span style="color:#0a3069">&#34;Please input the length: &#34;</span> len
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">for</span> i in <span style="color:#0a3069">`</span>seq <span style="color:#0550ae">1</span> <span style="color:#953800">$len</span><span style="color:#0a3069">`</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">do</span> <span style="color:#cf222e">for</span><span style="color:#0550ae">((</span><span style="color:#953800">j</span><span style="color:#0550ae">=</span>1<span style="color:#1f2328">;</span>j&lt;<span style="color:#0550ae">=</span><span style="color:#953800">$i</span><span style="color:#1f2328">;</span>j++<span style="color:#0550ae">))</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#6639ba">echo</span> -n <span style="color:#0a3069">&#34;* &#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">done</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">echo</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">done</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="截取字符串">截取字符串</h2>
@@ -169,17 +169,17 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#099">1.</span><span style="color:#a61717;background-color:#e3d2d2">取出</span>www.aaa.com<span style="color:#000;font-weight:bold">/</span>root<span style="color:#000;font-weight:bold">/</span><span style="color:#099">123.</span>htm
-</span></span><span style="display:flex;"><span><span style="color:#099">2.</span><span style="color:#a61717;background-color:#e3d2d2">取出</span><span style="color:#099">123.</span>htm
-</span></span><span style="display:flex;"><span><span style="color:#099">3.</span><span style="color:#a61717;background-color:#e3d2d2">取出</span><span style="color:#900;font-weight:bold">http</span>:<span style="color:#998;font-style:italic">//www.aaa.com/root
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#099">4.</span><span style="color:#a61717;background-color:#e3d2d2">取出</span><span style="color:#900;font-weight:bold">http</span>:
-</span></span><span style="display:flex;"><span><span style="color:#099">5.</span><span style="color:#a61717;background-color:#e3d2d2">取出</span><span style="color:#900;font-weight:bold">http</span>:<span style="color:#998;font-style:italic">//
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#099">6.</span><span style="color:#a61717;background-color:#e3d2d2">取出</span>www.aaa.com<span style="color:#000;font-weight:bold">/</span>root<span style="color:#000;font-weight:bold">/</span><span style="color:#099">123.</span>htm
-</span></span><span style="display:flex;"><span><span style="color:#099">7.</span><span style="color:#a61717;background-color:#e3d2d2">取出</span><span style="color:#099">123</span>
-</span></span><span style="display:flex;"><span><span style="color:#099">8.</span><span style="color:#a61717;background-color:#e3d2d2">取出</span><span style="color:#099">123.</span>htm
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#0550ae">1.</span><span style="color:#f6f8fa;background-color:#82071e">取出</span>www<span style="color:#1f2328">.</span>aaa<span style="color:#1f2328">.</span>com<span style="color:#0550ae">/</span>root<span style="color:#0550ae">/</span><span style="color:#0550ae">123.</span>htm
+</span></span><span style="display:flex;"><span><span style="color:#0550ae">2.</span><span style="color:#f6f8fa;background-color:#82071e">取出</span><span style="color:#0550ae">123.</span>htm
+</span></span><span style="display:flex;"><span><span style="color:#0550ae">3.</span><span style="color:#f6f8fa;background-color:#82071e">取出</span><span style="color:#900;font-weight:bold">http</span><span style="color:#1f2328">:</span><span style="color:#57606a">//www.aaa.com/root
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#0550ae">4.</span><span style="color:#f6f8fa;background-color:#82071e">取出</span><span style="color:#900;font-weight:bold">http</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span><span style="color:#0550ae">5.</span><span style="color:#f6f8fa;background-color:#82071e">取出</span><span style="color:#900;font-weight:bold">http</span><span style="color:#1f2328">:</span><span style="color:#57606a">//
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#0550ae">6.</span><span style="color:#f6f8fa;background-color:#82071e">取出</span>www<span style="color:#1f2328">.</span>aaa<span style="color:#1f2328">.</span>com<span style="color:#0550ae">/</span>root<span style="color:#0550ae">/</span><span style="color:#0550ae">123.</span>htm
+</span></span><span style="display:flex;"><span><span style="color:#0550ae">7.</span><span style="color:#f6f8fa;background-color:#82071e">取出</span><span style="color:#0550ae">123</span>
+</span></span><span style="display:flex;"><span><span style="color:#0550ae">8.</span><span style="color:#f6f8fa;background-color:#82071e">取出</span><span style="color:#0550ae">123.</span>htm
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="代码-sh-binbash-varhttpwwwaaacomroot123htm">代码 ```sh #!/bin/bash var=&ldquo;<a href="http://www.aaa.com/root/123.htm%22">http://www.aaa.com/root/123.htm&quot;</a></h3>
+</div><h3 id="代码-sh-binbash-var">代码 ```sh #!/bin/bash var=&ldquo;<a href="http://www.aaa.com/root/123.htm%22">http://www.aaa.com/root/123.htm&quot;</a></h3>
 <p>#1. echo $var |awk -F &lsquo;//&rsquo; &lsquo;{print $2}&rsquo; #2. echo $var |awk -F &lsquo;/&rsquo; &lsquo;{print $5}&rsquo; #3. echo $var |grep -o &lsquo;http.*root&rsquo; #4. echo $var |awk -F &lsquo;/&rsquo; &lsquo;{print $1}&rsquo; #5. echo $var |grep -o &lsquo;http://&rsquo; #6. echo $var |grep -o &lsquo;www.*htm&rsquo; #7. echo $var |grep -o &lsquo;123&rsquo; #8. echo $var |grep -o &lsquo;123.htm&rsquo;</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -246,20 +246,20 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic"></span><span style="color:#000;font-weight:bold">while</span> :
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#0086b3">read</span> -p <span style="color:#d14">&#34;Please enter a positive integer: &#34;</span> n
-</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#008080">$n</span> -lt <span style="color:#099">1</span> <span style="color:#000;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">then</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;It can&#39;t be less than 1&#34;</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">else</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#0086b3">break</span> <span style="color:#000;font-weight:bold">fi</span> <span style="color:#000;font-weight:bold">done</span> <span style="color:#008080">num</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">for</span> i in <span style="color:#d14">`</span>seq <span style="color:#099">2</span> <span style="color:#008080">$n</span><span style="color:#d14">`</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">do</span> <span style="color:#008080">num</span><span style="color:#000;font-weight:bold">=</span>$<span style="color:#000;font-weight:bold">[</span><span style="color:#008080">$num</span>+<span style="color:#008080">$i</span><span style="color:#000;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">done</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#57606a">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#cf222e">while</span> :
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#6639ba">read</span> -p <span style="color:#0a3069">&#34;Please enter a positive integer: &#34;</span> n
+</span></span><span style="display:flex;"><span>   <span style="color:#cf222e">if</span> <span style="color:#0550ae">[</span> <span style="color:#953800">$n</span> -lt <span style="color:#0550ae">1</span> <span style="color:#0550ae">]</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#cf222e">then</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#6639ba">echo</span> <span style="color:#0a3069">&#34;It can&#39;t be less than 1&#34;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#6639ba">break</span> <span style="color:#cf222e">fi</span> <span style="color:#cf222e">done</span> <span style="color:#953800">num</span><span style="color:#0550ae">=</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">for</span> i in <span style="color:#0a3069">`</span>seq <span style="color:#0550ae">2</span> <span style="color:#953800">$n</span><span style="color:#0a3069">`</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">do</span> <span style="color:#953800">num</span><span style="color:#0550ae">=</span>$<span style="color:#0550ae">[</span><span style="color:#953800">$num</span>+<span style="color:#953800">$i</span><span style="color:#0550ae">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">done</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0086b3">echo</span> <span style="color:#008080">$num</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">echo</span> <span style="color:#953800">$num</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="拷贝目录">拷贝目录</h2>
@@ -278,16 +278,16 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic"></span><span style="color:#0086b3">cd</span> /root/ <span style="color:#008080">list</span><span style="color:#000;font-weight:bold">=(</span><span style="color:#d14">`</span>ls<span style="color:#d14">`</span><span style="color:#000;font-weight:bold">)</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#57606a">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#6639ba">cd</span> /root/ <span style="color:#953800">list</span><span style="color:#0550ae">=(</span><span style="color:#0a3069">`</span>ls<span style="color:#0a3069">`</span><span style="color:#0550ae">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">for</span> i in <span style="color:#d14">${</span><span style="color:#008080">list</span>[@]<span style="color:#d14">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> -d <span style="color:#008080">$i</span> <span style="color:#000;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">then</span>
-</span></span><span style="display:flex;"><span>       cp -r <span style="color:#008080">$i</span> /tmp/
-</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">fi</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">done</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">for</span> i in <span style="color:#0a3069">${</span><span style="color:#953800">list</span><span style="color:#1f2328">[@]</span><span style="color:#0a3069">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#cf222e">if</span> <span style="color:#0550ae">[</span> -d <span style="color:#953800">$i</span> <span style="color:#0550ae">]</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#cf222e">then</span>
+</span></span><span style="display:flex;"><span>       cp -r <span style="color:#953800">$i</span> /tmp/
+</span></span><span style="display:flex;"><span>   <span style="color:#cf222e">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">done</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="统计内存使用">统计内存使用</h2>
@@ -387,14 +387,6 @@
         
         <li><a href="/blog/tools/2020-03-14-Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">Shell基本语法</a></li>
         
-        <li><a href="/blog/tools/2020-03-14-CURL%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">CURL简单使用</a></li>
-        
-        <li><a href="/blog/tools/2020-03-14-GREP%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">GREP简单使用</a></li>
-        
-        <li><a href="/blog/tools/2020-03-14-FIND%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">FIND简单使用</a></li>
-        
-        <li><a href="/blog/tools/2020-03-14-SED%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">SED简单使用</a></li>
-        
     </ul>
 </div>
 
@@ -431,7 +423,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -478,7 +470,7 @@
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -538,17 +530,17 @@
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -556,9 +548,9 @@
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -569,29 +561,29 @@
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

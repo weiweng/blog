@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-	<meta name="generator" content="Hugo 0.117.0">
+	<meta name="generator" content="Hugo 0.145.0">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1207188090915424" crossorigin="anonymous"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,7 +36,7 @@
             <div class="site-name ">
                 
                     <h1>
-                        <a id="logo" href="https://weiweng.github.io/blog">
+                        <a id="logo" href="https://weiweng.github.io/blog/">
                             weiweng的博客
                         </a>
                     </h1>
@@ -45,7 +45,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -91,7 +91,61 @@
 
 
         <div class="post-content">
-            初级练习 下一个更大元素 I 思路 最基础的单调栈用法。 代码 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 func nextGreaterElement(nums1, nums2 []int) []int { mp := map[int]int{} stack := []int{} for i := len(nums2) - 1; i &gt;= 0; i-- { num := nums2[i] for len(stack) &gt; 0 &amp;&amp; num &gt;=……
+            <h2 id="初级练习">初级练习</h2>
+<h3 id="下一个更大元素-i"><strong><a href="https://leetcode.cn/problems/next-greater-element-i/">下一个更大元素 I</a></strong></h3>
+<p><strong>思路</strong></p>
+<p>最基础的单调栈用法。</p>
+<p><strong>代码</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">nextGreaterElement</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums1</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">nums2</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">mp</span> <span style="color:#0550ae">:=</span> <span style="color:#cf222e">map</span><span style="color:#1f2328">[</span><span style="color:#cf222e">int</span><span style="color:#1f2328">]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">stack</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums2</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">&gt;=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">--</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">num</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">nums2</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">for</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">stack</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">&gt;</span> <span style="color:#0550ae">0</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">num</span> <span style="color:#0550ae">&gt;=</span> <span style="color:#1f2328">stack</span><span style="color:#1f2328">[</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">stack</span><span style="color:#1f2328">)</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">stack</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">stack</span><span style="color:#1f2328">[:</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">stack</span><span style="color:#1f2328">)</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">stack</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">&gt;</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">mp</span><span style="color:#1f2328">[</span><span style="color:#1f2328">num</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">stack</span><span style="color:#1f2328">[</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">stack</span><span style="color:#1f2328">)</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">mp</span><span style="color:#1f2328">[</span><span style="color:#1f2328">num</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">stack</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span><span style="color:#1f2328">stack</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">num</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">res</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">make</span><span style="color:#1f2328">([]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums1</span><span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">num</span> <span style="color:#0550ae">:=</span> <span style="color:#cf222e">range</span> <span style="color:#1f2328">nums1</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">res</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mp</span><span style="color:#1f2328">[</span><span style="color:#1f2328">num</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">res</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="商品折扣后的最终价格"><strong><a href="https://leetcode.cn/problems/final-prices-with-a-special-discount-in-a-shop/">商品折扣后的最终价格</a></strong></h3>
+<p><strong>思路</strong></p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-06-16-%E5%8D%95%E8%B0%83%E6%A0%88/" target="_blank">阅读全文</a></p>
     </article>
@@ -119,7 +173,11 @@
 
 
         <div class="post-content">
-            滑动窗口，这个算法思路非常简单，就是维护一个窗口，不断滑动，然后更新答案。 初级练习 学生分数的最小差值 思路 因为可以任意选k名学生，因此我们排序后，使用滑动窗口，维……
+            <p>滑动窗口，这个算法思路非常简单，就是维护一个窗口，不断滑动，然后更新答案。</p>
+<h2 id="初级练习">初级练习</h2>
+<h3 id="学生分数的最小差值"><strong><a href="https://leetcode.cn/problems/minimum-difference-between-highest-and-lowest-of-k-scores/">学生分数的最小差值</a></strong></h3>
+<p><strong>思路</strong></p>
+<p>因为可以任意选k名学生，因此我们排序后，使用滑动窗口，维持k大小的窗口，计算每次窗口内的最大值和最小值的差，数组遍历结束后返回最小值。这道题是最基本的滑动窗口使用方法。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-06-16-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" target="_blank">阅读全文</a></p>
     </article>
@@ -147,7 +205,8 @@
 
 
         <div class="post-content">
-            双指针是一种简单而又灵活的技巧和思想，单独使用可以轻松解决一些特定问题，和其他算法结合也能发挥多样的用处。 双指针顾名思义，就是同时使用两个指针，在序列、链表结构……
+            <p><strong>双指针</strong>是一种简单而又灵活的技巧和思想，单独使用可以轻松解决一些特定问题，和其他算法结合也能发挥多样的用处。</p>
+<p>双指针顾名思义，就是同时使用两个指针，在序列、链表结构上指向的是位置，在树、图结构中指向的是节点，通过或同向移动，或相向移动来维护、统计信息。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-06-11-%E5%8F%8C%E6%8C%87%E9%92%88/" target="_blank">阅读全文</a></p>
     </article>
@@ -175,7 +234,14 @@
 
 
         <div class="post-content">
-            二分查找 (Binary Search) 也称折半查找，它是一种效率较高的查找方法。但是，折半查找要求线性表必须采用顺序存储结构，而且表中元素按关键字有序排列。 总结有以下特征和解题步骤： 寻找……
+            <p><strong>二分查找</strong> (Binary Search) 也称折半查找，它是一种效率较高的查找方法。但是，折半查找要求线性表必须采用顺序存储结构，而且表中元素按关键字有序排列。</p>
+<p>总结有以下特征和解题步骤：</p>
+<ul>
+<li>寻找有序性</li>
+<li>寻找判断函数，<code>func(mid)</code></li>
+<li>使用的二分查找模板</li>
+</ul>
+<p><strong>基础模板</strong></p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-06-11-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" target="_blank">阅读全文</a></p>
     </article>
@@ -203,7 +269,42 @@
 
 
         <div class="post-content">
-            回溯 (backtracking) 是暴力搜索的方法之一。 总结有以下特征和解题步骤： 问题的解在可预估的范围内 给出一个解能快速判断是否符合要求 代码有固定模板 1 2 3 4 5 6 7 8 9 10 result = [] def back……
+            <p><strong>回溯</strong> (backtracking) 是暴力搜索的方法之一。</p>
+<p>总结有以下特征和解题步骤：</p>
+<ul>
+<li>问题的解在可预估的范围内</li>
+<li>给出一个解能快速判断是否符合要求</li>
+<li>代码有固定模板</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#1f2328">result</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">[]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">def</span> <span style="color:#6639ba">backtrack</span><span style="color:#1f2328">(</span><span style="color:#1f2328">路径</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">选择列表</span><span style="color:#1f2328">):</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">满足结束条件</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">result</span><span style="color:#1f2328">.</span><span style="color:#6639ba">add</span><span style="color:#1f2328">(</span><span style="color:#1f2328">路径</span><span style="color:#1f2328">)</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#1f2328">选择</span> <span style="color:#1f2328">in</span> <span style="color:#1f2328">选择列表</span><span style="color:#1f2328">:</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">做选择</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6639ba">backtrack</span><span style="color:#1f2328">(</span><span style="color:#1f2328">路径</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">选择列表</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">撤销选择</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="组合问题">组合问题</h2>
+<h3 id="题目"><strong>题目<a href="https://leetcode.cn/problems/combinations/submissions/">leetcode77 组合</a></strong></h3>
+<p><strong>题解</strong></p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-06-10-%E5%9B%9E%E6%BA%AF/" target="_blank">阅读全文</a></p>
     </article>
@@ -231,7 +332,15 @@
 
 
         <div class="post-content">
-            动态规划（Dynamic Programming，DP）是运筹学的一个分支，是求解决策过程。总结有以下特征和解题步骤： 肯定是求最值问题，并且具备重叠子问题 定义问题……
+            <p>动态规划（Dynamic Programming，DP）是运筹学的一个分支，是求解决策过程。总结有以下特征和解题步骤：</p>
+<ul>
+<li>肯定是求最值问题，并且具备重叠子问题</li>
+<li>定义问题(dp子问题的定义)</li>
+<li>寻找状态转变的所有选择情况(定义状态转移方程式)</li>
+<li>确定边界情况 bad case</li>
+</ul>
+<h2 id="01背包问题">01背包问题</h2>
+<p>描述</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-06-06-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" target="_blank">阅读全文</a></p>
     </article>
@@ -259,7 +368,7 @@
 
 
         <div class="post-content">
-            最近看了k8s的一本基础英文入门书籍《The Kubernetes Book》，不得不说还是英文教程写的通透，至少是可以一气呵成的从头读到尾，中文书籍可能有些作者自己都不知道写的是啥……
+            <p>最近看了k8s的一本基础英文入门书籍《The Kubernetes Book》，不得不说还是英文教程写的通透，至少是可以一气呵成的从头读到尾，中文书籍可能有些作者自己都不知道写的是啥。当然学习技术相关的知识，主要还是跟踪官网获取最新动态，不过官网的资料大而全而细，因此看一些前人总结的快速入门书籍也是不错的路子，所谓的先总后方，先大后小，简单的从大、总的角度了解一下k8s，然后细致的学习其中的每个小点，这算是我自己这些天的学习总结吧。话不多说，开始记录一些书籍中的学习心得。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-04-22-k8s%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6/" target="_blank">阅读全文</a></p>
     </article>
@@ -287,7 +396,7 @@
 
 
         <div class="post-content">
-            参考官网，k8s的定义是：Kubernetes 是一个可移植、可扩展的开源平台，用于管理容器化的工作负载和服务，可促进声明式配置和自动化。 Kubernetes 拥有一个庞大且快速增长……
+            <p>参考官网，k8s的定义是：Kubernetes 是一个可移植、可扩展的开源平台，用于管理容器化的工作负载和服务，可促进声明式配置和自动化。 Kubernetes 拥有一个庞大且快速增长的生态，其服务、支持和工具的使用范围相当广泛。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-03-21-k8s%E6%A6%82%E5%BF%B5/" target="_blank">阅读全文</a></p>
     </article>
@@ -315,7 +424,7 @@
 
 
         <div class="post-content">
-            最近思考如何拥有自己的一套部署体系，也许以后被辞退了可以开个淘宝店接接副业，因此开始研究云原生相关，最先 接触到的自然是Docker，本文简单介绍一下Docker……
+            <p>最近思考如何拥有自己的一套部署体系，也许以后被辞退了可以开个淘宝店接接副业，因此开始研究云原生相关，最先 接触到的自然是Docker，本文简单介绍一下Docker的基础和基本使用。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-02-18-%E4%BA%91%E5%8E%9F%E7%94%9Fdocker/" target="_blank">阅读全文</a></p>
     </article>
@@ -343,7 +452,8 @@
 
 
         <div class="post-content">
-            阅读hugo源码，发现入口是很多commend构成，了解到cobra项目，因此学习一下cobra的基本使用。 Cobra 是一个用于创建强大的现代 CLI 应用程序的库。用于许多 Go……
+            <p>阅读hugo源码，发现入口是很多commend构成，了解到cobra项目，因此学习一下cobra的基本使用。</p>
+<p><a href="https://github.com/spf13/cobra">Cobra</a> 是一个用于创建强大的现代 CLI 应用程序的库。用于许多 Go 项目，例如 Kubernetes、Hugo 和 GitHub CLI 等等。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-02-17-golangcobra/" target="_blank">阅读全文</a></p>
     </article>
@@ -426,7 +536,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -462,7 +572,7 @@
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -522,17 +632,17 @@
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -540,9 +650,9 @@
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -553,29 +663,29 @@
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

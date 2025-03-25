@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -217,26 +217,26 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">$</span> cat cal.awk
-</span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/awk -f
-</span></span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic">#运行前
-</span></span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic"></span>BEGIN {
-</span></span><span style="display:flex;"><span>math <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>english <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>computer <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span> 
-</span></span><span style="display:flex;"><span>printf <span style="color:#d14">&#34;NAME    NO.   MATH  ENGLISH  COMPUTER   TOTAL</span><span style="color:#d14">\n</span><span style="color:#d14">&#34;</span>
-</span></span><span style="display:flex;"><span>printf <span style="color:#d14">&#34;---------------------------------------------</span><span style="color:#d14">\n</span><span style="color:#d14">&#34;</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic">#运行中
-</span></span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic"></span>{ math<span style="color:#000;font-weight:bold">+=</span><span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#099">3</span> english<span style="color:#000;font-weight:bold">+=</span><span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#099">4</span> computer<span style="color:#000;font-weight:bold">+=</span><span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#099">5</span>
-</span></span><span style="display:flex;"><span>printf <span style="color:#d14">&#34;%-6s %-6s %4d %8d %8d %8d</span><span style="color:#d14">\n</span><span style="color:#d14">&#34;</span>, <span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#099">1</span>, <span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#099">2</span>, <span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#099">3</span>,<span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#099">4</span>,<span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#099">5</span>, <span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#099">3</span><span style="color:#000;font-weight:bold">+</span><span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#099">4</span><span style="color:#000;font-weight:bold">+</span><span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#099">5</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic">#运行后
-</span></span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic"></span>END {
-</span></span><span style="display:flex;"><span>printf <span style="color:#d14">&#34;---------------------------------------------</span><span style="color:#d14">\n</span><span style="color:#d14">&#34;</span>
-</span></span><span style="display:flex;"><span>printf <span style="color:#d14">&#34;  TOTAL:%10d %8d %8d </span><span style="color:#d14">\n</span><span style="color:#d14">&#34;</span>, math, english, computer
-</span></span><span style="display:flex;"><span>printf <span style="color:#d14">&#34;AVERAGE:%10.2f %8.2f %8.2f</span><span style="color:#d14">\n</span><span style="color:#d14">&#34;</span>, math<span style="color:#000;font-weight:bold">/</span>NR, english<span style="color:#000;font-weight:bold">/</span>NR, computer<span style="color:#000;font-weight:bold">/</span>NR
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#f6f8fa;background-color:#82071e">$</span> cat cal<span style="color:#1f2328">.</span>awk
+</span></span><span style="display:flex;"><span><span style="color:#57606a">#!/bin/awk -f
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">#运行前
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>BEGIN <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>math <span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>english <span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>computer <span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span> 
+</span></span><span style="display:flex;"><span>printf <span style="color:#0a3069">&#34;NAME    NO.   MATH  ENGLISH  COMPUTER   TOTAL</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">&#34;</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#0a3069">&#34;---------------------------------------------</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">#运行中
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#1f2328">{</span> math<span style="color:#0550ae">+=</span><span style="color:#f6f8fa;background-color:#82071e">$</span><span style="color:#0550ae">3</span> english<span style="color:#0550ae">+=</span><span style="color:#f6f8fa;background-color:#82071e">$</span><span style="color:#0550ae">4</span> computer<span style="color:#0550ae">+=</span><span style="color:#f6f8fa;background-color:#82071e">$</span><span style="color:#0550ae">5</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#0a3069">&#34;%-6s %-6s %4d %8d %8d %8d</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">,</span> <span style="color:#f6f8fa;background-color:#82071e">$</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#f6f8fa;background-color:#82071e">$</span><span style="color:#0550ae">2</span><span style="color:#1f2328">,</span> <span style="color:#f6f8fa;background-color:#82071e">$</span><span style="color:#0550ae">3</span><span style="color:#1f2328">,</span><span style="color:#f6f8fa;background-color:#82071e">$</span><span style="color:#0550ae">4</span><span style="color:#1f2328">,</span><span style="color:#f6f8fa;background-color:#82071e">$</span><span style="color:#0550ae">5</span><span style="color:#1f2328">,</span> <span style="color:#f6f8fa;background-color:#82071e">$</span><span style="color:#0550ae">3</span><span style="color:#0550ae">+</span><span style="color:#f6f8fa;background-color:#82071e">$</span><span style="color:#0550ae">4</span><span style="color:#0550ae">+</span><span style="color:#f6f8fa;background-color:#82071e">$</span><span style="color:#0550ae">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">#运行后
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>END <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#0a3069">&#34;---------------------------------------------</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">&#34;</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#0a3069">&#34;  TOTAL:%10d %8d %8d </span><span style="color:#0a3069">\n</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">,</span> math<span style="color:#1f2328">,</span> english<span style="color:#1f2328">,</span> computer
+</span></span><span style="display:flex;"><span>printf <span style="color:#0a3069">&#34;AVERAGE:%10.2f %8.2f %8.2f</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">,</span> math<span style="color:#0550ae">/</span>NR<span style="color:#1f2328">,</span> english<span style="color:#0550ae">/</span>NR<span style="color:#1f2328">,</span> computer<span style="color:#0550ae">/</span>NR
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -253,23 +253,6 @@
 
 
         
-
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/post/2020-03-13-B%E7%B1%BB%E6%A0%91/">B类树</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E4%BD%8D%E5%9B%BE/">位图</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/">栈和队列</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E9%93%BE%E8%A1%A8/">链表</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-map/">Golang|map</a></li>
-        
-    </ul>
-</div>
 
 
         <div class="post-meta meta-tags">
@@ -304,7 +287,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -351,7 +334,7 @@
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -411,17 +394,17 @@
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -429,9 +412,9 @@
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -442,29 +425,29 @@
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -127,20 +127,20 @@
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>package bst
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>type BST <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	value <span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>	left  <span style="color:#000;font-weight:bold">*</span>BST
-</span></span><span style="display:flex;"><span>	right <span style="color:#000;font-weight:bold">*</span>BST
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>type BST <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	value <span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span>	left  <span style="color:#0550ae">*</span>BST
+</span></span><span style="display:flex;"><span>	right <span style="color:#0550ae">*</span>BST
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">InitBST</span>(v <span style="color:#458;font-weight:bold">int</span>) <span style="color:#000;font-weight:bold">*</span>BST {
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">bstNode</span> :<span style="color:#000;font-weight:bold">=</span> BST{
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">value</span>: v,
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">left</span>:  nil,
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">right</span>: nil,
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">&amp;</span>bstNode
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">InitBST</span><span style="color:#1f2328">(</span>v <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span>BST <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">bstNode</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> BST<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">value</span><span style="color:#1f2328">:</span> v<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">left</span><span style="color:#1f2328">:</span>  nil<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">right</span><span style="color:#1f2328">:</span> nil<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#0550ae">&amp;</span>bstNode
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="查找">查找</h3>
@@ -161,18 +161,18 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">func</span> (root <span style="color:#000;font-weight:bold">*</span>BST) <span style="color:#900;font-weight:bold">Find</span>(target <span style="color:#458;font-weight:bold">int</span>) (<span style="color:#000;font-weight:bold">*</span>BST, <span style="color:#458;font-weight:bold">bool</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> nil, <span style="color:#0086b3">false</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root.value <span style="color:#000;font-weight:bold">==</span> target {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> root, <span style="color:#0086b3">true</span>
-</span></span><span style="display:flex;"><span>	} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> root.value <span style="color:#000;font-weight:bold">&lt;</span> target {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> root.right.<span style="color:#900;font-weight:bold">Find</span>(target)
-</span></span><span style="display:flex;"><span>	} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> root.left.<span style="color:#900;font-weight:bold">Find</span>(target)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#6639ba">func</span> <span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>BST<span style="color:#1f2328">)</span> <span style="color:#6639ba">Find</span><span style="color:#1f2328">(</span>target <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">(</span><span style="color:#0550ae">*</span>BST<span style="color:#1f2328">,</span> <span style="color:#cf222e">bool</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> nil<span style="color:#1f2328">,</span> <span style="color:#6639ba">false</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>value <span style="color:#0550ae">==</span> target <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> root<span style="color:#1f2328">,</span> <span style="color:#6639ba">true</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>value <span style="color:#0550ae">&lt;</span> target <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">.</span><span style="color:#6639ba">Find</span><span style="color:#1f2328">(</span>target<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">.</span><span style="color:#6639ba">Find</span><span style="color:#1f2328">(</span>target<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="遍历">遍历</h3>
@@ -209,35 +209,35 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">func</span> (root <span style="color:#000;font-weight:bold">*</span>BST) <span style="color:#900;font-weight:bold">Ftraverse</span>() (ret []<span style="color:#458;font-weight:bold">int</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	ret <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(ret, root.value)
-</span></span><span style="display:flex;"><span>	ret <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(ret, root.left.<span style="color:#900;font-weight:bold">Ftraverse</span>()...)
-</span></span><span style="display:flex;"><span>	ret <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(ret, root.right.<span style="color:#900;font-weight:bold">Ftraverse</span>()...)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#6639ba">func</span> <span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>BST<span style="color:#1f2328">)</span> <span style="color:#6639ba">Ftraverse</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">(</span>ret <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	ret <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>ret<span style="color:#1f2328">,</span> root<span style="color:#1f2328">.</span>value<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	ret <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>ret<span style="color:#1f2328">,</span> root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">.</span><span style="color:#6639ba">Ftraverse</span><span style="color:#1f2328">()...)</span>
+</span></span><span style="display:flex;"><span>	ret <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>ret<span style="color:#1f2328">,</span> root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">.</span><span style="color:#6639ba">Ftraverse</span><span style="color:#1f2328">()...)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">func</span> (root <span style="color:#000;font-weight:bold">*</span>BST) <span style="color:#900;font-weight:bold">Mtraverse</span>() (ret []<span style="color:#458;font-weight:bold">int</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	ret <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(ret, root.left.<span style="color:#900;font-weight:bold">Mtraverse</span>()...)
-</span></span><span style="display:flex;"><span>	ret <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(ret, root.value)
-</span></span><span style="display:flex;"><span>	ret <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(ret, root.right.<span style="color:#900;font-weight:bold">Mtraverse</span>()...)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">func</span> <span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>BST<span style="color:#1f2328">)</span> <span style="color:#6639ba">Mtraverse</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">(</span>ret <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	ret <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>ret<span style="color:#1f2328">,</span> root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">.</span><span style="color:#6639ba">Mtraverse</span><span style="color:#1f2328">()...)</span>
+</span></span><span style="display:flex;"><span>	ret <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>ret<span style="color:#1f2328">,</span> root<span style="color:#1f2328">.</span>value<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	ret <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>ret<span style="color:#1f2328">,</span> root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">.</span><span style="color:#6639ba">Mtraverse</span><span style="color:#1f2328">()...)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">func</span> (root <span style="color:#000;font-weight:bold">*</span>BST) <span style="color:#900;font-weight:bold">Btraverse</span>() (ret []<span style="color:#458;font-weight:bold">int</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	ret <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(ret, root.left.<span style="color:#900;font-weight:bold">Btraverse</span>()...)
-</span></span><span style="display:flex;"><span>	ret <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(ret, root.right.<span style="color:#900;font-weight:bold">Btraverse</span>()...)
-</span></span><span style="display:flex;"><span>	ret <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(ret, root.value)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">func</span> <span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>BST<span style="color:#1f2328">)</span> <span style="color:#6639ba">Btraverse</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">(</span>ret <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	ret <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>ret<span style="color:#1f2328">,</span> root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">.</span><span style="color:#6639ba">Btraverse</span><span style="color:#1f2328">()...)</span>
+</span></span><span style="display:flex;"><span>	ret <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>ret<span style="color:#1f2328">,</span> root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">.</span><span style="color:#6639ba">Btraverse</span><span style="color:#1f2328">()...)</span>
+</span></span><span style="display:flex;"><span>	ret <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>ret<span style="color:#1f2328">,</span> root<span style="color:#1f2328">.</span>value<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="添加">添加</h3>
@@ -271,28 +271,28 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">func</span> (root <span style="color:#000;font-weight:bold">*</span>BST) <span style="color:#900;font-weight:bold">Insert</span>(target <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">bool</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#0086b3">false</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root.value <span style="color:#000;font-weight:bold">==</span> target {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#0086b3">true</span>
-</span></span><span style="display:flex;"><span>	} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> root.value <span style="color:#000;font-weight:bold">&lt;</span> target {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> root.right <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>			<span style="color:#900;font-weight:bold">NewNode</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">InitBST</span>(target)
-</span></span><span style="display:flex;"><span>			root.right <span style="color:#000;font-weight:bold">=</span> NewNode
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> <span style="color:#0086b3">true</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> root.right.<span style="color:#900;font-weight:bold">Insert</span>(target)
-</span></span><span style="display:flex;"><span>	} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> root.left <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>			<span style="color:#900;font-weight:bold">NewNode</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">InitBST</span>(target)
-</span></span><span style="display:flex;"><span>			root.left <span style="color:#000;font-weight:bold">=</span> NewNode
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> <span style="color:#0086b3">true</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> root.left.<span style="color:#900;font-weight:bold">Insert</span>(target)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#6639ba">func</span> <span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>BST<span style="color:#1f2328">)</span> <span style="color:#6639ba">Insert</span><span style="color:#1f2328">(</span>target <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#6639ba">false</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>value <span style="color:#0550ae">==</span> target <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#6639ba">true</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>value <span style="color:#0550ae">&lt;</span> target <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>right <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#900;font-weight:bold">NewNode</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">InitBST</span><span style="color:#1f2328">(</span>target<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			root<span style="color:#1f2328">.</span>right <span style="color:#0550ae">=</span> NewNode
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#6639ba">true</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">.</span><span style="color:#6639ba">Insert</span><span style="color:#1f2328">(</span>target<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>left <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#900;font-weight:bold">NewNode</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">InitBST</span><span style="color:#1f2328">(</span>target<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			root<span style="color:#1f2328">.</span>left <span style="color:#0550ae">=</span> NewNode
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#6639ba">true</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">.</span><span style="color:#6639ba">Insert</span><span style="color:#1f2328">(</span>target<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="删除">删除</h3>
@@ -346,43 +346,43 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">func</span> (root <span style="color:#000;font-weight:bold">*</span>BST) <span style="color:#900;font-weight:bold">getMin</span>() <span style="color:#000;font-weight:bold">*</span>BST {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> root
-</span></span><span style="display:flex;"><span>	} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">for</span> root.left <span style="color:#000;font-weight:bold">!=</span> nil {
-</span></span><span style="display:flex;"><span>			root <span style="color:#000;font-weight:bold">=</span> root.left
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> root
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#6639ba">func</span> <span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>BST<span style="color:#1f2328">)</span> <span style="color:#6639ba">getMin</span><span style="color:#1f2328">()</span> <span style="color:#0550ae">*</span>BST <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> root
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">for</span> root<span style="color:#1f2328">.</span>left <span style="color:#0550ae">!=</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			root <span style="color:#0550ae">=</span> root<span style="color:#1f2328">.</span>left
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> root
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">Delete</span>(root <span style="color:#000;font-weight:bold">*</span>BST, target <span style="color:#458;font-weight:bold">int</span>) <span style="color:#000;font-weight:bold">*</span>BST{
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> nil
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root.value <span style="color:#000;font-weight:bold">&lt;</span> target{
-</span></span><span style="display:flex;"><span>		root.right <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">Delete</span>(root.right,target)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> root
-</span></span><span style="display:flex;"><span>	} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> root.value <span style="color:#000;font-weight:bold">&gt;</span> target {
-</span></span><span style="display:flex;"><span>		root.left <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">Delete</span>(root.left,target)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> root
-</span></span><span style="display:flex;"><span>	} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> root.left <span style="color:#000;font-weight:bold">==</span> nil <span style="color:#000;font-weight:bold">&amp;&amp;</span> root.right <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> nil
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> root.left <span style="color:#000;font-weight:bold">!=</span> nil <span style="color:#000;font-weight:bold">&amp;&amp;</span> root.right <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> root.left
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> root.left <span style="color:#000;font-weight:bold">==</span> nil <span style="color:#000;font-weight:bold">&amp;&amp;</span> root.right <span style="color:#000;font-weight:bold">!=</span> nil {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> root.right
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#900;font-weight:bold">minNode</span> :<span style="color:#000;font-weight:bold">=</span> root.right.<span style="color:#900;font-weight:bold">getMin</span>()
-</span></span><span style="display:flex;"><span>			root.value <span style="color:#000;font-weight:bold">=</span> minNode.value
-</span></span><span style="display:flex;"><span>			minNode.value <span style="color:#000;font-weight:bold">=</span> target
-</span></span><span style="display:flex;"><span>			root.right <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">Delete</span>(root.right,target)
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> root
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">Delete</span><span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>BST<span style="color:#1f2328">,</span> target <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span>BST<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> nil
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>value <span style="color:#0550ae">&lt;</span> target<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		root<span style="color:#1f2328">.</span>right <span style="color:#0550ae">=</span> <span style="color:#6639ba">Delete</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">,</span>target<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> root
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>value <span style="color:#0550ae">&gt;</span> target <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		root<span style="color:#1f2328">.</span>left <span style="color:#0550ae">=</span> <span style="color:#6639ba">Delete</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">,</span>target<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> root
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>left <span style="color:#0550ae">==</span> nil <span style="color:#0550ae">&amp;&amp;</span> root<span style="color:#1f2328">.</span>right <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> nil
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>left <span style="color:#0550ae">!=</span> nil <span style="color:#0550ae">&amp;&amp;</span> root<span style="color:#1f2328">.</span>right <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> root<span style="color:#1f2328">.</span>left
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>left <span style="color:#0550ae">==</span> nil <span style="color:#0550ae">&amp;&amp;</span> root<span style="color:#1f2328">.</span>right <span style="color:#0550ae">!=</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> root<span style="color:#1f2328">.</span>right
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#900;font-weight:bold">minNode</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">.</span><span style="color:#6639ba">getMin</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>			root<span style="color:#1f2328">.</span>value <span style="color:#0550ae">=</span> minNode<span style="color:#1f2328">.</span>value
+</span></span><span style="display:flex;"><span>			minNode<span style="color:#1f2328">.</span>value <span style="color:#0550ae">=</span> target
+</span></span><span style="display:flex;"><span>			root<span style="color:#1f2328">.</span>right <span style="color:#0550ae">=</span> <span style="color:#6639ba">Delete</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">,</span>target<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> root
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="整体代码以及单测">整体代码以及单测</h3>
@@ -681,293 +681,293 @@
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>package bst
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>type BST <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	value <span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>	left  <span style="color:#000;font-weight:bold">*</span>BST
-</span></span><span style="display:flex;"><span>	right <span style="color:#000;font-weight:bold">*</span>BST
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>type BST <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	value <span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span>	left  <span style="color:#0550ae">*</span>BST
+</span></span><span style="display:flex;"><span>	right <span style="color:#0550ae">*</span>BST
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">InitBST</span>(v <span style="color:#458;font-weight:bold">int</span>) <span style="color:#000;font-weight:bold">*</span>BST {
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">bstNode</span> :<span style="color:#000;font-weight:bold">=</span> BST{
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">value</span>: v,
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">left</span>:  nil,
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">right</span>: nil,
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">&amp;</span>bstNode
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">InitBST</span><span style="color:#1f2328">(</span>v <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span>BST <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">bstNode</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> BST<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">value</span><span style="color:#1f2328">:</span> v<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">left</span><span style="color:#1f2328">:</span>  nil<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">right</span><span style="color:#1f2328">:</span> nil<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#0550ae">&amp;</span>bstNode
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">func</span> (root <span style="color:#000;font-weight:bold">*</span>BST) <span style="color:#900;font-weight:bold">Find</span>(target <span style="color:#458;font-weight:bold">int</span>) (<span style="color:#000;font-weight:bold">*</span>BST, <span style="color:#458;font-weight:bold">bool</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> nil, <span style="color:#0086b3">false</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root.value <span style="color:#000;font-weight:bold">==</span> target {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> root, <span style="color:#0086b3">true</span>
-</span></span><span style="display:flex;"><span>	} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> root.value <span style="color:#000;font-weight:bold">&lt;</span> target {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> root.right.<span style="color:#900;font-weight:bold">Find</span>(target)
-</span></span><span style="display:flex;"><span>	} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> root.left.<span style="color:#900;font-weight:bold">Find</span>(target)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">func</span> <span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>BST<span style="color:#1f2328">)</span> <span style="color:#6639ba">Find</span><span style="color:#1f2328">(</span>target <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">(</span><span style="color:#0550ae">*</span>BST<span style="color:#1f2328">,</span> <span style="color:#cf222e">bool</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> nil<span style="color:#1f2328">,</span> <span style="color:#6639ba">false</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>value <span style="color:#0550ae">==</span> target <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> root<span style="color:#1f2328">,</span> <span style="color:#6639ba">true</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>value <span style="color:#0550ae">&lt;</span> target <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">.</span><span style="color:#6639ba">Find</span><span style="color:#1f2328">(</span>target<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">.</span><span style="color:#6639ba">Find</span><span style="color:#1f2328">(</span>target<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">func</span> (root <span style="color:#000;font-weight:bold">*</span>BST) <span style="color:#900;font-weight:bold">Ftraverse</span>() (ret []<span style="color:#458;font-weight:bold">int</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	ret <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(ret, root.value)
-</span></span><span style="display:flex;"><span>	ret <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(ret, root.left.<span style="color:#900;font-weight:bold">Ftraverse</span>()...)
-</span></span><span style="display:flex;"><span>	ret <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(ret, root.right.<span style="color:#900;font-weight:bold">Ftraverse</span>()...)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">func</span> <span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>BST<span style="color:#1f2328">)</span> <span style="color:#6639ba">Ftraverse</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">(</span>ret <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	ret <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>ret<span style="color:#1f2328">,</span> root<span style="color:#1f2328">.</span>value<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	ret <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>ret<span style="color:#1f2328">,</span> root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">.</span><span style="color:#6639ba">Ftraverse</span><span style="color:#1f2328">()...)</span>
+</span></span><span style="display:flex;"><span>	ret <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>ret<span style="color:#1f2328">,</span> root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">.</span><span style="color:#6639ba">Ftraverse</span><span style="color:#1f2328">()...)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">func</span> (root <span style="color:#000;font-weight:bold">*</span>BST) <span style="color:#900;font-weight:bold">Mtraverse</span>() (ret []<span style="color:#458;font-weight:bold">int</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	ret <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(ret, root.left.<span style="color:#900;font-weight:bold">Mtraverse</span>()...)
-</span></span><span style="display:flex;"><span>	ret <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(ret, root.value)
-</span></span><span style="display:flex;"><span>	ret <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(ret, root.right.<span style="color:#900;font-weight:bold">Mtraverse</span>()...)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">func</span> <span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>BST<span style="color:#1f2328">)</span> <span style="color:#6639ba">Mtraverse</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">(</span>ret <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	ret <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>ret<span style="color:#1f2328">,</span> root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">.</span><span style="color:#6639ba">Mtraverse</span><span style="color:#1f2328">()...)</span>
+</span></span><span style="display:flex;"><span>	ret <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>ret<span style="color:#1f2328">,</span> root<span style="color:#1f2328">.</span>value<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	ret <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>ret<span style="color:#1f2328">,</span> root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">.</span><span style="color:#6639ba">Mtraverse</span><span style="color:#1f2328">()...)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">func</span> (root <span style="color:#000;font-weight:bold">*</span>BST) <span style="color:#900;font-weight:bold">Btraverse</span>() (ret []<span style="color:#458;font-weight:bold">int</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	ret <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(ret, root.left.<span style="color:#900;font-weight:bold">Btraverse</span>()...)
-</span></span><span style="display:flex;"><span>	ret <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(ret, root.right.<span style="color:#900;font-weight:bold">Btraverse</span>()...)
-</span></span><span style="display:flex;"><span>	ret <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(ret, root.value)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">func</span> <span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>BST<span style="color:#1f2328">)</span> <span style="color:#6639ba">Btraverse</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">(</span>ret <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	ret <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>ret<span style="color:#1f2328">,</span> root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">.</span><span style="color:#6639ba">Btraverse</span><span style="color:#1f2328">()...)</span>
+</span></span><span style="display:flex;"><span>	ret <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>ret<span style="color:#1f2328">,</span> root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">.</span><span style="color:#6639ba">Btraverse</span><span style="color:#1f2328">()...)</span>
+</span></span><span style="display:flex;"><span>	ret <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>ret<span style="color:#1f2328">,</span> root<span style="color:#1f2328">.</span>value<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">func</span> (root <span style="color:#000;font-weight:bold">*</span>BST) <span style="color:#900;font-weight:bold">Insert</span>(target <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">bool</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#0086b3">false</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root.value <span style="color:#000;font-weight:bold">==</span> target {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#0086b3">true</span>
-</span></span><span style="display:flex;"><span>	} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> root.value <span style="color:#000;font-weight:bold">&lt;</span> target {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> root.right <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>			<span style="color:#900;font-weight:bold">NewNode</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">InitBST</span>(target)
-</span></span><span style="display:flex;"><span>			root.right <span style="color:#000;font-weight:bold">=</span> NewNode
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> <span style="color:#0086b3">true</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> root.right.<span style="color:#900;font-weight:bold">Insert</span>(target)
-</span></span><span style="display:flex;"><span>	} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> root.left <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>			<span style="color:#900;font-weight:bold">NewNode</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">InitBST</span>(target)
-</span></span><span style="display:flex;"><span>			root.left <span style="color:#000;font-weight:bold">=</span> NewNode
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> <span style="color:#0086b3">true</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> root.left.<span style="color:#900;font-weight:bold">Insert</span>(target)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">func</span> <span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>BST<span style="color:#1f2328">)</span> <span style="color:#6639ba">Insert</span><span style="color:#1f2328">(</span>target <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#6639ba">false</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>value <span style="color:#0550ae">==</span> target <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#6639ba">true</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>value <span style="color:#0550ae">&lt;</span> target <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>right <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#900;font-weight:bold">NewNode</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">InitBST</span><span style="color:#1f2328">(</span>target<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			root<span style="color:#1f2328">.</span>right <span style="color:#0550ae">=</span> NewNode
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#6639ba">true</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">.</span><span style="color:#6639ba">Insert</span><span style="color:#1f2328">(</span>target<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>left <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#900;font-weight:bold">NewNode</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">InitBST</span><span style="color:#1f2328">(</span>target<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			root<span style="color:#1f2328">.</span>left <span style="color:#0550ae">=</span> NewNode
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#6639ba">true</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">.</span><span style="color:#6639ba">Insert</span><span style="color:#1f2328">(</span>target<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">func</span> (root <span style="color:#000;font-weight:bold">*</span>BST) <span style="color:#900;font-weight:bold">getMin</span>() <span style="color:#000;font-weight:bold">*</span>BST {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> root
-</span></span><span style="display:flex;"><span>	} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">for</span> root.left <span style="color:#000;font-weight:bold">!=</span> nil {
-</span></span><span style="display:flex;"><span>			root <span style="color:#000;font-weight:bold">=</span> root.left
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> root
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">func</span> <span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>BST<span style="color:#1f2328">)</span> <span style="color:#6639ba">getMin</span><span style="color:#1f2328">()</span> <span style="color:#0550ae">*</span>BST <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> root
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">for</span> root<span style="color:#1f2328">.</span>left <span style="color:#0550ae">!=</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			root <span style="color:#0550ae">=</span> root<span style="color:#1f2328">.</span>left
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> root
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">Delete</span>(root <span style="color:#000;font-weight:bold">*</span>BST, target <span style="color:#458;font-weight:bold">int</span>) <span style="color:#000;font-weight:bold">*</span>BST{
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> nil
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root.value <span style="color:#000;font-weight:bold">&lt;</span> target{
-</span></span><span style="display:flex;"><span>		root.right <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">Delete</span>(root.right,target)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> root
-</span></span><span style="display:flex;"><span>	} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> root.value <span style="color:#000;font-weight:bold">&gt;</span> target {
-</span></span><span style="display:flex;"><span>		root.left <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">Delete</span>(root.left,target)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> root
-</span></span><span style="display:flex;"><span>	} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> root.left <span style="color:#000;font-weight:bold">==</span> nil <span style="color:#000;font-weight:bold">&amp;&amp;</span> root.right <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> nil
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> root.left <span style="color:#000;font-weight:bold">!=</span> nil <span style="color:#000;font-weight:bold">&amp;&amp;</span> root.right <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> root.left
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> root.left <span style="color:#000;font-weight:bold">==</span> nil <span style="color:#000;font-weight:bold">&amp;&amp;</span> root.right <span style="color:#000;font-weight:bold">!=</span> nil {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> root.right
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#900;font-weight:bold">minNode</span> :<span style="color:#000;font-weight:bold">=</span> root.right.<span style="color:#900;font-weight:bold">getMin</span>()
-</span></span><span style="display:flex;"><span>			root.value <span style="color:#000;font-weight:bold">=</span> minNode.value
-</span></span><span style="display:flex;"><span>			minNode.value <span style="color:#000;font-weight:bold">=</span> target
-</span></span><span style="display:flex;"><span>			root.right <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">Delete</span>(root.right,target)
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> root } } } <span style="color:#998;font-style:italic">//===================单测=================
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>package bst
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">Delete</span><span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>BST<span style="color:#1f2328">,</span> target <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span>BST<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> nil
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>value <span style="color:#0550ae">&lt;</span> target<span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		root<span style="color:#1f2328">.</span>right <span style="color:#0550ae">=</span> <span style="color:#6639ba">Delete</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">,</span>target<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> root
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>value <span style="color:#0550ae">&gt;</span> target <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		root<span style="color:#1f2328">.</span>left <span style="color:#0550ae">=</span> <span style="color:#6639ba">Delete</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">,</span>target<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> root
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>left <span style="color:#0550ae">==</span> nil <span style="color:#0550ae">&amp;&amp;</span> root<span style="color:#1f2328">.</span>right <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> nil
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>left <span style="color:#0550ae">!=</span> nil <span style="color:#0550ae">&amp;&amp;</span> root<span style="color:#1f2328">.</span>right <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> root<span style="color:#1f2328">.</span>left
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>left <span style="color:#0550ae">==</span> nil <span style="color:#0550ae">&amp;&amp;</span> root<span style="color:#1f2328">.</span>right <span style="color:#0550ae">!=</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> root<span style="color:#1f2328">.</span>right
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#900;font-weight:bold">minNode</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">.</span><span style="color:#6639ba">getMin</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>			root<span style="color:#1f2328">.</span>value <span style="color:#0550ae">=</span> minNode<span style="color:#1f2328">.</span>value
+</span></span><span style="display:flex;"><span>			minNode<span style="color:#1f2328">.</span>value <span style="color:#0550ae">=</span> target
+</span></span><span style="display:flex;"><span>			root<span style="color:#1f2328">.</span>right <span style="color:#0550ae">=</span> <span style="color:#6639ba">Delete</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">,</span>target<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> root <span style="color:#1f2328">}</span> <span style="color:#1f2328">}</span> <span style="color:#1f2328">}</span> <span style="color:#57606a">//===================单测=================
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>package bst
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">import</span> (
-</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;math/rand&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;testing&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;time&#34;</span>
-</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">import</span> <span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;math/rand&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;testing&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;time&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">buildBST</span>() <span style="color:#000;font-weight:bold">*</span>BST {
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">node</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">InitBST</span>(<span style="color:#099">8</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">vs</span> :<span style="color:#000;font-weight:bold">=</span> []<span style="color:#458;font-weight:bold">int</span>{<span style="color:#099">5</span>, <span style="color:#099">10</span>, <span style="color:#099">3</span>, <span style="color:#099">6</span>, <span style="color:#099">9</span>, <span style="color:#099">16</span>}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> _, <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> range vs {
-</span></span><span style="display:flex;"><span>		node.<span style="color:#900;font-weight:bold">Insert</span>(i)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> node
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">buildBST</span><span style="color:#1f2328">()</span> <span style="color:#0550ae">*</span>BST <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">node</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">InitBST</span><span style="color:#1f2328">(</span><span style="color:#0550ae">8</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">vs</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#0550ae">5</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">10</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">3</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">6</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">9</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">16</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> _<span style="color:#1f2328">,</span> <span style="color:#900;font-weight:bold">i</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> range vs <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		node<span style="color:#1f2328">.</span><span style="color:#6639ba">Insert</span><span style="color:#1f2328">(</span>i<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> node
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">getRandomArray</span>() []<span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">vs</span> :<span style="color:#000;font-weight:bold">=</span> []<span style="color:#458;font-weight:bold">int</span>{<span style="color:#099">3</span>, <span style="color:#099">5</span>, <span style="color:#099">6</span>, <span style="color:#099">9</span>, <span style="color:#099">10</span>, <span style="color:#099">16</span>}
-</span></span><span style="display:flex;"><span>	rand.<span style="color:#900;font-weight:bold">Seed</span>(time.<span style="color:#900;font-weight:bold">Now</span>().<span style="color:#900;font-weight:bold">UnixNano</span>())
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>; i <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">6</span>; i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">ri</span> :<span style="color:#000;font-weight:bold">=</span> rand.<span style="color:#900;font-weight:bold">Intn</span>(<span style="color:#099">6</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">tmp</span> :<span style="color:#000;font-weight:bold">=</span> vs[i]
-</span></span><span style="display:flex;"><span>		vs[i] <span style="color:#000;font-weight:bold">=</span> vs[ri]
-</span></span><span style="display:flex;"><span>		vs[ri] <span style="color:#000;font-weight:bold">=</span> tmp
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> vs
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">getRandomArray</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">vs</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#0550ae">3</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">5</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">6</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">9</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">10</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">16</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	rand<span style="color:#1f2328">.</span><span style="color:#6639ba">Seed</span><span style="color:#1f2328">(</span>time<span style="color:#1f2328">.</span><span style="color:#6639ba">Now</span><span style="color:#1f2328">().</span><span style="color:#6639ba">UnixNano</span><span style="color:#1f2328">())</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#900;font-weight:bold">i</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> i <span style="color:#0550ae">&lt;</span> <span style="color:#0550ae">6</span><span style="color:#1f2328">;</span> i<span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">ri</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> rand<span style="color:#1f2328">.</span><span style="color:#6639ba">Intn</span><span style="color:#1f2328">(</span><span style="color:#0550ae">6</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">tmp</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> vs<span style="color:#1f2328">[</span>i<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>		vs<span style="color:#1f2328">[</span>i<span style="color:#1f2328">]</span> <span style="color:#0550ae">=</span> vs<span style="color:#1f2328">[</span>ri<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>		vs<span style="color:#1f2328">[</span>ri<span style="color:#1f2328">]</span> <span style="color:#0550ae">=</span> tmp
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> vs
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">TestInitBST</span>(t <span style="color:#000;font-weight:bold">*</span>testing.T) {
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">node</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">InitBST</span>(<span style="color:#099">8</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> node.value <span style="color:#000;font-weight:bold">!=</span> <span style="color:#099">8</span> {
-</span></span><span style="display:flex;"><span>		t.<span style="color:#900;font-weight:bold">Error</span>(<span style="color:#d14">&#34;init value is error&#34;</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> node.left <span style="color:#000;font-weight:bold">!=</span> nil {
-</span></span><span style="display:flex;"><span>		t.<span style="color:#900;font-weight:bold">Error</span>(<span style="color:#d14">&#34;init value is error&#34;</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> node.right <span style="color:#000;font-weight:bold">!=</span> nil {
-</span></span><span style="display:flex;"><span>		t.<span style="color:#900;font-weight:bold">Error</span>(<span style="color:#d14">&#34;init value is error&#34;</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">TestInitBST</span><span style="color:#1f2328">(</span>t <span style="color:#0550ae">*</span>testing<span style="color:#1f2328">.</span>T<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">node</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">InitBST</span><span style="color:#1f2328">(</span><span style="color:#0550ae">8</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> node<span style="color:#1f2328">.</span>value <span style="color:#0550ae">!=</span> <span style="color:#0550ae">8</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		t<span style="color:#1f2328">.</span><span style="color:#6639ba">Error</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;init value is error&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> node<span style="color:#1f2328">.</span>left <span style="color:#0550ae">!=</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		t<span style="color:#1f2328">.</span><span style="color:#6639ba">Error</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;init value is error&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> node<span style="color:#1f2328">.</span>right <span style="color:#0550ae">!=</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		t<span style="color:#1f2328">.</span><span style="color:#6639ba">Error</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;init value is error&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">TestInsert</span>(t <span style="color:#000;font-weight:bold">*</span>testing.T) {
-</span></span><span style="display:flex;"><span>	var node <span style="color:#000;font-weight:bold">*</span>BST
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">ok</span> :<span style="color:#000;font-weight:bold">=</span> node.<span style="color:#900;font-weight:bold">Insert</span>(<span style="color:#099">10</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> ok {
-</span></span><span style="display:flex;"><span>		t.<span style="color:#900;font-weight:bold">Error</span>(<span style="color:#d14">&#34;nil BST insert fail&#34;</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	node <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">InitBST</span>(<span style="color:#099">8</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">vs</span> :<span style="color:#000;font-weight:bold">=</span> []<span style="color:#458;font-weight:bold">int</span>{<span style="color:#099">5</span>, <span style="color:#099">10</span>, <span style="color:#099">3</span>, <span style="color:#099">6</span>, <span style="color:#099">6</span>, <span style="color:#099">9</span>, <span style="color:#099">16</span>}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> _, <span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> range vs {
-</span></span><span style="display:flex;"><span>		ok <span style="color:#000;font-weight:bold">=</span> node.<span style="color:#900;font-weight:bold">Insert</span>(i)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">!</span>ok {
-</span></span><span style="display:flex;"><span>			t.<span style="color:#900;font-weight:bold">Error</span>(<span style="color:#d14">&#34;node insert fail&#34;</span>)
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">i</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">nodeSet</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">make</span>([]<span style="color:#000;font-weight:bold">*</span>BST, <span style="color:#099">0</span>)
-</span></span><span style="display:flex;"><span>	nodeSet <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(nodeSet, node)
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">tl</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">len</span>(nodeSet)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> <span style="color:#0086b3">true</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">for</span> ; i <span style="color:#000;font-weight:bold">&lt;</span> tl; i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span> nodeSet[i].left <span style="color:#000;font-weight:bold">!=</span> nil {
-</span></span><span style="display:flex;"><span>				nodeSet <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(nodeSet, nodeSet[i].left)
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span> nodeSet[i].right <span style="color:#000;font-weight:bold">!=</span> nil {
-</span></span><span style="display:flex;"><span>				nodeSet <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">append</span>(nodeSet, nodeSet[i].right)
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		tl <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">len</span>(nodeSet)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> i <span style="color:#000;font-weight:bold">&gt;=</span> tl {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">break</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">spv</span> :<span style="color:#000;font-weight:bold">=</span> []<span style="color:#458;font-weight:bold">int</span>{<span style="color:#099">8</span>, <span style="color:#099">5</span>, <span style="color:#099">10</span>, <span style="color:#099">3</span>, <span style="color:#099">6</span>, <span style="color:#099">9</span>, <span style="color:#099">16</span>}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i, <span style="color:#900;font-weight:bold">nodei</span> :<span style="color:#000;font-weight:bold">=</span> range nodeSet {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> nodei.value <span style="color:#000;font-weight:bold">!=</span> spv[i] {
-</span></span><span style="display:flex;"><span>			t.<span style="color:#900;font-weight:bold">Error</span>(<span style="color:#d14">&#34;insert fail&#34;</span>)
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">TestInsert</span><span style="color:#1f2328">(</span>t <span style="color:#0550ae">*</span>testing<span style="color:#1f2328">.</span>T<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	var node <span style="color:#0550ae">*</span>BST
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">ok</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> node<span style="color:#1f2328">.</span><span style="color:#6639ba">Insert</span><span style="color:#1f2328">(</span><span style="color:#0550ae">10</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> ok <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		t<span style="color:#1f2328">.</span><span style="color:#6639ba">Error</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;nil BST insert fail&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	node <span style="color:#0550ae">=</span> <span style="color:#6639ba">InitBST</span><span style="color:#1f2328">(</span><span style="color:#0550ae">8</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">vs</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#0550ae">5</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">10</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">3</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">6</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">6</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">9</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">16</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> _<span style="color:#1f2328">,</span> <span style="color:#900;font-weight:bold">i</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> range vs <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		ok <span style="color:#0550ae">=</span> node<span style="color:#1f2328">.</span><span style="color:#6639ba">Insert</span><span style="color:#1f2328">(</span>i<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#0550ae">!</span>ok <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			t<span style="color:#1f2328">.</span><span style="color:#6639ba">Error</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;node insert fail&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">i</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">nodeSet</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">make</span><span style="color:#1f2328">([]</span><span style="color:#0550ae">*</span>BST<span style="color:#1f2328">,</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	nodeSet <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>nodeSet<span style="color:#1f2328">,</span> node<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">tl</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>nodeSet<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#6639ba">true</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">for</span> <span style="color:#1f2328">;</span> i <span style="color:#0550ae">&lt;</span> tl<span style="color:#1f2328">;</span> i<span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">if</span> nodeSet<span style="color:#1f2328">[</span>i<span style="color:#1f2328">].</span>left <span style="color:#0550ae">!=</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				nodeSet <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>nodeSet<span style="color:#1f2328">,</span> nodeSet<span style="color:#1f2328">[</span>i<span style="color:#1f2328">].</span>left<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">if</span> nodeSet<span style="color:#1f2328">[</span>i<span style="color:#1f2328">].</span>right <span style="color:#0550ae">!=</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				nodeSet <span style="color:#0550ae">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span>nodeSet<span style="color:#1f2328">,</span> nodeSet<span style="color:#1f2328">[</span>i<span style="color:#1f2328">].</span>right<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		tl <span style="color:#0550ae">=</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>nodeSet<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> i <span style="color:#0550ae">&gt;=</span> tl <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">break</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">spv</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#0550ae">8</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">5</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">10</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">3</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">6</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">9</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">16</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> i<span style="color:#1f2328">,</span> <span style="color:#900;font-weight:bold">nodei</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> range nodeSet <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> nodei<span style="color:#1f2328">.</span>value <span style="color:#0550ae">!=</span> spv<span style="color:#1f2328">[</span>i<span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			t<span style="color:#1f2328">.</span><span style="color:#6639ba">Error</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;insert fail&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">TestFind</span>(t <span style="color:#000;font-weight:bold">*</span>testing.T) {
-</span></span><span style="display:flex;"><span>	var node <span style="color:#000;font-weight:bold">*</span>BST
-</span></span><span style="display:flex;"><span>	node <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">buildBST</span>()
-</span></span><span style="display:flex;"><span>	fn, <span style="color:#900;font-weight:bold">ok</span> :<span style="color:#000;font-weight:bold">=</span> node.<span style="color:#900;font-weight:bold">Find</span>(<span style="color:#099">20</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> fn <span style="color:#000;font-weight:bold">!=</span> nil <span style="color:#000;font-weight:bold">||</span> ok {
-</span></span><span style="display:flex;"><span>		t.<span style="color:#900;font-weight:bold">Error</span>(<span style="color:#d14">&#34;nil find faild&#34;</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	fn, ok <span style="color:#000;font-weight:bold">=</span> node.<span style="color:#900;font-weight:bold">Find</span>(<span style="color:#099">6</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> fn <span style="color:#000;font-weight:bold">==</span> nil <span style="color:#000;font-weight:bold">||</span> <span style="color:#000;font-weight:bold">!</span>ok {
-</span></span><span style="display:flex;"><span>		t.<span style="color:#900;font-weight:bold">Error</span>(<span style="color:#d14">&#34;nil find faild&#34;</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> fn.value <span style="color:#000;font-weight:bold">!=</span> <span style="color:#099">6</span> {
-</span></span><span style="display:flex;"><span>		t.<span style="color:#900;font-weight:bold">Error</span>(<span style="color:#d14">&#34;find wrang node&#34;</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">TestFind</span><span style="color:#1f2328">(</span>t <span style="color:#0550ae">*</span>testing<span style="color:#1f2328">.</span>T<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	var node <span style="color:#0550ae">*</span>BST
+</span></span><span style="display:flex;"><span>	node <span style="color:#0550ae">=</span> <span style="color:#6639ba">buildBST</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	fn<span style="color:#1f2328">,</span> <span style="color:#900;font-weight:bold">ok</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> node<span style="color:#1f2328">.</span><span style="color:#6639ba">Find</span><span style="color:#1f2328">(</span><span style="color:#0550ae">20</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> fn <span style="color:#0550ae">!=</span> nil <span style="color:#0550ae">||</span> ok <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		t<span style="color:#1f2328">.</span><span style="color:#6639ba">Error</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;nil find faild&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	fn<span style="color:#1f2328">,</span> ok <span style="color:#0550ae">=</span> node<span style="color:#1f2328">.</span><span style="color:#6639ba">Find</span><span style="color:#1f2328">(</span><span style="color:#0550ae">6</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> fn <span style="color:#0550ae">==</span> nil <span style="color:#0550ae">||</span> <span style="color:#0550ae">!</span>ok <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		t<span style="color:#1f2328">.</span><span style="color:#6639ba">Error</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;nil find faild&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> fn<span style="color:#1f2328">.</span>value <span style="color:#0550ae">!=</span> <span style="color:#0550ae">6</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		t<span style="color:#1f2328">.</span><span style="color:#6639ba">Error</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;find wrang node&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">TestFtraverse</span>(t <span style="color:#000;font-weight:bold">*</span>testing.T) {
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">node</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">buildBST</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">ret</span> :<span style="color:#000;font-weight:bold">=</span> node.<span style="color:#900;font-weight:bold">Ftraverse</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">len</span>(ret) <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>		t.<span style="color:#900;font-weight:bold">Error</span>(<span style="color:#d14">&#34;error ,can&#39;t get value&#34;</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">spv</span> :<span style="color:#000;font-weight:bold">=</span> []<span style="color:#458;font-weight:bold">int</span>{<span style="color:#099">8</span>, <span style="color:#099">5</span>, <span style="color:#099">3</span>, <span style="color:#099">6</span>, <span style="color:#099">10</span>, <span style="color:#099">9</span>, <span style="color:#099">16</span>}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i, <span style="color:#900;font-weight:bold">v</span> :<span style="color:#000;font-weight:bold">=</span> range ret {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> v <span style="color:#000;font-weight:bold">!=</span> spv[i] {
-</span></span><span style="display:flex;"><span>			t.<span style="color:#900;font-weight:bold">Error</span>(<span style="color:#d14">&#34;error, not f traverse&#34;</span>)
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">TestFtraverse</span><span style="color:#1f2328">(</span>t <span style="color:#0550ae">*</span>testing<span style="color:#1f2328">.</span>T<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">node</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">buildBST</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">ret</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> node<span style="color:#1f2328">.</span><span style="color:#6639ba">Ftraverse</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>ret<span style="color:#1f2328">)</span> <span style="color:#0550ae">==</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		t<span style="color:#1f2328">.</span><span style="color:#6639ba">Error</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;error ,can&#39;t get value&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">spv</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#0550ae">8</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">5</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">3</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">6</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">10</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">9</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">16</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> i<span style="color:#1f2328">,</span> <span style="color:#900;font-weight:bold">v</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> range ret <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> v <span style="color:#0550ae">!=</span> spv<span style="color:#1f2328">[</span>i<span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			t<span style="color:#1f2328">.</span><span style="color:#6639ba">Error</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;error, not f traverse&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">TestMtraverse</span>(t <span style="color:#000;font-weight:bold">*</span>testing.T) {
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">node</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">buildBST</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">ret</span> :<span style="color:#000;font-weight:bold">=</span> node.<span style="color:#900;font-weight:bold">Mtraverse</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">len</span>(ret) <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>		t.<span style="color:#900;font-weight:bold">Error</span>(<span style="color:#d14">&#34;error ,can&#39;t get value&#34;</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">spv</span> :<span style="color:#000;font-weight:bold">=</span> []<span style="color:#458;font-weight:bold">int</span>{<span style="color:#099">3</span>, <span style="color:#099">5</span>, <span style="color:#099">6</span>, <span style="color:#099">8</span>, <span style="color:#099">9</span>, <span style="color:#099">10</span>, <span style="color:#099">16</span>}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i, <span style="color:#900;font-weight:bold">v</span> :<span style="color:#000;font-weight:bold">=</span> range ret {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> v <span style="color:#000;font-weight:bold">!=</span> spv[i] {
-</span></span><span style="display:flex;"><span>			t.<span style="color:#900;font-weight:bold">Error</span>(<span style="color:#d14">&#34;error, not m traverse&#34;</span>)
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">TestMtraverse</span><span style="color:#1f2328">(</span>t <span style="color:#0550ae">*</span>testing<span style="color:#1f2328">.</span>T<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">node</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">buildBST</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">ret</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> node<span style="color:#1f2328">.</span><span style="color:#6639ba">Mtraverse</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>ret<span style="color:#1f2328">)</span> <span style="color:#0550ae">==</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		t<span style="color:#1f2328">.</span><span style="color:#6639ba">Error</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;error ,can&#39;t get value&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">spv</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#0550ae">3</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">5</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">6</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">8</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">9</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">10</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">16</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> i<span style="color:#1f2328">,</span> <span style="color:#900;font-weight:bold">v</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> range ret <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> v <span style="color:#0550ae">!=</span> spv<span style="color:#1f2328">[</span>i<span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			t<span style="color:#1f2328">.</span><span style="color:#6639ba">Error</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;error, not m traverse&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">TestBtraverse</span>(t <span style="color:#000;font-weight:bold">*</span>testing.T) {
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">node</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">buildBST</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">ret</span> :<span style="color:#000;font-weight:bold">=</span> node.<span style="color:#900;font-weight:bold">Btraverse</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">len</span>(ret) <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>		t.<span style="color:#900;font-weight:bold">Error</span>(<span style="color:#d14">&#34;error ,can&#39;t get value&#34;</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">spv</span> :<span style="color:#000;font-weight:bold">=</span> []<span style="color:#458;font-weight:bold">int</span>{<span style="color:#099">3</span>, <span style="color:#099">6</span>, <span style="color:#099">5</span>, <span style="color:#099">9</span>, <span style="color:#099">16</span>, <span style="color:#099">10</span>, <span style="color:#099">8</span>}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i, <span style="color:#900;font-weight:bold">v</span> :<span style="color:#000;font-weight:bold">=</span> range ret {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> v <span style="color:#000;font-weight:bold">!=</span> spv[i] {
-</span></span><span style="display:flex;"><span>			t.<span style="color:#900;font-weight:bold">Error</span>(<span style="color:#d14">&#34;error, not b traverse&#34;</span>)
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">TestBtraverse</span><span style="color:#1f2328">(</span>t <span style="color:#0550ae">*</span>testing<span style="color:#1f2328">.</span>T<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">node</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">buildBST</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">ret</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> node<span style="color:#1f2328">.</span><span style="color:#6639ba">Btraverse</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>ret<span style="color:#1f2328">)</span> <span style="color:#0550ae">==</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		t<span style="color:#1f2328">.</span><span style="color:#6639ba">Error</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;error ,can&#39;t get value&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">spv</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#0550ae">3</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">6</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">5</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">9</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">16</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">10</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">8</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> i<span style="color:#1f2328">,</span> <span style="color:#900;font-weight:bold">v</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> range ret <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> v <span style="color:#0550ae">!=</span> spv<span style="color:#1f2328">[</span>i<span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			t<span style="color:#1f2328">.</span><span style="color:#6639ba">Error</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;error, not b traverse&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">TestDelete</span>(t <span style="color:#000;font-weight:bold">*</span>testing.T) {
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">node</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">buildBST</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">ok</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">Delete</span>(node, <span style="color:#099">22</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> ok <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>		t.<span style="color:#900;font-weight:bold">Error</span>(<span style="color:#d14">&#34;delete a wrong value&#34;</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">rv</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">getRandomArray</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> _, <span style="color:#900;font-weight:bold">v</span> :<span style="color:#000;font-weight:bold">=</span> range rv {
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">ok</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">Delete</span>(node, v)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> ok <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>			t.<span style="color:#900;font-weight:bold">Error</span>(<span style="color:#d14">&#34;delete faild&#34;</span>)
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">isOk</span> :<span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">isBST</span>(node,<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>,<span style="color:#099">999</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> isOk <span style="color:#000;font-weight:bold">==</span> <span style="color:#0086b3">false</span> {
-</span></span><span style="display:flex;"><span>			t.<span style="color:#900;font-weight:bold">Error</span>(<span style="color:#d14">&#34;delete faild&#34;</span>)
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	ok <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">Delete</span>(node, <span style="color:#099">8</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> ok <span style="color:#000;font-weight:bold">!=</span> nil {
-</span></span><span style="display:flex;"><span>		t.<span style="color:#900;font-weight:bold">Error</span>(<span style="color:#d14">&#34;can&#39;t delete root&#34;</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">TestDelete</span><span style="color:#1f2328">(</span>t <span style="color:#0550ae">*</span>testing<span style="color:#1f2328">.</span>T<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">node</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">buildBST</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">ok</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">Delete</span><span style="color:#1f2328">(</span>node<span style="color:#1f2328">,</span> <span style="color:#0550ae">22</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> ok <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		t<span style="color:#1f2328">.</span><span style="color:#6639ba">Error</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;delete a wrong value&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">rv</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">getRandomArray</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> _<span style="color:#1f2328">,</span> <span style="color:#900;font-weight:bold">v</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> range rv <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">ok</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">Delete</span><span style="color:#1f2328">(</span>node<span style="color:#1f2328">,</span> v<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> ok <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			t<span style="color:#1f2328">.</span><span style="color:#6639ba">Error</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;delete faild&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">isOk</span> <span style="color:#1f2328">:</span><span style="color:#0550ae">=</span> <span style="color:#6639ba">isBST</span><span style="color:#1f2328">(</span>node<span style="color:#1f2328">,</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span><span style="color:#0550ae">999</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> isOk <span style="color:#0550ae">==</span> <span style="color:#6639ba">false</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			t<span style="color:#1f2328">.</span><span style="color:#6639ba">Error</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;delete faild&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	ok <span style="color:#0550ae">=</span> <span style="color:#6639ba">Delete</span><span style="color:#1f2328">(</span>node<span style="color:#1f2328">,</span> <span style="color:#0550ae">8</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> ok <span style="color:#0550ae">!=</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		t<span style="color:#1f2328">.</span><span style="color:#6639ba">Error</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;can&#39;t delete root&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>func <span style="color:#900;font-weight:bold">isBST</span>(root <span style="color:#000;font-weight:bold">*</span>BST, minV <span style="color:#458;font-weight:bold">int</span>, maxV <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">bool</span>{
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root <span style="color:#000;font-weight:bold">==</span> nil {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#0086b3">true</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> root.value <span style="color:#000;font-weight:bold">&lt;</span> minV <span style="color:#000;font-weight:bold">||</span> root.value <span style="color:#000;font-weight:bold">&gt;</span> maxV {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#0086b3">false</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">isBST</span>(root.left,minV,root.value) <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#900;font-weight:bold">isBST</span>(root.right,root.value,maxV)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>func <span style="color:#6639ba">isBST</span><span style="color:#1f2328">(</span>root <span style="color:#0550ae">*</span>BST<span style="color:#1f2328">,</span> minV <span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> maxV <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root <span style="color:#0550ae">==</span> nil <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#6639ba">true</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> root<span style="color:#1f2328">.</span>value <span style="color:#0550ae">&lt;</span> minV <span style="color:#0550ae">||</span> root<span style="color:#1f2328">.</span>value <span style="color:#0550ae">&gt;</span> maxV <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#6639ba">false</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#6639ba">isBST</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>left<span style="color:#1f2328">,</span>minV<span style="color:#1f2328">,</span>root<span style="color:#1f2328">.</span>value<span style="color:#1f2328">)</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#6639ba">isBST</span><span style="color:#1f2328">(</span>root<span style="color:#1f2328">.</span>right<span style="color:#1f2328">,</span>root<span style="color:#1f2328">.</span>value<span style="color:#1f2328">,</span>maxV<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>
@@ -977,23 +977,6 @@
 
 
         
-
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/post/2020-03-13-%E7%BA%A2%E9%BB%91%E6%A0%91%E8%AF%A6%E6%83%85/">红黑树详情</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E7%BA%A2%E9%BB%91%E6%A0%91%E5%AE%9E%E7%8E%B0/">红黑树实现</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E6%9F%A5%E5%B9%B6%E9%9B%86/">查并集</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E4%BD%8D%E6%93%8D%E4%BD%9C/">位操作</a></li>
-        
-    </ul>
-</div>
 
 
         <div class="post-meta meta-tags">
@@ -1024,7 +1007,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -1145,7 +1128,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -1205,17 +1188,17 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -1223,9 +1206,9 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -1236,29 +1219,29 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

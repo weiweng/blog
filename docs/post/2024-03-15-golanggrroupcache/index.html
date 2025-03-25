@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -237,32 +237,32 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> (
-</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;context&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;fmt&#34;</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;context&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;fmt&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;github.com/golang/groupcache&#34;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">var</span> testGroup = groupcache.<span style="color:#900;font-weight:bold">NewGroup</span>(<span style="color:#d14">&#34;test&#34;</span>, <span style="color:#099">64</span><span style="color:#000;font-weight:bold">&lt;&lt;</span><span style="color:#099">20</span>, groupcache.<span style="color:#900;font-weight:bold">GetterFunc</span>(
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">func</span>(ctx groupcache.Context, key <span style="color:#458;font-weight:bold">string</span>, dest groupcache.Sink) <span style="color:#458;font-weight:bold">error</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">// value frm db redis ...
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		value <span style="color:#000;font-weight:bold">:=</span> []<span style="color:#0086b3">byte</span>(<span style="color:#d14">&#34;demo&#34;</span>)
-</span></span><span style="display:flex;"><span>		dest.<span style="color:#900;font-weight:bold">SetBytes</span>(value)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>	}))
+</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;github.com/golang/groupcache&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">var</span> <span style="color:#1f2328">testGroup</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">groupcache</span><span style="color:#1f2328">.</span><span style="color:#6639ba">NewGroup</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;test&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">64</span><span style="color:#0550ae">&lt;&lt;</span><span style="color:#0550ae">20</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">groupcache</span><span style="color:#1f2328">.</span><span style="color:#6639ba">GetterFunc</span><span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">func</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span> <span style="color:#1f2328">groupcache</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Context</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">key</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">dest</span> <span style="color:#1f2328">groupcache</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Sink</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">error</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#57606a">// value frm db redis ...</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">value</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">[]</span><span style="color:#6639ba">byte</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;demo&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">dest</span><span style="color:#1f2328">.</span><span style="color:#6639ba">SetBytes</span><span style="color:#1f2328">(</span><span style="color:#1f2328">value</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}))</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">GetCache</span>(ctx context.Context) <span style="color:#458;font-weight:bold">error</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">var</span> data []<span style="color:#458;font-weight:bold">byte</span>
-</span></span><span style="display:flex;"><span>	err <span style="color:#000;font-weight:bold">:=</span> testGroup.<span style="color:#900;font-weight:bold">Get</span>(ctx,
-</span></span><span style="display:flex;"><span>		<span style="color:#d14">&#34;test-key&#34;</span>,
-</span></span><span style="display:flex;"><span>		groupcache.<span style="color:#900;font-weight:bold">AllocatingByteSliceSink</span>(<span style="color:#000;font-weight:bold">&amp;</span>data))
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> err <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> err
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// process data
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	fmt.<span style="color:#900;font-weight:bold">Print</span>(data)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">GetCache</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span> <span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Context</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">error</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">var</span> <span style="color:#1f2328">data</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">byte</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">err</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">testGroup</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Get</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#0a3069">&#34;test-key&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">groupcache</span><span style="color:#1f2328">.</span><span style="color:#6639ba">AllocatingByteSliceSink</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">data</span><span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">err</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#1f2328">err</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// process data</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Print</span><span style="color:#1f2328">(</span><span style="color:#1f2328">data</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="核心源码">核心源码</h2>
@@ -306,41 +306,41 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#998;font-style:italic">// A Group is a cache namespace and associated data loaded spread over
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// a group of 1 or more machines.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">type</span> Group <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	name       <span style="color:#458;font-weight:bold">string</span>
-</span></span><span style="display:flex;"><span>	getter     Getter  <span style="color:#998;font-style:italic">// 回源的方法
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	peersOnce  sync.Once
-</span></span><span style="display:flex;"><span>	peers      PeerPicker <span style="color:#998;font-style:italic">// 根据key判断回源服务地址
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	cacheBytes <span style="color:#458;font-weight:bold">int64</span> <span style="color:#998;font-style:italic">// limit for sum of mainCache and hotCache size
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// mainCache is a cache of the keys for which this process
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">// (amongst its peers) is authoritative. That is, this cache
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">// contains keys which consistent hash on to this process&#39;s
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">// peer number.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	mainCache cache <span style="color:#998;font-style:italic">// 缓存的组件
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// hotCache contains keys/values for which this peer is not
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">// authoritative (otherwise they would be in mainCache), but
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">// are popular enough to warrant mirroring in this process to
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">// avoid going over the network to fetch from a peer.  Having
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">// a hotCache avoids network hotspotting, where a peer&#39;s
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">// network card could become the bottleneck on a popular key.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">// This cache is used sparingly to maximize the total number
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">// of key/value pairs that can be stored globally.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	hotCache cache <span style="color:#998;font-style:italic">// 缓存的组件
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// loadGroup ensures that each key is only fetched once
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">// (either locally or remotely), regardless of the number of
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">// concurrent callers.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	loadGroup flightGroup  <span style="color:#998;font-style:italic">// 并发key回源的一次性请求限制
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>	_ <span style="color:#458;font-weight:bold">int32</span> <span style="color:#998;font-style:italic">// force Stats to be 8-byte aligned on 32-bit platforms
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// Stats are statistics on the group.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	Stats Stats  <span style="color:#998;font-style:italic">// 打点记录
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">// A Group is a cache namespace and associated data loaded spread over</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// a group of 1 or more machines.</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">Group</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">name</span>       <span style="color:#cf222e">string</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">getter</span>     <span style="color:#1f2328">Getter</span>  <span style="color:#57606a">// 回源的方法</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">peersOnce</span>  <span style="color:#1f2328">sync</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Once</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">peers</span>      <span style="color:#1f2328">PeerPicker</span> <span style="color:#57606a">// 根据key判断回源服务地址</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">cacheBytes</span> <span style="color:#cf222e">int64</span> <span style="color:#57606a">// limit for sum of mainCache and hotCache size</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// mainCache is a cache of the keys for which this process</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// (amongst its peers) is authoritative. That is, this cache</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// contains keys which consistent hash on to this process&#39;s</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// peer number.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">mainCache</span> <span style="color:#1f2328">cache</span> <span style="color:#57606a">// 缓存的组件</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// hotCache contains keys/values for which this peer is not</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// authoritative (otherwise they would be in mainCache), but</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// are popular enough to warrant mirroring in this process to</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// avoid going over the network to fetch from a peer.  Having</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// a hotCache avoids network hotspotting, where a peer&#39;s</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// network card could become the bottleneck on a popular key.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// This cache is used sparingly to maximize the total number</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// of key/value pairs that can be stored globally.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">hotCache</span> <span style="color:#1f2328">cache</span> <span style="color:#57606a">// 缓存的组件</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// loadGroup ensures that each key is only fetched once</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// (either locally or remotely), regardless of the number of</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// concurrent callers.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">loadGroup</span> <span style="color:#1f2328">flightGroup</span>  <span style="color:#57606a">// 并发key回源的一次性请求限制</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">_</span> <span style="color:#cf222e">int32</span> <span style="color:#57606a">// force Stats to be 8-byte aligned on 32-bit platforms</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// Stats are statistics on the group.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">Stats</span> <span style="color:#1f2328">Stats</span>  <span style="color:#57606a">// 打点记录</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>我们来看看值得学习的flightGroup的具体实现，通过waitgroup和mutex来控制，实现并发控制。</p>
@@ -396,54 +396,54 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#998;font-style:italic">// Package singleflight provides a duplicate function call suppression
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// mechanism.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">package</span> singleflight
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">// Package singleflight provides a duplicate function call suppression</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// mechanism.</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">package</span> <span style="color:#1f2328">singleflight</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#d14">&#34;sync&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#0a3069">&#34;sync&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// call is an in-flight or completed Do call
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">type</span> call <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	wg  sync.WaitGroup
-</span></span><span style="display:flex;"><span>	val <span style="color:#000;font-weight:bold">interface</span>{}
-</span></span><span style="display:flex;"><span>	err <span style="color:#458;font-weight:bold">error</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// call is an in-flight or completed Do call</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">call</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">wg</span>  <span style="color:#1f2328">sync</span><span style="color:#1f2328">.</span><span style="color:#1f2328">WaitGroup</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">val</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">err</span> <span style="color:#cf222e">error</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// Group represents a class of work and forms a namespace in which
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// units of work can be executed with duplicate suppression.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">type</span> Group <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	mu sync.Mutex       <span style="color:#998;font-style:italic">// protects m
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	m  <span style="color:#000;font-weight:bold">map</span>[<span style="color:#458;font-weight:bold">string</span>]<span style="color:#000;font-weight:bold">*</span>call <span style="color:#998;font-style:italic">// lazily initialized
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// Group represents a class of work and forms a namespace in which</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// units of work can be executed with duplicate suppression.</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">Group</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">mu</span> <span style="color:#1f2328">sync</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Mutex</span>       <span style="color:#57606a">// protects m</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">m</span>  <span style="color:#cf222e">map</span><span style="color:#1f2328">[</span><span style="color:#cf222e">string</span><span style="color:#1f2328">]</span><span style="color:#0550ae">*</span><span style="color:#1f2328">call</span> <span style="color:#57606a">// lazily initialized</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// Do executes and returns the results of the given function, making
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// sure that only one execution is in-flight for a given key at a
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// time. If a duplicate comes in, the duplicate caller waits for the
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// original to complete and receives the same results.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (g <span style="color:#000;font-weight:bold">*</span>Group) <span style="color:#900;font-weight:bold">Do</span>(key <span style="color:#458;font-weight:bold">string</span>, fn <span style="color:#000;font-weight:bold">func</span>() (<span style="color:#000;font-weight:bold">interface</span>{}, <span style="color:#458;font-weight:bold">error</span>)) (<span style="color:#000;font-weight:bold">interface</span>{}, <span style="color:#458;font-weight:bold">error</span>) {
-</span></span><span style="display:flex;"><span>	g.mu.<span style="color:#900;font-weight:bold">Lock</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> g.m <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		g.m = <span style="color:#0086b3">make</span>(<span style="color:#000;font-weight:bold">map</span>[<span style="color:#458;font-weight:bold">string</span>]<span style="color:#000;font-weight:bold">*</span>call)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> c, ok <span style="color:#000;font-weight:bold">:=</span> g.m[key]; ok {
-</span></span><span style="display:flex;"><span>		g.mu.<span style="color:#900;font-weight:bold">Unlock</span>()
-</span></span><span style="display:flex;"><span>		c.wg.<span style="color:#900;font-weight:bold">Wait</span>()
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> c.val, c.err
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	c <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">new</span>(call)
-</span></span><span style="display:flex;"><span>	c.wg.<span style="color:#900;font-weight:bold">Add</span>(<span style="color:#099">1</span>)
-</span></span><span style="display:flex;"><span>	g.m[key] = c
-</span></span><span style="display:flex;"><span>	g.mu.<span style="color:#900;font-weight:bold">Unlock</span>()
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// Do executes and returns the results of the given function, making</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// sure that only one execution is in-flight for a given key at a</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// time. If a duplicate comes in, the duplicate caller waits for the</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// original to complete and receives the same results.</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">g</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Group</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Do</span><span style="color:#1f2328">(</span><span style="color:#1f2328">key</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">fn</span> <span style="color:#cf222e">func</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">(</span><span style="color:#cf222e">interface</span><span style="color:#1f2328">{},</span> <span style="color:#cf222e">error</span><span style="color:#1f2328">))</span> <span style="color:#1f2328">(</span><span style="color:#cf222e">interface</span><span style="color:#1f2328">{},</span> <span style="color:#cf222e">error</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">g</span><span style="color:#1f2328">.</span><span style="color:#1f2328">mu</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Lock</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">g</span><span style="color:#1f2328">.</span><span style="color:#1f2328">m</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">g</span><span style="color:#1f2328">.</span><span style="color:#1f2328">m</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">make</span><span style="color:#1f2328">(</span><span style="color:#cf222e">map</span><span style="color:#1f2328">[</span><span style="color:#cf222e">string</span><span style="color:#1f2328">]</span><span style="color:#0550ae">*</span><span style="color:#1f2328">call</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">c</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">ok</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">g</span><span style="color:#1f2328">.</span><span style="color:#1f2328">m</span><span style="color:#1f2328">[</span><span style="color:#1f2328">key</span><span style="color:#1f2328">];</span> <span style="color:#1f2328">ok</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">g</span><span style="color:#1f2328">.</span><span style="color:#1f2328">mu</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Unlock</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">wg</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Wait</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">val</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">err</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">c</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">new</span><span style="color:#1f2328">(</span><span style="color:#1f2328">call</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">wg</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Add</span><span style="color:#1f2328">(</span><span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">g</span><span style="color:#1f2328">.</span><span style="color:#1f2328">m</span><span style="color:#1f2328">[</span><span style="color:#1f2328">key</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">c</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">g</span><span style="color:#1f2328">.</span><span style="color:#1f2328">mu</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Unlock</span><span style="color:#1f2328">()</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	c.val, c.err = <span style="color:#900;font-weight:bold">fn</span>()
-</span></span><span style="display:flex;"><span>	c.wg.<span style="color:#900;font-weight:bold">Done</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">val</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">err</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">fn</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">wg</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Done</span><span style="color:#1f2328">()</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	g.mu.<span style="color:#900;font-weight:bold">Lock</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#0086b3">delete</span>(g.m, key)
-</span></span><span style="display:flex;"><span>	g.mu.<span style="color:#900;font-weight:bold">Unlock</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">g</span><span style="color:#1f2328">.</span><span style="color:#1f2328">mu</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Lock</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6639ba">delete</span><span style="color:#1f2328">(</span><span style="color:#1f2328">g</span><span style="color:#1f2328">.</span><span style="color:#1f2328">m</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">key</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">g</span><span style="color:#1f2328">.</span><span style="color:#1f2328">mu</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Unlock</span><span style="color:#1f2328">()</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> c.val, c.err
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">val</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">err</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>cache的实现是通过map和一个双端list，也可以学习学习。</p>
@@ -594,149 +594,149 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">143
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#998;font-style:italic">/*
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">Copyright 2013 Google Inc.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">you may not use this file except in compliance with the License.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">You may obtain a copy of the License at
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     http://www.apache.org/licenses/LICENSE-2.0
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">Unless required by applicable law or agreed to in writing, software
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">distributed under the License is distributed on an &#34;AS IS&#34; BASIS,
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">See the License for the specific language governing permissions and
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">limitations under the License.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">*/</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">Copyright 2013 Google Inc.
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">you may not use this file except in compliance with the License.
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">You may obtain a copy of the License at
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">     http://www.apache.org/licenses/LICENSE-2.0
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">Unless required by applicable law or agreed to in writing, software
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">distributed under the License is distributed on an &#34;AS IS&#34; BASIS,
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">See the License for the specific language governing permissions and
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">limitations under the License.
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">*/</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// Package lru implements an LRU cache.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">package</span> lru
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// Package lru implements an LRU cache.</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">package</span> <span style="color:#1f2328">lru</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#d14">&#34;container/list&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#0a3069">&#34;container/list&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// Cache is an LRU cache. It is not safe for concurrent access.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">type</span> Cache <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// MaxEntries is the maximum number of cache entries before
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">// an item is evicted. Zero means no limit.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	MaxEntries <span style="color:#458;font-weight:bold">int</span> <span style="color:#998;font-style:italic">// 最大缓存限制
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// OnEvicted optionally specifies a callback function to be
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">// executed when an entry is purged from the cache.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	OnEvicted <span style="color:#000;font-weight:bold">func</span>(key Key, value <span style="color:#000;font-weight:bold">interface</span>{}) <span style="color:#998;font-style:italic">// 驱逐函数
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>	ll    <span style="color:#000;font-weight:bold">*</span>list.List  <span style="color:#998;font-style:italic">// 双端列表，lru的快速丢弃
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	cache <span style="color:#000;font-weight:bold">map</span>[<span style="color:#000;font-weight:bold">interface</span>{}]<span style="color:#000;font-weight:bold">*</span>list.Element  <span style="color:#998;font-style:italic">// map存储k v，k的快速查找
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// Cache is an LRU cache. It is not safe for concurrent access.</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">Cache</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// MaxEntries is the maximum number of cache entries before</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// an item is evicted. Zero means no limit.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">MaxEntries</span> <span style="color:#cf222e">int</span> <span style="color:#57606a">// 最大缓存限制</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// A Key may be any value that is comparable. See http://golang.org/ref/spec#Comparison_operators
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">type</span> Key <span style="color:#000;font-weight:bold">interface</span>{}
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// OnEvicted optionally specifies a callback function to be</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">// executed when an entry is purged from the cache.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">OnEvicted</span> <span style="color:#cf222e">func</span><span style="color:#1f2328">(</span><span style="color:#1f2328">key</span> <span style="color:#1f2328">Key</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">value</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{})</span> <span style="color:#57606a">// 驱逐函数</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> entry <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	key   Key
-</span></span><span style="display:flex;"><span>	value <span style="color:#000;font-weight:bold">interface</span>{}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">ll</span>    <span style="color:#0550ae">*</span><span style="color:#1f2328">list</span><span style="color:#1f2328">.</span><span style="color:#1f2328">List</span>  <span style="color:#57606a">// 双端列表，lru的快速丢弃</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">cache</span> <span style="color:#cf222e">map</span><span style="color:#1f2328">[</span><span style="color:#cf222e">interface</span><span style="color:#1f2328">{}]</span><span style="color:#0550ae">*</span><span style="color:#1f2328">list</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Element</span>  <span style="color:#57606a">// map存储k v，k的快速查找</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// New creates a new Cache.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// If maxEntries is zero, the cache has no limit and it&#39;s assumed
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// that eviction is done by the caller.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">New</span>(maxEntries <span style="color:#458;font-weight:bold">int</span>) <span style="color:#000;font-weight:bold">*</span>Cache {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">&amp;</span>Cache{
-</span></span><span style="display:flex;"><span>		MaxEntries: maxEntries,
-</span></span><span style="display:flex;"><span>		ll:         list.<span style="color:#900;font-weight:bold">New</span>(),
-</span></span><span style="display:flex;"><span>		cache:      <span style="color:#0086b3">make</span>(<span style="color:#000;font-weight:bold">map</span>[<span style="color:#000;font-weight:bold">interface</span>{}]<span style="color:#000;font-weight:bold">*</span>list.Element),
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// A Key may be any value that is comparable. See http://golang.org/ref/spec#Comparison_operators</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">Key</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// Add adds a value to the cache.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (c <span style="color:#000;font-weight:bold">*</span>Cache) <span style="color:#900;font-weight:bold">Add</span>(key Key, value <span style="color:#000;font-weight:bold">interface</span>{}) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> c.cache <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 初始化
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		c.cache = <span style="color:#0086b3">make</span>(<span style="color:#000;font-weight:bold">map</span>[<span style="color:#000;font-weight:bold">interface</span>{}]<span style="color:#000;font-weight:bold">*</span>list.Element)
-</span></span><span style="display:flex;"><span>		c.ll = list.<span style="color:#900;font-weight:bold">New</span>()
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> ee, ok <span style="color:#000;font-weight:bold">:=</span> c.cache[key]; ok {
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 存在，则将数据移动到链表头节点，重置为最新访问
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		c.ll.<span style="color:#900;font-weight:bold">MoveToFront</span>(ee)
-</span></span><span style="display:flex;"><span>		ee.Value.(<span style="color:#000;font-weight:bold">*</span>entry).value = value
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 不存在, 新建kv
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// 也是数据移动到链表头节点
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	ele <span style="color:#000;font-weight:bold">:=</span> c.ll.<span style="color:#900;font-weight:bold">PushFront</span>(<span style="color:#000;font-weight:bold">&amp;</span>entry{key, value})
-</span></span><span style="display:flex;"><span>	c.cache[key] = ele
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 存储超过限制了，驱逐
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">if</span> c.MaxEntries <span style="color:#000;font-weight:bold">!=</span> <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> c.ll.<span style="color:#900;font-weight:bold">Len</span>() &gt; c.MaxEntries {
-</span></span><span style="display:flex;"><span>		c.<span style="color:#900;font-weight:bold">RemoveOldest</span>()
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">entry</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">key</span>   <span style="color:#1f2328">Key</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">value</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// Get looks up a key&#39;s value from the cache.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (c <span style="color:#000;font-weight:bold">*</span>Cache) <span style="color:#900;font-weight:bold">Get</span>(key Key) (value <span style="color:#000;font-weight:bold">interface</span>{}, ok <span style="color:#458;font-weight:bold">bool</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> c.cache <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> ele, hit <span style="color:#000;font-weight:bold">:=</span> c.cache[key]; hit {
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 命中，移动到队列前面，置为最近访问
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		c.ll.<span style="color:#900;font-weight:bold">MoveToFront</span>(ele)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> ele.Value.(<span style="color:#000;font-weight:bold">*</span>entry).value, <span style="color:#000;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// New creates a new Cache.</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// If maxEntries is zero, the cache has no limit and it&#39;s assumed</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// that eviction is done by the caller.</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">New</span><span style="color:#1f2328">(</span><span style="color:#1f2328">maxEntries</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Cache</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">Cache</span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">MaxEntries</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">maxEntries</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">ll</span><span style="color:#1f2328">:</span>         <span style="color:#1f2328">list</span><span style="color:#1f2328">.</span><span style="color:#6639ba">New</span><span style="color:#1f2328">(),</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">cache</span><span style="color:#1f2328">:</span>      <span style="color:#6639ba">make</span><span style="color:#1f2328">(</span><span style="color:#cf222e">map</span><span style="color:#1f2328">[</span><span style="color:#cf222e">interface</span><span style="color:#1f2328">{}]</span><span style="color:#0550ae">*</span><span style="color:#1f2328">list</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Element</span><span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// Remove removes the provided key from the cache.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (c <span style="color:#000;font-weight:bold">*</span>Cache) <span style="color:#900;font-weight:bold">Remove</span>(key Key) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> c.cache <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> ele, hit <span style="color:#000;font-weight:bold">:=</span> c.cache[key]; hit {
-</span></span><span style="display:flex;"><span>		c.<span style="color:#900;font-weight:bold">removeElement</span>(ele)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// Add adds a value to the cache.</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">c</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Cache</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Add</span><span style="color:#1f2328">(</span><span style="color:#1f2328">key</span> <span style="color:#1f2328">Key</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">value</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{})</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">cache</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a">// 初始化</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">cache</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">make</span><span style="color:#1f2328">(</span><span style="color:#cf222e">map</span><span style="color:#1f2328">[</span><span style="color:#cf222e">interface</span><span style="color:#1f2328">{}]</span><span style="color:#0550ae">*</span><span style="color:#1f2328">list</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Element</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">ll</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">list</span><span style="color:#1f2328">.</span><span style="color:#6639ba">New</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">ee</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">ok</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">cache</span><span style="color:#1f2328">[</span><span style="color:#1f2328">key</span><span style="color:#1f2328">];</span> <span style="color:#1f2328">ok</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a">// 存在，则将数据移动到链表头节点，重置为最新访问</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">ll</span><span style="color:#1f2328">.</span><span style="color:#6639ba">MoveToFront</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ee</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">ee</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Value</span><span style="color:#1f2328">.(</span><span style="color:#0550ae">*</span><span style="color:#1f2328">entry</span><span style="color:#1f2328">).</span><span style="color:#1f2328">value</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">value</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 不存在, 新建kv</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 也是数据移动到链表头节点</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">ele</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">ll</span><span style="color:#1f2328">.</span><span style="color:#6639ba">PushFront</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">entry</span><span style="color:#1f2328">{</span><span style="color:#1f2328">key</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">value</span><span style="color:#1f2328">})</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">cache</span><span style="color:#1f2328">[</span><span style="color:#1f2328">key</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">ele</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 存储超过限制了，驱逐</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">MaxEntries</span> <span style="color:#0550ae">!=</span> <span style="color:#0550ae">0</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">ll</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Len</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">&gt;</span> <span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">MaxEntries</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#6639ba">RemoveOldest</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// RemoveOldest removes the oldest item from the cache.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (c <span style="color:#000;font-weight:bold">*</span>Cache) <span style="color:#900;font-weight:bold">RemoveOldest</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> c.cache <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 拿队列最后一个，即最早最近访问的，丢弃
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	ele <span style="color:#000;font-weight:bold">:=</span> c.ll.<span style="color:#900;font-weight:bold">Back</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> ele <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		c.<span style="color:#900;font-weight:bold">removeElement</span>(ele)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// Get looks up a key&#39;s value from the cache.</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">c</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Cache</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Get</span><span style="color:#1f2328">(</span><span style="color:#1f2328">key</span> <span style="color:#1f2328">Key</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">value</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{},</span> <span style="color:#1f2328">ok</span> <span style="color:#cf222e">bool</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">cache</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">ele</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">hit</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">cache</span><span style="color:#1f2328">[</span><span style="color:#1f2328">key</span><span style="color:#1f2328">];</span> <span style="color:#1f2328">hit</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a">// 命中，移动到队列前面，置为最近访问</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">ll</span><span style="color:#1f2328">.</span><span style="color:#6639ba">MoveToFront</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ele</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#1f2328">ele</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Value</span><span style="color:#1f2328">.(</span><span style="color:#0550ae">*</span><span style="color:#1f2328">entry</span><span style="color:#1f2328">).</span><span style="color:#1f2328">value</span><span style="color:#1f2328">,</span> <span style="color:#cf222e">true</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (c <span style="color:#000;font-weight:bold">*</span>Cache) <span style="color:#900;font-weight:bold">removeElement</span>(e <span style="color:#000;font-weight:bold">*</span>list.Element) {
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 列表中移除
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	c.ll.<span style="color:#900;font-weight:bold">Remove</span>(e)
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// map里删除
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	kv <span style="color:#000;font-weight:bold">:=</span> e.Value.(<span style="color:#000;font-weight:bold">*</span>entry)
-</span></span><span style="display:flex;"><span>	<span style="color:#0086b3">delete</span>(c.cache, kv.key)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> c.OnEvicted <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 执行驱逐函数
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		c.<span style="color:#900;font-weight:bold">OnEvicted</span>(kv.key, kv.value)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// Remove removes the provided key from the cache.</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">c</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Cache</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Remove</span><span style="color:#1f2328">(</span><span style="color:#1f2328">key</span> <span style="color:#1f2328">Key</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">cache</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">ele</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">hit</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">cache</span><span style="color:#1f2328">[</span><span style="color:#1f2328">key</span><span style="color:#1f2328">];</span> <span style="color:#1f2328">hit</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#6639ba">removeElement</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ele</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// Len returns the number of items in the cache.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (c <span style="color:#000;font-weight:bold">*</span>Cache) <span style="color:#900;font-weight:bold">Len</span>() <span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> c.cache <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> c.ll.<span style="color:#900;font-weight:bold">Len</span>()
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// RemoveOldest removes the oldest item from the cache.</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">c</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Cache</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">RemoveOldest</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">cache</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 拿队列最后一个，即最早最近访问的，丢弃</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">ele</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">ll</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Back</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">ele</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#6639ba">removeElement</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ele</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// Clear purges all stored items from the cache.
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (c <span style="color:#000;font-weight:bold">*</span>Cache) <span style="color:#900;font-weight:bold">Clear</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> c.OnEvicted <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">for</span> _, e <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> c.cache {
-</span></span><span style="display:flex;"><span>			kv <span style="color:#000;font-weight:bold">:=</span> e.Value.(<span style="color:#000;font-weight:bold">*</span>entry)
-</span></span><span style="display:flex;"><span>			c.<span style="color:#900;font-weight:bold">OnEvicted</span>(kv.key, kv.value)
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	c.ll = <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>	c.cache = <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">c</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Cache</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">removeElement</span><span style="color:#1f2328">(</span><span style="color:#1f2328">e</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">list</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Element</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 列表中移除</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">ll</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Remove</span><span style="color:#1f2328">(</span><span style="color:#1f2328">e</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// map里删除</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">kv</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Value</span><span style="color:#1f2328">.(</span><span style="color:#0550ae">*</span><span style="color:#1f2328">entry</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6639ba">delete</span><span style="color:#1f2328">(</span><span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">cache</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">kv</span><span style="color:#1f2328">.</span><span style="color:#1f2328">key</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">OnEvicted</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a">// 执行驱逐函数</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#6639ba">OnEvicted</span><span style="color:#1f2328">(</span><span style="color:#1f2328">kv</span><span style="color:#1f2328">.</span><span style="color:#1f2328">key</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">kv</span><span style="color:#1f2328">.</span><span style="color:#1f2328">value</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// Len returns the number of items in the cache.</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">c</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Cache</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Len</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">cache</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">ll</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Len</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// Clear purges all stored items from the cache.</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">c</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Cache</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Clear</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">OnEvicted</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">for</span> <span style="color:#1f2328">_</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">e</span> <span style="color:#0550ae">:=</span> <span style="color:#cf222e">range</span> <span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">cache</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">kv</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Value</span><span style="color:#1f2328">.(</span><span style="color:#0550ae">*</span><span style="color:#1f2328">entry</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#6639ba">OnEvicted</span><span style="color:#1f2328">(</span><span style="color:#1f2328">kv</span><span style="color:#1f2328">.</span><span style="color:#1f2328">key</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">kv</span><span style="color:#1f2328">.</span><span style="color:#1f2328">value</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">ll</span> <span style="color:#1f2328">=</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">c</span><span style="color:#1f2328">.</span><span style="color:#1f2328">cache</span> <span style="color:#1f2328">=</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="参考">参考</h2>
@@ -750,23 +750,6 @@
 
 
         
-
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/post/2024-03-09-golangreflect/">Golang|学习教程(八)-反射</a></li>
-        
-        <li><a href="/blog/post/2024-01-22-%E5%89%8D%E7%BC%80%E5%92%8C/">算法专题|前缀和</a></li>
-        
-        <li><a href="/blog/post/2024-01-20-pythonrequests/">python|requests</a></li>
-        
-        <li><a href="/blog/post/2023-12-13-python%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84/">python|学习路径</a></li>
-        
-        <li><a href="/blog/read/2023-11-18-%E8%80%81%E4%BF%9E%E5%AF%B9%E8%B0%88%E5%BD%95/">老俞对谈录阅读笔记</a></li>
-        
-    </ul>
-</div>
 
 
         <div class="post-meta meta-tags">
@@ -797,7 +780,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -918,7 +901,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -978,17 +961,17 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -996,9 +979,9 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -1009,29 +992,29 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

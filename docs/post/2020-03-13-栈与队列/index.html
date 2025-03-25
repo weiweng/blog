@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -134,26 +134,26 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">backspaceCompare</span>(S <span style="color:#458;font-weight:bold">string</span>, T <span style="color:#458;font-weight:bold">string</span>) <span style="color:#458;font-weight:bold">bool</span> {
-</span></span><span style="display:flex;"><span>	s <span style="color:#000;font-weight:bold">:=</span> <span style="color:#900;font-weight:bold">helper</span>(S)
-</span></span><span style="display:flex;"><span>	t <span style="color:#000;font-weight:bold">:=</span> <span style="color:#900;font-weight:bold">helper</span>(T)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> s <span style="color:#000;font-weight:bold">==</span> t
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">backspaceCompare</span><span style="color:#1f2328">(</span><span style="color:#1f2328">S</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">T</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">s</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">helper</span><span style="color:#1f2328">(</span><span style="color:#1f2328">S</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">t</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">helper</span><span style="color:#1f2328">(</span><span style="color:#1f2328">T</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">s</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">t</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//使用字符串回退作为栈的操作
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">helper</span>(S <span style="color:#458;font-weight:bold">string</span>) <span style="color:#458;font-weight:bold">string</span> {
-</span></span><span style="display:flex;"><span>	tmp <span style="color:#000;font-weight:bold">:=</span> []<span style="color:#458;font-weight:bold">byte</span>{}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>; i &lt; <span style="color:#0086b3">len</span>(S); i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> S[i] <span style="color:#000;font-weight:bold">!=</span> <span style="color:#d14">&#39;#&#39;</span> {
-</span></span><span style="display:flex;"><span>			tmp = <span style="color:#0086b3">append</span>(tmp, S[i])
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">continue</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> <span style="color:#0086b3">len</span>(tmp) &gt; <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>			tmp = tmp[:<span style="color:#0086b3">len</span>(tmp)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#0086b3">string</span>(tmp)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//使用字符串回退作为栈的操作</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">helper</span><span style="color:#1f2328">(</span><span style="color:#1f2328">S</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">string</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">tmp</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">byte</span><span style="color:#1f2328">{}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">S</span><span style="color:#1f2328">);</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">S</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">!=</span> <span style="color:#0a3069">&#39;#&#39;</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">tmp</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span><span style="color:#1f2328">tmp</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">S</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">])</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">continue</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">tmp</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">&gt;</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">tmp</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">tmp</span><span style="color:#1f2328">[:</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">tmp</span><span style="color:#1f2328">)</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#6639ba">string</span><span style="color:#1f2328">(</span><span style="color:#1f2328">tmp</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -216,44 +216,44 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> MyQueue <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	input  []<span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>	output []<span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">MyQueue</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">input</span>  <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">output</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/** Initialize your data structure here. */</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">Constructor</span>() MyQueue {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> MyQueue{}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/** Initialize your data structure here. */</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">Constructor</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">MyQueue</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">MyQueue</span><span style="color:#1f2328">{}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/** Push element x to the back of queue. */</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (q <span style="color:#000;font-weight:bold">*</span>MyQueue) <span style="color:#900;font-weight:bold">Push</span>(x <span style="color:#458;font-weight:bold">int</span>) {
-</span></span><span style="display:flex;"><span>	q.input = <span style="color:#0086b3">append</span>(q.input, x)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/** Push element x to the back of queue. */</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">q</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">MyQueue</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Push</span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">q</span><span style="color:#1f2328">.</span><span style="color:#1f2328">input</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span><span style="color:#1f2328">q</span><span style="color:#1f2328">.</span><span style="color:#1f2328">input</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">x</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/** Removes the element from in front of queue and returns that element. */</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (q <span style="color:#000;font-weight:bold">*</span>MyQueue) <span style="color:#900;font-weight:bold">Pop</span>() <span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>	q.<span style="color:#900;font-weight:bold">Peek</span>()
-</span></span><span style="display:flex;"><span>	element <span style="color:#000;font-weight:bold">:=</span> q.output[<span style="color:#0086b3">len</span>(q.output)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
-</span></span><span style="display:flex;"><span>	q.output = q.output[:<span style="color:#0086b3">len</span>(q.output)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> element
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/** Removes the element from in front of queue and returns that element. */</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">q</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">MyQueue</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Pop</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">q</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Peek</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">element</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">q</span><span style="color:#1f2328">.</span><span style="color:#1f2328">output</span><span style="color:#1f2328">[</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">q</span><span style="color:#1f2328">.</span><span style="color:#1f2328">output</span><span style="color:#1f2328">)</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">q</span><span style="color:#1f2328">.</span><span style="color:#1f2328">output</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">q</span><span style="color:#1f2328">.</span><span style="color:#1f2328">output</span><span style="color:#1f2328">[:</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">q</span><span style="color:#1f2328">.</span><span style="color:#1f2328">output</span><span style="color:#1f2328">)</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">element</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/** Get the front element. */</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (q <span style="color:#000;font-weight:bold">*</span>MyQueue) <span style="color:#900;font-weight:bold">Peek</span>() <span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> <span style="color:#0086b3">len</span>(q.output) <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">for</span> <span style="color:#0086b3">len</span>(q.input) &gt; <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>			q.output = <span style="color:#0086b3">append</span>(q.output, q.input[<span style="color:#0086b3">len</span>(q.input)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>])
-</span></span><span style="display:flex;"><span>			q.input = q.input[:<span style="color:#0086b3">len</span>(q.input)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> q.output[<span style="color:#0086b3">len</span>(q.output)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/** Get the front element. */</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">q</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">MyQueue</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Peek</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">q</span><span style="color:#1f2328">.</span><span style="color:#1f2328">output</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">==</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">for</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">q</span><span style="color:#1f2328">.</span><span style="color:#1f2328">input</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">&gt;</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">q</span><span style="color:#1f2328">.</span><span style="color:#1f2328">output</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span><span style="color:#1f2328">q</span><span style="color:#1f2328">.</span><span style="color:#1f2328">output</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">q</span><span style="color:#1f2328">.</span><span style="color:#1f2328">input</span><span style="color:#1f2328">[</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">q</span><span style="color:#1f2328">.</span><span style="color:#1f2328">input</span><span style="color:#1f2328">)</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">])</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">q</span><span style="color:#1f2328">.</span><span style="color:#1f2328">input</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">q</span><span style="color:#1f2328">.</span><span style="color:#1f2328">input</span><span style="color:#1f2328">[:</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">q</span><span style="color:#1f2328">.</span><span style="color:#1f2328">input</span><span style="color:#1f2328">)</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">q</span><span style="color:#1f2328">.</span><span style="color:#1f2328">output</span><span style="color:#1f2328">[</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">q</span><span style="color:#1f2328">.</span><span style="color:#1f2328">output</span><span style="color:#1f2328">)</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/** Returns whether the queue is empty. */</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (q <span style="color:#000;font-weight:bold">*</span>MyQueue) <span style="color:#900;font-weight:bold">Empty</span>() <span style="color:#458;font-weight:bold">bool</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#0086b3">len</span>(q.input) <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#0086b3">len</span>(q.output) <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/** Returns whether the queue is empty. */</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">q</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">MyQueue</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Empty</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">bool</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">q</span><span style="color:#1f2328">.</span><span style="color:#1f2328">input</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">==</span> <span style="color:#0550ae">0</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">q</span><span style="color:#1f2328">.</span><span style="color:#1f2328">output</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">==</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -317,48 +317,48 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> MyStack <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	enque []<span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>	deque []<span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">MyStack</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">enque</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">deque</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/** Initialize your data structure here. */</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">Constructor</span>() MyStack {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> MyStack{[]<span style="color:#458;font-weight:bold">int</span>{}, []<span style="color:#458;font-weight:bold">int</span>{}}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/** Initialize your data structure here. */</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">Constructor</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">MyStack</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">MyStack</span><span style="color:#1f2328">{[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{},</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{}}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/** Push element x onto stack. */</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (this <span style="color:#000;font-weight:bold">*</span>MyStack) <span style="color:#900;font-weight:bold">Push</span>(x <span style="color:#458;font-weight:bold">int</span>) {
-</span></span><span style="display:flex;"><span>	this.enque = <span style="color:#0086b3">append</span>(this.enque, x)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/** Push element x onto stack. */</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">this</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">MyStack</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Push</span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">enque</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span><span style="color:#1f2328">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">enque</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">x</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/** Removes the element on top of the stack and returns that element. */</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (this <span style="color:#000;font-weight:bold">*</span>MyStack) <span style="color:#900;font-weight:bold">Pop</span>() <span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>	lenth <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">len</span>(this.enque) <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>; i &lt; lenth; i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>		this.deque = <span style="color:#0086b3">append</span>(this.deque, this.enque[<span style="color:#099">0</span>])
-</span></span><span style="display:flex;"><span>		this.enque = this.enque[<span style="color:#099">1</span>:]
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	top <span style="color:#000;font-weight:bold">:=</span> this.enque[<span style="color:#099">0</span>]
-</span></span><span style="display:flex;"><span>	this.enque = this.deque
-</span></span><span style="display:flex;"><span>	this.deque = <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> top
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/** Removes the element on top of the stack and returns that element. */</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">this</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">MyStack</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Pop</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">lenth</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">enque</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">lenth</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">deque</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span><span style="color:#1f2328">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">deque</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">enque</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">])</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">enque</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">enque</span><span style="color:#1f2328">[</span><span style="color:#0550ae">1</span><span style="color:#1f2328">:]</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">top</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">enque</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">enque</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">deque</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">deque</span> <span style="color:#1f2328">=</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">top</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/** Get the top element. */</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (this <span style="color:#000;font-weight:bold">*</span>MyStack) <span style="color:#900;font-weight:bold">Top</span>() <span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>	top <span style="color:#000;font-weight:bold">:=</span> this.<span style="color:#900;font-weight:bold">Pop</span>()
-</span></span><span style="display:flex;"><span>	this.enque = <span style="color:#0086b3">append</span>(this.enque, top)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> top
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/** Get the top element. */</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">this</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">MyStack</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Top</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">top</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">this</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Pop</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">enque</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span><span style="color:#1f2328">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">enque</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">top</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">top</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/** Returns whether the stack is empty. */</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (this <span style="color:#000;font-weight:bold">*</span>MyStack) <span style="color:#900;font-weight:bold">Empty</span>() <span style="color:#458;font-weight:bold">bool</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> <span style="color:#0086b3">len</span>(this.enque) <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/** Returns whether the stack is empty. */</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">this</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">MyStack</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Empty</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">bool</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">enque</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">==</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#cf222e">true</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#cf222e">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -409,29 +409,29 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">var</span> m = <span style="color:#000;font-weight:bold">map</span>[<span style="color:#458;font-weight:bold">uint8</span>]<span style="color:#458;font-weight:bold">uint8</span>{<span style="color:#d14">&#39;)&#39;</span>: <span style="color:#d14">&#39;(&#39;</span>, <span style="color:#d14">&#39;}&#39;</span>: <span style="color:#d14">&#39;{&#39;</span>, <span style="color:#d14">&#39;]&#39;</span>: <span style="color:#d14">&#39;[&#39;</span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">var</span> <span style="color:#1f2328">m</span> <span style="color:#1f2328">=</span> <span style="color:#cf222e">map</span><span style="color:#1f2328">[</span><span style="color:#cf222e">uint8</span><span style="color:#1f2328">]</span><span style="color:#cf222e">uint8</span><span style="color:#1f2328">{</span><span style="color:#0a3069">&#39;)&#39;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#39;(&#39;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#39;}&#39;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#39;{&#39;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#39;]&#39;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#39;[&#39;</span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">isValid</span>(s <span style="color:#458;font-weight:bold">string</span>) <span style="color:#458;font-weight:bold">bool</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">var</span> stack []<span style="color:#458;font-weight:bold">uint8</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> s {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> s[i] <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;(&#39;</span> <span style="color:#000;font-weight:bold">||</span> s[i] <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;{&#39;</span> <span style="color:#000;font-weight:bold">||</span> s[i] <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;[&#39;</span> {
-</span></span><span style="display:flex;"><span>			stack = <span style="color:#0086b3">append</span>(stack, s[i])
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span> <span style="color:#0086b3">len</span>(stack) <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>				<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span> m[s[i]] <span style="color:#000;font-weight:bold">==</span> stack[<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>] {
-</span></span><span style="display:flex;"><span>				stack = stack[:<span style="color:#0086b3">len</span>(stack)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
-</span></span><span style="display:flex;"><span>			} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>				<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> <span style="color:#0086b3">len</span>(stack) <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">isValid</span><span style="color:#1f2328">(</span><span style="color:#1f2328">s</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">var</span> <span style="color:#1f2328">stack</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">uint8</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#cf222e">range</span> <span style="color:#1f2328">s</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">s</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">==</span> <span style="color:#0a3069">&#39;(&#39;</span> <span style="color:#0550ae">||</span> <span style="color:#1f2328">s</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">==</span> <span style="color:#0a3069">&#39;{&#39;</span> <span style="color:#0550ae">||</span> <span style="color:#1f2328">s</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">==</span> <span style="color:#0a3069">&#39;[&#39;</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">stack</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span><span style="color:#1f2328">stack</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">s</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">])</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">if</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">stack</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">==</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#cf222e">return</span> <span style="color:#cf222e">false</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">if</span> <span style="color:#1f2328">m</span><span style="color:#1f2328">[</span><span style="color:#1f2328">s</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]]</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">stack</span><span style="color:#1f2328">[</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">stack</span><span style="color:#1f2328">)</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">stack</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">stack</span><span style="color:#1f2328">[:</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">stack</span><span style="color:#1f2328">)</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#cf222e">return</span> <span style="color:#cf222e">false</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">stack</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">==</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#cf222e">true</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#cf222e">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -443,23 +443,6 @@
 
 
         
-
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/post/2020-03-13-%E5%8D%95%E9%93%BE%E8%A1%A8/">单链表</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%E7%AE%97%E6%B3%95/">广度优先遍历算法</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">二分查找</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/">计数排序</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F/">比较排序</a></li>
-        
-    </ul>
-</div>
 
 
         <div class="post-meta meta-tags">
@@ -490,7 +473,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -611,7 +594,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -671,17 +654,17 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -689,9 +672,9 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -702,29 +685,29 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

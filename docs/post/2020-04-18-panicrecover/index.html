@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -112,17 +112,17 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> _panic <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	argp      unsafe.Pointer
-</span></span><span style="display:flex;"><span>	arg       <span style="color:#000;font-weight:bold">interface</span>{}
-</span></span><span style="display:flex;"><span>	link      <span style="color:#000;font-weight:bold">*</span>_panic
-</span></span><span style="display:flex;"><span>	recovered <span style="color:#458;font-weight:bold">bool</span>
-</span></span><span style="display:flex;"><span>	aborted   <span style="color:#458;font-weight:bold">bool</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">_panic</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">argp</span>      <span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Pointer</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">arg</span>       <span style="color:#cf222e">interface</span><span style="color:#1f2328">{}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">link</span>      <span style="color:#0550ae">*</span><span style="color:#1f2328">_panic</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">recovered</span> <span style="color:#cf222e">bool</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">aborted</span>   <span style="color:#cf222e">bool</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	pc     <span style="color:#458;font-weight:bold">uintptr</span>
-</span></span><span style="display:flex;"><span>	sp     unsafe.Pointer
-</span></span><span style="display:flex;"><span>	goexit <span style="color:#458;font-weight:bold">bool</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">pc</span>     <span style="color:#cf222e">uintptr</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">sp</span>     <span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Pointer</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">goexit</span> <span style="color:#cf222e">bool</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>结构体中字段含义说明：</p>
@@ -196,52 +196,52 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">gopanic</span>(e <span style="color:#000;font-weight:bold">interface</span>{}) {
-</span></span><span style="display:flex;"><span>	gp <span style="color:#000;font-weight:bold">:=</span> <span style="color:#900;font-weight:bold">getg</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">...</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">var</span> p _panic
-</span></span><span style="display:flex;"><span>	p.arg = e
-</span></span><span style="display:flex;"><span>	p.link = gp._panic
-</span></span><span style="display:flex;"><span>	gp._panic = (<span style="color:#000;font-weight:bold">*</span>_panic)(<span style="color:#900;font-weight:bold">noescape</span>(unsafe.<span style="color:#900;font-weight:bold">Pointer</span>(<span style="color:#000;font-weight:bold">&amp;</span>p)))
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">gopanic</span><span style="color:#1f2328">(</span><span style="color:#1f2328">e</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{})</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">gp</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">getg</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0550ae">...</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">var</span> <span style="color:#1f2328">p</span> <span style="color:#1f2328">_panic</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">arg</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">e</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">link</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">gp</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_panic</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">gp</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_panic</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">(</span><span style="color:#0550ae">*</span><span style="color:#1f2328">_panic</span><span style="color:#1f2328">)(</span><span style="color:#6639ba">noescape</span><span style="color:#1f2328">(</span><span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Pointer</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">p</span><span style="color:#1f2328">)))</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> {
-</span></span><span style="display:flex;"><span>		d <span style="color:#000;font-weight:bold">:=</span> gp._defer
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> d <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">break</span>
-</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">d</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">gp</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_defer</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">d</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">break</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		d._panic = (<span style="color:#000;font-weight:bold">*</span>_panic)(<span style="color:#900;font-weight:bold">noescape</span>(unsafe.<span style="color:#900;font-weight:bold">Pointer</span>(<span style="color:#000;font-weight:bold">&amp;</span>p)))
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">d</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_panic</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">(</span><span style="color:#0550ae">*</span><span style="color:#1f2328">_panic</span><span style="color:#1f2328">)(</span><span style="color:#6639ba">noescape</span><span style="color:#1f2328">(</span><span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Pointer</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">p</span><span style="color:#1f2328">)))</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">reflectcall</span>(<span style="color:#000;font-weight:bold">nil</span>, unsafe.<span style="color:#900;font-weight:bold">Pointer</span>(d.fn), <span style="color:#900;font-weight:bold">deferArgs</span>(d), <span style="color:#0086b3">uint32</span>(d.siz), <span style="color:#0086b3">uint32</span>(d.siz))
+</span></span><span style="display:flex;"><span>		<span style="color:#6639ba">reflectcall</span><span style="color:#1f2328">(</span><span style="color:#cf222e">nil</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Pointer</span><span style="color:#1f2328">(</span><span style="color:#1f2328">d</span><span style="color:#1f2328">.</span><span style="color:#1f2328">fn</span><span style="color:#1f2328">),</span> <span style="color:#6639ba">deferArgs</span><span style="color:#1f2328">(</span><span style="color:#1f2328">d</span><span style="color:#1f2328">),</span> <span style="color:#6639ba">uint32</span><span style="color:#1f2328">(</span><span style="color:#1f2328">d</span><span style="color:#1f2328">.</span><span style="color:#1f2328">siz</span><span style="color:#1f2328">),</span> <span style="color:#6639ba">uint32</span><span style="color:#1f2328">(</span><span style="color:#1f2328">d</span><span style="color:#1f2328">.</span><span style="color:#1f2328">siz</span><span style="color:#1f2328">))</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		d._panic = <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>		d.fn = <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>		gp._defer = d.link
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">d</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_panic</span> <span style="color:#1f2328">=</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">d</span><span style="color:#1f2328">.</span><span style="color:#1f2328">fn</span> <span style="color:#1f2328">=</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">gp</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_defer</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">d</span><span style="color:#1f2328">.</span><span style="color:#1f2328">link</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">freedefer</span>(d)
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> p.recovered {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">...</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>		<span style="color:#6639ba">freedefer</span><span style="color:#1f2328">(</span><span style="color:#1f2328">d</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">recovered</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#0550ae">...</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">fatalpanic</span>(gp._panic)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">*</span>(<span style="color:#000;font-weight:bold">*</span><span style="color:#458;font-weight:bold">int</span>)(<span style="color:#000;font-weight:bold">nil</span>) = <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">fatalpanic</span>(msgs <span style="color:#000;font-weight:bold">*</span>_panic) {
-</span></span><span style="display:flex;"><span>	pc <span style="color:#000;font-weight:bold">:=</span> <span style="color:#900;font-weight:bold">getcallerpc</span>()
-</span></span><span style="display:flex;"><span>	sp <span style="color:#000;font-weight:bold">:=</span> <span style="color:#900;font-weight:bold">getcallersp</span>()
-</span></span><span style="display:flex;"><span>	gp <span style="color:#000;font-weight:bold">:=</span> <span style="color:#900;font-weight:bold">getg</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#6639ba">fatalpanic</span><span style="color:#1f2328">(</span><span style="color:#1f2328">gp</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_panic</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0550ae">*</span><span style="color:#1f2328">(</span><span style="color:#0550ae">*</span><span style="color:#cf222e">int</span><span style="color:#1f2328">)(</span><span style="color:#cf222e">nil</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">fatalpanic</span><span style="color:#1f2328">(</span><span style="color:#1f2328">msgs</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">_panic</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">pc</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">getcallerpc</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">sp</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">getcallersp</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">gp</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">getg</span><span style="color:#1f2328">()</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">startpanic_m</span>() <span style="color:#000;font-weight:bold">&amp;&amp;</span> msgs <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		atomic.<span style="color:#900;font-weight:bold">Xadd</span>(<span style="color:#000;font-weight:bold">&amp;</span>runningPanicDefers, <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">printpanics</span>(msgs)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> <span style="color:#900;font-weight:bold">dopanic_m</span>(gp, pc, sp) {
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">crash</span>()
-</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#6639ba">startpanic_m</span><span style="color:#1f2328">()</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">msgs</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">atomic</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Xadd</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">runningPanicDefers</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#6639ba">printpanics</span><span style="color:#1f2328">(</span><span style="color:#1f2328">msgs</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#6639ba">dopanic_m</span><span style="color:#1f2328">(</span><span style="color:#1f2328">gp</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">pc</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">sp</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#6639ba">crash</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">exit</span>(<span style="color:#099">2</span>)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>	<span style="color:#6639ba">exit</span><span style="color:#1f2328">(</span><span style="color:#0550ae">2</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -261,14 +261,14 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">gorecover</span>(argp <span style="color:#458;font-weight:bold">uintptr</span>) <span style="color:#000;font-weight:bold">interface</span>{} {
-</span></span><span style="display:flex;"><span>	p <span style="color:#000;font-weight:bold">:=</span> gp._panic
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> p <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> !p.recovered <span style="color:#000;font-weight:bold">&amp;&amp;</span> argp <span style="color:#000;font-weight:bold">==</span> <span style="color:#0086b3">uintptr</span>(p.argp) {
-</span></span><span style="display:flex;"><span>		p.recovered = <span style="color:#000;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> p.arg
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">gorecover</span><span style="color:#1f2328">(</span><span style="color:#1f2328">argp</span> <span style="color:#cf222e">uintptr</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{}</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">p</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">gp</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_panic</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">p</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">!</span><span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">recovered</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">argp</span> <span style="color:#0550ae">==</span> <span style="color:#6639ba">uintptr</span><span style="color:#1f2328">(</span><span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">argp</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">recovered</span> <span style="color:#1f2328">=</span> <span style="color:#cf222e">true</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">arg</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>这个函数的实现非常简单，如果当前 goroutine 没有调用 panic，那么该函数会直接返回 nil，这也是崩溃恢复在非 defer 中调用会失效的原因。</p>
@@ -315,44 +315,44 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">gopanic</span>(e <span style="color:#000;font-weight:bold">interface</span>{}) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">...</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">gopanic</span><span style="color:#1f2328">(</span><span style="color:#1f2328">e</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{})</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0550ae">...</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#998;font-style:italic">// 执行延迟调用函数，可能会设置 p.recovered = true
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">...</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#57606a">// 执行延迟调用函数，可能会设置 p.recovered = true</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#0550ae">...</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		pc <span style="color:#000;font-weight:bold">:=</span> d.pc
-</span></span><span style="display:flex;"><span>		sp <span style="color:#000;font-weight:bold">:=</span> unsafe.<span style="color:#900;font-weight:bold">Pointer</span>(d.sp)
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">pc</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">d</span><span style="color:#1f2328">.</span><span style="color:#1f2328">pc</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">sp</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Pointer</span><span style="color:#1f2328">(</span><span style="color:#1f2328">d</span><span style="color:#1f2328">.</span><span style="color:#1f2328">sp</span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">...</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> p.recovered {
-</span></span><span style="display:flex;"><span>			gp._panic = p.link
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">for</span> gp._panic <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> gp._panic.aborted {
-</span></span><span style="display:flex;"><span>				gp._panic = gp._panic.link
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span> gp._panic <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>				gp.sig = <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>			gp.sigcode0 = <span style="color:#0086b3">uintptr</span>(sp)
-</span></span><span style="display:flex;"><span>			gp.sigcode1 = pc
-</span></span><span style="display:flex;"><span>			<span style="color:#900;font-weight:bold">mcall</span>(recovery)
-</span></span><span style="display:flex;"><span>			<span style="color:#900;font-weight:bold">throw</span>(<span style="color:#d14">&#34;recovery failed&#34;</span>)
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">...</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>		<span style="color:#0550ae">...</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">recovered</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">gp</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_panic</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">link</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">for</span> <span style="color:#1f2328">gp</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_panic</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">gp</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_panic</span><span style="color:#1f2328">.</span><span style="color:#1f2328">aborted</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">gp</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_panic</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">gp</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_panic</span><span style="color:#1f2328">.</span><span style="color:#1f2328">link</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">if</span> <span style="color:#1f2328">gp</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_panic</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">gp</span><span style="color:#1f2328">.</span><span style="color:#1f2328">sig</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">gp</span><span style="color:#1f2328">.</span><span style="color:#1f2328">sigcode0</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">uintptr</span><span style="color:#1f2328">(</span><span style="color:#1f2328">sp</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">gp</span><span style="color:#1f2328">.</span><span style="color:#1f2328">sigcode1</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">pc</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#6639ba">mcall</span><span style="color:#1f2328">(</span><span style="color:#1f2328">recovery</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#6639ba">throw</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;recovery failed&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#0550ae">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">recovery</span>(gp <span style="color:#000;font-weight:bold">*</span>g) {
-</span></span><span style="display:flex;"><span>	sp <span style="color:#000;font-weight:bold">:=</span> gp.sigcode0
-</span></span><span style="display:flex;"><span>	pc <span style="color:#000;font-weight:bold">:=</span> gp.sigcode1
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">recovery</span><span style="color:#1f2328">(</span><span style="color:#1f2328">gp</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">g</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">sp</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">gp</span><span style="color:#1f2328">.</span><span style="color:#1f2328">sigcode0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">pc</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">gp</span><span style="color:#1f2328">.</span><span style="color:#1f2328">sigcode1</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	gp.sched.sp = sp
-</span></span><span style="display:flex;"><span>	gp.sched.pc = pc
-</span></span><span style="display:flex;"><span>	gp.sched.lr = <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>	gp.sched.ret = <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">gogo</span>(<span style="color:#000;font-weight:bold">&amp;</span>gp.sched)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">gp</span><span style="color:#1f2328">.</span><span style="color:#1f2328">sched</span><span style="color:#1f2328">.</span><span style="color:#1f2328">sp</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">sp</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">gp</span><span style="color:#1f2328">.</span><span style="color:#1f2328">sched</span><span style="color:#1f2328">.</span><span style="color:#1f2328">pc</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">pc</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">gp</span><span style="color:#1f2328">.</span><span style="color:#1f2328">sched</span><span style="color:#1f2328">.</span><span style="color:#1f2328">lr</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">gp</span><span style="color:#1f2328">.</span><span style="color:#1f2328">sched</span><span style="color:#1f2328">.</span><span style="color:#1f2328">ret</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6639ba">gogo</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">gp</span><span style="color:#1f2328">.</span><span style="color:#1f2328">sched</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>当我们在调用 defer 关键字时，调用时的栈指针 sp 和程序计数器 pc 就已经存储到了 <code>runtime._defer</code> 结构体中，这样<code>runtime.recovery</code>通过<code>runtime.gogo</code> 函数就可以跳回 defer 关键字调用的位置。</p>
@@ -390,23 +390,6 @@
 
         
 
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/post/2020-04-17-Kafka%E9%80%9F%E5%BA%A6%E5%88%86%E6%9E%90/">mq|Kafka速度分析</a></li>
-        
-        <li><a href="/blog/post/2020-04-12-kafka%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/">mq|kafka简单介绍</a></li>
-        
-        <li><a href="/blog/post/2020-04-07-Golang%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/">Golang|垃圾回收</a></li>
-        
-        <li><a href="/blog/post/2020-03-31-%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84BIT/">树状数组BIT</a></li>
-        
-        <li><a href="/blog/post/2020-03-29-redis%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/">redis|持久化存储</a></li>
-        
-    </ul>
-</div>
-
 
         <div class="post-meta meta-tags">
             
@@ -436,7 +419,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -557,7 +540,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -617,17 +600,17 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -635,9 +618,9 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -648,29 +631,29 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

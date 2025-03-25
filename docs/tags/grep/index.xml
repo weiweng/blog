@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>grep on weiweng的博客</title>
+    <title>Grep on weiweng的博客</title>
     <link>https://weiweng.github.io/blog/tags/grep/</link>
-    <description>Recent content in grep on weiweng的博客</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Grep on weiweng的博客</description>
+    <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 14 Mar 2020 02:35:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/tags/grep/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 Mar 2020 02:35:00 +0800</lastBuildDate>
+    <atom:link href="https://weiweng.github.io/blog/tags/grep/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GREP简单使用</title>
       <link>https://weiweng.github.io/blog/tools/2020-03-14-GREP%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sat, 14 Mar 2020 02:35:00 +0800</pubDate>
-      
       <guid>https://weiweng.github.io/blog/tools/2020-03-14-GREP%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
       <description>GREP简单使用</description>
     </item>
-    
   </channel>
 </rss>

@@ -4,35 +4,30 @@
     <title>MQ on weiweng的博客</title>
     <link>https://weiweng.github.io/blog/categories/MQ/</link>
     <description>Recent content in MQ on weiweng的博客</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 17 Apr 2020 11:52:00 +0800</lastBuildDate><atom:link href="https://weiweng.github.io/blog/categories/MQ/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 Apr 2020 11:52:00 +0800</lastBuildDate>
+    <atom:link href="https://weiweng.github.io/blog/categories/MQ/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>mq|Kafka速度分析</title>
       <link>https://weiweng.github.io/blog/post/2020-04-17-Kafka%E9%80%9F%E5%BA%A6%E5%88%86%E6%9E%90/</link>
       <pubDate>Fri, 17 Apr 2020 11:52:00 +0800</pubDate>
-      
       <guid>https://weiweng.github.io/blog/post/2020-04-17-Kafka%E9%80%9F%E5%BA%A6%E5%88%86%E6%9E%90/</guid>
-      <description>现状 Kafka的消息是保存或缓存在磁盘上的，一般认为在磁盘上读写数据是会降低性能的，因为寻址会比较消耗时间，但是实际上，Kafka的特性之一就是高吞吐率。 即使是</description>
+      <description>&lt;p&gt;Kafka的消息是保存或缓存在磁盘上的，一般认为在磁盘上读写数据是会降低性能的，因为寻址会比较消耗时间，但是实际上，Kafka的特性之一就是高吞吐率。&lt;/p&gt;&#xA;&lt;p&gt;即使是普通的服务器，Kafka也可以轻松支持每秒百万级的写入请求，超过了大部分的消息中间件，这种特性也使得Kafka在日志处理等海量数据场景广泛应用。&lt;/p&gt;</description>
     </item>
-    
     <item>
-      <title>mq|kafka简单介绍</title>
+      <title>mq|kafka基础知识</title>
       <link>https://weiweng.github.io/blog/post/2020-04-12-kafka%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Sun, 12 Apr 2020 07:42:00 +0800</pubDate>
-      
       <guid>https://weiweng.github.io/blog/post/2020-04-12-kafka%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</guid>
-      <description>kafka Kafka是最初由Linkedin公司开发，是一个分布式、支持分区的、多副本的，基于zookeeper协调的分布式消息系统，它的最大的特性就是可以实时的处理大</description>
+      <description>&lt;p&gt;&lt;strong&gt;kafka&lt;/strong&gt;最初由Linkedin公司开发，是一个分布式、支持分区的、多副本的，基于zookeeper协调的分布式消息系统，用scala语言编写，Linkedin于2010年贡献给了Apache基金会并成为顶级开源项目。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>mq|使用注意项</title>
       <link>https://weiweng.github.io/blog/post/2020-03-14-MQ%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E9%A1%B9%E6%80%BB%E7%BB%93/</link>
       <pubDate>Sat, 14 Mar 2020 02:41:00 +0800</pubDate>
-      
       <guid>https://weiweng.github.io/blog/post/2020-03-14-MQ%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E9%A1%B9%E6%80%BB%E7%BB%93/</guid>
       <description>MQ使用注意项</description>
     </item>
-    
   </channel>
 </rss>

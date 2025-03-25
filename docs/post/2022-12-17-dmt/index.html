@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -163,15 +163,15 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>req <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">&amp;</span>gin.H{<span style="color:#d14">&#34;amount&#34;</span>: <span style="color:#099">30</span>} <span style="color:#998;font-style:italic">// 微服务的请求Body
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// DtmServer为DTM服务的地址
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>saga <span style="color:#000;font-weight:bold">:=</span> dtmcli.<span style="color:#900;font-weight:bold">NewSaga</span>(DtmServer, shortuuid.<span style="color:#900;font-weight:bold">New</span>()).
-</span></span><span style="display:flex;"><span>  <span style="color:#998;font-style:italic">// 添加一个TransOut的子事务，正向操作为url: qsBusi+&#34;/TransOut&#34;， 逆向操作为url: qsBusi+&#34;/TransOutCompensate&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>  <span style="color:#900;font-weight:bold">Add</span>(qsBusi<span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#34;/TransOut&#34;</span>, qsBusi<span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#34;/TransOutCompensate&#34;</span>, req).
-</span></span><span style="display:flex;"><span>  <span style="color:#998;font-style:italic">// 添加一个TransIn的子事务，正向操作为url: qsBusi+&#34;/TransIn&#34;， 逆向操作为url: qsBusi+&#34;/TransInCompensate&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>  <span style="color:#900;font-weight:bold">Add</span>(qsBusi<span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#34;/TransIn&#34;</span>, qsBusi<span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#34;/TransInCompensate&#34;</span>, req)
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 提交saga事务，dtm会完成所有的子事务/回滚所有的子事务
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>err <span style="color:#000;font-weight:bold">:=</span> saga.<span style="color:#900;font-weight:bold">Submit</span>()
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#1f2328">req</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">gin</span><span style="color:#1f2328">.</span><span style="color:#1f2328">H</span><span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;amount&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">30</span><span style="color:#1f2328">}</span> <span style="color:#57606a">// 微服务的请求Body</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// DtmServer为DTM服务的地址</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">saga</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">dtmcli</span><span style="color:#1f2328">.</span><span style="color:#6639ba">NewSaga</span><span style="color:#1f2328">(</span><span style="color:#1f2328">DtmServer</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">shortuuid</span><span style="color:#1f2328">.</span><span style="color:#6639ba">New</span><span style="color:#1f2328">()).</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// 添加一个TransOut的子事务，正向操作为url: qsBusi+&#34;/TransOut&#34;， 逆向操作为url: qsBusi+&#34;/TransOutCompensate&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6639ba">Add</span><span style="color:#1f2328">(</span><span style="color:#1f2328">qsBusi</span><span style="color:#0550ae">+</span><span style="color:#0a3069">&#34;/TransOut&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">qsBusi</span><span style="color:#0550ae">+</span><span style="color:#0a3069">&#34;/TransOutCompensate&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">req</span><span style="color:#1f2328">).</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// 添加一个TransIn的子事务，正向操作为url: qsBusi+&#34;/TransIn&#34;， 逆向操作为url: qsBusi+&#34;/TransInCompensate&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6639ba">Add</span><span style="color:#1f2328">(</span><span style="color:#1f2328">qsBusi</span><span style="color:#0550ae">+</span><span style="color:#0a3069">&#34;/TransIn&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">qsBusi</span><span style="color:#0550ae">+</span><span style="color:#0a3069">&#34;/TransInCompensate&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">req</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 提交saga事务，dtm会完成所有的子事务/回滚所有的子事务</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">err</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">saga</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Submit</span><span style="color:#1f2328">()</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果有正向操作失败，例如账户余额不足或者账户被冻结，那么dtm会调用各分支的补偿操作，进行回滚，最后事务成功回滚。</p>
@@ -194,11 +194,11 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>msg <span style="color:#000;font-weight:bold">:=</span> dtmcli.<span style="color:#900;font-weight:bold">NewMsg</span>(DtmServer, gid).
-</span></span><span style="display:flex;"><span>    <span style="color:#900;font-weight:bold">Add</span>(busi.Busi<span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#34;/TransIn&#34;</span>, <span style="color:#000;font-weight:bold">&amp;</span>TransReq{Amount: <span style="color:#099">30</span>})
-</span></span><span style="display:flex;"><span>err <span style="color:#000;font-weight:bold">:=</span> msg.<span style="color:#900;font-weight:bold">DoAndSubmitDB</span>(busi.Busi<span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#34;/QueryPreparedB&#34;</span>, db, <span style="color:#000;font-weight:bold">func</span>(tx <span style="color:#000;font-weight:bold">*</span>sql.Tx) <span style="color:#458;font-weight:bold">error</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> busi.<span style="color:#900;font-weight:bold">SagaAdjustBalance</span>(tx, busi.TransOutUID, <span style="color:#000;font-weight:bold">-</span>req.Amount, <span style="color:#d14">&#34;SUCCESS&#34;</span>)
-</span></span><span style="display:flex;"><span>})
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#1f2328">msg</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">dtmcli</span><span style="color:#1f2328">.</span><span style="color:#6639ba">NewMsg</span><span style="color:#1f2328">(</span><span style="color:#1f2328">DtmServer</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">gid</span><span style="color:#1f2328">).</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">Add</span><span style="color:#1f2328">(</span><span style="color:#1f2328">busi</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Busi</span><span style="color:#0550ae">+</span><span style="color:#0a3069">&#34;/TransIn&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">TransReq</span><span style="color:#1f2328">{</span><span style="color:#1f2328">Amount</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">30</span><span style="color:#1f2328">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">err</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">msg</span><span style="color:#1f2328">.</span><span style="color:#6639ba">DoAndSubmitDB</span><span style="color:#1f2328">(</span><span style="color:#1f2328">busi</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Busi</span><span style="color:#0550ae">+</span><span style="color:#0a3069">&#34;/QueryPreparedB&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">db</span><span style="color:#1f2328">,</span> <span style="color:#cf222e">func</span><span style="color:#1f2328">(</span><span style="color:#1f2328">tx</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">sql</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Tx</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">error</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">busi</span><span style="color:#1f2328">.</span><span style="color:#6639ba">SagaAdjustBalance</span><span style="color:#1f2328">(</span><span style="color:#1f2328">tx</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">busi</span><span style="color:#1f2328">.</span><span style="color:#1f2328">TransOutUID</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">-</span><span style="color:#1f2328">req</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Amount</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;SUCCESS&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">})</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>这部分代码中</p>
@@ -224,9 +224,9 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>app.<span style="color:#900;font-weight:bold">GET</span>(BusiAPI<span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#34;/QueryPreparedB&#34;</span>, dtmutil.<span style="color:#900;font-weight:bold">WrapHandler2</span>(<span style="color:#000;font-weight:bold">func</span>(c <span style="color:#000;font-weight:bold">*</span>gin.Context) <span style="color:#000;font-weight:bold">interface</span>{} {
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">MustBarrierFromGin</span>(c).<span style="color:#900;font-weight:bold">QueryPrepared</span>(<span style="color:#900;font-weight:bold">dbGet</span>())
-</span></span><span style="display:flex;"><span>}))
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#1f2328">app</span><span style="color:#1f2328">.</span><span style="color:#6639ba">GET</span><span style="color:#1f2328">(</span><span style="color:#1f2328">BusiAPI</span><span style="color:#0550ae">+</span><span style="color:#0a3069">&#34;/QueryPreparedB&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">dtmutil</span><span style="color:#1f2328">.</span><span style="color:#6639ba">WrapHandler2</span><span style="color:#1f2328">(</span><span style="color:#cf222e">func</span><span style="color:#1f2328">(</span><span style="color:#1f2328">c</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">gin</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Context</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{}</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#6639ba">MustBarrierFromGin</span><span style="color:#1f2328">(</span><span style="color:#1f2328">c</span><span style="color:#1f2328">).</span><span style="color:#6639ba">QueryPrepared</span><span style="color:#1f2328">(</span><span style="color:#6639ba">dbGet</span><span style="color:#1f2328">())</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}))</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="考虑提交前业务系统宕机">考虑提交前业务系统宕机</h4>
@@ -367,23 +367,6 @@
 
         
 
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/read/2022-12-12-2022%E9%98%85%E8%AF%BB%E4%B9%A6%E5%8D%95/">2022阅读书单</a></li>
-        
-        <li><a href="/blog/read/2022-12-11-%E5%A6%82%E4%BD%95%E6%89%93%E9%80%A0%E4%BD%A0%E7%9A%84%E7%8B%AC%E7%AB%8B%E8%A7%82%E7%82%B9/">如何打造你的独立观点</a></li>
-        
-        <li><a href="/blog/read/2022-12-11-%E5%AD%A6%E4%B9%A0%E5%92%8C%E8%AE%B0%E5%BF%86/">学习和记忆</a></li>
-        
-        <li><a href="/blog/read/2022-12-11-%E7%99%BE%E4%B8%87%E5%AF%8C%E7%BF%81%E5%BF%AB%E8%BD%A6%E9%81%93/">百万富翁快车道</a></li>
-        
-        <li><a href="/blog/about/">关于我</a></li>
-        
-    </ul>
-</div>
-
 
         <div class="post-meta meta-tags">
             
@@ -413,7 +396,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -534,7 +517,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -594,17 +577,17 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -612,9 +595,9 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -625,29 +608,29 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

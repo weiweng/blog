@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -174,14 +174,14 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>DEL key <span style="color:#998;font-style:italic">//删除key
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>EXISTS key <span style="color:#998;font-style:italic">//是否存在
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>EXPIRE key seconds <span style="color:#998;font-style:italic">//设置过期时间
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>KEYS pattern <span style="color:#998;font-style:italic">//返回所有匹配的键值
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>TTL key <span style="color:#998;font-style:italic">//返回key的剩余过期时间，秒为单位
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>PERSIST key <span style="color:#998;font-style:italic">//移除key的过期时间
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>RENAME key newkey <span style="color:#998;font-style:italic">//key的重命名
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>TYPE key <span style="color:#998;font-style:italic">//返回key的存储的值的类型
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>DEL key <span style="color:#57606a">//删除key
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>EXISTS key <span style="color:#57606a">//是否存在
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>EXPIRE key seconds <span style="color:#57606a">//设置过期时间
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>KEYS pattern <span style="color:#57606a">//返回所有匹配的键值
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>TTL key <span style="color:#57606a">//返回key的剩余过期时间，秒为单位
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>PERSIST key <span style="color:#57606a">//移除key的过期时间
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>RENAME key newkey <span style="color:#57606a">//key的重命名
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>TYPE key <span style="color:#57606a">//返回key的存储的值的类型
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="字符串">字符串</h3>
@@ -199,15 +199,15 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>SET key value <span style="color:#998;font-style:italic">//设置key的值value
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>GET key <span style="color:#998;font-style:italic">//获取key的值
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>GETSET key value <span style="color:#998;font-style:italic">//设置key的值，返回key的旧值
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>MGET key1 key2 <span style="color:#998;font-style:italic">//同时获取多个key
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>SETEX key seconds value <span style="color:#998;font-style:italic">//对key设置value和时间seconds
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>SETNX key value <span style="color:#998;font-style:italic">//针对不存在的key设置值value
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>INCR key <span style="color:#998;font-style:italic">//针对key增加一，key之前不存在也可以使用
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>INCRBY key increment <span style="color:#998;font-style:italic">//针对key增加increment
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>DESC key 
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>SET key value <span style="color:#57606a">//设置key的值value
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>GET key <span style="color:#57606a">//获取key的值
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>GETSET key value <span style="color:#57606a">//设置key的值，返回key的旧值
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>MGET key1 key2 <span style="color:#57606a">//同时获取多个key
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>SETEX key seconds value <span style="color:#57606a">//对key设置value和时间seconds
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>SETNX key value <span style="color:#57606a">//针对不存在的key设置值value
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>INCR key <span style="color:#57606a">//针对key增加一，key之前不存在也可以使用
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>INCRBY key increment <span style="color:#57606a">//针对key增加increment
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>DESC key 
 </span></span><span style="display:flex;"><span>DESCBY key decrement
 </span></span></code></pre></td></tr></table>
 </div>
@@ -223,13 +223,13 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>HDEL key field1 field2 <span style="color:#998;font-style:italic">//删除一个或多个哈希表字段
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>HEXISTS key field <span style="color:#998;font-style:italic">//哈希表中是否存在
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>HGET key field <span style="color:#998;font-style:italic">//获取哈希表字段的值
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>HGETALL key <span style="color:#998;font-style:italic">//获取哈希表中key的所有字段和值
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>HSET key field value <span style="color:#998;font-style:italic">//设置值
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>HKEYS key <span style="color:#998;font-style:italic">//获取哈希表中所有字段
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>HVALS key <span style="color:#998;font-style:italic">//获取哈希表中所有字段的值
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>HDEL key field1 field2 <span style="color:#57606a">//删除一个或多个哈希表字段
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>HEXISTS key field <span style="color:#57606a">//哈希表中是否存在
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>HGET key field <span style="color:#57606a">//获取哈希表字段的值
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>HGETALL key <span style="color:#57606a">//获取哈希表中key的所有字段和值
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>HSET key field value <span style="color:#57606a">//设置值
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>HKEYS key <span style="color:#57606a">//获取哈希表中所有字段
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>HVALS key <span style="color:#57606a">//获取哈希表中所有字段的值
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="列表">列表</h3>
@@ -247,16 +247,16 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>LSET key index value <span style="color:#998;font-style:italic">//通过索引设置列表元素的值
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>LINDEX key index <span style="color:#998;font-style:italic">//通过索引获取列表中的元素
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>LINSERT key BEFORE<span style="color:#000;font-weight:bold">|</span>AFTER pivot value <span style="color:#998;font-style:italic">//在列表的元素前或者后插入元素
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>LLEN key <span style="color:#998;font-style:italic">//获取列表长度
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>LPOP key <span style="color:#998;font-style:italic">//移出并获取列表的第一个元素
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>LPUSH key value1 value2 <span style="color:#998;font-style:italic">//将一个或多个值插入到列表头部
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>LPUSHX key value <span style="color:#998;font-style:italic">//将一个值插入到已存在的列表头部
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>RPOP key <span style="color:#998;font-style:italic">//移除列表的最后一个元素，返回值为移除的元素。
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>RPUSH key value1 value2 <span style="color:#998;font-style:italic">//在列表中添加一个或多个值
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>RPUSHX key value <span style="color:#998;font-style:italic">//为已存在的列表添加值
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>LSET key index value <span style="color:#57606a">//通过索引设置列表元素的值
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>LINDEX key index <span style="color:#57606a">//通过索引获取列表中的元素
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>LINSERT key BEFORE<span style="color:#0550ae">|</span>AFTER pivot value <span style="color:#57606a">//在列表的元素前或者后插入元素
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>LLEN key <span style="color:#57606a">//获取列表长度
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>LPOP key <span style="color:#57606a">//移出并获取列表的第一个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>LPUSH key value1 value2 <span style="color:#57606a">//将一个或多个值插入到列表头部
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>LPUSHX key value <span style="color:#57606a">//将一个值插入到已存在的列表头部
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>RPOP key <span style="color:#57606a">//移除列表的最后一个元素，返回值为移除的元素。
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>RPUSH key value1 value2 <span style="color:#57606a">//在列表中添加一个或多个值
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>RPUSHX key value <span style="color:#57606a">//为已存在的列表添加值
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="集合">集合</h3>
@@ -271,13 +271,13 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>SADD key member1 member2 <span style="color:#998;font-style:italic">//向集合添加一个或多个成员
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>SCARD key <span style="color:#998;font-style:italic">//获取集合的成员数
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>SISMEMBER key member <span style="color:#998;font-style:italic">//判断 member 元素是否是集合 key 的成员
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>SMEMBERS key <span style="color:#998;font-style:italic">//返回集合中的所有成员
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>SPOP key <span style="color:#998;font-style:italic">//移除并返回集合中的一个随机元素
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>SRANDMEMBER key count <span style="color:#998;font-style:italic">//返回集合中一个或多个随机数
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>SREM key member1 member2 <span style="color:#998;font-style:italic">//移除集合中一个或多个成员
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>SADD key member1 member2 <span style="color:#57606a">//向集合添加一个或多个成员
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>SCARD key <span style="color:#57606a">//获取集合的成员数
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>SISMEMBER key member <span style="color:#57606a">//判断 member 元素是否是集合 key 的成员
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>SMEMBERS key <span style="color:#57606a">//返回集合中的所有成员
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>SPOP key <span style="color:#57606a">//移除并返回集合中的一个随机元素
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>SRANDMEMBER key count <span style="color:#57606a">//返回集合中一个或多个随机数
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>SREM key member1 member2 <span style="color:#57606a">//移除集合中一个或多个成员
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="有序集合">有序集合</h3>
@@ -301,22 +301,22 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>ZADD key score1 member1 score2 member2 <span style="color:#998;font-style:italic">//向有序集合添加一个或多个成员，或者更新已存在成员的分数
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZCARD key <span style="color:#998;font-style:italic">//获取有序集合的成员数
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZCOUNT key min max <span style="color:#998;font-style:italic">//计算在有序集合中指定区间分数的成员数
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZINCRBY key increment member <span style="color:#998;font-style:italic">//有序集合中对指定成员的分数加上增量 increment
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZLEXCOUNT key min max <span style="color:#998;font-style:italic">//在有序集合中计算指定字典区间内成员数量
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZRANGEBYLEX key min max LIMIT offset count <span style="color:#998;font-style:italic">//通过字典区间返回有序集合的成员
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZRANGEBYSCORE key min max WITHSCORES LIMIT <span style="color:#998;font-style:italic">//通过分数返回有序集合指定区间内的成员
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZRANK key member <span style="color:#998;font-style:italic">//返回有序集合中指定成员的索引
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZREM key member1 member2 <span style="color:#998;font-style:italic">//移除有序集合中的一个或多个成员
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZREMRANGEBYLEX key min max <span style="color:#998;font-style:italic">//移除有序集合中给定的字典区间的所有成员
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZREMRANGEBYRANK key start stop <span style="color:#998;font-style:italic">//移除有序集合中给定的排名区间的所有成员
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZREMRANGEBYSCORE key min max <span style="color:#998;font-style:italic">//移除有序集合中给定的分数区间的所有成员
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZREVRANGE key start stop WITHSCORES <span style="color:#998;font-style:italic">//返回有序集中指定区间内的成员，通过索引，分数从高到低
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZREVRANGEBYSCORE key max min WITHSCORES <span style="color:#998;font-style:italic">//返回有序集中指定分数区间内的成员，分数从高到低排序
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZREVRANK key member <span style="color:#998;font-style:italic">//返回有序集合中指定成员的排名，有序集成员按分数值递减(从大到小)排序
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>ZSCORE key member <span style="color:#998;font-style:italic">//返回有序集中，成员的分数值
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>ZADD key score1 member1 score2 member2 <span style="color:#57606a">//向有序集合添加一个或多个成员，或者更新已存在成员的分数
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>ZCARD key <span style="color:#57606a">//获取有序集合的成员数
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>ZCOUNT key min max <span style="color:#57606a">//计算在有序集合中指定区间分数的成员数
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>ZINCRBY key increment member <span style="color:#57606a">//有序集合中对指定成员的分数加上增量 increment
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>ZLEXCOUNT key min max <span style="color:#57606a">//在有序集合中计算指定字典区间内成员数量
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>ZRANGEBYLEX key min max LIMIT offset count <span style="color:#57606a">//通过字典区间返回有序集合的成员
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>ZRANGEBYSCORE key min max WITHSCORES LIMIT <span style="color:#57606a">//通过分数返回有序集合指定区间内的成员
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>ZRANK key member <span style="color:#57606a">//返回有序集合中指定成员的索引
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>ZREM key member1 member2 <span style="color:#57606a">//移除有序集合中的一个或多个成员
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>ZREMRANGEBYLEX key min max <span style="color:#57606a">//移除有序集合中给定的字典区间的所有成员
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>ZREMRANGEBYRANK key start stop <span style="color:#57606a">//移除有序集合中给定的排名区间的所有成员
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>ZREMRANGEBYSCORE key min max <span style="color:#57606a">//移除有序集合中给定的分数区间的所有成员
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>ZREVRANGE key start stop WITHSCORES <span style="color:#57606a">//返回有序集中指定区间内的成员，通过索引，分数从高到低
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>ZREVRANGEBYSCORE key max min WITHSCORES <span style="color:#57606a">//返回有序集中指定分数区间内的成员，分数从高到低排序
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>ZREVRANK key member <span style="color:#57606a">//返回有序集合中指定成员的排名，有序集成员按分数值递减(从大到小)排序
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>ZSCORE key member <span style="color:#57606a">//返回有序集中，成员的分数值
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="后续">后续</h2>
@@ -337,23 +337,6 @@
 
 
         
-
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/post/2020-03-14-Mysql%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E9%A1%B9%E6%80%BB%E7%BB%93/">mysql|使用注意</a></li>
-        
-        <li><a href="/blog/post/2020-03-14-explain%E4%BD%BF%E7%94%A8/">mysql|explain</a></li>
-        
-        <li><a href="/blog/post/2020-03-14-%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA%E7%9B%B8%E5%85%B3/">mysql|导入导出相关</a></li>
-        
-        <li><a href="/blog/post/2020-03-14-%E4%B8%B4%E6%97%B6%E8%A1%A8%E7%9B%B8%E5%85%B3/">mysql|临时表相关</a></li>
-        
-        <li><a href="/blog/post/2020-03-14-Group%E7%9B%B8%E5%85%B3/">mysql|Group相关</a></li>
-        
-    </ul>
-</div>
 
 
         <div class="post-meta meta-tags">
@@ -384,7 +367,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -505,7 +488,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -565,17 +548,17 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -583,9 +566,9 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -596,29 +579,29 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

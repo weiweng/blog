@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -135,22 +135,22 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">isAnagram</span>(s <span style="color:#458;font-weight:bold">string</span>, t <span style="color:#458;font-weight:bold">string</span>) <span style="color:#458;font-weight:bold">bool</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> <span style="color:#0086b3">len</span>(s) <span style="color:#000;font-weight:bold">!=</span> <span style="color:#0086b3">len</span>(t) {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	table <span style="color:#000;font-weight:bold">:=</span> [<span style="color:#099">26</span>]<span style="color:#458;font-weight:bold">int</span>{}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>; i &lt; <span style="color:#0086b3">len</span>(s); i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>		table[s[i]<span style="color:#000;font-weight:bold">-</span><span style="color:#d14">&#39;a&#39;</span>]<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>; i &lt; <span style="color:#0086b3">len</span>(t); i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>		table[t[i]<span style="color:#000;font-weight:bold">-</span><span style="color:#d14">&#39;a&#39;</span>]<span style="color:#000;font-weight:bold">--</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> table[t[i]<span style="color:#000;font-weight:bold">-</span><span style="color:#d14">&#39;a&#39;</span>] &lt; <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">isAnagram</span><span style="color:#1f2328">(</span><span style="color:#1f2328">s</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">t</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">s</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">!=</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">t</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#cf222e">false</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">table</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">[</span><span style="color:#0550ae">26</span><span style="color:#1f2328">]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">s</span><span style="color:#1f2328">);</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">table</span><span style="color:#1f2328">[</span><span style="color:#1f2328">s</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span><span style="color:#0550ae">-</span><span style="color:#0a3069">&#39;a&#39;</span><span style="color:#1f2328">]</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">t</span><span style="color:#1f2328">);</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">table</span><span style="color:#1f2328">[</span><span style="color:#1f2328">t</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span><span style="color:#0550ae">-</span><span style="color:#0a3069">&#39;a&#39;</span><span style="color:#1f2328">]</span><span style="color:#0550ae">--</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">table</span><span style="color:#1f2328">[</span><span style="color:#1f2328">t</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span><span style="color:#0550ae">-</span><span style="color:#0a3069">&#39;a&#39;</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">&lt;</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#cf222e">false</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#cf222e">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -194,19 +194,19 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#998;font-style:italic">//小技巧，hash记录的key是k-i,value是i的下标
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">twoSum</span>(nums []<span style="color:#458;font-weight:bold">int</span>, target <span style="color:#458;font-weight:bold">int</span>) []<span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>	m <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>(<span style="color:#000;font-weight:bold">map</span>[<span style="color:#458;font-weight:bold">int</span>]<span style="color:#458;font-weight:bold">int</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i, n <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">range</span> nums {
-</span></span><span style="display:flex;"><span>		_, prs <span style="color:#000;font-weight:bold">:=</span> m[n]
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> prs {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> []<span style="color:#458;font-weight:bold">int</span>{m[n], i}
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>			m[target<span style="color:#000;font-weight:bold">-</span>n] = i
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">//小技巧，hash记录的key是k-i,value是i的下标</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">twoSum</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">target</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">m</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">make</span><span style="color:#1f2328">(</span><span style="color:#cf222e">map</span><span style="color:#1f2328">[</span><span style="color:#cf222e">int</span><span style="color:#1f2328">]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">n</span> <span style="color:#0550ae">:=</span> <span style="color:#cf222e">range</span> <span style="color:#1f2328">nums</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">_</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">prs</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">m</span><span style="color:#1f2328">[</span><span style="color:#1f2328">n</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">prs</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#1f2328">m</span><span style="color:#1f2328">[</span><span style="color:#1f2328">n</span><span style="color:#1f2328">],</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">m</span><span style="color:#1f2328">[</span><span style="color:#1f2328">target</span><span style="color:#0550ae">-</span><span style="color:#1f2328">n</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">i</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -287,54 +287,54 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">threeSum</span>(nums []<span style="color:#458;font-weight:bold">int</span>) [][]<span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">var</span> ret [][]<span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>	sort.<span style="color:#900;font-weight:bold">Ints</span>(nums)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>; i &lt; <span style="color:#0086b3">len</span>(nums)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">2</span>; i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> i &gt; <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> nums[i] <span style="color:#000;font-weight:bold">==</span> nums[i<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>] {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">continue</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		target, left, right <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">-</span>nums[i], i<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>, <span style="color:#0086b3">len</span>(nums)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">for</span> left &lt; right {
-</span></span><span style="display:flex;"><span>			sum <span style="color:#000;font-weight:bold">:=</span> nums[left] <span style="color:#000;font-weight:bold">+</span> nums[right]
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span> sum <span style="color:#000;font-weight:bold">==</span> target {
-</span></span><span style="display:flex;"><span>				ret = <span style="color:#0086b3">append</span>(ret, []<span style="color:#458;font-weight:bold">int</span>{nums[i], nums[left], nums[right]})
-</span></span><span style="display:flex;"><span>				left<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>				right<span style="color:#000;font-weight:bold">--</span>
-</span></span><span style="display:flex;"><span>				<span style="color:#000;font-weight:bold">for</span> left &lt; right <span style="color:#000;font-weight:bold">&amp;&amp;</span> nums[left] <span style="color:#000;font-weight:bold">==</span> nums[left<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>] {
-</span></span><span style="display:flex;"><span>					left<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>				}
-</span></span><span style="display:flex;"><span>				<span style="color:#000;font-weight:bold">for</span> left &lt; right <span style="color:#000;font-weight:bold">&amp;&amp;</span> nums[right] <span style="color:#000;font-weight:bold">==</span> nums[right<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>] {
-</span></span><span style="display:flex;"><span>					right<span style="color:#000;font-weight:bold">--</span>
-</span></span><span style="display:flex;"><span>				}
-</span></span><span style="display:flex;"><span>			} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> sum &gt; target {
-</span></span><span style="display:flex;"><span>				right<span style="color:#000;font-weight:bold">--</span>
-</span></span><span style="display:flex;"><span>			} <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> sum &lt; target {
-</span></span><span style="display:flex;"><span>				left<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> ret
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">threeSum</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">[][]</span><span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">var</span> <span style="color:#1f2328">ret</span> <span style="color:#1f2328">[][]</span><span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">sort</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Ints</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums</span><span style="color:#1f2328">)</span><span style="color:#0550ae">-</span><span style="color:#0550ae">2</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&gt;</span> <span style="color:#0550ae">0</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">continue</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">target</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">left</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">right</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">-</span><span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">],</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums</span><span style="color:#1f2328">)</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">for</span> <span style="color:#1f2328">left</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">right</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">sum</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">left</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">+</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">right</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">if</span> <span style="color:#1f2328">sum</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">target</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">ret</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ret</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">],</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">left</span><span style="color:#1f2328">],</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">right</span><span style="color:#1f2328">]})</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">left</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">right</span><span style="color:#0550ae">--</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#cf222e">for</span> <span style="color:#1f2328">left</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">right</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">left</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">left</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>					<span style="color:#1f2328">left</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#cf222e">for</span> <span style="color:#1f2328">left</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">right</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">right</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">right</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>					<span style="color:#1f2328">right</span><span style="color:#0550ae">--</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> <span style="color:#1f2328">sum</span> <span style="color:#1f2328">&gt;</span> <span style="color:#1f2328">target</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">right</span><span style="color:#0550ae">--</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">if</span> <span style="color:#1f2328">sum</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">target</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">left</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">ret</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">threeSum2</span>(nums []<span style="color:#458;font-weight:bold">int</span>) [][]<span style="color:#458;font-weight:bold">int</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">var</span> ret [][]<span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>	sort.<span style="color:#900;font-weight:bold">Ints</span>(nums)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>; i &lt; <span style="color:#0086b3">len</span>(nums)<span style="color:#000;font-weight:bold">-</span><span style="color:#099">2</span>; i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> i &gt; <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> nums[i] <span style="color:#000;font-weight:bold">==</span> nums[i<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>] {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">continue</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		m <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>(<span style="color:#000;font-weight:bold">map</span>[<span style="color:#458;font-weight:bold">int</span>]<span style="color:#458;font-weight:bold">bool</span>, <span style="color:#0086b3">len</span>(nums))
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">:=</span> i <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>; j &lt; <span style="color:#0086b3">len</span>(nums); j<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span> _, ok <span style="color:#000;font-weight:bold">:=</span> m[nums[j]]; ok {
-</span></span><span style="display:flex;"><span>				ret = <span style="color:#0086b3">append</span>(ret, []<span style="color:#458;font-weight:bold">int</span>{nums[i], <span style="color:#000;font-weight:bold">-</span>nums[i] <span style="color:#000;font-weight:bold">-</span> nums[j], nums[j]})
-</span></span><span style="display:flex;"><span>			} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>				m[<span style="color:#000;font-weight:bold">-</span>nums[i]<span style="color:#000;font-weight:bold">-</span>nums[j]] = <span style="color:#000;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> ret
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">threeSum2</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">[][]</span><span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">var</span> <span style="color:#1f2328">ret</span> <span style="color:#1f2328">[][]</span><span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">sort</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Ints</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums</span><span style="color:#1f2328">)</span><span style="color:#0550ae">-</span><span style="color:#0550ae">2</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&gt;</span> <span style="color:#0550ae">0</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">continue</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">m</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">make</span><span style="color:#1f2328">(</span><span style="color:#cf222e">map</span><span style="color:#1f2328">[</span><span style="color:#cf222e">int</span><span style="color:#1f2328">]</span><span style="color:#cf222e">bool</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums</span><span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">for</span> <span style="color:#1f2328">j</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">j</span> <span style="color:#1f2328">&lt;</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums</span><span style="color:#1f2328">);</span> <span style="color:#1f2328">j</span><span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">if</span> <span style="color:#1f2328">_</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">ok</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">m</span><span style="color:#1f2328">[</span><span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]];</span> <span style="color:#1f2328">ok</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">ret</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ret</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">],</span> <span style="color:#0550ae">-</span><span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">-</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">],</span> <span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]})</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">m</span><span style="color:#1f2328">[</span><span style="color:#0550ae">-</span><span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span><span style="color:#0550ae">-</span><span style="color:#1f2328">nums</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]]</span> <span style="color:#1f2328">=</span> <span style="color:#cf222e">false</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">ret</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -346,23 +346,6 @@
 
 
         
-
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/post/2020-03-13-%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/">双端队列</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/">优先级队列</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/">栈与队列</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E5%8D%95%E9%93%BE%E8%A1%A8/">单链表</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%E7%AE%97%E6%B3%95/">广度优先遍历算法</a></li>
-        
-    </ul>
-</div>
 
 
         <div class="post-meta meta-tags">
@@ -393,7 +376,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -514,7 +497,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -574,17 +557,17 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -592,9 +575,9 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -605,29 +588,29 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

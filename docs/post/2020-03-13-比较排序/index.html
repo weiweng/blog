@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -122,27 +122,27 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">ShellSort</span>(a []<span style="color:#458;font-weight:bold">int</span>, n <span style="color:#458;font-weight:bold">int</span>) {
-</span></span><span style="display:flex;"><span>	dk <span style="color:#000;font-weight:bold">:=</span> n <span style="color:#000;font-weight:bold">/</span> <span style="color:#099">2</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> dk <span style="color:#000;font-weight:bold">&gt;=</span> <span style="color:#099">1</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">shellInsertSort</span>(a, n, dk)
-</span></span><span style="display:flex;"><span>		dk <span style="color:#000;font-weight:bold">/=</span> <span style="color:#099">2</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">shellInsertSort</span>(a []<span style="color:#458;font-weight:bold">int</span>, n <span style="color:#458;font-weight:bold">int</span>, dk <span style="color:#458;font-weight:bold">int</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> dk; i &lt; n; i <span style="color:#000;font-weight:bold">+=</span> dk {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> a[i] &lt; a[i<span style="color:#000;font-weight:bold">-</span>dk] {
-</span></span><span style="display:flex;"><span>			j <span style="color:#000;font-weight:bold">:=</span> i <span style="color:#000;font-weight:bold">-</span> dk
-</span></span><span style="display:flex;"><span>			x <span style="color:#000;font-weight:bold">:=</span> a[i]
-</span></span><span style="display:flex;"><span>			a[i] = a[i<span style="color:#000;font-weight:bold">-</span>dk]
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">&gt;=</span> <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> x &lt; a[j] {
-</span></span><span style="display:flex;"><span>				a[j<span style="color:#000;font-weight:bold">+</span>dk] = a[j]
-</span></span><span style="display:flex;"><span>				j <span style="color:#000;font-weight:bold">-=</span> dk
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>			a[j<span style="color:#000;font-weight:bold">+</span>dk] = x
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">ShellSort</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">n</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">dk</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">n</span> <span style="color:#0550ae">/</span> <span style="color:#0550ae">2</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">dk</span> <span style="color:#0550ae">&gt;=</span> <span style="color:#0550ae">1</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#6639ba">shellInsertSort</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">n</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">dk</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">dk</span> <span style="color:#0550ae">/=</span> <span style="color:#0550ae">2</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">shellInsertSort</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">n</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">dk</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">dk</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">n</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">+=</span> <span style="color:#1f2328">dk</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#0550ae">-</span><span style="color:#1f2328">dk</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">j</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">-</span> <span style="color:#1f2328">dk</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">x</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#0550ae">-</span><span style="color:#1f2328">dk</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">for</span> <span style="color:#1f2328">j</span> <span style="color:#0550ae">&gt;=</span> <span style="color:#0550ae">0</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">x</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#0550ae">+</span><span style="color:#1f2328">dk</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">j</span> <span style="color:#0550ae">-=</span> <span style="color:#1f2328">dk</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#0550ae">+</span><span style="color:#1f2328">dk</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">x</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="简单选择排序">简单选择排序</h2>
@@ -166,21 +166,21 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">SelectSort</span>(a []<span style="color:#458;font-weight:bold">int</span>, n <span style="color:#458;font-weight:bold">int</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>; i &lt; n; i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>		key <span style="color:#000;font-weight:bold">:=</span> i
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">:=</span> i <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>; j &lt; n; j<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span> a[key] &gt; a[j] {
-</span></span><span style="display:flex;"><span>				key = j
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> key <span style="color:#000;font-weight:bold">!=</span> i {
-</span></span><span style="display:flex;"><span>			tmp <span style="color:#000;font-weight:bold">:=</span> a[i]
-</span></span><span style="display:flex;"><span>			a[i] = a[key]
-</span></span><span style="display:flex;"><span>			a[key] = tmp
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">SelectSort</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">n</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">n</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">key</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">i</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">for</span> <span style="color:#1f2328">j</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">j</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">n</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">j</span><span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">if</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">key</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">&gt;</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">key</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">j</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">key</span> <span style="color:#0550ae">!=</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">tmp</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">key</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">key</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">tmp</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="堆排序">堆排序</h2>
@@ -217,34 +217,34 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">HeapSort</span>(a []<span style="color:#458;font-weight:bold">int</span>, n <span style="color:#458;font-weight:bold">int</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#900;font-weight:bold">buildingHeap</span>(a, n)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> n <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>; i &gt; <span style="color:#099">0</span>; i<span style="color:#000;font-weight:bold">--</span> {
-</span></span><span style="display:flex;"><span>		a[<span style="color:#099">0</span>], a[i] = a[i], a[<span style="color:#099">0</span>]
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">heapAdjust</span>(a, <span style="color:#099">0</span>, i)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">HeapSort</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">n</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6639ba">buildingHeap</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">n</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">n</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&gt;</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">--</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">],</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">],</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#6639ba">heapAdjust</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">heapAdjust</span>(a []<span style="color:#458;font-weight:bold">int</span>, s <span style="color:#458;font-weight:bold">int</span>, n <span style="color:#458;font-weight:bold">int</span>) {
-</span></span><span style="display:flex;"><span>	child <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">2</span><span style="color:#000;font-weight:bold">*</span>s <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> child &lt; n {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> child<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span> &lt; n <span style="color:#000;font-weight:bold">&amp;&amp;</span> a[child] &gt; a[child<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>] {
-</span></span><span style="display:flex;"><span>			child<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> a[s] &gt; a[child] {
-</span></span><span style="display:flex;"><span>			a[s], a[child] = a[child], a[s]
-</span></span><span style="display:flex;"><span>			s = child
-</span></span><span style="display:flex;"><span>			child = <span style="color:#099">2</span><span style="color:#000;font-weight:bold">*</span>s <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">break</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">buildingHeap</span>(a []<span style="color:#458;font-weight:bold">int</span>, n <span style="color:#458;font-weight:bold">int</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> (n <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>) <span style="color:#000;font-weight:bold">/</span> <span style="color:#099">2</span>; i <span style="color:#000;font-weight:bold">&gt;=</span> <span style="color:#099">0</span>; i<span style="color:#000;font-weight:bold">--</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">heapAdjust</span>(a, i, n)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">heapAdjust</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">s</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">n</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">child</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">2</span><span style="color:#0550ae">*</span><span style="color:#1f2328">s</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">child</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">n</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">child</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">n</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">child</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">&gt;</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">child</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">child</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">s</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">&gt;</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">child</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">s</span><span style="color:#1f2328">],</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">child</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">child</span><span style="color:#1f2328">],</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">s</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">s</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">child</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">child</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">2</span><span style="color:#0550ae">*</span><span style="color:#1f2328">s</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">break</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">buildingHeap</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">n</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">n</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">/</span> <span style="color:#0550ae">2</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">&gt;=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">--</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#6639ba">heapAdjust</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">n</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="快速排序">快速排序</h2>
@@ -277,30 +277,30 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">QuickSort</span>(a []<span style="color:#458;font-weight:bold">int</span>, l <span style="color:#458;font-weight:bold">int</span>, r <span style="color:#458;font-weight:bold">int</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> l &lt; r {
-</span></span><span style="display:flex;"><span>		i, j, x <span style="color:#000;font-weight:bold">:=</span> l, r, a[l]
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">for</span> i &lt; j {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">for</span> i &lt; j <span style="color:#000;font-weight:bold">&amp;&amp;</span> a[j] <span style="color:#000;font-weight:bold">&gt;=</span> x {
-</span></span><span style="display:flex;"><span>				j<span style="color:#000;font-weight:bold">--</span>
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span> i &lt; j {
-</span></span><span style="display:flex;"><span>				a[i] = a[j]
-</span></span><span style="display:flex;"><span>				i<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">for</span> i &lt; j <span style="color:#000;font-weight:bold">&amp;&amp;</span> a[i] &lt; x {
-</span></span><span style="display:flex;"><span>				i<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span> i &lt; j {
-</span></span><span style="display:flex;"><span>				a[j] = a[i]
-</span></span><span style="display:flex;"><span>				j<span style="color:#000;font-weight:bold">--</span>
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		a[i] = x
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">QuickSort</span>(a, l, i<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">QuickSort</span>(a, i<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>, r)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">QuickSort</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">l</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">r</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">l</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">r</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">j</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">x</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">l</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">r</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">l</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">j</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">j</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">&gt;=</span> <span style="color:#1f2328">x</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">j</span><span style="color:#0550ae">--</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">if</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">j</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">i</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">j</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">x</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">i</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">if</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">j</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">j</span><span style="color:#0550ae">--</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">x</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#6639ba">QuickSort</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">l</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#6639ba">QuickSort</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">r</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="稳定排序算法">稳定排序算法</h1>
@@ -321,17 +321,17 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">BubbleSort</span>(a []<span style="color:#458;font-weight:bold">int</span>, n <span style="color:#458;font-weight:bold">int</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>; i &lt; n<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>; i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>; j &lt; n<span style="color:#000;font-weight:bold">-</span>i<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>; j<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span> a[j] &gt; a[j<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>] {
-</span></span><span style="display:flex;"><span>				tmp <span style="color:#000;font-weight:bold">:=</span> a[j]
-</span></span><span style="display:flex;"><span>				a[j] = a[j<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>]
-</span></span><span style="display:flex;"><span>				a[j<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>] = tmp
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">BubbleSort</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">n</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">n</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">for</span> <span style="color:#1f2328">j</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">j</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">n</span><span style="color:#0550ae">-</span><span style="color:#1f2328">i</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">j</span><span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">if</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">&gt;</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">tmp</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">tmp</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="直接插入排序">直接插入排序</h2>
@@ -354,20 +354,20 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">InsertSort</span>(a []<span style="color:#458;font-weight:bold">int</span>, n <span style="color:#458;font-weight:bold">int</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">1</span>; i &lt; n; i<span style="color:#000;font-weight:bold">++</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> a[i] &lt; a[i<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>] {
-</span></span><span style="display:flex;"><span>			j <span style="color:#000;font-weight:bold">:=</span> i <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>			x <span style="color:#000;font-weight:bold">:=</span> a[i]
-</span></span><span style="display:flex;"><span>			a[i] = a[i<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">&gt;=</span> <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> x &lt; a[j] {
-</span></span><span style="display:flex;"><span>				a[j<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>] = a[j]
-</span></span><span style="display:flex;"><span>				j<span style="color:#000;font-weight:bold">--</span>
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>			a[j<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>] = x
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">InsertSort</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">n</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">n</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">j</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">x</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">for</span> <span style="color:#1f2328">j</span> <span style="color:#0550ae">&gt;=</span> <span style="color:#0550ae">0</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">x</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#1f2328">j</span><span style="color:#0550ae">--</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">x</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="归并排序">归并排序</h2>
@@ -413,43 +413,43 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">MergeSort</span>(a []<span style="color:#458;font-weight:bold">int</span>,f <span style="color:#458;font-weight:bold">int</span>,l <span style="color:#458;font-weight:bold">int</span>, tmp []<span style="color:#458;font-weight:bold">int</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> f&lt;l {
-</span></span><span style="display:flex;"><span>		mid <span style="color:#000;font-weight:bold">:=</span> (f<span style="color:#000;font-weight:bold">+</span>l)<span style="color:#000;font-weight:bold">/</span><span style="color:#099">2</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">MergeSort</span>(a,f,mid,tmp)
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">MergeSort</span>(a,mid<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>,l,tmp)
-</span></span><span style="display:flex;"><span>		<span style="color:#900;font-weight:bold">mergeArray</span>(a,f,mid,l,tmp)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">mergeArray</span>(a []<span style="color:#458;font-weight:bold">int</span>,f <span style="color:#458;font-weight:bold">int</span>, mid <span style="color:#458;font-weight:bold">int</span>,l <span style="color:#458;font-weight:bold">int</span>, tmp []<span style="color:#458;font-weight:bold">int</span>) { i<span style="color:#000;font-weight:bold">:=</span> f j<span style="color:#000;font-weight:bold">:=</span> mid<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>	m <span style="color:#000;font-weight:bold">:=</span> mid
-</span></span><span style="display:flex;"><span>	n <span style="color:#000;font-weight:bold">:=</span> l
-</span></span><span style="display:flex;"><span>	k <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i<span style="color:#000;font-weight:bold">&lt;=</span>m <span style="color:#000;font-weight:bold">&amp;&amp;</span> j<span style="color:#000;font-weight:bold">&lt;=</span>n {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> a[i]<span style="color:#000;font-weight:bold">&lt;=</span>a[j]{
-</span></span><span style="display:flex;"><span>			tmp[k] = a[i]
-</span></span><span style="display:flex;"><span>			k<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>			i<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>		} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>			tmp[k] = a[j]
-</span></span><span style="display:flex;"><span>			k<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>			j<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i<span style="color:#000;font-weight:bold">&lt;=</span>m{
-</span></span><span style="display:flex;"><span>		tmp[k] = a[i]
-</span></span><span style="display:flex;"><span>		k<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>		i<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> j<span style="color:#000;font-weight:bold">&lt;=</span>n{
-</span></span><span style="display:flex;"><span>		tmp[k] = a[j]
-</span></span><span style="display:flex;"><span>		k<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>		j<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i<span style="color:#000;font-weight:bold">:=</span><span style="color:#099">0</span>;i&lt;k;i<span style="color:#000;font-weight:bold">++</span>{
-</span></span><span style="display:flex;"><span>		a[f<span style="color:#000;font-weight:bold">+</span>i] = tmp[i]
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">MergeSort</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span><span style="color:#1f2328">f</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">,</span><span style="color:#1f2328">l</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">tmp</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">f</span><span style="color:#1f2328">&lt;</span><span style="color:#1f2328">l</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">mid</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">f</span><span style="color:#0550ae">+</span><span style="color:#1f2328">l</span><span style="color:#1f2328">)</span><span style="color:#0550ae">/</span><span style="color:#0550ae">2</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#6639ba">MergeSort</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span><span style="color:#1f2328">,</span><span style="color:#1f2328">f</span><span style="color:#1f2328">,</span><span style="color:#1f2328">mid</span><span style="color:#1f2328">,</span><span style="color:#1f2328">tmp</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#6639ba">MergeSort</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span><span style="color:#1f2328">,</span><span style="color:#1f2328">mid</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span><span style="color:#1f2328">l</span><span style="color:#1f2328">,</span><span style="color:#1f2328">tmp</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#6639ba">mergeArray</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span><span style="color:#1f2328">,</span><span style="color:#1f2328">f</span><span style="color:#1f2328">,</span><span style="color:#1f2328">mid</span><span style="color:#1f2328">,</span><span style="color:#1f2328">l</span><span style="color:#1f2328">,</span><span style="color:#1f2328">tmp</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">mergeArray</span><span style="color:#1f2328">(</span><span style="color:#1f2328">a</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span><span style="color:#1f2328">f</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">mid</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">,</span><span style="color:#1f2328">l</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">tmp</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">:=</span> <span style="color:#1f2328">f</span> <span style="color:#1f2328">j</span><span style="color:#0550ae">:=</span> <span style="color:#1f2328">mid</span><span style="color:#0550ae">+</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">m</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">mid</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">n</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">l</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">k</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">&lt;=</span><span style="color:#1f2328">m</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">j</span><span style="color:#0550ae">&lt;=</span><span style="color:#1f2328">n</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span><span style="color:#0550ae">&lt;=</span><span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">tmp</span><span style="color:#1f2328">[</span><span style="color:#1f2328">k</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">k</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">i</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">tmp</span><span style="color:#1f2328">[</span><span style="color:#1f2328">k</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">k</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">j</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">&lt;=</span><span style="color:#1f2328">m</span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">tmp</span><span style="color:#1f2328">[</span><span style="color:#1f2328">k</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">k</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">i</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">j</span><span style="color:#0550ae">&lt;=</span><span style="color:#1f2328">n</span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">tmp</span><span style="color:#1f2328">[</span><span style="color:#1f2328">k</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">k</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">j</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">:=</span><span style="color:#0550ae">0</span><span style="color:#1f2328">;</span><span style="color:#1f2328">i</span><span style="color:#1f2328">&lt;</span><span style="color:#1f2328">k</span><span style="color:#1f2328">;</span><span style="color:#1f2328">i</span><span style="color:#0550ae">++</span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">a</span><span style="color:#1f2328">[</span><span style="color:#1f2328">f</span><span style="color:#0550ae">+</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">tmp</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>
@@ -459,23 +459,6 @@
 
 
         
-
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/post/2020-03-13-%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">经典排序算法</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-Alpha-Beta%E7%AE%97%E6%B3%95/">Alpha-Beta算法</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/">约瑟夫环问题</a></li>
-        
-        <li><a href="/blog/read/2020-03-13-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BF%83%E6%99%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%93%B2%E5%AD%A6%E5%8E%9F%E7%90%86/">计算机心智操作系统之哲学原理</a></li>
-        
-        <li><a href="/blog/read/2020-03-13-%E5%A6%82%E4%BD%95%E6%89%93%E9%80%A0%E4%BD%A0%E7%9A%84%E7%8B%AC%E7%AB%8B%E8%A7%82%E7%82%B9/">如何打造你的独立观点</a></li>
-        
-    </ul>
-</div>
 
 
         <div class="post-meta meta-tags">
@@ -506,7 +489,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -627,7 +610,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -687,17 +670,17 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -705,9 +688,9 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -718,29 +701,29 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

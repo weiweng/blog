@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -173,68 +173,68 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#998;font-style:italic">/*
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * 字典
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> *
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * 每个字典使用两个哈希表，用于实现渐进式 rehash
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">typedef</span> <span style="color:#000;font-weight:bold">struct</span> dict {
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#57606a">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"> * 字典
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"> * 每个字典使用两个哈希表，用于实现渐进式 rehash
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">typedef</span> <span style="color:#cf222e">struct</span> dict <span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 特定于类型的处理函数
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    dictType <span style="color:#000;font-weight:bold">*</span>type;
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 特定于类型的处理函数
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    dictType <span style="color:#0550ae">*</span>type<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 类型处理函数的私有数据
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#458;font-weight:bold">void</span> <span style="color:#000;font-weight:bold">*</span>privdata;
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 类型处理函数的私有数据
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">void</span> <span style="color:#0550ae">*</span>privdata<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 哈希表（2 个）
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    dictht ht[<span style="color:#099">2</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 哈希表（2 个）
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    dictht ht<span style="color:#1f2328">[</span><span style="color:#0550ae">2</span><span style="color:#1f2328">];</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 记录 rehash 进度的标志，值为 -1 表示 rehash 未进行
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#458;font-weight:bold">int</span> rehashidx;
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 记录 rehash 进度的标志，值为 -1 表示 rehash 未进行
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">int</span> rehashidx<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 当前正在运作的安全迭代器数量
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#458;font-weight:bold">int</span> iterators;
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 当前正在运作的安全迭代器数量
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">int</span> iterators<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>} dict;
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span> dict<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/*
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * 哈希表
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">typedef</span> <span style="color:#000;font-weight:bold">struct</span> dictht {
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"> * 哈希表
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">typedef</span> <span style="color:#cf222e">struct</span> dictht <span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 哈希表节点指针数组（俗称桶，bucket）
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    dictEntry <span style="color:#000;font-weight:bold">**</span>table;
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 哈希表节点指针数组（俗称桶，bucket）
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    dictEntry <span style="color:#0550ae">**</span>table<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 指针数组的大小
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#458;font-weight:bold">unsigned</span> <span style="color:#458;font-weight:bold">long</span> size;
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 指针数组的大小
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">long</span> size<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 指针数组的长度掩码，用于计算索引值
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#458;font-weight:bold">unsigned</span> <span style="color:#458;font-weight:bold">long</span> sizemask;
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 指针数组的长度掩码，用于计算索引值
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">long</span> sizemask<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 哈希表现有的节点数量
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#458;font-weight:bold">unsigned</span> <span style="color:#458;font-weight:bold">long</span> used;
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 哈希表现有的节点数量
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">long</span> used<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>} dictht;
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span> dictht<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/*
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * 哈希表节点
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">typedef</span> <span style="color:#000;font-weight:bold">struct</span> dictEntry {
+</span></span><span style="display:flex;"><span><span style="color:#57606a">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"> * 哈希表节点
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">typedef</span> <span style="color:#cf222e">struct</span> dictEntry <span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 键
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#458;font-weight:bold">void</span> <span style="color:#000;font-weight:bold">*</span>key;
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 键
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">void</span> <span style="color:#0550ae">*</span>key<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 值
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">union</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">void</span> <span style="color:#000;font-weight:bold">*</span>val;
-</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">uint64_t</span> u64;
-</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">int64_t</span> s64;
-</span></span><span style="display:flex;"><span>    } v;
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 值
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">union</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">void</span> <span style="color:#0550ae">*</span>val<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">uint64_t</span> u64<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">int64_t</span> s64<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span> v<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 链往后继节点
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">struct</span> dictEntry <span style="color:#000;font-weight:bold">*</span>next;
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 链往后继节点
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">struct</span> dictEntry <span style="color:#0550ae">*</span>next<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>} dictEntry;
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span> dictEntry<span style="color:#1f2328">;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="dict添加流程">dict添加流程</h2>
@@ -267,23 +267,6 @@
 
         
 
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-INTSET/">redis|intset</a></li>
-        
-        <li><a href="/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-ZIPLIST/">redis|ziplist</a></li>
-        
-        <li><a href="/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-SDS/">redis|SDS</a></li>
-        
-        <li><a href="/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80/">redis|基础</a></li>
-        
-        <li><a href="/blog/post/2020-03-14-Mysql%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E9%A1%B9%E6%80%BB%E7%BB%93/">mysql|使用注意</a></li>
-        
-    </ul>
-</div>
-
 
         <div class="post-meta meta-tags">
             
@@ -313,7 +296,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -434,7 +417,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -494,17 +477,17 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -512,9 +495,9 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -525,29 +508,29 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     

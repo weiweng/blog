@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog">
+                    <a id="logo" href="https://weiweng.github.io/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog">首页</a>
+                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
                     
                     <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
                     
@@ -239,145 +239,145 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">139
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> Value <span style="color:#458;font-weight:bold">int</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">Value</span> <span style="color:#cf222e">int</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> Node <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	Data Value
-</span></span><span style="display:flex;"><span>	Next <span style="color:#000;font-weight:bold">*</span>Node
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">Node</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">Data</span> <span style="color:#1f2328">Value</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">Next</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Node</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//查找前驱节点
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">FindPrevious</span>(data Value, h <span style="color:#000;font-weight:bold">*</span>Node) <span style="color:#000;font-weight:bold">*</span>Node {
-</span></span><span style="display:flex;"><span>	t <span style="color:#000;font-weight:bold">:=</span> h
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> t.Next <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> t.Next.Data <span style="color:#000;font-weight:bold">!=</span> data {
-</span></span><span style="display:flex;"><span>		t = t.Next
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> t
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//查找前驱节点</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">FindPrevious</span><span style="color:#1f2328">(</span><span style="color:#1f2328">data</span> <span style="color:#1f2328">Value</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">h</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Node</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Node</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">t</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">h</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Data</span> <span style="color:#0550ae">!=</span> <span style="color:#1f2328">data</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">t</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">t</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//p节点插入data
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">Insert</span>(data Value, p <span style="color:#000;font-weight:bold">*</span>Node) {
-</span></span><span style="display:flex;"><span>	tmpNode <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">&amp;</span>Node{Data: data}
-</span></span><span style="display:flex;"><span>	tmpNode.Next = p.Next
-</span></span><span style="display:flex;"><span>	p.Next = tmpNode
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//p节点插入data</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">Insert</span><span style="color:#1f2328">(</span><span style="color:#1f2328">data</span> <span style="color:#1f2328">Value</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">p</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Node</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">tmpNode</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">Node</span><span style="color:#1f2328">{</span><span style="color:#1f2328">Data</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">data</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">tmpNode</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">tmpNode</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">Delete</span>(data Value, h <span style="color:#000;font-weight:bold">*</span>Node) {
-</span></span><span style="display:flex;"><span>	p <span style="color:#000;font-weight:bold">:=</span> <span style="color:#900;font-weight:bold">FindPrevious</span>(data, h)
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> p.Next.Next <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		p.Next = <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>	} <span style="color:#000;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>		tmp <span style="color:#000;font-weight:bold">:=</span> p.Next
-</span></span><span style="display:flex;"><span>		p.Next = tmp.Next
-</span></span><span style="display:flex;"><span>		tmp.Next = <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">Delete</span><span style="color:#1f2328">(</span><span style="color:#1f2328">data</span> <span style="color:#1f2328">Value</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">h</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Node</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">p</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">FindPrevious</span><span style="color:#1f2328">(</span><span style="color:#1f2328">data</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#1f2328">=</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">tmp</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">p</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">tmp</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">tmp</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#1f2328">=</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">Find</span>(data Value, h <span style="color:#000;font-weight:bold">*</span>Node) <span style="color:#000;font-weight:bold">*</span>Node {
-</span></span><span style="display:flex;"><span>	t <span style="color:#000;font-weight:bold">:=</span> h
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> t.Data <span style="color:#000;font-weight:bold">!=</span> data {
-</span></span><span style="display:flex;"><span>		t = t.Next
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> t
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">Find</span><span style="color:#1f2328">(</span><span style="color:#1f2328">data</span> <span style="color:#1f2328">Value</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">h</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Node</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Node</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">t</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">h</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Data</span> <span style="color:#0550ae">!=</span> <span style="color:#1f2328">data</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">t</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">t</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//找中点
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">FindMiddle</span>(h <span style="color:#000;font-weight:bold">*</span>Node) <span style="color:#000;font-weight:bold">*</span>Node {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> h.Next <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> h
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> h.Next.Next <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> h
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	t, t2 <span style="color:#000;font-weight:bold">:=</span> h, h.Next.Next
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> t2.Next <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> t2.Next.Next <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		t = t.Next
-</span></span><span style="display:flex;"><span>		t2 = t2.Next.Next
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> t.Next
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//找中点</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">FindMiddle</span><span style="color:#1f2328">(</span><span style="color:#1f2328">h</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Node</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Node</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#1f2328">h</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#1f2328">h</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">t</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">t2</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">t2</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">t2</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">t</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">t2</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">t2</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//翻转
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">Reverse</span>(h <span style="color:#000;font-weight:bold">*</span>Node) <span style="color:#000;font-weight:bold">*</span>Node {
-</span></span><span style="display:flex;"><span>	t <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">&amp;</span>Node{}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> h <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		tmp <span style="color:#000;font-weight:bold">:=</span> h
-</span></span><span style="display:flex;"><span>		h = h.Next
-</span></span><span style="display:flex;"><span>		tmp.Next = t.Next
-</span></span><span style="display:flex;"><span>		t.Next = tmp
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	ret <span style="color:#000;font-weight:bold">:=</span> t.Next
-</span></span><span style="display:flex;"><span>	t.Next = <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> ret
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//翻转</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">Reverse</span><span style="color:#1f2328">(</span><span style="color:#1f2328">h</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Node</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Node</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">t</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">Node</span><span style="color:#1f2328">{}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">h</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">tmp</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">h</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">h</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">tmp</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">tmp</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">ret</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#1f2328">=</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">ret</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//检测是否有环
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">CheckExistLoop</span>(h <span style="color:#000;font-weight:bold">*</span>Node) <span style="color:#458;font-weight:bold">bool</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> h <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> h.Next <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	t, t2 <span style="color:#000;font-weight:bold">:=</span> h, h.Next.Next
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> t2.Next <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> t2.Next.Next <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		t = t.Next
-</span></span><span style="display:flex;"><span>		t2 = t2.Next.Next
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> t <span style="color:#000;font-weight:bold">==</span> t2 {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//检测是否有环</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">CheckExistLoop</span><span style="color:#1f2328">(</span><span style="color:#1f2328">h</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Node</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">h</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#cf222e">false</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#cf222e">false</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">t</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">t2</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">t2</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">t2</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">t</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">t2</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">t2</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">t</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">t2</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#cf222e">true</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#cf222e">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//找到环入口节点
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">GetLoopHead</span>(h <span style="color:#000;font-weight:bold">*</span>Node) <span style="color:#000;font-weight:bold">*</span>Node {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> h <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> h.Next <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	t, t2 <span style="color:#000;font-weight:bold">:=</span> h, h.Next.Next
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> t2.Next <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> t2.Next.Next <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		t = t.Next
-</span></span><span style="display:flex;"><span>		t2 = t2.Next.Next
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">if</span> t <span style="color:#000;font-weight:bold">==</span> t2 {
-</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">break</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> t <span style="color:#000;font-weight:bold">!=</span> t2 {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	t2 = h.Next
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> t2 <span style="color:#000;font-weight:bold">!=</span> t {
-</span></span><span style="display:flex;"><span>		t2 = t2.Next
-</span></span><span style="display:flex;"><span>		t = t.Next
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> t
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//找到环入口节点</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">GetLoopHead</span><span style="color:#1f2328">(</span><span style="color:#1f2328">h</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Node</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Node</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">h</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">t</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">t2</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">t2</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">t2</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">t</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">t2</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">t2</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">t</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">t2</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">break</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">t</span> <span style="color:#0550ae">!=</span> <span style="color:#1f2328">t2</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">t2</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">t2</span> <span style="color:#0550ae">!=</span> <span style="color:#1f2328">t</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">t2</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">t2</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">t</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">t</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//找倒数第k个节点
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">GetTailK</span>(h <span style="color:#000;font-weight:bold">*</span>Node, k <span style="color:#458;font-weight:bold">int</span>) <span style="color:#000;font-weight:bold">*</span>Node {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> h <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	c <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>	t <span style="color:#000;font-weight:bold">:=</span> h
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> c &lt; k <span style="color:#000;font-weight:bold">&amp;&amp;</span> t <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		c<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>		t = t.Next
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> t <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> t
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	t2 <span style="color:#000;font-weight:bold">:=</span> h
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> t <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		t = t.Next
-</span></span><span style="display:flex;"><span>		t2 = t2.Next
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> t2
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//找倒数第k个节点</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">GetTailK</span><span style="color:#1f2328">(</span><span style="color:#1f2328">h</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Node</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">k</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Node</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">h</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">c</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">t</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">h</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">c</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">k</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">t</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">c</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">t</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">t</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#1f2328">t</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">t2</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">h</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">t</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">t</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">t2</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">t2</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Next</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">t2</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="双向链表">双向链表</h2>
@@ -574,193 +574,193 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">187
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> list
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">package</span> <span style="color:#1f2328">list</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//结构体
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//双向链表中的元素抽象
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">type</span> Element <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	next, prev <span style="color:#000;font-weight:bold">*</span>Element
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">//该元素属于哪个list，相当于链表的头指针
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	list <span style="color:#000;font-weight:bold">*</span>List
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">//具体记录数据
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	Value <span style="color:#000;font-weight:bold">interface</span>{}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//结构体</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//双向链表中的元素抽象</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">Element</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">next</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">prev</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Element</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">//该元素属于哪个list，相当于链表的头指针</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">list</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">List</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">//具体记录数据</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">Value</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//返回后继元素
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (e <span style="color:#000;font-weight:bold">*</span>Element) <span style="color:#900;font-weight:bold">Next</span>() <span style="color:#000;font-weight:bold">*</span>Element {
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">//只有list的root会存在next等于自己
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">if</span> p <span style="color:#000;font-weight:bold">:=</span> e.next; e.list <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> p <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">&amp;</span>e.list.root {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> p
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//返回后继元素</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">e</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Element</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Next</span><span style="color:#1f2328">()</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Element</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">//只有list的root会存在next等于自己</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">p</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">next</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">list</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">p</span> <span style="color:#0550ae">!=</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">list</span><span style="color:#1f2328">.</span><span style="color:#1f2328">root</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#1f2328">p</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//返回前驱元素
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (e <span style="color:#000;font-weight:bold">*</span>Element) <span style="color:#900;font-weight:bold">Prev</span>() <span style="color:#000;font-weight:bold">*</span>Element {
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">//只有list的root会存在prev等于自己
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">if</span> p <span style="color:#000;font-weight:bold">:=</span> e.prev; e.list <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> p <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">&amp;</span>e.list.root {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> p
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//返回前驱元素</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">e</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Element</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Prev</span><span style="color:#1f2328">()</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Element</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">//只有list的root会存在prev等于自己</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">p</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">prev</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">list</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">p</span> <span style="color:#0550ae">!=</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">list</span><span style="color:#1f2328">.</span><span style="color:#1f2328">root</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#1f2328">p</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//双向链表List的定义
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">type</span> List <span style="color:#000;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">//list的头结点，是没有值的，见Init函数的构建过程
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	root Element
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">//定义长度
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	len <span style="color:#458;font-weight:bold">int</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//双向链表List的定义</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">List</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">//list的头结点，是没有值的，见Init函数的构建过程</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">root</span> <span style="color:#1f2328">Element</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">//定义长度</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">len</span> <span style="color:#cf222e">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (l <span style="color:#000;font-weight:bold">*</span>List) <span style="color:#900;font-weight:bold">Init</span>() <span style="color:#000;font-weight:bold">*</span>List {
-</span></span><span style="display:flex;"><span>	l.root.next = <span style="color:#000;font-weight:bold">&amp;</span>l.root
-</span></span><span style="display:flex;"><span>	l.root.prev = <span style="color:#000;font-weight:bold">&amp;</span>l.root
-</span></span><span style="display:flex;"><span>	l.len = <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> l
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">l</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">List</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Init</span><span style="color:#1f2328">()</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">List</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#1f2328">root</span><span style="color:#1f2328">.</span><span style="color:#1f2328">next</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#1f2328">root</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#1f2328">root</span><span style="color:#1f2328">.</span><span style="color:#1f2328">prev</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#1f2328">root</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#1f2328">len</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">l</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//初始化
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">New</span>() <span style="color:#000;font-weight:bold">*</span>List { <span style="color:#000;font-weight:bold">return</span> <span style="color:#0086b3">new</span>(List).<span style="color:#900;font-weight:bold">Init</span>() }
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//初始化</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">New</span><span style="color:#1f2328">()</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">List</span> <span style="color:#1f2328">{</span> <span style="color:#cf222e">return</span> <span style="color:#6639ba">new</span><span style="color:#1f2328">(</span><span style="color:#1f2328">List</span><span style="color:#1f2328">).</span><span style="color:#6639ba">Init</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//返回list的长度
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (l <span style="color:#000;font-weight:bold">*</span>List) <span style="color:#900;font-weight:bold">Len</span>() <span style="color:#458;font-weight:bold">int</span> { <span style="color:#000;font-weight:bold">return</span> l.len }
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//返回list的长度</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">l</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">List</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Len</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span> <span style="color:#cf222e">return</span> <span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#1f2328">len</span> <span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//返回list的下一个元素
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (l <span style="color:#000;font-weight:bold">*</span>List) <span style="color:#900;font-weight:bold">Front</span>() <span style="color:#000;font-weight:bold">*</span>Element {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> l.len <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> l.root.next
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//返回list的下一个元素</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">l</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">List</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Front</span><span style="color:#1f2328">()</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Element</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#1f2328">len</span> <span style="color:#0550ae">==</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#1f2328">root</span><span style="color:#1f2328">.</span><span style="color:#1f2328">next</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//返回list的上一个元素
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (l <span style="color:#000;font-weight:bold">*</span>List) <span style="color:#900;font-weight:bold">Back</span>() <span style="color:#000;font-weight:bold">*</span>Element {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> l.len <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">0</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> l.root.prev
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//返回list的上一个元素</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">l</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">List</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Back</span><span style="color:#1f2328">()</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Element</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#1f2328">len</span> <span style="color:#0550ae">==</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#1f2328">root</span><span style="color:#1f2328">.</span><span style="color:#1f2328">prev</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//懒加载
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (l <span style="color:#000;font-weight:bold">*</span>List) <span style="color:#900;font-weight:bold">lazyInit</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> l.root.next <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">nil</span> {
-</span></span><span style="display:flex;"><span>		l.<span style="color:#900;font-weight:bold">Init</span>()
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//懒加载</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">l</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">List</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">lazyInit</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#1f2328">root</span><span style="color:#1f2328">.</span><span style="color:#1f2328">next</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Init</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//at元素后面加一个元素e
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//经典双向链表的插入，只是e需要把list指向当前list
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (l <span style="color:#000;font-weight:bold">*</span>List) <span style="color:#900;font-weight:bold">insert</span>(e, at <span style="color:#000;font-weight:bold">*</span>Element) <span style="color:#000;font-weight:bold">*</span>Element {
-</span></span><span style="display:flex;"><span>	n <span style="color:#000;font-weight:bold">:=</span> at.next
-</span></span><span style="display:flex;"><span>	at.next = e
-</span></span><span style="display:flex;"><span>	e.prev = at
-</span></span><span style="display:flex;"><span>	e.next = n
-</span></span><span style="display:flex;"><span>	n.prev = e
-</span></span><span style="display:flex;"><span>	e.list = l
-</span></span><span style="display:flex;"><span>	l.len<span style="color:#000;font-weight:bold">++</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> e
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//at元素后面加一个元素e</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//经典双向链表的插入，只是e需要把list指向当前list</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">l</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">List</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">insert</span><span style="color:#1f2328">(</span><span style="color:#1f2328">e</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">at</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Element</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Element</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">n</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">at</span><span style="color:#1f2328">.</span><span style="color:#1f2328">next</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">at</span><span style="color:#1f2328">.</span><span style="color:#1f2328">next</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">e</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">prev</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">at</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">next</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">n</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">n</span><span style="color:#1f2328">.</span><span style="color:#1f2328">prev</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">e</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">list</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">l</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#1f2328">len</span><span style="color:#0550ae">++</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">e</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (l <span style="color:#000;font-weight:bold">*</span>List) <span style="color:#900;font-weight:bold">insertValue</span>(v <span style="color:#000;font-weight:bold">interface</span>{}, at <span style="color:#000;font-weight:bold">*</span>Element) <span style="color:#000;font-weight:bold">*</span>Element {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> l.<span style="color:#900;font-weight:bold">insert</span>(<span style="color:#000;font-weight:bold">&amp;</span>Element{Value: v}, at)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">l</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">List</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">insertValue</span><span style="color:#1f2328">(</span><span style="color:#1f2328">v</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{},</span> <span style="color:#1f2328">at</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Element</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Element</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#6639ba">insert</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">Element</span><span style="color:#1f2328">{</span><span style="color:#1f2328">Value</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">v</span><span style="color:#1f2328">},</span> <span style="color:#1f2328">at</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//移除元素e
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//经典的双链表删除元素
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (l <span style="color:#000;font-weight:bold">*</span>List) <span style="color:#900;font-weight:bold">remove</span>(e <span style="color:#000;font-weight:bold">*</span>Element) <span style="color:#000;font-weight:bold">*</span>Element {
-</span></span><span style="display:flex;"><span>	e.prev.next = e.next
-</span></span><span style="display:flex;"><span>	e.next.prev = e.prev
-</span></span><span style="display:flex;"><span>	e.next = <span style="color:#000;font-weight:bold">nil</span> <span style="color:#998;font-style:italic">//避免内存泄漏
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	e.prev = <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>	e.list = <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>	l.len<span style="color:#000;font-weight:bold">--</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> e
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//移除元素e</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//经典的双链表删除元素</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">l</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">List</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">remove</span><span style="color:#1f2328">(</span><span style="color:#1f2328">e</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Element</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Element</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">prev</span><span style="color:#1f2328">.</span><span style="color:#1f2328">next</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">next</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">next</span><span style="color:#1f2328">.</span><span style="color:#1f2328">prev</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">prev</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">next</span> <span style="color:#1f2328">=</span> <span style="color:#cf222e">nil</span> <span style="color:#57606a">//避免内存泄漏</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">prev</span> <span style="color:#1f2328">=</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">list</span> <span style="color:#1f2328">=</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#1f2328">len</span><span style="color:#0550ae">--</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">e</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//移除list的元素e
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (l <span style="color:#000;font-weight:bold">*</span>List) <span style="color:#900;font-weight:bold">Remove</span>(e <span style="color:#000;font-weight:bold">*</span>Element) <span style="color:#000;font-weight:bold">interface</span>{} {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> e.list <span style="color:#000;font-weight:bold">==</span> l {
-</span></span><span style="display:flex;"><span>		l.<span style="color:#900;font-weight:bold">remove</span>(e)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> e.Value
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//移除list的元素e</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">l</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">List</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">Remove</span><span style="color:#1f2328">(</span><span style="color:#1f2328">e</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Element</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{}</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">list</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">l</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#6639ba">remove</span><span style="color:#1f2328">(</span><span style="color:#1f2328">e</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Value</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//list的头部插入值为v的元素
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (l <span style="color:#000;font-weight:bold">*</span>List) <span style="color:#900;font-weight:bold">PushFront</span>(v <span style="color:#000;font-weight:bold">interface</span>{}) <span style="color:#000;font-weight:bold">*</span>Element {
-</span></span><span style="display:flex;"><span>	l.<span style="color:#900;font-weight:bold">lazyInit</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> l.<span style="color:#900;font-weight:bold">insertValue</span>(v, <span style="color:#000;font-weight:bold">&amp;</span>l.root)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//list的头部插入值为v的元素</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">l</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">List</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">PushFront</span><span style="color:#1f2328">(</span><span style="color:#1f2328">v</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{})</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Element</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#6639ba">lazyInit</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#6639ba">insertValue</span><span style="color:#1f2328">(</span><span style="color:#1f2328">v</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#1f2328">root</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//list的末尾插入值为v的元素
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (l <span style="color:#000;font-weight:bold">*</span>List) <span style="color:#900;font-weight:bold">PushBack</span>(v <span style="color:#000;font-weight:bold">interface</span>{}) <span style="color:#000;font-weight:bold">*</span>Element {
-</span></span><span style="display:flex;"><span>	l.<span style="color:#900;font-weight:bold">lazyInit</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> l.<span style="color:#900;font-weight:bold">insertValue</span>(v, l.root.prev)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//list的末尾插入值为v的元素</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">l</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">List</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">PushBack</span><span style="color:#1f2328">(</span><span style="color:#1f2328">v</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{})</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Element</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#6639ba">lazyInit</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#6639ba">insertValue</span><span style="color:#1f2328">(</span><span style="color:#1f2328">v</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#1f2328">root</span><span style="color:#1f2328">.</span><span style="color:#1f2328">prev</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//mark前面插入值为v的节点
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (l <span style="color:#000;font-weight:bold">*</span>List) <span style="color:#900;font-weight:bold">InsertBefore</span>(v <span style="color:#000;font-weight:bold">interface</span>{}, mark <span style="color:#000;font-weight:bold">*</span>Element) <span style="color:#000;font-weight:bold">*</span>Element {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> mark.list <span style="color:#000;font-weight:bold">!=</span> l {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> l.<span style="color:#900;font-weight:bold">insertValue</span>(v, mark.prev)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//mark前面插入值为v的节点</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">l</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">List</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">InsertBefore</span><span style="color:#1f2328">(</span><span style="color:#1f2328">v</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{},</span> <span style="color:#1f2328">mark</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Element</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Element</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">mark</span><span style="color:#1f2328">.</span><span style="color:#1f2328">list</span> <span style="color:#0550ae">!=</span> <span style="color:#1f2328">l</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#6639ba">insertValue</span><span style="color:#1f2328">(</span><span style="color:#1f2328">v</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">mark</span><span style="color:#1f2328">.</span><span style="color:#1f2328">prev</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//mark后门插入值为v的节点
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (l <span style="color:#000;font-weight:bold">*</span>List) <span style="color:#900;font-weight:bold">InsertAfter</span>(v <span style="color:#000;font-weight:bold">interface</span>{}, mark <span style="color:#000;font-weight:bold">*</span>Element) <span style="color:#000;font-weight:bold">*</span>Element {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> mark.list <span style="color:#000;font-weight:bold">!=</span> l {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">nil</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> l.<span style="color:#900;font-weight:bold">insertValue</span>(v, mark)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//mark后门插入值为v的节点</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">l</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">List</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">InsertAfter</span><span style="color:#1f2328">(</span><span style="color:#1f2328">v</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{},</span> <span style="color:#1f2328">mark</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Element</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Element</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">mark</span><span style="color:#1f2328">.</span><span style="color:#1f2328">list</span> <span style="color:#0550ae">!=</span> <span style="color:#1f2328">l</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span> <span style="color:#cf222e">nil</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#6639ba">insertValue</span><span style="color:#1f2328">(</span><span style="color:#1f2328">v</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">mark</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//将节点e移动到root的后门，可视为前置
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (l <span style="color:#000;font-weight:bold">*</span>List) <span style="color:#900;font-weight:bold">MoveToFront</span>(e <span style="color:#000;font-weight:bold">*</span>Element) {
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">//e的list不是l或者e已经是单节点了
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">if</span> e.list <span style="color:#000;font-weight:bold">!=</span> l <span style="color:#000;font-weight:bold">||</span> l.root.next <span style="color:#000;font-weight:bold">==</span> e {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">//打一套组合拳
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">//先删除然后移动到root的后门
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	l.<span style="color:#900;font-weight:bold">insert</span>(l.<span style="color:#900;font-weight:bold">remove</span>(e), <span style="color:#000;font-weight:bold">&amp;</span>l.root)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//将节点e移动到root的后门，可视为前置</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">l</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">List</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">MoveToFront</span><span style="color:#1f2328">(</span><span style="color:#1f2328">e</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Element</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">//e的list不是l或者e已经是单节点了</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">list</span> <span style="color:#0550ae">!=</span> <span style="color:#1f2328">l</span> <span style="color:#0550ae">||</span> <span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#1f2328">root</span><span style="color:#1f2328">.</span><span style="color:#1f2328">next</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">e</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">//打一套组合拳</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#57606a">//先删除然后移动到root的后门</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#6639ba">insert</span><span style="color:#1f2328">(</span><span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#6639ba">remove</span><span style="color:#1f2328">(</span><span style="color:#1f2328">e</span><span style="color:#1f2328">),</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#1f2328">root</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//将节点e移动到root的前面，可视为后置
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (l <span style="color:#000;font-weight:bold">*</span>List) <span style="color:#900;font-weight:bold">MoveToBack</span>(e <span style="color:#000;font-weight:bold">*</span>Element) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> e.list <span style="color:#000;font-weight:bold">!=</span> l <span style="color:#000;font-weight:bold">||</span> l.root.prev <span style="color:#000;font-weight:bold">==</span> e {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	l.<span style="color:#900;font-weight:bold">insert</span>(l.<span style="color:#900;font-weight:bold">remove</span>(e), l.root.prev)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//将节点e移动到root的前面，可视为后置</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">l</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">List</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">MoveToBack</span><span style="color:#1f2328">(</span><span style="color:#1f2328">e</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Element</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">list</span> <span style="color:#0550ae">!=</span> <span style="color:#1f2328">l</span> <span style="color:#0550ae">||</span> <span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#1f2328">root</span><span style="color:#1f2328">.</span><span style="color:#1f2328">prev</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">e</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#6639ba">insert</span><span style="color:#1f2328">(</span><span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#6639ba">remove</span><span style="color:#1f2328">(</span><span style="color:#1f2328">e</span><span style="color:#1f2328">),</span> <span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#1f2328">root</span><span style="color:#1f2328">.</span><span style="color:#1f2328">prev</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (l <span style="color:#000;font-weight:bold">*</span>List) <span style="color:#900;font-weight:bold">MoveBefore</span>(e, mark <span style="color:#000;font-weight:bold">*</span>Element) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> e.list <span style="color:#000;font-weight:bold">!=</span> l <span style="color:#000;font-weight:bold">||</span> e <span style="color:#000;font-weight:bold">==</span> mark <span style="color:#000;font-weight:bold">||</span> mark.list <span style="color:#000;font-weight:bold">!=</span> l {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	l.<span style="color:#900;font-weight:bold">insert</span>(l.<span style="color:#900;font-weight:bold">remove</span>(e), mark.prev)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">l</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">List</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">MoveBefore</span><span style="color:#1f2328">(</span><span style="color:#1f2328">e</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">mark</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Element</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">list</span> <span style="color:#0550ae">!=</span> <span style="color:#1f2328">l</span> <span style="color:#0550ae">||</span> <span style="color:#1f2328">e</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">mark</span> <span style="color:#0550ae">||</span> <span style="color:#1f2328">mark</span><span style="color:#1f2328">.</span><span style="color:#1f2328">list</span> <span style="color:#0550ae">!=</span> <span style="color:#1f2328">l</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#6639ba">insert</span><span style="color:#1f2328">(</span><span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#6639ba">remove</span><span style="color:#1f2328">(</span><span style="color:#1f2328">e</span><span style="color:#1f2328">),</span> <span style="color:#1f2328">mark</span><span style="color:#1f2328">.</span><span style="color:#1f2328">prev</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> (l <span style="color:#000;font-weight:bold">*</span>List) <span style="color:#900;font-weight:bold">MoveAfter</span>(e, mark <span style="color:#000;font-weight:bold">*</span>Element) {
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> e.list <span style="color:#000;font-weight:bold">!=</span> l <span style="color:#000;font-weight:bold">||</span> e <span style="color:#000;font-weight:bold">==</span> mark <span style="color:#000;font-weight:bold">||</span> mark.list <span style="color:#000;font-weight:bold">!=</span> l {
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	l.<span style="color:#900;font-weight:bold">insert</span>(l.<span style="color:#900;font-weight:bold">remove</span>(e), mark)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">l</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">List</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">MoveAfter</span><span style="color:#1f2328">(</span><span style="color:#1f2328">e</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">mark</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">Element</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">if</span> <span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">list</span> <span style="color:#0550ae">!=</span> <span style="color:#1f2328">l</span> <span style="color:#0550ae">||</span> <span style="color:#1f2328">e</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">mark</span> <span style="color:#0550ae">||</span> <span style="color:#1f2328">mark</span><span style="color:#1f2328">.</span><span style="color:#1f2328">list</span> <span style="color:#0550ae">!=</span> <span style="color:#1f2328">l</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">return</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#6639ba">insert</span><span style="color:#1f2328">(</span><span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#6639ba">remove</span><span style="color:#1f2328">(</span><span style="color:#1f2328">e</span><span style="color:#1f2328">),</span> <span style="color:#1f2328">mark</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//合并其他list到l的最后
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (l <span style="color:#000;font-weight:bold">*</span>List) <span style="color:#900;font-weight:bold">PushBackList</span>(other <span style="color:#000;font-weight:bold">*</span>List) {
-</span></span><span style="display:flex;"><span>	l.<span style="color:#900;font-weight:bold">lazyInit</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i, e <span style="color:#000;font-weight:bold">:=</span> other.<span style="color:#900;font-weight:bold">Len</span>(), other.<span style="color:#900;font-weight:bold">Front</span>(); i &gt; <span style="color:#099">0</span>; i, e = i<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>, e.<span style="color:#900;font-weight:bold">Next</span>() {
-</span></span><span style="display:flex;"><span>		l.<span style="color:#900;font-weight:bold">insertValue</span>(e.Value, l.root.prev)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//合并其他list到l的最后</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">l</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">List</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">PushBackList</span><span style="color:#1f2328">(</span><span style="color:#1f2328">other</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">List</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#6639ba">lazyInit</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">e</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">other</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Len</span><span style="color:#1f2328">(),</span> <span style="color:#1f2328">other</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Front</span><span style="color:#1f2328">();</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&gt;</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">e</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Next</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#6639ba">insertValue</span><span style="color:#1f2328">(</span><span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Value</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#1f2328">root</span><span style="color:#1f2328">.</span><span style="color:#1f2328">prev</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//合并其他list到l的前面
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> (l <span style="color:#000;font-weight:bold">*</span>List) <span style="color:#900;font-weight:bold">PushFrontList</span>(other <span style="color:#000;font-weight:bold">*</span>List) {
-</span></span><span style="display:flex;"><span>	l.<span style="color:#900;font-weight:bold">lazyInit</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">for</span> i, e <span style="color:#000;font-weight:bold">:=</span> other.<span style="color:#900;font-weight:bold">Len</span>(), other.<span style="color:#900;font-weight:bold">Back</span>(); i &gt; <span style="color:#099">0</span>; i, e = i<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>, e.<span style="color:#900;font-weight:bold">Prev</span>() {
-</span></span><span style="display:flex;"><span>		l.<span style="color:#900;font-weight:bold">insertValue</span>(e.Value, <span style="color:#000;font-weight:bold">&amp;</span>l.root)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#57606a">//合并其他list到l的前面</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">l</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">List</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">PushFrontList</span><span style="color:#1f2328">(</span><span style="color:#1f2328">other</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">List</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#6639ba">lazyInit</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">e</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">other</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Len</span><span style="color:#1f2328">(),</span> <span style="color:#1f2328">other</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Back</span><span style="color:#1f2328">();</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&gt;</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">e</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Prev</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#6639ba">insertValue</span><span style="color:#1f2328">(</span><span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Value</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">l</span><span style="color:#1f2328">.</span><span style="color:#1f2328">root</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>
@@ -770,23 +770,6 @@
 
 
         
-
-<div class="post-archive">
-    <h2>相关文章</h2>
-    <ul class="listing">
-        
-        <li><a href="/blog/post/2020-03-13-map/">Golang|map</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E4%BA%8C%E5%8F%89%E5%B9%B3%E8%A1%A1%E6%A0%91%E6%97%8B%E8%BD%AC/">二叉平衡树旋转</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%E8%AF%A6%E6%83%85/">二叉排序树详情</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E7%BA%A2%E9%BB%91%E6%A0%91%E8%AF%A6%E6%83%85/">红黑树详情</a></li>
-        
-        <li><a href="/blog/post/2020-03-13-%E7%BA%A2%E9%BB%91%E6%A0%91%E5%AE%9E%E7%8E%B0/">红黑树实现</a></li>
-        
-    </ul>
-</div>
 
 
         <div class="post-meta meta-tags">
@@ -817,7 +800,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog">weiweng的博客 By </a>
+        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
         
     </div>
     <br />
@@ -938,7 +921,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog">
+      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -998,17 +981,17 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
     
+    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">k8s (3)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">linux (2)</a></li>
-    
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">mysql (21)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
@@ -1016,9 +999,9 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
-    
     <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
@@ -1029,29 +1012,29 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">awk</a>
+    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">curl</a>
+    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">find</a>
+    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">git</a>
+    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">grep</a>
+    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">item2</a>
+    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">nginx</a>
+    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">sed</a>
+    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">shell</a>
+    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">tmux</a>
+    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">uml</a>
+    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">vim</a>
+    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
     
     <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     
