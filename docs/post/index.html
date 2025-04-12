@@ -74,6 +74,34 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://weiweng.github.io/blog/post/2025-04-12-mysql%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/" title="mysql|知识大纲" target="_blank">mysql|知识大纲</a>
+            </h1>
+        </header>
+        
+  <time datetime="2025-04-12T02:00:00Z" class="post-meta meta-date dt-published">
+    2025年4月12日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/mysql' target="_blank">mysql</a>
+  
+</div>
+
+
+        <div class="post-content">
+            <p>总结一下mysql的知识大纲，利用思维导图的方式将零散的知识组合起来，形成网状图谱，方便回想和记忆。</p>……
+        </div>
+        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2025-04-12-mysql%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://weiweng.github.io/blog/post/2025-02-26-embedding/" title="大模型专题|embedding" target="_blank">大模型专题|embedding</a>
             </h1>
         </header>
@@ -92,8 +120,7 @@
 
 
         <div class="post-content">
-            <p>文本是一种非结构化的数据信息，是不可以直接被计算的。</p>
-<p>文本表示的作用就是将这些非结构化的信息转化为结构化的信息，这样就可以针对文本信息做计算，来完成我们日常所能见到的文本分类，情感判断等任务。</p>……
+            <p>文本是一种非结构化的数据信息，是不可以直接被计算的。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2025-02-26-embedding/" target="_blank">阅读全文</a></p>
     </article>
@@ -177,8 +204,7 @@
 
 
         <div class="post-content">
-            <p>groupcache 是 memcached 作者 Brad Fitzpatrick 用 Go 语言编写的缓存及缓存过滤库，作为 memcached 许多场景下的替代版本。</p>
-<p>groupcache并不运行在单独的server上，而是作为library和app运行在同一进程中。在API上，groupcache最大的特点是不提供update/delete/TTL等常见操作。整体的代码很少，值得阅读和学习。</p>……
+            <p>groupcache 是 memcached 作者 Brad Fitzpatrick 用 Go 语言编写的缓存及缓存过滤库，作为 memcached 许多场景下的替代版本。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2024-03-15-golanggrroupcache/" target="_blank">阅读全文</a></p>
     </article>
@@ -206,8 +232,7 @@
 
 
         <div class="post-content">
-            <p>Go 语言是静态类型的，每个变量在编译期有且只能有一个确定的、已知的类型，即变量的静态类型。静态类型在变量声明的时候就已经确定了，无法修改。</p>
-<p>那么为什么我们还需要反射呢？这是因为有些事情只有在运行时才知道。比如你定义了一个函数，它有一个interface{}类型的参数，这也就意味着调用者可以传递任何类型的参数给这个函数。在这种情况下，如果你想知道调用者传递的是什么类型的参数，就需要用到反射。如果你想知道一个结构体有哪些字段和方法，也需要反射。</p>……
+            <p>Go 语言是静态类型的，每个变量在编译期有且只能有一个确定的、已知的类型，即变量的静态类型。静态类型在变量声明的时候就已经确定了，无法修改。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2024-03-09-golangreflect/" target="_blank">阅读全文</a></p>
     </article>
@@ -235,11 +260,7 @@
 
 
         <div class="post-content">
-            <p>前缀和可以简单理解为「数列的前 n 项的和」，是一种重要的预处理方式，能大大降低查询的时间复杂度。</p>
-<h2 id="初级练习">初级练习</h2>
-<h3 id="左右元素和的差值"><strong><a href="https://leetcode.cn/problems/left-and-right-sum-differences/description/">左右元素和的差值</a></strong></h3>
-<p><strong>思路</strong></p>
-<p>思路简单，使用前缀和，不过需要左右两边都计算一下前缀和，然后对每个i的位置进行计算。</p>……
+            <p>前缀和可以简单理解为「数列的前 n 项的和」，是一种重要的预处理方式，能大大降低查询的时间复杂度。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2024-01-22-%E5%89%8D%E7%BC%80%E5%92%8C/" target="_blank">阅读全文</a></p>
     </article>
@@ -267,11 +288,7 @@
 
 
         <div class="post-content">
-            <p>最近工作开始转向使用python，因此更加深入的学习一下，通过阅读开源库学习python的使用。这一期学习使用<a href="https://docs.python-requests.org/en/latest/index.html"><strong>requests库</strong></a>，这个是一个很漂亮的http包，提供优雅的http client。</p>
-<pre><code>Requests is an elegant and simple HTTP library for Python, built for human beings.
-</code></pre>
-<h2 id="基础用法">基础用法</h2>
-<p>官网给出了很多用法示例，这里简单罗列一下平常用到的<code>get</code>和<code>post</code>的请求方法。</p>……
+            <p>最近工作开始转向使用python，因此更加深入的学习一下，通过阅读开源库学习python的使用。这一期学习使用<a href="https://docs.python-requests.org/en/latest/index.html"><strong>requests库</strong></a>，这个是一个很漂亮的http包，提供优雅的http client。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2024-01-20-pythonrequests/" target="_blank">阅读全文</a></p>
     </article>
@@ -327,45 +344,9 @@
 
 
         <div class="post-content">
-            <p>图相关的算法练习，需要掌握图的基本数据结构，图的连通性，图的遍历，最短路径，最小生成树等问题。</p>
-<h2 id="初级练习">初级练习</h2>
-<h3 id="找到小镇的法官"><strong><a href="https://leetcode.cn/problems/find-the-town-judge/">找到小镇的法官</a></strong></h3>
-<p><strong>思路</strong></p>
-<p>思路很简单，基于图的度，由于法官不信任其他人，因此他的出度是0，这样就可以找到了。</p>……
+            <p>图相关的算法练习，需要掌握图的基本数据结构，图的连通性，图的遍历，最短路径，最小生成树等问题。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-09-08-%E5%9B%BE/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://weiweng.github.io/blog/post/2023-06-26-%E8%B4%AA%E5%BF%83/" title="算法专题|贪心" target="_blank">算法专题|贪心</a>
-            </h1>
-        </header>
-        
-  <time datetime="2023-06-25T22:00:00Z" class="post-meta meta-date dt-published">
-    2023年6月26日
-  </time>
-
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98' target="_blank">算法专题</a>
-  
-</div>
-
-
-        <div class="post-content">
-            <p>贪心算法没有固定的模板，基本思路是找到问题的一个切入点，虽然证明这个解法是最优的。</p>
-<h2 id="初级练习">初级练习</h2>
-<h3 id="拆分数位后四位数字的最小和"><strong><a href="https://leetcode.cn/problems/minimum-sum-of-four-digit-number-after-splitting-digits/">拆分数位后四位数字的最小和</a></strong></h3>
-<p><strong>思路</strong></p>
-<p>这题很简单，数据只有4个数，组合就3种，不过为了求最小和，贪心的思路就是组成的数值最高位都尽量小，因此把四个数排序，1和4组成一个数，2和3组成一个数，这样就能得到最小的和。</p>……
-        </div>
-        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-06-26-%E8%B4%AA%E5%BF%83/" target="_blank">阅读全文</a></p>
     </article>
     
     
@@ -481,6 +462,10 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://weiweng.github.io/blog/post/2025-04-12-mysql%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/" title="mysql|知识大纲" target="_blank">mysql|知识大纲</a>
+    </li>
+    
+    <li>
         <a href="https://weiweng.github.io/blog/post/2025-02-26-embedding/" title="大模型专题|embedding" target="_blank">大模型专题|embedding</a>
     </li>
     
@@ -516,10 +501,6 @@
         <a href="https://weiweng.github.io/blog/post/2023-09-08-%E5%9B%BE/" title="算法专题|图" target="_blank">算法专题|图</a>
     </li>
     
-    <li>
-        <a href="https://weiweng.github.io/blog/post/2023-06-26-%E8%B4%AA%E5%BF%83/" title="算法专题|贪心" target="_blank">算法专题|贪心</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -537,7 +518,7 @@
     
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (22)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     

@@ -1,13 +1,17 @@
 +++
-title="mysql|基本命令使用"
+title="mysql|常用命令"
 date="2020-03-14T02:46:00+08:00"
 categories=["mysql"]
-summary = '基本命令使用'
+summary = '常用命令'
 toc=false
 +++
 
+简单记录一些常用的mysql的命令。
+
 数据库安装
 ----------
+
+参考[mysql官网的下载页说明](https://www.mysql.com/downloads/)，不同系统的安装各不相同，具体可以google安装流程。
 
 数据库启动
 ----------

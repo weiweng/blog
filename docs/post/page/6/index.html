@@ -74,6 +74,42 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://weiweng.github.io/blog/post/2020-04-22-Redis%E9%9B%86%E7%BE%A4/" title="redis|集群" target="_blank">redis|集群</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-04-21T19:57:00Z" class="post-meta meta-date dt-published">
+    2020年4月22日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/Redis' target="_blank">Redis</a>
+  
+</div>
+
+
+        <div class="post-content">
+            <h1 id="redis集群">Redis集群</h1>
+<ul>
+<li>Redis 单副本</li>
+<li>Redis 多副本(主从)</li>
+<li>Redis Sentinel(哨兵)</li>
+<li>Redis Cluster</li>
+</ul>
+<h1 id="redis-单副本">Redis 单副本</h1>
+<p>Redis 单副本，采用单个 Redis 节点部署架构，没有备用节点实时同步数据，不提供数据持久化和备份策略，适用于数据可靠性要求不高的纯缓存业务场景。</p>……
+        </div>
+        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-04-22-Redis%E9%9B%86%E7%BE%A4/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://weiweng.github.io/blog/post/2020-04-21-RedisObject/" title="redis|RedisObject" target="_blank">redis|RedisObject</a>
             </h1>
         </header>
@@ -122,36 +158,7 @@
         <div class="post-content">
             <h1 id="panic">panic</h1>
 <h2 id="结构体">结构体</h2>
-<p>panic 关键字在 Go 语言的源代码是由数据结构<code>runtime._panic</code>表示的。每当我们调用 panic 都会创建一个如下所示的数据结构存储相关信息：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">_panic</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">argp</span>      <span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Pointer</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">arg</span>       <span style="color:#cf222e">interface</span><span style="color:#1f2328">{}</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">link</span>      <span style="color:#0550ae">*</span><span style="color:#1f2328">_panic</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">recovered</span> <span style="color:#cf222e">bool</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">aborted</span>   <span style="color:#cf222e">bool</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">pc</span>     <span style="color:#cf222e">uintptr</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">sp</span>     <span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Pointer</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">goexit</span> <span style="color:#cf222e">bool</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>结构体中字段含义说明：</p>……
+<p>panic 关键字在 Go 语言的源代码是由数据结构<code>runtime._panic</code>表示的。每当我们调用 panic 都会创建一个如下所示的数据结构存储相关信息：</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-04-18-panicrecover/" target="_blank">阅读全文</a></p>
     </article>
@@ -179,8 +186,7 @@
 
 
         <div class="post-content">
-            <p>Kafka的消息是保存或缓存在磁盘上的，一般认为在磁盘上读写数据是会降低性能的，因为寻址会比较消耗时间，但是实际上，Kafka的特性之一就是高吞吐率。</p>
-<p>即使是普通的服务器，Kafka也可以轻松支持每秒百万级的写入请求，超过了大部分的消息中间件，这种特性也使得Kafka在日志处理等海量数据场景广泛应用。</p>……
+            <p>Kafka的消息是保存或缓存在磁盘上的，一般认为在磁盘上读写数据是会降低性能的，因为寻址会比较消耗时间，但是实际上，Kafka的特性之一就是高吞吐率。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-04-17-Kafka%E9%80%9F%E5%BA%A6%E5%88%86%E6%9E%90/" target="_blank">阅读全文</a></p>
     </article>
@@ -237,8 +243,7 @@
 
         <div class="post-content">
             <h2 id="垃圾回收">垃圾回收</h2>
-<p>垃圾回收(Garbage Collection，简称GC)是编程语言中提供的内存管理功能。</p>
-<p>通过引入了语言层面的自动内存管理，也就是语言的使用者只用关注内存的申请而不必关心内存的释放，内存释放由虚拟机（virtual machine）或运行时（runtime）来自动进行管理。这种对不再使用的内存资源进行自动回收的功能就被称为垃圾回收。</p>……
+<p>垃圾回收(Garbage Collection，简称GC)是编程语言中提供的内存管理功能。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-04-07-Golang%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" target="_blank">阅读全文</a></p>
     </article>
@@ -331,250 +336,7 @@
 
         <div class="post-content">
             <h2 id="context意义">context意义</h2>
-<p>Go 中的 context 包在与 API 和慢处理交互时可以派上用场，特别是在生产级的 Web 服务中。在这些场景中，您可能想要通知所有的 goroutine 停止运行并返回。</p>
-<h2 id="context使用">context使用</h2>
-<h3 id="context相关函数">context相关函数</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">//返回一个空 context， 这只能用于高等级（在 main 或顶级请求中），作为context的根节点</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Background</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">Context</span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">//返回一个空的 context，不知道用什么的时候就上这个</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">TODO</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">Context</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">WithValue</span><span style="color:#1f2328">(</span><span style="color:#1f2328">parent</span> <span style="color:#1f2328">Context</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">key</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">val</span> <span style="color:#cf222e">interface</span><span style="color:#1f2328">{})</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span> <span style="color:#1f2328">Context</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">cancel</span> <span style="color:#1f2328">CancelFunc</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">WithCancel</span><span style="color:#1f2328">(</span><span style="color:#1f2328">parent</span> <span style="color:#1f2328">Context</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span> <span style="color:#1f2328">Context</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">cancel</span> <span style="color:#1f2328">CancelFunc</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">WithDeadline</span><span style="color:#1f2328">(</span><span style="color:#1f2328">parent</span> <span style="color:#1f2328">Context</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">d</span> <span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Time</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span> <span style="color:#1f2328">Context</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">cancel</span> <span style="color:#1f2328">CancelFunc</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">WithTimeout</span><span style="color:#1f2328">(</span><span style="color:#1f2328">parent</span> <span style="color:#1f2328">Context</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">timeout</span> <span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Duration</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span> <span style="color:#1f2328">Context</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">cancel</span> <span style="color:#1f2328">CancelFunc</span><span style="color:#1f2328">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="context相关使用">context相关使用</h3>
-<h4 id="done方法取消">Done方法取消</h4>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">Stream</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span> <span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Context</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">out</span> <span style="color:#cf222e">chan</span><span style="color:#0550ae">&lt;-</span> <span style="color:#1f2328">Value</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">error</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">v</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">err</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">DoSomething</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">if</span> <span style="color:#1f2328">err</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#1f2328">err</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">select</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">case</span> <span style="color:#0550ae">&lt;-</span><span style="color:#1f2328">ctx</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Done</span><span style="color:#1f2328">():</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#1f2328">ctx</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Err</span><span style="color:#1f2328">()</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">case</span> <span style="color:#1f2328">out</span> <span style="color:#0550ae">&lt;-</span> <span style="color:#1f2328">v</span><span style="color:#1f2328">:</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="withvalue传值">WithValue传值</h4>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">main</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">ctx</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">cancel</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">WithCancel</span><span style="color:#1f2328">(</span><span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Background</span><span style="color:#1f2328">())</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">valueCtx</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">WithValue</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">key</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;add value&#34;</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">go</span> <span style="color:#6639ba">watch</span><span style="color:#1f2328">(</span><span style="color:#1f2328">valueCtx</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Sleep</span><span style="color:#1f2328">(</span><span style="color:#0550ae">10</span> <span style="color:#0550ae">*</span> <span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Second</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#6639ba">cancel</span><span style="color:#1f2328">()</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Sleep</span><span style="color:#1f2328">(</span><span style="color:#0550ae">5</span> <span style="color:#0550ae">*</span> <span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Second</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">watch</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span> <span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Context</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">select</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">case</span> <span style="color:#0550ae">&lt;-</span><span style="color:#1f2328">ctx</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Done</span><span style="color:#1f2328">():</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#57606a">//get value</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Value</span><span style="color:#1f2328">(</span><span style="color:#1f2328">key</span><span style="color:#1f2328">),</span> <span style="color:#0a3069">&#34;is cancel&#34;</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">default</span><span style="color:#1f2328">:</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#57606a">//get value</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Value</span><span style="color:#1f2328">(</span><span style="color:#1f2328">key</span><span style="color:#1f2328">),</span> <span style="color:#0a3069">&#34;int goroutine&#34;</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Sleep</span><span style="color:#1f2328">(</span><span style="color:#0550ae">2</span> <span style="color:#0550ae">*</span> <span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Second</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="withtimeout超时取消">WithTimeout超时取消</h4>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">package</span> <span style="color:#1f2328">main</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#1f2328">(</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;golang.org/x/net/context&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;sync&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;time&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">var</span> <span style="color:#1f2328">(</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">wg</span> <span style="color:#1f2328">sync</span><span style="color:#1f2328">.</span><span style="color:#1f2328">WaitGroup</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">work</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span> <span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Context</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">error</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">defer</span> <span style="color:#1f2328">wg</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Done</span><span style="color:#1f2328">()</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">&lt;</span> <span style="color:#0550ae">1000</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">select</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">case</span> <span style="color:#0550ae">&lt;-</span><span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#6639ba">After</span><span style="color:#1f2328">(</span><span style="color:#0550ae">2</span> <span style="color:#0550ae">*</span> <span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Second</span><span style="color:#1f2328">):</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Doing some work &#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#57606a">// we received the signal of cancelation in this channel</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">case</span> <span style="color:#0550ae">&lt;-</span><span style="color:#1f2328">ctx</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Done</span><span style="color:#1f2328">():</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Cancel the context &#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">return</span> <span style="color:#1f2328">ctx</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Err</span><span style="color:#1f2328">()</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#cf222e">nil</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">main</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">ctx</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">cancel</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">WithTimeout</span><span style="color:#1f2328">(</span><span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Background</span><span style="color:#1f2328">(),</span> <span style="color:#0550ae">4</span><span style="color:#0550ae">*</span><span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Second</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">defer</span> <span style="color:#6639ba">cancel</span><span style="color:#1f2328">()</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Hey, I&#39;m going to do some work&#34;</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">wg</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Add</span><span style="color:#1f2328">(</span><span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">go</span> <span style="color:#6639ba">work</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">wg</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Wait</span><span style="color:#1f2328">()</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Finished. I&#39;m going home&#34;</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="withdeadline截止时间">WithDeadline截止时间</h4>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">package</span> <span style="color:#1f2328">main</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#1f2328">(</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;context&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;time&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">main</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">d</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Now</span><span style="color:#1f2328">().</span><span style="color:#6639ba">Add</span><span style="color:#1f2328">(</span><span style="color:#0550ae">1</span> <span style="color:#0550ae">*</span> <span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Second</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">ctx</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">cancel</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">WithDeadline</span><span style="color:#1f2328">(</span><span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Background</span><span style="color:#1f2328">(),</span> <span style="color:#1f2328">d</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">defer</span> <span style="color:#6639ba">cancel</span><span style="color:#1f2328">()</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">select</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">case</span> <span style="color:#0550ae">&lt;-</span><span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#6639ba">After</span><span style="color:#1f2328">(</span><span style="color:#0550ae">2</span> <span style="color:#0550ae">*</span> <span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Second</span><span style="color:#1f2328">):</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;oversleep&#34;</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">case</span> <span style="color:#0550ae">&lt;-</span><span style="color:#1f2328">ctx</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Done</span><span style="color:#1f2328">():</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ctx</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Err</span><span style="color:#1f2328">())</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="参考">参考</h2>
-<ol>
-<li><a href="https://studygolang.com/articles/13866?fr=sidebar">理解 golang 中的 context（上下文）包</a></li>
-<li><a href="https://www.jianshu.com/p/e5df3cd0708b">Golang Context分析</a></li>
-<li><a href="https://www.flysnow.org/2017/05/12/go-in-action-go-context.html">Go语言实战笔记（二十）Go Context</a></li>
-</ol>……
+<p>Go 中的 context 包在与 API 和慢处理交互时可以派上用场，特别是在生产级的 Web 服务中。在这些场景中，您可能想要通知所有的 goroutine 停止运行并返回。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-15-context%E4%BD%BF%E7%94%A8%E5%92%8C%E5%88%86%E6%9E%90/" target="_blank">阅读全文</a></p>
     </article>
@@ -655,34 +417,6 @@
 </div><p>创建channel实际上就是在内存中实例化了一个hchan的结构体，并返回一个ch指针，我们使用过程中channel在函数之间的传递都是用的这个指针，这就是为什么函数传递中无需使用channel的指针，而直接用channel就行了，因为channel本身就是一个指针。</p>……
         </div>
         <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-15-channel%E5%88%86%E6%9E%90/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://weiweng.github.io/blog/post/2020-03-15-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/" title="计算机网络|概述" target="_blank">计算机网络|概述</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-03-14T22:10:00Z" class="post-meta meta-date dt-published">
-    2020年3月15日
-  </time>
-
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C' target="_blank">计算机网络</a>
-  
-</div>
-
-
-        <div class="post-content">
-            计算机网络|概述……
-        </div>
-        <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-03-15-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/" target="_blank">阅读全文</a></p>
     </article>
     
     
@@ -830,6 +564,10 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://weiweng.github.io/blog/post/2025-04-12-mysql%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/" title="mysql|知识大纲" target="_blank">mysql|知识大纲</a>
+    </li>
+    
+    <li>
         <a href="https://weiweng.github.io/blog/post/2025-02-26-embedding/" title="大模型专题|embedding" target="_blank">大模型专题|embedding</a>
     </li>
     
@@ -865,10 +603,6 @@
         <a href="https://weiweng.github.io/blog/post/2023-09-08-%E5%9B%BE/" title="算法专题|图" target="_blank">算法专题|图</a>
     </li>
     
-    <li>
-        <a href="https://weiweng.github.io/blog/post/2023-06-26-%E8%B4%AA%E5%BF%83/" title="算法专题|贪心" target="_blank">算法专题|贪心</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -886,7 +620,7 @@
     
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (22)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
