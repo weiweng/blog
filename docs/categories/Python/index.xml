@@ -13,7 +13,7 @@
       <link>https://weiweng.github.io/blog/post/2024-01-20-pythonrequests/</link>
       <pubDate>Sat, 20 Jan 2024 10:00:00 +0800</pubDate>
       <guid>https://weiweng.github.io/blog/post/2024-01-20-pythonrequests/</guid>
-      <description>&lt;p&gt;最近工作开始转向使用python，因此更加深入的学习一下，通过阅读开源库学习python的使用。这一期学习使用&lt;a href=&#34;https://docs.python-requests.org/en/latest/index.html&#34;&gt;&lt;strong&gt;requests库&lt;/strong&gt;&lt;/a&gt;，这个是一个很漂亮的http包，提供优雅的http client。&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;Requests is an elegant and simple HTTP library for Python, built for human beings.&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h2 id=&#34;基础用法&#34;&gt;基础用法&lt;/h2&gt;&#xA;&lt;p&gt;官网给出了很多用法示例，这里简单罗列一下平常用到的&lt;code&gt;get&lt;/code&gt;和&lt;code&gt;post&lt;/code&gt;的请求方法。&lt;/p&gt;</description>
+      <description>&lt;p&gt;最近工作开始转向使用python，因此更加深入的学习一下，通过阅读开源库学习python的使用。这一期学习使用&lt;a href=&#34;https://docs.python-requests.org/en/latest/index.html&#34;&gt;&lt;strong&gt;requests库&lt;/strong&gt;&lt;/a&gt;，这个是一个很漂亮的http包，提供优雅的http client。&lt;/p&gt;</description>
     </item>
     <item>
       <title>python|学习路径</title>
@@ -27,7 +27,7 @@
       <link>https://weiweng.github.io/blog/post/2023-01-07-python%E7%9F%A5%E8%AF%86%E7%82%B9%E6%8B%BE%E9%81%97/</link>
       <pubDate>Sat, 07 Jan 2023 09:43:00 +0800</pubDate>
       <guid>https://weiweng.github.io/blog/post/2023-01-07-python%E7%9F%A5%E8%AF%86%E7%82%B9%E6%8B%BE%E9%81%97/</guid>
-      <description>&lt;p&gt;最近阅读《Python工匠：案例、技巧与工程实践》发现一些零零碎碎的之前不知道的知识点，因此总结记录方便以后翻找查阅。&lt;/p&gt;&#xA;&lt;h2 id=&#34;变量与注释&#34;&gt;变量与注释&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;变量解包&lt;/strong&gt;是python里一种特殊的赋值操作，允许把可迭代的对象所有成员一次性赋值给多个变量。&lt;/p&gt;</description>
+      <description>&lt;p&gt;最近阅读《Python工匠：案例、技巧与工程实践》发现一些零零碎碎的之前不知道的知识点，因此总结记录方便以后翻找查阅。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Python|基础知识</title>

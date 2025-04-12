@@ -13,7 +13,7 @@ preserveTaxonomyNames = true
 disablePathToLower = true
 
 hasCJKLanguage = true
-summaryLength = 80
+summaryLength = 5
 
 # disqusShortname = "yourdiscussshortname"  ## 是否开启disqus评论，不要和utteranc同时开启
 

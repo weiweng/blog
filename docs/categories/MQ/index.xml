@@ -13,7 +13,7 @@
       <link>https://weiweng.github.io/blog/post/2020-04-17-Kafka%E9%80%9F%E5%BA%A6%E5%88%86%E6%9E%90/</link>
       <pubDate>Fri, 17 Apr 2020 11:52:00 +0800</pubDate>
       <guid>https://weiweng.github.io/blog/post/2020-04-17-Kafka%E9%80%9F%E5%BA%A6%E5%88%86%E6%9E%90/</guid>
-      <description>&lt;p&gt;Kafka的消息是保存或缓存在磁盘上的，一般认为在磁盘上读写数据是会降低性能的，因为寻址会比较消耗时间，但是实际上，Kafka的特性之一就是高吞吐率。&lt;/p&gt;&#xA;&lt;p&gt;即使是普通的服务器，Kafka也可以轻松支持每秒百万级的写入请求，超过了大部分的消息中间件，这种特性也使得Kafka在日志处理等海量数据场景广泛应用。&lt;/p&gt;</description>
+      <description>&lt;p&gt;Kafka的消息是保存或缓存在磁盘上的，一般认为在磁盘上读写数据是会降低性能的，因为寻址会比较消耗时间，但是实际上，Kafka的特性之一就是高吞吐率。&lt;/p&gt;</description>
     </item>
     <item>
       <title>mq|kafka基础知识</title>

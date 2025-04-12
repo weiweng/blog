@@ -13,7 +13,7 @@
       <link>https://weiweng.github.io/blog/post/2025-02-26-embedding/</link>
       <pubDate>Wed, 26 Feb 2025 22:00:00 +0800</pubDate>
       <guid>https://weiweng.github.io/blog/post/2025-02-26-embedding/</guid>
-      <description>&lt;p&gt;文本是一种非结构化的数据信息，是不可以直接被计算的。&lt;/p&gt;&#xA;&lt;p&gt;文本表示的作用就是将这些非结构化的信息转化为结构化的信息，这样就可以针对文本信息做计算，来完成我们日常所能见到的文本分类，情感判断等任务。&lt;/p&gt;</description>
+      <description>&lt;p&gt;文本是一种非结构化的数据信息，是不可以直接被计算的。&lt;/p&gt;</description>
     </item>
     <item>
       <title>大模型专题|LangChain rag实践</title>

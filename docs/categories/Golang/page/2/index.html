@@ -152,8 +152,7 @@
 
 
         <div class="post-content">
-            <p>学习新东西，先是灵魂3问————是什么、解决什么问题、有什么好处？</p>
-<p>首先，DTM是什么？DTM是一款开源的分布式事务管理器，解决跨数据库、跨服务、跨语言栈更新数据的一致性问题。</p>……
+            <p>学习新东西，先是灵魂3问————是什么、解决什么问题、有什么好处？</p>……
             <p class="readmore"><a href="https://weiweng.github.io/blog/post/2022-12-17-dmt/" target="_blank">阅读全文</a></p>
         </div>
     </article>
@@ -259,83 +258,7 @@
 
         <div class="post-content">
             <h1 id="select-break">select break</h1>
-<p>go中使用for select 结构，select的break只能跳出break，不能跳出for循环</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">package</span> <span style="color:#1f2328">main</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#1f2328">(</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#0a3069">&#34;time&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">main</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">ch</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">make</span><span style="color:#1f2328">(</span><span style="color:#cf222e">chan</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">ok</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">make</span><span style="color:#1f2328">(</span><span style="color:#cf222e">chan</span> <span style="color:#cf222e">bool</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">go</span> <span style="color:#cf222e">func</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">ch</span> <span style="color:#0550ae">&lt;-</span> <span style="color:#0550ae">1</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">ch</span> <span style="color:#0550ae">&lt;-</span> <span style="color:#0550ae">2</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">ch</span> <span style="color:#0550ae">&lt;-</span> <span style="color:#0550ae">3</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#6639ba">close</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ch</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}()</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">go</span> <span style="color:#6639ba">test</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ch</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">ok</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#0550ae">&lt;-</span><span style="color:#1f2328">ok</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">test</span><span style="color:#1f2328">(</span><span style="color:#1f2328">ch</span> <span style="color:#cf222e">chan</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">ook</span> <span style="color:#cf222e">chan</span> <span style="color:#cf222e">bool</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">for</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">select</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">case</span> <span style="color:#1f2328">resp</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">ok</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">&lt;-</span><span style="color:#1f2328">ch</span><span style="color:#1f2328">:</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">if</span> <span style="color:#1f2328">!</span><span style="color:#1f2328">ok</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>				<span style="color:#cf222e">break</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Println</span><span style="color:#1f2328">(</span><span style="color:#1f2328">resp</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#cf222e">case</span> <span style="color:#0550ae">&lt;-</span><span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#6639ba">After</span><span style="color:#1f2328">(</span><span style="color:#1f2328">time</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Second</span><span style="color:#1f2328">):</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#1f2328">fmt</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Printf</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;1s now!&#34;</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#cf222e">break</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h1 id="chan-close">chan close</h1>
-<p>向关闭的chan读取数据，chan会返回相关的空数据，内置类型返回0值数据，自定义struct返回空指针</p>……
+<p>go中使用for select 结构，select的break只能跳出break，不能跳出for循环</p>……
             <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-06-18-Golang%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9/" target="_blank">阅读全文</a></p>
         </div>
     </article>
@@ -362,26 +285,7 @@
 
         <div class="post-content">
             <h2 id="go-test测试包">go test测试包</h2>
-<p><code>go test {测试文件所在包目录}</code></p>
-<h2 id="当前目录下单测指定测试函数">当前目录下单测指定测试函数</h2>
-<p><code>$ go test -v -test.run {函数名xxx}</code></p>
-<h2 id="cover信息采集用例">cover信息采集用例</h2>
-<ol>
-<li><strong><code>go test -coverprofile cp.out</code></strong>-</li>
-<li><strong><code>go tool cover -html=cp.out</code></strong></li>
-</ol>
-<h2 id="其他信息采集">其他信息采集</h2>
-<ul>
-<li><strong><code>-blockprofilerate n</code></strong>：goroutine 阻塞时候打点的纳秒数。默认不设置就相当于 -test.blockprofilerate=1，每一纳秒都打点记录一下。</li>
-<li><strong><code>-coverprofile cover.out</code></strong>：在所有测试通过后，将覆盖概要文件写到文件中。设置过 -cover。</li>
-<li><strong><code>-cpuprofile cpu.out</code></strong>：在退出之前，将一个 CPU 概要文件写入指定的文件。</li>
-<li><strong><code>-memprofile mem.out</code></strong>：在所有测试通过后，将内存概要文件写到文件中。</li>
-<li><strong><code>-memprofilerate n</code></strong>：开启更精确的内存配置。如果为 1，将会记录所有内存分配到 profile。</li>
-</ul>
-<h2 id="bench测试">bench测试</h2>
-<ul>
-<li>
-<p><strong><code>go test -bench=.</code></strong></p>……
+<p><code>go test {测试文件所在包目录}</code></p>……
             <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-04-30-go-test%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/" target="_blank">阅读全文</a></p>
         </div>
     </article>
@@ -409,36 +313,7 @@
         <div class="post-content">
             <h1 id="panic">panic</h1>
 <h2 id="结构体">结构体</h2>
-<p>panic 关键字在 Go 语言的源代码是由数据结构<code>runtime._panic</code>表示的。每当我们调用 panic 都会创建一个如下所示的数据结构存储相关信息：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">_panic</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">argp</span>      <span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Pointer</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">arg</span>       <span style="color:#cf222e">interface</span><span style="color:#1f2328">{}</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">link</span>      <span style="color:#0550ae">*</span><span style="color:#1f2328">_panic</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">recovered</span> <span style="color:#cf222e">bool</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">aborted</span>   <span style="color:#cf222e">bool</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">pc</span>     <span style="color:#cf222e">uintptr</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">sp</span>     <span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Pointer</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">goexit</span> <span style="color:#cf222e">bool</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>结构体中字段含义说明：</p>……
+<p>panic 关键字在 Go 语言的源代码是由数据结构<code>runtime._panic</code>表示的。每当我们调用 panic 都会创建一个如下所示的数据结构存储相关信息：</p>……
             <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-04-18-panicrecover/" target="_blank">阅读全文</a></p>
         </div>
     </article>
@@ -465,8 +340,7 @@
 
         <div class="post-content">
             <h2 id="垃圾回收">垃圾回收</h2>
-<p>垃圾回收(Garbage Collection，简称GC)是编程语言中提供的内存管理功能。</p>
-<p>通过引入了语言层面的自动内存管理，也就是语言的使用者只用关注内存的申请而不必关心内存的释放，内存释放由虚拟机（virtual machine）或运行时（runtime）来自动进行管理。这种对不再使用的内存资源进行自动回收的功能就被称为垃圾回收。</p>……
+<p>垃圾回收(Garbage Collection，简称GC)是编程语言中提供的内存管理功能。</p>……
             <p class="readmore"><a href="https://weiweng.github.io/blog/post/2020-04-07-Golang%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" target="_blank">阅读全文</a></p>
         </div>
     </article>
@@ -556,6 +430,10 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://weiweng.github.io/blog/post/2025-04-12-mysql%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/" title="mysql|知识大纲" target="_blank">mysql|知识大纲</a>
+    </li>
+    
+    <li>
         <a href="https://weiweng.github.io/blog/post/2025-02-26-embedding/" title="大模型专题|embedding" target="_blank">大模型专题|embedding</a>
     </li>
     
@@ -591,10 +469,6 @@
         <a href="https://weiweng.github.io/blog/post/2023-09-08-%E5%9B%BE/" title="算法专题|图" target="_blank">算法专题|图</a>
     </li>
     
-    <li>
-        <a href="https://weiweng.github.io/blog/post/2023-06-26-%E8%B4%AA%E5%BF%83/" title="算法专题|贪心" target="_blank">算法专题|贪心</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -612,7 +486,7 @@
     
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (22)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     

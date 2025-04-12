@@ -126,11 +126,7 @@
 
 
         <div class="post-content">
-            <p>前缀和可以简单理解为「数列的前 n 项的和」，是一种重要的预处理方式，能大大降低查询的时间复杂度。</p>
-<h2 id="初级练习">初级练习</h2>
-<h3 id="左右元素和的差值"><strong><a href="https://leetcode.cn/problems/left-and-right-sum-differences/description/">左右元素和的差值</a></strong></h3>
-<p><strong>思路</strong></p>
-<p>思路简单，使用前缀和，不过需要左右两边都计算一下前缀和，然后对每个i的位置进行计算。</p>……
+            <p>前缀和可以简单理解为「数列的前 n 项的和」，是一种重要的预处理方式，能大大降低查询的时间复杂度。</p>……
             <p class="readmore"><a href="https://weiweng.github.io/blog/post/2024-01-22-%E5%89%8D%E7%BC%80%E5%92%8C/" target="_blank">阅读全文</a></p>
         </div>
     </article>
@@ -156,11 +152,7 @@
 
 
         <div class="post-content">
-            <p>图相关的算法练习，需要掌握图的基本数据结构，图的连通性，图的遍历，最短路径，最小生成树等问题。</p>
-<h2 id="初级练习">初级练习</h2>
-<h3 id="找到小镇的法官"><strong><a href="https://leetcode.cn/problems/find-the-town-judge/">找到小镇的法官</a></strong></h3>
-<p><strong>思路</strong></p>
-<p>思路很简单，基于图的度，由于法官不信任其他人，因此他的出度是0，这样就可以找到了。</p>……
+            <p>图相关的算法练习，需要掌握图的基本数据结构，图的连通性，图的遍历，最短路径，最小生成树等问题。</p>……
             <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-09-08-%E5%9B%BE/" target="_blank">阅读全文</a></p>
         </div>
     </article>
@@ -186,11 +178,7 @@
 
 
         <div class="post-content">
-            <p>贪心算法没有固定的模板，基本思路是找到问题的一个切入点，虽然证明这个解法是最优的。</p>
-<h2 id="初级练习">初级练习</h2>
-<h3 id="拆分数位后四位数字的最小和"><strong><a href="https://leetcode.cn/problems/minimum-sum-of-four-digit-number-after-splitting-digits/">拆分数位后四位数字的最小和</a></strong></h3>
-<p><strong>思路</strong></p>
-<p>这题很简单，数据只有4个数，组合就3种，不过为了求最小和，贪心的思路就是组成的数值最高位都尽量小，因此把四个数排序，1和4组成一个数，2和3组成一个数，这样就能得到最小的和。</p>……
+            <p>贪心算法没有固定的模板，基本思路是找到问题的一个切入点，虽然证明这个解法是最优的。</p>……
             <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-06-26-%E8%B4%AA%E5%BF%83/" target="_blank">阅读全文</a></p>
         </div>
     </article>
@@ -218,58 +206,6 @@
         <div class="post-content">
             <h2 id="初级练习">初级练习</h2>
 <h3 id="下一个更大元素-i"><strong><a href="https://leetcode.cn/problems/next-greater-element-i/">下一个更大元素 I</a></strong></h3>
-<p><strong>思路</strong></p>
-<p>最基础的单调栈用法。</p>
-<p><strong>代码</strong></p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">nextGreaterElement</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums1</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">nums2</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">mp</span> <span style="color:#0550ae">:=</span> <span style="color:#cf222e">map</span><span style="color:#1f2328">[</span><span style="color:#cf222e">int</span><span style="color:#1f2328">]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">stack</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">[]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">{}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums2</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">&gt;=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">--</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">num</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">nums2</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">for</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">stack</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">&gt;</span> <span style="color:#0550ae">0</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">num</span> <span style="color:#0550ae">&gt;=</span> <span style="color:#1f2328">stack</span><span style="color:#1f2328">[</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">stack</span><span style="color:#1f2328">)</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">stack</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">stack</span><span style="color:#1f2328">[:</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">stack</span><span style="color:#1f2328">)</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">stack</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">&gt;</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">mp</span><span style="color:#1f2328">[</span><span style="color:#1f2328">num</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">stack</span><span style="color:#1f2328">[</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">stack</span><span style="color:#1f2328">)</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">mp</span><span style="color:#1f2328">[</span><span style="color:#1f2328">num</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">stack</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">append</span><span style="color:#1f2328">(</span><span style="color:#1f2328">stack</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">num</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">res</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">make</span><span style="color:#1f2328">([]</span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">nums1</span><span style="color:#1f2328">))</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">num</span> <span style="color:#0550ae">:=</span> <span style="color:#cf222e">range</span> <span style="color:#1f2328">nums1</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">res</span><span style="color:#1f2328">[</span><span style="color:#1f2328">i</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">mp</span><span style="color:#1f2328">[</span><span style="color:#1f2328">num</span><span style="color:#1f2328">]</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">res</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="商品折扣后的最终价格"><strong><a href="https://leetcode.cn/problems/final-prices-with-a-special-discount-in-a-shop/">商品折扣后的最终价格</a></strong></h3>
 <p><strong>思路</strong></p>……
             <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-06-16-%E5%8D%95%E8%B0%83%E6%A0%88/" target="_blank">阅读全文</a></p>
         </div>
@@ -296,11 +232,7 @@
 
 
         <div class="post-content">
-            <p>滑动窗口，这个算法思路非常简单，就是维护一个窗口，不断滑动，然后更新答案。</p>
-<h2 id="初级练习">初级练习</h2>
-<h3 id="学生分数的最小差值"><strong><a href="https://leetcode.cn/problems/minimum-difference-between-highest-and-lowest-of-k-scores/">学生分数的最小差值</a></strong></h3>
-<p><strong>思路</strong></p>
-<p>因为可以任意选k名学生，因此我们排序后，使用滑动窗口，维持k大小的窗口，计算每次窗口内的最大值和最小值的差，数组遍历结束后返回最小值。这道题是最基本的滑动窗口使用方法。</p>……
+            <p>滑动窗口，这个算法思路非常简单，就是维护一个窗口，不断滑动，然后更新答案。</p>……
             <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-06-16-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" target="_blank">阅读全文</a></p>
         </div>
     </article>
@@ -326,8 +258,7 @@
 
 
         <div class="post-content">
-            <p><strong>双指针</strong>是一种简单而又灵活的技巧和思想，单独使用可以轻松解决一些特定问题，和其他算法结合也能发挥多样的用处。</p>
-<p>双指针顾名思义，就是同时使用两个指针，在序列、链表结构上指向的是位置，在树、图结构中指向的是节点，通过或同向移动，或相向移动来维护、统计信息。</p>……
+            <p><strong>双指针</strong>是一种简单而又灵活的技巧和思想，单独使用可以轻松解决一些特定问题，和其他算法结合也能发挥多样的用处。</p>……
             <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-06-11-%E5%8F%8C%E6%8C%87%E9%92%88/" target="_blank">阅读全文</a></p>
         </div>
     </article>
@@ -353,14 +284,7 @@
 
 
         <div class="post-content">
-            <p><strong>二分查找</strong> (Binary Search) 也称折半查找，它是一种效率较高的查找方法。但是，折半查找要求线性表必须采用顺序存储结构，而且表中元素按关键字有序排列。</p>
-<p>总结有以下特征和解题步骤：</p>
-<ul>
-<li>寻找有序性</li>
-<li>寻找判断函数，<code>func(mid)</code></li>
-<li>使用的二分查找模板</li>
-</ul>
-<p><strong>基础模板</strong></p>……
+            <p><strong>二分查找</strong> (Binary Search) 也称折半查找，它是一种效率较高的查找方法。但是，折半查找要求线性表必须采用顺序存储结构，而且表中元素按关键字有序排列。</p>……
             <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-06-11-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" target="_blank">阅读全文</a></p>
         </div>
     </article>
@@ -386,42 +310,7 @@
 
 
         <div class="post-content">
-            <p><strong>回溯</strong> (backtracking) 是暴力搜索的方法之一。</p>
-<p>总结有以下特征和解题步骤：</p>
-<ul>
-<li>问题的解在可预估的范围内</li>
-<li>给出一个解能快速判断是否符合要求</li>
-<li>代码有固定模板</li>
-</ul>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#1f2328">result</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">[]</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">def</span> <span style="color:#6639ba">backtrack</span><span style="color:#1f2328">(</span><span style="color:#1f2328">路径</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">选择列表</span><span style="color:#1f2328">):</span> 
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">满足结束条件</span><span style="color:#1f2328">:</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">result</span><span style="color:#1f2328">.</span><span style="color:#6639ba">add</span><span style="color:#1f2328">(</span><span style="color:#1f2328">路径</span><span style="color:#1f2328">)</span> 
-</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#1f2328">选择</span> <span style="color:#1f2328">in</span> <span style="color:#1f2328">选择列表</span><span style="color:#1f2328">:</span> 
-</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">做选择</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#6639ba">backtrack</span><span style="color:#1f2328">(</span><span style="color:#1f2328">路径</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">选择列表</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">撤销选择</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="组合问题">组合问题</h2>
-<h3 id="题目"><strong>题目<a href="https://leetcode.cn/problems/combinations/submissions/">leetcode77 组合</a></strong></h3>
-<p><strong>题解</strong></p>……
+            <p><strong>回溯</strong> (backtracking) 是暴力搜索的方法之一。</p>……
             <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-06-10-%E5%9B%9E%E6%BA%AF/" target="_blank">阅读全文</a></p>
         </div>
     </article>
@@ -447,15 +336,7 @@
 
 
         <div class="post-content">
-            <p>动态规划（Dynamic Programming，DP）是运筹学的一个分支，是求解决策过程。总结有以下特征和解题步骤：</p>
-<ul>
-<li>肯定是求最值问题，并且具备重叠子问题</li>
-<li>定义问题(dp子问题的定义)</li>
-<li>寻找状态转变的所有选择情况(定义状态转移方程式)</li>
-<li>确定边界情况 bad case</li>
-</ul>
-<h2 id="01背包问题">01背包问题</h2>
-<p>描述</p>……
+            <p>动态规划（Dynamic Programming，DP）是运筹学的一个分支，是求解决策过程。总结有以下特征和解题步骤：</p>……
             <p class="readmore"><a href="https://weiweng.github.io/blog/post/2023-06-06-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" target="_blank">阅读全文</a></p>
         </div>
     </article>
@@ -517,6 +398,10 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://weiweng.github.io/blog/post/2025-04-12-mysql%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/" title="mysql|知识大纲" target="_blank">mysql|知识大纲</a>
+    </li>
+    
+    <li>
         <a href="https://weiweng.github.io/blog/post/2025-02-26-embedding/" title="大模型专题|embedding" target="_blank">大模型专题|embedding</a>
     </li>
     
@@ -552,10 +437,6 @@
         <a href="https://weiweng.github.io/blog/post/2023-09-08-%E5%9B%BE/" title="算法专题|图" target="_blank">算法专题|图</a>
     </li>
     
-    <li>
-        <a href="https://weiweng.github.io/blog/post/2023-06-26-%E8%B4%AA%E5%BF%83/" title="算法专题|贪心" target="_blank">算法专题|贪心</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -573,7 +454,7 @@
     
     <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (21)</a></li>
+    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (22)</a></li>
     
     <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
     
