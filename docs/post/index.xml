@@ -6,8 +6,43 @@
     <description>Recent content in Posts on weiweng的博客</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 12 Apr 2025 10:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 20 Jul 2025 12:00:00 +0800</lastBuildDate>
     <atom:link href="https://weiweng.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>spark|性能优化</title>
+      <link>https://weiweng.github.io/blog/post/2025-07-20-spark%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Sun, 20 Jul 2025 12:00:00 +0800</pubDate>
+      <guid>https://weiweng.github.io/blog/post/2025-07-20-spark%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</guid>
+      <description>&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://tech.meituan.com/2016/04/29/spark-tuning-basic.html&#34;&gt;Spark性能优化指南——基础篇&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://tech.meituan.com/2016/05/12/spark-tuning-pro.html&#34;&gt;Spark性能优化指南——进阶篇&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>spark|任务调度</title>
+      <link>https://weiweng.github.io/blog/post/2025-07-20-spark%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/</link>
+      <pubDate>Sun, 20 Jul 2025 11:00:00 +0800</pubDate>
+      <guid>https://weiweng.github.io/blog/post/2025-07-20-spark%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/</guid>
+      <description>&lt;p&gt;掌握任务调度的原理对于提升开发人员在 Spark 应用程序上的故障排查和性能调优的能力大有裨益。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>spark|参数配置</title>
+      <link>https://weiweng.github.io/blog/post/2025-07-20-spark%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sun, 20 Jul 2025 10:45:00 +0800</pubDate>
+      <guid>https://weiweng.github.io/blog/post/2025-07-20-spark%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;p&gt;Spark提供三个位置用来配置系统：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>spark|基础知识</title>
+      <link>https://weiweng.github.io/blog/post/2025-04-12-spark%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Sat, 12 Apr 2025 15:45:00 +0800</pubDate>
+      <guid>https://weiweng.github.io/blog/post/2025-04-12-spark%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <description>&lt;p&gt;大数据、人工智能( Artificial Intelligence )正以前所未有的广度和深度影响所有的行业， 现在及未来公司的核心壁垒是数据， 核心竞争力来自基于大数据的人工智能的竞争。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>spark|知识大纲</title>
+      <link>https://weiweng.github.io/blog/post/2025-04-12-spark%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/</link>
+      <pubDate>Sat, 12 Apr 2025 15:45:00 +0800</pubDate>
+      <guid>https://weiweng.github.io/blog/post/2025-04-12-spark%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/</guid>
+      <description>&lt;p&gt;总结一下spark的知识大纲，利用思维导图的方式将零散的知识组合起来，形成网状图谱，方便回想和记忆。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>mysql|知识大纲</title>
       <link>https://weiweng.github.io/blog/post/2025-04-12-mysql%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/</link>
