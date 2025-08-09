@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1207188090915424" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>设计模式大纲 | weiweng的博客</title>
+    <meta property="og:title" content="设计模式大纲 - weiweng的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2025-08-09T10:00:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2025-08-09T10:00:00&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,博客,项目管理,软件架构">
+    <meta name="description" content="设计模式大纲">
+        
+    <meta name="author" content="">
+    <meta property="og:url" content="http://localhost:1313/blog/post/2025-08-09-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+    <link rel="shortcut icon" href='/blog/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/blog/css/normalize.css'>
+    <link rel="stylesheet" href='/blog/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://localhost:1313/blog/">
+                        weiweng的博客
+                    </a>
+                
+                <p class="description">记录所学所思所想，专注于Go语言、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="http://localhost:1313/blog/">首页</a>
+                    
+                    <a  href="http://localhost:1313/blog/tools/" title="工具">工具</a>
+                    
+                    <a  href="http://localhost:1313/blog/read/" title="阅读">阅读</a>
+                    
+                    <a  href="http://localhost:1313/blog/about/" title="关于">关于</a>
+                    
+                    <a  href="http://localhost:1313/blog/archives/" title="归档">归档</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">设计模式大纲</h1>
+        </header>
+        
+  <time datetime="2025-08-09T02:00:00Z" class="post-meta meta-date dt-published">
+    2025年8月9日
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/blog/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F' target="_blank">设计模式</a>
+  
+</div>
+
+
+        
+        
+        <div class="post-content">
+            <p>最近看到github上一个相关设计模式的笔记仓库，快速学习了一下，之前还买了《head first 设计模式》研读，但都只是读过一遍流于表面，这次重新捡起来学习学习，再结合一些其他的资料，记录一下。</p>
+<p>设计模式被分为三个大类：</p>
+<ul>
+<li>创建型模式</li>
+<li>结构型模式</li>
+<li>行为型模式</li>
+</ul>
+<p>其中创建型模式关注的是对象的创建，结构型模式关注的是对象的组合，行为型模式关注的是对象的交互。</p>
+<h2 id="创建型模式">创建型模式</h2>
+<p>创建型模式关注的是对象的创建，包括对象的实例化、对象的初始化、对象的销毁等。</p>
+<p>创建型模式可以分为以下几类：</p>
+<ul>
+<li>工厂模式
+<ul>
+<li>简单工厂模式: 只抽象了生产的接口，简单理解为小卖铺，用type区分不同的产品，每个产品有自己的实现类。</li>
+<li>工厂方法模式: 定义了一个创建对象的接口，但是将具体的创建工作延迟到子类中。理解为商场+专卖店，每个专卖店负责生产一种产品。</li>
+<li>抽象工厂模式: 提供一个接口，用于创建相关或依赖对象的家族，而不需要明确指定具体类。理解为迪卡侬商场+运动类型+产品，比如游泳的泳衣、泳裤，登山的登山衣、登山裤。每个运动类型都有对应负责生产一系列的衣裤产品。</li>
+</ul>
+</li>
+<li>单例模式: 确保一个类只有一个实例，并提供一个全局访问点。一般双重检查加锁实现。</li>
+<li>建造者模式：将一个复杂对象的构建抽象，具体内部的各个部分也抽象，例如一个电脑的生产接口，内部有CPU、内存、硬盘等部分，每个部分有自己的实现类。</li>
+<li>原型模式：核心就是对象copy自己的机制。</li>
+</ul>
+<h2 id="结构型模式">结构型模式</h2>
+<p>结构型模式关注的是对象的组合，包括对象的组合、对象的聚合、对象的关联等。</p>
+<p>结构型模式可以分为以下几类：</p>
+<ul>
+<li>适配器模式：简单，就是将一个接口转换成客户希望的另一个接口，使接口不兼容的那些类可以一起工作。</li>
+<li>代理模式：包装，就是在原有的基础上添加一些额外的功能，例如权限校验、日志记录等。</li>
+<li>外观模式：封装内部的复杂实现，对外提供一个简单的接口。</li>
+<li>组合模式：将对象组合成树形结构，以表示“部分-整体”的层次结构。例如文件系统中的目录和文件，目录可以包含文件和其他目录。</li>
+<li>享元模式：享元模式是一种结构型设计模式，它通过共享对象来减少内存的使用量。例如字体包、线程池、连接池等。</li>
+<li>装饰模式：动态地给一个对象添加一些额外的职责。注意这里不是继承，而是组合。</li>
+<li>桥接模式：将抽象部分与实现部分分离，使它们都可以独立地变化。例如发送消息类型和发送消息的方式的分离，发送消息的类型有文本消息、图片消息、视频消息等，发送消息的方式有短信、邮件、微信等。底层逻辑是组合逻辑，即将发送方式抽象为消息类中的一个接入点，消息构建的时候传入发送方式的实现类参数，发送的时候调用发送方式的实现类方法。</li>
+</ul>
+<h2 id="行为型模式">行为型模式</h2>
+<p>行为型模式关注的是对象的交互，包括对象的通信、对象的协作、对象的职责等。</p>
+<p>行为型模式可以分为以下几类：</p>
+<ul>
+<li>中介者模式：将网状结构转换为星型结构，减少对象之间的依赖关系。不过需要注意上帝对象。</li>
+<li>观察者模式：把触发方法注册到观察对象中，当观察对象发生变化时，会自动调用注册的方法。</li>
+<li>命令模式：把对象方法封装到同一个一个对象中，方便控制，例如遥控器的按钮，每个按钮都对应一个命令，点击按钮就会执行命令。</li>
+<li>迭代器模式：提供一种方法顺序访问一个聚合对象中的各个元素，而又不暴露其内部的表示。</li>
+<li>模板方法模式：同一个流程，具体底层的实现不同。例如，一个游戏的启动流程，不同的游戏有不同的启动流程，但是都需要先加载资源，然后初始化，最后启动游戏。</li>
+<li>策略模式：定义了算法族，分别封装起来，让它们之间可以互相替换，此模式让算法的变化独立于使用算法的客户。</li>
+<li>状态模式：分离了状态和行为，状态对应相关的行为类，状态的变化会导致行为的变化。</li>
+<li>备忘录模式：在不破坏封装的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态，以便以后当需要时能将该对象恢复到原先保存的状态。例如对象序列化、反序列化。</li>
+<li>解释器模式：给定一个语言，定义它的文法的一种表示，并定义一个解释器，这个解释器使用该表示来解释语言中的句子。</li>
+<li>责任链模式：核心实现1.接口处理逻辑2.指向下一个责任链</li>
+<li>访问者模式：结构和操作之间的分离，对象的accept接口将自己传给accept的参数，实现透传，外部的visitor拿到对象可以做相关操作。观察者模式强调事件通知机制，强调 “状态变化的传递”，而访问者模式强调操作的变化，强调 “行为变化的传递”。并且访问者模式可以在不改变对象结构的情况下，增加新的操作(新增一个visitor实现类，只要实现visit方法，即接受对象参数的方法，而不用改变对象的accept方法)。</li>
+</ul>
+
+        </div>
+
+        
+
+
+        
+
+
+        <div class="post-meta meta-tags">
+            
+            没有标签
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "weiweng/blog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2025 <a href="http://localhost:1313/blog/">weiweng的博客 By </a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdn.bootcdn.net/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/blog/js/totop.js?v=0.0.0' async=""></script>
+
+
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='http://localhost:1313/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://localhost:1313/blog/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://localhost:1313/blog/post/2025-08-09-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式大纲" target="_blank">设计模式大纲</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/blog/post/2025-07-20-spark%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="spark|性能优化" target="_blank">spark|性能优化</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/blog/post/2025-07-20-spark%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/" title="spark|任务调度" target="_blank">spark|任务调度</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/blog/post/2025-07-20-spark%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE/" title="spark|参数配置" target="_blank">spark|参数配置</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/blog/post/2025-04-12-spark%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="spark|基础知识" target="_blank">spark|基础知识</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/blog/post/2025-04-12-spark%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/" title="spark|知识大纲" target="_blank">spark|知识大纲</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/blog/post/2025-04-12-mysql%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/" title="mysql|知识大纲" target="_blank">mysql|知识大纲</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/blog/post/2025-02-26-embedding/" title="大模型专题|embedding" target="_blank">大模型专题|embedding</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/blog/post/2025-02-23-langchain/" title="大模型专题|LangChain rag实践" target="_blank">大模型专题|LangChain rag实践</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/blog/post/2024-05-06-%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="算法专题|并查集" target="_blank">算法专题|并查集</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="http://localhost:1313/blog/categories/Golang/">Golang (28)</a></li>
+    
+    <li><a href="http://localhost:1313/blog/categories/k8s/">K8s (3)</a></li>
+    
+    <li><a href="http://localhost:1313/blog/categories/linux/">Linux (2)</a></li>
+    
+    <li><a href="http://localhost:1313/blog/categories/MQ/">MQ (3)</a></li>
+    
+    <li><a href="http://localhost:1313/blog/categories/mysql/">Mysql (22)</a></li>
+    
+    <li><a href="http://localhost:1313/blog/categories/Python/">Python (4)</a></li>
+    
+    <li><a href="http://localhost:1313/blog/categories/Redis/">Redis (9)</a></li>
+    
+    <li><a href="http://localhost:1313/blog/categories/spark/">Spark (5)</a></li>
+    
+    <li><a href="http://localhost:1313/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
+    
+    <li><a href="http://localhost:1313/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (3)</a></li>
+    
+    <li><a href="http://localhost:1313/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
+    
+    <li><a href="http://localhost:1313/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    
+    <li><a href="http://localhost:1313/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
+    
+    <li><a href="http://localhost:1313/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
+    
+    <li><a href="http://localhost:1313/blog/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式 (1)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="http://localhost:1313/blog/tags/awk/">Awk</a>
+    
+    <a href="http://localhost:1313/blog/tags/curl/">Curl</a>
+    
+    <a href="http://localhost:1313/blog/tags/find/">Find</a>
+    
+    <a href="http://localhost:1313/blog/tags/git/">Git</a>
+    
+    <a href="http://localhost:1313/blog/tags/grep/">Grep</a>
+    
+    <a href="http://localhost:1313/blog/tags/item2/">Item2</a>
+    
+    <a href="http://localhost:1313/blog/tags/nginx/">Nginx</a>
+    
+    <a href="http://localhost:1313/blog/tags/sed/">Sed</a>
+    
+    <a href="http://localhost:1313/blog/tags/shell/">Shell</a>
+    
+    <a href="http://localhost:1313/blog/tags/tmux/">Tmux</a>
+    
+    <a href="http://localhost:1313/blog/tags/uml/">Uml</a>
+    
+    <a href="http://localhost:1313/blog/tags/vim/">Vim</a>
+    
+    <a href="http://localhost:1313/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
+    
+    <a href="http://localhost:1313/blog/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">开源协议</a>
+    
+    <a href="http://localhost:1313/blog/tags/%E5%BF%83%E5%BE%97/">心得</a>
+    
+    <a href="http://localhost:1313/blog/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/">搜索引擎技巧</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://draveness.me/" title="面向信仰编程">面向信仰编程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://xargin.com/" title="No Headback">No Headback</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://eddycjy.com/" title="煎鱼的博客">煎鱼的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://polarisxu.studygolang.com/" title="polarisxu的博客">polarisxu的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://qcrao.com/" title="qcrao 的博客">qcrao 的博客</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://localhost:1313/blog/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

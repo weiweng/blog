@@ -2,73 +2,73 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Redis on weiweng的博客</title>
-    <link>https://weiweng.github.io/blog/categories/Redis/</link>
+    <link>http://localhost:1313/blog/categories/Redis/</link>
     <description>Recent content in Redis on weiweng的博客</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <lastBuildDate>Wed, 22 Apr 2020 03:57:00 +0800</lastBuildDate>
-    <atom:link href="https://weiweng.github.io/blog/categories/Redis/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/categories/Redis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>redis|集群</title>
-      <link>https://weiweng.github.io/blog/post/2020-04-22-Redis%E9%9B%86%E7%BE%A4/</link>
+      <link>http://localhost:1313/blog/post/2020-04-22-Redis%E9%9B%86%E7%BE%A4/</link>
       <pubDate>Wed, 22 Apr 2020 03:57:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2020-04-22-Redis%E9%9B%86%E7%BE%A4/</guid>
+      <guid>http://localhost:1313/blog/post/2020-04-22-Redis%E9%9B%86%E7%BE%A4/</guid>
       <description>&lt;h1 id=&#34;redis集群&#34;&gt;Redis集群&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Redis 单副本&lt;/li&gt;&#xA;&lt;li&gt;Redis 多副本(主从)&lt;/li&gt;&#xA;&lt;li&gt;Redis Sentinel(哨兵)&lt;/li&gt;&#xA;&lt;li&gt;Redis Cluster&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;redis-单副本&#34;&gt;Redis 单副本&lt;/h1&gt;&#xA;&lt;p&gt;Redis 单副本，采用单个 Redis 节点部署架构，没有备用节点实时同步数据，不提供数据持久化和备份策略，适用于数据可靠性要求不高的纯缓存业务场景。&lt;/p&gt;</description>
     </item>
     <item>
       <title>redis|RedisObject</title>
-      <link>https://weiweng.github.io/blog/post/2020-04-21-RedisObject/</link>
+      <link>http://localhost:1313/blog/post/2020-04-21-RedisObject/</link>
       <pubDate>Tue, 21 Apr 2020 04:01:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2020-04-21-RedisObject/</guid>
+      <guid>http://localhost:1313/blog/post/2020-04-21-RedisObject/</guid>
       <description>RedisObject</description>
     </item>
     <item>
       <title>redis|持久化存储</title>
-      <link>https://weiweng.github.io/blog/post/2020-03-29-redis%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/</link>
+      <link>http://localhost:1313/blog/post/2020-03-29-redis%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/</link>
       <pubDate>Sun, 29 Mar 2020 01:29:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2020-03-29-redis%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/</guid>
+      <guid>http://localhost:1313/blog/post/2020-03-29-redis%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/</guid>
       <description>&lt;h2 id=&#34;持久化流程&#34;&gt;持久化流程&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;客户端向服务端发送写操作(数据在客户端的内存中)。&lt;/li&gt;&#xA;&lt;li&gt;数据库服务端接收到写请求的数据(数据在服务端的内存中)。&lt;/li&gt;&#xA;&lt;li&gt;服务端调用write这个系统调用，将数据往磁盘上写(数据在系统内存的缓冲区中)。&lt;/li&gt;&#xA;&lt;li&gt;操作系统将缓冲区中的数据转移到磁盘控制器上(数据在磁盘缓存中)。&lt;/li&gt;&#xA;&lt;li&gt;磁盘控制器将数据写到磁盘的物理介质中(数据真正落到磁盘上)。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;redis提供了RDB和AOF两种持久化存储方案&lt;/p&gt;</description>
     </item>
     <item>
       <title>redis|skiplist</title>
-      <link>https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-SKIPLIST/</link>
+      <link>http://localhost:1313/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-SKIPLIST/</link>
       <pubDate>Sat, 14 Mar 2020 10:51:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-SKIPLIST/</guid>
+      <guid>http://localhost:1313/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-SKIPLIST/</guid>
       <description>redis基础结构-skiplist</description>
     </item>
     <item>
       <title>redis|dict</title>
-      <link>https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-DICT/</link>
+      <link>http://localhost:1313/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-DICT/</link>
       <pubDate>Sat, 14 Mar 2020 10:49:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-DICT/</guid>
+      <guid>http://localhost:1313/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-DICT/</guid>
       <description>&lt;h2 id=&#34;dict&#34;&gt;DICT&lt;/h2&gt;&#xA;&lt;p&gt;Redis字典具dd有以下特点：&lt;/p&gt;</description>
     </item>
     <item>
       <title>redis|intset</title>
-      <link>https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-INTSET/</link>
+      <link>http://localhost:1313/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-INTSET/</link>
       <pubDate>Sat, 14 Mar 2020 10:47:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-INTSET/</guid>
+      <guid>http://localhost:1313/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-INTSET/</guid>
       <description>&lt;h2 id=&#34;intset&#34;&gt;INTSET&lt;/h2&gt;&#xA;&lt;p&gt;intset是集合键的底层实现之一， 保存的元素是有序的。可作为集合键底层实现， 如果一个集合满足以下两个条件：&lt;/p&gt;</description>
     </item>
     <item>
       <title>redis|ziplist</title>
-      <link>https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-ZIPLIST/</link>
+      <link>http://localhost:1313/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-ZIPLIST/</link>
       <pubDate>Sat, 14 Mar 2020 10:45:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-ZIPLIST/</guid>
+      <guid>http://localhost:1313/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-ZIPLIST/</guid>
       <description>&lt;h2 id=&#34;ziplist作用&#34;&gt;ZIPLIST作用&lt;/h2&gt;&#xA;&lt;p&gt;当list键、hash键、zset键包含元素较少时，并且每个元素是小整数或者长度较小的字符串，则redis将会使用ziplist作为底层键的存储实现。其作用当然是节省内存空间&lt;/p&gt;</description>
     </item>
     <item>
       <title>redis|SDS</title>
-      <link>https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-SDS/</link>
+      <link>http://localhost:1313/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-SDS/</link>
       <pubDate>Sat, 14 Mar 2020 10:44:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-SDS/</guid>
+      <guid>http://localhost:1313/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84-SDS/</guid>
       <description>redis基础结构-SDS</description>
     </item>
     <item>
       <title>redis|基础</title>
-      <link>https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80/</link>
+      <link>http://localhost:1313/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Sat, 14 Mar 2020 10:41:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80/</guid>
+      <guid>http://localhost:1313/blog/post/2020-03-14-redis%E5%9F%BA%E7%A1%80/</guid>
       <description>redis基础</description>
     </item>
   </channel>
