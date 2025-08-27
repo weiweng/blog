@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Spark on weiweng的博客</title>
-    <link>http://localhost:1313/blog/categories/spark/</link>
+    <link>https://weiweng.github.io/blog/categories/spark/</link>
     <description>Recent content in Spark on weiweng的博客</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <lastBuildDate>Sun, 20 Jul 2025 12:00:00 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/categories/spark/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://weiweng.github.io/blog/categories/spark/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>spark|性能优化</title>
-      <link>http://localhost:1313/blog/post/2025-07-20-spark%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</link>
+      <link>https://weiweng.github.io/blog/post/2025-07-20-spark%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</link>
       <pubDate>Sun, 20 Jul 2025 12:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/blog/post/2025-07-20-spark%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</guid>
+      <guid>https://weiweng.github.io/blog/post/2025-07-20-spark%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</guid>
       <description>&lt;p&gt;spark如何进行性能优化？首先需要了解基本的spark运行原理，建议看之前的介绍文章。其实是知道如何查看指标，只有通过指标才能正确反馈问题出在哪里？&lt;/p&gt;</description>
     </item>
     <item>
       <title>spark|任务调度</title>
-      <link>http://localhost:1313/blog/post/2025-07-20-spark%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/</link>
+      <link>https://weiweng.github.io/blog/post/2025-07-20-spark%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/</link>
       <pubDate>Sun, 20 Jul 2025 11:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/blog/post/2025-07-20-spark%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/</guid>
+      <guid>https://weiweng.github.io/blog/post/2025-07-20-spark%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/</guid>
       <description>&lt;p&gt;掌握任务调度的原理对于提升开发人员在 Spark 应用程序上的故障排查和性能调优的能力大有裨益。&lt;/p&gt;</description>
     </item>
     <item>
       <title>spark|参数配置</title>
-      <link>http://localhost:1313/blog/post/2025-07-20-spark%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE/</link>
+      <link>https://weiweng.github.io/blog/post/2025-07-20-spark%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Sun, 20 Jul 2025 10:45:00 +0800</pubDate>
-      <guid>http://localhost:1313/blog/post/2025-07-20-spark%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://weiweng.github.io/blog/post/2025-07-20-spark%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE/</guid>
       <description>&lt;p&gt;Spark提供三个位置用来配置系统：&lt;/p&gt;</description>
     </item>
     <item>
       <title>spark|基础知识</title>
-      <link>http://localhost:1313/blog/post/2025-04-12-spark%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <link>https://weiweng.github.io/blog/post/2025-04-12-spark%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
       <pubDate>Sat, 12 Apr 2025 15:45:00 +0800</pubDate>
-      <guid>http://localhost:1313/blog/post/2025-04-12-spark%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <guid>https://weiweng.github.io/blog/post/2025-04-12-spark%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
       <description>&lt;p&gt;大数据、人工智能( Artificial Intelligence )正以前所未有的广度和深度影响所有的行业， 现在及未来公司的核心壁垒是数据， 核心竞争力来自基于大数据的人工智能的竞争。&lt;/p&gt;</description>
     </item>
     <item>
       <title>spark|知识大纲</title>
-      <link>http://localhost:1313/blog/post/2025-04-12-spark%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/</link>
+      <link>https://weiweng.github.io/blog/post/2025-04-12-spark%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/</link>
       <pubDate>Sat, 12 Apr 2025 15:45:00 +0800</pubDate>
-      <guid>http://localhost:1313/blog/post/2025-04-12-spark%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/</guid>
+      <guid>https://weiweng.github.io/blog/post/2025-04-12-spark%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/</guid>
       <description>&lt;p&gt;总结一下spark的知识大纲，利用思维导图的方式将零散的知识组合起来，形成网状图谱，方便回想和记忆。&lt;/p&gt;</description>
     </item>
   </channel>
