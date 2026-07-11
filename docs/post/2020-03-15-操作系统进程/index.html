@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-CN">
-<head>
+<head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=46171&amp;path=blog/livereload" data-no-instant defer></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1207188090915424" crossorigin="anonymous"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,8 +19,8 @@
     <meta name="Keywords" content="golang,go语言,go语言笔记,博客,项目管理,软件架构">
     <meta name="description" content="操作系统|进程">
         
-    <meta name="author" content="">
-    <meta property="og:url" content="https://weiweng.github.io/blog/post/2020-03-15-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BF%9B%E7%A8%8B/">
+    <meta name="author" content="weiweng">
+    <meta property="og:url" content="http://localhost:46171/blog/post/2020-03-15-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BF%9B%E7%A8%8B/">
     <link rel="shortcut icon" href='/blog/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='/blog/css/normalize.css'>
@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog/">
+                    <a id="logo" href="http://localhost:46171/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,15 +49,15 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
+                    <a class="current" href="http://localhost:46171/blog/">首页</a>
                     
-                    <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
+                    <a  href="http://localhost:46171/blog/tools/" title="工具">工具</a>
                     
-                    <a  href="https://weiweng.github.io/blog/read/" title="阅读">阅读</a>
+                    <a  href="http://localhost:46171/blog/read/" title="阅读">阅读</a>
                     
-                    <a  href="https://weiweng.github.io/blog/about/" title="关于">关于</a>
+                    <a  href="http://localhost:46171/blog/about/" title="关于">关于</a>
                     
-                    <a  href="https://weiweng.github.io/blog/archives/" title="归档">归档</a>
+                    <a  href="http://localhost:46171/blog/archives/" title="归档">归档</a>
                     
                 </nav>
             </div>
@@ -206,9 +206,9 @@ category: 工具 tags: OS,进程,基础知识,面试 keywords: OS,进程,基础�
 <p>图中标灰的区域表示这些范围在进程虚拟地址空间中不可用，也就是说，没有为这些区域创建页表（page table）。 <a href="https://blog.csdn.net/tennysonsky/article/details/45113863">详细参考文章</a></p>
 <h4 id="进程数据设计结构">进程数据设计结构</h4>
 <p>为了描述和控制进程的运行，系统为每个进程定义了一个数据结构——进程控制块（PCB）。  它是进程重要的组成部分，它记录了操作系统所需的、用于描述进程的当前状态和控制进程的全部信息。  操作系统就是根据进程的PCB来感知进程的存在，并依此对进程进行管理和控制。 PCB是进程存在的唯一标识。 Linux系统下PCB结构定义如下</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
@@ -363,149 +363,149 @@ category: 工具 tags: OS,进程,基础知识,面试 keywords: OS,进程,基础�
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">153
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#57606a">//include/linux.sched.h
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#cf222e">struct</span> task_struct 
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#57606a">//include/linux.sched.h
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">struct</span> task_struct 
 </span></span><span style="display:flex;"><span><span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//说明了该进程是否可以执行,还是可中断等信息
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#57606a">//变量如果加了 volatile 修饰，则会从内存重新装载内容，而不是直接从寄存器拷贝内容。 
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">volatile</span> <span style="color:#cf222e">long</span> state<span style="color:#1f2328">;</span>  
+</span></span></span><span style="display:flex;"><span>	<span style="color:#57606a">//变量如果加了 volatile 修饰，则会从内存重新装载内容，而不是直接从寄存器拷贝内容。 
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">volatile</span> <span style="color:#cf222e">long</span> state<span style="color:#1f2328">;</span>  
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//Flage 是进程号,在调用fork()时给出
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">long</span> flags<span style="color:#1f2328">;</span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">long</span> flags<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//进程上是否有待处理的信号
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">int</span> sigpending<span style="color:#1f2328">;</span>   
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">int</span> sigpending<span style="color:#1f2328">;</span>   
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//进程地址空间,区分内核进程与普通进程在内存存放的位置不同
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">mm_segment_t</span> addr_limit<span style="color:#1f2328">;</span> <span style="color:#57606a">//0-0xBFFFFFFF for user-thead  
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#57606a">//0-0xFFFFFFFF for kernel-thread
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#57606a">//调度标志,表示该进程是否需要重新调度,若非0,则当从内核态返回到用户态,会发生调度
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">volatile</span> <span style="color:#cf222e">long</span> need_resched<span style="color:#1f2328">;</span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">mm_segment_t</span> addr_limit<span style="color:#1f2328">;</span> <span style="color:#57606a">//0-0xBFFFFFFF for user-thead  
+</span></span></span><span style="display:flex;"><span>    <span style="color:#57606a">//0-0xFFFFFFFF for kernel-thread
+</span></span></span><span style="display:flex;"><span>	<span style="color:#57606a">//调度标志,表示该进程是否需要重新调度,若非0,则当从内核态返回到用户态,会发生调度
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">volatile</span> <span style="color:#cf222e">long</span> need_resched<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//锁深度
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">int</span> lock_depth<span style="color:#1f2328">;</span>  
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">int</span> lock_depth<span style="color:#1f2328">;</span>  
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//进程的基本时间片
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">long</span> nice<span style="color:#1f2328">;</span>      
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">long</span> nice<span style="color:#1f2328">;</span>      
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//进程的调度策略,有三种,实时进程:SCHED_FIFO,SCHED_RR, 分时进程:SCHED_OTHER
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#57606a">//todo 说明这里的三种调度算法大体实现流程
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">long</span> policy<span style="color:#1f2328">;</span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#57606a">//todo 说明这里的三种调度算法大体实现流程
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">long</span> policy<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//进程内存管理信息
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">struct</span> mm_struct <span style="color:#0550ae">*</span>mm<span style="color:#1f2328">;</span> 
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">struct</span> mm_struct <span style="color:#0550ae">*</span>mm<span style="color:#1f2328">;</span> 
 </span></span><span style="display:flex;"><span> 
 </span></span><span style="display:flex;"><span>	<span style="color:#cf222e">int</span> processor<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//若进程不在任何CPU上运行, cpus_runnable 的值是0，否则是1 这个值在运行队列被锁时更新
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">long</span> cpus_runnable<span style="color:#1f2328">,</span> cpus_allowed<span style="color:#1f2328">;</span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">long</span> cpus_runnable<span style="color:#1f2328">,</span> cpus_allowed<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//指向运行队列的指针
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">struct</span> list_head run_list<span style="color:#1f2328">;</span> 
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">struct</span> list_head run_list<span style="color:#1f2328">;</span> 
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//进程的睡眠时间
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">long</span> sleep_time<span style="color:#1f2328">;</span> 
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">long</span> sleep_time<span style="color:#1f2328">;</span> 
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//用于将系统中所有的进程连成一个双向循环链表, 其根是init_task
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">struct</span> task_struct <span style="color:#0550ae">*</span>next_task<span style="color:#1f2328">,</span> <span style="color:#0550ae">*</span>prev_task<span style="color:#1f2328">;</span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">struct</span> task_struct <span style="color:#0550ae">*</span>next_task<span style="color:#1f2328">,</span> <span style="color:#0550ae">*</span>prev_task<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#cf222e">struct</span> mm_struct <span style="color:#0550ae">*</span>active_mm<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#cf222e">struct</span> list_head local_pages<span style="color:#1f2328">;</span>       <span style="color:#57606a">//指向本地页面      
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">int</span> allocation_order<span style="color:#1f2328">,</span> nr_local_pages<span style="color:#1f2328">;</span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">int</span> allocation_order<span style="color:#1f2328">,</span> nr_local_pages<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#cf222e">struct</span> linux_binfmt <span style="color:#0550ae">*</span>binfmt<span style="color:#1f2328">;</span>  <span style="color:#57606a">//进程所运行的可执行文件的格式
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">int</span> exit_code<span style="color:#1f2328">,</span> exit_signal<span style="color:#1f2328">;</span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">int</span> exit_code<span style="color:#1f2328">,</span> exit_signal<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#cf222e">int</span> pdeath_signal<span style="color:#1f2328">;</span>     <span style="color:#57606a">//父进程终止是向子进程发送的信号
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">long</span> personality<span style="color:#1f2328">;</span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">long</span> personality<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//Linux可以运行由其他UNIX操作系统生成的符合iBCS2标准的程序
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">int</span> <span style="color:#900;font-weight:bold">did_exec</span><span style="color:#1f2328">:</span><span style="color:#0550ae">1</span><span style="color:#1f2328">;</span> 
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">int</span> <span style="color:#900;font-weight:bold">did_exec</span><span style="color:#1f2328">:</span><span style="color:#0550ae">1</span><span style="color:#1f2328">;</span> 
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//todo 进程的权限控制是如何作用的？
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">pid_t</span> pid<span style="color:#1f2328">;</span>    <span style="color:#57606a">//进程标识符,用来代表一个进程
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">pid_t</span> pgrp<span style="color:#1f2328">;</span>   <span style="color:#57606a">//进程组标识,表示进程所属的进程组
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">pid_t</span> tty_old_pgrp<span style="color:#1f2328">;</span>  <span style="color:#57606a">//进程控制终端所在的组标识
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">pid_t</span> session<span style="color:#1f2328">;</span>  <span style="color:#57606a">//进程的会话标识
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">pid_t</span> tgid<span style="color:#1f2328">;</span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">pid_t</span> pid<span style="color:#1f2328">;</span>    <span style="color:#57606a">//进程标识符,用来代表一个进程
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">pid_t</span> pgrp<span style="color:#1f2328">;</span>   <span style="color:#57606a">//进程组标识,表示进程所属的进程组
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">pid_t</span> tty_old_pgrp<span style="color:#1f2328">;</span>  <span style="color:#57606a">//进程控制终端所在的组标识
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">pid_t</span> session<span style="color:#1f2328">;</span>  <span style="color:#57606a">//进程的会话标识
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">pid_t</span> tgid<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#cf222e">int</span> leader<span style="color:#1f2328">;</span>     <span style="color:#57606a">//表示进程是否为会话主管
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#57606a">//进程的原始父进程、父进程、子进程、新兄弟进程、老兄弟进程指针
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">struct</span> task_struct <span style="color:#0550ae">*</span>p_opptr<span style="color:#1f2328">,</span><span style="color:#0550ae">*</span>p_pptr<span style="color:#1f2328">,</span><span style="color:#0550ae">*</span>p_cptr<span style="color:#1f2328">,</span><span style="color:#0550ae">*</span>p_ysptr<span style="color:#1f2328">,</span><span style="color:#0550ae">*</span>p_osptr<span style="color:#1f2328">;</span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#57606a">//进程的原始父进程、父进程、子进程、新兄弟进程、老兄弟进程指针
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">struct</span> task_struct <span style="color:#0550ae">*</span>p_opptr<span style="color:#1f2328">,</span><span style="color:#0550ae">*</span>p_pptr<span style="color:#1f2328">,</span><span style="color:#0550ae">*</span>p_cptr<span style="color:#1f2328">,</span><span style="color:#0550ae">*</span>p_ysptr<span style="color:#1f2328">,</span><span style="color:#0550ae">*</span>p_osptr<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#cf222e">struct</span> list_head thread_group<span style="color:#1f2328">;</span>   <span style="color:#57606a">//线程链表
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#57606a">//todo 为什么要加入hash表，为了快速找到pid的对应pcb
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#57606a">//使用链地址法解除pid的hash冲突问题，下面两个是双向链表的前后指针
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">struct</span> task_struct <span style="color:#0550ae">*</span>pidhash_next<span style="color:#1f2328">;</span> <span style="color:#57606a">//用于将进程链入HASH表
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">struct</span> task_struct <span style="color:#0550ae">**</span>pidhash_pprev<span style="color:#1f2328">;</span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#57606a">//todo 为什么要加入hash表，为了快速找到pid的对应pcb
+</span></span></span><span style="display:flex;"><span>	<span style="color:#57606a">//使用链地址法解除pid的hash冲突问题，下面两个是双向链表的前后指针
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">struct</span> task_struct <span style="color:#0550ae">*</span>pidhash_next<span style="color:#1f2328">;</span> <span style="color:#57606a">//用于将进程链入HASH表
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">struct</span> task_struct <span style="color:#0550ae">**</span>pidhash_pprev<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#cf222e">wait_queue_head_t</span> wait_chldexit<span style="color:#1f2328">;</span>  <span style="color:#57606a">//供wait4()使用
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">struct</span> completion <span style="color:#0550ae">*</span>vfork_done<span style="color:#1f2328">;</span>  <span style="color:#57606a">//供vfork() 使用
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">long</span> rt_priority<span style="color:#1f2328">;</span> <span style="color:#57606a">//实时优先级，用它计算实时进程调度时的weight值
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#57606a">//it_real_value，it_real_incr用于REAL定时器，单位为jiffies, 系统根据it_real_value
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">struct</span> completion <span style="color:#0550ae">*</span>vfork_done<span style="color:#1f2328">;</span>  <span style="color:#57606a">//供vfork() 使用
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">long</span> rt_priority<span style="color:#1f2328">;</span> <span style="color:#57606a">//实时优先级，用它计算实时进程调度时的weight值
+</span></span></span><span style="display:flex;"><span>	<span style="color:#57606a">//it_real_value，it_real_incr用于REAL定时器，单位为jiffies, 系统根据it_real_value
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//设置定时器的第一个终止时间. 在定时器到期时，向进程发送SIGALRM信号，同时根据
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//it_real_incr重置终止时间，it_prof_value，it_prof_incr用于Profile定时器，单位为jiffies。
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//当进程运行时，不管在何种状态下，每个tick都使it_prof_value值减一，当减到0时，向进程发送
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//信号SIGPROF，并根据it_prof_incr重置时间.
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#57606a">//it_virt_value，it_virt_value用于Virtual定时器，单位为jiffies。当进程运行时，不管在何种
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#57606a">//it_virt_value，it_virt_value用于Virtual定时器，单位为jiffies。当进程运行时，不管在何种
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//状态下，每个tick都使it_virt_value值减一当减到0时，向进程发送信号SIGVTALRM，根据
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//it_virt_incr重置初值。
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">long</span> it_real_value<span style="color:#1f2328">,</span> it_prof_value<span style="color:#1f2328">,</span> it_virt_value<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">long</span> it_real_incr<span style="color:#1f2328">,</span> it_prof_incr<span style="color:#1f2328">,</span> it_virt_value<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#cf222e">struct</span> timer_list real_timer<span style="color:#1f2328">;</span>   <span style="color:#57606a">//指向实时定时器的指针
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">struct</span> tms times<span style="color:#1f2328">;</span>      <span style="color:#57606a">//记录进程消耗的时间
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">long</span> start_time<span style="color:#1f2328">;</span>  <span style="color:#57606a">//进程创建的时间
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">struct</span> tms times<span style="color:#1f2328">;</span>      <span style="color:#57606a">//记录进程消耗的时间
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">long</span> start_time<span style="color:#1f2328">;</span>  <span style="color:#57606a">//进程创建的时间
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//记录进程在每个CPU上所消耗的用户态时间和核心态时间
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">long</span> per_cpu_utime<span style="color:#1f2328">[</span>NR_CPUS<span style="color:#1f2328">],</span> per_cpu_stime<span style="color:#1f2328">[</span>NR_CPUS<span style="color:#1f2328">];</span> 
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">long</span> per_cpu_utime<span style="color:#1f2328">[</span>NR_CPUS<span style="color:#1f2328">],</span> per_cpu_stime<span style="color:#1f2328">[</span>NR_CPUS<span style="color:#1f2328">];</span> 
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//内存缺页和交换信息:
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//min_flt, maj_flt累计进程的次缺页数（Copy on　Write页和匿名页）和主缺页数（从映射文件或交换
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//设备读入的页面数）； nswap记录进程累计换出的页面数，即写到交换设备上的页面数。
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#57606a">//cmin_flt, cmaj_flt, cnswap记录本进程为祖先的所有子孙进程的累计次缺页数，主缺页数和换出页面数。
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#57606a">//cmin_flt, cmaj_flt, cnswap记录本进程为祖先的所有子孙进程的累计次缺页数，主缺页数和换出页面数。
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//在父进程回收终止的子进程时，父进程会将子进程的这些信息累计到自己结构的这些域中
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">long</span> min_flt<span style="color:#1f2328">,</span> maj_flt<span style="color:#1f2328">,</span> nswap<span style="color:#1f2328">,</span> cmin_flt<span style="color:#1f2328">,</span> cmaj_flt<span style="color:#1f2328">,</span> cnswap<span style="color:#1f2328">;</span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">long</span> min_flt<span style="color:#1f2328">,</span> maj_flt<span style="color:#1f2328">,</span> nswap<span style="color:#1f2328">,</span> cmin_flt<span style="color:#1f2328">,</span> cmaj_flt<span style="color:#1f2328">,</span> cnswap<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#cf222e">int</span> <span style="color:#900;font-weight:bold">swappable</span><span style="color:#1f2328">:</span><span style="color:#0550ae">1</span><span style="color:#1f2328">;</span> <span style="color:#57606a">//表示进程的虚拟地址空间是否允许换出
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#57606a">//进程认证信息
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#57606a">//uid,gid为运行该进程的用户的用户标识符和组标识符，通常是进程创建者的uid，gid
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#57606a">//进程认证信息
+</span></span></span><span style="display:flex;"><span>	<span style="color:#57606a">//uid,gid为运行该进程的用户的用户标识符和组标识符，通常是进程创建者的uid，gid
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//euid，egid为有效uid,gid
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#57606a">//这个是Linux系统特有的
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#57606a">//fsuid，fsgid为文件系统uid,gid，这两个ID号通常与有效uid,gid相等，在检查对于文件
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#57606a">//这个是Linux系统特有的
+</span></span></span><span style="display:flex;"><span>	<span style="color:#57606a">//fsuid，fsgid为文件系统uid,gid，这两个ID号通常与有效uid,gid相等，在检查对于文件
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//系统的访问权限时使用他们。
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#57606a">//suid，sgid为备份uid,gid
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#57606a">//uid 真实用户id，在进程创建时由父进程继承而来
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#57606a">//euid 有效用户id，进程的控制权限全靠这个来判断
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#57606a">//suid save用户id，用于euid的临时存储，方便euid在临时改变后恢复之前的uid
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#57606a">//通过比较euid是属于文件的哪个组，从而决定属于文件执行权限的哪个级别，那么这个进程就拥有对该文件什么级别的执行权限。另外，如果可执行文件的setuid位有效，则运行这个可执行文件时，进程uid还是用户的uid，而进程euid则会暂时被修改成该可执行文件的所有者用户uid，直到该进程结束。
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#57606a">//在某个进程中，进程pid和ppid是唯一标识该进程的，它不会改变，而进程uid与运行该进程的用户uid相同，进程euid则与uid相同，只有运行设置了setuid位的文件时才会把euid改为这个文件的所有者用户uid。进程gid和进程egid则类似。
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">uid_t</span> uid<span style="color:#1f2328">,</span>euid<span style="color:#1f2328">,</span>suid<span style="color:#1f2328">,</span>fsuid<span style="color:#1f2328">;</span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#57606a">//suid，sgid为备份uid,gid
+</span></span></span><span style="display:flex;"><span>	<span style="color:#57606a">//uid 真实用户id，在进程创建时由父进程继承而来
+</span></span></span><span style="display:flex;"><span>	<span style="color:#57606a">//euid 有效用户id，进程的控制权限全靠这个来判断
+</span></span></span><span style="display:flex;"><span>	<span style="color:#57606a">//suid save用户id，用于euid的临时存储，方便euid在临时改变后恢复之前的uid
+</span></span></span><span style="display:flex;"><span>	<span style="color:#57606a">//通过比较euid是属于文件的哪个组，从而决定属于文件执行权限的哪个级别，那么这个进程就拥有对该文件什么级别的执行权限。另外，如果可执行文件的setuid位有效，则运行这个可执行文件时，进程uid还是用户的uid，而进程euid则会暂时被修改成该可执行文件的所有者用户uid，直到该进程结束。
+</span></span></span><span style="display:flex;"><span>	<span style="color:#57606a">//在某个进程中，进程pid和ppid是唯一标识该进程的，它不会改变，而进程uid与运行该进程的用户uid相同，进程euid则与uid相同，只有运行设置了setuid位的文件时才会把euid改为这个文件的所有者用户uid。进程gid和进程egid则类似。
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">uid_t</span> uid<span style="color:#1f2328">,</span>euid<span style="color:#1f2328">,</span>suid<span style="color:#1f2328">,</span>fsuid<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#cf222e">gid_t</span> gid<span style="color:#1f2328">,</span>egid<span style="color:#1f2328">,</span>sgid<span style="color:#1f2328">,</span>fsgid<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#cf222e">int</span> ngroups<span style="color:#1f2328">;</span> <span style="color:#57606a">//记录进程在多少个用户组中
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">gid_t</span> groups<span style="color:#1f2328">[</span>NGROUPS<span style="color:#1f2328">];</span> <span style="color:#57606a">//记录进程所在的组
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">gid_t</span> groups<span style="color:#1f2328">[</span>NGROUPS<span style="color:#1f2328">];</span> <span style="color:#57606a">//记录进程所在的组
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//进程的权能，分别是有效位集合，继承位集合，允许位集合
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">kernel_cap_t</span> cap_effective<span style="color:#1f2328">,</span> cap_inheritable<span style="color:#1f2328">,</span> cap_permitted<span style="color:#1f2328">;</span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">kernel_cap_t</span> cap_effective<span style="color:#1f2328">,</span> cap_inheritable<span style="color:#1f2328">,</span> cap_permitted<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#cf222e">int</span> <span style="color:#900;font-weight:bold">keep_capabilities</span><span style="color:#1f2328">:</span><span style="color:#0550ae">1</span><span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#cf222e">struct</span> user_struct <span style="color:#0550ae">*</span>user<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#cf222e">struct</span> rlimit rlim<span style="color:#1f2328">[</span>RLIM_NLIMITS<span style="color:#1f2328">];</span>  <span style="color:#57606a">//与进程相关的资源限制信息
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">short</span> used_math<span style="color:#1f2328">;</span>   <span style="color:#57606a">//是否使用FPU
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">char</span> comm<span style="color:#1f2328">[</span><span style="color:#0550ae">16</span><span style="color:#1f2328">];</span>   <span style="color:#57606a">//进程正在运行的可执行文件名
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#57606a">//文件系统信息
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">int</span> link_count<span style="color:#1f2328">,</span> total_link_count<span style="color:#1f2328">;</span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">short</span> used_math<span style="color:#1f2328">;</span>   <span style="color:#57606a">//是否使用FPU
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">char</span> comm<span style="color:#1f2328">[</span><span style="color:#0550ae">16</span><span style="color:#1f2328">];</span>   <span style="color:#57606a">//进程正在运行的可执行文件名
+</span></span></span><span style="display:flex;"><span>	<span style="color:#57606a">//文件系统信息
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">int</span> link_count<span style="color:#1f2328">,</span> total_link_count<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//NULL if no tty 进程所在的控制终端，如果不需要控制终端，则该指针为空
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">struct</span> tty_struct <span style="color:#0550ae">*</span>tty<span style="color:#1f2328">;</span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">struct</span> tty_struct <span style="color:#0550ae">*</span>tty<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">int</span> locks<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//进程间通信信息
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">struct</span> sem_undo <span style="color:#0550ae">*</span>semundo<span style="color:#1f2328">;</span>  <span style="color:#57606a">//进程在信号灯上的所有undo操作
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">struct</span> sem_queue <span style="color:#0550ae">*</span>semsleeping<span style="color:#1f2328">;</span> <span style="color:#57606a">//当进程因为信号灯操作而挂起时，他在该队列中记录等待的操作
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#57606a">//进程的CPU状态，切换时，要保存到停止进程的task_struct中
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">struct</span> thread_struct <span style="color:#cf222e">thread</span><span style="color:#1f2328">;</span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">struct</span> sem_undo <span style="color:#0550ae">*</span>semundo<span style="color:#1f2328">;</span>  <span style="color:#57606a">//进程在信号灯上的所有undo操作
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">struct</span> sem_queue <span style="color:#0550ae">*</span>semsleeping<span style="color:#1f2328">;</span> <span style="color:#57606a">//当进程因为信号灯操作而挂起时，他在该队列中记录等待的操作
+</span></span></span><span style="display:flex;"><span>	<span style="color:#57606a">//进程的CPU状态，切换时，要保存到停止进程的task_struct中
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">struct</span> thread_struct <span style="color:#cf222e">thread</span><span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//文件系统信息
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">struct</span> fs_struct <span style="color:#0550ae">*</span>fs<span style="color:#1f2328">;</span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">struct</span> fs_struct <span style="color:#0550ae">*</span>fs<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//打开文件信息
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">struct</span> files_struct <span style="color:#0550ae">*</span>files<span style="color:#1f2328">;</span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">struct</span> files_struct <span style="color:#0550ae">*</span>files<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#57606a">//信号处理函数
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>	<span style="color:#cf222e">spinlock_t</span> sigmask_lock<span style="color:#1f2328">;</span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#cf222e">spinlock_t</span> sigmask_lock<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span> 	<span style="color:#cf222e">struct</span> signal_struct <span style="color:#0550ae">*</span>sig<span style="color:#1f2328">;</span> <span style="color:#57606a">//信号处理函数
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span> 	<span style="color:#cf222e">sigset_t</span> blocked<span style="color:#1f2328">;</span>  <span style="color:#57606a">//进程当前要阻塞的信号，每个信号对应一位
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span> 	<span style="color:#cf222e">struct</span> sigpending pending<span style="color:#1f2328">;</span>  <span style="color:#57606a">//进程上是否有待处理的信号
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span> 	<span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">long</span> sas_ss_sp<span style="color:#1f2328">;</span>
+</span></span></span><span style="display:flex;"><span> 	<span style="color:#cf222e">sigset_t</span> blocked<span style="color:#1f2328">;</span>  <span style="color:#57606a">//进程当前要阻塞的信号，每个信号对应一位
+</span></span></span><span style="display:flex;"><span> 	<span style="color:#cf222e">struct</span> sigpending pending<span style="color:#1f2328">;</span>  <span style="color:#57606a">//进程上是否有待处理的信号
+</span></span></span><span style="display:flex;"><span> 	<span style="color:#cf222e">unsigned</span> <span style="color:#cf222e">long</span> sas_ss_sp<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span> 	<span style="color:#cf222e">size_t</span> sas_ss_size<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span> 	<span style="color:#cf222e">int</span> <span style="color:#1f2328">(</span><span style="color:#0550ae">*</span>notifier<span style="color:#1f2328">)(</span><span style="color:#cf222e">void</span> <span style="color:#0550ae">*</span>priv<span style="color:#1f2328">);</span>
 </span></span><span style="display:flex;"><span> 	<span style="color:#cf222e">void</span> <span style="color:#0550ae">*</span>notifier_data<span style="color:#1f2328">;</span>
@@ -519,15 +519,15 @@ category: 工具 tags: OS,进程,基础知识,面试 keywords: OS,进程,基础�
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="fork函数具体实现过程">fork函数具体实现过程</h4>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#57606a">#include&lt;unistd.h&gt;  
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>pid_t <span style="color:#6639ba">fork</span><span style="color:#1f2328">(</span><span style="color:#cf222e">void</span><span style="color:#1f2328">);</span>  
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#57606a">#include&lt;unistd.h&gt;  
+</span></span></span><span style="display:flex;"><span>pid_t <span style="color:#6639ba">fork</span><span style="color:#1f2328">(</span><span style="color:#cf222e">void</span><span style="color:#1f2328">);</span>  
 </span></span><span style="display:flex;"><span><span style="color:#f6f8fa;background-color:#82071e">返回值</span><span style="color:#0550ae">:</span><span style="color:#f6f8fa;background-color:#82071e">自进程中返回</span><span style="color:#0550ae">0</span><span style="color:#f6f8fa;background-color:#82071e">，父进程返回进程</span>id<span style="color:#f6f8fa;background-color:#82071e">，出错返回</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span>  
 </span></span></code></pre></td></tr></table>
 </div>
@@ -535,9 +535,9 @@ category: 工具 tags: OS,进程,基础知识,面试 keywords: OS,进程,基础�
 <p>
         <img class="mx-auto" alt="fork函数细节1" src="img_4.png" />   
     </p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -563,11 +563,11 @@ category: 工具 tags: OS,进程,基础知识,面试 keywords: OS,进程,基础�
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#57606a">#include</span> <span style="color:#57606a">&lt;stdio.h&gt;</span><span style="color:#57606a">
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#57606a">#include</span> <span style="color:#57606a">&lt;stdio.h&gt;</span><span style="color:#57606a">
 </span></span></span><span style="display:flex;"><span><span style="color:#57606a">#include</span> <span style="color:#57606a">&lt;stdlib.h&gt;</span><span style="color:#57606a">
 </span></span></span><span style="display:flex;"><span><span style="color:#57606a">#include</span> <span style="color:#57606a">&lt;unistd.h&gt;</span><span style="color:#57606a">
 </span></span></span><span style="display:flex;"><span><span style="color:#57606a">#include</span> <span style="color:#57606a">&lt;fcntl.h&gt;</span><span style="color:#57606a">
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">int</span> set <span style="color:#0550ae">=</span> <span style="color:#0550ae">110</span><span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">int</span> <span style="color:#6639ba">main</span><span style="color:#1f2328">(</span> <span style="color:#cf222e">void</span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#1f2328">{</span>
@@ -590,9 +590,9 @@ category: 工具 tags: OS,进程,基础知识,面试 keywords: OS,进程,基础�
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>上面的程序重定向输出结果</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
@@ -601,7 +601,7 @@ category: 工具 tags: OS,进程,基础知识,面试 keywords: OS,进程,基础�
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">localhost</span><span style="color:#1f2328">:</span>cmake<span style="color:#0550ae">-</span>build<span style="color:#0550ae">-</span>debug ww<span style="color:#f6f8fa;background-color:#82071e">$</span> <span style="color:#1f2328">.</span><span style="color:#0550ae">/</span>helloworld <span style="color:#0550ae">&gt;</span> tmp
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">localhost</span><span style="color:#1f2328">:</span>cmake<span style="color:#0550ae">-</span>build<span style="color:#0550ae">-</span>debug ww<span style="color:#f6f8fa;background-color:#82071e">$</span> <span style="color:#1f2328">.</span><span style="color:#0550ae">/</span>helloworld <span style="color:#0550ae">&gt;</span> tmp
 </span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">localhost</span><span style="color:#1f2328">:</span>cmake<span style="color:#0550ae">-</span>build<span style="color:#0550ae">-</span>debug ww<span style="color:#f6f8fa;background-color:#82071e">$</span> cat tmp 
 </span></span><span style="display:flex;"><span>before fork
 </span></span><span style="display:flex;"><span>son pid<span style="color:#0550ae">=</span><span style="color:#0550ae">5471</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">111</span>
@@ -611,15 +611,15 @@ category: 工具 tags: OS,进程,基础知识,面试 keywords: OS,进程,基础�
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>原因：和终端交互时，通常默认是行缓存，因此fork之前printf直接输出(遇见了换行符)，而重定向后就不是行缓冲了，子进程拷贝了父进程的文件描述符以及缓冲区，因此会输出两次。如果去掉fork之前printf的换行符，则直接运行程序也会输出两次。</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#1f2328">...</span><span style="color:#0550ae">/</span>helloworld<span style="color:#0550ae">/</span>cmake<span style="color:#0550ae">-</span>build<span style="color:#0550ae">-</span>debug<span style="color:#0550ae">/</span>helloworld
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#1f2328">...</span><span style="color:#0550ae">/</span>helloworld<span style="color:#0550ae">/</span>cmake<span style="color:#0550ae">-</span>build<span style="color:#0550ae">-</span>debug<span style="color:#0550ae">/</span>helloworld
 </span></span><span style="display:flex;"><span>before forkson pid<span style="color:#0550ae">=</span><span style="color:#0550ae">5507</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">111</span>
 </span></span><span style="display:flex;"><span>before forkparent pid<span style="color:#0550ae">=</span><span style="color:#0550ae">5506</span> <span style="color:#1f2328">,</span> <span style="color:#0550ae">110</span>
 </span></span><span style="display:flex;"><span>Process finished with exit code <span style="color:#0550ae">0</span>
@@ -633,7 +633,8 @@ category: 工具 tags: OS,进程,基础知识,面试 keywords: OS,进程,基础�
 <h4 id="vfork">vfork</h4>
 <p>vfork()的诞生是在fork()还没有写时拷贝的时候，因为fork创建一个子进程的成本太大了，如果一下子创建好多了那么程序的效率一定会下降，之后就有人提出了vfork(). vfork的实现原理非常简单，就是子进程，父进程完全公用一个资源. 就是是有人修改了内容，甚至main()函数退出了也不会新开辟一个空间. 所以这里里会有问题的，如果你的一个子进程没有使用exit()退出，那么程序就会出现段错误。</p>
 <blockquote>
-<p>为什么会出现段错误? 在函数栈上面，子进程运行结束了，main的函数栈被子进程释放了，然后父进程在使用的时候，就访问不到了，一旦vfork出子进程，退出的时候需要使用exit来结束。</p></blockquote>
+<p>为什么会出现段错误? 在函数栈上面，子进程运行结束了，main的函数栈被子进程释放了，然后父进程在使用的时候，就访问不到了，一旦vfork出子进程，退出的时候需要使用exit来结束。</p>
+</blockquote>
 <h4 id="fork与vfork的不同点">fork与vfork的不同点</h4>
 <ol>
 <li>fork父子进程交替运行，vfork保证子进程先运行，父进程阻塞，直到子进程结束（或子进程调用了exec或exit）.</li>
@@ -827,7 +828,7 @@ category: 工具 tags: OS,进程,基础知识,面试 keywords: OS,进程,基础�
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
+        &copy; 2026 <a href="http://localhost:46171/blog/">weiweng的博客 By weiweng</a>
         
     </div>
     <br />
@@ -945,10 +946,10 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
 
                 <div id="secondary">
     <section class="widget">
-        <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+        <form id="search" action='http://localhost:46171/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
+      <input type="hidden" name="sitesearch" value="http://localhost:46171/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -958,43 +959,43 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
 <ul class="widget-list">
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-08-09-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式大纲" target="_blank">设计模式大纲</a>
+        <a href="http://localhost:46171/blog/post/2025-08-09-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式大纲" target="_blank">设计模式大纲</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-07-20-spark%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="spark|性能优化" target="_blank">spark|性能优化</a>
+        <a href="http://localhost:46171/blog/post/2025-07-20-spark%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="spark|性能优化" target="_blank">spark|性能优化</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-07-20-spark%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/" title="spark|任务调度" target="_blank">spark|任务调度</a>
+        <a href="http://localhost:46171/blog/post/2025-07-20-spark%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/" title="spark|任务调度" target="_blank">spark|任务调度</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-07-20-spark%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE/" title="spark|参数配置" target="_blank">spark|参数配置</a>
+        <a href="http://localhost:46171/blog/post/2025-07-20-spark%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE/" title="spark|参数配置" target="_blank">spark|参数配置</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-04-12-spark%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="spark|基础知识" target="_blank">spark|基础知识</a>
+        <a href="http://localhost:46171/blog/post/2025-04-12-spark%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="spark|基础知识" target="_blank">spark|基础知识</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-04-12-spark%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/" title="spark|知识大纲" target="_blank">spark|知识大纲</a>
+        <a href="http://localhost:46171/blog/post/2025-04-12-spark%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/" title="spark|知识大纲" target="_blank">spark|知识大纲</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-04-12-mysql%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/" title="mysql|知识大纲" target="_blank">mysql|知识大纲</a>
+        <a href="http://localhost:46171/blog/post/2025-04-12-mysql%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/" title="mysql|知识大纲" target="_blank">mysql|知识大纲</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-02-26-embedding/" title="大模型专题|embedding" target="_blank">大模型专题|embedding</a>
+        <a href="http://localhost:46171/blog/post/2025-02-26-embedding/" title="大模型专题|embedding" target="_blank">大模型专题|embedding</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-02-23-langchain/" title="大模型专题|LangChain rag实践" target="_blank">大模型专题|LangChain rag实践</a>
+        <a href="http://localhost:46171/blog/post/2025-02-23-langchain/" title="大模型专题|LangChain rag实践" target="_blank">大模型专题|LangChain rag实践</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2024-05-06-%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="算法专题|并查集" target="_blank">算法专题|并查集</a>
+        <a href="http://localhost:46171/blog/post/2024-05-06-%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="算法专题|并查集" target="_blank">算法专题|并查集</a>
     </li>
     
 </ul>
@@ -1006,35 +1007,35 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/Golang/">Golang (28)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/k8s/">K8s (3)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/linux/">Linux (2)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/MQ/">MQ (3)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (22)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/mysql/">Mysql (22)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/Python/">Python (4)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/Redis/">Redis (9)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/spark/">Spark (5)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/spark/">Spark (5)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (3)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (3)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式 (1)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式 (1)</a></li>
     
 </ul>
     </section>
@@ -1043,37 +1044,37 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
+    <a href="http://localhost:46171/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
+    <a href="http://localhost:46171/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
+    <a href="http://localhost:46171/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
+    <a href="http://localhost:46171/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
+    <a href="http://localhost:46171/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
+    <a href="http://localhost:46171/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
+    <a href="http://localhost:46171/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
+    <a href="http://localhost:46171/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
+    <a href="http://localhost:46171/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
+    <a href="http://localhost:46171/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
+    <a href="http://localhost:46171/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
+    <a href="http://localhost:46171/blog/tags/vim/">Vim</a>
     
-    <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
+    <a href="http://localhost:46171/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     
-    <a href="https://weiweng.github.io/blog/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">开源协议</a>
+    <a href="http://localhost:46171/blog/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">开源协议</a>
     
-    <a href="https://weiweng.github.io/blog/tags/%E5%BF%83%E5%BE%97/">心得</a>
+    <a href="http://localhost:46171/blog/tags/%E5%BF%83%E5%BE%97/">心得</a>
     
-    <a href="https://weiweng.github.io/blog/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/">搜索引擎技巧</a>
+    <a href="http://localhost:46171/blog/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/">搜索引擎技巧</a>
     
 </div>
     </section>
@@ -1114,7 +1115,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     <section class="widget">
         <h3 class="widget-title">其它</h3>
         <ul class="widget-list">
-            <li><a href="https://weiweng.github.io/blog/index.xml">文章 RSS</a></li>
+            <li><a href="http://localhost:46171/blog/index.xml">文章 RSS</a></li>
         </ul>
     </section>
 </div>

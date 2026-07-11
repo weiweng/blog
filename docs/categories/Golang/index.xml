@@ -1,208 +1,213 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Golang on weiweng的博客</title>
-    <link>https://weiweng.github.io/blog/categories/Golang/</link>
-    <description>Recent content in Golang on weiweng的博客</description>
-    <generator>Hugo</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Fri, 15 Mar 2024 08:00:00 +0800</lastBuildDate>
-    <atom:link href="https://weiweng.github.io/blog/categories/Golang/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Golang|groupcache</title>
-      <link>https://weiweng.github.io/blog/post/2024-03-15-golanggrroupcache/</link>
-      <pubDate>Fri, 15 Mar 2024 08:00:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2024-03-15-golanggrroupcache/</guid>
-      <description>&lt;p&gt;groupcache 是 memcached 作者 Brad Fitzpatrick 用 Go 语言编写的缓存及缓存过滤库，作为 memcached 许多场景下的替代版本。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Golang|学习教程(八)-反射</title>
-      <link>https://weiweng.github.io/blog/post/2024-03-09-golangreflect/</link>
-      <pubDate>Sat, 09 Mar 2024 10:50:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2024-03-09-golangreflect/</guid>
-      <description>&lt;p&gt;Go 语言是静态类型的，每个变量在编译期有且只能有一个确定的、已知的类型，即变量的静态类型。静态类型在变量声明的时候就已经确定了，无法修改。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Golang|Cobra学习</title>
-      <link>https://weiweng.github.io/blog/post/2023-02-17-golangcobra/</link>
-      <pubDate>Fri, 17 Feb 2023 20:50:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2023-02-17-golangcobra/</guid>
-      <description>&lt;p&gt;阅读hugo源码，发现入口是很多commend构成，了解到cobra项目，因此学习一下cobra的基本使用。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Golang|学习教程(七)-协程</title>
-      <link>https://weiweng.github.io/blog/post/2023-02-09-golang%E5%8D%8F%E7%A8%8B/</link>
-      <pubDate>Thu, 09 Feb 2023 20:50:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2023-02-09-golang%E5%8D%8F%E7%A8%8B/</guid>
-      <description>&lt;p&gt;Go 协程（Goroutine）是与其他函数同时运行的函数。可以认为 Go 协程是轻量级的线程，由 Go 运行时来管理。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Golang|学习教程(六)-方法与接口</title>
-      <link>https://weiweng.github.io/blog/post/2023-02-07-golang%E6%96%B9%E6%B3%95/</link>
-      <pubDate>Tue, 07 Feb 2023 20:50:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2023-02-07-golang%E6%96%B9%E6%B3%95/</guid>
-      <description>&lt;p&gt;本小节学习go语言的方法和接口，虽然go语言没有提供类的设计，但可以通过结构体来类比实现对应功能，而类具有对应的方法，同理结构体也可以有自己的函数，我们称之为方法，具体定义是在函数前面加上接收者。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Golang|学习教程(五)-map</title>
-      <link>https://weiweng.github.io/blog/post/2023-02-06-golangmap/</link>
-      <pubDate>Mon, 06 Feb 2023 22:50:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2023-02-06-golangmap/</guid>
-      <description>&lt;p&gt;本小节学习go语言的map，map里面存储着键值对，通过键来快速获取对应的值，我们使用&lt;code&gt;map[T]T&lt;/code&gt;格式来定义集合，需要注意的是key的限制，map中的key可以是bool，数字，string，指针，channel还可以是只包含前面几个类型的接口，结构体，数组，但是不能使用slice，map还有function作为key，因为这几个没法用==来判断。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Golang|学习教程(四)-数组和切片</title>
-      <link>https://weiweng.github.io/blog/post/2023-02-05-golangslice/</link>
-      <pubDate>Sun, 05 Feb 2023 09:50:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2023-02-05-golangslice/</guid>
-      <description>&lt;p&gt;本小节学习go语言的数组和切片，一门编程语言肯定少不了基本数据结构数组，go语言中还有另外的类型切片，和数组的区别是数组的大小是固定的，是不可改动的，而切片是可以动态扩展的。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Golang|学习教程(三)-结构体</title>
-      <link>https://weiweng.github.io/blog/post/2023-02-02-golangstruct/</link>
-      <pubDate>Thu, 02 Feb 2023 19:50:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2023-02-02-golangstruct/</guid>
-      <description>&lt;p&gt;本小节介绍go语言中的结构体，由于go语言没有面向对象的设计，但我们可以通过结构体去实现面向对象的继承、封装、多态特性。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Golang|学习教程(二)-流程控制</title>
-      <link>https://weiweng.github.io/blog/post/2023-02-01-golangflow/</link>
-      <pubDate>Wed, 01 Feb 2023 21:50:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2023-02-01-golangflow/</guid>
-      <description>&lt;p&gt;接下来学习go语言的基本流程控制，包含if、switch、for、defer四个关键字。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Golang|学习教程(一)-基础概念</title>
-      <link>https://weiweng.github.io/blog/post/2023-01-31-golangbasics/</link>
-      <pubDate>Tue, 31 Jan 2023 21:50:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2023-01-31-golangbasics/</guid>
-      <description>&lt;p&gt;最新使用Python编写一些处理脚本，感觉与golang之间的语法开始模糊，因此决定根据官方文档，写一下golang的入门教程，顺便复习一下相关语法巩固基础。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Golang|truetype解析</title>
-      <link>https://weiweng.github.io/blog/post/2023-01-14-golangttf/</link>
-      <pubDate>Sat, 07 Jan 2023 09:43:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2023-01-14-golangttf/</guid>
-      <description>&lt;p&gt;最近工作上遇到需要解析ttf字库的需求，判断给到的数据中是否有不存在ttf字库中的汉字，结果查询一遍之后发现，使用golang解析ttf做判定的代码基本没有，因此本文开始详细分析一波ttf字库文件，并尝试使用golang解析，实现相关需求。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Golang|plan9汇编</title>
-      <link>https://weiweng.github.io/blog/post/2022-12-30-plan9%E6%B1%87%E7%BC%96/</link>
-      <pubDate>Fri, 30 Dec 2022 19:56:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2022-12-30-plan9%E6%B1%87%E7%BC%96/</guid>
-      <description>&lt;p&gt;当我们使用&lt;code&gt;go tool compile -S -N -l xxx.go&lt;/code&gt;命令，查看go语言对应的汇编代码时，生成的一行行汇编指令可能让人困惑，由于Go 使用了plan9 汇编，因此这篇文章接下来记录一下基础的plan9汇编知识。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Golang|分布式事务管理DTM</title>
-      <link>https://weiweng.github.io/blog/post/2022-12-17-dmt/</link>
-      <pubDate>Sat, 17 Dec 2022 11:18:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2022-12-17-dmt/</guid>
-      <description>&lt;p&gt;学习新东西，先是灵魂3问————是什么、解决什么问题、有什么好处？&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Golang|interface</title>
-      <link>https://weiweng.github.io/blog/post/2020-08-31-interface%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/</link>
-      <pubDate>Mon, 31 Aug 2020 09:26:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2020-08-31-interface%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/</guid>
-      <description>&lt;p&gt;接口是一种抽象类型，它没有暴露所含数据的布局或者内部结构，当然也没有哪些数据的基本操作，所提供的仅仅是一些方法。当你拿到一个接口类型的变量，你无从知道它是什么，但你能知道它能做什么，或者更精确地讲，仅仅是它提供了哪些方法。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Golang|go-snowflake</title>
-      <link>https://weiweng.github.io/blog/post/2020-07-11-golanggo-snowflake/</link>
-      <pubDate>Sat, 11 Jul 2020 03:06:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2020-07-11-golanggo-snowflake/</guid>
-      <description>&lt;h1 id=&#34;go-snowflake&#34;&gt;&lt;a href=&#34;https://github.com/GUAIK-ORG/go-snowflake&#34;&gt;go-snowflake&lt;/a&gt;&lt;/h1&gt;&#xA;&lt;p&gt;在单机系统中我们会使用自增id作为数据的唯一id，自增id在数据库中有利于排序和索引，但是在分布式系统中如果还是利用数据库的自增id会引起冲突，自增id非常容易被爬虫爬取数据。在分布式系统中有使用uuid作为数据唯一id的，但是uuid是一串随机字符串，所以它无法被排序。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Golang|defer</title>
-      <link>https://weiweng.github.io/blog/post/2020-07-11-defer/</link>
-      <pubDate>Sat, 11 Jul 2020 02:43:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2020-07-11-defer/</guid>
-      <description>defer的原理</description>
-    </item>
-    <item>
-      <title>Golang|使用注意</title>
-      <link>https://weiweng.github.io/blog/post/2020-06-18-Golang%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9/</link>
-      <pubDate>Thu, 18 Jun 2020 12:20:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2020-06-18-Golang%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9/</guid>
-      <description>&lt;h1 id=&#34;select-break&#34;&gt;select break&lt;/h1&gt;&#xA;&lt;p&gt;go中使用for select 结构，select的break只能跳出break，不能跳出for循环&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Golang|test</title>
-      <link>https://weiweng.github.io/blog/post/2020-04-30-go-test%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/</link>
-      <pubDate>Thu, 30 Apr 2020 06:56:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2020-04-30-go-test%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/</guid>
-      <description>&lt;h2 id=&#34;go-test测试包&#34;&gt;go test测试包&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;go test {测试文件所在包目录}&lt;/code&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Golang|panic、recover</title>
-      <link>https://weiweng.github.io/blog/post/2020-04-18-panicrecover/</link>
-      <pubDate>Sat, 18 Apr 2020 03:02:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2020-04-18-panicrecover/</guid>
-      <description>&lt;h1 id=&#34;panic&#34;&gt;panic&lt;/h1&gt;&#xA;&lt;h2 id=&#34;结构体&#34;&gt;结构体&lt;/h2&gt;&#xA;&lt;p&gt;panic 关键字在 Go 语言的源代码是由数据结构&lt;code&gt;runtime._panic&lt;/code&gt;表示的。每当我们调用 panic 都会创建一个如下所示的数据结构存储相关信息：&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Golang|垃圾回收</title>
-      <link>https://weiweng.github.io/blog/post/2020-04-07-Golang%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
-      <pubDate>Tue, 07 Apr 2020 10:56:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2020-04-07-Golang%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
-      <description>&lt;h2 id=&#34;垃圾回收&#34;&gt;垃圾回收&lt;/h2&gt;&#xA;&lt;p&gt;垃圾回收(Garbage Collection，简称GC)是编程语言中提供的内存管理功能。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Golang|context</title>
-      <link>https://weiweng.github.io/blog/post/2020-03-15-context%E4%BD%BF%E7%94%A8%E5%92%8C%E5%88%86%E6%9E%90/</link>
-      <pubDate>Sun, 15 Mar 2020 06:16:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2020-03-15-context%E4%BD%BF%E7%94%A8%E5%92%8C%E5%88%86%E6%9E%90/</guid>
-      <description>&lt;h2 id=&#34;context意义&#34;&gt;context意义&lt;/h2&gt;&#xA;&lt;p&gt;Go 中的 context 包在与 API 和慢处理交互时可以派上用场，特别是在生产级的 Web 服务中。在这些场景中，您可能想要通知所有的 goroutine 停止运行并返回。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Golang|channel</title>
-      <link>https://weiweng.github.io/blog/post/2020-03-15-channel%E5%88%86%E6%9E%90/</link>
-      <pubDate>Sun, 15 Mar 2020 06:15:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2020-03-15-channel%E5%88%86%E6%9E%90/</guid>
-      <description>&lt;h2 id=&#34;channel结构体&#34;&gt;channel结构体&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&#xA;&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#cf222e&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#1f2328&#34;&gt;hchan&lt;/span&gt; &lt;span style=&#34;color:#cf222e&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#1f2328&#34;&gt;{&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#1f2328&#34;&gt;qcount&lt;/span&gt;   &lt;span style=&#34;color:#cf222e&#34;&gt;uint&lt;/span&gt;           &lt;span style=&#34;color:#57606a&#34;&gt;//大小&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#1f2328&#34;&gt;dataqsiz&lt;/span&gt; &lt;span style=&#34;color:#cf222e&#34;&gt;uint&lt;/span&gt;           &lt;span style=&#34;color:#57606a&#34;&gt;//有缓存的队列大小&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#1f2328&#34;&gt;buf&lt;/span&gt;      &lt;span style=&#34;color:#1f2328&#34;&gt;unsafe&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;Pointer&lt;/span&gt; &lt;span style=&#34;color:#57606a&#34;&gt;//有缓存的循环队列指针&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#1f2328&#34;&gt;elemsize&lt;/span&gt; &lt;span style=&#34;color:#cf222e&#34;&gt;uint16&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#1f2328&#34;&gt;closed&lt;/span&gt;   &lt;span style=&#34;color:#cf222e&#34;&gt;uint32&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#1f2328&#34;&gt;elemtype&lt;/span&gt; &lt;span style=&#34;color:#0550ae&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;_type&lt;/span&gt; &lt;span style=&#34;color:#57606a&#34;&gt;//类型&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#1f2328&#34;&gt;sendx&lt;/span&gt;    &lt;span style=&#34;color:#cf222e&#34;&gt;uint&lt;/span&gt;   &lt;span style=&#34;color:#57606a&#34;&gt;//有缓存的可发送下标&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#1f2328&#34;&gt;recvx&lt;/span&gt;    &lt;span style=&#34;color:#cf222e&#34;&gt;uint&lt;/span&gt;   &lt;span style=&#34;color:#57606a&#34;&gt;//有缓存的可存储下标&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#1f2328&#34;&gt;recvq&lt;/span&gt;    &lt;span style=&#34;color:#1f2328&#34;&gt;waitq&lt;/span&gt;  &lt;span style=&#34;color:#57606a&#34;&gt;//接受的goroutine抽象出来的结构体sudog的队列，是一个双向链表&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#1f2328&#34;&gt;sendq&lt;/span&gt;    &lt;span style=&#34;color:#1f2328&#34;&gt;waitq&lt;/span&gt;  &lt;span style=&#34;color:#57606a&#34;&gt;//同上，是发送的相关链表&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#1f2328&#34;&gt;lock&lt;/span&gt;     &lt;span style=&#34;color:#1f2328&#34;&gt;mutex&lt;/span&gt;  &lt;span style=&#34;color:#57606a&#34;&gt;//互斥锁&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;}&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#cf222e&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#1f2328&#34;&gt;waitq&lt;/span&gt; &lt;span style=&#34;color:#cf222e&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#1f2328&#34;&gt;{&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#1f2328&#34;&gt;first&lt;/span&gt; &lt;span style=&#34;color:#0550ae&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;sudog&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#1f2328&#34;&gt;last&lt;/span&gt;  &lt;span style=&#34;color:#0550ae&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;sudog&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;}&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;h2 id=&#34;channel创建&#34;&gt;channel创建&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&#xA;&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;ch&lt;/span&gt; &lt;span style=&#34;color:#0550ae&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#6639ba&#34;&gt;make&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#cf222e&#34;&gt;chan&lt;/span&gt; &lt;span style=&#34;color:#cf222e&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#0550ae&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;p&gt;创建channel实际上就是在内存中实例化了一个hchan的结构体，并返回一个ch指针，我们使用过程中channel在函数之间的传递都是用的这个指针，这就是为什么函数传递中无需使用channel的指针，而直接用channel就行了，因为channel本身就是一个指针。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>golang|内存分配</title>
-      <link>https://weiweng.github.io/blog/post/2020-03-15-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</link>
-      <pubDate>Sun, 15 Mar 2020 06:00:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2020-03-15-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</guid>
-      <description>&lt;h2 id=&#34;内存分配&#34;&gt;内存分配&lt;/h2&gt;&#xA;&lt;p&gt;GO语言内存管理子系统主要由两部分组成：内存分配器和垃圾回收器（gc）。内存分配器主要解决小对象的分配管理和多线程的内存分配问题。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Golang|MPG</title>
-      <link>https://weiweng.github.io/blog/post/2020-03-15-MPG%E5%88%86%E6%9E%90/</link>
-      <pubDate>Sun, 15 Mar 2020 05:57:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2020-03-15-MPG%E5%88%86%E6%9E%90/</guid>
-      <description>&lt;h2 id=&#34;并行和并发&#34;&gt;并行和并发&lt;/h2&gt;&#xA;&lt;h3 id=&#34;并发concurrency&#34;&gt;并发(concurrency)&lt;/h3&gt;&#xA;&lt;p&gt;两个或两个以上的任务在一段时间内被执行。例如跑步的时候，停下来系鞋带&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Golang|pprof</title>
-      <link>https://weiweng.github.io/blog/post/2020-03-15-Pprof/</link>
-      <pubDate>Sun, 15 Mar 2020 05:53:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2020-03-15-Pprof/</guid>
-      <description>pprof的基本安装和使用方法</description>
-    </item>
-    <item>
-      <title>golang|FileServer</title>
-      <link>https://weiweng.github.io/blog/post/2020-03-15-FileServer/</link>
-      <pubDate>Sun, 15 Mar 2020 05:52:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2020-03-15-FileServer/</guid>
-      <description>FileServer</description>
-    </item>
-    <item>
-      <title>golang|基础笔记</title>
-      <link>https://weiweng.github.io/blog/post/2020-03-15-%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Sun, 15 Mar 2020 05:51:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2020-03-15-%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/</guid>
-      <description>&lt;h3 id=&#34;go课程&#34;&gt;go课程&lt;/h3&gt;&#xA;&lt;p&gt;本文阅读课程来源见此&lt;a href=&#34;https://studygolang.com/subject/2&#34;&gt;go系列教程&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Golang|map</title>
-      <link>https://weiweng.github.io/blog/post/2020-03-13-map/</link>
-      <pubDate>Fri, 13 Mar 2020 06:38:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2020-03-13-map/</guid>
-      <description>&lt;h3 id=&#34;map&#34;&gt;map&lt;/h3&gt;&#xA;&lt;p&gt;由&amp;lt;key,value&amp;gt;对组成的抽象数据结构，并且同一个key只出现一次&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Golang on weiweng的博客</title>
+		<link>http://localhost:46171/blog/categories/Golang/</link>
+		<description>Recent content in Golang on weiweng的博客</description>
+		<generator>Hugo</generator>
+		<language>zh-CN</language>
+		
+		
+		
+		
+			<lastBuildDate>Fri, 15 Mar 2024 08:00:00 +0800</lastBuildDate>
+		
+			<atom:link href="http://localhost:46171/blog/categories/Golang/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Golang|groupcache</title>
+				<link>http://localhost:46171/blog/post/2024-03-15-golanggrroupcache/</link>
+				<pubDate>Fri, 15 Mar 2024 08:00:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2024-03-15-golanggrroupcache/</guid>
+				<description>&lt;p&gt;groupcache 是 memcached 作者 Brad Fitzpatrick 用 Go 语言编写的缓存及缓存过滤库，作为 memcached 许多场景下的替代版本。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Golang|学习教程(八)-反射</title>
+				<link>http://localhost:46171/blog/post/2024-03-09-golangreflect/</link>
+				<pubDate>Sat, 09 Mar 2024 10:50:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2024-03-09-golangreflect/</guid>
+				<description>&lt;p&gt;Go 语言是静态类型的，每个变量在编译期有且只能有一个确定的、已知的类型，即变量的静态类型。静态类型在变量声明的时候就已经确定了，无法修改。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Golang|Cobra学习</title>
+				<link>http://localhost:46171/blog/post/2023-02-17-golangcobra/</link>
+				<pubDate>Fri, 17 Feb 2023 20:50:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2023-02-17-golangcobra/</guid>
+				<description>&lt;p&gt;阅读hugo源码，发现入口是很多commend构成，了解到cobra项目，因此学习一下cobra的基本使用。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Golang|学习教程(七)-协程</title>
+				<link>http://localhost:46171/blog/post/2023-02-09-golang%E5%8D%8F%E7%A8%8B/</link>
+				<pubDate>Thu, 09 Feb 2023 20:50:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2023-02-09-golang%E5%8D%8F%E7%A8%8B/</guid>
+				<description>&lt;p&gt;Go 协程（Goroutine）是与其他函数同时运行的函数。可以认为 Go 协程是轻量级的线程，由 Go 运行时来管理。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Golang|学习教程(六)-方法与接口</title>
+				<link>http://localhost:46171/blog/post/2023-02-07-golang%E6%96%B9%E6%B3%95/</link>
+				<pubDate>Tue, 07 Feb 2023 20:50:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2023-02-07-golang%E6%96%B9%E6%B3%95/</guid>
+				<description>&lt;p&gt;本小节学习go语言的方法和接口，虽然go语言没有提供类的设计，但可以通过结构体来类比实现对应功能，而类具有对应的方法，同理结构体也可以有自己的函数，我们称之为方法，具体定义是在函数前面加上接收者。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Golang|学习教程(五)-map</title>
+				<link>http://localhost:46171/blog/post/2023-02-06-golangmap/</link>
+				<pubDate>Mon, 06 Feb 2023 22:50:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2023-02-06-golangmap/</guid>
+				<description>&lt;p&gt;本小节学习go语言的map，map里面存储着键值对，通过键来快速获取对应的值，我们使用&lt;code&gt;map[T]T&lt;/code&gt;格式来定义集合，需要注意的是key的限制，map中的key可以是bool，数字，string，指针，channel还可以是只包含前面几个类型的接口，结构体，数组，但是不能使用slice，map还有function作为key，因为这几个没法用==来判断。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Golang|学习教程(四)-数组和切片</title>
+				<link>http://localhost:46171/blog/post/2023-02-05-golangslice/</link>
+				<pubDate>Sun, 05 Feb 2023 09:50:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2023-02-05-golangslice/</guid>
+				<description>&lt;p&gt;本小节学习go语言的数组和切片，一门编程语言肯定少不了基本数据结构数组，go语言中还有另外的类型切片，和数组的区别是数组的大小是固定的，是不可改动的，而切片是可以动态扩展的。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Golang|学习教程(三)-结构体</title>
+				<link>http://localhost:46171/blog/post/2023-02-02-golangstruct/</link>
+				<pubDate>Thu, 02 Feb 2023 19:50:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2023-02-02-golangstruct/</guid>
+				<description>&lt;p&gt;本小节介绍go语言中的结构体，由于go语言没有面向对象的设计，但我们可以通过结构体去实现面向对象的继承、封装、多态特性。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Golang|学习教程(二)-流程控制</title>
+				<link>http://localhost:46171/blog/post/2023-02-01-golangflow/</link>
+				<pubDate>Wed, 01 Feb 2023 21:50:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2023-02-01-golangflow/</guid>
+				<description>&lt;p&gt;接下来学习go语言的基本流程控制，包含if、switch、for、defer四个关键字。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Golang|学习教程(一)-基础概念</title>
+				<link>http://localhost:46171/blog/post/2023-01-31-golangbasics/</link>
+				<pubDate>Tue, 31 Jan 2023 21:50:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2023-01-31-golangbasics/</guid>
+				<description>&lt;p&gt;最新使用Python编写一些处理脚本，感觉与golang之间的语法开始模糊，因此决定根据官方文档，写一下golang的入门教程，顺便复习一下相关语法巩固基础。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Golang|truetype解析</title>
+				<link>http://localhost:46171/blog/post/2023-01-14-golangttf/</link>
+				<pubDate>Sat, 07 Jan 2023 09:43:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2023-01-14-golangttf/</guid>
+				<description>&lt;p&gt;最近工作上遇到需要解析ttf字库的需求，判断给到的数据中是否有不存在ttf字库中的汉字，结果查询一遍之后发现，使用golang解析ttf做判定的代码基本没有，因此本文开始详细分析一波ttf字库文件，并尝试使用golang解析，实现相关需求。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Golang|plan9汇编</title>
+				<link>http://localhost:46171/blog/post/2022-12-30-plan9%E6%B1%87%E7%BC%96/</link>
+				<pubDate>Fri, 30 Dec 2022 19:56:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2022-12-30-plan9%E6%B1%87%E7%BC%96/</guid>
+				<description>&lt;p&gt;当我们使用&lt;code&gt;go tool compile -S -N -l xxx.go&lt;/code&gt;命令，查看go语言对应的汇编代码时，生成的一行行汇编指令可能让人困惑，由于Go 使用了plan9 汇编，因此这篇文章接下来记录一下基础的plan9汇编知识。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Golang|分布式事务管理DTM</title>
+				<link>http://localhost:46171/blog/post/2022-12-17-dmt/</link>
+				<pubDate>Sat, 17 Dec 2022 11:18:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2022-12-17-dmt/</guid>
+				<description>&lt;p&gt;学习新东西，先是灵魂3问————是什么、解决什么问题、有什么好处？&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Golang|interface</title>
+				<link>http://localhost:46171/blog/post/2020-08-31-interface%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/</link>
+				<pubDate>Mon, 31 Aug 2020 09:26:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2020-08-31-interface%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/</guid>
+				<description>&lt;p&gt;接口是一种抽象类型，它没有暴露所含数据的布局或者内部结构，当然也没有哪些数据的基本操作，所提供的仅仅是一些方法。当你拿到一个接口类型的变量，你无从知道它是什么，但你能知道它能做什么，或者更精确地讲，仅仅是它提供了哪些方法。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Golang|go-snowflake</title>
+				<link>http://localhost:46171/blog/post/2020-07-11-golanggo-snowflake/</link>
+				<pubDate>Sat, 11 Jul 2020 03:06:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2020-07-11-golanggo-snowflake/</guid>
+				<description>&lt;h1 id=&#34;go-snowflake&#34;&gt;&lt;a href=&#34;https://github.com/GUAIK-ORG/go-snowflake&#34;&gt;go-snowflake&lt;/a&gt;&lt;/h1&gt;&#xA;&lt;p&gt;在单机系统中我们会使用自增id作为数据的唯一id，自增id在数据库中有利于排序和索引，但是在分布式系统中如果还是利用数据库的自增id会引起冲突，自增id非常容易被爬虫爬取数据。在分布式系统中有使用uuid作为数据唯一id的，但是uuid是一串随机字符串，所以它无法被排序。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Golang|defer</title>
+				<link>http://localhost:46171/blog/post/2020-07-11-defer/</link>
+				<pubDate>Sat, 11 Jul 2020 02:43:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2020-07-11-defer/</guid>
+				<description>defer的原理</description>
+			</item>
+			<item>
+				<title>Golang|使用注意</title>
+				<link>http://localhost:46171/blog/post/2020-06-18-Golang%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9/</link>
+				<pubDate>Thu, 18 Jun 2020 12:20:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2020-06-18-Golang%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9/</guid>
+				<description>&lt;h1 id=&#34;select-break&#34;&gt;select break&lt;/h1&gt;&#xA;&lt;p&gt;go中使用for select 结构，select的break只能跳出break，不能跳出for循环&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Golang|test</title>
+				<link>http://localhost:46171/blog/post/2020-04-30-go-test%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/</link>
+				<pubDate>Thu, 30 Apr 2020 06:56:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2020-04-30-go-test%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/</guid>
+				<description>&lt;h2 id=&#34;go-test测试包&#34;&gt;go test测试包&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;go test {测试文件所在包目录}&lt;/code&gt;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Golang|panic、recover</title>
+				<link>http://localhost:46171/blog/post/2020-04-18-panicrecover/</link>
+				<pubDate>Sat, 18 Apr 2020 03:02:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2020-04-18-panicrecover/</guid>
+				<description>&lt;h1 id=&#34;panic&#34;&gt;panic&lt;/h1&gt;&#xA;&lt;h2 id=&#34;结构体&#34;&gt;结构体&lt;/h2&gt;&#xA;&lt;p&gt;panic 关键字在 Go 语言的源代码是由数据结构&lt;code&gt;runtime._panic&lt;/code&gt;表示的。每当我们调用 panic 都会创建一个如下所示的数据结构存储相关信息：&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Golang|垃圾回收</title>
+				<link>http://localhost:46171/blog/post/2020-04-07-Golang%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
+				<pubDate>Tue, 07 Apr 2020 10:56:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2020-04-07-Golang%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
+				<description>&lt;h2 id=&#34;垃圾回收&#34;&gt;垃圾回收&lt;/h2&gt;&#xA;&lt;p&gt;垃圾回收(Garbage Collection，简称GC)是编程语言中提供的内存管理功能。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Golang|context</title>
+				<link>http://localhost:46171/blog/post/2020-03-15-context%E4%BD%BF%E7%94%A8%E5%92%8C%E5%88%86%E6%9E%90/</link>
+				<pubDate>Sun, 15 Mar 2020 06:16:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2020-03-15-context%E4%BD%BF%E7%94%A8%E5%92%8C%E5%88%86%E6%9E%90/</guid>
+				<description>&lt;h2 id=&#34;context意义&#34;&gt;context意义&lt;/h2&gt;&#xA;&lt;p&gt;Go 中的 context 包在与 API 和慢处理交互时可以派上用场，特别是在生产级的 Web 服务中。在这些场景中，您可能想要通知所有的 goroutine 停止运行并返回。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Golang|channel</title>
+				<link>http://localhost:46171/blog/post/2020-03-15-channel%E5%88%86%E6%9E%90/</link>
+				<pubDate>Sun, 15 Mar 2020 06:15:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2020-03-15-channel%E5%88%86%E6%9E%90/</guid>
+				<description>&lt;h2 id=&#34;channel结构体&#34;&gt;channel结构体&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&#xA;&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#cf222e&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;hchan&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#cf222e&#34;&gt;struct&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#x9;&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;qcount&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;   &lt;/span&gt;&lt;span style=&#34;color:#cf222e&#34;&gt;uint&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;           &lt;/span&gt;&lt;span style=&#34;color:#57606a&#34;&gt;//大小&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#x9;&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;dataqsiz&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#cf222e&#34;&gt;uint&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;           &lt;/span&gt;&lt;span style=&#34;color:#57606a&#34;&gt;//有缓存的队列大小&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#x9;&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;buf&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;unsafe&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;Pointer&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#57606a&#34;&gt;//有缓存的循环队列指针&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#x9;&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;elemsize&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#cf222e&#34;&gt;uint16&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#x9;&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;closed&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;   &lt;/span&gt;&lt;span style=&#34;color:#cf222e&#34;&gt;uint32&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#x9;&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;elemtype&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0550ae&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;_type&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#57606a&#34;&gt;//类型&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#x9;&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;sendx&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#cf222e&#34;&gt;uint&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;   &lt;/span&gt;&lt;span style=&#34;color:#57606a&#34;&gt;//有缓存的可发送下标&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#x9;&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;recvx&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#cf222e&#34;&gt;uint&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;   &lt;/span&gt;&lt;span style=&#34;color:#57606a&#34;&gt;//有缓存的可存储下标&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#x9;&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;recvq&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;waitq&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#57606a&#34;&gt;//接受的goroutine抽象出来的结构体sudog的队列，是一个双向链表&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#x9;&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;sendq&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;waitq&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#57606a&#34;&gt;//同上，是发送的相关链表&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#x9;&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;lock&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;     &lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;mutex&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#57606a&#34;&gt;//互斥锁&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#cf222e&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;waitq&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#cf222e&#34;&gt;struct&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#x9;&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;first&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0550ae&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;sudog&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#x9;&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;last&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#0550ae&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;sudog&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;h2 id=&#34;channel创建&#34;&gt;channel创建&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&#xA;&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;ch&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0550ae&#34;&gt;:=&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#6639ba&#34;&gt;make&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#cf222e&#34;&gt;chan&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#cf222e&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0550ae&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#fff&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;p&gt;创建channel实际上就是在内存中实例化了一个hchan的结构体，并返回一个ch指针，我们使用过程中channel在函数之间的传递都是用的这个指针，这就是为什么函数传递中无需使用channel的指针，而直接用channel就行了，因为channel本身就是一个指针。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>golang|内存分配</title>
+				<link>http://localhost:46171/blog/post/2020-03-15-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</link>
+				<pubDate>Sun, 15 Mar 2020 06:00:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2020-03-15-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</guid>
+				<description>&lt;h2 id=&#34;内存分配&#34;&gt;内存分配&lt;/h2&gt;&#xA;&lt;p&gt;GO语言内存管理子系统主要由两部分组成：内存分配器和垃圾回收器（gc）。内存分配器主要解决小对象的分配管理和多线程的内存分配问题。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Golang|MPG</title>
+				<link>http://localhost:46171/blog/post/2020-03-15-MPG%E5%88%86%E6%9E%90/</link>
+				<pubDate>Sun, 15 Mar 2020 05:57:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2020-03-15-MPG%E5%88%86%E6%9E%90/</guid>
+				<description>&lt;h2 id=&#34;并行和并发&#34;&gt;并行和并发&lt;/h2&gt;&#xA;&lt;h3 id=&#34;并发concurrency&#34;&gt;并发(concurrency)&lt;/h3&gt;&#xA;&lt;p&gt;两个或两个以上的任务在一段时间内被执行。例如跑步的时候，停下来系鞋带&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Golang|pprof</title>
+				<link>http://localhost:46171/blog/post/2020-03-15-Pprof/</link>
+				<pubDate>Sun, 15 Mar 2020 05:53:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2020-03-15-Pprof/</guid>
+				<description>pprof的基本安装和使用方法</description>
+			</item>
+			<item>
+				<title>golang|FileServer</title>
+				<link>http://localhost:46171/blog/post/2020-03-15-FileServer/</link>
+				<pubDate>Sun, 15 Mar 2020 05:52:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2020-03-15-FileServer/</guid>
+				<description>FileServer</description>
+			</item>
+			<item>
+				<title>golang|基础笔记</title>
+				<link>http://localhost:46171/blog/post/2020-03-15-%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/</link>
+				<pubDate>Sun, 15 Mar 2020 05:51:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2020-03-15-%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/</guid>
+				<description>&lt;h3 id=&#34;go课程&#34;&gt;go课程&lt;/h3&gt;&#xA;&lt;p&gt;本文阅读课程来源见此&lt;a href=&#34;https://studygolang.com/subject/2&#34;&gt;go系列教程&lt;/a&gt;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Golang|map</title>
+				<link>http://localhost:46171/blog/post/2020-03-13-map/</link>
+				<pubDate>Fri, 13 Mar 2020 06:38:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2020-03-13-map/</guid>
+				<description>&lt;h3 id=&#34;map&#34;&gt;map&lt;/h3&gt;&#xA;&lt;p&gt;由&amp;lt;key,value&amp;gt;对组成的抽象数据结构，并且同一个key只出现一次&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-CN">
-<head>
+<head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=46171&amp;path=blog/livereload" data-no-instant defer></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1207188090915424" crossorigin="anonymous"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,8 +19,8 @@
     <meta name="Keywords" content="golang,go语言,go语言笔记,博客,项目管理,软件架构">
     <meta name="description" content="Shell简单实战">
         
-    <meta name="author" content="">
-    <meta property="og:url" content="https://weiweng.github.io/blog/tools/2020-03-14-Shell%E7%AE%80%E5%8D%95%E5%AE%9E%E6%88%98/">
+    <meta name="author" content="weiweng">
+    <meta property="og:url" content="http://localhost:46171/blog/tools/2020-03-14-Shell%E7%AE%80%E5%8D%95%E5%AE%9E%E6%88%98/">
     <link rel="shortcut icon" href='/blog/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='/blog/css/normalize.css'>
@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog/">
+                    <a id="logo" href="http://localhost:46171/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,15 +49,15 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="" href="https://weiweng.github.io/blog/">首页</a>
+                    <a class="" href="http://localhost:46171/blog/">首页</a>
                     
-                    <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
+                    <a  href="http://localhost:46171/blog/tools/" title="工具">工具</a>
                     
-                    <a  href="https://weiweng.github.io/blog/read/" title="阅读">阅读</a>
+                    <a  href="http://localhost:46171/blog/read/" title="阅读">阅读</a>
                     
-                    <a  href="https://weiweng.github.io/blog/about/" title="关于">关于</a>
+                    <a  href="http://localhost:46171/blog/about/" title="关于">关于</a>
                     
-                    <a  href="https://weiweng.github.io/blog/archives/" title="归档">归档</a>
+                    <a  href="http://localhost:46171/blog/archives/" title="归档">归档</a>
                     
                 </nav>
             </div>
@@ -89,9 +89,9 @@
         <div class="post-content">
             <h2 id="打印等腰三角">打印等腰三角</h2>
 <h3 id="代码">代码</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -109,8 +109,8 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#57606a">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#57606a"># 等腰三角形</span>
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#57606a">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"># 等腰三角形</span>
 </span></span><span style="display:flex;"><span><span style="color:#6639ba">read</span> -p <span style="color:#0a3069">&#34;Please input the length: &#34;</span> n
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">for</span> i in <span style="color:#0a3069">`</span>seq <span style="color:#0550ae">1</span> <span style="color:#953800">$n</span><span style="color:#0a3069">`</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">do</span>
@@ -129,9 +129,9 @@
 </div>
 </div><h2 id="打印倒三角">打印倒三角</h2>
 <h3 id="代码-1">代码</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -143,8 +143,8 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#57606a">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#57606a"># 直角三角形</span>
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#57606a">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"># 直角三角形</span>
 </span></span><span style="display:flex;"><span><span style="color:#6639ba">read</span> -p <span style="color:#0a3069">&#34;Please input the length: &#34;</span> len
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">for</span> i in <span style="color:#0a3069">`</span>seq <span style="color:#0550ae">1</span> <span style="color:#953800">$len</span><span style="color:#0a3069">`</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">do</span> <span style="color:#cf222e">for</span><span style="color:#0550ae">((</span><span style="color:#953800">j</span><span style="color:#0550ae">=</span>1<span style="color:#1f2328">;</span>j&lt;<span style="color:#0550ae">=</span><span style="color:#953800">$i</span><span style="color:#1f2328">;</span>j++<span style="color:#0550ae">))</span>
@@ -157,9 +157,9 @@
 </div>
 </div><h2 id="截取字符串">截取字符串</h2>
 <p>给定字符串<code>http://www.aaa.com/root/123.htm</code>，要求获取一下信息</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
@@ -169,21 +169,21 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#0550ae">1.</span><span style="color:#f6f8fa;background-color:#82071e">取出</span>www<span style="color:#1f2328">.</span>aaa<span style="color:#1f2328">.</span>com<span style="color:#0550ae">/</span>root<span style="color:#0550ae">/</span><span style="color:#0550ae">123.</span>htm
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#0550ae">1.</span><span style="color:#f6f8fa;background-color:#82071e">取出</span>www<span style="color:#1f2328">.</span>aaa<span style="color:#1f2328">.</span>com<span style="color:#0550ae">/</span>root<span style="color:#0550ae">/</span><span style="color:#0550ae">123.</span>htm
 </span></span><span style="display:flex;"><span><span style="color:#0550ae">2.</span><span style="color:#f6f8fa;background-color:#82071e">取出</span><span style="color:#0550ae">123.</span>htm
 </span></span><span style="display:flex;"><span><span style="color:#0550ae">3.</span><span style="color:#f6f8fa;background-color:#82071e">取出</span><span style="color:#900;font-weight:bold">http</span><span style="color:#1f2328">:</span><span style="color:#57606a">//www.aaa.com/root
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#0550ae">4.</span><span style="color:#f6f8fa;background-color:#82071e">取出</span><span style="color:#900;font-weight:bold">http</span><span style="color:#1f2328">:</span>
+</span></span></span><span style="display:flex;"><span><span style="color:#0550ae">4.</span><span style="color:#f6f8fa;background-color:#82071e">取出</span><span style="color:#900;font-weight:bold">http</span><span style="color:#1f2328">:</span>
 </span></span><span style="display:flex;"><span><span style="color:#0550ae">5.</span><span style="color:#f6f8fa;background-color:#82071e">取出</span><span style="color:#900;font-weight:bold">http</span><span style="color:#1f2328">:</span><span style="color:#57606a">//
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#0550ae">6.</span><span style="color:#f6f8fa;background-color:#82071e">取出</span>www<span style="color:#1f2328">.</span>aaa<span style="color:#1f2328">.</span>com<span style="color:#0550ae">/</span>root<span style="color:#0550ae">/</span><span style="color:#0550ae">123.</span>htm
+</span></span></span><span style="display:flex;"><span><span style="color:#0550ae">6.</span><span style="color:#f6f8fa;background-color:#82071e">取出</span>www<span style="color:#1f2328">.</span>aaa<span style="color:#1f2328">.</span>com<span style="color:#0550ae">/</span>root<span style="color:#0550ae">/</span><span style="color:#0550ae">123.</span>htm
 </span></span><span style="display:flex;"><span><span style="color:#0550ae">7.</span><span style="color:#f6f8fa;background-color:#82071e">取出</span><span style="color:#0550ae">123</span>
 </span></span><span style="display:flex;"><span><span style="color:#0550ae">8.</span><span style="color:#f6f8fa;background-color:#82071e">取出</span><span style="color:#0550ae">123.</span>htm
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="代码-sh-binbash-var">代码 ```sh #!/bin/bash var=&ldquo;<a href="http://www.aaa.com/root/123.htm%22">http://www.aaa.com/root/123.htm&quot;</a></h3>
 <p>#1. echo $var |awk -F &lsquo;//&rsquo; &lsquo;{print $2}&rsquo; #2. echo $var |awk -F &lsquo;/&rsquo; &lsquo;{print $5}&rsquo; #3. echo $var |grep -o &lsquo;http.*root&rsquo; #4. echo $var |awk -F &lsquo;/&rsquo; &lsquo;{print $1}&rsquo; #5. echo $var |grep -o &lsquo;http://&rsquo; #6. echo $var |grep -o &lsquo;www.*htm&rsquo; #7. echo $var |grep -o &lsquo;123&rsquo; #8. echo $var |grep -o &lsquo;123.htm&rsquo;</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -204,7 +204,7 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>## 自定义rm命令
 </span></span><span style="display:flex;"><span>假设有一个大的分区/data/，每次删除文件或者目录之前，都要先在/data/下面创建一个隐藏目录，以日期/时间命名，比如/data/.201703271012/，然后把所有删除的文件同步到该目录下面
 </span></span><span style="display:flex;"><span>
@@ -228,9 +228,9 @@
 </div><h2 id="数字求和">数字求和</h2>
 <p>编写shell脚本，要求输入一个数字，然后计算出从1到输入数字的和，要求，如果输入的数字小于1，则重新输入，直到输入正确的数字为止</p>
 <h3 id="代码-2">代码</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -246,8 +246,8 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#57606a">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#cf222e">while</span> :
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#57606a">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">while</span> :
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">do</span>
 </span></span><span style="display:flex;"><span>   <span style="color:#6639ba">read</span> -p <span style="color:#0a3069">&#34;Please enter a positive integer: &#34;</span> n
 </span></span><span style="display:flex;"><span>   <span style="color:#cf222e">if</span> <span style="color:#0550ae">[</span> <span style="color:#953800">$n</span> -lt <span style="color:#0550ae">1</span> <span style="color:#0550ae">]</span>
@@ -264,9 +264,9 @@
 </div>
 </div><h2 id="拷贝目录">拷贝目录</h2>
 <h3 id="代码-3">代码</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -278,8 +278,8 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#57606a">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#6639ba">cd</span> /root/ <span style="color:#953800">list</span><span style="color:#0550ae">=(</span><span style="color:#0a3069">`</span>ls<span style="color:#0a3069">`</span><span style="color:#0550ae">)</span>
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#57606a">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#6639ba">cd</span> /root/ <span style="color:#953800">list</span><span style="color:#0550ae">=(</span><span style="color:#0a3069">`</span>ls<span style="color:#0a3069">`</span><span style="color:#0550ae">)</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">for</span> i in <span style="color:#0a3069">${</span><span style="color:#953800">list</span><span style="color:#1f2328">[@]</span><span style="color:#0a3069">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">do</span>
@@ -296,20 +296,20 @@
 <p>for i in <code>ps aux |awk '{print $6}' |grep -v 'RSS'</code> do # 将遍历出来的数字进行累加 count=$[$count+$i] done</p>
 <h1 id="就得到所有进程占用内存大小的和了">就得到所有进程占用内存大小的和了</h1>
 <p>echo &ldquo;$count/kb&rdquo;</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>### 代码2
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>sh ps aux |grep -v &lsquo;RSS TTY&rsquo; |awk &lsquo;{sum=sum+$6};END{print sum}&rsquo;</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -326,7 +326,7 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>## 简单监控
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>### 代码 ```sh #!/bin/bash ip=&#34;123.23.11.21&#34;
@@ -352,9 +352,9 @@
 </ul>
 <h3 id="代码-sh-binbash-access_logdatalogaccesslog-n10">代码 ```sh #!/bin/bash access_log=&quot;/data/log/access.log&rdquo; N=10</h3>
 <p>while : do # 因为10秒大概产生300条日志记录 tail -n300 $access_log &gt; /tmp/log # 拿出log中包含502的日志行数 n_502=<code>grep -c &quot;502&quot; /tmp/log</code> # 如果行数大于10 if [ $n_502 -ge $N ] then</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
@@ -363,7 +363,7 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>  # 就记录一下系统状态
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>  # 就记录一下系统状态
 </span></span><span style="display:flex;"><span>  top -bn1 &gt; /tmp/`date +%H%M%S`-top.log
 </span></span><span style="display:flex;"><span>  vmstat 1 5 &gt; /tmp/`date +%H%M%S`-vm.log
 </span></span><span style="display:flex;"><span>  # 然后才重启服务，并把错误信息重定向
@@ -423,7 +423,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
+        &copy; 2026 <a href="http://localhost:46171/blog/">weiweng的博客 By weiweng</a>
         
     </div>
     <br />
@@ -467,10 +467,10 @@
 
                 <div id="secondary">
     <section class="widget">
-        <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+        <form id="search" action='http://localhost:46171/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
+      <input type="hidden" name="sitesearch" value="http://localhost:46171/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -480,43 +480,43 @@
 <ul class="widget-list">
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-08-09-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式大纲" target="_blank">设计模式大纲</a>
+        <a href="http://localhost:46171/blog/post/2025-08-09-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式大纲" target="_blank">设计模式大纲</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-07-20-spark%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="spark|性能优化" target="_blank">spark|性能优化</a>
+        <a href="http://localhost:46171/blog/post/2025-07-20-spark%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="spark|性能优化" target="_blank">spark|性能优化</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-07-20-spark%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/" title="spark|任务调度" target="_blank">spark|任务调度</a>
+        <a href="http://localhost:46171/blog/post/2025-07-20-spark%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/" title="spark|任务调度" target="_blank">spark|任务调度</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-07-20-spark%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE/" title="spark|参数配置" target="_blank">spark|参数配置</a>
+        <a href="http://localhost:46171/blog/post/2025-07-20-spark%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE/" title="spark|参数配置" target="_blank">spark|参数配置</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-04-12-spark%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="spark|基础知识" target="_blank">spark|基础知识</a>
+        <a href="http://localhost:46171/blog/post/2025-04-12-spark%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="spark|基础知识" target="_blank">spark|基础知识</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-04-12-spark%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/" title="spark|知识大纲" target="_blank">spark|知识大纲</a>
+        <a href="http://localhost:46171/blog/post/2025-04-12-spark%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/" title="spark|知识大纲" target="_blank">spark|知识大纲</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-04-12-mysql%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/" title="mysql|知识大纲" target="_blank">mysql|知识大纲</a>
+        <a href="http://localhost:46171/blog/post/2025-04-12-mysql%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/" title="mysql|知识大纲" target="_blank">mysql|知识大纲</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-02-26-embedding/" title="大模型专题|embedding" target="_blank">大模型专题|embedding</a>
+        <a href="http://localhost:46171/blog/post/2025-02-26-embedding/" title="大模型专题|embedding" target="_blank">大模型专题|embedding</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-02-23-langchain/" title="大模型专题|LangChain rag实践" target="_blank">大模型专题|LangChain rag实践</a>
+        <a href="http://localhost:46171/blog/post/2025-02-23-langchain/" title="大模型专题|LangChain rag实践" target="_blank">大模型专题|LangChain rag实践</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2024-05-06-%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="算法专题|并查集" target="_blank">算法专题|并查集</a>
+        <a href="http://localhost:46171/blog/post/2024-05-06-%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="算法专题|并查集" target="_blank">算法专题|并查集</a>
     </li>
     
 </ul>
@@ -528,35 +528,35 @@
         <h3 class="widget-title"><a href='/blog/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/Golang/">Golang (28)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/k8s/">K8s (3)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/linux/">Linux (2)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/MQ/">MQ (3)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (22)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/mysql/">Mysql (22)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/Python/">Python (4)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/Redis/">Redis (9)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/spark/">Spark (5)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/spark/">Spark (5)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (3)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (3)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式 (1)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式 (1)</a></li>
     
 </ul>
     </section>
@@ -565,37 +565,37 @@
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
+    <a href="http://localhost:46171/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
+    <a href="http://localhost:46171/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
+    <a href="http://localhost:46171/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
+    <a href="http://localhost:46171/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
+    <a href="http://localhost:46171/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
+    <a href="http://localhost:46171/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
+    <a href="http://localhost:46171/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
+    <a href="http://localhost:46171/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
+    <a href="http://localhost:46171/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
+    <a href="http://localhost:46171/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
+    <a href="http://localhost:46171/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
+    <a href="http://localhost:46171/blog/tags/vim/">Vim</a>
     
-    <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
+    <a href="http://localhost:46171/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     
-    <a href="https://weiweng.github.io/blog/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">开源协议</a>
+    <a href="http://localhost:46171/blog/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">开源协议</a>
     
-    <a href="https://weiweng.github.io/blog/tags/%E5%BF%83%E5%BE%97/">心得</a>
+    <a href="http://localhost:46171/blog/tags/%E5%BF%83%E5%BE%97/">心得</a>
     
-    <a href="https://weiweng.github.io/blog/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/">搜索引擎技巧</a>
+    <a href="http://localhost:46171/blog/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/">搜索引擎技巧</a>
     
 </div>
     </section>
@@ -636,7 +636,7 @@
     <section class="widget">
         <h3 class="widget-title">其它</h3>
         <ul class="widget-list">
-            <li><a href="https://weiweng.github.io/blog/index.xml">文章 RSS</a></li>
+            <li><a href="http://localhost:46171/blog/index.xml">文章 RSS</a></li>
         </ul>
     </section>
 </div>

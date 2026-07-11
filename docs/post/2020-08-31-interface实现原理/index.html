@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-CN">
-<head>
+<head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=46171&amp;path=blog/livereload" data-no-instant defer></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1207188090915424" crossorigin="anonymous"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,8 +19,8 @@
     <meta name="Keywords" content="golang,go语言,go语言笔记,博客,项目管理,软件架构">
     <meta name="description" content="Golang|interface">
         
-    <meta name="author" content="">
-    <meta property="og:url" content="https://weiweng.github.io/blog/post/2020-08-31-interface%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/">
+    <meta name="author" content="weiweng">
+    <meta property="og:url" content="http://localhost:46171/blog/post/2020-08-31-interface%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/">
     <link rel="shortcut icon" href='/blog/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='/blog/css/normalize.css'>
@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog/">
+                    <a id="logo" href="http://localhost:46171/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,15 +49,15 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
+                    <a class="current" href="http://localhost:46171/blog/">首页</a>
                     
-                    <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
+                    <a  href="http://localhost:46171/blog/tools/" title="工具">工具</a>
                     
-                    <a  href="https://weiweng.github.io/blog/read/" title="阅读">阅读</a>
+                    <a  href="http://localhost:46171/blog/read/" title="阅读">阅读</a>
                     
-                    <a  href="https://weiweng.github.io/blog/about/" title="关于">关于</a>
+                    <a  href="http://localhost:46171/blog/about/" title="关于">关于</a>
                     
-                    <a  href="https://weiweng.github.io/blog/archives/" title="归档">归档</a>
+                    <a  href="http://localhost:46171/blog/archives/" title="归档">归档</a>
                     
                 </nav>
             </div>
@@ -99,9 +99,9 @@
 <p>Go 语言提供了 interface 关键字，接口中只能定义需要实现的方法，不能包含任何的变量</p>
 <p>Go 语言中的接口类型会根据是否包含一组方法而分成两种不同的实现，分别为包含一组方法的 iface 结构体和不包含任何方法的 eface 结构体</p>
 <h3 id="iface">iface</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -156,60 +156,60 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">//runtime/runtime2.go</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">iface</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">tab</span>  <span style="color:#0550ae">*</span><span style="color:#1f2328">itab</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">data</span> <span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Pointer</span> 
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">//unsafe.Pointer类型是一种特殊类型的指针，</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">//它可以存储任何变量的地址（类似C语言的void*）</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">//runtime/runtime2.go</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">itab</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">inter</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">interfacetype</span> 
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// 接口的类型信息，定义接口的类型、路径、方法集合</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">_type</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">_type</span> 
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// 实现接口的具体类型信息</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">hash</span>  <span style="color:#cf222e">uint32</span> 
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// copy of _type.hash. Used for type switches.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">_</span>   <span style="color:#1f2328">[</span><span style="color:#0550ae">4</span><span style="color:#1f2328">]</span><span style="color:#cf222e">byte</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">fun</span>   <span style="color:#1f2328">[</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span><span style="color:#cf222e">uintptr</span> 
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// 具体类型实现的方法地址 variable sized. </span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// fun[0]==0 means _type does not implement inter.</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">//runtime/type.go</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">interfacetype</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">typ</span>   <span style="color:#1f2328">_type</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">pkgpath</span> <span style="color:#1f2328">name</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">mhdr</span>  <span style="color:#1f2328">[]</span><span style="color:#1f2328">imethod</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">_type</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">size</span>     <span style="color:#cf222e">uintptr</span> 
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// 类型占用内存大小</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">ptrdata</span>  <span style="color:#cf222e">uintptr</span> 
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// 包含所有指针的内存前缀大小</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">hash</span>     <span style="color:#cf222e">uint32</span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// 类型 hash</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">tflag</span>    <span style="color:#1f2328">tflag</span>   
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// 标记位，主要用于反射</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">align</span>    <span style="color:#cf222e">uint8</span>   
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// 对齐字节信息</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">fieldAlign</span> <span style="color:#cf222e">uint8</span>   
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// 当前结构字段的对齐字节数</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">kind</span>     <span style="color:#cf222e">uint8</span>   
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// 基础类型枚举值</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">equal</span> <span style="color:#cf222e">func</span><span style="color:#1f2328">(</span><span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Pointer</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Pointer</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">bool</span> 
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// 比较两个形参对应对象的类型是否相等</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">gcdata</span>  <span style="color:#0550ae">*</span><span style="color:#cf222e">byte</span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// GC 类型的数据</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">str</span>     <span style="color:#1f2328">nameOff</span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// 类型名称字符串在二进制文件段中的偏移量</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">ptrToThis</span> <span style="color:#1f2328">typeOff</span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// 类型元信息指针在二进制文件段中的偏移量</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">//runtime/runtime2.go</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span><span style="color:#fff"> </span><span style="color:#1f2328">iface</span><span style="color:#fff"> </span><span style="color:#cf222e">struct</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">tab</span><span style="color:#fff">  </span><span style="color:#0550ae">*</span><span style="color:#1f2328">itab</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">data</span><span style="color:#fff"> </span><span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Pointer</span><span style="color:#fff"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">//unsafe.Pointer类型是一种特殊类型的指针，</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">//它可以存储任何变量的地址（类似C语言的void*）</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">//runtime/runtime2.go</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span><span style="color:#fff"> </span><span style="color:#1f2328">itab</span><span style="color:#fff"> </span><span style="color:#cf222e">struct</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">inter</span><span style="color:#fff"> </span><span style="color:#0550ae">*</span><span style="color:#1f2328">interfacetype</span><span style="color:#fff"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// 接口的类型信息，定义接口的类型、路径、方法集合</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">_type</span><span style="color:#fff"> </span><span style="color:#0550ae">*</span><span style="color:#1f2328">_type</span><span style="color:#fff"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// 实现接口的具体类型信息</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">hash</span><span style="color:#fff">  </span><span style="color:#cf222e">uint32</span><span style="color:#fff"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// copy of _type.hash. Used for type switches.</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">_</span><span style="color:#fff">   </span><span style="color:#1f2328">[</span><span style="color:#0550ae">4</span><span style="color:#1f2328">]</span><span style="color:#cf222e">byte</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">fun</span><span style="color:#fff">   </span><span style="color:#1f2328">[</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span><span style="color:#cf222e">uintptr</span><span style="color:#fff"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// 具体类型实现的方法地址 variable sized. </span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// fun[0]==0 means _type does not implement inter.</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">//runtime/type.go</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span><span style="color:#fff"> </span><span style="color:#1f2328">interfacetype</span><span style="color:#fff"> </span><span style="color:#cf222e">struct</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">typ</span><span style="color:#fff">   </span><span style="color:#1f2328">_type</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">pkgpath</span><span style="color:#fff"> </span><span style="color:#1f2328">name</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">mhdr</span><span style="color:#fff">  </span><span style="color:#1f2328">[]</span><span style="color:#1f2328">imethod</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span><span style="color:#fff"> </span><span style="color:#1f2328">_type</span><span style="color:#fff"> </span><span style="color:#cf222e">struct</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">size</span><span style="color:#fff">     </span><span style="color:#cf222e">uintptr</span><span style="color:#fff"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// 类型占用内存大小</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">ptrdata</span><span style="color:#fff">  </span><span style="color:#cf222e">uintptr</span><span style="color:#fff"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// 包含所有指针的内存前缀大小</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">hash</span><span style="color:#fff">     </span><span style="color:#cf222e">uint32</span><span style="color:#fff">  
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// 类型 hash</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">tflag</span><span style="color:#fff">    </span><span style="color:#1f2328">tflag</span><span style="color:#fff">   
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// 标记位，主要用于反射</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">align</span><span style="color:#fff">    </span><span style="color:#cf222e">uint8</span><span style="color:#fff">   
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// 对齐字节信息</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">fieldAlign</span><span style="color:#fff"> </span><span style="color:#cf222e">uint8</span><span style="color:#fff">   
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// 当前结构字段的对齐字节数</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">kind</span><span style="color:#fff">     </span><span style="color:#cf222e">uint8</span><span style="color:#fff">   
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// 基础类型枚举值</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">equal</span><span style="color:#fff"> </span><span style="color:#cf222e">func</span><span style="color:#1f2328">(</span><span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Pointer</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Pointer</span><span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#cf222e">bool</span><span style="color:#fff"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// 比较两个形参对应对象的类型是否相等</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">gcdata</span><span style="color:#fff">  </span><span style="color:#0550ae">*</span><span style="color:#cf222e">byte</span><span style="color:#fff">  
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// GC 类型的数据</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">str</span><span style="color:#fff">     </span><span style="color:#1f2328">nameOff</span><span style="color:#fff">  
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// 类型名称字符串在二进制文件段中的偏移量</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">ptrToThis</span><span style="color:#fff"> </span><span style="color:#1f2328">typeOff</span><span style="color:#fff">  
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// 类型元信息指针在二进制文件段中的偏移量</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>itab 用于表示具体类型和接口类型关系</p>
 <ul>
@@ -225,27 +225,27 @@
 <li><code>mhdr</code> 是接口中定义的函数表，按字典序排序</li>
 </ul>
 <h3 id="eface">eface</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">//runtime/runtime2.go</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">eface</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">_type</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">_type</span> <span style="color:#57606a">// 类型信息</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">data</span>  <span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Pointer</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">//runtime/runtime2.go</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span><span style="color:#fff"> </span><span style="color:#1f2328">eface</span><span style="color:#fff"> </span><span style="color:#cf222e">struct</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">_type</span><span style="color:#fff"> </span><span style="color:#0550ae">*</span><span style="color:#1f2328">_type</span><span style="color:#fff"> </span><span style="color:#57606a">// 类型信息</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">data</span><span style="color:#fff">  </span><span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Pointer</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="itab缓存">itab缓存</h2>
 <p>对于itab来说，既然一个非空的接口类型和一个动态类型就可以确定一个itab的内容，那么这个itab结构体自然是可以被接口类型和动态类型均相同的接口变量进行复用的。这就是itabTable</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -258,25 +258,25 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">itabInitSize</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">512</span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">// Note: change the formula in the mallocgc </span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">// call in itabAdd if you change these fields.</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span> <span style="color:#1f2328">itabTableType</span> <span style="color:#cf222e">struct</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">size</span>  <span style="color:#cf222e">uintptr</span>       
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// 记录数组的大小，总是2的次幂。</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">count</span>   <span style="color:#cf222e">uintptr</span>       
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// 记录数组中已使用了多少。</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">entries</span> <span style="color:#1f2328">[</span><span style="color:#1f2328">itabInitSize</span><span style="color:#1f2328">]</span><span style="color:#0550ae">*</span><span style="color:#1f2328">itab</span> 
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// *itab数组，初始大小是512。</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">const</span><span style="color:#fff"> </span><span style="color:#1f2328">itabInitSize</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#0550ae">512</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">// Note: change the formula in the mallocgc </span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">// call in itabAdd if you change these fields.</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">type</span><span style="color:#fff"> </span><span style="color:#1f2328">itabTableType</span><span style="color:#fff"> </span><span style="color:#cf222e">struct</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">size</span><span style="color:#fff">  </span><span style="color:#cf222e">uintptr</span><span style="color:#fff">       
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// 记录数组的大小，总是2的次幂。</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">count</span><span style="color:#fff">   </span><span style="color:#cf222e">uintptr</span><span style="color:#fff">       
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// 记录数组中已使用了多少。</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">entries</span><span style="color:#fff"> </span><span style="color:#1f2328">[</span><span style="color:#1f2328">itabInitSize</span><span style="color:#1f2328">]</span><span style="color:#0550ae">*</span><span style="color:#1f2328">itab</span><span style="color:#fff"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// *itab数组，初始大小是512。</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="初始化和添加">初始化和添加</h3>
 <p>需要一个itab时，会首先去itabTable里查找，计算哈希值时会用到接口类型(itab.inter)和动态类型(itab._type)的类型哈希值，如果能查询到对应的itab指针，就直接拿来使用。若没有就要再创建，然后添加到itabTable中。</p>
 <p>go的启动时，schedinit里面调用的itabsinit</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -322,57 +322,57 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">itabsinit</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#6639ba">lock</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">itabLock</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">for</span> <span style="color:#1f2328">_</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">md</span> <span style="color:#0550ae">:=</span> <span style="color:#cf222e">range</span> <span style="color:#6639ba">activeModules</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#1f2328">_</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#cf222e">range</span> <span style="color:#1f2328">md</span><span style="color:#1f2328">.</span><span style="color:#1f2328">itablinks</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#6639ba">itabAdd</span><span style="color:#1f2328">(</span><span style="color:#1f2328">i</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#6639ba">unlock</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">itabLock</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">itabAdd</span><span style="color:#1f2328">(</span><span style="color:#1f2328">m</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">itab</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// Bugs can lead to calling this while mallocing is set,</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// typically because this is called while panicing.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// Crash reliably, rather than only when we need to grow</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// the hash table.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">if</span> <span style="color:#6639ba">getg</span><span style="color:#1f2328">().</span><span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#1f2328">mallocing</span> <span style="color:#0550ae">!=</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">throw</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;malloc deadlock&#34;</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">t</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">itabTable</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">if</span> <span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">count</span> <span style="color:#0550ae">&gt;=</span> <span style="color:#0550ae">3</span><span style="color:#0550ae">*</span><span style="color:#1f2328">(</span><span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">size</span><span style="color:#0550ae">/</span><span style="color:#0550ae">4</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span> <span style="color:#57606a">// 75% load factor</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// Grow hash table.</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// t2 = new(itabTableType) + some additional entries</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// We lie and tell malloc we want pointer-free memory because</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// all the pointed-to values are not in the heap.</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">t2</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">(</span><span style="color:#0550ae">*</span><span style="color:#1f2328">itabTableType</span><span style="color:#1f2328">)(</span><span style="color:#6639ba">mallocgc</span><span style="color:#1f2328">((</span><span style="color:#0550ae">2</span><span style="color:#0550ae">+</span><span style="color:#0550ae">2</span><span style="color:#0550ae">*</span><span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">size</span><span style="color:#1f2328">)</span><span style="color:#0550ae">*</span><span style="color:#1f2328">sys</span><span style="color:#1f2328">.</span><span style="color:#1f2328">PtrSize</span><span style="color:#1f2328">,</span> <span style="color:#cf222e">nil</span><span style="color:#1f2328">,</span> <span style="color:#cf222e">true</span><span style="color:#1f2328">))</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">t2</span><span style="color:#1f2328">.</span><span style="color:#1f2328">size</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">size</span> <span style="color:#0550ae">*</span> <span style="color:#0550ae">2</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// Copy over entries.</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// Note: while copying, other threads may look for an itab and</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// fail to find it. That&#39;s ok, they will then try to get the itab lock</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// and as a consequence wait until this copying is complete.</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">iterate_itabs</span><span style="color:#1f2328">(</span><span style="color:#1f2328">t2</span><span style="color:#1f2328">.</span><span style="color:#1f2328">add</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">t2</span><span style="color:#1f2328">.</span><span style="color:#1f2328">count</span> <span style="color:#0550ae">!=</span> <span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">count</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#6639ba">throw</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;mismatched count during itab table copy&#34;</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// Publish new hash table. Use an atomic write: see comment in getitab.</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">atomicstorep</span><span style="color:#1f2328">(</span><span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Pointer</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">itabTable</span><span style="color:#1f2328">),</span> <span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Pointer</span><span style="color:#1f2328">(</span><span style="color:#1f2328">t2</span><span style="color:#1f2328">))</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// Adopt the new table as our own.</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">t</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">itabTable</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// Note: the old table can be GC&#39;ed here.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#6639ba">add</span><span style="color:#1f2328">(</span><span style="color:#1f2328">m</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span><span style="color:#fff"> </span><span style="color:#6639ba">itabsinit</span><span style="color:#1f2328">()</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#6639ba">lock</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">itabLock</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">for</span><span style="color:#fff"> </span><span style="color:#1f2328">_</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">md</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#cf222e">range</span><span style="color:#fff"> </span><span style="color:#6639ba">activeModules</span><span style="color:#1f2328">()</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">for</span><span style="color:#fff"> </span><span style="color:#1f2328">_</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">i</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#cf222e">range</span><span style="color:#fff"> </span><span style="color:#1f2328">md</span><span style="color:#1f2328">.</span><span style="color:#1f2328">itablinks</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span><span style="color:#6639ba">itabAdd</span><span style="color:#1f2328">(</span><span style="color:#1f2328">i</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#6639ba">unlock</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">itabLock</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span><span style="color:#fff"> </span><span style="color:#6639ba">itabAdd</span><span style="color:#1f2328">(</span><span style="color:#1f2328">m</span><span style="color:#fff"> </span><span style="color:#0550ae">*</span><span style="color:#1f2328">itab</span><span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// Bugs can lead to calling this while mallocing is set,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// typically because this is called while panicing.</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// Crash reliably, rather than only when we need to grow</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// the hash table.</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#6639ba">getg</span><span style="color:#1f2328">().</span><span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#1f2328">mallocing</span><span style="color:#fff"> </span><span style="color:#0550ae">!=</span><span style="color:#fff"> </span><span style="color:#0550ae">0</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#6639ba">throw</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;malloc deadlock&#34;</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">t</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#1f2328">itabTable</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">count</span><span style="color:#fff"> </span><span style="color:#0550ae">&gt;=</span><span style="color:#fff"> </span><span style="color:#0550ae">3</span><span style="color:#0550ae">*</span><span style="color:#1f2328">(</span><span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">size</span><span style="color:#0550ae">/</span><span style="color:#0550ae">4</span><span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff"> </span><span style="color:#57606a">// 75% load factor</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#57606a">// Grow hash table.</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#57606a">// t2 = new(itabTableType) + some additional entries</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#57606a">// We lie and tell malloc we want pointer-free memory because</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#57606a">// all the pointed-to values are not in the heap.</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">t2</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#0550ae">*</span><span style="color:#1f2328">itabTableType</span><span style="color:#1f2328">)(</span><span style="color:#6639ba">mallocgc</span><span style="color:#1f2328">((</span><span style="color:#0550ae">2</span><span style="color:#0550ae">+</span><span style="color:#0550ae">2</span><span style="color:#0550ae">*</span><span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">size</span><span style="color:#1f2328">)</span><span style="color:#0550ae">*</span><span style="color:#1f2328">sys</span><span style="color:#1f2328">.</span><span style="color:#1f2328">PtrSize</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#cf222e">nil</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#cf222e">true</span><span style="color:#1f2328">))</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">t2</span><span style="color:#1f2328">.</span><span style="color:#1f2328">size</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">size</span><span style="color:#fff"> </span><span style="color:#0550ae">*</span><span style="color:#fff"> </span><span style="color:#0550ae">2</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#57606a">// Copy over entries.</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#57606a">// Note: while copying, other threads may look for an itab and</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#57606a">// fail to find it. That&#39;s ok, they will then try to get the itab lock</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#57606a">// and as a consequence wait until this copying is complete.</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#6639ba">iterate_itabs</span><span style="color:#1f2328">(</span><span style="color:#1f2328">t2</span><span style="color:#1f2328">.</span><span style="color:#1f2328">add</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#1f2328">t2</span><span style="color:#1f2328">.</span><span style="color:#1f2328">count</span><span style="color:#fff"> </span><span style="color:#0550ae">!=</span><span style="color:#fff"> </span><span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">count</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span><span style="color:#6639ba">throw</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;mismatched count during itab table copy&#34;</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#57606a">// Publish new hash table. Use an atomic write: see comment in getitab.</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#6639ba">atomicstorep</span><span style="color:#1f2328">(</span><span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Pointer</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">itabTable</span><span style="color:#1f2328">),</span><span style="color:#fff"> </span><span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Pointer</span><span style="color:#1f2328">(</span><span style="color:#1f2328">t2</span><span style="color:#1f2328">))</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#57606a">// Adopt the new table as our own.</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">t</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#1f2328">itabTable</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#57606a">// Note: the old table can be GC&#39;ed here.</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#6639ba">add</span><span style="color:#1f2328">(</span><span style="color:#1f2328">m</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>itabAdd函数代码中可以看到，当hash表使用达到75%或以上时，就会进行扩容，容量是原来的2倍，申请完空间，就会把老表中的数据插入到新的hash表中。然后使itabTable指向新的表，最后把新的itab插入到新表中。</p>
 <h3 id="获取itab">获取itab</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
@@ -520,153 +520,153 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">146
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">getitab</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">interfacetype</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">typ</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">_type</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">canfail</span> <span style="color:#cf222e">bool</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">itab</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">if</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">.</span><span style="color:#1f2328">mhdr</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">==</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">throw</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;internal error - misuse of itab&#34;</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// easy case</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">if</span> <span style="color:#1f2328">typ</span><span style="color:#1f2328">.</span><span style="color:#1f2328">tflag</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">tflagUncommon</span> <span style="color:#0550ae">==</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">canfail</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#cf222e">return</span> <span style="color:#cf222e">nil</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">name</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">inter</span><span style="color:#1f2328">.</span><span style="color:#1f2328">typ</span><span style="color:#1f2328">.</span><span style="color:#6639ba">nameOff</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">.</span><span style="color:#1f2328">mhdr</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">].</span><span style="color:#1f2328">name</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">panic</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">TypeAssertionError</span><span style="color:#1f2328">{</span><span style="color:#cf222e">nil</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">typ</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">.</span><span style="color:#1f2328">typ</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">name</span><span style="color:#1f2328">.</span><span style="color:#6639ba">name</span><span style="color:#1f2328">()})</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">var</span> <span style="color:#1f2328">m</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">itab</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">//先用t保存全局itabTable的地址，然后使用t.find去查找，这样是</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">//为了防止查找过程中，itabTable被替换导致查找错误</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">t</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">(</span><span style="color:#0550ae">*</span><span style="color:#1f2328">itabTableType</span><span style="color:#1f2328">)(</span><span style="color:#1f2328">atomic</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Loadp</span><span style="color:#1f2328">(</span><span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Pointer</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">itabTable</span><span style="color:#1f2328">)))</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">if</span> <span style="color:#1f2328">m</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#6639ba">find</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">typ</span><span style="color:#1f2328">);</span> <span style="color:#1f2328">m</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">goto</span> <span style="color:#1f2328">finish</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">//如果没找到，那么就会上锁，然后使用itabTable.find去查找，</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">//这样是因为在第一步查找的同时，另外一个协程写入，</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">//可能导致实际存在却查找不到，这时上锁避免itabTable被替换</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">//然后直接在itabTable中查找。</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#6639ba">lock</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">itabLock</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">if</span> <span style="color:#1f2328">m</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">itabTable</span><span style="color:#1f2328">.</span><span style="color:#6639ba">find</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">typ</span><span style="color:#1f2328">);</span> <span style="color:#1f2328">m</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">unlock</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">itabLock</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">goto</span> <span style="color:#1f2328">finish</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// Entry doesn&#39;t exist yet. Make a new entry &amp; add it.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">//再没找到，说明确实没有，那么就根据接口类型、数据类型，去生成一个新的itab</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">//然后插入到itabTable中，这里可能会导致hash表扩容，</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">m</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">(</span><span style="color:#0550ae">*</span><span style="color:#1f2328">itab</span><span style="color:#1f2328">)(</span><span style="color:#6639ba">persistentalloc</span><span style="color:#1f2328">(</span><span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Sizeof</span><span style="color:#1f2328">(</span><span style="color:#1f2328">itab</span><span style="color:#1f2328">{})</span><span style="color:#0550ae">+</span> \
-</span></span><span style="display:flex;"><span>  <span style="color:#6639ba">uintptr</span><span style="color:#1f2328">(</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">.</span><span style="color:#1f2328">mhdr</span><span style="color:#1f2328">)</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">)</span><span style="color:#0550ae">*</span><span style="color:#1f2328">sys</span><span style="color:#1f2328">.</span><span style="color:#1f2328">PtrSize</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">memstats</span><span style="color:#1f2328">.</span><span style="color:#1f2328">other_sys</span><span style="color:#1f2328">))</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#1f2328">inter</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">inter</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_type</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">typ</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// The hash is used in type switches. However, compiler statically generates itab&#39;s</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// for all interface/type pairs used in switches (which are added to itabTable</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// in itabsinit). The dynamically-generated itab&#39;s never participate in type switches,</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// and thus the hash is irrelevant.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// Note: m.hash is _not_ the hash used for the runtime itabTable hash table.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#1f2328">hash</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">0</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#6639ba">init</span><span style="color:#1f2328">()</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//这里可能存在hash扩容</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#6639ba">itabAdd</span><span style="color:#1f2328">(</span><span style="color:#1f2328">m</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#6639ba">unlock</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">itabLock</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">finish</span><span style="color:#1f2328">:</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">if</span> <span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#1f2328">fun</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">!=</span> <span style="color:#0550ae">0</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">m</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">if</span> <span style="color:#1f2328">canfail</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#cf222e">nil</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">//如果数据类型并没有实现接口,那么根据调用方式，该报错报错，该panic panic。</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#6639ba">panic</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">TypeAssertionError</span><span style="color:#1f2328">{</span><span style="color:#1f2328">concrete</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">typ</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">asserted</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">.</span><span style="color:#1f2328">typ</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">missingMethod</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#6639ba">init</span><span style="color:#1f2328">()})</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">//哈希值时会用到接口类型(itab.inter)和动态类型(itab._type)的类型哈希值：</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">itabHashFunc</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">interfacetype</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">typ</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">_type</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">uintptr</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// compiler has provided some good hash codes for us.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">return</span> <span style="color:#6639ba">uintptr</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">.</span><span style="color:#1f2328">typ</span><span style="color:#1f2328">.</span><span style="color:#1f2328">hash</span> <span style="color:#1f2328">^</span> <span style="color:#1f2328">typ</span><span style="color:#1f2328">.</span><span style="color:#1f2328">hash</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">// find finds the given interface/type pair in t.</span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">// Returns nil if the given interface/type pair isn&#39;t present.</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">t</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">itabTableType</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">find</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">interfacetype</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">typ</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">_type</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">itab</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">//开放地址探测法，用的是公式h(i) = h0 + i*(i+1)/2 mod 2^k，</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">//h0是根据接口类型和数据类型的hash字段算出来的</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">mask</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">size</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">h</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">itabHashFunc</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">typ</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">&amp;</span> <span style="color:#1f2328">mask</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">for</span> <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">uintptr</span><span style="color:#1f2328">(</span><span style="color:#0550ae">1</span><span style="color:#1f2328">);</span> <span style="color:#1f2328">;</span> <span style="color:#1f2328">i</span><span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">p</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">(</span><span style="color:#0550ae">**</span><span style="color:#1f2328">itab</span><span style="color:#1f2328">)(</span><span style="color:#6639ba">add</span><span style="color:#1f2328">(</span><span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Pointer</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">entries</span><span style="color:#1f2328">),</span> <span style="color:#1f2328">h</span><span style="color:#0550ae">*</span><span style="color:#1f2328">sys</span><span style="color:#1f2328">.</span><span style="color:#1f2328">PtrSize</span><span style="color:#1f2328">))</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// Use atomic read here so if we see m != nil, we also see</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// the initializations of the fields of m.</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// m := *p</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">m</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">(</span><span style="color:#0550ae">*</span><span style="color:#1f2328">itab</span><span style="color:#1f2328">)(</span><span style="color:#1f2328">atomic</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Loadp</span><span style="color:#1f2328">(</span><span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Pointer</span><span style="color:#1f2328">(</span><span style="color:#1f2328">p</span><span style="color:#1f2328">)))</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">m</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#cf222e">return</span> <span style="color:#cf222e">nil</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#1f2328">inter</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">inter</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_type</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">typ</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#cf222e">return</span> <span style="color:#1f2328">m</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">h</span> <span style="color:#0550ae">+=</span> <span style="color:#1f2328">I</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">h</span> <span style="color:#0550ae">&amp;=</span> <span style="color:#1f2328">mask</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">//这个方法会检查interface和type的方法是否匹配</span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">//即type有没有实现interface。interface、type的方法都按字典序排</span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">//所以O(n+m)的时间复杂度可以匹配完。在检测的过程中，匹配上了</span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">//依次往fun字段写入type中对应方法的地址。如果有一个方法没有匹配上</span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">//那么就设置fun[0]为0，在外层调用会检查fun[0]==0，即type并没有实现interface。</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">m</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">itab</span><span style="color:#1f2328">)</span> <span style="color:#6639ba">init</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">string</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">inter</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#1f2328">inter</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">typ</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_type</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">x</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">typ</span><span style="color:#1f2328">.</span><span style="color:#6639ba">uncommon</span><span style="color:#1f2328">()</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// 在 interfacetype 的结构体中，mhdr 存着所有需要实现的方法的</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// 结构体切片 []imethod，都是按照方法名的字典序排列的，其中：</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// ni 是全量的方法（所有要实现的方法）的个数</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// nt 是已实现的方法的个数</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">ni</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">.</span><span style="color:#1f2328">mhdr</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">nt</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">int</span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span><span style="color:#1f2328">.</span><span style="color:#1f2328">mcount</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">xmhdr</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">(</span><span style="color:#0550ae">*</span><span style="color:#1f2328">[</span><span style="color:#0550ae">1</span> <span style="color:#0550ae">&lt;&lt;</span> <span style="color:#0550ae">16</span><span style="color:#1f2328">]</span><span style="color:#1f2328">method</span><span style="color:#1f2328">)(</span><span style="color:#6639ba">add</span><span style="color:#1f2328">(</span><span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Pointer</span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span><span style="color:#1f2328">),</span> <span style="color:#6639ba">uintptr</span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span><span style="color:#1f2328">.</span><span style="color:#1f2328">moff</span><span style="color:#1f2328">)))[:</span><span style="color:#1f2328">nt</span><span style="color:#1f2328">:</span><span style="color:#1f2328">nt</span><span style="color:#1f2328">]</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">j</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">imethods</span><span style="color:#1f2328">:</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">for</span> <span style="color:#1f2328">k</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">k</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">ni</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">k</span><span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">i</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">.</span><span style="color:#1f2328">mhdr</span><span style="color:#1f2328">[</span><span style="color:#1f2328">k</span><span style="color:#1f2328">]</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">itype</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">inter</span><span style="color:#1f2328">.</span><span style="color:#1f2328">typ</span><span style="color:#1f2328">.</span><span style="color:#6639ba">typeOff</span><span style="color:#1f2328">(</span><span style="color:#1f2328">i</span><span style="color:#1f2328">.</span><span style="color:#1f2328">ityp</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">name</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">inter</span><span style="color:#1f2328">.</span><span style="color:#1f2328">typ</span><span style="color:#1f2328">.</span><span style="color:#6639ba">nameOff</span><span style="color:#1f2328">(</span><span style="color:#1f2328">i</span><span style="color:#1f2328">.</span><span style="color:#1f2328">name</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">iname</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">name</span><span style="color:#1f2328">.</span><span style="color:#6639ba">name</span><span style="color:#1f2328">()</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">ipkg</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">name</span><span style="color:#1f2328">.</span><span style="color:#6639ba">pkgPath</span><span style="color:#1f2328">()</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">ipkg</span> <span style="color:#0550ae">==</span> <span style="color:#0a3069">&#34;&#34;</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">ipkg</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">inter</span><span style="color:#1f2328">.</span><span style="color:#1f2328">pkgpath</span><span style="color:#1f2328">.</span><span style="color:#6639ba">name</span><span style="color:#1f2328">()</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#1f2328">;</span> <span style="color:#1f2328">j</span> <span style="color:#1f2328">&lt;</span> <span style="color:#1f2328">nt</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">j</span><span style="color:#0550ae">++</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">t</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">xmhdr</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">tname</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">typ</span><span style="color:#1f2328">.</span><span style="color:#6639ba">nameOff</span><span style="color:#1f2328">(</span><span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">name</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#57606a">// 比较已实现方法的 type 和 name 是否一致</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#cf222e">if</span> <span style="color:#1f2328">typ</span><span style="color:#1f2328">.</span><span style="color:#6639ba">typeOff</span><span style="color:#1f2328">(</span><span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">mtyp</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">itype</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">tname</span><span style="color:#1f2328">.</span><span style="color:#6639ba">name</span><span style="color:#1f2328">()</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">iname</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">pkgPath</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">tname</span><span style="color:#1f2328">.</span><span style="color:#6639ba">pkgPath</span><span style="color:#1f2328">()</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#1f2328">pkgPath</span> <span style="color:#0550ae">==</span> <span style="color:#0a3069">&#34;&#34;</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#1f2328">pkgPath</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">typ</span><span style="color:#1f2328">.</span><span style="color:#6639ba">nameOff</span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span><span style="color:#1f2328">.</span><span style="color:#1f2328">pkgpath</span><span style="color:#1f2328">).</span><span style="color:#6639ba">name</span><span style="color:#1f2328">()</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#1f2328">tname</span><span style="color:#1f2328">.</span><span style="color:#6639ba">isExported</span><span style="color:#1f2328">()</span> <span style="color:#0550ae">||</span> <span style="color:#1f2328">pkgPath</span> <span style="color:#0550ae">==</span> <span style="color:#1f2328">ipkg</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#cf222e">if</span> <span style="color:#1f2328">m</span> <span style="color:#0550ae">!=</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#57606a">// 计算每个 method 对应代码块的内存地址</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">ifn</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">typ</span><span style="color:#1f2328">.</span><span style="color:#6639ba">textOff</span><span style="color:#1f2328">(</span><span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">ifn</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">*</span><span style="color:#1f2328">(</span><span style="color:#0550ae">*</span><span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Pointer</span><span style="color:#1f2328">)(</span><span style="color:#6639ba">add</span><span style="color:#1f2328">(</span><span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Pointer</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#1f2328">fun</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">]),</span> <span style="color:#6639ba">uintptr</span><span style="color:#1f2328">(</span><span style="color:#1f2328">k</span><span style="color:#1f2328">)</span><span style="color:#0550ae">*</span><span style="color:#1f2328">sys</span><span style="color:#1f2328">.</span><span style="color:#1f2328">PtrSize</span><span style="color:#1f2328">))</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">ifn</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#cf222e">continue</span> <span style="color:#1f2328">imethods</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//如果没有找到，将 func[0] 设置为0，返回该实现的 method 的 name</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#1f2328">fun</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">0</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">iname</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#1f2328">hash</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">typ</span><span style="color:#1f2328">.</span><span style="color:#1f2328">hash</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">return</span> <span style="color:#0a3069">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span><span style="color:#fff"> </span><span style="color:#6639ba">getitab</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#fff"> </span><span style="color:#0550ae">*</span><span style="color:#1f2328">interfacetype</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">typ</span><span style="color:#fff"> </span><span style="color:#0550ae">*</span><span style="color:#1f2328">_type</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">canfail</span><span style="color:#fff"> </span><span style="color:#cf222e">bool</span><span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#0550ae">*</span><span style="color:#1f2328">itab</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">.</span><span style="color:#1f2328">mhdr</span><span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#0550ae">==</span><span style="color:#fff"> </span><span style="color:#0550ae">0</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#6639ba">throw</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;internal error - misuse of itab&#34;</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// easy case</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#1f2328">typ</span><span style="color:#1f2328">.</span><span style="color:#1f2328">tflag</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">tflagUncommon</span><span style="color:#fff"> </span><span style="color:#0550ae">==</span><span style="color:#fff"> </span><span style="color:#0550ae">0</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#1f2328">canfail</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span><span style="color:#cf222e">return</span><span style="color:#fff"> </span><span style="color:#cf222e">nil</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">name</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#1f2328">inter</span><span style="color:#1f2328">.</span><span style="color:#1f2328">typ</span><span style="color:#1f2328">.</span><span style="color:#6639ba">nameOff</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">.</span><span style="color:#1f2328">mhdr</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">].</span><span style="color:#1f2328">name</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#6639ba">panic</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">TypeAssertionError</span><span style="color:#1f2328">{</span><span style="color:#cf222e">nil</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">typ</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">.</span><span style="color:#1f2328">typ</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">name</span><span style="color:#1f2328">.</span><span style="color:#6639ba">name</span><span style="color:#1f2328">()})</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">var</span><span style="color:#fff"> </span><span style="color:#1f2328">m</span><span style="color:#fff"> </span><span style="color:#0550ae">*</span><span style="color:#1f2328">itab</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">//先用t保存全局itabTable的地址，然后使用t.find去查找，这样是</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">//为了防止查找过程中，itabTable被替换导致查找错误</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">t</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#0550ae">*</span><span style="color:#1f2328">itabTableType</span><span style="color:#1f2328">)(</span><span style="color:#1f2328">atomic</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Loadp</span><span style="color:#1f2328">(</span><span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Pointer</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">itabTable</span><span style="color:#1f2328">)))</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#1f2328">m</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#6639ba">find</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">typ</span><span style="color:#1f2328">);</span><span style="color:#fff"> </span><span style="color:#1f2328">m</span><span style="color:#fff"> </span><span style="color:#0550ae">!=</span><span style="color:#fff"> </span><span style="color:#cf222e">nil</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">goto</span><span style="color:#fff"> </span><span style="color:#1f2328">finish</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">//如果没找到，那么就会上锁，然后使用itabTable.find去查找，</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">//这样是因为在第一步查找的同时，另外一个协程写入，</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">//可能导致实际存在却查找不到，这时上锁避免itabTable被替换</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">//然后直接在itabTable中查找。</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#6639ba">lock</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">itabLock</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#1f2328">m</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#1f2328">itabTable</span><span style="color:#1f2328">.</span><span style="color:#6639ba">find</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">typ</span><span style="color:#1f2328">);</span><span style="color:#fff"> </span><span style="color:#1f2328">m</span><span style="color:#fff"> </span><span style="color:#0550ae">!=</span><span style="color:#fff"> </span><span style="color:#cf222e">nil</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#6639ba">unlock</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">itabLock</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">goto</span><span style="color:#fff"> </span><span style="color:#1f2328">finish</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// Entry doesn&#39;t exist yet. Make a new entry &amp; add it.</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">//再没找到，说明确实没有，那么就根据接口类型、数据类型，去生成一个新的itab</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">//然后插入到itabTable中，这里可能会导致hash表扩容，</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">m</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#0550ae">*</span><span style="color:#1f2328">itab</span><span style="color:#1f2328">)(</span><span style="color:#6639ba">persistentalloc</span><span style="color:#1f2328">(</span><span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Sizeof</span><span style="color:#1f2328">(</span><span style="color:#1f2328">itab</span><span style="color:#1f2328">{})</span><span style="color:#0550ae">+</span><span style="color:#fff"> </span><span style="color:#f6f8fa;background-color:#82071e">\</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#6639ba">uintptr</span><span style="color:#1f2328">(</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">.</span><span style="color:#1f2328">mhdr</span><span style="color:#1f2328">)</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">)</span><span style="color:#0550ae">*</span><span style="color:#1f2328">sys</span><span style="color:#1f2328">.</span><span style="color:#1f2328">PtrSize</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">memstats</span><span style="color:#1f2328">.</span><span style="color:#1f2328">other_sys</span><span style="color:#1f2328">))</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#1f2328">inter</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#1f2328">inter</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_type</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#1f2328">typ</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// The hash is used in type switches. However, compiler statically generates itab&#39;s</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// for all interface/type pairs used in switches (which are added to itabTable</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// in itabsinit). The dynamically-generated itab&#39;s never participate in type switches,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// and thus the hash is irrelevant.</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// Note: m.hash is _not_ the hash used for the runtime itabTable hash table.</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#1f2328">hash</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#0550ae">0</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#6639ba">init</span><span style="color:#1f2328">()</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#57606a">//这里可能存在hash扩容</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#6639ba">itabAdd</span><span style="color:#1f2328">(</span><span style="color:#1f2328">m</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#6639ba">unlock</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">itabLock</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">finish</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#1f2328">fun</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">]</span><span style="color:#fff"> </span><span style="color:#0550ae">!=</span><span style="color:#fff"> </span><span style="color:#0550ae">0</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">return</span><span style="color:#fff"> </span><span style="color:#1f2328">m</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#1f2328">canfail</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">return</span><span style="color:#fff"> </span><span style="color:#cf222e">nil</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">//如果数据类型并没有实现接口,那么根据调用方式，该报错报错，该panic panic。</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#6639ba">panic</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">TypeAssertionError</span><span style="color:#1f2328">{</span><span style="color:#1f2328">concrete</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#1f2328">typ</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">asserted</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">.</span><span style="color:#1f2328">typ</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">missingMethod</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#6639ba">init</span><span style="color:#1f2328">()})</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">//哈希值时会用到接口类型(itab.inter)和动态类型(itab._type)的类型哈希值：</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span><span style="color:#fff"> </span><span style="color:#6639ba">itabHashFunc</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#fff"> </span><span style="color:#0550ae">*</span><span style="color:#1f2328">interfacetype</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">typ</span><span style="color:#fff"> </span><span style="color:#0550ae">*</span><span style="color:#1f2328">_type</span><span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#cf222e">uintptr</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// compiler has provided some good hash codes for us.</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">return</span><span style="color:#fff"> </span><span style="color:#6639ba">uintptr</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">.</span><span style="color:#1f2328">typ</span><span style="color:#1f2328">.</span><span style="color:#1f2328">hash</span><span style="color:#fff"> </span><span style="color:#1f2328">^</span><span style="color:#fff"> </span><span style="color:#1f2328">typ</span><span style="color:#1f2328">.</span><span style="color:#1f2328">hash</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">// find finds the given interface/type pair in t.</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">// Returns nil if the given interface/type pair isn&#39;t present.</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#1f2328">t</span><span style="color:#fff"> </span><span style="color:#0550ae">*</span><span style="color:#1f2328">itabTableType</span><span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#6639ba">find</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#fff"> </span><span style="color:#0550ae">*</span><span style="color:#1f2328">interfacetype</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">typ</span><span style="color:#fff"> </span><span style="color:#0550ae">*</span><span style="color:#1f2328">_type</span><span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#0550ae">*</span><span style="color:#1f2328">itab</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">//开放地址探测法，用的是公式h(i) = h0 + i*(i+1)/2 mod 2^k，</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">//h0是根据接口类型和数据类型的hash字段算出来的</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">mask</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">size</span><span style="color:#fff"> </span><span style="color:#0550ae">-</span><span style="color:#fff"> </span><span style="color:#0550ae">1</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">h</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#6639ba">itabHashFunc</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">typ</span><span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#0550ae">&amp;</span><span style="color:#fff"> </span><span style="color:#1f2328">mask</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">for</span><span style="color:#fff"> </span><span style="color:#1f2328">i</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#6639ba">uintptr</span><span style="color:#1f2328">(</span><span style="color:#0550ae">1</span><span style="color:#1f2328">);</span><span style="color:#fff"> </span><span style="color:#1f2328">;</span><span style="color:#fff"> </span><span style="color:#1f2328">i</span><span style="color:#0550ae">++</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">p</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#0550ae">**</span><span style="color:#1f2328">itab</span><span style="color:#1f2328">)(</span><span style="color:#6639ba">add</span><span style="color:#1f2328">(</span><span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Pointer</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">entries</span><span style="color:#1f2328">),</span><span style="color:#fff"> </span><span style="color:#1f2328">h</span><span style="color:#0550ae">*</span><span style="color:#1f2328">sys</span><span style="color:#1f2328">.</span><span style="color:#1f2328">PtrSize</span><span style="color:#1f2328">))</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#57606a">// Use atomic read here so if we see m != nil, we also see</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#57606a">// the initializations of the fields of m.</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#57606a">// m := *p</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">m</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#0550ae">*</span><span style="color:#1f2328">itab</span><span style="color:#1f2328">)(</span><span style="color:#1f2328">atomic</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Loadp</span><span style="color:#1f2328">(</span><span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Pointer</span><span style="color:#1f2328">(</span><span style="color:#1f2328">p</span><span style="color:#1f2328">)))</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#1f2328">m</span><span style="color:#fff"> </span><span style="color:#0550ae">==</span><span style="color:#fff"> </span><span style="color:#cf222e">nil</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span><span style="color:#cf222e">return</span><span style="color:#fff"> </span><span style="color:#cf222e">nil</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#1f2328">inter</span><span style="color:#fff"> </span><span style="color:#0550ae">==</span><span style="color:#fff"> </span><span style="color:#1f2328">inter</span><span style="color:#fff"> </span><span style="color:#0550ae">&amp;&amp;</span><span style="color:#fff"> </span><span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_type</span><span style="color:#fff"> </span><span style="color:#0550ae">==</span><span style="color:#fff"> </span><span style="color:#1f2328">typ</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span><span style="color:#cf222e">return</span><span style="color:#fff"> </span><span style="color:#1f2328">m</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">h</span><span style="color:#fff"> </span><span style="color:#0550ae">+=</span><span style="color:#fff"> </span><span style="color:#1f2328">I</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">h</span><span style="color:#fff"> </span><span style="color:#0550ae">&amp;=</span><span style="color:#fff"> </span><span style="color:#1f2328">mask</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">//这个方法会检查interface和type的方法是否匹配</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">//即type有没有实现interface。interface、type的方法都按字典序排</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">//所以O(n+m)的时间复杂度可以匹配完。在检测的过程中，匹配上了</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">//依次往fun字段写入type中对应方法的地址。如果有一个方法没有匹配上</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">//那么就设置fun[0]为0，在外层调用会检查fun[0]==0，即type并没有实现interface。</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#1f2328">m</span><span style="color:#fff"> </span><span style="color:#0550ae">*</span><span style="color:#1f2328">itab</span><span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#6639ba">init</span><span style="color:#1f2328">()</span><span style="color:#fff"> </span><span style="color:#cf222e">string</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">inter</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#1f2328">inter</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">typ</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_type</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">x</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#1f2328">typ</span><span style="color:#1f2328">.</span><span style="color:#6639ba">uncommon</span><span style="color:#1f2328">()</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// 在 interfacetype 的结构体中，mhdr 存着所有需要实现的方法的</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// 结构体切片 []imethod，都是按照方法名的字典序排列的，其中：</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// ni 是全量的方法（所有要实现的方法）的个数</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">// nt 是已实现的方法的个数</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">ni</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">.</span><span style="color:#1f2328">mhdr</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">nt</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#6639ba">int</span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span><span style="color:#1f2328">.</span><span style="color:#1f2328">mcount</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">xmhdr</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#0550ae">*</span><span style="color:#1f2328">[</span><span style="color:#0550ae">1</span><span style="color:#fff"> </span><span style="color:#0550ae">&lt;&lt;</span><span style="color:#fff"> </span><span style="color:#0550ae">16</span><span style="color:#1f2328">]</span><span style="color:#1f2328">method</span><span style="color:#1f2328">)(</span><span style="color:#6639ba">add</span><span style="color:#1f2328">(</span><span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Pointer</span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span><span style="color:#1f2328">),</span><span style="color:#fff"> </span><span style="color:#6639ba">uintptr</span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span><span style="color:#1f2328">.</span><span style="color:#1f2328">moff</span><span style="color:#1f2328">)))[:</span><span style="color:#1f2328">nt</span><span style="color:#1f2328">:</span><span style="color:#1f2328">nt</span><span style="color:#1f2328">]</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">j</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#0550ae">0</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">imethods</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">for</span><span style="color:#fff"> </span><span style="color:#1f2328">k</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#0550ae">0</span><span style="color:#1f2328">;</span><span style="color:#fff"> </span><span style="color:#1f2328">k</span><span style="color:#fff"> </span><span style="color:#1f2328">&lt;</span><span style="color:#fff"> </span><span style="color:#1f2328">ni</span><span style="color:#1f2328">;</span><span style="color:#fff"> </span><span style="color:#1f2328">k</span><span style="color:#0550ae">++</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">i</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">.</span><span style="color:#1f2328">mhdr</span><span style="color:#1f2328">[</span><span style="color:#1f2328">k</span><span style="color:#1f2328">]</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">itype</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#1f2328">inter</span><span style="color:#1f2328">.</span><span style="color:#1f2328">typ</span><span style="color:#1f2328">.</span><span style="color:#6639ba">typeOff</span><span style="color:#1f2328">(</span><span style="color:#1f2328">i</span><span style="color:#1f2328">.</span><span style="color:#1f2328">ityp</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">name</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#1f2328">inter</span><span style="color:#1f2328">.</span><span style="color:#1f2328">typ</span><span style="color:#1f2328">.</span><span style="color:#6639ba">nameOff</span><span style="color:#1f2328">(</span><span style="color:#1f2328">i</span><span style="color:#1f2328">.</span><span style="color:#1f2328">name</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">iname</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#1f2328">name</span><span style="color:#1f2328">.</span><span style="color:#6639ba">name</span><span style="color:#1f2328">()</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">ipkg</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#1f2328">name</span><span style="color:#1f2328">.</span><span style="color:#6639ba">pkgPath</span><span style="color:#1f2328">()</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#1f2328">ipkg</span><span style="color:#fff"> </span><span style="color:#0550ae">==</span><span style="color:#fff"> </span><span style="color:#0a3069">&#34;&#34;</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span><span style="color:#1f2328">ipkg</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#1f2328">inter</span><span style="color:#1f2328">.</span><span style="color:#1f2328">pkgpath</span><span style="color:#1f2328">.</span><span style="color:#6639ba">name</span><span style="color:#1f2328">()</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">for</span><span style="color:#fff"> </span><span style="color:#1f2328">;</span><span style="color:#fff"> </span><span style="color:#1f2328">j</span><span style="color:#fff"> </span><span style="color:#1f2328">&lt;</span><span style="color:#fff"> </span><span style="color:#1f2328">nt</span><span style="color:#1f2328">;</span><span style="color:#fff"> </span><span style="color:#1f2328">j</span><span style="color:#0550ae">++</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span><span style="color:#1f2328">t</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">xmhdr</span><span style="color:#1f2328">[</span><span style="color:#1f2328">j</span><span style="color:#1f2328">]</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span><span style="color:#1f2328">tname</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#1f2328">typ</span><span style="color:#1f2328">.</span><span style="color:#6639ba">nameOff</span><span style="color:#1f2328">(</span><span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">name</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span><span style="color:#57606a">// 比较已实现方法的 type 和 name 是否一致</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#1f2328">typ</span><span style="color:#1f2328">.</span><span style="color:#6639ba">typeOff</span><span style="color:#1f2328">(</span><span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">mtyp</span><span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#0550ae">==</span><span style="color:#fff"> </span><span style="color:#1f2328">itype</span><span style="color:#fff"> </span><span style="color:#0550ae">&amp;&amp;</span><span style="color:#fff"> </span><span style="color:#1f2328">tname</span><span style="color:#1f2328">.</span><span style="color:#6639ba">name</span><span style="color:#1f2328">()</span><span style="color:#fff"> </span><span style="color:#0550ae">==</span><span style="color:#fff"> </span><span style="color:#1f2328">iname</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#1f2328">pkgPath</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#1f2328">tname</span><span style="color:#1f2328">.</span><span style="color:#6639ba">pkgPath</span><span style="color:#1f2328">()</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#1f2328">pkgPath</span><span style="color:#fff"> </span><span style="color:#0550ae">==</span><span style="color:#fff"> </span><span style="color:#0a3069">&#34;&#34;</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">          </span><span style="color:#1f2328">pkgPath</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#1f2328">typ</span><span style="color:#1f2328">.</span><span style="color:#6639ba">nameOff</span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span><span style="color:#1f2328">.</span><span style="color:#1f2328">pkgpath</span><span style="color:#1f2328">).</span><span style="color:#6639ba">name</span><span style="color:#1f2328">()</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#1f2328">tname</span><span style="color:#1f2328">.</span><span style="color:#6639ba">isExported</span><span style="color:#1f2328">()</span><span style="color:#fff"> </span><span style="color:#0550ae">||</span><span style="color:#fff"> </span><span style="color:#1f2328">pkgPath</span><span style="color:#fff"> </span><span style="color:#0550ae">==</span><span style="color:#fff"> </span><span style="color:#1f2328">ipkg</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">          </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#1f2328">m</span><span style="color:#fff"> </span><span style="color:#0550ae">!=</span><span style="color:#fff"> </span><span style="color:#cf222e">nil</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">            </span><span style="color:#57606a">// 计算每个 method 对应代码块的内存地址</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">            </span><span style="color:#1f2328">ifn</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#1f2328">typ</span><span style="color:#1f2328">.</span><span style="color:#6639ba">textOff</span><span style="color:#1f2328">(</span><span style="color:#1f2328">t</span><span style="color:#1f2328">.</span><span style="color:#1f2328">ifn</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">            </span><span style="color:#0550ae">*</span><span style="color:#1f2328">(</span><span style="color:#0550ae">*</span><span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Pointer</span><span style="color:#1f2328">)(</span><span style="color:#6639ba">add</span><span style="color:#1f2328">(</span><span style="color:#1f2328">unsafe</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Pointer</span><span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#1f2328">fun</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">]),</span><span style="color:#fff"> </span><span style="color:#6639ba">uintptr</span><span style="color:#1f2328">(</span><span style="color:#1f2328">k</span><span style="color:#1f2328">)</span><span style="color:#0550ae">*</span><span style="color:#1f2328">sys</span><span style="color:#1f2328">.</span><span style="color:#1f2328">PtrSize</span><span style="color:#1f2328">))</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#1f2328">ifn</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">          </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">          </span><span style="color:#cf222e">continue</span><span style="color:#fff"> </span><span style="color:#1f2328">imethods</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#57606a">//如果没有找到，将 func[0] 设置为0，返回该实现的 method 的 name</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#1f2328">fun</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">]</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#0550ae">0</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">return</span><span style="color:#fff"> </span><span style="color:#1f2328">iname</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">m</span><span style="color:#1f2328">.</span><span style="color:#1f2328">hash</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#1f2328">typ</span><span style="color:#1f2328">.</span><span style="color:#1f2328">hash</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">return</span><span style="color:#fff"> </span><span style="color:#0a3069">&#34;&#34;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>get的时候，不仅仅会从itabTalbe中查找，还可能会创建插入，itabTable使用容量超过75%还会扩容。</p>
 <h2 id="接口使用">接口使用</h2>
@@ -682,9 +682,9 @@
 <h3 id="类型断言">类型断言</h3>
 <p>对于空接口的类型断言，获取空接口的_type的地址位置和需要断言的类型的_type位置进行比较，如果相同则代表类型一致。</p>
 <p>对于非空接口的类型断言，还需要校验接口函数的实现，上一个小节介绍了itab的缓存，其中有接口实现的判断，因此非空接口的断言如下</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -706,33 +706,33 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">assertI2I2</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">interfacetype</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">iface</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">r</span> <span style="color:#1f2328">iface</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">b</span> <span style="color:#cf222e">bool</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">tab</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">.</span><span style="color:#1f2328">tab</span> <span style="color:#57606a">//获取itab</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">if</span> <span style="color:#1f2328">tab</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">//先判断itab的inter是否等于要断言的接口类型</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">if</span> <span style="color:#1f2328">tab</span><span style="color:#1f2328">.</span><span style="color:#1f2328">inter</span> <span style="color:#0550ae">!=</span> <span style="color:#1f2328">inter</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#57606a">//获取itab </span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">tab</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">getitab</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">tab</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_type</span><span style="color:#1f2328">,</span> <span style="color:#cf222e">true</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">tab</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#57606a">//断言失败 返回nil和false</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#cf222e">return</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#57606a">//断言成功 赋值</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">r</span><span style="color:#1f2328">.</span><span style="color:#1f2328">tab</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">tab</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">r</span><span style="color:#1f2328">.</span><span style="color:#1f2328">data</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">.</span><span style="color:#1f2328">data</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">b</span> <span style="color:#1f2328">=</span> <span style="color:#cf222e">true</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">return</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span><span style="color:#fff"> </span><span style="color:#6639ba">assertI2I2</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#fff"> </span><span style="color:#0550ae">*</span><span style="color:#1f2328">interfacetype</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">i</span><span style="color:#fff"> </span><span style="color:#1f2328">iface</span><span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#1f2328">r</span><span style="color:#fff"> </span><span style="color:#1f2328">iface</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">b</span><span style="color:#fff"> </span><span style="color:#cf222e">bool</span><span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">tab</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#1f2328">i</span><span style="color:#1f2328">.</span><span style="color:#1f2328">tab</span><span style="color:#fff"> </span><span style="color:#57606a">//获取itab</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#1f2328">tab</span><span style="color:#fff"> </span><span style="color:#0550ae">==</span><span style="color:#fff"> </span><span style="color:#cf222e">nil</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">return</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">//先判断itab的inter是否等于要断言的接口类型</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#1f2328">tab</span><span style="color:#1f2328">.</span><span style="color:#1f2328">inter</span><span style="color:#fff"> </span><span style="color:#0550ae">!=</span><span style="color:#fff"> </span><span style="color:#1f2328">inter</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#57606a">//获取itab </span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">tab</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#6639ba">getitab</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">tab</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_type</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#cf222e">true</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#1f2328">tab</span><span style="color:#fff"> </span><span style="color:#0550ae">==</span><span style="color:#fff"> </span><span style="color:#cf222e">nil</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">            </span><span style="color:#57606a">//断言失败 返回nil和false</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span><span style="color:#cf222e">return</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#57606a">//断言成功 赋值</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">r</span><span style="color:#1f2328">.</span><span style="color:#1f2328">tab</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#1f2328">tab</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">r</span><span style="color:#1f2328">.</span><span style="color:#1f2328">data</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#1f2328">i</span><span style="color:#1f2328">.</span><span style="color:#1f2328">data</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">b</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#cf222e">true</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">return</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="类型查询">类型查询</h3>
 <p>对于空接口的查询，具体代码</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -750,29 +750,29 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">// runtime/iface.go</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">assertE2I2</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">interfacetype</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">e</span> <span style="color:#1f2328">eface</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">r</span> <span style="color:#1f2328">iface</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">b</span> <span style="color:#cf222e">bool</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">//获取eface的类型元数据</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">t</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_type</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">if</span> <span style="color:#1f2328">t</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">tab</span> <span style="color:#0550ae">:=</span> <span style="color:#6639ba">getitab</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">t</span><span style="color:#1f2328">,</span> <span style="color:#cf222e">true</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">if</span> <span style="color:#1f2328">tab</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">r</span><span style="color:#1f2328">.</span><span style="color:#1f2328">tab</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">tab</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">r</span><span style="color:#1f2328">.</span><span style="color:#1f2328">data</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">data</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">b</span> <span style="color:#1f2328">=</span> <span style="color:#cf222e">true</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">return</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">// runtime/iface.go</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span><span style="color:#fff"> </span><span style="color:#6639ba">assertE2I2</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#fff"> </span><span style="color:#0550ae">*</span><span style="color:#1f2328">interfacetype</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">e</span><span style="color:#fff"> </span><span style="color:#1f2328">eface</span><span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#1f2328">r</span><span style="color:#fff"> </span><span style="color:#1f2328">iface</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">b</span><span style="color:#fff"> </span><span style="color:#cf222e">bool</span><span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#57606a">//获取eface的类型元数据</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">t</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_type</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#1f2328">t</span><span style="color:#fff"> </span><span style="color:#0550ae">==</span><span style="color:#fff"> </span><span style="color:#cf222e">nil</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">return</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">tab</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#6639ba">getitab</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">t</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#cf222e">true</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#1f2328">tab</span><span style="color:#fff"> </span><span style="color:#0550ae">==</span><span style="color:#fff"> </span><span style="color:#cf222e">nil</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">return</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">r</span><span style="color:#1f2328">.</span><span style="color:#1f2328">tab</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#1f2328">tab</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">r</span><span style="color:#1f2328">.</span><span style="color:#1f2328">data</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">data</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">b</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#cf222e">true</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">return</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>从空接口的eface的_type里取出类型元数据，再根据传入的interfacetype 去判断是否有对应的接口实现，成功则断言成功，否则返回nil和false</p>
 <p>对于非空接口的查询，代码如下</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -790,23 +790,23 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">// runtime/iface.go</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">assertI2I2</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span> <span style="color:#0550ae">*</span><span style="color:#1f2328">interfacetype</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">i</span> <span style="color:#1f2328">iface</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">r</span> <span style="color:#1f2328">iface</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">tab</span> <span style="color:#0550ae">:=</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">.</span><span style="color:#1f2328">tab</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">if</span> <span style="color:#1f2328">tab</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">if</span> <span style="color:#1f2328">tab</span><span style="color:#1f2328">.</span><span style="color:#1f2328">inter</span> <span style="color:#0550ae">!=</span> <span style="color:#1f2328">inter</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">tab</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">getitab</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">tab</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_type</span><span style="color:#1f2328">,</span> <span style="color:#cf222e">true</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">tab</span> <span style="color:#0550ae">==</span> <span style="color:#cf222e">nil</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#cf222e">return</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">r</span><span style="color:#1f2328">.</span><span style="color:#1f2328">tab</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">tab</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">r</span><span style="color:#1f2328">.</span><span style="color:#1f2328">data</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">i</span><span style="color:#1f2328">.</span><span style="color:#1f2328">data</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">return</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">// runtime/iface.go</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span><span style="color:#fff"> </span><span style="color:#6639ba">assertI2I2</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#fff"> </span><span style="color:#0550ae">*</span><span style="color:#1f2328">interfacetype</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">i</span><span style="color:#fff"> </span><span style="color:#1f2328">iface</span><span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#1f2328">r</span><span style="color:#fff"> </span><span style="color:#1f2328">iface</span><span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">tab</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#1f2328">i</span><span style="color:#1f2328">.</span><span style="color:#1f2328">tab</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#1f2328">tab</span><span style="color:#fff"> </span><span style="color:#0550ae">==</span><span style="color:#fff"> </span><span style="color:#cf222e">nil</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">return</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#1f2328">tab</span><span style="color:#1f2328">.</span><span style="color:#1f2328">inter</span><span style="color:#fff"> </span><span style="color:#0550ae">!=</span><span style="color:#fff"> </span><span style="color:#1f2328">inter</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">tab</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#6639ba">getitab</span><span style="color:#1f2328">(</span><span style="color:#1f2328">inter</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">tab</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_type</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#cf222e">true</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#1f2328">tab</span><span style="color:#fff"> </span><span style="color:#0550ae">==</span><span style="color:#fff"> </span><span style="color:#cf222e">nil</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span><span style="color:#cf222e">return</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">r</span><span style="color:#1f2328">.</span><span style="color:#1f2328">tab</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#1f2328">tab</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#1f2328">r</span><span style="color:#1f2328">.</span><span style="color:#1f2328">data</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#1f2328">i</span><span style="color:#1f2328">.</span><span style="color:#1f2328">data</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">return</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>可以看到和空接口查询类似，都是基于itab的查询实现校验。</p>
 <h2 id="参考">参考</h2>
@@ -855,7 +855,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
+        &copy; 2026 <a href="http://localhost:46171/blog/">weiweng的博客 By weiweng</a>
         
     </div>
     <br />
@@ -973,10 +973,10 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
 
                 <div id="secondary">
     <section class="widget">
-        <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+        <form id="search" action='http://localhost:46171/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
+      <input type="hidden" name="sitesearch" value="http://localhost:46171/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -986,43 +986,43 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
 <ul class="widget-list">
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-08-09-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式大纲" target="_blank">设计模式大纲</a>
+        <a href="http://localhost:46171/blog/post/2025-08-09-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式大纲" target="_blank">设计模式大纲</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-07-20-spark%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="spark|性能优化" target="_blank">spark|性能优化</a>
+        <a href="http://localhost:46171/blog/post/2025-07-20-spark%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="spark|性能优化" target="_blank">spark|性能优化</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-07-20-spark%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/" title="spark|任务调度" target="_blank">spark|任务调度</a>
+        <a href="http://localhost:46171/blog/post/2025-07-20-spark%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/" title="spark|任务调度" target="_blank">spark|任务调度</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-07-20-spark%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE/" title="spark|参数配置" target="_blank">spark|参数配置</a>
+        <a href="http://localhost:46171/blog/post/2025-07-20-spark%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE/" title="spark|参数配置" target="_blank">spark|参数配置</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-04-12-spark%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="spark|基础知识" target="_blank">spark|基础知识</a>
+        <a href="http://localhost:46171/blog/post/2025-04-12-spark%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="spark|基础知识" target="_blank">spark|基础知识</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-04-12-spark%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/" title="spark|知识大纲" target="_blank">spark|知识大纲</a>
+        <a href="http://localhost:46171/blog/post/2025-04-12-spark%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/" title="spark|知识大纲" target="_blank">spark|知识大纲</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-04-12-mysql%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/" title="mysql|知识大纲" target="_blank">mysql|知识大纲</a>
+        <a href="http://localhost:46171/blog/post/2025-04-12-mysql%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/" title="mysql|知识大纲" target="_blank">mysql|知识大纲</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-02-26-embedding/" title="大模型专题|embedding" target="_blank">大模型专题|embedding</a>
+        <a href="http://localhost:46171/blog/post/2025-02-26-embedding/" title="大模型专题|embedding" target="_blank">大模型专题|embedding</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-02-23-langchain/" title="大模型专题|LangChain rag实践" target="_blank">大模型专题|LangChain rag实践</a>
+        <a href="http://localhost:46171/blog/post/2025-02-23-langchain/" title="大模型专题|LangChain rag实践" target="_blank">大模型专题|LangChain rag实践</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2024-05-06-%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="算法专题|并查集" target="_blank">算法专题|并查集</a>
+        <a href="http://localhost:46171/blog/post/2024-05-06-%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="算法专题|并查集" target="_blank">算法专题|并查集</a>
     </li>
     
 </ul>
@@ -1034,35 +1034,35 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/Golang/">Golang (28)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/k8s/">K8s (3)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/linux/">Linux (2)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/MQ/">MQ (3)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (22)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/mysql/">Mysql (22)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/Python/">Python (4)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/Redis/">Redis (9)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/spark/">Spark (5)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/spark/">Spark (5)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (3)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (3)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式 (1)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式 (1)</a></li>
     
 </ul>
     </section>
@@ -1071,37 +1071,37 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
+    <a href="http://localhost:46171/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
+    <a href="http://localhost:46171/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
+    <a href="http://localhost:46171/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
+    <a href="http://localhost:46171/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
+    <a href="http://localhost:46171/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
+    <a href="http://localhost:46171/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
+    <a href="http://localhost:46171/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
+    <a href="http://localhost:46171/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
+    <a href="http://localhost:46171/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
+    <a href="http://localhost:46171/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
+    <a href="http://localhost:46171/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
+    <a href="http://localhost:46171/blog/tags/vim/">Vim</a>
     
-    <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
+    <a href="http://localhost:46171/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     
-    <a href="https://weiweng.github.io/blog/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">开源协议</a>
+    <a href="http://localhost:46171/blog/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">开源协议</a>
     
-    <a href="https://weiweng.github.io/blog/tags/%E5%BF%83%E5%BE%97/">心得</a>
+    <a href="http://localhost:46171/blog/tags/%E5%BF%83%E5%BE%97/">心得</a>
     
-    <a href="https://weiweng.github.io/blog/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/">搜索引擎技巧</a>
+    <a href="http://localhost:46171/blog/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/">搜索引擎技巧</a>
     
 </div>
     </section>
@@ -1142,7 +1142,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     <section class="widget">
         <h3 class="widget-title">其它</h3>
         <ul class="widget-list">
-            <li><a href="https://weiweng.github.io/blog/index.xml">文章 RSS</a></li>
+            <li><a href="http://localhost:46171/blog/index.xml">文章 RSS</a></li>
         </ul>
     </section>
 </div>
