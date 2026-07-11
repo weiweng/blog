@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-CN">
-<head>
+<head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=46171&amp;path=blog/livereload" data-no-instant defer></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1207188090915424" crossorigin="anonymous"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,8 +19,8 @@
     <meta name="Keywords" content="golang,go语言,go语言笔记,博客,项目管理,软件架构">
     <meta name="description" content="Golang|学习教程(一)-基础概念">
         
-    <meta name="author" content="">
-    <meta property="og:url" content="https://weiweng.github.io/blog/post/2023-01-31-golangbasics/">
+    <meta name="author" content="weiweng">
+    <meta property="og:url" content="http://localhost:46171/blog/post/2023-01-31-golangbasics/">
     <link rel="shortcut icon" href='/blog/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='/blog/css/normalize.css'>
@@ -41,7 +41,7 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://weiweng.github.io/blog/">
+                    <a id="logo" href="http://localhost:46171/blog/">
                         weiweng的博客
                     </a>
                 
@@ -49,15 +49,15 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://weiweng.github.io/blog/">首页</a>
+                    <a class="current" href="http://localhost:46171/blog/">首页</a>
                     
-                    <a  href="https://weiweng.github.io/blog/tools/" title="工具">工具</a>
+                    <a  href="http://localhost:46171/blog/tools/" title="工具">工具</a>
                     
-                    <a  href="https://weiweng.github.io/blog/read/" title="阅读">阅读</a>
+                    <a  href="http://localhost:46171/blog/read/" title="阅读">阅读</a>
                     
-                    <a  href="https://weiweng.github.io/blog/about/" title="关于">关于</a>
+                    <a  href="http://localhost:46171/blog/about/" title="关于">关于</a>
                     
-                    <a  href="https://weiweng.github.io/blog/archives/" title="归档">归档</a>
+                    <a  href="http://localhost:46171/blog/archives/" title="归档">归档</a>
                     
                 </nav>
             </div>
@@ -213,29 +213,29 @@
 <h2 id="包">包</h2>
 <p>包是golang里的最基本组成部件，go程序就是由一个个包组装起来的，例如程序入口main包。</p>
 <p>如何定义一个包，只要使用<code>package</code>关键字就行了，在go文件的第一行设定包名。</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">package</span> <span style="color:#1f2328">me</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">do</span><span style="color:#1f2328">(){</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// code ...</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">package</span><span style="color:#fff"> </span><span style="color:#1f2328">me</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span><span style="color:#fff"> </span><span style="color:#6639ba">do</span><span style="color:#1f2328">(){</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#57606a">// code ...</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>需要注意的是，一个文件夹下面直接包含的文件只能属于一个包，同样一个包的文件不能在多个文件夹下。</p>
 <p>另一个需要注意的问题是包的导入流程，每个包都可以拥有一个特殊函数<code>init()</code>，当包导入时，首先执行全局变量的构建，之后执行包的默认初始化函数<code>init</code>。</p>
 <h2 id="导入">导入</h2>
 <p>包的导入，使用关键字<code>import</code>，具体使用如下，注意示例中常用的几种情况。</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -249,25 +249,25 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">// 单个包导入</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#0a3069">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">// 多个包导入</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#1f2328">(</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;io&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">// 定义别名</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#1f2328">m</span> <span style="color:#0a3069">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">// 匿名导入</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#1f2328">_</span> <span style="color:#0a3069">&#34;io&#34;</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">// 单个包导入</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span><span style="color:#fff"> </span><span style="color:#0a3069">&#34;fmt&#34;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">// 多个包导入</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0a3069">&#34;fmt&#34;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0a3069">&#34;io&#34;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">// 定义别名</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span><span style="color:#fff"> </span><span style="color:#1f2328">m</span><span style="color:#fff"> </span><span style="color:#0a3069">&#34;fmt&#34;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">// 匿名导入</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span><span style="color:#fff"> </span><span style="color:#1f2328">_</span><span style="color:#fff"> </span><span style="color:#0a3069">&#34;io&#34;</span><span style="color:#fff">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="导出">导出</h2>
 <p>在包中，如果函数和变量是大写字母开头的，则是可以导出的函数和变量，即可以通过导入包，在外部使用包中对应的函数和变量。</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -284,29 +284,29 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">// me/me.go</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">package</span> <span style="color:#1f2328">me</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">Do</span><span style="color:#1f2328">()</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#0550ae">42</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">// main.go</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">package</span> <span style="color:#1f2328">main</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#0a3069">&#34;me&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">main</span><span style="color:#1f2328">(){</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">me</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Do</span><span style="color:#1f2328">()</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">// me/me.go</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">package</span><span style="color:#fff"> </span><span style="color:#1f2328">me</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span><span style="color:#fff"> </span><span style="color:#6639ba">Do</span><span style="color:#1f2328">()</span><span style="color:#fff"> </span><span style="color:#cf222e">int</span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">return</span><span style="color:#fff"> </span><span style="color:#0550ae">42</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">// main.go</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">package</span><span style="color:#fff"> </span><span style="color:#1f2328">main</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span><span style="color:#fff"> </span><span style="color:#0a3069">&#34;me&#34;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span><span style="color:#fff"> </span><span style="color:#6639ba">main</span><span style="color:#1f2328">(){</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">me</span><span style="color:#1f2328">.</span><span style="color:#6639ba">Do</span><span style="color:#1f2328">()</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="函数">函数</h2>
 <p>编程语言具有的基本组件——函数，通常将多次复用的代码块抽离为一个函数，多个调用方通过函数调用，实现具体逻辑，这样方便项目维护，代码逻辑上的统一管理。</p>
 <p>go语言中函数定义使用关键字<code>func</code>，后面接入参与出参，具体定义使用如下。</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -325,70 +325,70 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">add</span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">y</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">x</span> <span style="color:#0550ae">+</span> <span style="color:#1f2328">y</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">// 相同类型参数可以缩写</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">add2</span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span> <span style="color:#1f2328">,</span> <span style="color:#1f2328">y</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">x</span> <span style="color:#0550ae">+</span> <span style="color:#1f2328">y</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">// 多返回值的函数</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">swap</span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">y</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">(</span><span style="color:#cf222e">string</span><span style="color:#1f2328">,</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span> <span style="color:#1f2328">y</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">x</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">// 带返回变量名的函数</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span> <span style="color:#6639ba">split</span><span style="color:#1f2328">(</span><span style="color:#1f2328">sum</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">x</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">y</span> <span style="color:#cf222e">int</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">x</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">sum</span> <span style="color:#0550ae">*</span> <span style="color:#0550ae">4</span> <span style="color:#0550ae">/</span> <span style="color:#0550ae">9</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#1f2328">y</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">sum</span> <span style="color:#0550ae">-</span> <span style="color:#1f2328">x</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#cf222e">return</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">func</span><span style="color:#fff"> </span><span style="color:#6639ba">add</span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span><span style="color:#fff"> </span><span style="color:#cf222e">int</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">y</span><span style="color:#fff"> </span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#cf222e">int</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">	</span><span style="color:#cf222e">return</span><span style="color:#fff"> </span><span style="color:#1f2328">x</span><span style="color:#fff"> </span><span style="color:#0550ae">+</span><span style="color:#fff"> </span><span style="color:#1f2328">y</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">// 相同类型参数可以缩写</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span><span style="color:#fff"> </span><span style="color:#6639ba">add2</span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span><span style="color:#fff"> </span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">y</span><span style="color:#fff"> </span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#cf222e">int</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">	</span><span style="color:#cf222e">return</span><span style="color:#fff"> </span><span style="color:#1f2328">x</span><span style="color:#fff"> </span><span style="color:#0550ae">+</span><span style="color:#fff"> </span><span style="color:#1f2328">y</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">// 多返回值的函数</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span><span style="color:#fff"> </span><span style="color:#6639ba">swap</span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">y</span><span style="color:#fff"> </span><span style="color:#cf222e">string</span><span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#cf222e">string</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#cf222e">string</span><span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">	</span><span style="color:#cf222e">return</span><span style="color:#fff"> </span><span style="color:#1f2328">y</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">x</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">// 带返回变量名的函数</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">func</span><span style="color:#fff"> </span><span style="color:#6639ba">split</span><span style="color:#1f2328">(</span><span style="color:#1f2328">sum</span><span style="color:#fff"> </span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#1f2328">x</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#1f2328">y</span><span style="color:#fff"> </span><span style="color:#cf222e">int</span><span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">	</span><span style="color:#1f2328">x</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#1f2328">sum</span><span style="color:#fff"> </span><span style="color:#0550ae">*</span><span style="color:#fff"> </span><span style="color:#0550ae">4</span><span style="color:#fff"> </span><span style="color:#0550ae">/</span><span style="color:#fff"> </span><span style="color:#0550ae">9</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">	</span><span style="color:#1f2328">y</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#1f2328">sum</span><span style="color:#fff"> </span><span style="color:#0550ae">-</span><span style="color:#fff"> </span><span style="color:#1f2328">x</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">	</span><span style="color:#cf222e">return</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>上面最后一个用例，带返回变量名的函数，函数最后直接return，不需要再写明返回变量名，注意，这样虽然简便，但日常开发中，业务逻辑复杂的时候，返回点多时这样的简略写法不利于代码阅读，因此不推荐使用。</p>
 <p>在go语言中，函数也可以作为参数</p>
 <h2 id="变量">变量</h2>
 <p>go语言变量名由字母、数字、下划线组成，其中首个字符不能为数字。声明变量的一般形式是使用 var 关键字，例如<code>var name string</code>，可以发现go语言的变量定义，变量类型是放在变量名之后的。同样，当我们定义多个相同类型的变量时，可以使用如下方法：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">var</span> <span style="color:#1f2328">a</span><span style="color:#1f2328">,</span><span style="color:#1f2328">b</span><span style="color:#1f2328">,</span><span style="color:#1f2328">c</span> <span style="color:#cf222e">int</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">var</span><span style="color:#fff"> </span><span style="color:#1f2328">a</span><span style="color:#1f2328">,</span><span style="color:#1f2328">b</span><span style="color:#1f2328">,</span><span style="color:#1f2328">c</span><span style="color:#fff"> </span><span style="color:#cf222e">int</span><span style="color:#fff">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>变量定义之后如何初始化？我们使用<code>=</code>赋值符号进行操作，例如<code>var name string = &quot;ww&quot;</code>，定义变量类型后使用<code>=</code>符号直接进行初始化，此外我们也可以使用<code>:=</code>进行直接定义并赋值。</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">// 两种赋值等价</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">a</span> <span style="color:#0550ae">:=</span> <span style="color:#0a3069">&#34;abc&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">var</span> <span style="color:#1f2328">a</span> <span style="color:#cf222e">string</span> <span style="color:#1f2328">=</span> <span style="color:#0a3069">&#34;abc&#34;</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#57606a">// 两种赋值等价</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">a</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#0a3069">&#34;abc&#34;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">var</span><span style="color:#fff"> </span><span style="color:#1f2328">a</span><span style="color:#fff"> </span><span style="color:#cf222e">string</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#0a3069">&#34;abc&#34;</span><span style="color:#fff">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>在使用<code>:=</code>符号时，go语言会基于右边的数据进行变量类型的判断，此外需要注意，不能重复定义已经存在的变量名。</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#1f2328">b</span> <span style="color:#0550ae">:=</span> <span style="color:#0550ae">10</span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">// 不能重复定义变量，以下语句会报错</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">b</span> <span style="color:#0550ae">:=</span> <span style="color:#0a3069">&#34;abc&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">a</span><span style="color:#1f2328">,</span><span style="color:#1f2328">b</span> <span style="color:#0550ae">:=</span> <span style="color:#0a3069">&#39;a&#39;</span><span style="color:#1f2328">,</span><span style="color:#0a3069">&#39;b&#39;</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#1f2328">b</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#0550ae">10</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">// 不能重复定义变量，以下语句会报错</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">b</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#0a3069">&#34;abc&#34;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">a</span><span style="color:#1f2328">,</span><span style="color:#1f2328">b</span><span style="color:#fff"> </span><span style="color:#0550ae">:=</span><span style="color:#fff"> </span><span style="color:#0a3069">&#39;a&#39;</span><span style="color:#1f2328">,</span><span style="color:#0a3069">&#39;b&#39;</span><span style="color:#fff">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="类型">类型</h2>
 <p>go语言中定义的默认类型有以下几种</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -404,38 +404,38 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">bool</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">string</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">int</span>  <span style="color:#cf222e">int8</span>  <span style="color:#cf222e">int16</span>  <span style="color:#cf222e">int32</span>  <span style="color:#cf222e">int64</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">uint</span> <span style="color:#cf222e">uint8</span> <span style="color:#cf222e">uint16</span> <span style="color:#cf222e">uint32</span> <span style="color:#cf222e">uint64</span> <span style="color:#cf222e">uintptr</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">byte</span> <span style="color:#57606a">// uint8类型的别名</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">rune</span> <span style="color:#57606a">// int32类型的别名</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">float32</span> <span style="color:#cf222e">float64</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">complex64</span> <span style="color:#cf222e">complex128</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">bool</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">string</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">int</span><span style="color:#fff">  </span><span style="color:#cf222e">int8</span><span style="color:#fff">  </span><span style="color:#cf222e">int16</span><span style="color:#fff">  </span><span style="color:#cf222e">int32</span><span style="color:#fff">  </span><span style="color:#cf222e">int64</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">uint</span><span style="color:#fff"> </span><span style="color:#cf222e">uint8</span><span style="color:#fff"> </span><span style="color:#cf222e">uint16</span><span style="color:#fff"> </span><span style="color:#cf222e">uint32</span><span style="color:#fff"> </span><span style="color:#cf222e">uint64</span><span style="color:#fff"> </span><span style="color:#cf222e">uintptr</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">byte</span><span style="color:#fff"> </span><span style="color:#57606a">// uint8类型的别名</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">rune</span><span style="color:#fff"> </span><span style="color:#57606a">// int32类型的别名</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">float32</span><span style="color:#fff"> </span><span style="color:#cf222e">float64</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">complex64</span><span style="color:#fff"> </span><span style="color:#cf222e">complex128</span><span style="color:#fff">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>需要注意的是，<code>int uint uintptr</code>这三种类型都是基于操作系统，如果是32位操作系统，则<code>int</code>对应的就是32 bits，同理64位操作系统，<code>int</code>对应的是64 bits。</p>
 <p>定义了基础类型，不得不说默认值的问题，数值型的类型默认零值就是0，<code>bool</code>类型的默认值是<code>false</code>，而字符串类型的默认值就是空字符串<code>&quot;&quot;</code>。</p>
 <p>针对基础类型，我们可以使用以下方法，实现类型转换：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">var</span> <span style="color:#1f2328">i</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">42</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">var</span> <span style="color:#1f2328">f</span> <span style="color:#cf222e">float64</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">float64</span><span style="color:#1f2328">(</span><span style="color:#1f2328">i</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">var</span> <span style="color:#1f2328">u</span> <span style="color:#cf222e">uint</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">uint</span><span style="color:#1f2328">(</span><span style="color:#1f2328">f</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">var</span> <span style="color:#1f2328">j</span> <span style="color:#cf222e">int</span> <span style="color:#1f2328">=</span> <span style="color:#6639ba">int</span><span style="color:#1f2328">(</span><span style="color:#1f2328">u</span><span style="color:#1f2328">)</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#cf222e">var</span><span style="color:#fff"> </span><span style="color:#1f2328">i</span><span style="color:#fff"> </span><span style="color:#cf222e">int</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#0550ae">42</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">var</span><span style="color:#fff"> </span><span style="color:#1f2328">f</span><span style="color:#fff"> </span><span style="color:#cf222e">float64</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#6639ba">float64</span><span style="color:#1f2328">(</span><span style="color:#1f2328">i</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">var</span><span style="color:#fff"> </span><span style="color:#1f2328">u</span><span style="color:#fff"> </span><span style="color:#cf222e">uint</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#6639ba">uint</span><span style="color:#1f2328">(</span><span style="color:#1f2328">f</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">var</span><span style="color:#fff"> </span><span style="color:#1f2328">j</span><span style="color:#fff"> </span><span style="color:#cf222e">int</span><span style="color:#fff"> </span><span style="color:#1f2328">=</span><span style="color:#fff"> </span><span style="color:#6639ba">int</span><span style="color:#1f2328">(</span><span style="color:#1f2328">u</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="常量">常量</h2>
 <p>常量的声明使用<code>const</code>关键字，例如<code>const pi = 3.1415926</code>。常量的声明可以是字符、字符串、布尔、数值类型，此外常量不能使用<code>:=</code>定义。</p>
@@ -449,34 +449,34 @@
 <p>其他运算符: &amp; * ()</p>
 <p>具体表优先级由高到低如下排序：</p>
 <table>
-  <thead>
-      <tr>
-          <th>优先级</th>
-          <th>运算符</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>5</td>
-          <td>* / % &lt;&lt; &gt;&gt; &amp; &amp;^</td>
-      </tr>
-      <tr>
-          <td>4</td>
-          <td>+ - | ^</td>
-      </tr>
-      <tr>
-          <td>3</td>
-          <td>== != &lt; &lt;= &gt; &gt;=</td>
-      </tr>
-      <tr>
-          <td>2</td>
-          <td>&amp;&amp;</td>
-      </tr>
-      <tr>
-          <td>1</td>
-          <td>||</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>优先级</th>
+					<th>运算符</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>5</td>
+					<td>* / % &lt;&lt; &gt;&gt; &amp; &amp;^</td>
+			</tr>
+			<tr>
+					<td>4</td>
+					<td>+ - | ^</td>
+			</tr>
+			<tr>
+					<td>3</td>
+					<td>== != &lt; &lt;= &gt; &gt;=</td>
+			</tr>
+			<tr>
+					<td>2</td>
+					<td>&amp;&amp;</td>
+			</tr>
+			<tr>
+					<td>1</td>
+					<td>||</td>
+			</tr>
+	</tbody>
 </table>
 <h2 id="参考资料">参考资料</h2>
 <ul>
@@ -519,7 +519,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://weiweng.github.io/blog/">weiweng的博客 By </a>
+        &copy; 2026 <a href="http://localhost:46171/blog/">weiweng的博客 By weiweng</a>
         
     </div>
     <br />
@@ -637,10 +637,10 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
 
                 <div id="secondary">
     <section class="widget">
-        <form id="search" action='https://weiweng.github.io/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+        <form id="search" action='http://localhost:46171/blog/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://weiweng.github.io/blog/">
+      <input type="hidden" name="sitesearch" value="http://localhost:46171/blog/">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -650,43 +650,43 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
 <ul class="widget-list">
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-08-09-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式大纲" target="_blank">设计模式大纲</a>
+        <a href="http://localhost:46171/blog/post/2025-08-09-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式大纲" target="_blank">设计模式大纲</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-07-20-spark%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="spark|性能优化" target="_blank">spark|性能优化</a>
+        <a href="http://localhost:46171/blog/post/2025-07-20-spark%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="spark|性能优化" target="_blank">spark|性能优化</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-07-20-spark%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/" title="spark|任务调度" target="_blank">spark|任务调度</a>
+        <a href="http://localhost:46171/blog/post/2025-07-20-spark%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/" title="spark|任务调度" target="_blank">spark|任务调度</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-07-20-spark%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE/" title="spark|参数配置" target="_blank">spark|参数配置</a>
+        <a href="http://localhost:46171/blog/post/2025-07-20-spark%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE/" title="spark|参数配置" target="_blank">spark|参数配置</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-04-12-spark%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="spark|基础知识" target="_blank">spark|基础知识</a>
+        <a href="http://localhost:46171/blog/post/2025-04-12-spark%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="spark|基础知识" target="_blank">spark|基础知识</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-04-12-spark%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/" title="spark|知识大纲" target="_blank">spark|知识大纲</a>
+        <a href="http://localhost:46171/blog/post/2025-04-12-spark%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/" title="spark|知识大纲" target="_blank">spark|知识大纲</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-04-12-mysql%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/" title="mysql|知识大纲" target="_blank">mysql|知识大纲</a>
+        <a href="http://localhost:46171/blog/post/2025-04-12-mysql%E7%9F%A5%E8%AF%86%E5%A4%A7%E7%BA%B2/" title="mysql|知识大纲" target="_blank">mysql|知识大纲</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-02-26-embedding/" title="大模型专题|embedding" target="_blank">大模型专题|embedding</a>
+        <a href="http://localhost:46171/blog/post/2025-02-26-embedding/" title="大模型专题|embedding" target="_blank">大模型专题|embedding</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2025-02-23-langchain/" title="大模型专题|LangChain rag实践" target="_blank">大模型专题|LangChain rag实践</a>
+        <a href="http://localhost:46171/blog/post/2025-02-23-langchain/" title="大模型专题|LangChain rag实践" target="_blank">大模型专题|LangChain rag实践</a>
     </li>
     
     <li>
-        <a href="https://weiweng.github.io/blog/post/2024-05-06-%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="算法专题|并查集" target="_blank">算法专题|并查集</a>
+        <a href="http://localhost:46171/blog/post/2024-05-06-%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="算法专题|并查集" target="_blank">算法专题|并查集</a>
     </li>
     
 </ul>
@@ -698,35 +698,35 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://weiweng.github.io/blog/categories/Golang/">Golang (28)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/Golang/">Golang (28)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/k8s/">K8s (3)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/k8s/">K8s (3)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/linux/">Linux (2)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/linux/">Linux (2)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/MQ/">MQ (3)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/MQ/">MQ (3)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/mysql/">Mysql (22)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/mysql/">Mysql (22)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/Python/">Python (4)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/Python/">Python (4)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/Redis/">Redis (9)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/Redis/">Redis (9)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/spark/">Spark (5)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/spark/">Spark (5)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98/">大模型专题 (2)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (3)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 (3)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法&amp;数据结构 (36)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/">算法专题 (10)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络 (1)</a></li>
     
-    <li><a href="https://weiweng.github.io/blog/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式 (1)</a></li>
+    <li><a href="http://localhost:46171/blog/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式 (1)</a></li>
     
 </ul>
     </section>
@@ -735,37 +735,37 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/blog/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://weiweng.github.io/blog/tags/awk/">Awk</a>
+    <a href="http://localhost:46171/blog/tags/awk/">Awk</a>
     
-    <a href="https://weiweng.github.io/blog/tags/curl/">Curl</a>
+    <a href="http://localhost:46171/blog/tags/curl/">Curl</a>
     
-    <a href="https://weiweng.github.io/blog/tags/find/">Find</a>
+    <a href="http://localhost:46171/blog/tags/find/">Find</a>
     
-    <a href="https://weiweng.github.io/blog/tags/git/">Git</a>
+    <a href="http://localhost:46171/blog/tags/git/">Git</a>
     
-    <a href="https://weiweng.github.io/blog/tags/grep/">Grep</a>
+    <a href="http://localhost:46171/blog/tags/grep/">Grep</a>
     
-    <a href="https://weiweng.github.io/blog/tags/item2/">Item2</a>
+    <a href="http://localhost:46171/blog/tags/item2/">Item2</a>
     
-    <a href="https://weiweng.github.io/blog/tags/nginx/">Nginx</a>
+    <a href="http://localhost:46171/blog/tags/nginx/">Nginx</a>
     
-    <a href="https://weiweng.github.io/blog/tags/sed/">Sed</a>
+    <a href="http://localhost:46171/blog/tags/sed/">Sed</a>
     
-    <a href="https://weiweng.github.io/blog/tags/shell/">Shell</a>
+    <a href="http://localhost:46171/blog/tags/shell/">Shell</a>
     
-    <a href="https://weiweng.github.io/blog/tags/tmux/">Tmux</a>
+    <a href="http://localhost:46171/blog/tags/tmux/">Tmux</a>
     
-    <a href="https://weiweng.github.io/blog/tags/uml/">Uml</a>
+    <a href="http://localhost:46171/blog/tags/uml/">Uml</a>
     
-    <a href="https://weiweng.github.io/blog/tags/vim/">Vim</a>
+    <a href="http://localhost:46171/blog/tags/vim/">Vim</a>
     
-    <a href="https://weiweng.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
+    <a href="http://localhost:46171/blog/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
     
-    <a href="https://weiweng.github.io/blog/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">开源协议</a>
+    <a href="http://localhost:46171/blog/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">开源协议</a>
     
-    <a href="https://weiweng.github.io/blog/tags/%E5%BF%83%E5%BE%97/">心得</a>
+    <a href="http://localhost:46171/blog/tags/%E5%BF%83%E5%BE%97/">心得</a>
     
-    <a href="https://weiweng.github.io/blog/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/">搜索引擎技巧</a>
+    <a href="http://localhost:46171/blog/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/">搜索引擎技巧</a>
     
 </div>
     </section>
@@ -806,7 +806,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     <section class="widget">
         <h3 class="widget-title">其它</h3>
         <ul class="widget-list">
-            <li><a href="https://weiweng.github.io/blog/index.xml">文章 RSS</a></li>
+            <li><a href="http://localhost:46171/blog/index.xml">文章 RSS</a></li>
         </ul>
     </section>
 </div>

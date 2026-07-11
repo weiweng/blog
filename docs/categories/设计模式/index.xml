@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>设计模式 on weiweng的博客</title>
-    <link>https://weiweng.github.io/blog/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
-    <description>Recent content in 设计模式 on weiweng的博客</description>
-    <generator>Hugo</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Sat, 09 Aug 2025 10:00:00 +0800</lastBuildDate>
-    <atom:link href="https://weiweng.github.io/blog/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>设计模式大纲</title>
-      <link>https://weiweng.github.io/blog/post/2025-08-09-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
-      <pubDate>Sat, 09 Aug 2025 10:00:00 +0800</pubDate>
-      <guid>https://weiweng.github.io/blog/post/2025-08-09-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
-      <description>&lt;p&gt;最近看到github上一个相关设计模式的笔记仓库，快速学习了一下，之前还买了《head first 设计模式》研读，但都只是读过一遍流于表面，这次重新捡起来学习学习，再结合一些其他的资料，记录一下。&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>设计模式 on weiweng的博客</title>
+		<link>http://localhost:46171/blog/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+		<description>Recent content in 设计模式 on weiweng的博客</description>
+		<generator>Hugo</generator>
+		<language>zh-CN</language>
+		
+		
+		
+		
+			<lastBuildDate>Sat, 09 Aug 2025 10:00:00 +0800</lastBuildDate>
+		
+			<atom:link href="http://localhost:46171/blog/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>设计模式大纲</title>
+				<link>http://localhost:46171/blog/post/2025-08-09-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+				<pubDate>Sat, 09 Aug 2025 10:00:00 +0800</pubDate>
+				<guid>http://localhost:46171/blog/post/2025-08-09-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+				<description>&lt;p&gt;最近看到github上一个相关设计模式的笔记仓库，快速学习了一下，之前还买了《head first 设计模式》研读，但都只是读过一遍流于表面，这次重新捡起来学习学习，再结合一些其他的资料，记录一下。&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>
